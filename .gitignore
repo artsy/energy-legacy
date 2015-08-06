@@ -6,7 +6,6 @@ build/
 chairs/
 kif_screenshots/
 .idea/
-Podfile.lock
 *.xccheckout
 xcodebuild_error.log
 ArtsyFolio.app.dSYM.zip
