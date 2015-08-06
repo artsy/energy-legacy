@@ -1,4 +1,4 @@
-setup:
+artsy:
 	git submodule init
 	git submodule update
 	config/spacecommander/setup-repo.sh
