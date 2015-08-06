@@ -1,13 +1,6 @@
-![Artsy Logo](https://raw.githubusercontent.com/artsy/energy/master/Docs/screenshots/artsy_logo.png)
-![Energy](https://raw.githubusercontent.com/artsy/energy/master/Docs/screenshots/energy)
+<img src="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/artsy_logo.png" align="left" hspace="30px" vspace="30px">
+<img src="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/energy.png" align="right" hspace="30px" vspace="30px">
 
-<a  href="http://folio.artsy.net"><img src ="https://raw.githubusercontent.com/artsy/energy/master/Docs/screenshots/folio_screenshots.jpg"></a>
-
-
-## Artsy Energy
-
-[![Build Status](https://travis-ci.org/artsy/energy.svg)](https://travis-ci.org/artsy/energy)
-[![Coverage Status](https://coveralls.io/repos/artsy/energy/badge.svg?branch=master)](https://coveralls.io/r/artsy/energy?branch=master)
 
 <a href="http://folio.artsy.net"><img src ="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/folio_screenshots.jpg"></a>
 
