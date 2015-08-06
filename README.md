@@ -35,4 +35,4 @@ We're actively looking for more [mobile developers](https://www.artsy.net/job/mo
 
 ### Thanks
 
-**Copyright**: 2012-2015, Artsy. Thanks to all [our contributors](/docs/thanks.md).
+**Copyright**: 2012-2015, Artsy. Thanks to all [our contributors](/docs/THANKS.md).
