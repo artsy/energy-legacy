@@ -1,0 +1,102 @@
+<html><body width=90%>
+    <p style='font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;'>Please describe any issues you&rsquo;re encountering:</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+    <p style='font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;'><em>
+    The diagnostic information listed below will be forwarded to Artsy engineers to help identify the source of the problem. Your representative will follow up with you shortly.
+    </em></p>
+    <hr style="height:0.5px; background-color:grey;" />
+    <div style="width:90%; margin: 20px auto;">
+        <table>
+
+
+            <tr style="border-bottom:5px solid black;">
+                <th scope="col" valign="top">
+                    <div style="text-align: center; width:210px; ">
+                        <h3>All Folio Settings</h3>
+                    </div>
+                </th>
+
+                <th scope="col" valign="top">
+                    <div style="text-align: left;margin-bottom:16px;"></div>
+
+                    <div style="text-align: left;">
+                    {{#system_stats}}
+                        <p style="font-family: "Helvetica Neue", Arial, Helvetica, sans-serif">Folio : {{app_version}} - {{app_build}} - {{sha}} </p>
+                        <p style="font-family: "Helvetica Neue", Arial, Helvetica, sans-serif">Free Space: {{total_free_space}}</p>
+                        <p style="font-family: "Helvetica Neue", Arial, Helvetica, sans-serif">Space used by Folio: {{folio_sync_space}}</p>
+                    {{/system_stats}}
+                    </div>
+                </th>
+            </tr>
+            
+            <tr style="border-bottom:5px solid black;">
+                <th scope="col" valign="top">
+                    <div style="text-align: center; width:210px; ">
+                        <h3>Found Issues</h3>
+                    </div>
+                </th>
+                
+                <th scope="col" valign="top">
+                    <div style="text-align: left;margin-bottom:16px;"></div>
+                    
+                    <div style="text-align: left;">
+                        {{#core_data}}
+                        <p style="font-family: "Helvetica Neue", Arial, Helvetica, sans-serif">{{{.}}}</p>
+                        {{/core_data}}
+                        </div>
+                            </th>
+            </tr>
+
+
+            <tr style="border-bottom:5px solid black;">
+                <th scope="col" valign="top">
+                    <div style="text-align: center; width:210px; ">
+                        <h3>Database Statistics</h3>
+                    </div>
+                </th>
+
+                <th scope="col" valign="top">
+                    <div style="text-align: left;margin-bottom:16px;"></div>
+
+                    <div style="text-align: left;">
+                        {{#db_stats}}
+                        <p style="font-family: "Helvetica Neue", Arial, Helvetica, sans-serif">Number of Artworks : {{number_of_artworks}} </p>
+                        <p style="font-family: "Helvetica Neue", Arial, Helvetica, sans-serif">Number of Artists : {{number_of_artists}} </p>
+                        <p style="font-family: "Helvetica Neue", Arial, Helvetica, sans-serif">Number of Documents : {{number_of_documents}} </p>
+                        <p style="font-family: "Helvetica Neue", Arial, Helvetica, sans-serif">Number of Shows : {{number_of_shows}} </p>
+                        {{/db_stats}}
+                    </div>
+                </th>
+            </tr>
+            
+            
+            
+            <!-- adds padding between sections -->
+            <tr><th style="height:16px"><th></tr>
+            
+            <tr style="border-bottom:5px solid black;">
+                <th scope="col" valign="top">
+                    <div style="text-align: center; width:210px; ">
+                        <h3>All Folio Settings</h3>
+                    </div>
+                </th>
+
+                <th scope="col" valign="top">
+                    <div style="text-align: left;margin-bottom:16px;"></div>
+
+                    <div style="text-align: left;">
+                        {{#defaults}}
+                        <p style="font-family: "Helvetica Neue", Arial, Helvetica, sans-serif">{{{.}}}</p>
+                        {{/defaults}}
+                    </div>
+                </th>
+            </tr>
+
+        </table>
+    </div>
+    
+    <hr style="height:0.5px; background-color:grey;"/>
+    <p style='font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;'></p>
+</body></html>

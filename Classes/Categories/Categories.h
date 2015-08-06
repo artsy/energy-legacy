@@ -1,0 +1,12 @@
+#import "NSManagedObject+ActiveRecord.h"
+#import "NSString+StringBetweenStrings.h"
+#import <Artsy+UIColors/UIColor+ArtsyColors.h>
+#import "UIColor+FolioColours.h"
+#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
+#import "NSObject+Notifications.h"
+#import <UIView+BooleanAnimations/UIView+BooleanAnimations.h>
+#import "UIButton+FolioButtons.h"
+#import "UIColor+DebugColours.h"
+#import "NSString+StringSize.h"
+#import "UIBarButtonItem+toolbarHelpers.h"
+#import "UIImageView+ArtsySetURL.h"

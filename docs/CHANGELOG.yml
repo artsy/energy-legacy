@@ -1,0 +1,191 @@
+upcoming:
+  version: 2.4.0
+  notes:
+    - Presents a message and a link to CMS for partners who haven't uploaded anything [sarah]
+    - Generates a 'For Sale Works' album [sarah]
+    - Fix for Settings button not going back to default state [orta]
+    - Devs now have their own analytics, and Intercom will show on first install [orta]
+    - Presents notification in toolbar when partner has logged into CMS since last sync [sarah]
+    - No more autosyncing [sarah]
+    - New button for artworks that prompts user to use CMS for editing [sarah]
+    - Bug fix for installation image size in generated emails [sarah]
+    - Optional confidential notes in artwork metadata view [sarah]
+    - EditionSets added to Artworks [sarah]
+    - Edition information displayed for artworks [sarah]
+    - Show edition information in emails [orta]
+    - Ensured toolbar buttons fit on smaller devices in artwork view [orta]
+    - Bug fix for additional artwork information arrow in white Folio [sarah]
+
+releases:
+  - version: 2.3.0
+    date: May 30 2015
+    notes:
+    - Locks out expired partners [sarah]
+    - Sets last_folio_access on the partner flags on sync [orta]
+    - Always animate new views when tapping back [orta]
+    - Removed processing check before downloading images, fixes cover/install shot images not coming through sync [orta]
+    - Doesn't flicker the navigation bar background colour on transitions [orta]
+    - Artists are sorted with sort order from API [sarah]
+    - Adds an error screen when there is a core data schema mismatch [orta]
+    - Shows backend price on Artwork screens [orta]
+    - Deals with backend only prices in emails [orta]
+    - Documents show a generic thumbnail icon if we can't generate one [orta]
+    - The support link now works through intercom [orta]
+    - Fix to artwork supplementary info not showing [orta]
+
+  - version: 2.2.0
+    date: May 9 2015
+    notes:
+      - Adds an error screen when there is a core data schema mismatch [orta]
+      - White Folio enabled for iPhone [sarah]
+      - Sync checks for the last CMS login date before syncing [sarah]
+      - Thumbnails in the bottom toolbar when adding artworks to albums [sarah]
+      - You can tap though the artwork info more images dots [orta]
+      - Re-enabled rotation support on iPad [orta]
+      - Locations, and location artworks are downloaded via Sync [orta]
+      - Locations are accessible via the normal navigation routes [orta]
+      - Artwork views show more metadata when on larger phones [sarah]
+      - Analytics does not blacklist Admins [orta]
+      - Analytics always includes user information [orta]
+      - Going to a Document doesn't show a different bar colour [sarah]
+      - Fixes to hitting the select/deselect all buttons in compose [sarah]
+      - Locations are available in search [orta]
+      - Emails have the option of emailing CMS prices [orta]
+      - Shows the full description of all metadata in the info popover [orta]
+      - Shows up-to 2 lines of text in the bottom artwork info bar [orta]
+  
+  - version: 2.1.0
+    date: April 8 2015
+    notes:
+      - Closing the app mid-sync won't result in data-losss [orta]
+      - Showing Albums Featuring Artists can be enabled in the Admin Settings [orta]
+      - Multiple email addresses can be cc'ed in Email Settings [sarah]
+      - Revised Artwork Email Popover. [orta]
+      - Install Shots can be be emailed, and are shown for a show. [orta]
+      - iPad Folio shows up to 2 lines for long titles [sarah]
+      - Changed AddToAlbum view controller to allow multiple album selections. [sarah]
+      - Showing Albums Featuring Artists can be enabled in the Admin Settings [orta]
+
+  - version: 2.0.1
+    date: Feb 26 2015
+    notes:
+      - Crash Resilience in sync. [orta]
+      - Taken a second shot at crash resilience in a more maintainable for the future route. [orta]
+      - Remove rotation on iPad for now, due to popover craziness [orta]
+    
+
+  - version: 2.0.0
+    date: Jan 27 2015
+    notes:
+      - iPhone support
+      - Network based thumbnail grabbing
+      - Asynchronous Tiling for the zoom view
+      - Revised interface for phones
+      - All Images are optionally grabbed asynchronously
+      - Ability to continue on a sync once artwork metadata is ready
+      - Are you looking for Artsy Mobile button added to Login screens
+      - New Email Designs
+
+    dev:
+      - Rewrote Artwork Set View Controller [orta]
+      - Rewrote Artwork View Controller [orta]
+      - Converted Grid to UICollectionView [orta]
+      - Consolidated Artwork Zooming View with Eigen's [orta]
+      - More Sync lock fixes [orta]
+      - Improvements around grid layout for iPhone 6 & 6+ [orta]
+      - Revised Login + Sync Views for iPhone 6 & 6+ [orta]
+      - Show / Artist Documents download correctly [orta]
+      - Removed all known sync bugs from our crash reporter [orta]
+      - Partner Settings can be strings or numbers only [orta]
+      - Native iPhone 6, and 6+ support. Previously it was zooming [orta]
+      - Analytics improvements [orta]
+      - iPad album edit buttons appear in the nav bar instead of our bottom toolbar [orta]
+      - Fix to emailing album artworks after editing it [orta]
+      - Fixes to wording in edit artworks for an album  [orta]
+      - 1 known bug about the emailing artworks popover, which will be fixed for RC2 [orta]
+      - Artwork removal from an album is now a selection state similar to mail/docs [orta]
+      - Going back in settings resizes popover [orta]
+      - Known bugs; wording around adding to artwork popover [orta]
+      - Phone Sync visuals improvements on smaller devices [orta]
+      - Fixes to buttons changing colour in selection states [orta]
+      - Inline buttons use correct assets [orta]
+      - Scrolls to ensure you can see the name of the album when renaming [orta]
+      - Support for future Document model changes [orta]
+      - More Popover fixes ( rotation & buttons changing back) [orta]
+      - Large changes around the selection handling. [orta]
+      - Editable Albums have an edit album button [orta]
+      - Editable albums can be delted by removing all their works [orta]
+      - Showing an artwork thumbnail is reactive to mal-formed thumbnails  and re-requests a new copy. No more permanent grey boxes. [orta]
+      - Fix for analytics going to the wrong places [orta]
+      - Updated the Sync view for iphone [orta]
+      - Fix for visual artifacts in selection state after leaving selection modes [orta]
+      - Fix for popovers and showing the top/bottom selection state  [orta]
+      - New Popover logic [orta]
+      - Selection mode has changed  [orta]
+      - New way to edit an album [orta]
+
+  - version: 1.8.0
+    date: May 27 2014
+    notes:
+      - Support for multi-line signature & greetings
+      - Fix generating Shows/Albums that Artists are in
+      - Adds an Option for hiding Artworks that are not for sale 
+      - Consolidated all options into Admin settingsVC
+      - Improved email template
+
+
+  - version: 1.7.1
+    date: May 2 2014
+    notes:
+      - Fix for nil fetch requests when adding a fetch request to a gridview manually ( e.g. Artist's Shows )
+      - Fix for crash when tapping Document Preview's action button
+
+  - version: 1.7.0
+    date: April 29 2014
+    notes:
+      - Change email subjects for multiple types of emails
+      - White Folio in admin settings
+      - Add to Album Section
+      - Massive Sync changes, speeds things up 3-4 times
+      - Removes base class from most view controllers
+      - iOS7 split. 
+      - Refactoring internals
+
+
+  - version: 1.5.1
+    date: July 9 2014
+    notes:  
+      - Work selection animation
+      - Artwork Email has send button at bottom
+      - TOS update
+
+  - version: 1.5.0
+    date: May 31 2014
+    notes:
+      - Art.sy -> Artsy.net
+      - Sync removes deleted Artworks / Shows
+      - More Artwork metadata available
+      - Add Documents to Albums
+      - More space for artwork info in additional information popover
+      - Sync resilience to large Artwork sets
+      - Sorting of artworks
+      - Significant performance increases 
+      - detail view simplification
+      - Admins can choose their own partners
+      - Logout
+      - Debug email
+      - Toolbars go directly into their selection mode
+
+    dev:
+      - async image loading
+      - cell reuse
+      - Improved diagnostics logging
+
+
+  - version: 1.4.0
+    date: Nov 14 2013
+    notes:
+      - Seperation of "Collections" to "Shows" & "Albums"
+      - Shows and exhibitions now appear in a "Shows" tab
+      - Support for Documents
+      - Support for emailing most of the above

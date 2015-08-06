@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D131" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Album" representedClassName="Album" elementID="Collection">
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="editable" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
+        <attribute name="hasBeenEdited" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isPrivate" optional="YES" attributeType="Boolean">
+            <userInfo/>
+        </attribute>
+        <attribute name="name" optional="YES" attributeType="String" indexed="YES">
+            <userInfo/>
+        </attribute>
+        <attribute name="slug" attributeType="String" defaultValueString="unknown-album" indexed="YES">
+            <userInfo/>
+        </attribute>
+        <attribute name="sortKey" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="artists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Artist" inverseName="albumsFeaturingArtist" inverseEntity="Artist" syncable="YES"/>
+        <relationship name="artworks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Artwork" inverseName="collections" inverseEntity="Artwork">
+            <userInfo/>
+        </relationship>
+        <relationship name="cover" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="coverForAlbum" inverseEntity="Image" syncable="YES"/>
+        <relationship name="documents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Document" inverseName="album" inverseEntity="Document" syncable="YES"/>
+        <userInfo/>
+    </entity>
+    <entity name="Artist" representedClassName="Artist">
+        <attribute name="awards" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="biography" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="blurb" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="deathDate" optional="YES" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <attribute name="displayName" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hometown" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="middleName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" indexed="YES">
+            <userInfo/>
+        </attribute>
+        <attribute name="nationality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderingKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="slug" attributeType="String" defaultValueString="unknown-artist" indexed="YES">
+            <userInfo/>
+        </attribute>
+        <attribute name="statement" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnailBaseURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="years" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <relationship name="albumsFeaturingArtist" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Album" inverseName="artists" inverseEntity="Album" syncable="YES"/>
+        <relationship name="artworks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Artwork" inverseName="artist" inverseEntity="Artwork">
+            <userInfo/>
+        </relationship>
+        <relationship name="cover" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="coverForArtist" inverseEntity="Image" syncable="YES"/>
+        <relationship name="documents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Document" inverseName="artist" inverseEntity="Document" syncable="YES"/>
+        <relationship name="installShotsFeaturingArtist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="artistsInImage" inverseEntity="Image" syncable="YES"/>
+        <relationship name="showsFeaturingArtist" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Show" inverseName="artists" inverseEntity="Show" syncable="YES"/>
+        <userInfo/>
+    </entity>
+    <entity name="ArtistDocument" representedClassName="ArtistDocument" parentEntity="Document" syncable="YES"/>
+    <entity name="Artwork" representedClassName="Artwork">
+        <attribute name="availability" optional="YES" attributeType="String" defaultValueString="not for sale" syncable="YES"/>
+        <attribute name="backendPrice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="category" optional="YES" attributeType="String" indexed="YES">
+            <userInfo/>
+        </attribute>
+        <attribute name="confidentialNotes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="depth" optional="YES" attributeType="Decimal" defaultValueString="0.0">
+            <userInfo/>
+        </attribute>
+        <attribute name="diameter" optional="YES" attributeType="Decimal" defaultValueString="0.0">
+            <userInfo/>
+        </attribute>
+        <attribute name="dimensionsCM" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="dimensionsInches" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="displayPrice" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="displayTitle" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="editions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exhibitionHistory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Decimal" defaultValueString="0.0">
+            <userInfo/>
+        </attribute>
+        <attribute name="imageRights" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inventoryID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isAvailableForSale" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="isPriceHidden" optional="YES" attributeType="Boolean">
+            <userInfo/>
+        </attribute>
+        <attribute name="isPublished" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="literature" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="medium" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="provenance" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="series" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="signature" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="slug" attributeType="String" defaultValueString="unknown-artwork" indexed="YES">
+            <userInfo/>
+        </attribute>
+        <attribute name="title" optional="YES" attributeType="String" indexed="YES">
+            <userInfo/>
+        </attribute>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Decimal" defaultValueString="0.0">
+            <userInfo/>
+        </attribute>
+        <relationship name="artist" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Artist" inverseName="artworks" inverseEntity="Artist">
+            <userInfo/>
+        </relationship>
+        <relationship name="collections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Album" inverseName="artworks" inverseEntity="Album">
+            <userInfo/>
+        </relationship>
+        <relationship name="editionSets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EditionSet" inverseName="artwork" inverseEntity="EditionSet" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="artwork" inverseEntity="Image" syncable="YES"/>
+        <relationship name="installShotsFeaturingArtwork" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="artworksInImage" inverseEntity="Image" syncable="YES"/>
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" inverseName="artworks" inverseEntity="Location" syncable="YES"/>
+        <relationship name="mainImage" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="mainImageForArtwork" inverseEntity="Image" syncable="YES"/>
+        <relationship name="notes" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Note" inverseName="artwork" inverseEntity="Note" syncable="YES"/>
+        <relationship name="partner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Partner" inverseName="artworks" inverseEntity="Partner">
+            <userInfo/>
+        </relationship>
+        <relationship name="shows" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Show" inverseName="artworks" inverseEntity="Show" syncable="YES"/>
+        <userInfo/>
+    </entity>
+    <entity name="Document" representedClassName="Document" syncable="YES">
+        <attribute name="filename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hasFile" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
+        <attribute name="humanReadableSize" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="slug" attributeType="String" defaultValueString="unknown-document" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Album" inverseName="documents" inverseEntity="Album" syncable="YES"/>
+        <relationship name="artist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Artist" inverseName="documents" inverseEntity="Artist" syncable="YES"/>
+        <relationship name="show" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Show" inverseName="documents" inverseEntity="Show" syncable="YES"/>
+    </entity>
+    <entity name="EditionSet" representedClassName="EditionSet" syncable="YES">
+        <attribute name="artistProofs" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="availability" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="availableEditions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="backendPrice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="depth" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="diameter" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="dimensionsCM" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dimensionsInches" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayPrice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="editions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="editionSize" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="isAvailableForSale" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isPriceHidden" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="prototypes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="slug" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="artwork" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Artwork" inverseName="editionSets" inverseEntity="Artwork" syncable="YES"/>
+    </entity>
+    <entity name="Image" representedClassName="Image" syncable="YES">
+        <attribute name="aspectRatio" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="baseURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isMainImage" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="maxTiledHeight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="maxTiledWidth" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="originalHeight" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="originalWidth" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="processing" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="slug" attributeType="String" defaultValueString="unknown-image" syncable="YES"/>
+        <attribute name="tileBaseUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tileFormat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tileOverlap" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tileSize" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="artistsInImage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Artist" inverseName="installShotsFeaturingArtist" inverseEntity="Artist" syncable="YES"/>
+        <relationship name="artwork" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Artwork" inverseName="images" inverseEntity="Artwork" syncable="YES"/>
+        <relationship name="artworksInImage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Artwork" inverseName="installShotsFeaturingArtwork" inverseEntity="Artwork" syncable="YES"/>
+        <relationship name="coverForAlbum" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Album" inverseName="cover" inverseEntity="Album" syncable="YES"/>
+        <relationship name="coverForArtist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Artist" inverseName="cover" inverseEntity="Artist" syncable="YES"/>
+        <relationship name="coverForShow" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Show" inverseName="cover" inverseEntity="Show" syncable="YES"/>
+        <relationship name="mainImageForArtwork" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Artwork" inverseName="mainImage" inverseEntity="Artwork" syncable="YES"/>
+    </entity>
+    <entity name="InstallShotImage" representedClassName="InstallShotImage" parentEntity="Image" syncable="YES">
+        <attribute name="caption" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="showWithImageInInstallation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Show" inverseName="installationImages" inverseEntity="Show" syncable="YES"/>
+    </entity>
+    <entity name="LocalImage" representedClassName="LocalImage" parentEntity="Image" syncable="YES"/>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="addressSecond" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="geoPoint" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postalCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="slug" attributeType="String" defaultValueString="unknown-slug" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="artworks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Artwork" inverseName="locations" inverseEntity="Artwork" syncable="YES"/>
+        <relationship name="shows" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Show" inverseName="location" inverseEntity="Show" syncable="YES"/>
+    </entity>
+    <entity name="Note" representedClassName="Note" syncable="YES">
+        <attribute name="body" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="artwork" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Artwork" inverseName="notes" inverseEntity="Artwork" syncable="YES"/>
+    </entity>
+    <entity name="Partner" representedClassName="Partner">
+        <attribute name="active" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="artistDocumentsCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="artistsCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="artworksCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="contractType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="defaultProfileID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="defaultProfilePublic" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="directlyContactable" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="foundingPartner" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hasDefaultProfile" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hasFullProfile" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" indexed="YES">
+            <userInfo/>
+        </attribute>
+        <attribute name="partnerID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="partnerLimitedAccess" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="partnerType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="relativeSize" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="representativeEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="showDocumentsCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="slug" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subscriptionState" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="admin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="adminForPartner" inverseEntity="User" syncable="YES"/>
+        <relationship name="artworks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Artwork" inverseName="partner" inverseEntity="Artwork">
+            <userInfo/>
+        </relationship>
+        <relationship name="flags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PartnerOption" inverseName="partner" inverseEntity="PartnerOption" syncable="YES"/>
+        <relationship name="subscriptionPlans" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubscriptionPlan" inverseName="subscriptionForPartner" inverseEntity="SubscriptionPlan" syncable="YES"/>
+        <userInfo/>
+    </entity>
+    <entity name="PartnerOption" representedClassName="PartnerOption" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="partner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Partner" inverseName="flags" inverseEntity="Partner" syncable="YES"/>
+    </entity>
+    <entity name="Show" representedClassName="Show" syncable="YES">
+        <attribute name="availabilityPeriod" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endsAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="showSlug" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="slug" attributeType="String" defaultValueString="unknown-slug" syncable="YES"/>
+        <attribute name="sortKey" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="startsAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="artists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Artist" inverseName="showsFeaturingArtist" inverseEntity="Artist" syncable="YES"/>
+        <relationship name="artworks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Artwork" inverseName="shows" inverseEntity="Artwork" syncable="YES"/>
+        <relationship name="cover" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="coverForShow" inverseEntity="Image" syncable="YES"/>
+        <relationship name="documents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Document" inverseName="show" inverseEntity="Document" syncable="YES"/>
+        <relationship name="installationImages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="InstallShotImage" inverseName="showWithImageInInstallation" inverseEntity="InstallShotImage" syncable="YES"/>
+        <relationship name="location" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="shows" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <entity name="ShowDocument" representedClassName="ShowDocument" parentEntity="Document" syncable="YES"/>
+    <entity name="SubscriptionPlan" representedClassName="SubscriptionPlan" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="subscriptionForPartner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Partner" inverseName="subscriptionPlans" inverseEntity="Partner" syncable="YES"/>
+    </entity>
+    <entity name="SyncError" representedClassName="SyncError" syncable="YES">
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="errorType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="syncLog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SyncLog" inverseName="syncErrors" inverseEntity="SyncLog" syncable="YES"/>
+    </entity>
+    <entity name="SyncLog" representedClassName="SyncLog" syncable="YES">
+        <attribute name="albumsDelta" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="artworkDelta" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="dateStarted" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="estimatedDownload" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="showDelta" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeToCompletion" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalDownloaded" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="syncErrors" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SyncError" inverseName="syncLog" inverseEntity="SyncError" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="slug" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" elementID="user_role" syncable="YES"/>
+        <relationship name="adminForPartner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Partner" inverseName="admin" inverseEntity="Partner" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Album" positionX="0" positionY="0" width="128" height="255"/>
+        <element name="Artist" positionX="0" positionY="0" width="128" height="405"/>
+        <element name="ArtistDocument" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="Artwork" positionX="0" positionY="0" width="128" height="645"/>
+        <element name="Document" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="EditionSet" positionX="27" positionY="162" width="128" height="330"/>
+        <element name="Image" positionX="0" positionY="0" width="128" height="360"/>
+        <element name="InstallShotImage" positionX="18" positionY="153" width="128" height="73"/>
+        <element name="LocalImage" positionX="18" positionY="162" width="128" height="45"/>
+        <element name="Location" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="Note" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="Partner" positionX="0" positionY="0" width="128" height="478"/>
+        <element name="PartnerOption" positionX="18" positionY="153" width="128" height="88"/>
+        <element name="Show" positionX="0" positionY="0" width="128" height="283"/>
+        <element name="ShowDocument" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="SubscriptionPlan" positionX="27" positionY="162" width="128" height="73"/>
+        <element name="SyncError" positionX="9" positionY="153" width="128" height="88"/>
+        <element name="SyncLog" positionX="9" positionY="153" width="128" height="163"/>
+        <element name="User" positionX="0" positionY="0" width="128" height="120"/>
+    </elements>
+</model>

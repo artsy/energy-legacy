@@ -1,0 +1,9 @@
+/*
+  Localizable.strings
+  ArtsyPartner
+
+  Created by Benjamin Jackson on 10/20/11.
+  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+*/
+
+"NoEmailAccountError" = "To send this artwork, Please set up an email account in the Mail app.";

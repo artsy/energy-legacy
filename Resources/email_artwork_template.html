@@ -1,0 +1,128 @@
+<html><body width=90%>
+    <p>{{{AREmailGreeting}}}</p>
+
+    <p><br/></p>
+
+    <hr style="height:0.5px; background-color:#e5e5e5;border-style:hidden;" />
+    <div style="width:90%; margin: 20px auto;">
+        
+        <table>
+        {{#installation_shots}}
+            <tr><td>
+            <img width="100%" style="background-color:black;" src="{{.}}" alt="Installation Shot"/>
+            </td></tr>
+        {{/installation_shots}}
+        </table>
+
+        <table>
+            {{#artworks}}
+                <tr><td>
+                <img width="100%" style="background-color:black;" src="{{thumbnailImagePath}}" alt="{{artwork.title}} thumbnail"/>
+
+                {{#additionalImages}}
+                    <img width="100%" style="background-color:black;" src="{{.}}" alt=""/>
+                {{/additionalImages}}
+
+                <div style="text-align:left; margin-top:8px; margin-bottom:16px;">
+                    <p style="font-family: Georgia,serif; font-weight:100;margin-bottom:0px;margin-top:0px;">{{artwork.artist.name.uppercaseString}}</p>
+
+                    {{#artwork.date}}
+                        <p style="font-family: Georgia,serif; font-weight:100;margin-bottom:0px;margin-top:0px;">{{#artwork.title}}<em>{{artwork.title}}</em>, {{/artwork.title}}{{artwork.date}}</p>
+                    {{/artwork.date}}
+
+                    {{^artwork.date}}{{#artwork.title}}
+                        <p style="font-family: Georgia,serif; font-weight:100;margin-bottom:0px;margin-top:0px;"><em>{{artwork.title}}</em></p>
+                    {{/artwork.title}}{{/artwork.date}}
+
+                    {{#artwork.medium}}
+                        <p style="font-family: Georgia,serif; font-weight:100;margin-bottom:0px;margin-top:0px;">{{artwork.medium}}</p>
+                    {{/artwork.medium}}
+
+                    {{# isEmpty(artwork.editionSets) }}
+
+                        {{#artwork.dimensions}}
+                            <p style="font-family: Georgia,serif; font-weight:100;margin-bottom:0px;margin-top:0px;">{{artwork.htmlSafeDimensions}} ({{artwork.htmlSafeAlternativeDimensions}})</p>
+                        {{/artwork.dimensions}}
+
+                        {{#options.showPrice}}
+                            {{#options.showBackendPrice}}
+
+                                {{# isEmpty(artwork.backendPrice) }}
+                                <p style="font-family: Georgia,serif; font-weight:100;margin-bottom:0px;margin-top:0px;">{{artwork.displayPrice}}</p>
+
+                                {{^}}
+                                <p style="font-family: Georgia,serif; font-weight:100;margin-bottom:0px;margin-top:0px;">{{artwork.backendPrice}}</p>
+
+                                {{/}}
+
+                            {{/options.showBackendPrice}}
+
+                            {{^options.showBackendPrice}}
+                            <p style="font-family: Georgia,serif; font-weight:100;margin-bottom:0px;margin-top:0px;">{{artwork.displayPrice}}</p>
+                            {{/options.showBackendPrice}}
+
+                        {{/options.showPrice}}
+
+                    {{^}}
+                        {{#artwork.editionSets}}
+                            <div style="text-align: left; padding-top:8px;line-height:120%;">
+                                <p style="font-family: Georgia,serif; font-weight:100;margin-bottom:0px;margin-top:0px;">{{.}}</p>
+                            </div>
+                        {{/artwork.editionSets}}
+
+                    {{/}}
+
+                    {{#options.showSupplementaryInformation}}{{#artwork.signature}}
+                    <p style="font-family: Georgia,serif; font-weight:100;margin-bottom:0px;margin-top:0px;">{{{artwork.htmlSignature}}}</p>
+                    {{/artwork.signature}}{{/options.showSupplementaryInformation}}
+
+                    {{#options.showInventoryID}}{{#artwork.inventoryID}}
+                        <p style="font-family: Georgia,serif; font-weight:100;margin-bottom:0px;margin-top:0px;">{{{artwork.inventoryID}}}</p>
+                    {{/artwork.inventoryID}}{{/options.showInventoryID}}
+
+                </div>
+
+                {{#options.showSupplementaryInformation}}
+                <div style="text-align: left;">
+
+                    {{^ isBlank(artwork.provenance) }}
+                    {{{ artwork.emailProvenance }}}
+                    <br/>
+                    {{/ isBlank(artwork.provenance) }}
+
+                    {{^ isBlank(artwork.exhibitionHistory) }}
+                    {{{ artwork.emailExhibitionHistory }}}
+                    <br/>
+                    {{/ isBlank(artwork.exhibitionHistory) }}
+
+                    {{^ isBlank(artwork.literature) }}
+                    {{{ artwork.emailLiterature }}}
+                    <br/>
+                    {{/ isBlank(artwork.literature) }}
+
+                    {{^ isBlank(artwork.info) }}
+                    {{{ artwork.emailAdditionalInfo }}}
+                    <br/>
+                    {{/ isBlank(artwork.info) }}
+
+                    {{^ isBlank(artwork.imageRights) }}
+                    {{{ artwork.emailImageRights }}}
+                    <br/>
+                    {{/ isBlank(artwork.imageRights) }}
+
+                    {{^ isBlank(artwork.series) }}
+                    {{{ artwork.emailSeries }}}
+                    <br/>
+                    {{/ isBlank(artwork.series) }}
+                </div>
+                {{/options.showSupplementaryInformation}}
+
+            </tr>
+
+            {{/artworks}}
+        </table>
+    </div>
+    <hr style="height:0.5px; background-color:#e5e5e5;border-style:hidden;"/>
+
+    <p>{{{AREmailSignature}}}</p>
+</body></html>

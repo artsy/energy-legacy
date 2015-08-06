@@ -1,0 +1,21 @@
+xcuserdata
+.pt
+.DS_Store
+*.jsoneditor
+build/
+chairs/
+kif_screenshots/
+.idea/
+Podfile.lock
+*.xccheckout
+xcodebuild_error.log
+ArtsyFolio.app.dSYM.zip
+ArtsyFolio.ipa
+CHANGELOG_SHORT.md
+Artsy Folio.xcodeproj/xcuserdata/
+Pods
+fastlane/report.xml
+.clang-format
+config/screenshots/
+Resources/CoreData/oss_stubbed_data.sqlite-shm
+Resources/CoreData/oss_stubbed_data.sqlite-wal

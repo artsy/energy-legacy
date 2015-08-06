@@ -1,0 +1,5 @@
+
+
+@interface ARSyncAdminViewController : UIViewController
+
+@end
