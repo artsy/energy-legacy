@@ -1,8 +1,7 @@
 require 'yaml'
 
 unless ENV['HOCKEY_API_TOKEN'] && ENV['SLACK_URL'] 
-  puts "You need to set HOCKEY_API_TOKEN (#{ENV['HOCKEY_API_TOKEN']}) and SLACK_URL (#{ENV['SLACK_URL']}) in your environment."
-  return
+  raise "You need to set HOCKEY_API_TOKEN (#{ENV['HOCKEY_API_TOKEN']}) and SLACK_URL (#{ENV['SLACK_URL']}) in your environment."
 end
 
 lane :build_for_test do
@@ -48,7 +47,7 @@ lane :beta do
   
   hockey api_token: ENV['HOCKEY_API_TOKEN'], notes: release_notes
 
-  slack message: "There is a new Folio beta available. Download it at http://artsy.net/foliobeta",
+  slack message: "There is a new Folio beta available. Download it at https://artsy.net/foliobeta",
         channel: "Folio",
         payload: {
           'Version' => latest_version,
