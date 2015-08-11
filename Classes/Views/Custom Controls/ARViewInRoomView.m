@@ -3,7 +3,7 @@
 #define DEBUG_VIEW_IN_ROOM 0
 
 static NSString *RoomImageFormat = @"larger";
-static float BaseScale = 413 / 144.f; // width of bench in px / width of bench in inches
+static float BaseScale = 413 / 96; // width of bench in px / width of bench in inches
 
 static const CGFloat ShadowRadius = 4.0f;
 static const CGFloat ShadowOpacity = 0.3f;
@@ -83,24 +83,24 @@ static const CGFloat PhoneDistanceToTopOfBenchLandscape[] = {200, 192, 178};
     [self setRoomSize];
     [self setBackgroundView];
 
-    artworkImageView = [[UIImageView alloc] init];
-    [artworkImageView setupWithImage:artwork.mainImage format:RoomImageFormat];
+    _artworkImageView = [[UIImageView alloc] init];
+    [self.artworkImageView setupWithImage:artwork.mainImage format:RoomImageFormat];
 
-    artworkImageView.contentMode = UIViewContentModeScaleAspectFit;
-    artworkImageView.backgroundColor = [UIColor clearColor];
+    self.artworkImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.artworkImageView.backgroundColor = [UIColor clearColor];
 
-    CALayer *layer = [artworkImageView layer];
+    CALayer *layer = [self.artworkImageView layer];
     layer.shadowOffset = CGSizeMake(0, ShadowRadius);
     layer.shadowOpacity = ShadowOpacity;
     layer.shadowColor = [[UIColor blackColor] CGColor];
-    artworkImageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin |
+    self.artworkImageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin |
         UIViewAutoresizingFlexibleRightMargin;
 
 #if DEBUG_VIEW_IN_ROOM
     [self setupDebug];
 #endif
 
-    [self addSubview:artworkImageView];
+    [self addSubview:self.artworkImageView];
 }
 
 - (void)setRoomSize
@@ -191,8 +191,8 @@ static const CGFloat PhoneDistanceToTopOfBenchLandscape[] = {200, 192, 178};
         scaledHeight = floorf(artworkHeight * scale);
     }
 
-    if (artworkImageView) {
-        CGRect frame = artworkImageView.frame;
+    if (self.artworkImageView) {
+        CGRect frame = self.artworkImageView.frame;
         frame.size.width = scaledWidth;
         frame.size.height = scaledHeight;
         frame.origin.x = floorf((CGRectGetWidth(self.bounds) - scaledWidth) * .5f);
@@ -206,15 +206,15 @@ static const CGFloat PhoneDistanceToTopOfBenchLandscape[] = {200, 192, 178};
         [self updateDebugViews];
 #endif
 
-        artworkImageView.frame = frame;
+        self.artworkImageView.frame = frame;
     }
 
     /// HACK
     if (![UIDevice isPad]) {
-        artworkImageView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.6, 0.6);
+        self.artworkImageView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.6, 0.6);
         backgroundImageView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.6, 0.6);
 
-        artworkImageView.center = CGPointMake(artworkImageView.center.x, artworkImageView.center.y + 160);
+        self.artworkImageView.center = CGPointMake(self.artworkImageView.center.x, self.artworkImageView.center.y + 160);
         backgroundImageView.center = CGPointMake(backgroundImageView.center.x, backgroundImageView.center.y + 120);
     }
 }
@@ -288,7 +288,7 @@ static const CGFloat PhoneDistanceToTopOfBenchLandscape[] = {200, 192, 178};
 
     debugLabel.text = [NSString stringWithFormat:@"%@ - room %@", artwork.dimensions, @(roomSize)];
 
-    artworkImageView.backgroundColor = [UIColor blueColor];
+    self.artworkImageView.backgroundColor = [UIColor blueColor];
 }
 
 @end
