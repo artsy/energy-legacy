@@ -12,7 +12,7 @@ NS_ENUM(NSInteger, ARViewInRoomRoomSize){
 
 @interface ARViewInRoomView : UIView {
     UIImageView *backgroundImageView;
-    UIImageView *artworkImageView;
+    ;
     Artwork *artwork;
     enum ARViewInRoomRoomSize roomSize;
 }
@@ -21,5 +21,6 @@ NS_ENUM(NSInteger, ARViewInRoomRoomSize){
 
 @property (nonatomic) Artwork *artwork;
 @property (assign) UIInterfaceOrientation roomOrientation;
+@property (nonatomic, strong) UIImageView *artworkImageView;
 
 @end
