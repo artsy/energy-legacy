@@ -30,23 +30,26 @@ PODS:
     - CocoaLumberjack/Core
   - DRBOperationTree (0.0.1)
   - EDColor (0.4.0)
-  - Expecta (0.4.2)
+  - Expecta (1.0.2)
   - Expecta+Comparison (0.1.0):
     - Expecta
-  - Expecta+ContainerClasses (1.0.1):
-    - Expecta (~> 0.3)
+  - Expecta+ContainerClasses (1.0.2):
+    - Expecta
   - Expecta+OCMock (2.1.0):
     - Expecta
     - OCMock
-  - Expecta+Snapshots (1.3.2):
-    - Expecta (~> 0.3)
-    - FBSnapshotTestCase (= 1.6)
-  - FBSnapshotTestCase (1.6)
+  - Expecta+Snapshots (2.0.0):
+    - Expecta (~> 1.0)
+    - FBSnapshotTestCase/Core (~> 2.0.3)
+  - FBSnapshotTestCase/Core (2.0.3)
   - FLKAutoLayout (0.1.1)
+  - Forgeries (0.2.0)
   - GHMarkdownParser (0.0.1)
   - GRMustache (7.3.0):
     - JRSwizzle (~> 1.0)
-  - HockeySDK (3.6.2)
+  - HockeySDK (3.7.1):
+    - HockeySDK/AllFeaturesLib (= 3.7.1)
+  - HockeySDK/AllFeaturesLib (3.7.1)
   - Intercom (2.2.3)
   - ISO8601DateFormatter (0.7)
   - JLRoutes (1.5.2)
@@ -64,12 +67,6 @@ PODS:
   - OHHTTPStubs/Core (3.1.6)
   - ORStackView (2.0.0):
     - FLKAutoLayout (~> 0.1)
-  - PivotalCoreKit/Foundation/SpecHelper/Fakes (0.3.0):
-    - PivotalCoreKit/Foundation/SpecHelper/Fixtures
-  - PivotalCoreKit/Foundation/SpecHelper/Fixtures (0.3.0)
-  - PivotalCoreKit/UIKit/SpecHelper/Extensions (0.3.0):
-    - PivotalCoreKit/UIKit/SpecHelper/Support
-  - PivotalCoreKit/UIKit/SpecHelper/Support (0.3.0)
   - Reachability (3.1.1)
   - SDWebImage/Core (3.7.1)
   - SFHFKeychainUtils (0.0.1)
@@ -100,11 +97,11 @@ DEPENDENCIES:
   - Expecta+Comparison (~> 0.1)
   - Expecta+ContainerClasses (~> 1.0)
   - Expecta+OCMock
-  - Expecta+Snapshots
+  - Expecta+Snapshots (= 2.0.0)
   - FLKAutoLayout (= 0.1.1)
+  - Forgeries
   - GHMarkdownParser (= 0.0.1)
   - GRMustache (~> 7.0)
-  - HockeySDK
   - ISO8601DateFormatter (~> 0.7)
   - JLRoutes
   - Keys (from `Pods/CocoaPodsKeys/`)
@@ -113,8 +110,6 @@ DEPENDENCIES:
   - ObjectiveSugar (from `https://github.com/supermarin/ObjectiveSugar`)
   - OHHTTPStubs (~> 3.0)
   - ORStackView
-  - PivotalCoreKit/Foundation/SpecHelper/Fakes
-  - PivotalCoreKit/UIKit/SpecHelper/Extensions
   - Reachability (~> 3.0)
   - SFHFKeychainUtils (~> 0.0.1)
   - Specta
@@ -176,16 +171,17 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 628fca2e88ef06f7cf6817309aa405f325d9a6fa
   DRBOperationTree: 9fa8d41cf6f616b93944c8a7e370f0739aa82b60
   EDColor: 89d19a013279a5604d61650721c15f20fefaaf00
-  Expecta: 78b4e8b0c8291fa4524d7f74016b6065c2e391ec
+  Expecta: 54e8a3530add08f4f0208c111355eda7cde74a53
   Expecta+Comparison: e3f3bca3a867fecec2b1cfbd5e03230cd6066634
-  Expecta+ContainerClasses: 02f5bc6764358ee94ad1406202dd961576e946f0
+  Expecta+ContainerClasses: 4ded3d82cae1d1e54ef4177f50e7bc2d616013da
   Expecta+OCMock: b1540f747b584742e488889d1b4deea5bc4a8e39
-  Expecta+Snapshots: 40c5ec43b43da3bae957f14fed5dc9177d08ec8b
-  FBSnapshotTestCase: 9d5fe43b29ae3a0ed8fc829477971b281038f748
+  Expecta+Snapshots: 29b38dd695bc72a0ed2bea833937d78df41943ba
+  FBSnapshotTestCase: d0eeca6bf87958e088b254396ae66873f971cfb1
   FLKAutoLayout: 95b12c5cd9652100235140b68652f063f7437851
+  Forgeries: 8a2ff88a8c05ac1b82488d1c47a154f8decf7bc8
   GHMarkdownParser: 8b1a0e1d0c28e15a2696030054fdd2aa1562b6da
   GRMustache: 6baee020c5644416c034f5afb1607f6219e7f753
-  HockeySDK: 51ade1aff04463137e852797d2eb4dfb2511d6a9
+  HockeySDK: 77bb90b6484a3b742ccf32bcae247c0a0051a962
   Intercom: a9349693dca9940f8ce4b6a7414bfc0b4dfb7156
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   JLRoutes: fc36fd38ab476d5ac3a6a84b05be60e4b1a2bc81
@@ -196,7 +192,6 @@ SPEC CHECKSUMS:
   OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
   OHHTTPStubs: b671969016b4c6f5ee3c26080c81114ba82e0710
   ORStackView: 5df6b1b990b0648d8ef6f69f89361ea8648e8f64
-  PivotalCoreKit: 3dab7cf9bff77eb49ce7ffc7a84e57fa8591f033
   Reachability: dd9aa4fb6667b9f787690a74f53cb7634ce99893
   SDWebImage: ed3095af2ff88b436426037444979b917f6c5575
   SFHFKeychainUtils: 9576b411a79a058f4d5381ace6f3242b9a62e664
@@ -205,8 +200,8 @@ SPEC CHECKSUMS:
   TPKeyboardAvoiding: 0a40dfbb0af7c8bdae1dd457496dccfd217d85f6
   TRVSDictionaryWithCaseInsensitivity: 51d2ccf52c6d645d27b63467a98fa02c556e01b0
   UIView+BooleanAnimations: a760be9a066036e55f298b7b7350a6cb14cfcd97
-  WYPopoverController: ebefa50c477bdbbd9dc992dfdffafa168c4484eb
+  WYPopoverController: 7596cb99f16ed4dd1b171a6b0d8d73aed5b2c5b5
   XCTest+OHHTTPStubSuiteCleanUp: 4469ec8863c6bc022c5089a9b94233eb3416c5ee
   ZipArchive: c8bd32d0b8f1ada4ac967b72ceca8130d680adc5
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.38.2
