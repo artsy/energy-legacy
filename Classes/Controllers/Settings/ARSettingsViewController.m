@@ -34,7 +34,7 @@ static const NSInteger kHeightOfSettingsCell = 130;
 @interface ARSettingsViewController ()
 @property (nonatomic, strong) NSUserDefaults *defaults;
 
-@property (nonatomic, weak) IBOutlet UITableViewCell *syncViewCell;
+@property (nonatomic, strong) IBOutlet UITableViewCell *syncViewCell;
 @property (nonatomic, weak) IBOutlet UILabel *syncStatusLabel;
 @property (nonatomic, weak) IBOutlet UILabel *syncStatusSubtitleLabel;
 
