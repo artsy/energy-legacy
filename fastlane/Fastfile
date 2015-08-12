@@ -57,7 +57,7 @@ lane :beta do
 
   # Undo the icons after
   sh "git checkout ../Resources/"
-  `rm *.dSYM.zip`
-  `rm *.ipa`
+  `rm ../*.dSYM.zip`
+  `rm ../*.ipa`
   
 end

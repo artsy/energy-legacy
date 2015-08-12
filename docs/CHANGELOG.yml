@@ -15,6 +15,7 @@ upcoming:
     - Show edition information in emails [orta]
     - Ensured toolbar buttons fit on smaller devices in artwork view [orta]
     - Bug fix for additional artwork information arrow in white Folio [sarah]
+    - VIR scale conformance for ipad [orta + sarah]
 
 releases:
   - version: 2.3.0
