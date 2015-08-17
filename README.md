@@ -17,9 +17,7 @@ Want to get the app running as an OSS project? Run this in your shell:
 ```sh
 git clone https://github.com/artsy/energy.git
 cd energy
-bundle install
 make oss
-bundle exec pod install
 open "Artsy Folio.xcworkspace"
 ```
 
