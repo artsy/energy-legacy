@@ -12,6 +12,26 @@ it(@"current partner gets first partner in context", ^{
     expect([Partner currentPartnerInContext:context]).to.equal(partner);
 });
 
+describe(@"has uploaded works on cms", ^{
+
+    it(@"returns false the partner's artwork count is 0", ^{
+        partner.artworksCount = @(0);
+        expect(partner.hasUploadedWorks).to.beFalsy();
+    });
+
+    it(@"returns true the partner's artwork count is > 0", ^{
+        partner.artworksCount = @(1);
+        expect(partner.hasUploadedWorks).to.beTruthy();
+    });
+
+    it(@"also takes into account the amount of artworks in the MOC", ^{
+        Artwork *artwork = [Artwork objectInContext:context];
+        partner.artworksCount = @(0);
+
+        expect(partner.hasUploadedWorks).to.beTruthy();
+    });
+});
+
 describe(@"partner type", ^{
     it(@"is collector for a collector type", ^{
         partner = [Partner modelFromJSON:@{ @"type" : @"Private Collector" } inContext:context];

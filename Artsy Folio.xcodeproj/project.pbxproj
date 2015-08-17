@@ -384,6 +384,8 @@
 		60B6085A1A41847300C2BBE5 /* PhoneAddArtworksButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B608561A41847300C2BBE5 /* PhoneAddArtworksButton@2x.png */; };
 		60B6085B1A41847300C2BBE5 /* PhoneCreateAlbumButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B608571A41847300C2BBE5 /* PhoneCreateAlbumButton@2x.png */; };
 		60B687CE16087AE800820176 /* AREditableImageGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B687CD16087AE800820176 /* AREditableImageGridViewCell.m */; };
+		60B813921B8276CF0046A52C /* ARZeroStateMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B813911B8276CF0046A52C /* ARZeroStateMessageViewController.m */; };
+		60B813941B8280370046A52C /* ARZeroStateMessageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B813931B8280370046A52C /* ARZeroStateMessageViewControllerTests.m */; };
 		60B9492D15E5067700A09B84 /* ARDocumentContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B9492C15E5067700A09B84 /* ARDocumentContainerViewController.m */; };
 		60B95A821AC5FB80008AF85E /* ARGroupedTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B95A811AC5FB80008AF85E /* ARGroupedTableViewHeader.m */; };
 		60BA589E153C21D8005E0576 /* ARAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BA589C153C21D7005E0576 /* ARAlertViewController.m */; };
@@ -1179,6 +1181,9 @@
 		60B608571A41847300C2BBE5 /* PhoneCreateAlbumButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PhoneCreateAlbumButton@2x.png"; sourceTree = "<group>"; };
 		60B687CC16087AE800820176 /* AREditableImageGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREditableImageGridViewCell.h; sourceTree = "<group>"; };
 		60B687CD16087AE800820176 /* AREditableImageGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREditableImageGridViewCell.m; sourceTree = "<group>"; };
+		60B813901B8276CF0046A52C /* ARZeroStateMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARZeroStateMessageViewController.h; sourceTree = "<group>"; };
+		60B813911B8276CF0046A52C /* ARZeroStateMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARZeroStateMessageViewController.m; sourceTree = "<group>"; };
+		60B813931B8280370046A52C /* ARZeroStateMessageViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARZeroStateMessageViewControllerTests.m; sourceTree = "<group>"; };
 		60B9492B15E5067700A09B84 /* ARDocumentContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDocumentContainerViewController.h; sourceTree = "<group>"; };
 		60B9492C15E5067700A09B84 /* ARDocumentContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDocumentContainerViewController.m; sourceTree = "<group>"; };
 		60B9493115E50AF900A09B84 /* ARDocumentContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARDocumentContainer.h; sourceTree = "<group>"; };
@@ -1881,6 +1886,7 @@
 				60FDF6DC1AEAA21800173E81 /* ARSearchViewControllerTests.m */,
 				839E42601B052DE800C4BF49 /* ARFolioMessageViewControllerTests.m */,
 				834BA69C1B4AE74F009D18F7 /* ARFolioImageMessageViewControllerTests.m */,
+				60B813931B8280370046A52C /* ARZeroStateMessageViewControllerTests.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -2800,6 +2806,8 @@
 				8356C1731B20A4A3000E03B5 /* ARFolioMessageViewController.xib */,
 				8350BF161B03DBF0006D42AC /* ARFolioMessageViewController.h */,
 				8350BF171B03DBF0006D42AC /* ARFolioMessageViewController.m */,
+				60B813901B8276CF0046A52C /* ARZeroStateMessageViewController.h */,
+				60B813911B8276CF0046A52C /* ARZeroStateMessageViewController.m */,
 			);
 			name = Messages;
 			sourceTree = "<group>";
@@ -3769,6 +3777,7 @@
 				60EB677D1959CD6B00C9FA72 /* ARManagedObject+ModelFromJSON.m in Sources */,
 				B3DBEDE8185AB4D400C345A1 /* ARImageThumbnailCreatorTests.m in Sources */,
 				60F5762A19647AE60042B8BF /* ARSyncViewControllerTests.m in Sources */,
+				60B813941B8280370046A52C /* ARZeroStateMessageViewControllerTests.m in Sources */,
 				60F1F1021B04ACB0004B6C7F /* ARPartnerFullMetadataDownloaderSpec.m in Sources */,
 				60327DF4198A5DE00075B399 /* ARTabbedViewControllerDataSource.m in Sources */,
 				60DED57D1975A72200853B78 /* ARImageViewCategoriesTests.m in Sources */,
@@ -3898,6 +3907,7 @@
 				60E452BD14A132B600EB5BFE /* ARSettingsDefaultsEditor.m in Sources */,
 				60E0358219B5F1CB006F7C1E /* _SyncLog.m in Sources */,
 				6055B7861872E2CC0043B937 /* AROptions.m in Sources */,
+				60B813921B8276CF0046A52C /* ARZeroStateMessageViewController.m in Sources */,
 				609991FD1A45BB2300741423 /* SubscriptionPlan.m in Sources */,
 				601E1A14194F86F9004B21E4 /* UIImage+ImageFromColor.m in Sources */,
 				6027A6DC14BB8C380020A592 /* User.m in Sources */,
