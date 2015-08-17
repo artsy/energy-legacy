@@ -4,8 +4,8 @@ artsy:
 	config/spacecommander/setup-repo.sh
 
 oss: 
-	bundle -v >/dev/null 2>&1 || { echo "Energy require bundler, but it's not installed.  You can install it via '[sudo] gem install bundler'. If you are new to ruby, we *strongly* recommedn using a sudo-less installation: https://guides.cocoapods.org/using/getting-started.html#sudo-less-installation" >&2; exit 1; }
-	xcode-select -p >/dev/null 2>&1 || { echo "Energy require Apple's command line Xcode tools installed.  You can install them by running: 'xcode-select --install'. " >&2; exit 1; }
+	bundle -v >/dev/null 2>&1 || { echo "Energy requires bundler, but it's not installed.  You can install it via '[sudo] gem install bundler'. If you are new to ruby, we *strongly* recommedn using a sudo-less installation: https://guides.cocoapods.org/using/getting-started.html#sudo-less-installation" >&2; exit 1; }
+	xcode-select -p >/dev/null 2>&1 || { echo "Energy requires that Apple's command line Xcode tools are installed.  You can install them by running: 'xcode-select --install'. " >&2; exit 1; }
 	bundle install
 	$(MAKE) ci_keys
 	find . -type f -name 'ArtsyPartner-Prefix.pch' -exec sed -i '' 's/ARIsOSSBuild = NO;/ARIsOSSBuild = YES;/g'  {} +
