@@ -45,7 +45,7 @@
 
 - (BOOL)hasUploadedWorks
 {
-    return self.artworksCount.boolValue;
+    return self.artworksCount.boolValue || [Artwork countInContext:self.managedObjectContext error:nil];
 }
 
 - (BOOL)hasPublishedWorks

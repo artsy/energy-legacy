@@ -1,8 +1,6 @@
 //  Based on http://stackoverflow.com/questions/849458/transparent-modal-view-on-navigation-controller
 
-#import "ARTopViewController.h"
 #import "ARAlertViewController.h"
-
 
 @interface UIViewController (TransparentModals)
 

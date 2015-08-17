@@ -7,7 +7,7 @@
 #import "ARFolioMessageViewController.h"
 #import "ARBaseViewController+TransparentModals.h"
 #import "AROptions.h"
-
+#import "ARZeroStateMessageViewController.h"
 
 @interface ARInitialViewControllerSetupCoordinator ()
 @property (nonatomic, readonly, strong) ARSync *sync;
@@ -179,13 +179,7 @@
 
 - (void)presentZeroStateScreen
 {
-    ARFolioMessageViewController *zeroStateViewController = [[ARFolioMessageViewController alloc] init];
-
-    zeroStateViewController.messageText = NSLocalizedString(@"Your Folio experience begins with uploading works to your CMS.", @"Zero state title");
-    zeroStateViewController.callToActionText = NSLocalizedString(@"Once you've uploaded works, your inventory will be viewable here.", @"Zero state subtitle");
-    zeroStateViewController.buttonText = NSLocalizedString(@"Visit Your CMS", @"Visit CMS button title");
-    zeroStateViewController.callToActionAddress = @"https://cms.artsy.net";
-
+    ARZeroStateMessageViewController *zeroStateViewController = [[ARZeroStateMessageViewController alloc] init];
     [self.window.rootViewController presentTransparentModalViewController:zeroStateViewController animated:NO withAlpha:1];
 }
 
