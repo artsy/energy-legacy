@@ -5,10 +5,6 @@ cache:
   - vendor/bundle
   - Pods
 
-env:
-  global:
-    secure: aPU99rsISEo4CwVBenahzI90IdXXbOiLiL46K7qrWbpXAOQQG0b2/VzfTmZRR0W23ilLWJjrTcgXEwcvn3KE9vPQQUt66+hpjoD79xQwkIelBcxYQbUaYQbWjBHrB4ueBjkrf4LGdVMqlGqCXOw64OS0xfKuXznA38ddnjshkPQ=
-
 before_install:
 - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
 - echo "machine github.com login $GITHUB_API_KEY" > ~/.netrc
