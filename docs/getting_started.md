@@ -33,7 +33,7 @@ You need to be on an iPad Retina at iOS 7.1 in order to run the tests. Press cmd
 Use your `.energy` file
 -----------------------
 
-Authentication is a lot easier when you don't type so much, create a file in your home directory called `.eigen` and it takes a collection of `key:value` lines to have the username and password set for you in the `ARLoginViewController`.  You can use the `ARDeveloperOptions` class to react to the key value store. For example:
+Authentication is a lot easier when you don't type so much, create a file in your home directory called `.energy` and it takes a collection of `key:value` lines to have the username and password set for you in the `ARLoginViewController`.  You can use the `ARDeveloperOptions` class to react to the key value store. For example:
 
 
     username:orta@artsymail.com
