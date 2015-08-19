@@ -16,7 +16,7 @@ To start the build run `bundle exec fastlane beta`. All details for our deployme
 
 1. Check out energy Artsy master.
 2. Remove dev only entries from `docs/CHANGELOG.yml`.
-3. Update `CHANGELOG.yml with the release number.
+3. Update `CHANGELOG.yml` with the release number.
 4. Add and commit the changed files, typically with `-m "Preparing for the next release, version X.Y.Z."`.
 
 IMPORTANT: We use the "Artsy Inc Account" not "ARTSY INC" - which is our enterprise account. For setting up these, consult [artsy/potential](https://github.com/artsy/potential/blob/master/mobile/mobile.md)

@@ -16,6 +16,7 @@ upcoming:
     - Ensured toolbar buttons fit on smaller devices in artwork view [orta]
     - Bug fix for additional artwork information arrow in white Folio [sarah]
     - VIR scale conformance for ipad [orta + sarah]
+    - Use a local Artworks count for detecting if you have no artworks on CMS [orta]
 
 releases:
   - version: 2.3.0
