@@ -235,23 +235,21 @@ describe(@"actions", ^{
 });
 
 
-SpecEnd
+SpecEnd;
 
-    id
-    stubbedCMSMonitorWithSyncRecommendation(BOOL recommendation)
+id stubbedCMSMonitorWithSyncRecommendation(BOOL recommendation)
 {
     ARCMSStatusMonitor *cmsMonitor = [[ARCMSStatusMonitor alloc] init];
     id mockMonitor = [OCMockObject partialMockForObject:cmsMonitor];
-    
-    [[mockMonitor stub] checkCMSForUpdates:[OCMArg checkWithBlock:^BOOL(void(^block)(BOOL)) {
+
+    [[mockMonitor stub] checkCMSForUpdates:[OCMArg checkWithBlock:^BOOL(void (^block)(BOOL)) {
         block(recommendation); return YES;
     }]];
-    
+
     return mockMonitor;
 }
 
-    id
-    stubbedTopVCWithDisplayMode(enum ARDisplayMode displayMode)
+id stubbedTopVCWithDisplayMode(enum ARDisplayMode displayMode)
 {
     OCMockObject *mockItem = [OCMockObject niceMockForClass:UINavigationItem.class];
 

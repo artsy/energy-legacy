@@ -13,6 +13,11 @@ NS_ENUM(NSInteger, ARDeviceType){
     ARDeviceTypePad};
 
 
+@interface UIScreen (Prvate)
+- (CGRect)_applicationFrameForInterfaceOrientation:(long long)arg1 usingStatusbarHeight:(double)arg2 ignoreStatusBar:(BOOL)ignore;
+@end
+
+
 @implementation ARTestContext
 
 + (void)runAsDevice:(enum ARDeviceType)device
@@ -45,7 +50,9 @@ NS_ENUM(NSInteger, ARDeviceType){
 
     ARPartialScreenMock = [OCMockObject partialMockForObject:UIScreen.mainScreen];
     NSValue *phoneSize = [NSValue valueWithCGRect:(CGRect)CGRectMake(0, 0, size.width, size.height)];
+
     [[[ARPartialScreenMock stub] andReturnValue:phoneSize] bounds];
+    [[[[ARPartialScreenMock stub] andReturnValue:phoneSize] ignoringNonObjectArgs] _applicationFrameForInterfaceOrientation:0 usingStatusbarHeight:0 ignoreStatusBar:NO];
 }
 
 + (void)endRunningAsDevice;
