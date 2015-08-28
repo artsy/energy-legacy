@@ -34,7 +34,7 @@ end
 
 
 # Nicities
-pod 'ObjectiveSugar', :git => 'https://github.com/supermarin/ObjectiveSugar'
+pod 'ObjectiveSugar', :git => 'https://github.com/supermarin/ObjectiveSugar.git'
 
 # Networking
 pod 'Reachability', '~> 3.0'
@@ -53,7 +53,7 @@ pod 'GHMarkdownParser', '0.0.1'
 pod 'GRMustache', '~> 7.0'
 
 # Analytics
-pod 'ARAnalytics', :subspecs => ['Segmentio', 'HockeyApp', 'Intercom'], :git => 'https://github.com/orta/ARAnalytics'
+pod 'ARAnalytics', :subspecs => ['Segmentio', 'HockeyApp', 'Intercom'], :git => 'https://github.com/orta/ARAnalytics.git'
 
 # Logging
 pod 'CocoaLumberjack', '~> 1.0'
@@ -69,7 +69,7 @@ pod 'ARCollectionViewMasonryLayout'
 pod 'FLKAutoLayout', '0.1.1'
 
 # This is not an Artsy project
-pod 'ARGenericTableViewController', :git => 'https://github.com/orta/ARGenericTableViewController'
+pod 'ARGenericTableViewController', :git => 'https://github.com/orta/ARGenericTableViewController.git'
 
 target 'ArtsyFolio Tests', :exclusive => true do
     pod 'Specta'
