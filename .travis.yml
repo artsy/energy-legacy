@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode61
+osx_image: xcode64
 cache:
   directories:
   - vendor/bundle
@@ -14,7 +14,7 @@ before_install:
 - echo "machine github.com login $GITHUB_API_KEY" > ~/.netrc
 - chmod 600 ~/.netrc
 
-install: 
+install:
  - bundle install --without=deployment --deployment --jobs=3 --retry=3
  - make ci_keys
  - bundle exec pod install

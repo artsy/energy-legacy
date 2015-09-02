@@ -1,24 +1,30 @@
 upcoming:
   version: 2.4.0
-  notes:
-    - Presents a message and a link to CMS for partners who haven't uploaded anything [sarah]
-    - Generates a 'For Sale Works' album [sarah]
-    - Fix for Settings button not going back to default state [orta]
-    - Devs now have their own analytics, and Intercom will show on first install [orta]
-    - Presents notification in toolbar when partner has logged into CMS since last sync [sarah]
-    - No more autosyncing [sarah]
-    - New button for artworks that prompts user to use CMS for editing [sarah]
-    - Bug fix for installation image size in generated emails [sarah]
-    - Optional confidential notes in artwork metadata view [sarah]
-    - EditionSets added to Artworks [sarah]
-    - Edition information displayed for artworks [sarah]
-    - Show edition information in emails [orta]
-    - Ensured toolbar buttons fit on smaller devices in artwork view [orta]
-    - Bug fix for additional artwork information arrow in white Folio [sarah]
-    - VIR scale conformance for ipad [orta + sarah]
-    - Use a local Artworks count for detecting if you have no artworks on CMS [orta]
+    notes:
+      - iOS8 is the new deployment target, and OS baseline [orta]
 
 releases:
+  -
+    version: 2.4.0
+    date: Aug 24th 2015
+    notes:
+      - Presents a message and a link to CMS for partners who haven't uploaded anything [sarah]
+      - Generates a 'For Sale Works' album [sarah]
+      - Fix for Settings button not going back to default state [orta]
+      - Devs now have their own analytics, and Intercom will show on first install [orta]
+      - Presents notification in toolbar when partner has logged into CMS since last sync [sarah]
+      - No more autosyncing [sarah]
+      - New button for artworks that prompts user to use CMS for editing [sarah]
+      - Bug fix for installation image size in generated emails [sarah]
+      - Optional confidential notes in artwork metadata view [sarah]
+      - EditionSets added to Artworks [sarah]
+      - Edition information displayed for artworks [sarah]
+      - Show edition information in emails [orta]
+      - Ensured toolbar buttons fit on smaller devices in artwork view [orta]
+      - Bug fix for additional artwork information arrow in white Folio [sarah]
+      - VIR scale conformance for ipad [orta + sarah]
+      - Use a local Artworks count for detecting if you have no artworks on CMS [orta]
+
   - version: 2.3.0
     date: May 30 2015
     notes:
@@ -55,7 +61,7 @@ releases:
       - Emails have the option of emailing CMS prices [orta]
       - Shows the full description of all metadata in the info popover [orta]
       - Shows up-to 2 lines of text in the bottom artwork info bar [orta]
-  
+
   - version: 2.1.0
     date: April 8 2015
     notes:
@@ -74,7 +80,7 @@ releases:
       - Crash Resilience in sync. [orta]
       - Taken a second shot at crash resilience in a more maintainable for the future route. [orta]
       - Remove rotation on iPad for now, due to popover craziness [orta]
-    
+
 
   - version: 2.0.0
     date: Jan 27 2015
@@ -131,7 +137,7 @@ releases:
     notes:
       - Support for multi-line signature & greetings
       - Fix generating Shows/Albums that Artists are in
-      - Adds an Option for hiding Artworks that are not for sale 
+      - Adds an Option for hiding Artworks that are not for sale
       - Consolidated all options into Admin settingsVC
       - Improved email template
 
@@ -150,13 +156,13 @@ releases:
       - Add to Album Section
       - Massive Sync changes, speeds things up 3-4 times
       - Removes base class from most view controllers
-      - iOS7 split. 
+      - iOS7 split.
       - Refactoring internals
 
 
   - version: 1.5.1
     date: July 9 2014
-    notes:  
+    notes:
       - Work selection animation
       - Artwork Email has send button at bottom
       - TOS update
@@ -171,7 +177,7 @@ releases:
       - More space for artwork info in additional information popover
       - Sync resilience to large Artwork sets
       - Sorting of artworks
-      - Significant performance increases 
+      - Significant performance increases
       - detail view simplification
       - Admins can choose their own partners
       - Logout
