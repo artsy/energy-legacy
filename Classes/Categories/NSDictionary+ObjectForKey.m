@@ -59,7 +59,7 @@ static ISO8601DateFormatter *dateFormatter;
         return object;
     }
     // could still be a string
-    if ([object isKindOfClass:[NSString class]]) {
+    if (![object isEqualToString:@""] && [object isKindOfClass:[NSString class]]) {
         return [NSDecimalNumber decimalNumberWithString:object];
     }
     return nil;
