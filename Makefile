@@ -3,8 +3,8 @@ artsy:
 	git submodule update
 	config/spacecommander/setup-repo.sh
 
-oss: 
-	bundle -v >/dev/null 2>&1 || { echo "Energy requires bundler, but it's not installed.  You can install it via '[sudo] gem install bundler'. If you are new to ruby, we *strongly* recommedn using a sudo-less installation: https://guides.cocoapods.org/using/getting-started.html#sudo-less-installation" >&2; exit 1; }
+oss:
+	bundle -v >/dev/null 2>&1 || { echo "Energy requires bundler, but it's not installed.  You can install it via '[sudo] gem install bundler'. If you are new to ruby, we *strongly* recommend using a sudo-less installation: https://guides.cocoapods.org/using/getting-started.html#sudo-less-installation" >&2; exit 1; }
 	xcode-select -p >/dev/null 2>&1 || { echo "Energy requires that Apple's command line Xcode tools are installed.  You can install them by running: 'xcode-select --install'. " >&2; exit 1; }
 	bundle install
 	$(MAKE) ci_keys
@@ -40,4 +40,4 @@ fpush:
 	if [ "$(LOCAL_BRANCH)" == "master" ]; then echo "In master, not pushing"; else git push origin $(LOCAL_BRANCH):$(BRANCH) --force; fi
 
 test:
-	set -o pipefail && xcodebuild -destination "OS=7.1,name=iPad Retina" -scheme "ArtsyFolio" -workspace "Artsy Folio.xcworkspace" test GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty --color --test
+	set -o pipefail && xcodebuild -destination "OS=8.4,name=iPad Retina" -scheme "ArtsyFolio" -workspace "Artsy Folio.xcworkspace" test GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty --color --test

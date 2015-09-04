@@ -5,11 +5,11 @@ unless ENV['HOCKEY_API_TOKEN'] && ENV['SLACK_URL']
 end
 
 lane :build_for_test do
-  xcodebuild scheme: 'ArtsyFolio', destination: "OS=8.3,name=iPad Retina"
+  xcodebuild scheme: 'ArtsyFolio', destination: "OS=8.4,name=iPad Retina"
 end
 
 lane :test do
-  xctest destination: "OS=8.3,name=iPad Retina"
+  xctest destination: "OS=8.4,name=iPad Retina"
 end
 
 lane :build_for_beta do
