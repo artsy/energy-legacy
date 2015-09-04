@@ -67,7 +67,7 @@
 
     if ([artwork.inventoryID length]) {
         [artworkTitles addObject:@"Inventory ID"];
-        [artworkTexts addObject:[artwork.inventoryID stringByStrippingHTML]];
+        [artworkTexts addObject:artwork.inventoryID];
     }
 
     if ([artwork.confidentialNotes length] && [self.defaults boolForKey:ARShowConfidentialNotes]) {
