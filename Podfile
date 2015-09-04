@@ -49,7 +49,7 @@ pod 'WYPopoverController', :git => 'https://github.com/orta/WYPopoverController.
 pod 'JLRoutes'
 
 # Templating
-pod 'GHMarkdownParser', '0.0.1'
+pod 'GHMarkdownParser'
 pod 'GRMustache', '~> 7.0'
 
 # Analytics
