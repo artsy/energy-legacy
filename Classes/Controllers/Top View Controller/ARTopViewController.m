@@ -326,7 +326,7 @@ NS_ENUM(NSInteger, ARTopViewControllers){
         [[NSNotificationCenter defaultCenter] postNotificationName:ARDismissAllPopoversNotification object:nil];
 
         ARSettingsViewController *settingsViewController = [[ARSettingsViewController alloc] init];
-        settingsViewController.sync = self.sync;
+        [settingsViewController setSync:self.sync];
 
         ARSettingsNavigationController *navController = [[NSBundle mainBundle] loadNibNamed:@"ARSettingsNavigationController" owner:self options:nil][0];
         navController.viewControllers = @[ settingsViewController ];
