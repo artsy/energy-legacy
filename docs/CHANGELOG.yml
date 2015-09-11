@@ -1,9 +1,12 @@
 upcoming:
-  - version: 2.4.1
-    notes:
-      - Fix for Inventory ID being broken by HTML parsing [sarah]
 
 releases:
+  - version: 2.4.1
+    notes:
+      - Fix for sync visuals [sarah]
+      - Fix for view in room button enable on iPad [sarah]
+      - Fix for Inventory ID being broken by HTML parsing [sarah]
+
   - version: 2.4.0
     date: Sept 1 2015
     notes:
