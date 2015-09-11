@@ -225,7 +225,7 @@ static const NSInteger kHeightOfSettingsCell = 130;
     [ARAnalytics event:ARManualSyncStartEvent];
 
     self.syncButton.enabled = NO;
-    [self setupSyncUI];
+    [self setupForSyncInProgress];
 }
 
 - (void)syncDidFinish:(ARSync *)sync
@@ -243,10 +243,10 @@ static const NSInteger kHeightOfSettingsCell = 130;
 
     if (self.isOffline) {
         return ARSyncStatusOffline;
-    } else if ([self.defaults boolForKey:ARRecommendSync]) {
-        return ARSyncStatusRecommendSync;
     } else if (isSyncing) {
         return ARSyncStatusSyncing;
+    } else if ([self.defaults boolForKey:ARRecommendSync]) {
+        return ARSyncStatusRecommendSync;
     } else {
         return ARSyncStatusUpToDate;
     }
