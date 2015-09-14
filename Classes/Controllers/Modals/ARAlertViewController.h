@@ -1,6 +1,7 @@
-NS_ENUM(NSInteger, ARModalAlertViewControllerStatus){
+typedef NS_ENUM(NSInteger, ARModalAlertViewControllerStatus) {
     ARModalAlertOK,
-    ARModalAlertCancel};
+    ARModalAlertCancel
+};
 
 @protocol ARModalAlertViewControllerDelegate <NSObject>
 - (void)modalViewController:(UIViewController *)controller didReturnStatus:(enum ARModalAlertViewControllerStatus)status;

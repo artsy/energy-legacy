@@ -39,28 +39,28 @@ it(@"looks correct with sync recommendation", ^{
 
     controller.view.frame = (CGRect){0,0,controller.preferredContentSize};
 
-    expect(controller.view).to.haveValidSnapshot();
+    expect(controller.view).to.recordSnapshot();
 });
 
 it(@"looks correct offline", ^{
     [[[mockViewModel stub] andReturnValue:@(ARSyncStatusOffline)] syncStatus];
 
     controller.view.frame = (CGRect){0,0, controller.preferredContentSize};
-    expect(controller.view).to.haveValidSnapshot();
+    expect(controller.view).to.recordSnapshot();
 });
 
 it(@"looks correct when up-to-date", ^{
     [[[mockViewModel stub] andReturnValue:@(ARSyncStatusUpToDate)] syncStatus];
 
     controller.view.frame = (CGRect){0,0, controller.preferredContentSize};
-    expect(controller.view).to.haveValidSnapshot();
+    expect(controller.view).to.recordSnapshot();
 });
 
 it(@"looks correct when syncing", ^{
     [[[mockViewModel stub] andReturnValue:@(ARSyncStatusSyncing)] syncStatus];
 
     controller.view.frame = (CGRect){0,0, controller.preferredContentSize};
-    expect(controller.view).to.haveValidSnapshot();
+    expect(controller.view).to.recordSnapshot();
 });
 
 it(@"does not support tapping on the sync message", ^{
