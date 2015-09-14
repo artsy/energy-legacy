@@ -1,7 +1,7 @@
 upcoming:
-  - version: 2.4.1
-    notes:
-      - Fix for Inventory ID being broken by HTML parsing [sarah]
+  version: 2.4.0
+  notes:
+    - iOS8 is the new deployment target, and OS baseline [orta]
 
 releases:
   - version: 2.4.0

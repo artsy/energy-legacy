@@ -12,7 +12,7 @@ before(^{
     context = [CoreDataManager stubbedManagedObjectContext];
 });
 
-it(@"gets expected artist results from a context", ^{
+pending(@"gets expected artist results from a context", ^{
     Artist *artist = [ARModelFactory filledArtistInContext:context];
     CSSearchableIndex *index = [[CSSearchableIndex alloc] initWithName:@"Hi"];
     subject = [[ARSpotlightExporter alloc] initWithManagedObjectContext:context index:index];
@@ -24,7 +24,7 @@ it(@"gets expected artist results from a context", ^{
     expect([item.attributeSet title]).to.equal(artist.gridTitle);
 });
 
-it(@"gets expected artist results from a context", ^{
+pending(@"gets expected artist results from a context", ^{
     Artwork *artwork = [ARModelFactory fullArtworkInContext:context];
 
     CSSearchableIndex *index = [[CSSearchableIndex alloc] initWithName:@"Hi"];
