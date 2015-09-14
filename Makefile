@@ -40,4 +40,4 @@ fpush:
 	if [ "$(LOCAL_BRANCH)" == "master" ]; then echo "In master, not pushing"; else git push origin $(LOCAL_BRANCH):$(BRANCH) --force; fi
 
 test:
-	set -o pipefail && xcodebuild -destination "OS=8.4,name=iPad Retina" -scheme "ArtsyFolio" -workspace "Artsy Folio.xcworkspace" test GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty --color --test
+	set -o pipefail && xcodebuild -destination "OS=8.4,name=iPad Retina" -scheme "ArtsyFolio" -workspace "Artsy Folio.xcworkspace" build test GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty --color --test
