@@ -12,5 +12,6 @@ group :deployment do
   gem "fastlane"
 end
 
-# gem "slather"
-# gem "slather", :path => "/Users/orta/dev/ruby/slather"
+group :ci do
+  gem "slather"
+end

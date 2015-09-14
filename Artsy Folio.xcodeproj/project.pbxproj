@@ -490,6 +490,7 @@
 		6DFF9C8326627CA617077EDF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E71031C9A854A6098F11F57A /* libPods.a */; };
 		8305D6801AE05168004A270E /* ARThumbnailImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8305D67F1AE05168004A270E /* ARThumbnailImageScrollView.m */; };
 		8312011E1B73C3F600E1A988 /* ARViewInRoomViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8312011D1B73C3F600E1A988 /* ARViewInRoomViewTests.m */; };
+		83272D121B99365E0083D9C4 /* ArtworkModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83272D111B99365E0083D9C4 /* ArtworkModelTests.m */; };
 		833023041B448CF800C97266 /* close_window.png in Resources */ = {isa = PBXBuildFile; fileRef = 833023031B448CF800C97266 /* close_window.png */; };
 		833023061B4492C900C97266 /* EditInCMSScreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 833023051B4492C900C97266 /* EditInCMSScreenshot.png */; };
 		833104DB1B43316600B68E52 /* ARFolioImageMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833104DA1B43316600B68E52 /* ARFolioImageMessageViewController.xib */; };
@@ -1348,6 +1349,7 @@
 		8305D67E1AE05168004A270E /* ARThumbnailImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARThumbnailImageScrollView.h; sourceTree = "<group>"; };
 		8305D67F1AE05168004A270E /* ARThumbnailImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARThumbnailImageScrollView.m; sourceTree = "<group>"; };
 		8312011D1B73C3F600E1A988 /* ARViewInRoomViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARViewInRoomViewTests.m; sourceTree = "<group>"; };
+		83272D111B99365E0083D9C4 /* ArtworkModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkModelTests.m; sourceTree = "<group>"; };
 		833023031B448CF800C97266 /* close_window.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = close_window.png; path = Navigation/close_window.png; sourceTree = "<group>"; };
 		833023051B4492C900C97266 /* EditInCMSScreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EditInCMSScreenshot.png; sourceTree = "<group>"; };
 		833104DA1B43316600B68E52 /* ARFolioImageMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFolioImageMessageViewController.xib; sourceTree = "<group>"; };
@@ -1784,6 +1786,7 @@
 				60D7A19F1A66F1F00036F11F /* PartnerOptionModelTestsTests.m */,
 				60E7E2DE1ABB2392007EAA8A /* ShowModelTests.m */,
 				609C27511AE81FAD00E40D1F /* ARArtworkContainerCoverDataSourceTests.m */,
+				83272D111B99365E0083D9C4 /* ArtworkModelTests.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -3753,6 +3756,7 @@
 				60B2866A19AA925A0014857F /* ARDocumentPreviewViewControllerTests.m in Sources */,
 				B3DBEDE0185A74A700C345A1 /* ARImageDownloaderTests.m in Sources */,
 				603AEA0B18E21FA2004AEBF8 /* OHHTTPStubs+QuickStubs.m in Sources */,
+				83272D121B99365E0083D9C4 /* ArtworkModelTests.m in Sources */,
 				6044737C1A24FCED008A4AF0 /* UIViewController+LoadViews.m in Sources */,
 				60E1C97019B0030600B748FD /* AREditAlbumArtistViewControllerTests.m in Sources */,
 				609715DB19ACC1A700970DBE /* ARSelectionToolbarViewTests.m in Sources */,

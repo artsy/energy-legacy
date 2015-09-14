@@ -1,4 +1,3 @@
-ci_service: travis_pro
 coverage_service: coveralls
 xcodeproj: Artsy Folio.xcodeproj
 source_directory: Classes

@@ -32,6 +32,14 @@ void (^setupSUTWithArtwork)(Artwork *artwork) = ^(Artwork *artwork) {
 
 describe(@"with metadata", ^{
 
+    it(@"doesn't mess up inventory IDs using HTML chars", ^{
+        Artwork *artwork = [Artwork stubbedModelFromJSON: @{ ARFeedInventoryIDKey: @"MI&N 12345" }];
+        setupSUTWithArtwork(artwork);
+
+        UILabel *inventoryIDLabel = [sut.subviews.firstObject subviews][1];
+        expect(inventoryIDLabel.text).to.equal(@"MI&N 12345");
+    });
+
     it(@"barely-filled artwork", ^{
         Artwork *artwork = [Artwork stubbedModelFromJSON: @{
            @"signature": @"Signature that is long enough so that on an ipad it should be full length"
