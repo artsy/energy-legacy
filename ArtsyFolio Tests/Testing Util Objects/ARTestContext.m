@@ -13,7 +13,26 @@ NS_ENUM(NSInteger, ARDeviceType){
     ARDeviceTypePad};
 
 
+@interface UIScreen (Prvate)
+- (CGRect)_applicationFrameForInterfaceOrientation:(long long)arg1 usingStatusbarHeight:(double)arg2 ignoreStatusBar:(BOOL)ignore;
+@end
+
+
 @implementation ARTestContext
+
++ (void)load;
+{
+    NSInteger osVersion = 8;
+    NSInteger minorVersion = 4;
+    NSOperatingSystemVersion version = [NSProcessInfo processInfo].operatingSystemVersion;
+    BOOL isRightVersion = version.majorVersion == osVersion && version.minorVersion == minorVersion;
+
+    NSAssert(isRightVersion, @"The tests should be run on iOS %ld.%ld, not %ld.%ld", osVersion, minorVersion, version.majorVersion, version.minorVersion);
+
+    CGSize nativeResolution = [UIScreen mainScreen].nativeBounds.size;
+    NSAssert([UIDevice isPad], @"The tests should be run on an iPad Retina");
+}
+
 
 + (void)runAsDevice:(enum ARDeviceType)device
 {
@@ -45,7 +64,9 @@ NS_ENUM(NSInteger, ARDeviceType){
 
     ARPartialScreenMock = [OCMockObject partialMockForObject:UIScreen.mainScreen];
     NSValue *phoneSize = [NSValue valueWithCGRect:(CGRect)CGRectMake(0, 0, size.width, size.height)];
+
     [[[ARPartialScreenMock stub] andReturnValue:phoneSize] bounds];
+    [[[[ARPartialScreenMock stub] andReturnValue:phoneSize] ignoringNonObjectArgs] _applicationFrameForInterfaceOrientation:0 usingStatusbarHeight:0 ignoreStatusBar:NO];
 }
 
 + (void)endRunningAsDevice;
