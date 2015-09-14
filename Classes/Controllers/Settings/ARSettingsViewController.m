@@ -230,7 +230,7 @@ static const NSInteger kHeightOfSettingsCell = 130;
     [ARAnalytics event:ARManualSyncStartEvent];
 
     self.syncButton.enabled = NO;
-    [self setupForSyncInProgress];
+    [self updateSyncUI];
 }
 
 #pragma mark -
@@ -238,64 +238,42 @@ static const NSInteger kHeightOfSettingsCell = 130;
 
 - (void)updateSyncUI
 {
-    self.syncActivityView.alpha = 0;
+    self.syncStatusLabel.text = self.syncStatusViewModel.titleText;
+    self.syncStatusSubtitleLabel.text = self.syncStatusViewModel.subtitleText;
 
-    switch (self.syncStatusViewModel.syncStatus) {
-        case ARSyncStatusOffline:
-            [self setupForNoConnectivity];
+    if (self.syncStatusViewModel.shouldShowSyncButton) [self configureSyncButton];
+    else self.syncButton.alpha = 0;
+
+    self.syncActivityView.alpha = self.syncStatusViewModel.syncActivityViewAlpha;
+
+    switch (self.syncStatusViewModel.currentSyncImageNotification) {
+        case ARSyncImageNotificationRecommendSync:
+            [self setupCircleImageView];
             break;
-
-        case ARSyncStatusRecommendSync:
-            [self setupWithSyncRecommendation];
+        case ARSyncImageNotificationUpToDate:
+            [self setupCheckImageView];
             break;
-
-        case ARSyncStatusSyncing:
-            [self setupForSyncInProgress];
-            break;
-
-        case ARSyncStatusUpToDate:
-            [self setupForContentUpToDate];
+        case ARSyncImageNotificationNone:
+            self.syncNotificationImage.alpha = 0;
             break;
     }
 }
 
-- (void)setupWithSyncRecommendation
+- (void)configureSyncButton
 {
-    self.syncStatusLabel.text = [self.syncStatusViewModel titleTextForStatus:ARSyncStatusRecommendSync];
-    self.syncStatusSubtitleLabel.text = [self.syncStatusViewModel subtitleTextForStatus:ARSyncStatusRecommendSync];
+    [self.syncButton setTitle:self.syncStatusViewModel.syncButtonTitle forState:UIControlStateNormal];
 
-    self.syncButton.backgroundColor = [UIColor artsyPurple];
-    self.syncButton.borderColor = [UIColor artsyPurple];
-    [self.syncButton setTitle:[self.syncStatusViewModel syncButtonTitleForStatus:ARSyncStatusRecommendSync] forState:UIControlStateNormal];
-    [self enableSyncButton];
+    BOOL enableSyncButton = self.syncStatusViewModel.shouldEnableSyncButton;
+    self.syncButton.alpha = enableSyncButton ? 1 : 0.5;
+    self.syncButton.userInteractionEnabled = enableSyncButton;
 
-    self.syncNotificationImage.layer.cornerRadius = self.syncNotificationImage.frame.size.height / 2;
-    self.syncNotificationImage.backgroundColor = [UIColor artsyPurple];
+    UIColor *buttonColor = self.syncStatusViewModel.syncButtonColor;
+    self.syncButton.backgroundColor = buttonColor;
+    self.syncButton.borderColor = buttonColor;
 }
 
-- (void)setupForSyncInProgress
+- (void)setupCheckImageView
 {
-    self.syncStatusLabel.text = [self.syncStatusViewModel titleTextForStatus:ARSyncStatusSyncing];
-    self.syncStatusSubtitleLabel.alpha = 0;
-    
-    self.syncButton.alpha = 0;
-
-    self.syncActivityView.alpha = 1;
-
-    self.syncNotificationImage.alpha = 0;
-}
-
-- (void)setupForContentUpToDate
-{
-    self.syncStatusLabel.text = [self.syncStatusViewModel titleTextForStatus:ARSyncStatusUpToDate];
-    self.syncStatusSubtitleLabel.text = [self.syncStatusViewModel subtitleTextForStatus:ARSyncStatusUpToDate];
-    self.syncStatusSubtitleLabel.alpha = 1;
-
-    self.syncButton.backgroundColor = [UIColor artsyHeavyGrey];
-    self.syncButton.borderColor = [UIColor artsyHeavyGrey];
-    [self.syncButton setTitle:[self.syncStatusViewModel syncButtonTitleForStatus:ARSyncStatusUpToDate] forState:UIControlStateNormal];
-    [self enableSyncButton];
-
     UIImage *check = [[UIImage imageNamed:@"check-active"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.syncNotificationImage.image = check;
     self.syncNotificationImage.tintColor = [UIColor artsyHighlightGreen];
@@ -303,22 +281,11 @@ static const NSInteger kHeightOfSettingsCell = 130;
     self.syncNotificationImage.alpha = 1;
 }
 
-- (void)setupForNoConnectivity
+- (void)setupCircleImageView
 {
-    self.syncStatusLabel.text = [self.syncStatusViewModel titleTextForStatus:ARSyncStatusOffline];
-    self.syncStatusSubtitleLabel.text = [self.syncStatusViewModel subtitleTextForStatus:ARSyncStatusOffline];
-
-    self.syncButton.alpha = 0.5;
-    self.syncButton.userInteractionEnabled = NO;
-
-    self.syncActivityView.alpha = 0;
-    self.syncNotificationImage.alpha = 0;
-}
-
-- (void)enableSyncButton
-{
-    self.syncButton.alpha = 1.0;
-    self.syncButton.userInteractionEnabled = YES;
+    self.syncNotificationImage.layer.cornerRadius = self.syncNotificationImage.frame.size.height / 2;
+    self.syncNotificationImage.backgroundColor = [UIColor artsyPurple];
+    self.syncNotificationImage.alpha = 1;
 }
 
 - (CGSize)preferredContentSize

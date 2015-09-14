@@ -45,21 +45,53 @@
 
     if (isOffline) {
         return ARSyncStatusOffline;
-    } else if ([self.defaults boolForKey:ARRecommendSync]) {
-        return ARSyncStatusRecommendSync;
     } else if (self.sync.isSyncing) {
         return ARSyncStatusSyncing;
+    } else if ([self.defaults boolForKey:ARRecommendSync]) {
+        return ARSyncStatusRecommendSync;
     } else {
         return ARSyncStatusUpToDate;
     }
 }
 
 #pragma mark -
+#pragma mark sync button
+
+- (BOOL)shouldEnableSyncButton
+{
+    return !(self.syncStatus == ARSyncStatusOffline);
+}
+
+- (BOOL)shouldShowSyncButton
+{
+    return !(self.syncStatus == ARSyncStatusSyncing);
+}
+
+- (UIColor *)syncButtonColor
+{
+    if (self.syncStatus == ARSyncStatusRecommendSync) return [UIColor artsyPurple];
+    return [UIColor artsyHeavyGrey];
+}
+
+- (CGFloat)syncActivityViewAlpha
+{
+    if (self.syncStatus == ARSyncStatusSyncing) return 1;
+    return 0;
+}
+
+- (ARSyncImageNotification)currentSyncImageNotification
+{
+    if (self.syncStatus == ARSyncStatusUpToDate) return ARSyncImageNotificationUpToDate;
+    else if (self.syncStatus == ARSyncStatusRecommendSync) return ARSyncImageNotificationRecommendSync;
+    else return ARSyncImageNotificationNone;
+}
+
+#pragma mark -
 #pragma mark text methods
 
-- (NSString *)titleTextForStatus:(ARSyncStatus)status
+- (NSString *)titleText
 {
-    switch (status) {
+    switch (self.syncStatus) {
         case ARSyncStatusOffline:
             return [self lastSyncedString];
 
@@ -74,9 +106,9 @@
     }
 }
 
-- (NSString *)subtitleTextForStatus:(ARSyncStatus)status
+- (NSString *)subtitleText
 {
-    switch (status) {
+    switch (self.syncStatus) {
         case ARSyncStatusOffline:
             return  NSLocalizedString(@"Syncing is not available offline", @"Label that tells user they cannot sync without a network connection");
 
@@ -91,9 +123,9 @@
     }
 }
 
-- (NSString *)syncButtonTitleForStatus:(ARSyncStatus)status
+- (NSString *)syncButtonTitle
 {
-    if (status == ARSyncStatusRecommendSync) return NSLocalizedString(@"Sync New Content", @"Sync button text when we're recommending a sync");
+    if (self.syncStatus == ARSyncStatusRecommendSync) return NSLocalizedString(@"Sync New Content", @"Sync button text when we're recommending a sync");
 
     return NSLocalizedString(@"Sync Content", @"Sync button text after syncing completed");
 }

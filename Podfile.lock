@@ -44,7 +44,7 @@ PODS:
   - FBSnapshotTestCase/Core (2.0.3)
   - FLKAutoLayout (0.1.1)
   - Forgeries (0.2.0)
-  - GHMarkdownParser (0.0.1)
+  - GHMarkdownParser (0.1.2)
   - GRMustache (7.3.0):
     - JRSwizzle (~> 1.0)
   - HockeySDK-Source (3.7.3)
@@ -53,7 +53,6 @@ PODS:
   - JLRoutes (1.5.2)
   - JRSwizzle (1.0)
   - Keys (1.0.0)
-  - KVOController (1.0.3)
   - libextobjc/EXTKeyPathCoding (0.4.1):
     - libextobjc/RuntimeExtensions
   - libextobjc/EXTScope (0.4.1):
@@ -99,12 +98,11 @@ DEPENDENCIES:
   - Expecta+Snapshots (= 2.0.0)
   - FLKAutoLayout (= 0.1.1)
   - Forgeries
-  - GHMarkdownParser (= 0.0.1)
+  - GHMarkdownParser
   - GRMustache (~> 7.0)
   - ISO8601DateFormatter (~> 0.7)
   - JLRoutes
   - Keys (from `Pods/CocoaPodsKeys/`)
-  - KVOController
   - libextobjc/EXTKeyPathCoding (~> 0.3)
   - libextobjc/EXTScope (~> 0.3)
   - ObjectiveSugar (from `https://github.com/supermarin/ObjectiveSugar.git`)
@@ -179,7 +177,7 @@ SPEC CHECKSUMS:
   FBSnapshotTestCase: d0eeca6bf87958e088b254396ae66873f971cfb1
   FLKAutoLayout: 95b12c5cd9652100235140b68652f063f7437851
   Forgeries: 8a2ff88a8c05ac1b82488d1c47a154f8decf7bc8
-  GHMarkdownParser: 8b1a0e1d0c28e15a2696030054fdd2aa1562b6da
+  GHMarkdownParser: 14cbf59d0ab9450017d843dffd4a3ef691e5bd77
   GRMustache: 6baee020c5644416c034f5afb1607f6219e7f753
   HockeySDK-Source: 2ed30df0d39d9ffe5aeed4deda8000a20fdcce54
   Intercom: cca76c492f181a8f8261bc0ec98d03ae3102270d
@@ -187,7 +185,6 @@ SPEC CHECKSUMS:
   JLRoutes: fc36fd38ab476d5ac3a6a84b05be60e4b1a2bc81
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
   Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
-  KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   ObjectiveSugar: 0729eb74a757ea48b109a8902178c9b89aa58a9f
   OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
