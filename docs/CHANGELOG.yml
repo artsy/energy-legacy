@@ -1,12 +1,11 @@
 upcoming:
   version: 2.4.0
-    notes:
-      - iOS8 is the new deployment target, and OS baseline [orta]
+  notes:
+    - iOS8 is the new deployment target, and OS baseline [orta]
 
 releases:
-  -
-    version: 2.4.0
-    date: Aug 24th 2015
+  - version: 2.4.0
+    date: Sept 1 2015
     notes:
       - Presents a message and a link to CMS for partners who haven't uploaded anything [sarah]
       - Generates a 'For Sale Works' album [sarah]
