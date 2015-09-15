@@ -390,6 +390,7 @@
 		60B95A821AC5FB80008AF85E /* ARGroupedTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B95A811AC5FB80008AF85E /* ARGroupedTableViewHeader.m */; };
 		60BA589E153C21D8005E0576 /* ARAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BA589C153C21D7005E0576 /* ARAlertViewController.m */; };
 		60BA58A0153C21D8005E0576 /* ARAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BA589D153C21D8005E0576 /* ARAlertViewController.xib */; };
+		60BAAB0E1BA868B000CE042B /* ARIntercomProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BAAB0D1BA868B000CE042B /* ARIntercomProvider.m */; };
 		60BDA97914DC06E500852753 /* DoneButtonBackgroundTransparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BDA97814DC06E500852753 /* DoneButtonBackgroundTransparent.png */; };
 		60C149551500EAD800D6715D /* ARNewAlbumModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C149531500EAD800D6715D /* ARNewAlbumModalViewController.m */; };
 		60C1495B1500EFB100D6715D /* ARBaseViewController+TransparentModals.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C1495A1500EFB100D6715D /* ARBaseViewController+TransparentModals.m */; };
@@ -1193,6 +1194,8 @@
 		60BA589B153C21D7005E0576 /* ARAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAlertViewController.h; sourceTree = "<group>"; };
 		60BA589C153C21D7005E0576 /* ARAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAlertViewController.m; sourceTree = "<group>"; };
 		60BA589D153C21D8005E0576 /* ARAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARAlertViewController.xib; sourceTree = "<group>"; };
+		60BAAB0C1BA868B000CE042B /* ARIntercomProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARIntercomProvider.h; sourceTree = "<group>"; };
+		60BAAB0D1BA868B000CE042B /* ARIntercomProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARIntercomProvider.m; sourceTree = "<group>"; };
 		60BDA97814DC06E500852753 /* DoneButtonBackgroundTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneButtonBackgroundTransparent.png; sourceTree = "<group>"; };
 		60BF8F5A199A8F390031200B /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		60BF8F5C199A8F410031200B /* libPods-ArtsyFolio Tests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ArtsyFolio Tests.a"; path = "Pods/build/Debug-iphoneos/libPods-ArtsyFolio Tests.a"; sourceTree = "<group>"; };
@@ -2438,6 +2441,15 @@
 			path = "Custom Controls";
 			sourceTree = "<group>";
 		};
+		60BAAB0B1BA8689500CE042B /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				60BAAB0C1BA868B000CE042B /* ARIntercomProvider.h */,
+				60BAAB0D1BA868B000CE042B /* ARIntercomProvider.m */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
 		60C777511B0E158900BEFA97 /* Application Startup */ = {
 			isa = PBXGroup;
 			children = (
@@ -3308,6 +3320,7 @@
 		D8FAA8D61442893500AA34BC /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				60BAAB0B1BA8689500CE042B /* Analytics */,
 				6055B7831872E20B0043B937 /* Migrations */,
 				6055B7821872E1F70043B937 /* Debugging */,
 				6055B7811872E1F00043B937 /* App */,
@@ -4069,6 +4082,7 @@
 				494D50EA173025F100D77AEB /* ARSortDefinition.m in Sources */,
 				60117F811917F6BE0072E500 /* _Artwork.m in Sources */,
 				494FE8DF1731D7E500568394 /* ARSortViewController.m in Sources */,
+				60BAAB0E1BA868B000CE042B /* ARIntercomProvider.m in Sources */,
 				609502481844101C00495CFC /* ARTheme.m in Sources */,
 				4137E7B817304ED000D85A93 /* ARLogoutManager.m in Sources */,
 				411D96DA1731528B00598854 /* ARLogoutViewController.m in Sources */,
