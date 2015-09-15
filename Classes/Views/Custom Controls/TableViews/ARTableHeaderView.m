@@ -1,3 +1,5 @@
+@import Artsy_UIFonts;
+
 #import "ARTableHeaderView.h"
 
 static CGFloat HeightOfSearchHeaders = 40.0;

@@ -1,3 +1,5 @@
+@import Artsy_UIFonts;
+
 #import "ARMailSettingsViewController.h"
 #import "ARSupportSettingsViewController.h"
 #import "ARSettingsViewController.h"

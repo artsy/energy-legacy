@@ -1,3 +1,4 @@
+@import Artsy_UIFonts;
 #import "ARSansSerifTextField.h"
 
 

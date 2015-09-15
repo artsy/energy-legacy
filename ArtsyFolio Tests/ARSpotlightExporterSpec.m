@@ -1,6 +1,6 @@
 #if __has_include(<CoreSpotlight/CoreSpotlight.h>)
 
-#import <CoreSpotlight/CoreSpotlight.h>
+@import CoreSpotlight;
 #import "ARSpotlightExporter.h"
 
 SpecBegin(ARSpotlightExporter);

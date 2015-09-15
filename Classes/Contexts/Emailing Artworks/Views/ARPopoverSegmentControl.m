@@ -1,3 +1,5 @@
+@import Artsy_UIFonts;
+
 #import "ARPopoverSegmentControl.h"
 #import "UIImage+ImageFromColor.h"
 

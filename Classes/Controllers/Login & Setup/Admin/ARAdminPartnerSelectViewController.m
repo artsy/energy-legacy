@@ -1,4 +1,6 @@
-#import <AFNetworking/AFJSONRequestOperation.h>
+@import AFNetworking;
+@import Artsy_UIFonts;
+
 #import "ARAdminPartnerSelectViewController.h"
 #import "NSDictionary+QueryString.h"
 #import "ARRouter.h"

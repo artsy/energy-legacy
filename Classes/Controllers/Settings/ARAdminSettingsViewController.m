@@ -1,3 +1,4 @@
+@import Artsy_UIFonts;
 #import "ARAdminSettingsViewController.h"
 #import "AROptions.h"
 #import "ARTableViewCell.h"

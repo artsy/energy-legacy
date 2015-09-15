@@ -1,3 +1,4 @@
+@import Artsy_UIFonts;
 #import "ARFlatButton.h"
 #import "UIImage+ImageFromColor.h"
 

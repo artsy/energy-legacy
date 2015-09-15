@@ -1,3 +1,5 @@
+@import Artsy_UIFonts;
+
 #import "ARSearchViewController.h"
 #import "ARGridViewController.h"
 #import "ARTableHeaderView.h"

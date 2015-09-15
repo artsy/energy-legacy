@@ -1,3 +1,4 @@
+@import Artsy_UIFonts;
 #import "AREditAlbumViewController.h"
 #import "ARNavigationController.h"
 #import "ARSelectionHandler.h"

@@ -1,3 +1,5 @@
+@import Artsy_UIFonts;
+
 #import "ARSortViewController.h"
 #import "ARTickedTableViewCell.h"
 #import "ARTableHeaderView.h"

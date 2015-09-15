@@ -1,3 +1,5 @@
+@import Artsy_UIFonts;
+
 #import "ARPadViewInRoomViewController.h"
 #import "ARViewInRoomView.h"
 #import "ARArtworkSetViewController.h"

@@ -1,3 +1,5 @@
+@import Artsy_UIFonts;
+
 #import "ARTabbedViewController.h"
 #import "ARSelectionHandler.h"
 #import "ARSortViewController.h"

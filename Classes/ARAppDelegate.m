@@ -1,8 +1,10 @@
+@import HockeySDK_Source;
+@import JLRoutes;
+
 #import "ARAppDelegate.h"
 #import "ARUserManager.h"
 #import "ARRouter.h"
 #import "ARSwitchBoard.h"
-#import <JLRoutes/JLRoutes.h>
 #import "AROptions.h"
 
 #import "ARSync.h"
@@ -14,7 +16,6 @@
 #import "ARLogoutManager.h"
 #import "ARTheme.h"
 #import "ARAppDelegate+DevTools.h"
-#import <HockeySDK-Source/BITHockeyManager.h>
 
 void uncaughtExceptionHandler(NSException *exception);
 

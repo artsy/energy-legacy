@@ -1,3 +1,5 @@
+@import Artsy_UIFonts;
+
 #import "ARUnderLinedSwitchView.h"
 
 

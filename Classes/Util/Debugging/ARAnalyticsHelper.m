@@ -2,8 +2,7 @@
 #import <Analytics/SEGAnalytics.h>
 #import "SubscriptionPlan.h"
 #import <Keys/FolioKeys.h>
-#import <Intercom/Intercom.h>
-#import <ARAnalytics/IntercomProvider.h>
+@import Intercom;
 
 static NSString *currentUserEmail;
 
@@ -33,13 +32,15 @@ static NSString *currentUserEmail;
     [ARAnalytics setupWithAnalytics:@{
         ARHockeyAppBetaID : [keys hockeyAppBetaID],
         ARHockeyAppLiveID : [keys hockeyAppLiveID],
-        ARIntercomAppID : [keys intercomAppID],
-        ARIntercomAPIKey : [keys intercomAPIKey],
         ARSegmentioWriteKey : segment
     }];
 
-    IntercomProvider *provider = (id)[ARAnalytics providerInstanceOfClass:IntercomProvider.class];
-    provider.registerTrackedEvents = NO;
+#warning !!!!!!!!!!! INTERCOM
+    //         ARIntercomAppID : [keys intercomAppID],
+    //     ARIntercomAPIKey : [keys intercomAPIKey],
+
+    // IntercomProvider *provider = (id)[ARAnalytics providerInstanceOfClass:IntercomProvider.class];
+    // provider.registerTrackedEvents = NO;
 
     if ([User currentUser]) {
         [self storeUserDetails:[User currentUser]];

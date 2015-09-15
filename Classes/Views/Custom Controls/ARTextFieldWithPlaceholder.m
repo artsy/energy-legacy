@@ -1,3 +1,4 @@
+@import Artsy_UIFonts;
 #import "ARTextFieldWithPlaceholder.h"
 
 #define CLEAR_BUTTON_TAG 0xbada55

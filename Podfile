@@ -1,7 +1,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/artsy/Specs.git'
 
-platform :ios, '7.0'
+platform :ios, '8.0'
+use_frameworks!
 
 # Yep.
 inhibit_all_warnings!
@@ -38,7 +39,7 @@ pod 'ObjectiveSugar', :git => 'https://github.com/supermarin/ObjectiveSugar.git'
 
 # Networking
 pod 'Reachability', '~> 3.0'
-pod 'AFNetworking', '~> 1.0'
+pod 'AFNetworking', :git => "https://github.com/orta/AFNetworking", :branch => "no_ifdefs"
 pod 'ISO8601DateFormatter', '~> 0.7'
 
 # Misc
@@ -53,7 +54,9 @@ pod 'GHMarkdownParser'
 pod 'GRMustache', '~> 7.0'
 
 # Analytics
-pod 'ARAnalytics', :subspecs => ['Segmentio', 'HockeyApp', 'Intercom'], :git => 'https://github.com/orta/ARAnalytics.git'
+pod 'ARAnalytics', :subspecs => ['Segmentio', 'HockeyApp'], :git => 'https://github.com/orta/ARAnalytics.git'
+
+pod 'Intercom'
 
 # Logging
 pod 'CocoaLumberjack', '~> 1.0'
