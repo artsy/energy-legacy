@@ -10,6 +10,8 @@
 #import "ARGridViewDataSource.h"
 #import "ARImageGridViewItem.h"
 #import "ARSettingsNavigationController.h"
+#import "AROptions.h"
+#import "ARLabSettingsSplitViewController.h"
 
 NS_ENUM(NSInteger, ARTopViewControllers){
     ARTopViewControllerArtists = 0,
@@ -31,6 +33,8 @@ NS_ENUM(NSInteger, ARTopViewControllers){
 
 @property (nonatomic, assign, readonly) BOOL editing;
 @property (nonatomic, assign) BOOL skipFadeIn;
+
+@property (nonatomic, assign) BOOL labSettingsVisible;
 @end
 
 
@@ -321,6 +325,11 @@ NS_ENUM(NSInteger, ARTopViewControllers){
     if (self.settingsPopoverController.isPopoverVisible) {
         [self dismissPopoversAnimated:animated];
 
+    } else if ([[NSUserDefaults standardUserDefaults] boolForKey:AROptionsUseLabSettings] && [[User currentUser] isAdmin]) {
+        UIStoryboard *labSettings = [UIStoryboard storyboardWithName:@"ARLabSettings" bundle:nil];
+        UIViewController *labSettingsViewController = [labSettings instantiateInitialViewController];
+
+        [self presentViewController:labSettingsViewController animated:YES completion:nil];
     } else {
         [self dismissPopoversAnimated:animated];
         [[NSNotificationCenter defaultCenter] postNotificationName:ARDismissAllPopoversNotification object:nil];
