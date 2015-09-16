@@ -1,3 +1,5 @@
+@import Artsy_UIFonts;
+
 #import "ARGridViewCell.h"
 #import "ARDateLabel.h"
 #import "ARHighlightableImageView.h"

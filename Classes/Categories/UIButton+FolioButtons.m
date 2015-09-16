@@ -1,3 +1,4 @@
+@import Artsy_UIFonts;
 #import "ARTextToolbarButton.h"
 
 static const CGFloat ARButtonHorizontalMargin = 16;

@@ -1,9 +1,11 @@
+@import Artsy_UIFonts;
+@import Artsy_UILabels;
+
 #import "ARHostSelectionController.h"
 #import "ARTabbedViewController.h"
 #import "ARSelectionHandler.h"
 #import "ARNavigationController.h"
 #import "ARSelectionToolbarView.h"
-#import <Artsy+UILabels/ARLabelSubclasses.h>
 #import "ARAlbumViewController.h"
 
 

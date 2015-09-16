@@ -1,3 +1,5 @@
+@import Artsy_UIFonts;
+
 #import "ARSettingsDefaultsEditor.h"
 #import "ARTableViewCell.h"
 

@@ -1,3 +1,4 @@
+@import Artsy_UIFonts;
 #import "NSAttributedString+Artsy.h"
 
 

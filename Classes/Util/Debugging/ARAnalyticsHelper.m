@@ -1,9 +1,10 @@
+@import Analytics;
+@import Intercom;
+@import Keys;
+
 #import "ARAnalyticsHelper.h"
-#import <Analytics/SEGAnalytics.h>
 #import "SubscriptionPlan.h"
-#import <Keys/FolioKeys.h>
-#import <Intercom/Intercom.h>
-#import <ARAnalytics/IntercomProvider.h>
+#import "ARIntercomProvider.h"
 
 static NSString *currentUserEmail;
 
@@ -33,13 +34,14 @@ static NSString *currentUserEmail;
     [ARAnalytics setupWithAnalytics:@{
         ARHockeyAppBetaID : [keys hockeyAppBetaID],
         ARHockeyAppLiveID : [keys hockeyAppLiveID],
-        ARIntercomAppID : [keys intercomAppID],
-        ARIntercomAPIKey : [keys intercomAPIKey],
         ARSegmentioWriteKey : segment
     }];
 
-    IntercomProvider *provider = (id)[ARAnalytics providerInstanceOfClass:IntercomProvider.class];
-    provider.registerTrackedEvents = NO;
+    // Intercom isn't using a real dynamic framework yet - so we need to make the provider outside of
+    // ARAnalytics and then push it in.
+
+    ARIntercomProvider *provider = [[ARIntercomProvider alloc] initWithWithAppID:[keys intercomAppID] apiKey:[keys intercomAPIKey]];
+    [ARAnalytics setupProvider:provider];
 
     if ([User currentUser]) {
         [self storeUserDetails:[User currentUser]];

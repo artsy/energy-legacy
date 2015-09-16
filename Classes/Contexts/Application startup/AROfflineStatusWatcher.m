@@ -1,6 +1,7 @@
-#import "AROfflineStatusWatcher.h"
-#import <AFNetworking/AFNetworking.h>
+@import AFNetworking;
+
 #import "ARSync.h"
+#import "AROfflineStatusWatcher.h"
 
 
 @interface AROfflineStatusWatcher ()

@@ -3,9 +3,11 @@
 #import "Reachability+ConnectionExists.h"
 #import "NSDate+Presentation.h"
 
-@interface ARSyncStatusViewModel()
+
+@interface ARSyncStatusViewModel ()
 @property (nonatomic, strong) NSUserDefaults *defaults;
 @end
+
 
 @implementation ARSyncStatusViewModel
 
@@ -81,9 +83,12 @@
 
 - (ARSyncImageNotification)currentSyncImageNotification
 {
-    if (self.syncStatus == ARSyncStatusUpToDate) return ARSyncImageNotificationUpToDate;
-    else if (self.syncStatus == ARSyncStatusRecommendSync) return ARSyncImageNotificationRecommendSync;
-    else return ARSyncImageNotificationNone;
+    if (self.syncStatus == ARSyncStatusUpToDate)
+        return ARSyncImageNotificationUpToDate;
+    else if (self.syncStatus == ARSyncStatusRecommendSync)
+        return ARSyncImageNotificationRecommendSync;
+    else
+        return ARSyncImageNotificationNone;
 }
 
 #pragma mark -
@@ -110,7 +115,7 @@
 {
     switch (self.syncStatus) {
         case ARSyncStatusOffline:
-            return  NSLocalizedString(@"Syncing is not available offline", @"Label that tells user they cannot sync without a network connection");
+            return NSLocalizedString(@"Syncing is not available offline", @"Label that tells user they cannot sync without a network connection");
 
         case ARSyncStatusRecommendSync:
             return [self lastSyncedString];

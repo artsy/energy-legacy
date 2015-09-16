@@ -5,7 +5,7 @@
 #import "ARSelectionHandler.h"
 #import "NSFetchRequest+ARModels.h"
 #import "ARBorderedSerifLabel.h"
-#import <Artsy+UILabels/ARLabelSubclasses.h>
+#import <Artsy_UILabels/ARLabelSubclasses.h>
 #import "ARAlbumEditNavigationController.h"
 #import "AROptions.h"
 

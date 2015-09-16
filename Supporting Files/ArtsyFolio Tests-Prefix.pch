@@ -3,7 +3,7 @@
     #import <Foundation/Foundation.h>
 
     #import <CoreData/CoreData.h>
-    
+
     #import <XCTest/XCTest.h>
     #import <OHHTTPStubs/OHHTTPStubs.h>
     #import "OHHTTPStubs+QuickStubs.h"
@@ -13,11 +13,11 @@
 
     #import <Specta/Specta.h>
     #import <Expecta/Expecta.h>
-    #import <Expecta+ContainerClasses/EXPMatchers+ContainsInstancesOf.h>
-    #import <Expecta+Comparison/Expecta+Comparison.h>
-    #import <Expecta+OCMock/Expecta+OCMock.h>
+    #import <Expecta_ContainerClasses/EXPMatchers+ContainsInstancesOf.h>
+    #import <Expecta_Comparison/Expecta+Comparison.h>
+
     #import <FBSnapshotTestCase/FBSnapshotTestCase.h>
-    #import <Expecta+Snapshots/EXPMatchers+FBSnapshotTest.h>
+    #import <Expecta_Snapshots/EXPMatchers+FBSnapshotTest.h>
 
     #import "ARDisplayModeConstants.h"
     #import "ARManagedObject.h"
@@ -34,7 +34,6 @@
     #import "ARNotifications.h"
     #import "CoreDataManager.h"
     #import "ARModelFactory.h"
-    #import "OCMArg+ClassChecker.h"
     #import "UIViewController+LoadViews.h"
     #import "ARTestContext.h"
 #endif

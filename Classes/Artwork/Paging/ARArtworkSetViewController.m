@@ -1,3 +1,5 @@
+@import Artsy_UIFonts;
+
 #import "ARArtworkSetViewController.h"
 #import "ARPadViewInRoomViewController.h"
 #import "ARViewInRoomView.h"
@@ -12,8 +14,8 @@
 #import "ARImageViewController.h"
 #import "ARModernEmailArtworksViewController.h"
 
-#if __has_include(<SafariServices / SafariServices.h>)
-#import <SafariServices/SafariServices.h>
+#if __has_include(<SafariServices/SafariServices.h>)
+@import SafariServices;
 #endif
 
 

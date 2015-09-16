@@ -7,6 +7,7 @@ gem "chairs"
 gem "cocoapods"
 gem "cocoapods-keys"
 gem "cocoapods-open"
+gem 'cocoapods-deintegrate'
 
 group :deployment do
   gem "fastlane"

@@ -1,3 +1,4 @@
+@import Artsy_UIFonts;
 #import "AREditAlbumArtistViewController.h"
 #import "ARSelectionHandler.h"
 #import <ORStackView/ORStackView.h>

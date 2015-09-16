@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger, ARSyncImageNotification) {
     ARSyncImageNotificationNone,
 };
 
+
 @interface ARSyncStatusViewModel : NSObject <ARSyncDelegate, ARSyncProgressDelegate>
 
 @property (nonatomic, strong) ARSync *sync;

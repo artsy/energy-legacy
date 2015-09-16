@@ -1,3 +1,5 @@
+@import Artsy_UIFonts;
+
 #import "ARLoginViewController.h"
 #import "ARSync.h"
 #import "ARRouter.h"

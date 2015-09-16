@@ -2,6 +2,7 @@ upcoming:
   version: 2.5.0
   notes:
     - iOS8 is the new deployment target, and OS baseline [orta]
+    - Uses CocoaPods Frameworks [orta]
     - Settings view controller now uses MVVM [sarah]
 
 releases:

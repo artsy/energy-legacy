@@ -1,5 +1,5 @@
+@import GRMustache;
 #import "AREmailComposer.h"
-#import <GRMustache/GRMustache.h>
 
 
 @interface AREmailComposer ()

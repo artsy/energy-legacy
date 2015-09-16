@@ -1,3 +1,5 @@
+@import Artsy_UIFonts;
+
 #import "ARAddToAlbumViewController.h"
 #import "ARTableViewCell.h"
 #import "ARSansSerifTextField.h"

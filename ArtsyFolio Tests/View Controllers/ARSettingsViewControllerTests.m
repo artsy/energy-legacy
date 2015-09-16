@@ -4,10 +4,12 @@
 #import "NSDate+Presentation.h"
 #import "ARSyncStatusViewModel.h"
 
+
 @interface ARSettingsViewController () <UITableViewDelegate>
 @property (nonatomic, strong) NSUserDefaults *defaults;
 @property (nonatomic, strong) ARSyncStatusViewModel *syncStatusViewModel;
 @end
+
 
 @interface ARSyncStatusViewModel ()
 - (ARSyncStatus)syncStatus;

@@ -1,3 +1,5 @@
+@import Artsy_UIFonts;
+
 #import "ARMailSettingsViewController.h"
 #import "ARSupportSettingsViewController.h"
 #import "ARSettingsViewController.h"
@@ -9,11 +11,12 @@
 #import "NSDate+Presentation.h"
 #import "KVOController/FBKVOController.h"
 
-typedef NS_ENUM(NSInteger, Sections){
+typedef NS_ENUM(NSInteger, Sections) {
     SettingsNavigationSection,
-    SyncingSection};
+    SyncingSection
+};
 
-typedef NS_ENUM(NSInteger, NavigationSettingsSectionRows){
+typedef NS_ENUM(NSInteger, NavigationSettingsSectionRows) {
     EmailSettingsNavigationRow,
     AdminSettingsNavigationRow,
 };
@@ -61,7 +64,6 @@ static const NSInteger kHeightOfSettingsCell = 130;
 - (void)setSync:(ARSync *)sync
 {
     self.syncStatusViewModel = _syncStatusViewModel ?: [[ARSyncStatusViewModel alloc] initWithSync:sync];
-
 }
 
 #pragma mark -
@@ -241,8 +243,10 @@ static const NSInteger kHeightOfSettingsCell = 130;
     self.syncStatusLabel.text = self.syncStatusViewModel.titleText;
     self.syncStatusSubtitleLabel.text = self.syncStatusViewModel.subtitleText;
 
-    if (self.syncStatusViewModel.shouldShowSyncButton) [self configureSyncButton];
-    else self.syncButton.alpha = 0;
+    if (self.syncStatusViewModel.shouldShowSyncButton)
+        [self configureSyncButton];
+    else
+        self.syncButton.alpha = 0;
 
     self.syncActivityView.alpha = self.syncStatusViewModel.syncActivityViewAlpha;
 

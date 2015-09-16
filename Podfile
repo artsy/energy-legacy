@@ -1,7 +1,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/artsy/Specs.git'
 
-platform :ios, '7.0'
+platform :ios, '8.0'
+use_frameworks!
 
 # Yep.
 inhibit_all_warnings!
@@ -27,7 +28,7 @@ pod 'UIView+BooleanAnimations'
 pod 'ORStackView'
 
 if %w(orta ash artsy laura eloy sarahscott).include?(ENV['USER']) || ENV['CI'] == 'true'
-  pod 'Artsy+UIFonts', '1.0.0'
+    pod 'Artsy+UIFonts', :git => "https://github.com/artsy/Artsy-UIFonts.git", :branch => "old_fonts_new_lib"
 else
   pod 'Artsy+OSSUIFonts'
 end
@@ -39,7 +40,7 @@ pod 'KVOController'
 
 # Networking
 pod 'Reachability', '~> 3.0'
-pod 'AFNetworking', '~> 1.0'
+pod 'AFNetworking', :git => "https://github.com/orta/AFNetworking", :branch => "no_ifdefs"
 pod 'ISO8601DateFormatter', '~> 0.7'
 
 # Misc
@@ -54,7 +55,8 @@ pod 'GHMarkdownParser'
 pod 'GRMustache', '~> 7.0'
 
 # Analytics
-pod 'ARAnalytics', :subspecs => ['Segmentio', 'HockeyApp', 'Intercom'], :git => 'https://github.com/orta/ARAnalytics.git'
+pod 'ARAnalytics', :subspecs => ['Segmentio', 'HockeyApp'], :git => 'https://github.com/orta/ARAnalytics.git'
+pod 'Intercom'
 
 # Logging
 pod 'CocoaLumberjack', '~> 1.0'
@@ -72,7 +74,7 @@ pod 'FLKAutoLayout', '0.1.1'
 # This is not an Artsy project
 pod 'ARGenericTableViewController', :git => 'https://github.com/orta/ARGenericTableViewController.git'
 
-target 'ArtsyFolio Tests', :exclusive => true do
+target 'ArtsyFolio Tests' do
     pod 'Specta'
     pod 'Expecta'
     pod 'OHHTTPStubs', '~> 3.0'
@@ -81,8 +83,7 @@ target 'ArtsyFolio Tests', :exclusive => true do
     pod 'Expecta+ContainerClasses', '~> 1.0'
     pod 'Expecta+Comparison', '~> 0.1'
 
-    pod 'Expecta+OCMock'
     pod 'XCTest+OHHTTPStubSuiteCleanUp'
-
-    pod 'Forgeries'
+    pod 'OCMock'
+    pod 'Forgeries/Mocks'
 end

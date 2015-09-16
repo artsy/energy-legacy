@@ -71,9 +71,9 @@ NS_ENUM(NSInteger, ARTopViewControllers){
     [self reloadCurrentViewController];
     [self setEditing:NO animated:NO];
     [self.toolbarController setupDefaultToolbarItems];
-    
+
     if (!self.hasCheckedSyncStatus) {
-        _cmsMonitor = _cmsMonitor ? : [[ARCMSStatusMonitor alloc] init];
+        _cmsMonitor = _cmsMonitor ?: [[ARCMSStatusMonitor alloc] init];
         [self checkSyncStatus];
         _hasCheckedSyncStatus = YES;
     }
@@ -130,13 +130,12 @@ NS_ENUM(NSInteger, ARTopViewControllers){
 - (void)checkSyncStatus
 {
     if (![Partner currentPartnerInContext:self.managedObjectContext]) return;
-    
-    [self.cmsMonitor checkCMSForUpdates:^(BOOL updated){
+
+    [self.cmsMonitor checkCMSForUpdates:^(BOOL updated) {
         if (updated) {
             [self.toolbarController showSyncNotificationBadge];
         }
     }];
-
 }
 
 #pragma mark -
@@ -333,9 +332,9 @@ NS_ENUM(NSInteger, ARTopViewControllers){
 
         UIButton *settingsButton = self.toolbarController.settingsPopoverItem.representedButton;
         settingsButton.selected = YES;
-        
+
         [self.toolbarController hideSyncNotificationBadge];
-        
+
         _settingsPopoverController = [[ARPopoverController alloc] initWithContentViewController:navController];
 
         NSMutableArray *buttons = [NSMutableArray array];
@@ -365,7 +364,7 @@ NS_ENUM(NSInteger, ARTopViewControllers){
 
 - (void)dismissPopoversAnimated:(BOOL)animate
 {
-    [self.settingsPopoverController dismissPopoverAnimated:animate ];
+    [self.settingsPopoverController dismissPopoverAnimated:animate];
     [self popoverControllerDidDismissPopover:self.settingsPopoverController];
 }
 
@@ -584,7 +583,6 @@ NS_ENUM(NSInteger, ARTopViewControllers){
 {
     return _switchBoard ?: [ARSwitchBoard sharedSwitchboard];
 }
-
 
 
 @end
