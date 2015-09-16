@@ -50,6 +50,7 @@ PODS:
   - JLRoutes (1.5.2)
   - JRSwizzle (1.0)
   - Keys (1.0.0)
+  - KVOController (1.0.3)
   - libextobjc/EXTKeyPathCoding (0.4.1):
     - libextobjc/RuntimeExtensions
   - libextobjc/EXTScope (0.4.1):
@@ -99,6 +100,7 @@ DEPENDENCIES:
   - ISO8601DateFormatter (~> 0.7)
   - JLRoutes
   - Keys (from `Pods/CocoaPodsKeys/`)
+  - KVOController
   - libextobjc/EXTKeyPathCoding (~> 0.3)
   - libextobjc/EXTScope (~> 0.3)
   - ObjectiveSugar (from `https://github.com/supermarin/ObjectiveSugar.git`)
@@ -193,6 +195,7 @@ SPEC CHECKSUMS:
   JLRoutes: fc36fd38ab476d5ac3a6a84b05be60e4b1a2bc81
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
   Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
+  KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   ObjectiveSugar: 0729eb74a757ea48b109a8902178c9b89aa58a9f
   OCMock: 4c2925291f80407c3738dd1db14d21d0cc278864
