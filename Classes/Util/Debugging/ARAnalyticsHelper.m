@@ -4,7 +4,7 @@
 
 #import "ARAnalyticsHelper.h"
 #import "SubscriptionPlan.h"
-#import "ARIntercomProvider.h"
+#import "Folio-Swift.h"
 
 static NSString *currentUserEmail;
 
@@ -40,7 +40,7 @@ static NSString *currentUserEmail;
     // Intercom isn't using a real dynamic framework yet - so we need to make the provider outside of
     // ARAnalytics and then push it in.
 
-    ARIntercomProvider *provider = [[ARIntercomProvider alloc] initWithWithAppID:[keys intercomAppID] apiKey:[keys intercomAPIKey]];
+    ARIntercomProvider *provider = [[ARIntercomProvider alloc] initWithApiKey:[keys intercomAppID] appID:[keys intercomAPIKey]];
     [ARAnalytics setupProvider:provider];
 
     if ([User currentUser]) {

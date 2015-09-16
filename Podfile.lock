@@ -56,6 +56,7 @@ PODS:
   - libextobjc/EXTScope (0.4.1):
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
+  - Nimble (2.0.0-rc.3)
   - ObjectiveSugar (1.1.1)
   - OCMock (3.1.5)
   - OHHTTPStubs (3.1.6):
@@ -103,6 +104,7 @@ DEPENDENCIES:
   - KVOController
   - libextobjc/EXTKeyPathCoding (~> 0.3)
   - libextobjc/EXTScope (~> 0.3)
+  - Nimble (from `https://github.com/quick/nimble`, branch `swift-2.0`)
   - ObjectiveSugar (from `https://github.com/supermarin/ObjectiveSugar.git`)
   - OCMock
   - OHHTTPStubs (~> 3.0)
@@ -133,6 +135,9 @@ EXTERNAL SOURCES:
     :git: https://github.com/artsy/Artsy-UIFonts.git
   Keys:
     :path: Pods/CocoaPodsKeys/
+  Nimble:
+    :branch: swift-2.0
+    :git: https://github.com/quick/nimble
   ObjectiveSugar:
     :git: https://github.com/supermarin/ObjectiveSugar.git
   TPKeyboardAvoiding:
@@ -157,6 +162,9 @@ CHECKOUT OPTIONS:
   Artsy+UIFonts:
     :commit: 39f47deebf947aa4c07727fdf2b69e2feff17428
     :git: https://github.com/artsy/Artsy-UIFonts.git
+  Nimble:
+    :commit: a87c41424b2b8bc7821cf9e0352f87f53daf5263
+    :git: https://github.com/quick/nimble
   ObjectiveSugar:
     :commit: 14ac406bd0dbb7fd96c72924f9e7196608f456a4
     :git: https://github.com/supermarin/ObjectiveSugar.git
@@ -197,6 +205,7 @@ SPEC CHECKSUMS:
   Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
   KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+  Nimble: 2f64d173ad23dc39f10110840a1ed15f29ef75e8
   ObjectiveSugar: 0729eb74a757ea48b109a8902178c9b89aa58a9f
   OCMock: 4c2925291f80407c3738dd1db14d21d0cc278864
   OHHTTPStubs: b671969016b4c6f5ee3c26080c81114ba82e0710
