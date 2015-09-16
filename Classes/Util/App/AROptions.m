@@ -1,6 +1,7 @@
 #import "AROptions.h"
 
 NSString *const AROptionsUseWhiteFolio = @"White Folio";
+NSString *const AROptionsUseLabSettings = @"AROptionsUseLabSettings";
 
 const NSString *AROptionsKey = @"ARDefaultKey";
 const NSString *AROptionsName = @"ARDefaultName";
@@ -12,7 +13,10 @@ const NSString *AROptionsName = @"ARDefaultName";
 {
     return @[
         @{ AROptionsKey : @"show_artwork_edit",
-           AROptionsName : @"Show Artwork Edit Button" }
+           AROptionsName : @"Show Artwork Edit Button" },
+
+        @{ AROptionsKey : AROptionsUseLabSettings,
+           AROptionsName : @"Use Lab Settings Panel" },
     ];
 }
 
