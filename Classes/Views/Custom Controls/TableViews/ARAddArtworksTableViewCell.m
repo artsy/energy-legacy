@@ -18,7 +18,9 @@
     self.textLabel.text = [[artist name] uppercaseString];
 
     if (!self.accessoryView) {
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Chevron_Gray"]];
+        NSString *path = [[NSBundle bundleForClass:ARLabelWithChevron.class] pathForResource:@"Chevron_Gray" ofType:@"png"];
+        UIImage *chevron = [UIImage imageWithContentsOfFile:path];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:chevron];
         self.accessoryView = imageView;
     }
 }

@@ -245,6 +245,7 @@
 		607FAC981AFB7887008FA782 /* ARPopoverSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 607FAC971AFB7887008FA782 /* ARPopoverSegmentControl.m */; };
 		6080025514FE5D450018B464 /* DeleteButtonActive.png in Resources */ = {isa = PBXBuildFile; fileRef = 6080025314FE5D450018B464 /* DeleteButtonActive.png */; };
 		6080025714FE5D450018B464 /* DeleteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6080025414FE5D450018B464 /* DeleteButton.png */; };
+		6080489F1BA9D8770099FBB4 /* ARFilteredStackTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 6080489D1BA9D8770099FBB4 /* ARFilteredStackTrace.m */; };
 		608446BA1637DB0F00065EF0 /* ARSecondarySwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 608446B91637DB0F00065EF0 /* ARSecondarySwitchView.m */; };
 		608446C11637DB8300065EF0 /* ARSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 608446C01637DB8300065EF0 /* ARSwitchView.m */; };
 		6084B63B14FD248B00EBB62C /* ARTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6084B63A14FD248B00EBB62C /* ARTableViewCell.m */; };
@@ -985,6 +986,8 @@
 		607FAC971AFB7887008FA782 /* ARPopoverSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPopoverSegmentControl.m; sourceTree = "<group>"; };
 		6080025314FE5D450018B464 /* DeleteButtonActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeleteButtonActive.png; sourceTree = "<group>"; };
 		6080025414FE5D450018B464 /* DeleteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeleteButton.png; sourceTree = "<group>"; };
+		6080489D1BA9D8770099FBB4 /* ARFilteredStackTrace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFilteredStackTrace.m; sourceTree = "<group>"; };
+		6080489E1BA9D8770099FBB4 /* ARFilteredStackTrace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFilteredStackTrace.h; sourceTree = "<group>"; };
 		608446B81637DB0F00065EF0 /* ARSecondarySwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSecondarySwitchView.h; sourceTree = "<group>"; };
 		608446B91637DB0F00065EF0 /* ARSecondarySwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSecondarySwitchView.m; sourceTree = "<group>"; };
 		608446BF1637DB8300065EF0 /* ARSwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSwitchView.h; sourceTree = "<group>"; };
@@ -2013,6 +2016,8 @@
 		60685F1E18E4DF6D0072B4DF /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				6080489D1BA9D8770099FBB4 /* ARFilteredStackTrace.m */,
+				6080489E1BA9D8770099FBB4 /* ARFilteredStackTrace.h */,
 				60685F2018E4DF870072B4DF /* XCTest+OHHTTP.m */,
 				60EB677B1959CD6B00C9FA72 /* ARManagedObject+ModelFromJSON.h */,
 				60EB677C1959CD6B00C9FA72 /* ARManagedObject+ModelFromJSON.m */,
@@ -3784,6 +3789,7 @@
 				600F1AA3187AB9280006288F /* ARSelectionHandlerTests.m in Sources */,
 				60EC79F91A9E75B3009196A1 /* ARModernEmailArtworksViewControllerTests.m in Sources */,
 				342F96129A9C641805C06B05 /* ArtistModelTests.m in Sources */,
+				6080489F1BA9D8770099FBB4 /* ARFilteredStackTrace.m in Sources */,
 				342F99895C696D1C88D43353 /* ModelStubs.m in Sources */,
 				609CB43F192BA8240056E741 /* ARLoginViewControllerTests.m in Sources */,
 				60ADD6901ACB4EB200A847B5 /* ARAppDelegateTests.m in Sources */,
