@@ -7,21 +7,15 @@
 #import "ARToggleSwitch.h"
 #import "NSString+TimeInterval.h"
 #import "NSDate+Presentation.h"
+#import "KVOController/FBKVOController.h"
 
-NS_ENUM(NSInteger, Sections){
+typedef NS_ENUM(NSInteger, Sections){
     SettingsNavigationSection,
     SyncingSection};
 
-NS_ENUM(NSInteger, NavigationSettingsSectionRows){
+typedef NS_ENUM(NSInteger, NavigationSettingsSectionRows){
     EmailSettingsNavigationRow,
     AdminSettingsNavigationRow,
-};
-
-typedef NS_ENUM(NSInteger, ARSyncStatus) {
-    ARSyncStatusUpToDate,
-    ARSyncStatusRecommendSync,
-    ARSyncStatusOffline,
-    ARSyncStatusSyncing,
 };
 
 static const NSInteger kNumberOfSections = 2;
@@ -33,6 +27,8 @@ static const NSInteger kHeightOfSettingsCell = 130;
 
 @interface ARSettingsViewController ()
 @property (nonatomic, strong) NSUserDefaults *defaults;
+@property (nonatomic, strong) ARSyncStatusViewModel *syncStatusViewModel;
+@property (nonatomic, strong) FBKVOController *kvoController;
 
 @property (nonatomic, strong) IBOutlet UITableViewCell *syncViewCell;
 @property (nonatomic, weak) IBOutlet UILabel *syncStatusLabel;
@@ -57,7 +53,15 @@ static const NSInteger kHeightOfSettingsCell = 130;
     NSString *title = NSLocalizedString(@"Settings", @"Settings title");
     self.title = [title uppercaseString];
 
+    self.kvoController = [FBKVOController controllerWithObserver:self];
+
     return self;
+}
+
+- (void)setSync:(ARSync *)sync
+{
+    self.syncStatusViewModel = _syncStatusViewModel ?: [[ARSyncStatusViewModel alloc] initWithSync:sync];
+
 }
 
 #pragma mark -
@@ -66,11 +70,12 @@ static const NSInteger kHeightOfSettingsCell = 130;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupSyncUI];
+    [self updateSyncUI];
 
     self.tableView.accessibilityLabel = @"Settings TableView";
 
     [self registerForNotifications];
+    [self setupObservers];
 }
 
 - (void)viewDidUnload
@@ -94,6 +99,13 @@ static const NSInteger kHeightOfSettingsCell = 130;
                                                object:nil];
 }
 
+- (void)setupObservers
+{
+    [self.kvoController observe:self.syncStatusViewModel keyPath:@"isSyncing" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
+        [self updateSyncUI];
+    }];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -102,12 +114,12 @@ static const NSInteger kHeightOfSettingsCell = 130;
         [cell setSelected:NO animated:NO];
     }
 
-    [self setupSyncUI];
+    [self updateSyncUI];
 }
 
 - (void)resetSyncButton:(NSNotification *)aNotification
 {
-    [self setupSyncUI];
+    [self updateSyncUI];
     self.syncStatusLabel.text = @"";
 }
 
@@ -116,7 +128,7 @@ static const NSInteger kHeightOfSettingsCell = 130;
     BOOL offline = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == NotReachable;
     if (offline != self.isOffline) {
         _isOffline = offline;
-        [self setupSyncUI];
+        [self updateSyncUI];
 
         // Going from offline to online, it'll fix itself
         if (self.isOffline) {
@@ -207,13 +219,6 @@ static const NSInteger kHeightOfSettingsCell = 130;
 #pragma mark -
 #pragma mark sync controller actions
 
-- (void)syncDidProgress:(ARSyncProgress *)progress
-{
-    NSTimeInterval remaining = progress.estimatedTimeRemaining;
-    NSTimeInterval oneDay = 86400;
-    self.syncStatusLabel.text = [NSString cappedStringForTimeInterval:remaining cap:oneDay];
-}
-
 - (IBAction)sync:(id)sender
 {
     if (ARIsOSSBuild) {
@@ -221,96 +226,54 @@ static const NSInteger kHeightOfSettingsCell = 130;
         return;
     }
 
-    [self.sync sync];
+    [self.syncStatusViewModel startSync];
     [ARAnalytics event:ARManualSyncStartEvent];
 
     self.syncButton.enabled = NO;
-    [self setupForSyncInProgress];
-}
-
-- (void)syncDidFinish:(ARSync *)sync
-{
-    [self setupSyncUI];
-    [self enableSyncButton];
-}
-
-- (ARSyncStatus)syncStatus
-{
-    BOOL isSyncing = self.sync.isSyncing;
-    self.sync.delegate = self;
-
-    self.isOffline = ![Reachability connectionExists];
-
-    if (self.isOffline) {
-        return ARSyncStatusOffline;
-    } else if (isSyncing) {
-        return ARSyncStatusSyncing;
-    } else if ([self.defaults boolForKey:ARRecommendSync]) {
-        return ARSyncStatusRecommendSync;
-    } else {
-        return ARSyncStatusUpToDate;
-    }
+    [self updateSyncUI];
 }
 
 #pragma mark -
 #pragma mark UI setup
 
-- (void)setupSyncUI
+- (void)updateSyncUI
 {
-    self.syncActivityView.alpha = 0;
+    self.syncStatusLabel.text = self.syncStatusViewModel.titleText;
+    self.syncStatusSubtitleLabel.text = self.syncStatusViewModel.subtitleText;
 
-    switch (self.syncStatus) {
-        case ARSyncStatusOffline:
-            [self setupForNoConnectivity];
+    if (self.syncStatusViewModel.shouldShowSyncButton) [self configureSyncButton];
+    else self.syncButton.alpha = 0;
+
+    self.syncActivityView.alpha = self.syncStatusViewModel.syncActivityViewAlpha;
+
+    switch (self.syncStatusViewModel.currentSyncImageNotification) {
+        case ARSyncImageNotificationRecommendSync:
+            [self setupCircleImageView];
             break;
-
-        case ARSyncStatusRecommendSync:
-            [self setupWithSyncRecommendation];
+        case ARSyncImageNotificationUpToDate:
+            [self setupCheckImageView];
             break;
-
-        case ARSyncStatusSyncing:
-            [self setupForSyncInProgress];
-            break;
-
-        case ARSyncStatusUpToDate:
-            [self setupForContentUpToDate];
+        case ARSyncImageNotificationNone:
+            self.syncNotificationImage.alpha = 0;
             break;
     }
 }
 
-- (void)setupWithSyncRecommendation
+- (void)configureSyncButton
 {
-    self.syncButton.backgroundColor = [UIColor artsyPurple];
-    self.syncButton.borderColor = [UIColor artsyPurple];
-    [self enableSyncButton];
+    [self.syncButton setTitle:self.syncStatusViewModel.syncButtonTitle forState:UIControlStateNormal];
 
-    self.syncStatusLabel.text = NSLocalizedString(@"New Content in CMS", @"New content in CMS label");
-    self.syncStatusSubtitleLabel.text = [self lastSyncedString];
+    BOOL enableSyncButton = self.syncStatusViewModel.shouldEnableSyncButton;
+    self.syncButton.alpha = enableSyncButton ? 1 : 0.5;
+    self.syncButton.userInteractionEnabled = enableSyncButton;
 
-    self.syncNotificationImage.layer.cornerRadius = self.syncNotificationImage.frame.size.height / 2;
-    self.syncNotificationImage.backgroundColor = [UIColor artsyPurple];
+    UIColor *buttonColor = self.syncStatusViewModel.syncButtonColor;
+    self.syncButton.backgroundColor = buttonColor;
+    self.syncButton.borderColor = buttonColor;
 }
 
-- (void)setupForSyncInProgress
+- (void)setupCheckImageView
 {
-    self.syncActivityView.alpha = 1;
-    self.syncStatusLabel.text = NSLocalizedString(@"Sync in progress...", @"Sync is in progress string with ellipses");
-
-    self.syncButton.alpha = 0;
-    self.syncStatusSubtitleLabel.alpha = 0;
-    self.syncNotificationImage.alpha = 0;
-}
-
-- (void)setupForContentUpToDate
-{
-    self.syncStatusLabel.text = NSLocalizedString(@"Content is up to date", @"All content up-to-date string");
-    self.syncStatusSubtitleLabel.text = [self lastSyncedString];
-    self.syncStatusSubtitleLabel.alpha = 1;
-
-    NSString *buttonText = NSLocalizedString(@"Sync Content", @"Sync button text after syncing completed");
-    [self.syncButton setTitle:buttonText forState:UIControlStateNormal];
-    [self enableSyncButton];
-
     UIImage *check = [[UIImage imageNamed:@"check-active"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.syncNotificationImage.image = check;
     self.syncNotificationImage.tintColor = [UIColor artsyHighlightGreen];
@@ -318,32 +281,11 @@ static const NSInteger kHeightOfSettingsCell = 130;
     self.syncNotificationImage.alpha = 1;
 }
 
-- (void)setupForNoConnectivity
+- (void)setupCircleImageView
 {
-    self.syncStatusLabel.text = [self lastSyncedString];
-    self.syncStatusSubtitleLabel.text = NSLocalizedString(@"Syncing is not available offline", @"Label that tells user they cannot sync without a network connection");
-
-    self.syncButton.alpha = 0.5;
-    self.syncButton.userInteractionEnabled = NO;
-
-    self.syncActivityView.alpha = 0;
-    self.syncNotificationImage.alpha = 0;
-}
-
-- (void)enableSyncButton
-{
-    self.syncButton.alpha = 1.0;
-    self.syncButton.userInteractionEnabled = YES;
-}
-
-- (NSString *)lastSyncedString
-{
-    NSDate *lastSynced = [self.defaults objectForKey:ARLastSyncDate];
-    if (lastSynced) {
-        NSString *lastSyncedFormat = NSLocalizedString(@"Last synced %@", @"Text for saying the last time you synced was %@");
-        return [NSString stringWithFormat:lastSyncedFormat, [lastSynced formattedString]];
-    }
-    return @"";
+    self.syncNotificationImage.layer.cornerRadius = self.syncNotificationImage.frame.size.height / 2;
+    self.syncNotificationImage.backgroundColor = [UIColor artsyPurple];
+    self.syncNotificationImage.alpha = 1;
 }
 
 - (CGSize)preferredContentSize

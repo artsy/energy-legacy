@@ -1,8 +1,9 @@
 #import "ARSettingsBaseViewController.h"
 #import "ARSync.h"
+#import "ARSyncStatusViewModel.h"
 
+@interface ARSettingsViewController : ARSettingsBaseViewController
 
-@interface ARSettingsViewController : ARSettingsBaseViewController <ARSyncDelegate, ARSyncProgressDelegate>
 
 - (IBAction)sync:(id)sender;
 
