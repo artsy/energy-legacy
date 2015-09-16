@@ -238,6 +238,8 @@
 		6074F8D014A11C98000FE859 /* ARSettingsBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6074F8CF14A11C98000FE859 /* ARSettingsBaseViewController.m */; };
 		60750770154B0A3A003CBAC7 /* SearchGlass.png in Resources */ = {isa = PBXBuildFile; fileRef = 6075076E154B0A3A003CBAC7 /* SearchGlass.png */; };
 		60750772154B0A3A003CBAC7 /* SearchGlass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6075076F154B0A3A003CBAC7 /* SearchGlass@2x.png */; };
+		607712D51BAA0855009C3AFA /* ARIntercomProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607712D41BAA0855009C3AFA /* ARIntercomProvider.swift */; settings = {ASSET_TAGS = (); }; };
+		607712D81BAA0E71009C3AFA /* ARSimpleSwiftTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607712D71BAA0E71009C3AFA /* ARSimpleSwiftTest.swift */; settings = {ASSET_TAGS = (); }; };
 		60774E3818FB6B85004D3A1B /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 60774E3718FB6B85004D3A1B /* UIDevice+DeviceInfo.m */; };
 		607905C215E78A3D0012672B /* ARArtworkContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 607905C115E78A3D0012672B /* ARArtworkContainerViewController.m */; };
 		60795639199AC9D200D73E6C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FD62D414141AF400E77EE6 /* libz.dylib */; };
@@ -391,7 +393,6 @@
 		60B95A821AC5FB80008AF85E /* ARGroupedTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B95A811AC5FB80008AF85E /* ARGroupedTableViewHeader.m */; };
 		60BA589E153C21D8005E0576 /* ARAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BA589C153C21D7005E0576 /* ARAlertViewController.m */; };
 		60BA58A0153C21D8005E0576 /* ARAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BA589D153C21D8005E0576 /* ARAlertViewController.xib */; };
-		60BAAB0E1BA868B000CE042B /* ARIntercomProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BAAB0D1BA868B000CE042B /* ARIntercomProvider.m */; };
 		60BDA97914DC06E500852753 /* DoneButtonBackgroundTransparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BDA97814DC06E500852753 /* DoneButtonBackgroundTransparent.png */; };
 		60C149551500EAD800D6715D /* ARNewAlbumModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C149531500EAD800D6715D /* ARNewAlbumModalViewController.m */; };
 		60C1495B1500EFB100D6715D /* ARBaseViewController+TransparentModals.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C1495A1500EFB100D6715D /* ARBaseViewController+TransparentModals.m */; };
@@ -975,6 +976,10 @@
 		6074F8CF14A11C98000FE859 /* ARSettingsBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSettingsBaseViewController.m; sourceTree = "<group>"; };
 		6075076E154B0A3A003CBAC7 /* SearchGlass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchGlass.png; sourceTree = "<group>"; };
 		6075076F154B0A3A003CBAC7 /* SearchGlass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchGlass@2x.png"; sourceTree = "<group>"; };
+		607712D31BAA0854009C3AFA /* ArtsyFolio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ArtsyFolio-Bridging-Header.h"; path = "Classes/Util/ArtsyFolio-Bridging-Header.h"; sourceTree = "<group>"; };
+		607712D41BAA0855009C3AFA /* ARIntercomProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARIntercomProvider.swift; sourceTree = "<group>"; };
+		607712D61BAA0E70009C3AFA /* ArtsyFolio Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ArtsyFolio Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		607712D71BAA0E71009C3AFA /* ARSimpleSwiftTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSimpleSwiftTest.swift; sourceTree = "<group>"; };
 		60774E3618FB6B85004D3A1B /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
 		60774E3718FB6B85004D3A1B /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
 		60774E4218FB70ED004D3A1B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ARPhoneSyncViewController.xib; sourceTree = "<group>"; };
@@ -1199,8 +1204,6 @@
 		60BA589B153C21D7005E0576 /* ARAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAlertViewController.h; sourceTree = "<group>"; };
 		60BA589C153C21D7005E0576 /* ARAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAlertViewController.m; sourceTree = "<group>"; };
 		60BA589D153C21D8005E0576 /* ARAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARAlertViewController.xib; sourceTree = "<group>"; };
-		60BAAB0C1BA868B000CE042B /* ARIntercomProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARIntercomProvider.h; sourceTree = "<group>"; };
-		60BAAB0D1BA868B000CE042B /* ARIntercomProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARIntercomProvider.m; sourceTree = "<group>"; };
 		60BDA97814DC06E500852753 /* DoneButtonBackgroundTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneButtonBackgroundTransparent.png; sourceTree = "<group>"; };
 		60BF8F5A199A8F390031200B /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		60BF8F5C199A8F410031200B /* libPods-ArtsyFolio Tests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ArtsyFolio Tests.a"; path = "Pods/build/Debug-iphoneos/libPods-ArtsyFolio Tests.a"; sourceTree = "<group>"; };
@@ -1687,6 +1690,8 @@
 				60D4D71C198FD853001AB8AF /* ARSwitchboardTests.m */,
 				6086648D1A31D5D60030226D /* ARRootNavigationControllerDelegateSpec.m */,
 				60ADD68F1ACB4EB200A847B5 /* ARAppDelegateTests.m */,
+				607712D71BAA0E71009C3AFA /* ARSimpleSwiftTest.swift */,
+				607712D61BAA0E70009C3AFA /* ArtsyFolio Tests-Bridging-Header.h */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -2436,8 +2441,7 @@
 		60BAAB0B1BA8689500CE042B /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				60BAAB0C1BA868B000CE042B /* ARIntercomProvider.h */,
-				60BAAB0D1BA868B000CE042B /* ARIntercomProvider.m */,
+				607712D41BAA0855009C3AFA /* ARIntercomProvider.swift */,
 			);
 			name = Analytics;
 			sourceTree = "<group>";
@@ -3066,6 +3070,7 @@
 			isa = PBXGroup;
 			children = (
 				D8FAA89D1442891E00AA34BC /* ArtsyPartner-Prefix.pch */,
+				607712D31BAA0854009C3AFA /* ArtsyFolio-Bridging-Header.h */,
 				D8D208E8141405C300A823E3 /* main.m */,
 				60937D871B6133EE00F10880 /* docs */,
 				D8FAA89E1442893500AA34BC /* Classes */,
@@ -3431,6 +3436,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AR;
+				LastSwiftUpdateCheck = 0700;
 				LastTestingUpgradeCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "http://artsy.net";
@@ -3810,6 +3816,7 @@
 				60B572B4194F3A79002B9A46 /* ARAdminPartnerSelectViewControllerTests.m in Sources */,
 				601A44D21B04C7B500713590 /* SDWebImage+EasyCache.m in Sources */,
 				602601601AC0703300D5EBCB /* ARModernEmailArtworksViewControllerDataSourceTests.m in Sources */,
+				607712D81BAA0E71009C3AFA /* ARSimpleSwiftTest.swift in Sources */,
 				342F9AFFFFBA47BC9C6BAA06 /* ARGridViewControllerTests.m in Sources */,
 				60692E12196BFA0B00455332 /* ARAmbiguousSplitStackViewTests.m in Sources */,
 				606E6869192110C90044F6ED /* ARAppDataMigrationsTest.m in Sources */,
@@ -4027,6 +4034,7 @@
 				608446BA1637DB0F00065EF0 /* ARSecondarySwitchView.m in Sources */,
 				608446C11637DB8300065EF0 /* ARSwitchView.m in Sources */,
 				60117F831917F6BE0072E500 /* _Image.m in Sources */,
+				607712D51BAA0855009C3AFA /* ARIntercomProvider.swift in Sources */,
 				608C703A169B863500C89623 /* ARAnalyticsHelper.m in Sources */,
 				60AFC25C16A4B7BD00FCF8EC /* NSFileManager+SimpleDeletion.m in Sources */,
 				B37F1653183EB211007A7023 /* AFHTTPRequestOperation+ARFileDownload.m in Sources */,
@@ -4039,7 +4047,6 @@
 				494D50EA173025F100D77AEB /* ARSortDefinition.m in Sources */,
 				60117F811917F6BE0072E500 /* _Artwork.m in Sources */,
 				494FE8DF1731D7E500568394 /* ARSortViewController.m in Sources */,
-				60BAAB0E1BA868B000CE042B /* ARIntercomProvider.m in Sources */,
 				839C16C31B94B65C009D8FB4 /* ARSyncStatusViewModel.m in Sources */,
 				609502481844101C00495CFC /* ARTheme.m in Sources */,
 				4137E7B817304ED000D85A93 /* ARLogoutManager.m in Sources */,
@@ -4191,9 +4198,11 @@
 			baseConfigurationReference = 04D0D4950878AD82D52CA85D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_BUNDLE_IDENTIFIER = net.artsy.folio.dev;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -4208,6 +4217,8 @@
 				GCC_WARN_PEDANTIC = NO;
 				INFOPLIST_FILE = "Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = Folio;
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				MOMC_NO_WARNINGS = YES;
 				MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR = YES;
@@ -4243,9 +4254,12 @@
 					"\"-isystem${PODS_ROOT}/Headers/libextobjc\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APPLICATION_BUNDLE_IDENTIFIER)";
+				PRODUCT_MODULE_NAME = Folio;
 				PRODUCT_NAME = FolioDev;
 				PROVISIONING_PROFILE = "1bca291e-373d-46fc-9ccf-cea0e9377b23";
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/Util/ArtsyFolio-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4258,6 +4272,7 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FolioDev.app/FolioDev";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
@@ -4267,8 +4282,10 @@
 				GCC_PREFIX_HEADER = "Supporting Files/ArtsyFolio Tests-Prefix.pch";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				INFOPLIST_FILE = "Supporting Files/ArtsyFolio Tests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.artsy.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ArtsyFolio Tests/Util/ArtsyFolio Tests-Bridging-Header.h";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -4281,6 +4298,7 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FolioDev.app/FolioDev";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
@@ -4290,8 +4308,10 @@
 				GCC_PREFIX_HEADER = "Supporting Files/ArtsyFolio Tests-Prefix.pch";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				INFOPLIST_FILE = "Supporting Files/ArtsyFolio Tests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.artsy.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ArtsyFolio Tests/Util/ArtsyFolio Tests-Bridging-Header.h";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -4304,6 +4324,7 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FolioDev.app/FolioDev";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
@@ -4320,8 +4341,11 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				INFOPLIST_FILE = "Supporting Files/ArtsyFolio Tests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.artsy.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ArtsyFolio Tests/Util/ArtsyFolio Tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -4363,9 +4387,11 @@
 			baseConfigurationReference = 279DC3C865951AF2AA99DFDE /* Pods.beta.xcconfig */;
 			buildSettings = {
 				APPLICATION_BUNDLE_IDENTIFIER = net.artsy.folio.beta;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -4379,6 +4405,8 @@
 				GCC_WARN_PEDANTIC = NO;
 				INFOPLIST_FILE = "Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = Folio;
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				MOMC_NO_WARNINGS = YES;
 				MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR = YES;
@@ -4414,8 +4442,10 @@
 					"\"-isystem${PODS_ROOT}/Headers/libextobjc\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APPLICATION_BUNDLE_IDENTIFIER)";
+				PRODUCT_MODULE_NAME = Folio;
 				PRODUCT_NAME = "Folio β";
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/Util/ArtsyFolio-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4458,9 +4488,11 @@
 			baseConfigurationReference = AFEF3B0D6A906AADDA4809E5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				APPLICATION_BUNDLE_IDENTIFIER = sy.art.folio;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -4474,6 +4506,8 @@
 				GCC_WARN_PEDANTIC = NO;
 				INFOPLIST_FILE = "Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = Folio;
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				MOMC_NO_WARNINGS = YES;
 				MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR = YES;
@@ -4509,8 +4543,10 @@
 					"\"-isystem${PODS_ROOT}/Headers/libextobjc\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APPLICATION_BUNDLE_IDENTIFIER)";
+				PRODUCT_MODULE_NAME = Folio;
 				PRODUCT_NAME = "Artsy Folio";
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/Util/ArtsyFolio-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

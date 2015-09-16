@@ -83,6 +83,8 @@ target 'ArtsyFolio Tests' do
     pod 'Expecta+ContainerClasses', '~> 1.0'
     pod 'Expecta+Comparison', '~> 0.1'
 
+    pod 'Nimble', :git => "https://github.com/quick/nimble", :branch => "swift-2.0"
+
     pod 'XCTest+OHHTTPStubSuiteCleanUp'
     pod 'OCMock'
     pod 'Forgeries/Mocks'
