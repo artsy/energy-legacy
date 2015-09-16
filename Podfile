@@ -28,7 +28,7 @@ pod 'UIView+BooleanAnimations'
 pod 'ORStackView'
 
 if %w(orta ash artsy laura eloy sarahscott).include?(ENV['USER']) || ENV['CI'] == 'true'
-  pod 'Artsy+UIFonts', '1.0.0'
+    pod 'Artsy+UIFonts', :git => "https://github.com/artsy/Artsy-UIFonts.git", :branch => "old_fonts_new_lib"
 else
   pod 'Artsy+OSSUIFonts'
 end
@@ -55,7 +55,6 @@ pod 'GRMustache', '~> 7.0'
 
 # Analytics
 pod 'ARAnalytics', :subspecs => ['Segmentio', 'HockeyApp'], :git => 'https://github.com/orta/ARAnalytics.git'
-
 pod 'Intercom'
 
 # Logging
@@ -74,7 +73,7 @@ pod 'FLKAutoLayout', '0.1.1'
 # This is not an Artsy project
 pod 'ARGenericTableViewController', :git => 'https://github.com/orta/ARGenericTableViewController.git'
 
-target 'ArtsyFolio Tests', :exclusive => true do
+target 'ArtsyFolio Tests' do
     pod 'Specta'
     pod 'Expecta'
     pod 'OHHTTPStubs', '~> 3.0'
@@ -83,8 +82,7 @@ target 'ArtsyFolio Tests', :exclusive => true do
     pod 'Expecta+ContainerClasses', '~> 1.0'
     pod 'Expecta+Comparison', '~> 0.1'
 
-    pod 'Expecta+OCMock'
     pod 'XCTest+OHHTTPStubSuiteCleanUp'
-
-    pod 'Forgeries'
+    pod 'OCMock'
+    pod 'Forgeries/Mocks'
 end
