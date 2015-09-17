@@ -1,0 +1,5 @@
+@interface ARLabSettingsMasterViewController : UITableViewController
+
+
+
+@end

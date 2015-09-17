@@ -1,5 +1,6 @@
 // All the options as consts
 extern NSString *const AROptionsUseWhiteFolio;
+extern NSString *const AROptionsUseLabSettings;
 
 extern const NSString *AROptionsKey;
 extern const NSString *AROptionsName;

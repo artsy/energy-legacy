@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AhB-Tr-lmz">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Ozj-d1-V0z">
+            <objects>
+                <viewController id="lXz-BW-0kX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5pM-C7-1Xy"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Mk-77-YAC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="atM-Rl-b4z">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xm4-Ia-lle" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="995" y="569"/>
+        </scene>
+        <!--Lab Settings Master View Controller-->
+        <scene sceneID="TB1-ch-P1B">
+            <objects>
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="NQ5-or-OqE" customClass="ARLabSettingsMasterViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9PW-cK-tR7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="786-Gc-tgB">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="786-Gc-tgB" id="YZ5-lS-RvP">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="NQ5-or-OqE" id="rT7-1M-Thk"/>
+                            <outlet property="delegate" destination="NQ5-or-OqE" id="LjP-8H-SGb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="DEQ-M3-12Q">
+                        <barButtonItem key="leftBarButtonItem" image="settings_btn_whiteborder.png" style="plain" id="6lM-vo-QDc">
+                            <inset key="imageInsets" minX="-1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="settingButtonPressed:" destination="NQ5-or-OqE" id="efU-o4-RfL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="navigationItem" destination="DEQ-M3-12Q" id="eag-WL-QRf"/>
+                        <outlet property="settingsButton" destination="6lM-vo-QDc" id="ewn-nL-JUh"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5uk-nw-XsK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1815" y="-92"/>
+        </scene>
+        <!--Lab Settings Nav Controller-->
+        <scene sceneID="z82-vM-hqe">
+            <objects>
+                <navigationController id="bMa-SS-pGI" customClass="ARLabSettingsNavController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="R5s-nB-NSP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <edgeInsets key="layoutMargins" top="30" left="20" bottom="20" right="20"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NQ5-or-OqE" kind="relationship" relationship="rootViewController" id="xnz-sW-jQn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8eU-7M-yfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1001" y="-203"/>
+        </scene>
+        <!--ARLabSettingsSplitViewController-->
+        <scene sceneID="dhZ-S1-cYX">
+            <objects>
+                <splitViewController storyboardIdentifier="ARLabSettings" title="ARLabSettingsSplitViewController" id="AhB-Tr-lmz" customClass="ARLabSettingsViewController" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="bMa-SS-pGI" kind="relationship" relationship="masterViewController" id="gRn-aJ-vXi"/>
+                        <segue destination="lXz-BW-0kX" kind="relationship" relationship="detailViewController" id="ctT-K5-GpD"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tbi-6m-HPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="175" y="239"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="settings_btn_whiteborder.png" width="43" height="43"/>
+    </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+</document>
