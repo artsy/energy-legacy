@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
     </dependencies>
     <scenes>
-        <!--Lab Settings Detail View Controller-->
+        <!--View Controller-->
         <scene sceneID="Ozj-d1-V0z">
             <objects>
-                <viewController id="lXz-BW-0kX" customClass="ARLabSettingsDetailViewController" sceneMemberID="viewController">
+                <viewController id="lXz-BW-0kX" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5pM-C7-1Xy"/>
                         <viewControllerLayoutGuide type="bottom" id="1Mk-77-YAC"/>
@@ -23,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="995" y="569"/>
         </scene>
-        <!--Settings-->
+        <!--Lab Settings Master View Controller-->
         <scene sceneID="TB1-ch-P1B">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="NQ5-or-OqE" customClass="ARLabSettingsMasterViewController" sceneMemberID="viewController">
@@ -46,19 +46,33 @@
                             <outlet property="delegate" destination="NQ5-or-OqE" id="LjP-8H-SGb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="DEQ-M3-12Q"/>
+                    <navigationItem key="navigationItem" id="DEQ-M3-12Q">
+                        <barButtonItem key="leftBarButtonItem" image="settings_btn_whiteborder.png" style="plain" id="6lM-vo-QDc">
+                            <inset key="imageInsets" minX="-1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="settingButtonPressed:" destination="NQ5-or-OqE" id="efU-o4-RfL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="navigationItem" destination="DEQ-M3-12Q" id="eag-WL-QRf"/>
+                        <outlet property="settingsButton" destination="6lM-vo-QDc" id="ewn-nL-JUh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5uk-nw-XsK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1815" y="-92"/>
         </scene>
-        <!--Lab Settings Navigation Controller-->
+        <!--Lab Settings Nav Controller-->
         <scene sceneID="z82-vM-hqe">
             <objects>
-                <navigationController id="bMa-SS-pGI" customClass="ARLabSettingsNavigationController" sceneMemberID="viewController">
+                <navigationController id="bMa-SS-pGI" customClass="ARLabSettingsNavController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R5s-nB-NSP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <edgeInsets key="layoutMargins" top="30" left="20" bottom="20" right="20"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="NQ5-or-OqE" kind="relationship" relationship="rootViewController" id="xnz-sW-jQn"/>
@@ -71,7 +85,7 @@
         <!--ARLabSettingsSplitViewController-->
         <scene sceneID="dhZ-S1-cYX">
             <objects>
-                <splitViewController storyboardIdentifier="ARLabSettings" title="ARLabSettingsSplitViewController" id="AhB-Tr-lmz" customClass="ARLabSettingsSplitViewController" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="ARLabSettings" title="ARLabSettingsSplitViewController" id="AhB-Tr-lmz" customClass="ARLabSettingsViewController" sceneMemberID="viewController">
                     <connections>
                         <segue destination="bMa-SS-pGI" kind="relationship" relationship="masterViewController" id="gRn-aJ-vXi"/>
                         <segue destination="lXz-BW-0kX" kind="relationship" relationship="detailViewController" id="ctT-K5-GpD"/>
@@ -82,4 +96,8 @@
             <point key="canvasLocation" x="175" y="239"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settings_btn_whiteborder.png" width="43" height="43"/>
+    </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
