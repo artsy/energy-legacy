@@ -2,58 +2,26 @@
 #import "AROptions.h"
 #import "ARLabSettingsNavController.h"
 
+
 @interface ARLabSettingsMasterViewController ()
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *exitButton;
-@property (nonatomic, strong) NSArray *settings;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
-@property (nonatomic, strong) ARLabSettingsViewController *splitViewController;
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
+@property (weak, nonatomic) IBOutlet UIButton *ogSettingsButton;
 @end
 
-@implementation ARLabSettingsMasterViewController
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-    self.settings = @[ @"Sync Content", @"Presentation Mode", @"OLD SETTINGS PLS"];
-}
+@implementation ARLabSettingsMasterViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-
+    [self setupSettingsButton];
 }
 
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (void)setupSettingsButton
 {
-    return self.settings.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.textLabel.text = [self.settings[indexPath.row] uppercaseString];
-    cell.textLabel.textColor = [UIColor blackColor];
-    cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    cell.textLabel.font = [UIFont sansSerifFontWithSize:ARFontSansRegular];
-
-
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *selectedSetting = self.settings[indexPath.row];
-
-    if ([selectedSetting isEqualToString:@"OLD SETTINGS PLS"]) {
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:AROptionsUseLabSettings];
-        [self exitSettingsPanel];
-    }
+    [self.settingsButton setImage:[[UIImage imageNamed:@"settings_btn_whiteborder"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [self.settingsButton setTintColor:UIColor.blackColor];
+    [self.settingsButton setBackgroundColor:UIColor.whiteColor];
 }
 
 - (IBAction)settingButtonPressed:(id)sender
@@ -61,14 +29,19 @@
     [self exitSettingsPanel];
 }
 
-- (void)exitSettingsPanel
+- (IBAction)ogSettingsButtonPressed:(id)sender
 {
-    NSAssert([self.navigationController isKindOfClass:ARLabSettingsNavController.class], @"Master parent must be an ARLabSettingsNavControllers");
-    [self.navigationController dismissViewControllerAnimated:NO completion:nil];
-
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:AROptionsUseLabSettings];
+    [self exitSettingsPanel];
 }
 
--(BOOL)prefersStatusBarHidden
+- (void)exitSettingsPanel
+{
+    NSAssert([self.navigationController isKindOfClass:ARLabSettingsNavController.class], @"Master parent must be an ARLabSettingsNavController");
+    [self.navigationController dismissViewControllerAnimated:NO completion:nil];
+}
+
+- (BOOL)prefersStatusBarHidden
 {
     return YES;
 }
