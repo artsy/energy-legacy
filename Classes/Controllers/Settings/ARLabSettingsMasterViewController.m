@@ -1,11 +1,12 @@
 #import "ARLabSettingsMasterViewController.h"
 #import "AROptions.h"
-#import "ARLabSettingsNavController.h"
+#import "Folio-Swift.h"
 
 
 @interface ARLabSettingsMasterViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 @property (weak, nonatomic) IBOutlet UIButton *ogSettingsButton;
+@property (weak, nonatomic) IBOutlet UIButton *syncSettingsButton;
 @end
 
 
@@ -29,16 +30,27 @@
     [self exitSettingsPanel];
 }
 
+- (IBAction)syncSettingsButtonPressed:(id)sender
+{
+    [self performSegueWithIdentifier:@"syncOptionsSegue" sender:self];
+}
+
+- (IBAction)presentationModeButtonPressed:(id)sender
+{
+    [self performSegueWithIdentifier:@"presentationModeSegue" sender:self];
+}
+
 - (IBAction)ogSettingsButtonPressed:(id)sender
 {
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:AROptionsUseLabSettings];
     [self exitSettingsPanel];
 }
 
+
 - (void)exitSettingsPanel
 {
-    NSAssert([self.navigationController isKindOfClass:ARLabSettingsNavController.class], @"Master parent must be an ARLabSettingsNavController");
-    [self.navigationController dismissViewControllerAnimated:NO completion:nil];
+    NSAssert([self.navigationController isKindOfClass:ARLabSettingsNavigationController.class], @"Master parent must be an ARLabSettingsNavController");
+    [(ARLabSettingsNavigationController *)self.navigationController exitSettingsPanel];
 }
 
 - (BOOL)prefersStatusBarHidden

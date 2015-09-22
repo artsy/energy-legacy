@@ -3,12 +3,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="AGaramondPro-Regular.otf">
             <string>AGaramondPro-Regular</string>
         </mutableArray>
         <mutableArray key="ITC_Avant_Garde_Gothic__Demi.ttf">
+            <string>AvantGardeGothicITCW01Dm</string>
+            <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
@@ -28,15 +31,57 @@
                         <viewControllerLayoutGuide type="top" id="5pM-C7-1Xy"/>
                         <viewControllerLayoutGuide type="bottom" id="1Mk-77-YAC"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="atM-Rl-b4z">
+                    <view key="view" contentMode="redraw" id="atM-Rl-b4z">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="SYNC SETTINGS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VW-1h-o4p">
+                                <rect key="frame" x="0.0" y="48" width="600" height="21"/>
+                                <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0VW-1h-o4p" firstAttribute="leading" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" constant="-20" id="jUf-Aw-DbT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0VW-1h-o4p" secondAttribute="trailing" constant="-20" id="qqA-pW-0ed"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xm4-Ia-lle" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="995" y="569"/>
+            <point key="canvasLocation" x="1007" y="747"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="grO-sw-uIP">
+            <objects>
+                <viewController id="GFb-hr-tUN" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FSl-If-jfy"/>
+                        <viewControllerLayoutGuide type="bottom" id="vM6-tB-MUd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o07-Wx-3HH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="PRESENTATION MODE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDo-p7-Few">
+                                <rect key="frame" x="0.0" y="48" width="600" height="26"/>
+                                <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="fDo-p7-Few" secondAttribute="trailing" constant="-20" id="7N8-zM-dcv"/>
+                            <constraint firstItem="fDo-p7-Few" firstAttribute="leading" secondItem="o07-Wx-3HH" secondAttribute="leadingMargin" constant="-20" id="X0z-CR-jGB"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkn-Ar-Fli" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1685" y="747"/>
         </scene>
         <!--Lab Settings Master View Controller-->
         <scene sceneID="kL2-SG-N9U">
@@ -47,7 +92,7 @@
                         <viewControllerLayoutGuide type="bottom" id="QO3-Zr-Tia"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qr3-nz-sZj">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="308" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVa-s8-m9i">
@@ -68,6 +113,9 @@
                                         <state key="normal" title="SYNC CONTENT">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="syncSettingsButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="aui-60-4VC"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UcY-cF-771">
                                         <rect key="frame" x="0.0" y="0.0" width="260" height="1"/>
@@ -80,8 +128,8 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alert-badge-small.png" translatesAutoresizingMaskIntoConstraints="NO" id="43V-Rz-x8C">
                                         <rect key="frame" x="228" y="15" width="14" height="14"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Chevron_Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="F1q-H0-eRH">
-                                        <rect key="frame" x="252" y="16" width="8" height="12"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="chevron.png" translatesAutoresizingMaskIntoConstraints="NO" id="ybE-pM-qE7">
+                                        <rect key="frame" x="252" y="16" width="8" height="13"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -96,6 +144,9 @@
                                         <state key="normal" title="PRESENTATION MODE">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="presentationModeButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="PoZ-ju-gPV"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pxT-Dc-wEC">
                                         <rect key="frame" x="0.0" y="0.0" width="260" height="1"/>
@@ -105,6 +156,9 @@
                                         <rect key="frame" x="0.0" y="44" width="260" height="1"/>
                                         <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="ToggleOff.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pb7-7n-lGB">
+                                        <rect key="frame" x="182" y="9" width="78" height="28"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -119,8 +173,8 @@
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Chevron_Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="1bW-vS-gsv">
-                                        <rect key="frame" x="252" y="17" width="8" height="12"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="chevron.png" translatesAutoresizingMaskIntoConstraints="NO" id="gt8-1u-iVr">
+                                        <rect key="frame" x="252" y="16" width="8" height="13"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bxN-et-yQy">
                                         <rect key="frame" x="0.0" y="44" width="260" height="1"/>
@@ -170,8 +224,8 @@
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Chevron_Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="XsB-Hx-gLb">
-                                        <rect key="frame" x="252" y="16" width="8" height="12"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="chevron.png" translatesAutoresizingMaskIntoConstraints="NO" id="052-r1-fWd">
+                                        <rect key="frame" x="252" y="16" width="8" height="13"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SOz-Pe-eEY">
                                         <rect key="frame" x="0.0" y="44" width="260" height="1"/>
@@ -191,8 +245,8 @@
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Chevron_Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mz2-3L-BeQ">
-                                        <rect key="frame" x="252" y="16" width="8" height="12"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="chevron.png" translatesAutoresizingMaskIntoConstraints="NO" id="HWP-lv-bVs">
+                                        <rect key="frame" x="252" y="16" width="8" height="13"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5kU-vu-FRa">
                                         <rect key="frame" x="0.0" y="44" width="260" height="1"/>
@@ -250,20 +304,23 @@
                     </view>
                     <navigationItem key="navigationItem" id="Di0-B1-yjN"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="300" height="1024"/>
+                    <size key="freeformSize" width="308" height="1024"/>
                     <connections>
                         <outlet property="ogSettingsButton" destination="ZJm-02-fks" id="Kqh-kZ-bIm"/>
                         <outlet property="settingsButton" destination="yVa-s8-m9i" id="ihi-X6-ObN"/>
+                        <outlet property="syncSettingsButton" destination="mqa-mb-S0N" id="xeM-Fm-Gh2"/>
+                        <segue destination="lXz-BW-0kX" kind="showDetail" identifier="syncOptionsSegue" id="UVj-Sh-id0"/>
+                        <segue destination="GFb-hr-tUN" kind="showDetail" identifier="presentationModeSegue" id="Rms-cI-VG6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiu-YE-eub" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1976" y="-203"/>
         </scene>
-        <!--Lab Settings Nav Controller-->
+        <!--Lab Settings Navigation Controller-->
         <scene sceneID="z82-vM-hqe">
             <objects>
-                <navigationController navigationBarHidden="YES" id="bMa-SS-pGI" customClass="ARLabSettingsNavController" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="bMa-SS-pGI" customClass="ARLabSettingsNavigationController" customModule="Folio" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R5s-nB-NSP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -293,8 +350,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Chevron_Gray.png" width="8" height="13"/>
+        <image name="ToggleOff.png" width="76" height="28"/>
         <image name="alert-badge-small.png" width="25" height="24"/>
+        <image name="chevron.png" width="8" height="13"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="UVj-Sh-id0"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
