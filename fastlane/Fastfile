@@ -1,6 +1,6 @@
 require 'yaml'
 
-unless ENV['HOCKEY_API_TOKEN'] && ENV['SLACK_URL'] 
+unless ENV['HOCKEY_API_TOKEN'] && ENV['SLACK_URL']
   raise "You need to set HOCKEY_API_TOKEN (#{ENV['HOCKEY_API_TOKEN']}) and SLACK_URL (#{ENV['SLACK_URL']}) in your environment."
 end
 
@@ -16,7 +16,7 @@ lane :build_for_beta do
   xcodebuild sdk: "iphoneos", configuration: "Beta"
 end
 
-lane :beta do 
+lane :beta do
   # Increment build number to current date
   build_number = Time.new.strftime("%Y.%m.%d")
   increment_build_number build_number: build_number, xcodeproj: './Artsy Folio.xcodeproj'
@@ -24,27 +24,27 @@ lane :beta do
   # Set version number to the one at the top of the CHANGELOG
   readme_yaml = File.read("../docs/CHANGELOG.yml")
   readme_data = YAML.load(readme_yaml)
-  
-  latest_version = readme_data["upcoming"]["version"]  
-  
+
+  latest_version = readme_data["upcoming"]["version"]
+
   #increment_version_number release_task: latest_version, xcodeproj: './Artsy Folio.xcodeproj'
   `/usr/libexec/PlistBuddy -c "Set CFBundleShortVersionString #{latest_version}" "../Supporting Files/info.plist"`
 
   # Generate release notes from CHANGELOG
   upcoming = readme_data["upcoming"]
   upcoming_release_notes =  "## #{upcoming["version"]} \n\n - #{upcoming["notes"].join "\n - "} \n\n"
-  
+
   last_release = readme_data["releases"][0]
   last_release_notes =  "## #{last_release["version"]} - #{last_release["date"]} \n\n - #{last_release["notes"].join "\n - "}"
-     
+
   release_notes = "#{upcoming_release_notes} \n\n #{last_release_notes}"
-  
+
   # Replace all icons with beta icons
   sh 'cat "../Resources/Images/App Icons + Launch/Beta-icon.png" | tee ../Resources/Images/App\ Icons\ +\ Launch/Icon* > /dev/null'
-  
+
   # Build
-  ipa configuration: "Beta", scheme: "ArtsyFolio"
-  
+  gym configuration: "Beta", scheme: "ArtsyFolio"
+
   hockey api_token: ENV['HOCKEY_API_TOKEN'], notes: release_notes
 
   slack message: "There is a new Folio beta available. Download it at https://artsy.net/foliobeta",
@@ -59,5 +59,5 @@ lane :beta do
   sh "git checkout ../Resources/"
   `rm ../*.dSYM.zip`
   `rm ../*.ipa`
-  
+
 end

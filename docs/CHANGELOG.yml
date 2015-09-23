@@ -1,6 +1,13 @@
 upcoming:
+  version: 2.4.2
+  notes:
+    - Use the right CocoaPods-Keys [sarah + orta]
 
 releases:
+  - version: 2.4.2
+    notes:
+      - Use the right CocoaPods-Keys [sarah + orta]
+
   - version: 2.4.1
     notes:
       - Fix for sync visuals [sarah]

@@ -447,6 +447,7 @@
 		60E7E2E91ABB46C5007EAA8A /* ArtsyPartner_2.0.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 60E7E2E81ABB46C5007EAA8A /* ArtsyPartner_2.0.sqlite */; };
 		60E7E2F11ABB47D1007EAA8A /* InstallShotImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7E2F01ABB47D1007EAA8A /* InstallShotImage.m */; };
 		60E7E2F31ABB47E2007EAA8A /* _InstallShotImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7E2ED1ABB47A3007EAA8A /* _InstallShotImage.m */; };
+		60E98A191BB2CD8100CF3364 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60E98A181BB2CD8100CF3364 /* Launch Screen.xib */; settings = {ASSET_TAGS = (); }; };
 		60E9B6C918DA207900BC7FEA /* ARSyncronousTreeProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E9B6C818DA207900BC7FEA /* ARSyncronousTreeProvider.m */; };
 		60EAE0D91497D78C006B55E8 /* ARSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EAE0D71497D78B006B55E8 /* ARSettingsViewController.m */; };
 		60EAE0DA1497D78C006B55E8 /* ARSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60EAE0D81497D78B006B55E8 /* ARSettingsViewController.xib */; };
@@ -1289,6 +1290,7 @@
 		60E7E2ED1ABB47A3007EAA8A /* _InstallShotImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _InstallShotImage.m; sourceTree = "<group>"; };
 		60E7E2EF1ABB47D1007EAA8A /* InstallShotImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstallShotImage.h; sourceTree = "<group>"; };
 		60E7E2F01ABB47D1007EAA8A /* InstallShotImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstallShotImage.m; sourceTree = "<group>"; };
+		60E98A181BB2CD8100CF3364 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		60E9B6C718DA207900BC7FEA /* ARSyncronousTreeProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSyncronousTreeProvider.h; sourceTree = "<group>"; };
 		60E9B6C818DA207900BC7FEA /* ARSyncronousTreeProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncronousTreeProvider.m; sourceTree = "<group>"; };
 		60EAE0D61497D78A006B55E8 /* ARSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSettingsViewController.h; sourceTree = "<group>"; };
@@ -2617,6 +2619,7 @@
 		60E6321D1B3AD29400FA5538 /* App Launching */ = {
 			isa = PBXGroup;
 			children = (
+				60E98A181BB2CD8100CF3364 /* Launch Screen.xib */,
 				D8FAA89F1442893500AA34BC /* ARAppDelegate.h */,
 				D8FAA8A01442893500AA34BC /* ARAppDelegate.m */,
 				60E6321A1B3AD1F200FA5538 /* ARAppTestDelegate.h */,
@@ -3530,6 +3533,7 @@
 				606DF15815516F5900E2F74C /* MenuBack@2x.png in Resources */,
 				606DF1611551720000E2F74C /* ARSettingsNavigationController.xib in Resources */,
 				606DF1691551749B00E2F74C /* White.png in Resources */,
+				60E98A191BB2CD8100CF3364 /* Launch Screen.xib in Resources */,
 				60B608581A41847300C2BBE5 /* PadAddArtworksButton@2x.png in Resources */,
 				6062B365155D2312006BEF6F /* MenuBackSelected.png in Resources */,
 				6062B367155D2312006BEF6F /* MenuBackSelected@2x.png in Resources */,
@@ -4242,7 +4246,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APPLICATION_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = FolioDev;
-				PROVISIONING_PROFILE = "1bca291e-373d-46fc-9ccf-cea0e9377b23";
+				PROVISIONING_PROFILE = "bf1b03c9-f41c-4ace-9f22-6a247f5af476";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
