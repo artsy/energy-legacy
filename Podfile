@@ -8,7 +8,6 @@ use_frameworks!
 inhibit_all_warnings!
 
 plugin 'cocoapods-keys', {
-    :project => "Folio",
     :keys => [
     "ArtsyAPIClientSecret",
     "ArtsyAPIClientKey",
@@ -28,7 +27,7 @@ pod 'UIView+BooleanAnimations'
 pod 'ORStackView'
 
 if %w(orta ash artsy laura eloy sarahscott).include?(ENV['USER']) || ENV['CI'] == 'true'
-    pod 'Artsy+UIFonts', :git => "https://github.com/artsy/Artsy-UIFonts.git", :branch => "old_fonts_new_lib"
+  pod 'Artsy+UIFonts', :git => "https://github.com/artsy/Artsy-UIFonts.git", :branch => "old_fonts_new_lib"
 else
   pod 'Artsy+OSSUIFonts'
 end
