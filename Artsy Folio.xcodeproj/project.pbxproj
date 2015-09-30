@@ -490,6 +490,7 @@
 		60FFE3BC156FAE5000A138D3 /* RecentlyUploadedPlaceholder@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60FFE3B9156FAE5000A138D3 /* RecentlyUploadedPlaceholder@2x.jpg */; };
 		8305D6801AE05168004A270E /* ARThumbnailImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8305D67F1AE05168004A270E /* ARThumbnailImageScrollView.m */; };
 		8312011E1B73C3F600E1A988 /* ARViewInRoomViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8312011D1B73C3F600E1A988 /* ARViewInRoomViewTests.m */; };
+		831A924B1BB9B076005C3224 /* ARLabSettingsSyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831A924A1BB9B076005C3224 /* ARLabSettingsSyncViewController.swift */; };
 		83272D121B99365E0083D9C4 /* ArtworkModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83272D111B99365E0083D9C4 /* ArtworkModelTests.m */; };
 		833023041B448CF800C97266 /* close_window.png in Resources */ = {isa = PBXBuildFile; fileRef = 833023031B448CF800C97266 /* close_window.png */; };
 		833023061B4492C900C97266 /* EditInCMSScreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 833023051B4492C900C97266 /* EditInCMSScreenshot.png */; };
@@ -497,7 +498,6 @@
 		833104DE1B433FBE00B68E52 /* ARFolioImageMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833104DD1B433FBE00B68E52 /* ARFolioImageMessageViewController.m */; };
 		833883101BAB0E4600F21DED /* ARLabSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8338830F1BAB0E4600F21DED /* ARLabSettingsViewController.m */; };
 		833AAC371BA9DF9A00B24D25 /* ARLabSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833AAC361BA9DF9A00B24D25 /* ARLabSettings.storyboard */; };
-		833AAC3E1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833AAC3D1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m */; };
 		834BA6971B4ADDE9009D18F7 /* pencil_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 834BA6961B4ADDE9009D18F7 /* pencil_btn@2x.png */; };
 		834BA6991B4AE1A8009D18F7 /* pencil_btn_whiteborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 834BA6981B4AE1A8009D18F7 /* pencil_btn_whiteborder.png */; };
 		834BA69B1B4AE280009D18F7 /* pencil_btn_whiteborder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 834BA69A1B4AE280009D18F7 /* pencil_btn_whiteborder@2x.png */; };
@@ -512,6 +512,7 @@
 		837980AE1BB2126B00A06BEC /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 837980AC1BB2126B00A06BEC /* chevron.png */; };
 		837980AF1BB2126B00A06BEC /* chevron@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 837980AD1BB2126B00A06BEC /* chevron@2x.png */; };
 		838BEEF31B31C9DF00D5FFC6 /* ARCMSStatusMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 838BEEF21B31C9DF00D5FFC6 /* ARCMSStatusMonitor.m */; };
+		8396EB441BB346F4000AC35E /* ARLabSettingsMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8396EB431BB346F4000AC35E /* ARLabSettingsMasterViewController.swift */; };
 		839B59781B4DAA3900F24033 /* _EditionSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 839B59771B4DAA3900F24033 /* _EditionSet.m */; };
 		839B597B1B4DB6D000F24033 /* EditionSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 839B597A1B4DB6D000F24033 /* EditionSet.m */; };
 		839C16C31B94B65C009D8FB4 /* ARSyncStatusViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 839C16C21B94B65C009D8FB4 /* ARSyncStatusViewModel.m */; };
@@ -1363,6 +1364,7 @@
 		8305D67E1AE05168004A270E /* ARThumbnailImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARThumbnailImageScrollView.h; sourceTree = "<group>"; };
 		8305D67F1AE05168004A270E /* ARThumbnailImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARThumbnailImageScrollView.m; sourceTree = "<group>"; };
 		8312011D1B73C3F600E1A988 /* ARViewInRoomViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARViewInRoomViewTests.m; sourceTree = "<group>"; };
+		831A924A1BB9B076005C3224 /* ARLabSettingsSyncViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARLabSettingsSyncViewController.swift; sourceTree = "<group>"; };
 		83272D111B99365E0083D9C4 /* ArtworkModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkModelTests.m; sourceTree = "<group>"; };
 		833023031B448CF800C97266 /* close_window.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = close_window.png; path = Navigation/close_window.png; sourceTree = "<group>"; };
 		833023051B4492C900C97266 /* EditInCMSScreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EditInCMSScreenshot.png; sourceTree = "<group>"; };
@@ -1372,8 +1374,6 @@
 		8338830E1BAB0E4600F21DED /* ARLabSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsViewController.h; sourceTree = "<group>"; };
 		8338830F1BAB0E4600F21DED /* ARLabSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsViewController.m; sourceTree = "<group>"; };
 		833AAC361BA9DF9A00B24D25 /* ARLabSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ARLabSettings.storyboard; sourceTree = "<group>"; };
-		833AAC3C1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsMasterViewController.h; sourceTree = "<group>"; };
-		833AAC3D1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsMasterViewController.m; sourceTree = "<group>"; };
 		8343B7BC1B4C5667005790A9 /* ArtsyFolio v2.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.3.xcdatamodel"; sourceTree = "<group>"; };
 		834BA6961B4ADDE9009D18F7 /* pencil_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pencil_btn@2x.png"; sourceTree = "<group>"; };
 		834BA6981B4AE1A8009D18F7 /* pencil_btn_whiteborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil_btn_whiteborder.png; sourceTree = "<group>"; };
@@ -1394,6 +1394,7 @@
 		837980AD1BB2126B00A06BEC /* chevron@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron@2x.png"; sourceTree = "<group>"; };
 		838BEEF11B31C9DF00D5FFC6 /* ARCMSStatusMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMSStatusMonitor.h; sourceTree = "<group>"; };
 		838BEEF21B31C9DF00D5FFC6 /* ARCMSStatusMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARCMSStatusMonitor.m; sourceTree = "<group>"; };
+		8396EB431BB346F4000AC35E /* ARLabSettingsMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARLabSettingsMasterViewController.swift; sourceTree = "<group>"; };
 		839B59751B4D955900F24033 /* ArtsyFolio v2.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.4.xcdatamodel"; sourceTree = "<group>"; };
 		839B59761B4DAA3900F24033 /* _EditionSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _EditionSet.h; sourceTree = "<group>"; };
 		839B59771B4DAA3900F24033 /* _EditionSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _EditionSet.m; sourceTree = "<group>"; };
@@ -2124,8 +2125,8 @@
 				60B2C8141743D2740019DB9B /* ARSupportSettingsViewController.m */,
 				6055B77D1872DFE80043B937 /* ARAdminSettingsViewController.h */,
 				6055B77E1872DFE80043B937 /* ARAdminSettingsViewController.m */,
-				833AAC3C1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.h */,
-				833AAC3D1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m */,
+				8396EB431BB346F4000AC35E /* ARLabSettingsMasterViewController.swift */,
+				831A924A1BB9B076005C3224 /* ARLabSettingsSyncViewController.swift */,
 				8338830E1BAB0E4600F21DED /* ARLabSettingsViewController.h */,
 				8338830F1BAB0E4600F21DED /* ARLabSettingsViewController.m */,
 				83EFD02C1BB1F1080000CC44 /* ARLabSettingsNavigationController.swift */,
@@ -3952,6 +3953,7 @@
 				4962C06814E03A9F003E7845 /* ARTiledZoomConstants.m in Sources */,
 				B5FC6BE814EEE06000EB7AB9 /* ARGridView.m in Sources */,
 				60C20F051836B20D00846A60 /* ARGroupedView.m in Sources */,
+				8396EB441BB346F4000AC35E /* ARLabSettingsMasterViewController.swift in Sources */,
 				60117F801917F6BE0072E500 /* _ArtistDocument.m in Sources */,
 				60F63801199E8F4D008D2360 /* ARSyncMessageViewController.m in Sources */,
 				605F1D45183EC175007EFE74 /* ARSwitchBoard.m in Sources */,
@@ -4066,6 +4068,7 @@
 				B37F1653183EB211007A7023 /* AFHTTPRequestOperation+ARFileDownload.m in Sources */,
 				60DED58419768FCC00853B78 /* ARDispatchManager.m in Sources */,
 				833104DE1B433FBE00B68E52 /* ARFolioImageMessageViewController.m in Sources */,
+				831A924B1BB9B076005C3224 /* ARLabSettingsSyncViewController.swift in Sources */,
 				601E1A19194F9575004B21E4 /* ARPagingArtworkViewController.m in Sources */,
 				606C6794170B1B4200A9C0EB /* ARTabbedViewController.m in Sources */,
 				4961F31D171897C40074CB91 /* NSFetchedResultsController+Count.m in Sources */,
@@ -4087,7 +4090,6 @@
 				415416B617396B1000709811 /* ARFileUtils+FolioAdditions.m in Sources */,
 				493E2951173B07E700644DCB /* ARSortCache.m in Sources */,
 				60AA47AB17413E0A0006119F /* ARTickedTableViewCell.m in Sources */,
-				833AAC3E1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m in Sources */,
 				60B590CF1A248EC10073DB85 /* ARProgressView.m in Sources */,
 				4148D66D17410F0B00169FD2 /* ARMultipleButtonsPopoverViewController.m in Sources */,
 				60B2C7FA1743AC200019DB9B /* ARToggleSwitch.m in Sources */,
