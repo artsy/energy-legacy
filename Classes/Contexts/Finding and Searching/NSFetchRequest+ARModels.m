@@ -40,7 +40,6 @@
 
     // TODO: https://github.com/artsy/energy/issues/643
     [predicates addObject:[NSPredicate predicateWithFormat:@"images.@count > 0"]];
-    [predicates addObject:[NSPredicate predicateWithFormat:@"ANY images.processing == %@ ", @(NO)]];
 
     return [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
 }
