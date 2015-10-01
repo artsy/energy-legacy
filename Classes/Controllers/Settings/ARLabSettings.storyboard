@@ -9,8 +9,10 @@
     <customFonts key="customFonts">
         <mutableArray key="AGaramondPro-Regular.otf">
             <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
         </mutableArray>
         <mutableArray key="ITC_Avant_Garde_Gothic__Demi.ttf">
+            <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
@@ -37,68 +39,100 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SYNC CONTENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VW-1h-o4p">
-                                <rect key="frame" x="226" y="40" width="149" height="26"/>
+                                <rect key="frame" x="226" y="52" width="149" height="26"/>
                                 <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dN7-VV-sDC">
-                                <rect key="frame" x="183" y="167" width="235" height="39"/>
+                                <rect key="frame" x="159" y="212" width="282" height="39"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="282" id="KgL-Fd-UW6"/>
                                     <constraint firstAttribute="width" secondItem="dN7-VV-sDC" secondAttribute="height" multiplier="235:39" id="Vtf-Rm-1Xr"/>
                                     <constraint firstAttribute="width" constant="235" id="ocs-AY-P2S"/>
+                                    <constraint firstAttribute="height" constant="39" id="qYu-am-ZEs"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="15"/>
                                 <state key="normal" title="SYNC CONTENT">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Vtf-Rm-1Xr"/>
+                                        <exclude reference="ocs-AY-P2S"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="syncButtonPressed:" destination="lXz-BW-0kX" eventType="touchUpInside" id="VIR-RA-Gun"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="clip" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLh-tO-n1h">
-                                <rect key="frame" x="20" y="86" width="560" height="61"/>
-                                <string key="text">Here is where you can sync artworks, documents, and information you added on CMS, with Folio. Given the big size of images, before Syncing, please make sure you are on a Wi-Fi connection.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="clip" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLh-tO-n1h" customClass="ARAttributedLabel" customModule="Folio" customModuleProvider="target">
+                                <rect key="frame" x="20" y="103" width="560" height="77"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Here is where you can sync artworks, documents, and information you added on CMS, with Folio. Given the big size of images, before Syncing, please make sure you are on a Wi-Fi connection.</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name="AGaramondPro-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="759-UY-Bej">
-                                <rect key="frame" x="20" y="308" width="560" height="292"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="35" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="759-UY-Bej">
+                                <rect key="frame" x="20" y="328" width="560" height="272"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="lastSyncedCell" id="cYw-9G-hyR">
-                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="lastSyncedCell" rowHeight="35" id="cYw-9G-hyR">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cYw-9G-hyR" id="06y-dp-TWB">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="PREVIOUS SYNCS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWX-nm-kei">
-                                <rect key="frame" x="229" y="265" width="142" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PREVIOUS SYNCS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWX-nm-kei">
+                                <rect key="frame" x="231" y="303" width="138" height="17"/>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="759-UY-Bej" firstAttribute="trailing" secondItem="atM-Rl-b4z" secondAttribute="trailingMargin" id="0Wh-o0-BBt"/>
-                            <constraint firstItem="fLh-tO-n1h" firstAttribute="trailing" secondItem="atM-Rl-b4z" secondAttribute="trailingMargin" id="B7f-Gp-6CX"/>
-                            <constraint firstItem="dN7-VV-sDC" firstAttribute="top" secondItem="fLh-tO-n1h" secondAttribute="bottom" constant="20" id="PSj-fm-F3b"/>
-                            <constraint firstItem="dN7-VV-sDC" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="WXf-Gh-ySG"/>
-                            <constraint firstItem="759-UY-Bej" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="dPm-na-NBV"/>
-                            <constraint firstItem="fLh-tO-n1h" firstAttribute="top" secondItem="0VW-1h-o4p" secondAttribute="bottom" constant="20" id="eCx-nu-04m"/>
-                            <constraint firstItem="759-UY-Bej" firstAttribute="leading" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" id="gRj-3e-y36"/>
-                            <constraint firstItem="fLh-tO-n1h" firstAttribute="leading" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" id="maq-UC-Mkt"/>
-                            <constraint firstItem="EWX-nm-kei" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="not-Y8-OgF"/>
-                            <constraint firstItem="fLh-tO-n1h" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="oMv-BW-zXf"/>
-                            <constraint firstItem="0VW-1h-o4p" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="pUO-A4-xrZ"/>
-                            <constraint firstItem="0VW-1h-o4p" firstAttribute="top" secondItem="5pM-C7-1Xy" secondAttribute="bottom" constant="20" id="y1Y-MI-Oed"/>
+                            <constraint firstItem="759-UY-Bej" firstAttribute="top" secondItem="EWX-nm-kei" secondAttribute="bottom" constant="8" id="2eH-UI-JI2"/>
+                            <constraint firstItem="EWX-nm-kei" firstAttribute="top" secondItem="dN7-VV-sDC" secondAttribute="bottom" constant="52" id="69w-o3-GF7"/>
+                            <constraint firstItem="fLh-tO-n1h" firstAttribute="trailing" secondItem="atM-Rl-b4z" secondAttribute="trailingMargin" id="9Hq-MT-lhv"/>
+                            <constraint firstItem="fLh-tO-n1h" firstAttribute="leading" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" id="Ouq-x9-wyp"/>
+                            <constraint firstItem="759-UY-Bej" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="PGY-dA-3lh"/>
+                            <constraint firstItem="fLh-tO-n1h" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="PZF-ok-rfL"/>
+                            <constraint firstItem="dN7-VV-sDC" firstAttribute="top" secondItem="fLh-tO-n1h" secondAttribute="bottom" constant="14" id="RMH-Gf-xXr"/>
+                            <constraint firstItem="759-UY-Bej" firstAttribute="trailing" secondItem="atM-Rl-b4z" secondAttribute="trailingMargin" id="Sdi-13-4NR"/>
+                            <constraint firstItem="fLh-tO-n1h" firstAttribute="top" secondItem="0VW-1h-o4p" secondAttribute="bottom" constant="25" id="TNc-Yd-lql"/>
+                            <constraint firstItem="1Mk-77-YAC" firstAttribute="top" secondItem="759-UY-Bej" secondAttribute="bottom" id="ZHB-uE-K1t"/>
+                            <constraint firstItem="0VW-1h-o4p" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="cdh-Na-xZO"/>
+                            <constraint firstItem="759-UY-Bej" firstAttribute="leading" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" id="fRM-kN-MkE"/>
+                            <constraint firstItem="dN7-VV-sDC" firstAttribute="top" secondItem="fLh-tO-n1h" secondAttribute="bottom" constant="32" id="q1O-pI-b5S"/>
+                            <constraint firstItem="EWX-nm-kei" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="rmr-am-vbz"/>
+                            <constraint firstItem="dN7-VV-sDC" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="s1h-G7-35H"/>
+                            <constraint firstItem="0VW-1h-o4p" firstAttribute="top" secondItem="5pM-C7-1Xy" secondAttribute="bottom" constant="32" id="wxb-K6-OxB"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="RMH-Gf-xXr"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="lastSyncedTableView" destination="759-UY-Bej" id="3MK-Hc-Ssz"/>
+                        <outlet property="tableView" destination="759-UY-Bej" id="k9K-DA-MBx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xm4-Ia-lle" userLabel="First Responder" sceneMemberID="firstResponder"/>

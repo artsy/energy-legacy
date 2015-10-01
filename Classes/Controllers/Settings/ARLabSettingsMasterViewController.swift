@@ -44,18 +44,3 @@ class ARLabSettingsMasterViewController:UIViewController {
     }
     
 }
-
-@IBDesignable class ARAttributedLabel: UILabel {
-
-    @IBInspectable var fontSize: CGFloat = 16.0
-
-    @IBInspectable var fontFamily: String = "AGaramondPro-Regular"
-
-    override func awakeFromNib() {
-        let attrString = NSMutableAttributedString(attributedString: self.attributedText!)
-
-        attrString.addAttribute(NSFontAttributeName, value: UIFont(name: self.fontFamily, size: self.fontSize)!, range: NSMakeRange(0, attrString.length))
-
-        self.attributedText = attrString
-    }
-}

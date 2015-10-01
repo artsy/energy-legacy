@@ -6,3 +6,8 @@
 #import "ARLabSettingsViewController.h"
 #import "AROptions.h"
 #import "CoreDataManager.h"
+#import "ARSyncStatusViewModel.h"
+#import "SyncLog.h"
+#import <Reachability/Reachability.h>
+#import <Artsy_UIFonts/UIFont+ArtsyFonts.h>
+#import <Artsy_UIColors/UIColor+ArtsyColors.h>

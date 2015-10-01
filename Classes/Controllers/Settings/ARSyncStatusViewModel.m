@@ -2,6 +2,8 @@
 #import "NSString+TimeInterval.h"
 #import "Reachability+ConnectionExists.h"
 #import "NSDate+Presentation.h"
+#import "SyncLog.h"
+#import "ARTopViewController.h"
 
 
 @interface ARSyncStatusViewModel ()
@@ -16,7 +18,7 @@
     self = [super init];
     if (!self) return nil;
 
-    self.sync = sync;
+    self.sync = sync ?: [ARTopViewController sharedInstance].sync;
     self.sync.delegate = self;
 
     return self;
@@ -150,6 +152,32 @@
         return [NSString stringWithFormat:lastSyncedFormat, [lastSynced formattedString]];
     }
     return @"";
+}
+
+#pragma mark -
+#pragma mark sync logs
+
+- (NSArray *)lastSyncedStrings
+{
+    return [self.syncLogs map:^id(SyncLog *log) { return [log.dateStarted formattedString];
+    }];
+}
+
+- (NSArray *)syncLogs
+{
+    return [[CoreDataManager mainManagedObjectContext] executeFetchRequest:self.allSyncLogsRequest error:nil];
+}
+
+- (NSInteger)syncLogCount
+{
+    return [[CoreDataManager mainManagedObjectContext] countForFetchRequest:self.allSyncLogsRequest error:nil];
+}
+
+- (NSFetchRequest *)allSyncLogsRequest
+{
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"SyncLog"];
+    request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"dateStarted" ascending:NO] ];
+    return request;
 }
 
 #pragma mark -
