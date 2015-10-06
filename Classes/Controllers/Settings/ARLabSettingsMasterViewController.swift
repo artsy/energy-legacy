@@ -1,17 +1,28 @@
+import KVOController
+
 class ARLabSettingsMasterViewController:UIViewController {
 
     @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var syncNotificationImageView: UIImageView!
 
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.setupSettingsButton()
+        self.updateSyncNotificationImage()
     }
 
     func setupSettingsButton() {
-        if let image: UIImage! = UIImage(named: "settings_btn_whiteborder")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate) {
-            self.settingsButton.setImage(image, forState: UIControlState.Normal)
-            self.settingsButton.tintColor = UIColor.blackColor()
-            self.settingsButton.backgroundColor = UIColor.whiteColor()
-        }
+        guard let image: UIImage! = UIImage(named: "settings_btn_whiteborder")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate) else { return }
+        self.settingsButton.setImage(image, forState: UIControlState.Normal)
+        self.settingsButton.tintColor = UIColor.blackColor()
+        self.settingsButton.backgroundColor = UIColor.whiteColor()
+    }
+
+    func updateSyncNotificationImage() {
+        let cmsChecker = ARCMSStatusMonitor.init(context: CoreDataManager.mainManagedObjectContext())
+        cmsChecker.checkCMSForUpdates({ (shouldShowSyncImage) -> Void in
+                self.syncNotificationImageView.hidden = !shouldShowSyncImage
+            })
     }
 
     @IBAction func settingsButtonPressed(sender: AnyObject) {
@@ -28,6 +39,7 @@ class ARLabSettingsMasterViewController:UIViewController {
     }
     
     @IBAction func syncButtonPressed(sender: AnyObject) {
+        self.syncNotificationImageView.hidden = true
         self.performSegueWithIdentifier("syncOptionsSegue", sender: self)
     }
 

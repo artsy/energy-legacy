@@ -1,12 +1,9 @@
-import CoreData
-//import SyncLog
-
 class ARLabSettingsSyncViewController:UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var lastSyncedTableView: UITableView!
     @IBOutlet weak var tableView: UITableView!
 
-    let viewModel = ARSyncStatusViewModel.init(sync: nil);
+    let viewModel = ARSyncStatusViewModel.init(sync: nil)
 
     override func viewDidLoad() {
         self.lastSyncedTableView.dataSource = self
@@ -47,9 +44,7 @@ class ARLabSettingsSyncViewController:UIViewController, UITableViewDelegate, UIT
 
     override func awakeFromNib() {
         let attrString = NSMutableAttributedString(attributedString: self.attributedText!)
-
         attrString.addAttribute(NSFontAttributeName, value: UIFont(name: self.fontFamily, size: self.fontSize)!, range: NSMakeRange(0, attrString.length))
-
         self.attributedText = attrString
     }
 }

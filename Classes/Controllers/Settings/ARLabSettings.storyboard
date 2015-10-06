@@ -38,13 +38,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SYNC CONTENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VW-1h-o4p">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SYNC CONTENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VW-1h-o4p">
                                 <rect key="frame" x="226" y="52" width="149" height="26"/>
                                 <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dN7-VV-sDC">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dN7-VV-sDC">
                                 <rect key="frame" x="159" y="212" width="282" height="39"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -67,7 +67,7 @@
                                     <action selector="syncButtonPressed:" destination="lXz-BW-0kX" eventType="touchUpInside" id="VIR-RA-Gun"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="clip" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLh-tO-n1h" customClass="ARAttributedLabel" customModule="Folio" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="clip" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLh-tO-n1h" customClass="ARAttributedLabel" customModule="Folio" customModuleProvider="target">
                                 <rect key="frame" x="20" y="103" width="560" height="77"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -98,7 +98,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PREVIOUS SYNCS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWX-nm-kei">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PREVIOUS SYNCS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWX-nm-kei">
                                 <rect key="frame" x="231" y="303" width="138" height="17"/>
                                 <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -151,19 +151,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EDIT PRESENTATION MODE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDo-p7-Few">
-                                <rect key="frame" x="178" y="40" width="245" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EDIT PRESENTATION MODE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDo-p7-Few">
+                                <rect key="frame" x="178" y="52" width="244" height="26"/>
                                 <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fDo-p7-Few" firstAttribute="top" secondItem="FSl-If-jfy" secondAttribute="bottom" constant="32" id="H3j-xP-mjC"/>
+                            <constraint firstItem="fDo-p7-Few" firstAttribute="centerX" secondItem="o07-Wx-3HH" secondAttribute="centerX" id="WNy-Ky-vxe"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkn-Ar-Fli" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1685" y="747"/>
+            <point key="canvasLocation" x="1685" y="753"/>
         </scene>
         <!--Lab Settings Master View Controller-->
         <scene sceneID="kL2-SG-N9U">
@@ -206,7 +210,7 @@
                                         <rect key="frame" x="0.0" y="44" width="260" height="1"/>
                                         <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alert-badge-small.png" translatesAutoresizingMaskIntoConstraints="NO" id="43V-Rz-x8C">
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alert-badge-small.png" translatesAutoresizingMaskIntoConstraints="NO" id="43V-Rz-x8C">
                                         <rect key="frame" x="228" y="15" width="14" height="14"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="chevron.png" translatesAutoresizingMaskIntoConstraints="NO" id="ybE-pM-qE7">
@@ -234,9 +238,6 @@
                                         <rect key="frame" x="0.0" y="44" width="260" height="1"/>
                                         <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="ToggleOff.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pb7-7n-lGB">
-                                        <rect key="frame" x="182" y="9" width="78" height="28"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -388,6 +389,7 @@
                     <size key="freeformSize" width="308" height="1024"/>
                     <connections>
                         <outlet property="settingsButton" destination="gbW-Jr-1Nt" id="mwc-8s-poa"/>
+                        <outlet property="syncNotificationImageView" destination="43V-Rz-x8C" id="93V-Hm-V7s"/>
                         <segue destination="lXz-BW-0kX" kind="showDetail" identifier="syncOptionsSegue" id="UVj-Sh-id0"/>
                         <segue destination="GFb-hr-tUN" kind="showDetail" identifier="presentationModeSegue" id="Rms-cI-VG6"/>
                     </connections>
@@ -429,7 +431,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ToggleOff.png" width="76" height="28"/>
         <image name="alert-badge-small.png" width="25" height="24"/>
         <image name="chevron.png" width="8" height="13"/>
     </resources>
