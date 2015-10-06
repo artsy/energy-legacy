@@ -1,12 +1,16 @@
 upcoming:
   notes:
     - Disable Application Transport Security for iOS 9 [sarah]
-    
+
 releases:
+
+  - version: 2.4.3
+    notes:
+      - Disable Application Transport Security for iOS 9 [sarah]
 
   - version: 2.4.2
     notes:
-      - Disable Application Transport Security for iOS 9 [sarah]
+      - Use the right CocoaPods-Keys [sarah + orta]
 
   - version: 2.4.1
     notes:

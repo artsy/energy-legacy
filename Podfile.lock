@@ -102,7 +102,7 @@ DEPENDENCIES:
   - GRMustache (~> 7.0)
   - ISO8601DateFormatter (~> 0.7)
   - JLRoutes
-  - Keys (from `Pods/CocoaPodsKeys/`)
+  - Keys (from `Pods/CocoaPodsKeys`)
   - libextobjc/EXTKeyPathCoding (~> 0.3)
   - libextobjc/EXTScope (~> 0.3)
   - ObjectiveSugar (from `https://github.com/supermarin/ObjectiveSugar.git`)
@@ -127,7 +127,7 @@ EXTERNAL SOURCES:
   ARTiledImageView:
     :git: https://github.com/dblock/ARTiledImageView.git
   Keys:
-    :path: Pods/CocoaPodsKeys/
+    :path: Pods/CocoaPodsKeys
   ObjectiveSugar:
     :git: https://github.com/supermarin/ObjectiveSugar.git
   TPKeyboardAvoiding:
