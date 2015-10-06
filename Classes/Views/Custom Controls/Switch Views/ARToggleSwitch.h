@@ -3,7 +3,7 @@
 
 @interface ARToggleSwitch : UIButton
 
-+ (instancetype)button;
++ (instancetype)buttonWithFrame:(CGRect)frame;
 
 @property (nonatomic, getter=isOn) BOOL on;
 @end

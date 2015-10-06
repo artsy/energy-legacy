@@ -75,7 +75,7 @@ NS_ENUM(NSInteger, ARAdminSettingsSection){
     UITableViewCell *cell = [[ARTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"support"];
     cell.textLabel.text = [self titleForRow:indexPath.row inSection:indexPath.section];
 
-    ARToggleSwitch *toggle = [ARToggleSwitch button];
+    ARToggleSwitch *toggle = [ARToggleSwitch buttonWithFrame:CGRectMake(0, 0, 76, 28)];
     NSString *option = [self defaultForRow:indexPath.row inSection:indexPath.section];
     toggle.on = [self.defaults boolForKey:option];
     toggle.userInteractionEnabled = NO;
