@@ -8,13 +8,14 @@
     CAShapeLayer *_backgroundLayer;
 }
 
-+ (instancetype)button
++ (instancetype)buttonWithFrame:(CGRect)frame
 {
-    ARToggleSwitch *button = [[self alloc] initWithFrame:CGRectMake(0, 0, 76, 28)];
+    ARToggleSwitch *button = [[self alloc] initWithFrame:frame];
     [button setOn:NO];
 
     return button;
 }
+
 
 - (void)setOn:(BOOL)on
 {
