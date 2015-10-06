@@ -1,7 +1,7 @@
 #import "ARAnalyticsHelper.h"
 #import <Analytics/SEGAnalytics.h>
 #import "SubscriptionPlan.h"
-#import <Keys/ArtsyfolioKeys.h>
+#import <Keys/FolioKeys.h>
 
 #import <Intercom/Intercom.h>
 #import <ARAnalytics/IntercomProvider.h>
@@ -24,7 +24,7 @@ static NSString *currentUserEmail;
 
 - (void)setup
 {
-    ArtsyfolioKeys *keys = [[ArtsyfolioKeys alloc] init];
+    FolioKeys *keys = [[FolioKeys alloc] init];
     NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
     BOOL isAppStore = [bundleIdentifier isEqualToString:@"sy.art.folio"];
     BOOL isBeta = [bundleIdentifier hasPrefix:@".beta"];

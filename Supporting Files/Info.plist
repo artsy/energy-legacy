@@ -49,11 +49,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-<<<<<<< HEAD
 	<string>2015.10.06</string>
-=======
-	<string>2015.09.23</string>
->>>>>>> 2.4.2
 	<key>GITCommitRev</key>
 	<string>4cc1be1</string>
 	<key>GITCommitSha</key>
