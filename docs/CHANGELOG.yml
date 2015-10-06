@@ -1,5 +1,7 @@
 upcoming:
-
+  notes:
+    - Disable Application Transport Security for iOS 9 [sarah]
+    
 releases:
 
   - version: 2.4.2
