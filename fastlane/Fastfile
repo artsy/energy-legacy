@@ -4,19 +4,14 @@ unless ENV['HOCKEY_API_TOKEN'] && ENV['SLACK_URL']
   raise "You need to set HOCKEY_API_TOKEN (#{ENV['HOCKEY_API_TOKEN']}) and SLACK_URL (#{ENV['SLACK_URL']}) in your environment."
 end
 
-lane :build_for_test do
-  xcodebuild scheme: 'ArtsyFolio', destination: "OS=8.4,name=iPad Retina"
-end
-
-lane :test do
-  xctest destination: "OS=8.4,name=iPad Retina"
-end
-
-lane :build_for_beta do
-  xcodebuild sdk: "iphoneos", configuration: "Beta"
+before_all do
+  # Set up validation before_all blocks
+  eval(File.read File.expand_path(File.dirname(__FILE__) + "/preflight_validators/keys_validator.rb") )
+  eval(File.read File.expand_path(File.dirname(__FILE__) + "/preflight_validators/changelog_validator.rb") )
 end
 
 lane :beta do
+
   # Increment build number to current date
   build_number = Time.new.strftime("%Y.%m.%d")
   increment_build_number build_number: build_number, xcodeproj: './Artsy Folio.xcodeproj'
@@ -24,11 +19,8 @@ lane :beta do
   # Set version number to the one at the top of the CHANGELOG
   readme_yaml = File.read("../docs/CHANGELOG.yml")
   readme_data = YAML.load(readme_yaml)
-
   latest_version = readme_data["upcoming"]["version"]
-
-  #increment_version_number release_task: latest_version, xcodeproj: './Artsy Folio.xcodeproj'
-  `/usr/libexec/PlistBuddy -c "Set CFBundleShortVersionString #{latest_version}" "../Supporting Files/info.plist"`
+  increment_version_number version_number: latest_version, xcodeproj: './Artsy Folio.xcodeproj'
 
   # Generate release notes from CHANGELOG
   upcoming = readme_data["upcoming"]
@@ -43,21 +35,42 @@ lane :beta do
   sh 'cat "../Resources/Images/App Icons + Launch/Beta-icon.png" | tee ../Resources/Images/App\ Icons\ +\ Launch/Icon* > /dev/null'
 
   # Build
-  ipa configuration: "Beta", scheme: "ArtsyFolio"
+  gym configuration: "Beta", scheme: "ArtsyFolio"
 
-  hockey api_token: ENV['HOCKEY_API_TOKEN'], notes: release_notes
+  # Send to Testflight
+  deliver skip_deploy: true, beta: true
 
-  slack message: "There is a new Folio beta available. Download it at https://artsy.net/foliobeta",
-        channel: "Folio",
-        payload: {
-          'Version' => latest_version,
-          'What\'s new' => upcoming_release_notes,
-        },
-        default_payloads: []
+  # # Deploy to hockey
+  # hockey api_token: ENV['HOCKEY_API_TOKEN'], notes: release_notes
+
+  # slack message: "There is a new Folio beta available. Download it at https://artsy.net/foliobeta",
+  #       channel: "Folio",
+  #       payload: {
+  #         'Version' => latest_version,
+  #         'What\'s new' => upcoming_release_notes,
+  #       },
+  #       default_payloads: [:git_author]
 
   # Undo the icons after
+  cleanup
+end
+
+lane :beta_production do
+  gym configuration: "Release", scheme: "ArtsyFolio"
+  deliver beta: true
+  slack channel: "Folio", message: "New Production version pushed to Internal TestFlight.", default_payloads: [:git_branch, :git_author]
+end
+
+on_error do
+  cleanup
+end
+
+def cleanup
   sh "git checkout ../Resources/"
   `rm ../*.dSYM.zip`
   `rm ../*.ipa`
+end
 
+after_all do |lane|
+  notify "Fastlane finished '#{lane}'"
 end

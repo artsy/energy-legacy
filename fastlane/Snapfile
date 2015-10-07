@@ -1,44 +1,17 @@
-# Uncomment the lines below you want to change by removing the # in the beginning
+devices ["iPhone 6", "iPhone 6 Plus", "iPhone 5s", "iPhone 4s",  "iPad Retina"]
+languages 'en-US'
 
-# A list of devices you want to take the screenshots from
-devices([
-  "iPhone 6",
-  "iPhone 6 Plus",
-  "iPhone 5s",
-  "iPhone 4s",
-  "iPad Retina"
-])
+screenshots_path "screenshots"
+js_file 'snapshots/snapshot.js'
 
-languages([
-  'en-US'
-])
-
-# Where should the resulting screenshots be stored?
-screenshots_path "./config/screenshots"
-
-# JavaScript UIAutomation file
-js_file './config/snapshots/snapshot.js'
-
-# The name of the project's scheme
 scheme 'ArtsyFolio'
-project_path './Artsy Folio.xcworkspace'
+project_path '../Artsy Folio.xcworkspace'
 
-# Custom Callbacks
-
-setup_for_device_change do |device| 
-   puts "Preparing device: #{device}"
+unless File.exist? "set_up_db/logged_in_snapshots.sqlite"
+  puts "Expected a sqlite database of a logged in user at `set_up_db/logged_in_snapshots.sqlite`.".red
+  exit
 end
 
-# setup_for_language_change do |lang, device|
-#   puts "Running #{lang} on #{device}"
-#   system("./popuplateDatabase.sh")
-# end
-
-# teardown_language do |lang, device|
-#   puts "Finished with #{lang} on #{device}"
-# end
-
-# teardown_device do |device|
-#   puts "Cleaning device #{device}"
-#   system("./cleanup.sh")
-# end
+setup_for_device_change do |device, udid, language|
+  puts "Running #{language} on #{device}"
+end

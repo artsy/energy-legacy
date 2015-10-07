@@ -44,7 +44,7 @@ PODS:
   - GHMarkdownParser (0.1.2)
   - GRMustache (7.3.2):
     - JRSwizzle (~> 1.0)
-  - HockeySDK-Source (3.7.3)
+  - HockeySDK-Source (3.8.2)
   - Intercom (2.3.4)
   - ISO8601DateFormatter (0.7)
   - JLRoutes (1.5.2)
@@ -67,7 +67,7 @@ PODS:
   - Reachability (3.2)
   - SDWebImage/Core (3.7.1)
   - SFHFKeychainUtils (0.0.1)
-  - Specta (1.0.3)
+  - Specta (1.0.4)
   - SSDataSources (0.8.2)
   - TPKeyboardAvoiding (1.2.4)
   - TRVSDictionaryWithCaseInsensitivity (0.0.2)
@@ -100,7 +100,7 @@ DEPENDENCIES:
   - Intercom
   - ISO8601DateFormatter (~> 0.7)
   - JLRoutes
-  - Keys (from `Pods/CocoaPodsKeys/`)
+  - Keys (from `Pods/CocoaPodsKeys`)
   - KVOController
   - libextobjc/EXTKeyPathCoding (~> 0.3)
   - libextobjc/EXTScope (~> 0.3)
@@ -134,7 +134,7 @@ EXTERNAL SOURCES:
     :branch: old_fonts_new_lib
     :git: https://github.com/artsy/Artsy-UIFonts.git
   Keys:
-    :path: Pods/CocoaPodsKeys/
+    :path: Pods/CocoaPodsKeys
   Nimble:
     :branch: swift-2.0
     :git: https://github.com/quick/nimble
@@ -197,7 +197,7 @@ SPEC CHECKSUMS:
   Forgeries: 349b99d54dfbcfb971b96b56d88c50ca1d9c6118
   GHMarkdownParser: 14cbf59d0ab9450017d843dffd4a3ef691e5bd77
   GRMustache: ebe6104fd30a6d22c1f36af131e19e2dbf7cd292
-  HockeySDK-Source: 2ed30df0d39d9ffe5aeed4deda8000a20fdcce54
+  HockeySDK-Source: 42b2ead932f97de6b88bed9d1aa2a13b2e6e21ad
   Intercom: eea4450ffbc6fbaa2665c0714d69646ffd949b95
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   JLRoutes: fc36fd38ab476d5ac3a6a84b05be60e4b1a2bc81
@@ -213,7 +213,7 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: ed3095af2ff88b436426037444979b917f6c5575
   SFHFKeychainUtils: 9576b411a79a058f4d5381ace6f3242b9a62e664
-  Specta: cf3e4188cf35375c3ee2cd03f8db8f1f4ef98234
+  Specta: 69bb134672aae190a1379ff91df07dad8dd1f869
   SSDataSources: ec4bcbed5d5daed53646b5986085b576165a6472
   TPKeyboardAvoiding: 0a40dfbb0af7c8bdae1dd457496dccfd217d85f6
   TRVSDictionaryWithCaseInsensitivity: 51d2ccf52c6d645d27b63467a98fa02c556e01b0
