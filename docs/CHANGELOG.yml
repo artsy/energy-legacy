@@ -1,18 +1,11 @@
 upcoming:
-  version: 2.4.4
-  date: Oct 7 2015
+  version: 2.5.0
   notes:
-    - Fix for iOS 9 [sarah]
+    - iOS8 is the new deployment target, and OS baseline [orta]
+    - Uses CocoaPods Frameworks [orta]
+    - Settings view controller now uses MVVM [sarah]
 
 releases:
-  - version: 2.4.3
-    date: Oct 6 2015
-    notes:
-      - App Transport Security setting set to NSAllowArbitraryLoads [sarah]
-      - iOS8 is the new deployment target, and OS baseline [orta]
-      - Uses CocoaPods Frameworks [orta]
-      - Settings view controller now uses MVVM [sarah]
-
   - version: 2.4.1
     date: Sept 11 2015
     notes:
