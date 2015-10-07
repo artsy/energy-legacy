@@ -4,8 +4,11 @@ unless ENV['HOCKEY_API_TOKEN'] && ENV['SLACK_URL']
   raise "You need to set HOCKEY_API_TOKEN (#{ENV['HOCKEY_API_TOKEN']}) and SLACK_URL (#{ENV['SLACK_URL']}) in your environment."
 end
 
-# Run CocoaPods Keys validations
-eval(File.read File.expand_path(File.dirname(__FILE__) + "/keys_validator.rb") )
+before_all do
+  # Set up validation before_all blocks
+  eval(File.read File.expand_path(File.dirname(__FILE__) + "/preflight_validators/keys_validator.rb") )
+  eval(File.read File.expand_path(File.dirname(__FILE__) + "/preflight_validators/changelog_validator.rb") )
+end
 
 lane :beta do
 
@@ -46,11 +49,28 @@ lane :beta do
   #         'Version' => latest_version,
   #         'What\'s new' => upcoming_release_notes,
   #       },
-  #       default_payloads: []
+  #       default_payloads: [:git_author]
 
   # Undo the icons after
+  cleanup
+end
+
+lane :beta_production do
+  gym configuration: "Release", scheme: "ArtsyFolio"
+  deliver beta: true
+  slack channel: "Folio", message: "New Production version pushed to Internal TestFlight.", default_payloads: [:git_branch, :git_author]
+end
+
+on_error do
+  cleanup
+end
+
+def cleanup
   sh "git checkout ../Resources/"
   `rm ../*.dSYM.zip`
   `rm ../*.ipa`
+end
 
+after_all do |lane|
+  notify "Fastlane finished '#{lane}'"
 end

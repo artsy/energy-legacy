@@ -3,11 +3,8 @@ email 'it@artsymail.com'
 app_identifier "sy.art.folio"
 apple_id "504862164"
 
-
 screenshots_path "./config/deliver/screenshots/"
-version '2.1.0'
 config_json_folder './config/deliver'
-
 
 ipa do
     changelog({

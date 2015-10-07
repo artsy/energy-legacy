@@ -1,5 +1,3 @@
-before_all do |lane|
-
   # Ensure no deploys with OSS keys
 
   require 'cocoapods-core'
@@ -21,4 +19,3 @@ before_all do |lane|
       end
     end
   end
-end

@@ -5,12 +5,19 @@ Deployment
 
 We deploy betas to Hockey App via [fastlane](http://fastlane.tools). You will need to have set the ENV vars:
 
-* `HOCKEY_API_TOKEN`  - accessible via HockeyApp's website. 
+* `HOCKEY_API_TOKEN`  - accessible via HockeyApp's website.
 * `SLACK_URL` - accessible via the Slack admin.
 
 To start the build run `bundle exec fastlane beta`. All details for our deployment can be found in the `Fastfile` in the `fastlane` directory.
 
-## App Store
+## Deploying to Apple's Testflight for internal release testing
+
+We deploy betas to Testflight via [fastlane](http://fastlane.tools). You will need to have set the following ENV vars:
+
+* `SLACK_URL` - accessible via the Slack admin.
+
+
+# App Store
 
 ### TODOs for anyone before deploying
 
