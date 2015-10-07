@@ -238,8 +238,8 @@
 		6074F8D014A11C98000FE859 /* ARSettingsBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6074F8CF14A11C98000FE859 /* ARSettingsBaseViewController.m */; };
 		60750770154B0A3A003CBAC7 /* SearchGlass.png in Resources */ = {isa = PBXBuildFile; fileRef = 6075076E154B0A3A003CBAC7 /* SearchGlass.png */; };
 		60750772154B0A3A003CBAC7 /* SearchGlass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6075076F154B0A3A003CBAC7 /* SearchGlass@2x.png */; };
-		607712D51BAA0855009C3AFA /* ARIntercomProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607712D41BAA0855009C3AFA /* ARIntercomProvider.swift */; settings = {ASSET_TAGS = (); }; };
-		607712D81BAA0E71009C3AFA /* ARSimpleSwiftTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607712D71BAA0E71009C3AFA /* ARSimpleSwiftTest.swift */; settings = {ASSET_TAGS = (); }; };
+		607712D51BAA0855009C3AFA /* ARIntercomProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607712D41BAA0855009C3AFA /* ARIntercomProvider.swift */; };
+		607712D81BAA0E71009C3AFA /* ARSimpleSwiftTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607712D71BAA0E71009C3AFA /* ARSimpleSwiftTest.swift */; };
 		60774E3818FB6B85004D3A1B /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 60774E3718FB6B85004D3A1B /* UIDevice+DeviceInfo.m */; };
 		607905C215E78A3D0012672B /* ARArtworkContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 607905C115E78A3D0012672B /* ARArtworkContainerViewController.m */; };
 		60795639199AC9D200D73E6C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FD62D414141AF400E77EE6 /* libz.dylib */; };
@@ -3738,7 +3738,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"";
 		};
 		FBA505F4BF52A5DCD3373447 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4278,7 +4278,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APPLICATION_BUNDLE_IDENTIFIER)";
 				PRODUCT_MODULE_NAME = Folio;
 				PRODUCT_NAME = FolioDev;
-				PROVISIONING_PROFILE = "1bca291e-373d-46fc-9ccf-cea0e9377b23";
+				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/Util/ArtsyFolio-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -4397,7 +4397,7 @@
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "7885d377-493a-4146-9439-22a3069ead6f";
+				PROVISIONING_PROFILE = "e505fd5b-e1a1-4c29-b3ad-d68698b21309";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
