@@ -89,3 +89,12 @@ target 'ArtsyFolio Tests' do
     pod 'OCMock'
     pod 'Forgeries/Mocks'
 end
+
+post_install do |installer|
+  # Disable bitcode for now. Specifically needed for HockeySDK and ARAnalytics.
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+    end
+  end
+end
