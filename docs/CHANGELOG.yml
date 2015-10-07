@@ -8,6 +8,7 @@ releases:
   - version: 2.4.3
     date: Oct 6 2015
     notes:
+      - Now only supporting iOS8+ [sarah]
       - App Transport Security setting set to NSAllowArbitraryLoads [sarah]
       - iOS8 is the new deployment target, and OS baseline [orta]
       - Uses CocoaPods Frameworks [orta]
