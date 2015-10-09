@@ -41,4 +41,7 @@ typedef NS_ENUM(NSInteger, ARSyncImageNotification) {
 
 - (ARSyncImageNotification)currentSyncImageNotification;
 
+- (NSInteger)syncLogCount;
+- (NSArray *)lastSyncedStrings;
+
 @end

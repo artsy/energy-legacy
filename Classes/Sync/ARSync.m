@@ -5,11 +5,13 @@
 #import "NSFileManager+SkipBackup.h"
 #import "ARFileUtils.h"
 #import <AFNetworking/AFNetworking.h>
+#import "SyncLog.h"
 
 #if __has_include(<CoreSpotlight/CoreSpotlight.h>)
 #import "ARSpotlightExporter.h"
 #import <CoreSpotlight/CoreSpotlight.h>
 #endif
+
 
 @interface ARSync ()
 @property (readwrite, nonatomic, strong) NSMutableArray *operationQueues;
@@ -98,6 +100,9 @@
 
 - (void)save
 {
+    SyncLog *newSyncLog = [SyncLog createInContext:self.managedObjectContext];
+    newSyncLog.dateStarted = NSDate.date;
+
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
         ARSyncLog(@"Error Saving MOC: %@", error.localizedDescription);
