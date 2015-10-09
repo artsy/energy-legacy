@@ -44,7 +44,7 @@ PODS:
   - GHMarkdownParser (0.1.2)
   - GRMustache (7.3.2):
     - JRSwizzle (~> 1.0)
-  - HockeySDK-Source (3.7.3)
+  - HockeySDK-Source (3.8.2)
   - Intercom (2.3.4)
   - ISO8601DateFormatter (0.7)
   - JLRoutes (1.5.2)
@@ -197,7 +197,7 @@ SPEC CHECKSUMS:
   Forgeries: 349b99d54dfbcfb971b96b56d88c50ca1d9c6118
   GHMarkdownParser: 14cbf59d0ab9450017d843dffd4a3ef691e5bd77
   GRMustache: ebe6104fd30a6d22c1f36af131e19e2dbf7cd292
-  HockeySDK-Source: 2ed30df0d39d9ffe5aeed4deda8000a20fdcce54
+  HockeySDK-Source: 42b2ead932f97de6b88bed9d1aa2a13b2e6e21ad
   Intercom: eea4450ffbc6fbaa2665c0714d69646ffd949b95
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   JLRoutes: fc36fd38ab476d5ac3a6a84b05be60e4b1a2bc81
