@@ -73,6 +73,8 @@
 		<string>AGaramondPro-Regular.otf</string>
 		<string>ITC_Avant_Garde_Gothic__Demi.ttf</string>
 	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>Launch Screen</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIStatusBarHidden</key>

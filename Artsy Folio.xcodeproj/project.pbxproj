@@ -479,6 +479,7 @@
 		60F63802199E8F4D008D2360 /* ARSyncMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F63800199E8F4D008D2360 /* ARSyncMessageViewController.xib */; };
 		60F63804199E966E008D2360 /* ARSyncMessageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F63803199E966E008D2360 /* ARSyncMessageViewControllerTests.m */; };
 		60F6CA1A19903E6800628D72 /* ARArtworkSetViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F6CA1919903E6800628D72 /* ARArtworkSetViewControllerTests.m */; };
+		60F8FA991BC83592009763E9 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F8FA981BC83592009763E9 /* Launch Screen.xib */; settings = {ASSET_TAGS = (); }; };
 		60F8FD8818D1F3C700D80792 /* ARSyncAdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F8FD8618D1F3C700D80792 /* ARSyncAdminViewController.m */; };
 		60F8FD8918D1F3C700D80792 /* ARSyncAdminViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F8FD8718D1F3C700D80792 /* ARSyncAdminViewController.xib */; };
 		60F98B6F1958D36D0068E7EE /* ARModernArtworkMetadataViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F98B6E1958D36D0068E7EE /* ARModernArtworkMetadataViewControllerTests.m */; };
@@ -1346,6 +1347,7 @@
 		60F63800199E8F4D008D2360 /* ARSyncMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARSyncMessageViewController.xib; sourceTree = "<group>"; };
 		60F63803199E966E008D2360 /* ARSyncMessageViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncMessageViewControllerTests.m; sourceTree = "<group>"; };
 		60F6CA1919903E6800628D72 /* ARArtworkSetViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtworkSetViewControllerTests.m; sourceTree = "<group>"; };
+		60F8FA981BC83592009763E9 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		60F8FD8518D1F3C700D80792 /* ARSyncAdminViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSyncAdminViewController.h; sourceTree = "<group>"; };
 		60F8FD8618D1F3C700D80792 /* ARSyncAdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncAdminViewController.m; sourceTree = "<group>"; };
 		60F8FD8718D1F3C700D80792 /* ARSyncAdminViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARSyncAdminViewController.xib; sourceTree = "<group>"; };
@@ -3389,6 +3391,7 @@
 		D8FAA9721442893500AA34BC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				60F8FA981BC83592009763E9 /* Launch Screen.xib */,
 				6028B13F161ADF800027F52D /* CoreData */,
 				B538ABEE14722DF80019AD62 /* Images */,
 				D82F85E41470612E009F0A9C /* Nibs */,
@@ -3658,6 +3661,7 @@
 				60928CB91A5E1AF600DDA769 /* Default-414w-736h@3x~iphone.png in Resources */,
 				60B341A71609D099002A5926 /* addtoalbum_btn_whiteborder.png in Resources */,
 				60B341A91609D099002A5926 /* addtoalbum_btn_whiteborder@2x.png in Resources */,
+				60F8FA991BC83592009763E9 /* Launch Screen.xib in Resources */,
 				60E39276190891660091AC9E /* action_btn@2x.png in Resources */,
 				603ADA021609F5B60094DEED /* Default-Landscape~ipad.png in Resources */,
 				603ADA041609F5BD0094DEED /* Default-Portrait~ipad.png in Resources */,
