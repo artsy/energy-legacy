@@ -41,6 +41,13 @@
     return [ARFileUtils filePathWithFolder:folder documentFileName:self.filename];
 }
 
+- (NSString *)newThumbnailFilePath
+{
+    NSString *slug = [Partner currentPartnerID];
+    NSString *folder = [NSString stringWithFormat:@"%@/%@/thumbnails/", slug, self.show.slug];
+    return [ARFileUtils filePathWithFolder:folder documentFileName:[self.slug stringByAppendingPathExtension:@"jpg"]];
+}
+
 - (NSString *)thumbnailFilePath
 {
     NSString *slug = [Partner currentPartnerID];

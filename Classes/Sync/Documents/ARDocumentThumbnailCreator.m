@@ -17,7 +17,7 @@
 {
     NSOperation *operation = nil;
     if ([document.filename hasSuffix:@"pdf"]) {
-        operation = [ARPDFThumbnailCreationOperation operationWithPDFSourcePath:document.filePath andDestinationPath:document.thumbnailFilePath];
+        operation = [ARPDFThumbnailCreationOperation operationWithPDFSourcePath:document.filePath andDestinationPath:document.newThumbnailFilePath];
     } else {
         operation = [ARThumbnailCreationOperation operationWithDocument:document];
     }

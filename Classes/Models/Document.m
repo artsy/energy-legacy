@@ -49,6 +49,11 @@
     }
 }
 
+- (NSString *)newThumbnailFilePath
+{
+    return [self thumbnailFilePath];
+}
+
 - (NSString *)genericTextDocumentFilePath
 {
     return [[NSBundle mainBundle] pathForResource:@"FileIcon_textdoc" ofType:@"png"];
