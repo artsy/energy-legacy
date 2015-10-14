@@ -240,7 +240,6 @@
 		6074F8D014A11C98000FE859 /* ARSettingsBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6074F8CF14A11C98000FE859 /* ARSettingsBaseViewController.m */; };
 		60750770154B0A3A003CBAC7 /* SearchGlass.png in Resources */ = {isa = PBXBuildFile; fileRef = 6075076E154B0A3A003CBAC7 /* SearchGlass.png */; };
 		60750772154B0A3A003CBAC7 /* SearchGlass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6075076F154B0A3A003CBAC7 /* SearchGlass@2x.png */; };
-		607712D81BAA0E71009C3AFA /* ARSimpleSwiftTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607712D71BAA0E71009C3AFA /* ARSimpleSwiftTest.swift */; };
 		60774E3818FB6B85004D3A1B /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 60774E3718FB6B85004D3A1B /* UIDevice+DeviceInfo.m */; };
 		607905C215E78A3D0012672B /* ARArtworkContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 607905C115E78A3D0012672B /* ARArtworkContainerViewController.m */; };
 		60795639199AC9D200D73E6C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FD62D414141AF400E77EE6 /* libz.dylib */; };
@@ -982,8 +981,7 @@
 		6075076E154B0A3A003CBAC7 /* SearchGlass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchGlass.png; sourceTree = "<group>"; };
 		6075076F154B0A3A003CBAC7 /* SearchGlass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchGlass@2x.png"; sourceTree = "<group>"; };
 		607712D31BAA0854009C3AFA /* ArtsyFolio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ArtsyFolio-Bridging-Header.h"; path = "Classes/Util/ArtsyFolio-Bridging-Header.h"; sourceTree = "<group>"; };
-		607712D61BAA0E70009C3AFA /* ArtsyFolio Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ArtsyFolio Tests-Bridging-Header.h"; sourceTree = "<group>"; };
-		607712D71BAA0E71009C3AFA /* ARSimpleSwiftTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSimpleSwiftTest.swift; sourceTree = "<group>"; };
+		607712D61BAA0E70009C3AFA /* ArtsyFolio Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ArtsyFolio Tests-Bridging-Header.h"; path = "Util/ArtsyFolio Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		60774E3618FB6B85004D3A1B /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
 		60774E3718FB6B85004D3A1B /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
 		60774E4218FB70ED004D3A1B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ARPhoneSyncViewController.xib; sourceTree = "<group>"; };
@@ -1703,8 +1701,6 @@
 				60D4D71C198FD853001AB8AF /* ARSwitchboardTests.m */,
 				6086648D1A31D5D60030226D /* ARRootNavigationControllerDelegateSpec.m */,
 				60ADD68F1ACB4EB200A847B5 /* ARAppDelegateTests.m */,
-				607712D71BAA0E71009C3AFA /* ARSimpleSwiftTest.swift */,
-				607712D61BAA0E70009C3AFA /* ArtsyFolio Tests-Bridging-Header.h */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -2855,6 +2851,7 @@
 		B37F1663183EEA71007A7023 /* ArtsyFolio Tests */ = {
 			isa = PBXGroup;
 			children = (
+				607712D61BAA0E70009C3AFA /* ArtsyFolio Tests-Bridging-Header.h */,
 				60C777561B0E275C00BEFA97 /* Contexts */,
 				609715E119ACFDD200970DBE /* Testing Util Objects */,
 				60DED5801975A84D00853B78 /* Assets */,
@@ -3887,7 +3884,6 @@
 				60B572B4194F3A79002B9A46 /* ARAdminPartnerSelectViewControllerTests.m in Sources */,
 				601A44D21B04C7B500713590 /* SDWebImage+EasyCache.m in Sources */,
 				602601601AC0703300D5EBCB /* ARModernEmailArtworksViewControllerDataSourceTests.m in Sources */,
-				607712D81BAA0E71009C3AFA /* ARSimpleSwiftTest.swift in Sources */,
 				342F9AFFFFBA47BC9C6BAA06 /* ARGridViewControllerTests.m in Sources */,
 				60692E12196BFA0B00455332 /* ARAmbiguousSplitStackViewTests.m in Sources */,
 				606E6869192110C90044F6ED /* ARAppDataMigrationsTest.m in Sources */,
