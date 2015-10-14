@@ -479,7 +479,7 @@
 		60F63802199E8F4D008D2360 /* ARSyncMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F63800199E8F4D008D2360 /* ARSyncMessageViewController.xib */; };
 		60F63804199E966E008D2360 /* ARSyncMessageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F63803199E966E008D2360 /* ARSyncMessageViewControllerTests.m */; };
 		60F6CA1A19903E6800628D72 /* ARArtworkSetViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F6CA1919903E6800628D72 /* ARArtworkSetViewControllerTests.m */; };
-		60F8FA991BC83592009763E9 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F8FA981BC83592009763E9 /* Launch Screen.xib */; settings = {ASSET_TAGS = (); }; };
+		60F8FA991BC83592009763E9 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F8FA981BC83592009763E9 /* Launch Screen.xib */; };
 		60F8FD8818D1F3C700D80792 /* ARSyncAdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F8FD8618D1F3C700D80792 /* ARSyncAdminViewController.m */; };
 		60F8FD8918D1F3C700D80792 /* ARSyncAdminViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F8FD8718D1F3C700D80792 /* ARSyncAdminViewController.xib */; };
 		60F98B6F1958D36D0068E7EE /* ARModernArtworkMetadataViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F98B6E1958D36D0068E7EE /* ARModernArtworkMetadataViewControllerTests.m */; };
