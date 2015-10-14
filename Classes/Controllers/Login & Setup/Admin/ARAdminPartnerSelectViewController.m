@@ -1,5 +1,5 @@
-@import AFNetworking;
-@import Artsy_UIFonts;
+#import <AFNetworking/AFNetworking.h>
+#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 
 #import "ARAdminPartnerSelectViewController.h"
 #import "NSDictionary+QueryString.h"

@@ -1,10 +1,12 @@
-@import Analytics;
-@import Intercom;
-@import Keys;
+
+#import <Intercom/Intercom.h>
+#import <ARAnalytics/ARAnalytics.h>
+#import <Keys/FolioKeys.h>
+#import <Analytics/SEGAnalytics.h>
 
 #import "ARAnalyticsHelper.h"
+#import "ARIntercomProvider.h"
 #import "SubscriptionPlan.h"
-#import "Folio-Swift.h"
 
 static NSString *currentUserEmail;
 

@@ -1,4 +1,4 @@
-@import Artsy_UIFonts;
+#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 
 #import "ARGridViewCell.h"
 #import "ARDateLabel.h"

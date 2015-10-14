@@ -2,7 +2,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/artsy/Specs.git'
 
 platform :ios, '8.0'
-use_frameworks!
 
 # Yep.
 inhibit_all_warnings!
@@ -82,8 +81,6 @@ target 'ArtsyFolio Tests' do
     pod 'Expecta+Snapshots', "2.0.0"
     pod 'Expecta+ContainerClasses', '~> 1.0'
     pod 'Expecta+Comparison', '~> 0.1'
-
-    pod 'Nimble', :git => "https://github.com/quick/nimble", :branch => "swift-2.0"
 
     pod 'XCTest+OHHTTPStubSuiteCleanUp'
     pod 'OCMock'
