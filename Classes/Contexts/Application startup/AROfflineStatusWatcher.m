@@ -1,4 +1,4 @@
-@import AFNetworking;
+#import <AFNetworking/AFNetworking.h>
 
 #import "ARSync.h"
 #import "AROfflineStatusWatcher.h"

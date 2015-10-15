@@ -1,4 +1,4 @@
-@import GRMustache;
+#import <GRMustache/GRMustache.h>
 #import "AREmailComposer.h"
 
 

@@ -8,9 +8,7 @@
 
 @implementation ARSettingsNavigationController
 
-// This is a workaround for the lack of pop support in WYPopoverController
-// as swizzling the popViewController method crashes the app, and so they've
-// never supported it.
+// This is a workaround removing all of the swizzing in WYPopoverController
 
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated
 {
@@ -18,6 +16,12 @@
 
     [self.hostPopoverController setPopoverContentSize:self.topViewController.preferredContentSize];
     return controller;
+}
+
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [self.hostPopoverController setPopoverContentSize:viewController.preferredContentSize];
+    [super pushViewController:viewController animated:animated];
 }
 
 @end

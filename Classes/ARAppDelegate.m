@@ -1,5 +1,5 @@
-@import HockeySDK_Source;
-@import JLRoutes;
+#import <HockeySDK-Source/HockeySDK.h>
+#import <JLRoutes/JLRoutes.h>
 
 #import "ARAppDelegate.h"
 #import "ARUserManager.h"

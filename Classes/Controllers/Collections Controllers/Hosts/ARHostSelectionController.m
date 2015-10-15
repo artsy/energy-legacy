@@ -1,5 +1,4 @@
-@import Artsy_UIFonts;
-@import Artsy_UILabels;
+#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 
 #import "ARHostSelectionController.h"
 #import "ARTabbedViewController.h"

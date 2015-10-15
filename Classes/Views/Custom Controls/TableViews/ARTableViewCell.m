@@ -1,4 +1,4 @@
-@import Artsy_UIFonts;
+#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 #import "ARTableViewCell.h"
 
 CGFloat ARTableViewCellSettingsHeight = 60;

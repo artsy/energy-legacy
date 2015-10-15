@@ -1,4 +1,4 @@
-@import AFNetworking;
+#import <AFNetworking/AFNetworking.h>
 
 #import "AFHTTPRequestOperation+ARFileDownload.h"
 #import "ARRouter.h"

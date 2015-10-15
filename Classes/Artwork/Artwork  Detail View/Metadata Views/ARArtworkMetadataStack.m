@@ -1,5 +1,5 @@
 #import "ARArtworkMetadataStack.h"
-#import <Artsy_UILabels/ARLabelSubclasses.h>
+#import <Artsy+UILabels/ARLabelSubclasses.h>
 
 
 @implementation ARArtworkMetadataStack
