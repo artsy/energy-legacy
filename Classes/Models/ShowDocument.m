@@ -50,10 +50,10 @@
 
 - (NSString *)thumbnailFilePath
 {
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:customThumbnailFilePath];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:self.customThumbnailFilePath];
 
     if (self.canGenerateThumbnail && fileExists) {
-        return customThumbnailFilePath;
+        return [self customThumbnailFilePath];
     } else {
         return [super thumbnailFilePath];
     }
