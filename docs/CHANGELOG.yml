@@ -4,6 +4,7 @@ upcoming:
     - Switch back to static libraries to speed up launch time [orta]
     - Minor changes to how the popovers handles resizing [orta]
     - Saved memory in PDF rendering for iOS 9 [sarah]
+    - Intercom fix [orta]
 
 releases:
   - version: 2.4.3
