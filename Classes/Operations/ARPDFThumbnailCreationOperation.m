@@ -83,6 +83,7 @@ float LegacyImageSize = 230;
 
         ARSyncLog(@"An exception was raised in rendering the PDF thumbnail for %@. \n %@", _source, exception);
         [self cancelRendering];
+        CFRelease(pdfDocument);
         return;
     }
 
@@ -91,6 +92,7 @@ float LegacyImageSize = 230;
 
     CGContextRestoreGState(context);
     UIGraphicsEndImageContext();
+    CFRelease(pdfDocument);
 
     NSError *error = nil;
     [[NSFileManager defaultManager] createDirectoryAtPath:[_destination stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:&error];

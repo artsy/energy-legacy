@@ -40,14 +40,18 @@
     return [ARFileUtils filePathWithFolder:folder documentFileName:self.filename];
 }
 
-- (NSString *)thumbnailFilePath
+- (NSString *)customThumbnailFilePath
 {
     NSString *folder = [NSString stringWithFormat:@"%@/%@/thumbnails/", [Partner currentPartnerID], self.artist.slug];
-    NSString *customThumbnailPath = [ARFileUtils filePathWithFolder:folder documentFileName:[self.slug stringByAppendingPathExtension:@"jpg"]];
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:customThumbnailPath];
+    return [ARFileUtils filePathWithFolder:folder documentFileName:[self.slug stringByAppendingPathExtension:@"jpg"]];
+}
+
+- (NSString *)thumbnailFilePath
+{
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:customThumbnailFilePath];
 
     if (self.canGenerateThumbnail && fileExists) {
-        return customThumbnailPath;
+        return customThumbnailFilePath;
     } else {
         return [super thumbnailFilePath];
     }
