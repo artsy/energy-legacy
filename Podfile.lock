@@ -164,7 +164,7 @@ CHECKOUT OPTIONS:
     :commit: 425706af0144efb0280592c574aa7b80a21a2811
     :git: https://github.com/michaeltyson/TPKeyboardAvoiding.git
   WYPopoverController:
-    :commit: d21a306ef211981d91f9f1214f623286a6b0839e
+    :commit: c9924c6a5902db64de6f18f804ab39dc85de7569
     :git: https://github.com/orta/WYPopoverController.git
 
 SPEC CHECKSUMS:
