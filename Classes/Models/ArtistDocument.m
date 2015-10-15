@@ -51,7 +51,7 @@
     BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:self.customThumbnailFilePath];
 
     if (self.canGenerateThumbnail && fileExists) {
-        return [super customThumbnailFilePath];
+        return [self customThumbnailFilePath];
     } else {
         return [super thumbnailFilePath];
     }
