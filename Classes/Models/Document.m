@@ -49,7 +49,7 @@
     }
 }
 
-- (NSString *)newThumbnailFilePath
+- (NSString *)customThumbnailFilePath
 {
     return [self thumbnailFilePath];
 }

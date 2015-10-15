@@ -46,7 +46,7 @@ float SmallImageViewSize = 115;
 {
     if (self = [super init]) {
         _source = document.filePath;
-        _destination = document.newThumbnailFilePath;
+        _destination = document.customThumbnailFilePath;
     }
     return self;
 }
