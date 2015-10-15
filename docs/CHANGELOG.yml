@@ -1,5 +1,5 @@
 upcoming:
-  version: 2.4.3
+  version: 2.4.4
   notes:
     - Switch back to static libraries to speed up launch time [orta]
     - Minor changes to how the popovers handles resizing [orta]

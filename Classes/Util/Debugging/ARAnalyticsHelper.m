@@ -42,7 +42,7 @@ static NSString *currentUserEmail;
     // Intercom isn't using a real dynamic framework yet - so we need to make the provider outside of
     // ARAnalytics and then push it in.
 
-    ARIntercomProvider *provider = [[ARIntercomProvider alloc] initWithApiKey:[keys intercomAppID] appID:[keys intercomAPIKey]];
+    ARIntercomProvider *provider = [[ARIntercomProvider alloc] initWithApiKey:[keys intercomAPIKey] appID:[keys intercomAppID]];
     [ARAnalytics setupProvider:provider];
 
     if ([User currentUser]) {

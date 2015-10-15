@@ -4,11 +4,11 @@
 
 @implementation ARIntercomProvider
 
-- (instancetype)initWithApiKey:(NSString *)identifier appID:(NSString *)appID;
+- (instancetype)initWithApiKey:(NSString *)apiKey appID:(NSString *)appID;
 {
     NSAssert([Intercom class], @"Intercom is not included");
 
-    [Intercom setApiKey:identifier forAppId:appID];
+    [Intercom setApiKey:apiKey forAppId:appID];
 
     return [super init];
 }
