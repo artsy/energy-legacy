@@ -14,6 +14,7 @@
 
 - (BOOL)canGenerateThumbnail;
 - (NSString *)thumbnailFilePath;
+- (NSString *)customThumbnailFilePath;
 
 /// For showing to users
 - (NSString *)presentableFileName;
