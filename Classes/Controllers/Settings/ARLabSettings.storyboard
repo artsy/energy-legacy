@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AhB-Tr-lmz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9058" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AhB-Tr-lmz">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9048"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="AGaramondPro-Regular.otf">
             <string>AGaramondPro-Regular</string>
         </mutableArray>
         <mutableArray key="ITC_Avant_Garde_Gothic__Demi.ttf">
-            <string>AvantGardeGothicITCW01Dm</string>
-            <string>AvantGardeGothicITCW01Dm</string>
-            <string>AvantGardeGothicITCW01Dm</string>
-            <string>AvantGardeGothicITCW01Dm</string>
-            <string>AvantGardeGothicITCW01Dm</string>
-            <string>AvantGardeGothicITCW01Dm</string>
-            <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
         </mutableArray>
     </customFonts>
@@ -31,6 +26,7 @@
                     <view key="view" contentMode="scaleToFill" id="atM-Rl-b4z">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
@@ -47,218 +43,244 @@
                         <viewControllerLayoutGuide type="bottom" id="QO3-Zr-Tia"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qr3-nz-sZj">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="291" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVa-s8-m9i">
-                                <rect key="frame" x="20" y="20" width="43" height="43"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVa-s8-m9i">
+                                <rect key="frame" x="13" y="15" width="42" height="42"/>
+                                <animations/>
                                 <color key="backgroundColor" red="0.7805003157" green="0.7805003157" blue="0.7805003157" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="K3H-t7-iIB"/>
+                                    <constraint firstAttribute="width" secondItem="yVa-s8-m9i" secondAttribute="height" multiplier="1:1" id="V1g-QF-84f"/>
+                                </constraints>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="settingButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="o1d-NT-4AK"/>
+                                    <action selector="settingsIconPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="4cH-Dl-IwY"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Njl-sn-gEV">
-                                <rect key="frame" x="20" y="85" width="260" height="45"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hzk-ka-Ieb" customClass="ARLabSettingsSectionButton">
+                                <rect key="frame" x="13" y="157" width="265" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqa-mb-S0N">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="45"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="13"/>
-                                        <state key="normal" title="SYNC CONTENT">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UcY-cF-771">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="1"/>
-                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t1Y-Hf-l3L">
-                                        <rect key="frame" x="0.0" y="44" width="260" height="1"/>
-                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alert-badge-small.png" translatesAutoresizingMaskIntoConstraints="NO" id="43V-Rz-x8C">
-                                        <rect key="frame" x="228" y="15" width="14" height="14"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Chevron_Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="F1q-H0-eRH">
-                                        <rect key="frame" x="252" y="16" width="8" height="12"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YD1-ZU-4g0">
-                                <rect key="frame" x="20" y="150" width="260" height="45"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Od9-IJ-8gp">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="45"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="13"/>
-                                        <state key="normal" title="PRESENTATION MODE">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pxT-Dc-wEC">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="1"/>
-                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a89-AE-GHz">
-                                        <rect key="frame" x="0.0" y="44" width="260" height="1"/>
-                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rRr-qh-Hbl">
+                                        <rect key="frame" x="189" y="11" width="76" height="27"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.2886610865" green="1" blue="0.3405252708" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="rRr-qh-Hbl" secondAttribute="height" multiplier="19:7" constant="2.7142857142857082" id="UAL-tC-3Qu"/>
+                                            <constraint firstAttribute="width" secondItem="rRr-qh-Hbl" secondAttribute="height" multiplier="76:27" id="b3T-ND-KT2"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="UAL-tC-3Qu"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.70617511180000003" green="0.70452345780000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="207-sS-gPL"/>
+                                    <constraint firstAttribute="width" secondItem="Hzk-ka-Ieb" secondAttribute="height" multiplier="53:10" id="HQM-qr-DQb"/>
+                                    <constraint firstAttribute="trailing" secondItem="rRr-qh-Hbl" secondAttribute="trailing" id="HRP-zf-Mex"/>
+                                    <constraint firstAttribute="trailing" secondItem="rRr-qh-Hbl" secondAttribute="trailing" id="TnJ-gd-EpR"/>
+                                    <constraint firstItem="rRr-qh-Hbl" firstAttribute="centerY" secondItem="Hzk-ka-Ieb" secondAttribute="centerY" id="XFh-13-cT7"/>
+                                    <constraint firstItem="rRr-qh-Hbl" firstAttribute="centerY" secondItem="Hzk-ka-Ieb" secondAttribute="centerY" id="fpd-pY-Ues"/>
+                                    <constraint firstItem="rRr-qh-Hbl" firstAttribute="width" secondItem="Hzk-ka-Ieb" secondAttribute="height" multiplier="38:25" id="tjd-GQ-0M6"/>
+                                    <constraint firstItem="rRr-qh-Hbl" firstAttribute="width" secondItem="Hzk-ka-Ieb" secondAttribute="height" multiplier="38:25" id="wij-HN-VFn"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="207-sS-gPL"/>
+                                        <exclude reference="HRP-zf-Mex"/>
+                                        <exclude reference="fpd-pY-Ues"/>
+                                        <exclude reference="tjd-GQ-0M6"/>
+                                    </mask>
+                                </variation>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ylb-eh-tdM">
-                                <rect key="frame" x="20" y="195" width="260" height="45"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3J-bV-DHD">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="45"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="13"/>
-                                        <state key="normal" title="EDIT PRESENTATION MODE">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Chevron_Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="1bW-vS-gsv">
-                                        <rect key="frame" x="252" y="17" width="8" height="12"/>
-                                    </imageView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bxN-et-yQy">
-                                        <rect key="frame" x="0.0" y="44" width="260" height="1"/>
-                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OnH-PU-Est" customClass="ARLabSettingsSectionButton">
+                                <rect key="frame" x="13" y="207" width="265" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.70617511180000003" green="0.70452345780000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OnH-PU-Est" secondAttribute="height" multiplier="53:10" id="9Ew-cR-UXO"/>
+                                    <constraint firstAttribute="height" constant="50" id="PP7-Sz-Qtb"/>
+                                    <constraint firstAttribute="width" secondItem="OnH-PU-Est" secondAttribute="height" multiplier="53:10" id="b04-i0-1ey"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9Ew-cR-UXO"/>
+                                        <exclude reference="PP7-Sz-Qtb"/>
+                                    </mask>
+                                </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" text="Hides sensitive information when showing artwork to clients." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQI-3F-jww">
-                                <rect key="frame" x="20" y="239" width="260" height="61"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6N-5v-yfh" customClass="ARLabSettingsSectionButton">
+                                <rect key="frame" x="13" y="338" width="265" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.70617511180000003" green="0.70452345780000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="p6N-5v-yfh" secondAttribute="height" multiplier="53:10" id="HM9-uK-HxC"/>
+                                    <constraint firstAttribute="width" secondItem="p6N-5v-yfh" secondAttribute="height" multiplier="53:10" id="TgE-AF-6qM"/>
+                                    <constraint firstAttribute="height" constant="50" id="YF6-aV-XZG"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="HM9-uK-HxC"/>
+                                        <exclude reference="YF6-aV-XZG"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ft-ij-hEu" customClass="ARLabSettingsSectionButton">
+                                <rect key="frame" x="13" y="388" width="265" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.70617511180000003" green="0.70452345780000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="RIA-of-DDm"/>
+                                    <constraint firstAttribute="width" secondItem="4ft-ij-hEu" secondAttribute="height" multiplier="53:10" id="bu4-Em-4W6"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="RIA-of-DDm"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2O-qn-R2d" customClass="ARLabSettingsSectionButton">
+                                <rect key="frame" x="13" y="463" width="265" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.70617511180000003" green="0.70452345780000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6Nw-36-2RJ"/>
+                                    <constraint firstAttribute="width" secondItem="I2O-qn-R2d" secondAttribute="height" multiplier="53:10" id="fzW-yN-bOU"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6Nw-36-2RJ"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h66-kz-uqe" customClass="ARLabSettingsSectionButton">
+                                <rect key="frame" x="13" y="538" width="265" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.70617511180000003" green="0.70452345780000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Gxc-MB-H12"/>
+                                    <constraint firstAttribute="width" secondItem="h66-kz-uqe" secondAttribute="height" multiplier="53:10" id="lPs-KC-RIm"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Gxc-MB-H12"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UqU-EW-kcK" customClass="ARLabSettingsSectionButton">
+                                <rect key="frame" x="13" y="82" width="265" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.70617511180000003" green="0.70452345780000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="height" multiplier="53:10" id="Enn-Zd-9vf"/>
+                                    <constraint firstAttribute="width" constant="265" id="M9b-J2-s5j"/>
+                                    <constraint firstAttribute="height" constant="50" id="rl1-eM-jGC"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="M9b-J2-s5j"/>
+                                        <exclude reference="rl1-eM-jGC"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presentation Mode Text" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcL-Qn-3m0">
+                                <rect key="frame" x="13" y="272" width="265" height="16"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="16"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.64172979797979801" green="0.64172979797979801" blue="0.64172979797979801" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCG-KY-Lye">
-                                <rect key="frame" x="20" y="329" width="260" height="45"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJm-02-fks">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="45"/>
-                                        <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="13"/>
-                                        <state key="normal" title="ORIGINAL SETTINGS PANEL">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ogSettingsButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="8m7-bL-w8Y"/>
-                                        </connections>
-                                    </button>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcB-Q1-07t">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="1"/>
-                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNb-Yz-LnB">
-                                        <rect key="frame" x="0.0" y="44" width="260" height="1"/>
-                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y9I-4b-3Dd">
-                                <rect key="frame" x="20" y="374" width="260" height="45"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00t-Pd-oPn">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="45"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="13"/>
-                                        <state key="normal" title="BACKGROUND">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Chevron_Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="XsB-Hx-gLb">
-                                        <rect key="frame" x="252" y="16" width="8" height="12"/>
-                                    </imageView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SOz-Pe-eEY">
-                                        <rect key="frame" x="0.0" y="44" width="260" height="1"/>
-                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rZT-Ga-c4k">
-                                <rect key="frame" x="20" y="419" width="260" height="45"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8Q-Q3-83u">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="45"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="13"/>
-                                        <state key="normal" title="EMAIL">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Chevron_Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mz2-3L-BeQ">
-                                        <rect key="frame" x="252" y="16" width="8" height="12"/>
-                                    </imageView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5kU-vu-FRa">
-                                        <rect key="frame" x="0.0" y="44" width="260" height="1"/>
-                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Ah-c6-J5s">
-                                <rect key="frame" x="20" y="488" width="260" height="45"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7F-ck-RSE">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="45"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="13"/>
-                                        <state key="normal" title="SUPPORT">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UWQ-Ko-8ml">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="1"/>
-                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DML-2t-ILE">
-                                        <rect key="frame" x="0.0" y="44" width="260" height="1"/>
-                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uA3-DS-Cle">
-                                <rect key="frame" x="20" y="557" width="260" height="45"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUF-z3-Rz0">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="45"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="13"/>
-                                        <state key="normal" title="LOGOUT">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FNd-PW-BZk">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="1"/>
-                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HgL-CA-5bn">
-                                        <rect key="frame" x="0.0" y="44" width="260" height="1"/>
-                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3k-Ce-4hS">
+                                <rect key="frame" x="13" y="641" width="265" height="20"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.70617511180000003" green="0.70452345780000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="OG SETTINGS PANEL"/>
+                                <connections>
+                                    <action selector="ogSettingsButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="slq-Gv-QPv"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="p6N-5v-yfh" firstAttribute="top" secondItem="bcL-Qn-3m0" secondAttribute="top" id="0d4-R8-I10"/>
+                            <constraint firstItem="UqU-EW-kcK" firstAttribute="width" secondItem="qr3-nz-sZj" secondAttribute="height" multiplier="265:1024" id="5Oo-DP-S6n"/>
+                            <constraint firstItem="4ft-ij-hEu" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="7so-Ve-abD"/>
+                            <constraint firstItem="I2O-qn-R2d" firstAttribute="top" secondItem="4ft-ij-hEu" secondAttribute="bottom" constant="25" id="A4s-WI-QKG"/>
+                            <constraint firstItem="p6N-5v-yfh" firstAttribute="top" secondItem="OnH-PU-Est" secondAttribute="bottom" constant="100" id="BoP-D8-ur2"/>
+                            <constraint firstItem="yVa-s8-m9i" firstAttribute="top" secondItem="qr3-nz-sZj" secondAttribute="topMargin" constant="15" id="DNJ-6m-5CB"/>
+                            <constraint firstItem="h66-kz-uqe" firstAttribute="centerX" secondItem="qr3-nz-sZj" secondAttribute="centerX" id="Evj-nv-0km"/>
+                            <constraint firstItem="h66-kz-uqe" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="FCS-xZ-r0L"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UqU-EW-kcK" secondAttribute="trailing" constant="-7" id="FoK-sf-3EA"/>
+                            <constraint firstItem="h66-kz-uqe" firstAttribute="top" secondItem="I2O-qn-R2d" secondAttribute="bottom" constant="25" id="IBo-bt-N08"/>
+                            <constraint firstItem="e3k-Ce-4hS" firstAttribute="width" secondItem="h66-kz-uqe" secondAttribute="width" id="JOR-ca-WQk"/>
+                            <constraint firstItem="Hzk-ka-Ieb" firstAttribute="centerX" secondItem="qr3-nz-sZj" secondAttribute="centerX" id="Kum-rk-Dod"/>
+                            <constraint firstItem="4ft-ij-hEu" firstAttribute="top" secondItem="p6N-5v-yfh" secondAttribute="bottom" id="Njp-7P-1XB"/>
+                            <constraint firstItem="e3k-Ce-4hS" firstAttribute="height" secondItem="h66-kz-uqe" secondAttribute="height" id="Njt-rK-Yxp"/>
+                            <constraint firstItem="OnH-PU-Est" firstAttribute="top" secondItem="Hzk-ka-Ieb" secondAttribute="bottom" id="QeK-PM-wdN"/>
+                            <constraint firstItem="I2O-qn-R2d" firstAttribute="centerX" secondItem="qr3-nz-sZj" secondAttribute="centerX" id="RCp-2h-ky7"/>
+                            <constraint firstItem="UqU-EW-kcK" firstAttribute="centerX" secondItem="qr3-nz-sZj" secondAttribute="centerX" id="T3g-TP-4cL"/>
+                            <constraint firstItem="bcL-Qn-3m0" firstAttribute="centerX" secondItem="qr3-nz-sZj" secondAttribute="centerX" id="TOA-ff-Zqz"/>
+                            <constraint firstItem="bcL-Qn-3m0" firstAttribute="top" secondItem="OnH-PU-Est" secondAttribute="bottom" constant="15" id="TbK-qd-MXg"/>
+                            <constraint firstItem="bcL-Qn-3m0" firstAttribute="width" secondItem="OnH-PU-Est" secondAttribute="width" id="UNH-Eb-9H0"/>
+                            <constraint firstItem="UqU-EW-kcK" firstAttribute="top" secondItem="yVa-s8-m9i" secondAttribute="bottom" constant="25" id="XDc-FT-w8x"/>
+                            <constraint firstItem="p6N-5v-yfh" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="bV8-C7-yxx"/>
+                            <constraint firstItem="OnH-PU-Est" firstAttribute="centerX" secondItem="qr3-nz-sZj" secondAttribute="centerX" id="cGu-mC-Nqo"/>
+                            <constraint firstItem="p6N-5v-yfh" firstAttribute="top" secondItem="bcL-Qn-3m0" secondAttribute="bottom" constant="50" id="f5L-br-2wb"/>
+                            <constraint firstItem="Hzk-ka-Ieb" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="fb1-jg-y70"/>
+                            <constraint firstItem="I2O-qn-R2d" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="kEn-ft-dhL"/>
+                            <constraint firstItem="e3k-Ce-4hS" firstAttribute="top" secondItem="h66-kz-uqe" secondAttribute="bottom" constant="53" id="lAp-vF-9eK"/>
+                            <constraint firstItem="p6N-5v-yfh" firstAttribute="centerX" secondItem="qr3-nz-sZj" secondAttribute="centerX" id="lmc-zc-pUU"/>
+                            <constraint firstItem="4ft-ij-hEu" firstAttribute="centerX" secondItem="qr3-nz-sZj" secondAttribute="centerX" id="ryI-ib-WPb"/>
+                            <constraint firstItem="Hzk-ka-Ieb" firstAttribute="top" secondItem="UqU-EW-kcK" secondAttribute="bottom" constant="25" id="sbV-ln-3by"/>
+                            <constraint firstItem="yVa-s8-m9i" firstAttribute="leading" secondItem="UqU-EW-kcK" secondAttribute="leading" id="tEO-Z1-bvn"/>
+                            <constraint firstItem="OnH-PU-Est" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="tkn-1t-5rg"/>
+                            <constraint firstItem="e3k-Ce-4hS" firstAttribute="centerX" secondItem="qr3-nz-sZj" secondAttribute="centerX" id="usi-nT-F2t"/>
+                            <constraint firstItem="UqU-EW-kcK" firstAttribute="leading" secondItem="qr3-nz-sZj" secondAttribute="leadingMargin" constant="-7" id="zGY-Kj-v0b"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="FoK-sf-3EA"/>
+                                <exclude reference="zGY-Kj-v0b"/>
+                                <exclude reference="0d4-R8-I10"/>
+                                <exclude reference="BoP-D8-ur2"/>
+                                <exclude reference="Njt-rK-Yxp"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Di0-B1-yjN"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="300" height="1024"/>
+                    <size key="freeformSize" width="291" height="1024"/>
                     <connections>
-                        <outlet property="ogSettingsButton" destination="ZJm-02-fks" id="Kqh-kZ-bIm"/>
-                        <outlet property="settingsButton" destination="yVa-s8-m9i" id="ihi-X6-ObN"/>
+                        <outlet property="backgroundButton" destination="p6N-5v-yfh" id="4o8-Rm-maz"/>
+                        <outlet property="editPresentationModeButton" destination="OnH-PU-Est" id="J1C-LC-FDw"/>
+                        <outlet property="emailButton" destination="4ft-ij-hEu" id="Ih2-1c-7Rz"/>
+                        <outlet property="logoutButton" destination="h66-kz-uqe" id="FDK-AU-WIv"/>
+                        <outlet property="presentationModeButton" destination="Hzk-ka-Ieb" id="MC6-Xn-naf"/>
+                        <outlet property="presentationModeLabel" destination="bcL-Qn-3m0" id="rwW-tJ-mtl"/>
+                        <outlet property="presentationModeToggle" destination="rRr-qh-Hbl" id="ivf-3M-CbL"/>
+                        <outlet property="settingsIcon" destination="yVa-s8-m9i" id="YfH-VP-fuf"/>
+                        <outlet property="supportButton" destination="I2O-qn-R2d" id="Wvs-OG-9u1"/>
+                        <outlet property="syncContentButton" destination="UqU-EW-kcK" id="6zs-EM-Kte"/>
+                        <segue destination="lXz-BW-0kX" kind="showDetail" id="FCf-01-qWU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiu-YE-eub" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1976" y="-203"/>
+            <point key="canvasLocation" x="1973.5" y="-203"/>
         </scene>
         <!--Lab Settings Nav Controller-->
         <scene sceneID="z82-vM-hqe">
@@ -267,6 +289,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R5s-nB-NSP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                         <edgeInsets key="layoutMargins" top="30" left="20" bottom="20" right="20"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
@@ -292,9 +315,8 @@
             <point key="canvasLocation" x="175" y="239"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Chevron_Gray.png" width="8" height="13"/>
-        <image name="alert-badge-small.png" width="25" height="24"/>
-    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="FCf-01-qWU"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

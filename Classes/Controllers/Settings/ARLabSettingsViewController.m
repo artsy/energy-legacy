@@ -10,6 +10,7 @@
 
     self.delegate = self;
     self.preferredDisplayMode = [UIDevice isPad] ? UISplitViewControllerDisplayModeAllVisible : UISplitViewControllerDisplayModeAutomatic;
+    self.preferredPrimaryColumnWidthFraction = 0.4;
 }
 
 #pragma mark - exit strategy
