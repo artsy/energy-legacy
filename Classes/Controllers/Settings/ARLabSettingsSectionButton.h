@@ -1,7 +1,7 @@
 
 
 
-@interface ARLabSettingsSectionButton : UIView
+@interface ARLabSettingsSectionButton : UIButton
 
 - (void)setTitle:(NSString *)title;
 

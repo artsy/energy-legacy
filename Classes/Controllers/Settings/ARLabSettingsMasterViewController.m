@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *presentationModeButton;
 @property (weak, nonatomic) IBOutlet UIView *presentationModeToggle;
+
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *editPresentationModeButton;
 
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *backgroundButton;
@@ -21,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *supportButton;
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *logoutButton;
 
-@property (assign) BOOL presModeOn;
+@property (assign) BOOL presentationMode;
 
 @end
 
@@ -33,7 +34,7 @@
     [super viewDidLoad];
     [self setupSettingsIcon];
     [self setupSectionButtons];
-    self.presModeOn = NO;
+    self.presentationMode = NO;
     [self setPresentationModeLabelText:NSLocalizedString(@"Hides sensitive information when showing artworks to clients", @"Explanatory text for presentation mode setting")];
 }
 
@@ -49,7 +50,7 @@
     ARToggleSwitch *toggle = [ARToggleSwitch buttonWithFrame:self.presentationModeToggle.frame];
     toggle.userInteractionEnabled = NO;
     [self.presentationModeButton addSubview:toggle];
-    toggle.on = self.presModeOn;
+    toggle.on = self.presentationMode;
 
     [self.editPresentationModeButton setTitle:NSLocalizedString(@"Edit Presentation Mode", @"Title for edit presentation mode settings button")];
     [self.editPresentationModeButton hideTopBorder];
@@ -82,9 +83,21 @@
 
 - (IBAction)presentationModeButtonPressed:(id)sender
 {
-    ARToggleSwitch *toggle = self.presentationModeButton.subviews.firstObject;
-    toggle.on = !self.presModeOn;
-    self.presModeOn = !self.presModeOn;
+    ARToggleSwitch *toggle = [self.presentationModeButton.subviews find:^BOOL(UIView *subview) {
+        return [subview isKindOfClass:ARToggleSwitch.class];
+    }];
+    if (toggle) {
+        toggle.on = !self.presentationMode;
+        self.presentationMode = !self.presentationMode;
+    }
+}
+
+- (IBAction)syncButtonPressed:(id)sender
+{
+}
+
+- (IBAction)editPresentationModePressed:(id)sender
+{
 }
 
 

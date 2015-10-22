@@ -3,13 +3,11 @@
 
 @interface ARLabSettingsSectionButton ()
 
+@property (weak, nonatomic) IBOutlet UILabel *settingTitleLabel;
 @property (weak, nonatomic) IBOutlet UIView *view;
-
 @property (weak, nonatomic) IBOutlet UIView *topBorder;
 @property (weak, nonatomic) IBOutlet UIView *bottomBorder;
-
 @property (weak, nonatomic) IBOutlet UIImageView *chevron;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
@@ -28,13 +26,9 @@
     return self;
 }
 
-- (IBAction)buttonPressed:(id)sender
-{
-}
-
 - (void)setTitle:(NSString *)title
 {
-    [self.titleLabel setText:title.uppercaseString];
+    [self.settingTitleLabel setText:title.uppercaseString];
 }
 
 - (void)hideTopBorder
