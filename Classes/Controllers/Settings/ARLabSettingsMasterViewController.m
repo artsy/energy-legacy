@@ -3,6 +3,7 @@
 #import "ARLabSettingsNavController.h"
 #import "ARLabSettingsSectionButton.h"
 #import "ARToggleSwitch.h"
+#import "ARStoryboardIdentifiers.h"
 
 
 @interface ARLabSettingsMasterViewController ()
@@ -90,10 +91,6 @@
         toggle.on = !self.presentationMode;
         self.presentationMode = !self.presentationMode;
     }
-}
-
-- (IBAction)syncButtonPressed:(id)sender
-{
 }
 
 - (IBAction)editPresentationModePressed:(id)sender

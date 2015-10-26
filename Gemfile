@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'xcpretty'
 gem 'second_curtain'
 gem "chairs"
+gem "sbconstants"
 
 gem "cocoapods"
 gem "cocoapods-keys"

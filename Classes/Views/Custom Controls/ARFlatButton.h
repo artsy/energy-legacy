@@ -1,5 +1,6 @@
 
 
+
 @interface ARButton : UIButton
 - (void)setup;
 
@@ -22,6 +23,10 @@
 
 
 @interface ARSyncFlatButton : ARFlatButton
+@end
+
+
+@interface ARLabSyncFlatButton : ARFlatButton
 @end
 
 

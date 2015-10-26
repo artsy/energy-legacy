@@ -506,6 +506,7 @@
 		834BA69D1B4AE74F009D18F7 /* ARFolioImageMessageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 834BA69C1B4AE74F009D18F7 /* ARFolioImageMessageViewControllerTests.m */; };
 		8350BF181B03DBF0006D42AC /* ARFolioMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8350BF171B03DBF0006D42AC /* ARFolioMessageViewController.m */; };
 		835112771B3318A900AC9C79 /* ARPartnerMetadataSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 835112761B3318A900AC9C79 /* ARPartnerMetadataSync.m */; };
+		8351417F1BDE9D980046FB32 /* ARLabSettingsSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8351417E1BDE9D980046FB32 /* ARLabSettingsSyncViewController.m */; };
 		8356C1741B20A4A3000E03B5 /* ARFolioMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8356C1731B20A4A3000E03B5 /* ARFolioMessageViewController.xib */; };
 		8369810E1B0E770B000BF9D7 /* full_logo_white_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8369810C1B0E770A000BF9D7 /* full_logo_white_large@2x.png */; };
 		8369810F1B0E770B000BF9D7 /* full_logo_white_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8369810D1B0E770A000BF9D7 /* full_logo_white_small@2x.png */; };
@@ -518,6 +519,7 @@
 		839C16C31B94B65C009D8FB4 /* ARSyncStatusViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 839C16C21B94B65C009D8FB4 /* ARSyncStatusViewModel.m */; };
 		839E42611B052DE800C4BF49 /* ARFolioMessageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 839E42601B052DE800C4BF49 /* ARFolioMessageViewControllerTests.m */; };
 		83A179101B34A309000AC4AA /* UIView+ARImageBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A1790F1B34A309000AC4AA /* UIView+ARImageBadge.m */; };
+		83A412891BDE8B9900E061BC /* ARStoryboardIdentifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A412881BDE8B9900E061BC /* ARStoryboardIdentifiers.m */; };
 		83D0E6C51B346EED00DDFDBB /* alert-badge-large.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D0E6C31B346EED00DDFDBB /* alert-badge-large.png */; };
 		83D0E6C61B346EED00DDFDBB /* alert-badge-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D0E6C41B346EED00DDFDBB /* alert-badge-small.png */; };
 		83DA2F631BD6C1A000C55982 /* ARLabSettingsSectionButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83DA2F621BD6C1A000C55982 /* ARLabSettingsSectionButton.xib */; };
@@ -1385,6 +1387,8 @@
 		8350BF171B03DBF0006D42AC /* ARFolioMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFolioMessageViewController.m; sourceTree = "<group>"; };
 		835112751B3318A900AC9C79 /* ARPartnerMetadataSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARPartnerMetadataSync.h; sourceTree = "<group>"; };
 		835112761B3318A900AC9C79 /* ARPartnerMetadataSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPartnerMetadataSync.m; sourceTree = "<group>"; };
+		8351417D1BDE9D980046FB32 /* ARLabSettingsSyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsSyncViewController.h; sourceTree = "<group>"; };
+		8351417E1BDE9D980046FB32 /* ARLabSettingsSyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsSyncViewController.m; sourceTree = "<group>"; };
 		8356C1731B20A4A3000E03B5 /* ARFolioMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFolioMessageViewController.xib; sourceTree = "<group>"; };
 		8369810C1B0E770A000BF9D7 /* full_logo_white_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "full_logo_white_large@2x.png"; sourceTree = "<group>"; };
 		8369810D1B0E770A000BF9D7 /* full_logo_white_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "full_logo_white_small@2x.png"; sourceTree = "<group>"; };
@@ -1405,6 +1409,8 @@
 		839E42601B052DE800C4BF49 /* ARFolioMessageViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFolioMessageViewControllerTests.m; sourceTree = "<group>"; };
 		83A1790E1B34A309000AC4AA /* UIView+ARImageBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ARImageBadge.h"; sourceTree = "<group>"; };
 		83A1790F1B34A309000AC4AA /* UIView+ARImageBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ARImageBadge.m"; sourceTree = "<group>"; };
+		83A412871BDE88B500E061BC /* ARStoryboardIdentifiers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARStoryboardIdentifiers.h; sourceTree = "<group>"; };
+		83A412881BDE8B9900E061BC /* ARStoryboardIdentifiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARStoryboardIdentifiers.m; sourceTree = "<group>"; };
 		83D0E6C31B346EED00DDFDBB /* alert-badge-large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-badge-large.png"; sourceTree = "<group>"; };
 		83D0E6C41B346EED00DDFDBB /* alert-badge-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-badge-small.png"; sourceTree = "<group>"; };
 		83DA2F621BD6C1A000C55982 /* ARLabSettingsSectionButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARLabSettingsSectionButton.xib; sourceTree = "<group>"; };
@@ -1966,6 +1972,8 @@
 				4137E7B717304ED000D85A93 /* ARLogoutManager.m */,
 				605F1D43183EC175007EFE74 /* ARSwitchBoard.h */,
 				605F1D44183EC175007EFE74 /* ARSwitchBoard.m */,
+				83A412871BDE88B500E061BC /* ARStoryboardIdentifiers.h */,
+				83A412881BDE8B9900E061BC /* ARStoryboardIdentifiers.m */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -2133,6 +2141,8 @@
 				83DA2F641BD6C85E00C55982 /* ARLabSettingsSectionButton.h */,
 				83DA2F651BD6C85E00C55982 /* ARLabSettingsSectionButton.m */,
 				833AAC361BA9DF9A00B24D25 /* ARLabSettings.storyboard */,
+				8351417D1BDE9D980046FB32 /* ARLabSettingsSyncViewController.h */,
+				8351417E1BDE9D980046FB32 /* ARLabSettingsSyncViewController.m */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -4124,6 +4134,7 @@
 				833104DE1B433FBE00B68E52 /* ARFolioImageMessageViewController.m in Sources */,
 				601E1A19194F9575004B21E4 /* ARPagingArtworkViewController.m in Sources */,
 				606C6794170B1B4200A9C0EB /* ARTabbedViewController.m in Sources */,
+				83A412891BDE8B9900E061BC /* ARStoryboardIdentifiers.m in Sources */,
 				4961F31D171897C40074CB91 /* NSFetchedResultsController+Count.m in Sources */,
 				60AA6D40171EB42E00C7447A /* NSFileManager+FolderSize.m in Sources */,
 				494D50EA173025F100D77AEB /* ARSortDefinition.m in Sources */,
@@ -4141,6 +4152,7 @@
 				60DEB61A1A237E880046686D /* ARSlideshowImageView.m in Sources */,
 				B337EB08184D246C0071FA29 /* ARImageTile.m in Sources */,
 				415416B617396B1000709811 /* ARFileUtils+FolioAdditions.m in Sources */,
+				8351417F1BDE9D980046FB32 /* ARLabSettingsSyncViewController.m in Sources */,
 				493E2951173B07E700644DCB /* ARSortCache.m in Sources */,
 				60AA47AB17413E0A0006119F /* ARTickedTableViewCell.m in Sources */,
 				833AAC3E1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m in Sources */,

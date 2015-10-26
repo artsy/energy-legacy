@@ -5,11 +5,13 @@
 #import "NSFileManager+SkipBackup.h"
 #import "ARFileUtils.h"
 #import <AFNetworking/AFNetworking.h>
+#import "SyncLog.h"
 
 #if __has_include(<CoreSpotlight/CoreSpotlight.h>)
 #import "ARSpotlightExporter.h"
 #import <CoreSpotlight/CoreSpotlight.h>
 #endif
+
 
 @interface ARSync ()
 @property (readwrite, nonatomic, strong) NSMutableArray *operationQueues;
@@ -77,6 +79,7 @@
             [self.deleter deleteObjects];
         }
 
+        [self generateSyncLog];
         [self save];
         [self performAnalyticsAfter];
 
@@ -109,6 +112,12 @@
             }
         }
     }
+}
+
+- (void)generateSyncLog
+{
+    SyncLog *newLog = [SyncLog createInContext:self.managedObjectContext];
+    newLog.dateStarted = NSDate.date;
 }
 
 - (DRBOperationTree *)createSyncOperationTree
