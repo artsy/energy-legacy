@@ -1,6 +1,7 @@
 upcoming:
   version: 2.4.4
   notes:
+    - Lab Settings Master View [sarah]
     - Switch back to static libraries to speed up launch time [orta]
     - Minor changes to how the popovers handles resizing [orta]
     - Saved memory in PDF rendering for iOS 9 [sarah]
