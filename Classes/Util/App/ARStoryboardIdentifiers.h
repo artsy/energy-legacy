@@ -3,7 +3,7 @@
 #import <Foundation/Foundation.h>
 
 #pragma mark - segue.identifier
-extern NSString *const EditPresentationMode;
+extern NSString *const EditPresentationModeSettings;
 extern NSString *const EditSyncSettings;
 
 #pragma mark - storyboardNames
@@ -14,3 +14,4 @@ extern NSString *const previousSyncCell;
 
 #pragma mark - viewController.storyboardIdentifier
 extern NSString *const SettingsMasterViewController;
+extern NSString *const SyncViewController;

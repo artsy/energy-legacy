@@ -1,17 +1,17 @@
 #import "ARLabSettingsSyncViewController.h"
 #import "ARFlatButton.h"
-#import "ARSyncStatusViewModel.h"
 #import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
+#import "ARTopViewController.h"
 
 
 @interface ARLabSettingsSyncViewController ()
-
-@property (nonatomic, strong) ARSyncStatusViewModel *viewModel;
 
 @property (weak, nonatomic) IBOutlet ARSyncFlatButton *syncButton;
 @property (weak, nonatomic) IBOutlet UILabel *explanatoryTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *previousSyncsLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) NSArray *previousSyncDateStrings;
 
 @end
 
@@ -21,6 +21,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.previousSyncDateStrings = self.viewModel.previousSyncDateStrings;
 
     [self.syncButton setTitle:@"Sync Content".uppercaseString forState:UIControlStateNormal];
 
@@ -38,17 +40,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"previousSyncCell"];
+    return [tableView dequeueReusableCellWithIdentifier:@"previousSyncCell"];
+}
 
-    NSArray *dateStrings = self.viewModel.previousSyncDateStrings;
-    if (dateStrings) {
-        cell.textLabel.text = dateStrings[indexPath.row];
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.previousSyncDateStrings) {
+        cell.textLabel.text = self.previousSyncDateStrings[indexPath.row];
         cell.textLabel.font = [UIFont serifFontWithSize:15];
         cell.textLabel.textColor = UIColor.artsyHeavyGrey;
     }
-
-    return cell;
 }
+
 - (IBAction)syncButtonPressed:(id)sender
 {
     [self.viewModel startSync];
@@ -73,7 +76,7 @@
 
 - (ARSyncStatusViewModel *)viewModel
 {
-    return _viewModel ?: [[ARSyncStatusViewModel alloc] initWithSync:nil];
+    return _viewModel ?: [[ARSyncStatusViewModel alloc] initWithSync:[ARTopViewController sharedInstance].sync];
 }
 
 @end

@@ -8,6 +8,8 @@
 
 @interface ARSyncStatusViewModel ()
 @property (nonatomic, strong) NSUserDefaults *defaults;
+@property (nonatomic, strong) NSManagedObjectContext *context;
+@property (nonatomic, strong) ARSync *sync;
 @end
 
 
@@ -18,7 +20,7 @@
     self = [super init];
     if (!self) return nil;
 
-    self.sync = sync ?: [ARTopViewController sharedInstance].sync;
+    self.sync = sync;
     self.sync.delegate = self;
 
     return self;
@@ -166,19 +168,12 @@
 
 - (NSInteger)syncLogCount
 {
-    return [[CoreDataManager mainManagedObjectContext] countForFetchRequest:self.allSyncLogsRequest error:nil];
+    return [SyncLog countInContext:self.context error:nil];
 }
 
 - (NSArray *)syncLogs
 {
-    return [[CoreDataManager mainManagedObjectContext] executeFetchRequest:self.allSyncLogsRequest error:nil];
-}
-
-- (NSFetchRequest *)allSyncLogsRequest
-{
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"SyncLog"];
-    request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"dateStarted" ascending:NO] ];
-    return request;
+    return [SyncLog findAllSortedBy:@"dateStarted" ascending:YES inContext:self.context];
 }
 
 #pragma mark -
@@ -187,6 +182,11 @@
 - (NSUserDefaults *)defaults
 {
     return _defaults ?: [NSUserDefaults standardUserDefaults];
+}
+
+- (NSManagedObjectContext *)context
+{
+    return _context ?: [CoreDataManager mainManagedObjectContext];
 }
 
 @end

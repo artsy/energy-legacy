@@ -3,7 +3,7 @@
 #import "ARStoryboardIdentifiers.h"
 
 #pragma mark - segue.identifier
-NSString *const EditPresentationMode = @"Edit Presentation Mode";
+NSString *const EditPresentationModeSettings = @"Edit Presentation Mode Settings";
 NSString *const EditSyncSettings = @"Edit Sync Settings";
 
 #pragma mark - storyboardNames
@@ -14,3 +14,4 @@ NSString *const previousSyncCell = @"previousSyncCell";
 
 #pragma mark - viewController.storyboardIdentifier
 NSString *const SettingsMasterViewController = @"Settings Master View Controller";
+NSString *const SyncViewController = @"Sync View Controller";

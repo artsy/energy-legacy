@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9058" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AhB-Tr-lmz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AhB-Tr-lmz">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9048"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -23,7 +23,7 @@
         <!--Lab Settings Sync View Controller-->
         <scene sceneID="Ozj-d1-V0z">
             <objects>
-                <viewController id="lXz-BW-0kX" customClass="ARLabSettingsSyncViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Sync View Controller" id="lXz-BW-0kX" customClass="ARLabSettingsSyncViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5pM-C7-1Xy"/>
                         <viewControllerLayoutGuide type="bottom" id="1Mk-77-YAC"/>
@@ -36,7 +36,7 @@
                                 <rect key="frame" x="226" y="45" width="149" height="26"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwG-Vf-Fgn">
@@ -44,7 +44,7 @@
                                 <animations/>
                                 <string key="text">Here is where you can sync artworks, documents, and information added on CMS with Folio. Given the big size of images, before syncing, please make sure you are on a strong Wi-Fi connection.</string>
                                 <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9U-Ia-fHS" customClass="ARLabSyncFlatButton">
@@ -62,7 +62,7 @@
                                 <rect key="frame" x="231" y="264" width="138" height="17"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="bvo-wb-tZW">
@@ -74,15 +74,15 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="previousSyncCell" id="liS-em-7gK">
-                                        <rect key="frame" x="0.0" y="50" width="558" height="44"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="558" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="liS-em-7gK" id="JDf-3k-llm">
-                                            <rect key="frame" x="0.0" y="0.0" width="558" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="558" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -125,6 +125,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="Ye7-Wv-PSn"/>
                     <connections>
                         <outlet property="explanatoryTextLabel" destination="cwG-Vf-Fgn" id="fYi-b3-PnZ"/>
                         <outlet property="previousSyncsLabel" destination="iqP-c1-aQK" id="xXi-Vj-tNT"/>
@@ -134,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xm4-Ia-lle" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039" y="784"/>
+            <point key="canvasLocation" x="1193" y="814"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Vql-6P-U53">
@@ -152,7 +153,7 @@
                                 <rect key="frame" x="196" y="40" width="208" height="22"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -166,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAI-5S-zGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1701" y="784"/>
+            <point key="canvasLocation" x="1985" y="814"/>
         </scene>
         <!--Lab Settings Master View Controller-->
         <scene sceneID="kL2-SG-N9U">
@@ -206,7 +207,7 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="lXz-BW-0kX" kind="showDetail" identifier="Edit Sync Settings" id="gTS-vJ-QgU"/>
+                                            <segue destination="lXz-BW-0kX" kind="showDetail" identifier="Edit Sync Settings" id="oH8-e3-kfc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -298,7 +299,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="editPresentationModePressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="R7I-1q-mbd"/>
-                                            <segue destination="V7h-Op-kFe" kind="showDetail" identifier="Edit Presentation Mode" id="J89-iv-VPH"/>
+                                            <segue destination="V7h-Op-kFe" kind="showDetail" identifier="Edit Presentation Mode Settings" id="Hpv-vo-YyT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -463,6 +464,7 @@
                             <constraint firstItem="elk-lP-AmA" firstAttribute="height" secondItem="UqU-EW-kcK" secondAttribute="height" id="Jp8-tT-50x"/>
                             <constraint firstItem="Hzk-ka-Ieb" firstAttribute="top" secondItem="UqU-EW-kcK" secondAttribute="bottom" constant="25" id="Kcg-0O-PN6"/>
                             <constraint firstItem="p6N-5v-yfh" firstAttribute="height" secondItem="UqU-EW-kcK" secondAttribute="height" id="L7Z-1b-TxG"/>
+                            <constraint firstItem="yVa-s8-m9i" firstAttribute="top" secondItem="I9E-fN-td1" secondAttribute="bottom" constant="15" id="LpS-Hi-3WN"/>
                             <constraint firstItem="bcL-Qn-3m0" firstAttribute="top" secondItem="OnH-PU-Est" secondAttribute="bottom" constant="15" id="MCy-ih-YTp"/>
                             <constraint firstItem="UqU-EW-kcK" firstAttribute="width" secondItem="qr3-nz-sZj" secondAttribute="height" multiplier="265:1024" id="Mwz-H0-Uin"/>
                             <constraint firstItem="UqU-EW-kcK" firstAttribute="top" secondItem="yVa-s8-m9i" secondAttribute="bottom" constant="25" id="Rl7-QS-NFF"/>
@@ -482,7 +484,6 @@
                             <constraint firstItem="UqU-EW-kcK" firstAttribute="width" secondItem="qr3-nz-sZj" secondAttribute="height" multiplier="265:1024" id="raz-Kh-H4r"/>
                             <constraint firstItem="e3k-Ce-4hS" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="t5J-tv-CeB"/>
                             <constraint firstItem="elk-lP-AmA" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="uHR-yH-8vG"/>
-                            <constraint firstItem="yVa-s8-m9i" firstAttribute="top" secondItem="I9E-fN-td1" secondAttribute="bottom" constant="15" id="voz-lq-93z"/>
                             <constraint firstItem="Udi-sX-Dx1" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="wIa-sF-31t"/>
                             <constraint firstItem="UqU-EW-kcK" firstAttribute="centerX" secondItem="qr3-nz-sZj" secondAttribute="centerX" id="xeQ-dw-T3l"/>
                             <constraint firstItem="bcL-Qn-3m0" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="y28-QR-WGG"/>
@@ -516,7 +517,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiu-YE-eub" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1973.5" y="-203"/>
+            <point key="canvasLocation" x="2271.5" y="-175"/>
         </scene>
         <!--Lab Settings Nav Controller-->
         <scene sceneID="z82-vM-hqe">
@@ -543,7 +544,7 @@
                 <splitViewController storyboardIdentifier="ARLabSettings" title="ARLabSettingsSplitViewController" id="AhB-Tr-lmz" customClass="ARLabSettingsViewController" sceneMemberID="viewController">
                     <connections>
                         <segue destination="bMa-SS-pGI" kind="relationship" relationship="masterViewController" id="gRn-aJ-vXi"/>
-                        <segue destination="lXz-BW-0kX" kind="relationship" relationship="detailViewController" id="ctT-K5-GpD"/>
+                        <segue destination="lXz-BW-0kX" kind="relationship" relationship="detailViewController" id="6Gb-fO-e1h"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tbi-6m-HPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -552,7 +553,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gTS-vJ-QgU"/>
+        <segue reference="oH8-e3-kfc"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
