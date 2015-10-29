@@ -2,9 +2,19 @@
 
 @class ARSync, ARDeleter, ARTileArchiveDownloader;
 
+
 @protocol ARSyncDelegate <NSObject>
 
 - (void)syncDidFinish:(ARSync *)sync;
+
+@end
+
+/// An API for registering interest with a
+/// sync on before and after callbacks.
+
+@protocol ARSyncPlugin <ARSyncDelegate>
+
+- (void)syncDidStart:(ARSync *)sync;
 
 @end
 
@@ -31,5 +41,11 @@
 
 @property (readonly, nonatomic, getter=isSyncing) BOOL syncing;
 @property (readonly, nonatomic, getter=applicationHasBackgrounded) BOOL applicationHasGoneIntoTheBackground;
+
+/// Move these to a sync config object
+
+@property (readonly, nonatomic, strong) NSUserDefaults *defaults;
+@property (readonly, nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 
 @end

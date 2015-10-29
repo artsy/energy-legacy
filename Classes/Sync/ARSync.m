@@ -1,6 +1,7 @@
 #import "ARSync.h"
 #import "ARDeleter.h"
 #import "ARSlugResolver.h"
+#import "ARSyncPlugins.h"
 #import "ARSyncOperations.h"
 #import "NSFileManager+SkipBackup.h"
 #import "ARFileUtils.h"
@@ -47,7 +48,6 @@
 {
     ARSyncLog(@"Sync started");
 
-    [self performAnalyticsBefore];
     self.operationQueues = [NSMutableArray array];
     self.managedObjectContext = _managedObjectContext ?: [self createPrivateManagedObjectContext];
 
@@ -59,6 +59,11 @@
 
     self.rootOperation = self.rootOperation ?: [self createSyncOperationTree];
     DRBOperationTree *rootNode = self.rootOperation;
+
+    NSArray *plugins = [self createPlugins];
+    [plugins each:^(id <ARSyncPlugin> plugin) {
+        [plugin syncDidStart:self];
+    }];
 
     // sync metadata
     [self.progress start];
@@ -78,8 +83,11 @@
         }
 
         [self save];
-        [self performAnalyticsAfter];
 
+        [plugins each:^(id <ARSyncPlugin> plugin) {
+            [plugin syncDidFinish:self];
+        }];
+        
         [self updateDefaultsForSync];
 
         // Cleanup the tree so it's recreated next sync
@@ -259,6 +267,15 @@
     return partnerNode;
 }
 
+- (NSArray <id <ARSyncPlugin>>*)createPlugins
+{
+    NSMutableArray *plugins = [NSMutableArray array];
+
+    [plugins addObject:[[ARSyncAnalytics alloc] init]];
+
+    return plugins;
+}
+
 - (void)setPaused:(BOOL)paused
 {
     if (!self.isSyncing) return;
@@ -331,29 +348,6 @@
 {
     NSString *userDocuments = [ARFileUtils userDocumentsDirectoryPath];
     [[NSFileManager defaultManager] backgroundAddSkipBackupAttributeToDirectoryAtPath:userDocuments];
-}
-
-- (void)performAnalyticsBefore
-{
-    BOOL completedSyncBefore = [self.defaults boolForKey:ARFinishedFirstSync];
-    [self.defaults setBool:YES forKey:ARSyncingIsInProgress];
-
-    [ARAnalytics event:@"sync_started" withProperties:@{
-        @"initial_sync" : @(completedSyncBefore)
-    }];
-}
-
-- (void)performAnalyticsAfter
-{
-    [self.defaults setBool:NO forKey:ARSyncingIsInProgress];
-
-    CGFloat seconds = roundf([[NSDate date] timeIntervalSinceDate:self.progress.startDate]);
-    BOOL completedSyncBefore = [self.defaults boolForKey:ARFinishedFirstSync];
-
-    [ARAnalytics event:@"sync_finished" withProperties:@{
-        @"seconds" : @(seconds),
-        @"initial" : @(completedSyncBefore)
-    }];
 }
 
 - (void)syncSpotlightIndex
