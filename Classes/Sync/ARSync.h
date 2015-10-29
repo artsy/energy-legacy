@@ -9,6 +9,9 @@
 
 @end
 
+/// An API for registering interest with a
+/// sync on before and after callbacks.
+
 @protocol ARSyncPlugin <ARSyncDelegate>
 
 - (void)syncDidStart:(ARSync *)sync;

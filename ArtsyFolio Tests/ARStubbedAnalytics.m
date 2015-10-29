@@ -1,6 +1,7 @@
 #import <ARAnalytics/ARAnalytics.h>
 #import "ARStubbedAnalytics.h"
 
+
 @implementation ARStubbedProvider
 
 + (ARStubbedProvider *)setupAnalyticsWithStubbedProvider
@@ -15,12 +16,7 @@
     return provider;
 }
 
-- (void)dealloc
-{
-    NSLog(@"Dealloc %@", self);
-}
-
-- (id)initWithIdentifier:(NSString *)identifier
+- (instancetype)initWithIdentifier:(NSString *)identifier
 {
     self = [super initWithIdentifier:identifier];
     if (!self) return nil;
