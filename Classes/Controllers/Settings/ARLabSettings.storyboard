@@ -242,7 +242,7 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="ZIK-Dz-F8x" kind="showDetail" id="lWV-3G-m0S"/>
+                                            <segue destination="ZIK-Dz-F8x" kind="showDetail" identifier="Sync Settings" id="lWV-3G-m0S"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -589,7 +589,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7Z3-1P-Emc"/>
+        <segue reference="lWV-3G-m0S"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
