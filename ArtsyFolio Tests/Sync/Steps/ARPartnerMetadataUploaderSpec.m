@@ -1,5 +1,6 @@
 #import "ARPartnerMetadataUploader.h"
 #import <AFNetworking/AFJSONRequestOperation.h>
+#import "ARSync+TestsExtension.h"
 
 SpecBegin(ARPartnerMetadataUploader);
 
@@ -31,6 +32,12 @@ it(@"generates the right keys", ^{
 it(@"sends to the right url", ^{
     AFJSONRequestOperation *op = (id)[subject operationTree:nil operationForObject:partner.slug continuation:nil failure:nil];
     expect(op.request.URL.path).to.equal(@"/api/v1/partner/ClubMate/partner_flags");
+});
+
+
+it(@"gets included in a default sync", ^{
+    ARSync *sync = [[ARSync alloc] init];
+    expect([sync createsSyncStepInstanceOfClass:ARPartnerMetadataUploader.class]).to.beTruthy();
 });
 
 

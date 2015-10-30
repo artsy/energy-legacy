@@ -10,6 +10,11 @@
 
 - (BOOL)createsPluginInstanceOfClass:(Class) class;
 
+/// Same thing here as above, but for sync steps
+
+- (BOOL)createsSyncStepInstanceOfClass:(Class) class;
+
+
 /// Creates an ARSync with a stubbed MOC
 /// and a Forgeries NSUserDefaults
 

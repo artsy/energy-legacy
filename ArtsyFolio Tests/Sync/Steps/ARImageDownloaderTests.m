@@ -4,6 +4,7 @@
 #import "ARFeedKeys.h"
 #import <AFNetworking/AFNetworking.h>
 #import "InstallShotImage.h"
+#import "ARSync+TestsExtension.h"
 
 SpecBegin(ARImageDownloader);
 
@@ -53,37 +54,10 @@ describe(@"when passed an object", ^{
     });
 });
 
-pending(@"grabs the right image", ^{
-    __block AFHTTPRequestOperation *operation;
-    __block NSString *expectedAddress;
-
-    beforeEach(^{
-        ARImageDownloader *downloader = [[ARImageDownloader alloc] init];
-
-        expectedAddress = NSStringWithFormat(@"http://baseURL.com/%@.jpg", ARFeedImageSizeLargerKey);
-        Image *image = [Image objectInContext:context];
-        image.baseURL = @"http://baseURL.com/";
-
-        ARImageFormat *format = [ARImageFormat imageFormatWithImage:image format:ARFeedImageSizeLargerKey];
-         operation = (id)[downloader operationTree:nil operationForObject:format
-                                                             continuation:^(id object, void (^completion)()) {
-                                                                } failure:nil];
-    });
-
-    it(@"creates the right operation", ^{
-        expect(operation).will.beKindOf(AFHTTPRequestOperation.class);
-        expect(operation.request.URL.absoluteString).to.equal(expectedAddress);
-    });
-
-    pending(@"sends a notification that a large image has been sent", ^{
-
-        [OHHTTPStubs stubRequestsMatchingAddressReturningRandomImage:expectedAddress];
-
-        expect(^{
-            [operation start];
-        }).will.notify(ARLargeImageDownloadCompleteNotification);
-    });
-
+it(@"gets included in a default sync", ^{
+    ARSync *sync = [[ARSync alloc] init];
+    expect([sync createsSyncStepInstanceOfClass:ARImageDownloader.class]).to.beTruthy();
 });
+
 
 SpecEnd

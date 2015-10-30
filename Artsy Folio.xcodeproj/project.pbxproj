@@ -19,7 +19,6 @@
 		342F948BFEED0A6CD3718F93 /* ARSlugResolverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F92AB9FEEF15B485CB6D1 /* ARSlugResolverTests.m */; };
 		342F95E45FABD6D003E4BEB9 /* ARTileArchiveDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F95B4118196234A1066F0 /* ARTileArchiveDownloader.m */; };
 		342F96129A9C641805C06B05 /* ArtistModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F90072C09B05DEBBAD849 /* ArtistModelTests.m */; };
-		342F96D41657FCF03B16936C /* ARPagingDownloaderOperationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F902A65B7E26B2838013D /* ARPagingDownloaderOperationTests.m */; };
 		342F96F4AEF27F7C5D048C83 /* ARIDMapperDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F991E9148D10E9046AB06 /* ARIDMapperDownloader.m */; };
 		342F978B1865D89B2457B810 /* AREstimateDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F92134BC1C020671979F2 /* AREstimateDownloader.m */; };
 		342F992FC828FF2FB968D8C7 /* ARDocumentThumbnailCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9550D26DDB2A76BC84DC /* ARDocumentThumbnailCreator.m */; };
@@ -546,7 +545,6 @@
 		B3DA7ADF185BA9EE00CDD11A /* ARTileArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DA7ADE185BA9EE00CDD11A /* ARTileArchive.m */; };
 		B3DA7AE4185BAEAA00CDD11A /* ARTileArchiveDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DA7AE3185BAEAA00CDD11A /* ARTileArchiveDownloaderTests.m */; };
 		B3DBEDAB185A66E800C345A1 /* ARSync.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DBEDA9185A66E800C345A1 /* ARSync.m */; };
-		B3DBEDD4185A69F600C345A1 /* ARArtworkDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DBEDD3185A69F600C345A1 /* ARArtworkDownloaderTests.m */; };
 		B3DBEDDE185A721700C345A1 /* ARImageFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DBEDDC185A721700C345A1 /* ARImageFormat.m */; };
 		B3DBEDE0185A74A700C345A1 /* ARImageDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DBEDDF185A74A700C345A1 /* ARImageDownloaderTests.m */; };
 		B3DBEDE6185AB48A00C345A1 /* ARThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DBEDE5185AB48A00C345A1 /* ARThumbnail.m */; };
@@ -639,7 +637,6 @@
 
 /* Begin PBXFileReference section */
 		342F90072C09B05DEBBAD849 /* ArtistModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistModelTests.m; sourceTree = "<group>"; };
-		342F902A65B7E26B2838013D /* ARPagingDownloaderOperationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPagingDownloaderOperationTests.m; sourceTree = "<group>"; };
 		342F9047BDF19FCE53A2586E /* ARAlbumArtworksDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAlbumArtworksDownloader.h; sourceTree = "<group>"; };
 		342F90EBA08A0060AF6C0767 /* ARGridViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARGridViewControllerTests.m; sourceTree = "<group>"; };
 		342F91298C81F0169C0145C6 /* ARShowDocumentDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARShowDocumentDownloader.m; sourceTree = "<group>"; };
@@ -1469,7 +1466,6 @@
 		B3DA7AE3185BAEAA00CDD11A /* ARTileArchiveDownloaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTileArchiveDownloaderTests.m; sourceTree = "<group>"; };
 		B3DBEDA9185A66E800C345A1 /* ARSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSync.m; sourceTree = "<group>"; };
 		B3DBEDAA185A66E800C345A1 /* ARSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSync.h; sourceTree = "<group>"; };
-		B3DBEDD3185A69F600C345A1 /* ARArtworkDownloaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtworkDownloaderTests.m; sourceTree = "<group>"; };
 		B3DBEDDC185A721700C345A1 /* ARImageFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARImageFormat.m; sourceTree = "<group>"; };
 		B3DBEDDD185A721700C345A1 /* ARImageFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARImageFormat.h; sourceTree = "<group>"; };
 		B3DBEDDF185A74A700C345A1 /* ARImageDownloaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARImageDownloaderTests.m; sourceTree = "<group>"; };
@@ -2018,10 +2014,9 @@
 			isa = PBXGroup;
 			children = (
 				6032E3441BE22123001C3494 /* Plugins */,
-				60F1F0FE1B0391A4004B6C7F /* Steps */,
+				60F1F0FE1B0391A4004B6C7F /* Sync Steps */,
 				B3DBEDE7185AB4D400C345A1 /* ARImageThumbnailCreatorTests.m */,
 				B3DA7AE3185BAEAA00CDD11A /* ARTileArchiveDownloaderTests.m */,
-				342F902A65B7E26B2838013D /* ARPagingDownloaderOperationTests.m */,
 				607448211BE3BD8000E20774 /* ARSync+TestsExtension.h */,
 				607448221BE3BD8000E20774 /* ARSync+TestsExtension.m */,
 			);
@@ -2870,14 +2865,14 @@
 			path = "Top View Controller";
 			sourceTree = "<group>";
 		};
-		60F1F0FE1B0391A4004B6C7F /* Steps */ = {
+		60F1F0FE1B0391A4004B6C7F /* Sync Steps */ = {
 			isa = PBXGroup;
 			children = (
-				B3DBEDD3185A69F600C345A1 /* ARArtworkDownloaderTests.m */,
 				B3DBEDDF185A74A700C345A1 /* ARImageDownloaderTests.m */,
 				60F1F0FF1B0391B3004B6C7F /* ARPartnerMetadataUploaderSpec.m */,
 				60F1F1011B04ACB0004B6C7F /* ARPartnerFullMetadataDownloaderSpec.m */,
 			);
+			name = "Sync Steps";
 			path = Steps;
 			sourceTree = "<group>";
 		};
@@ -3941,7 +3936,6 @@
 				609256B6191A7718007C5107 /* ARSupportSettingsViewControllerTests.m in Sources */,
 				60AAA349187038F100561B0C /* AREditAlbumViewControllerTests.m in Sources */,
 				609256B4191A7017007C5107 /* ARSettingsViewControllerTests.m in Sources */,
-				B3DBEDD4185A69F600C345A1 /* ARArtworkDownloaderTests.m in Sources */,
 				60A99DA719AF6C74004F82D0 /* ARBorderedSerifLabelTests.m in Sources */,
 				60E7E2DD1ABB1D09007EAA8A /* ARTabbedViewControllerDataSourceTests.m in Sources */,
 				6060299C19A288570062A4F2 /* ARHighlightableImageViewTests.m in Sources */,
@@ -3994,7 +3988,6 @@
 				60E72B9F1991388700D83B6D /* ARStubbedImage.m in Sources */,
 				60AC10D71949DE4A00274EBB /* ARTestContext.m in Sources */,
 				60F98D5C1A277A4200BDAD7C /* DocumentModelTests.m in Sources */,
-				342F96D41657FCF03B16936C /* ARPagingDownloaderOperationTests.m in Sources */,
 				60C21E3B198B9DEF005CA461 /* ARHostSelectionControllerTests.m in Sources */,
 				607448291BE3C87800E20774 /* ARSyncNotificationSpec.m in Sources */,
 				6032E3461BE22136001C3494 /* ARSyncAnalyticsSpec.m in Sources */,
