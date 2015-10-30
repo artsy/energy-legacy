@@ -28,7 +28,7 @@ target 'ArtsyFolio' do
     pod 'UIView+BooleanAnimations'
     pod 'ORStackView'
 
-    if %w(orta ash artsy laura eloy sarahscott).include?(ENV['USER']) || ENV['CI'] == 'true'
+    if ENV['ARTSY_STAFF_MEMBER'] || ENV['CI'] == 'true'
         pod 'Artsy+UIFonts', :git => "https://github.com/artsy/Artsy-UIFonts.git", :branch => "old_fonts_new_lib"
     else
       pod 'Artsy+OSSUIFonts'
