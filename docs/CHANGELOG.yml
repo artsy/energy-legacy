@@ -1,13 +1,19 @@
 upcoming:
-  version: 2.4.4
+  version: 2.5.0
   notes:
     - Lab Settings Master View [sarah]
-    - Switch back to static libraries to speed up launch time [orta]
-    - Minor changes to how the popovers handles resizing [orta]
-    - Saved memory in PDF rendering for iOS 9 [sarah]
-    - Intercom fix [orta]
+    - Podfile uses `ARTSY_STAFF_MEMBER` to use closed source fonts [orta]
+
 
 releases:
+  - version: 2.4.4
+    date: Oct 20 2015
+    notes:
+      - Switch back to static libraries to speed up launch time [orta]
+      - Minor changes to how the popovers handles resizing [orta]
+      - Saved memory in PDF rendering for iOS 9 [sarah]
+      - Intercom fix [orta]
+
   - version: 2.4.3
     date: Oct 6 2015
     notes:
