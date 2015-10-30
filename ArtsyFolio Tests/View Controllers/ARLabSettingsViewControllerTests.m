@@ -2,6 +2,8 @@
 #import "ARStoryboardIdentifiers.h"
 #import "ARLabSettingsDetailViewManager.h"
 #import "ARSyncStatusViewModel.h"
+#import "SyncLog.h"
+#import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 
 id mockSyncViewModel(void);
 
@@ -9,12 +11,20 @@ SpecBegin(ARLabSettingsViewController);
 
 __block ARLabSettingsSplitViewController *controller;
 __block id mockManager;
+__block NSManagedObjectContext *context;
+__block ARSyncStatusViewModel *syncViewModel;
 
 beforeEach(^{
     ARLabSettingsDetailViewManager *manager = [[ARLabSettingsDetailViewManager alloc] init];
     mockManager = [OCMockObject partialMockForObject:manager];
-    id mockViewModel = mockSyncViewModel();
-    [[[mockManager stub] andReturn:(ARSyncStatusViewModel *)mockViewModel] viewModelForSection:ARLabSettingsSectionSync];
+    context = [CoreDataManager stubbedManagedObjectContext];
+    
+    SyncLog *syncLog = [SyncLog objectInContext:context];
+    ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
+    syncLog.dateStarted = [formatter dateFromString:@"2015-10-31T02:22:22"];
+    
+    syncViewModel = [[ARSyncStatusViewModel alloc] initWithSync:nil context:context];
+    [[[mockManager stub] andReturn:syncViewModel] viewModelForSection:ARLabSettingsSectionSync];
 });
 
 afterEach(^{
@@ -31,13 +41,3 @@ describe(@"visuals", ^{
 });
 
 SpecEnd
-
-id mockSyncViewModel(void)
-{
-    ARSyncStatusViewModel *viewModel = [[ARSyncStatusViewModel alloc] init];
-    id mockViewModel = [OCMockObject partialMockForObject:viewModel];
-    [[[mockViewModel stub] andReturnValue:@(1)] syncLogCount];
-    NSArray *arr = @[ @"October 32, 2015" ];
-    [[[mockViewModel stub] andReturn:arr] previousSyncDateStrings];
-    return mockViewModel;
-};

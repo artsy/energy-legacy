@@ -63,7 +63,7 @@ static const NSInteger kHeightOfSettingsCell = 130;
 
 - (void)setSync:(ARSync *)sync
 {
-    self.syncStatusViewModel = _syncStatusViewModel ?: [[ARSyncStatusViewModel alloc] initWithSync:sync];
+    self.syncStatusViewModel = _syncStatusViewModel ?: [[ARSyncStatusViewModel alloc] initWithSync:sync context:[CoreDataManager mainManagedObjectContext]];
 }
 
 #pragma mark -

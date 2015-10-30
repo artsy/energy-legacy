@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, ARSyncImageNotification) {
 @property (nonatomic, assign) BOOL isSyncing;
 @property (nonatomic, assign) BOOL statusHasChanged;
 
-- (instancetype)initWithSync:(ARSync *)sync;
+- (instancetype)initWithSync:(ARSync *)sync context:(NSManagedObjectContext *)context;
 
 - (void)startSync;
 

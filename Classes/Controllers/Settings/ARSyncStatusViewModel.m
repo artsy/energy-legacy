@@ -15,11 +15,12 @@
 
 @implementation ARSyncStatusViewModel
 
-- (instancetype)initWithSync:(ARSync *)sync
+- (instancetype)initWithSync:(ARSync *)sync context:(NSManagedObjectContext *)context
 {
     self = [super init];
     if (!self) return nil;
 
+    self.context = context;
     self.sync = sync;
     self.sync.delegate = self;
 
@@ -182,11 +183,6 @@
 - (NSUserDefaults *)defaults
 {
     return _defaults ?: [NSUserDefaults standardUserDefaults];
-}
-
-- (NSManagedObjectContext *)context
-{
-    return _context ?: [CoreDataManager mainManagedObjectContext];
 }
 
 @end

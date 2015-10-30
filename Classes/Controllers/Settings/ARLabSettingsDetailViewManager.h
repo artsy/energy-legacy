@@ -9,7 +9,10 @@ typedef NS_ENUM(NSInteger, ARLabSettingsSection) {
 
 @end
 
+
 @interface ARLabSettingsDetailViewManager : NSObject <UISplitViewControllerDelegate>
+
+@property (nonatomic, strong) NSManagedObjectContext *context;
 
 - (id)viewModelForSection:(ARLabSettingsSection)section;
 

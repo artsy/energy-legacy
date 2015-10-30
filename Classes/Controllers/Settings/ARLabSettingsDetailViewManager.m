@@ -3,13 +3,17 @@
 #import "ARTopViewController.h"
 
 
+@interface ARLabSettingsDetailViewManager ()
+@end
+
+
 @implementation ARLabSettingsDetailViewManager
 
 - (id)viewModelForSection:(ARLabSettingsSection)section
 {
     switch (section) {
         case ARLabSettingsSectionSync:
-            return [[ARSyncStatusViewModel alloc] initWithSync:[ARTopViewController sharedInstance].sync];
+            return [[ARSyncStatusViewModel alloc] initWithSync:[ARTopViewController sharedInstance].sync context:self.context];
             break;
 
         default:
@@ -24,6 +28,13 @@
 - (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController
 {
     return YES;
+}
+
+#pragma mark - dependency injection
+
+- (NSManagedObjectContext *)context
+{
+    return _context ?: [CoreDataManager mainManagedObjectContext];
 }
 
 @end
