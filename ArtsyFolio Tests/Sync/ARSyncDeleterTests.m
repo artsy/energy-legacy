@@ -1,13 +1,19 @@
-#import "ARDeleter.h"
+#import "ARSyncDeleter.h"
 #import "Artwork.h"
+
+
+@interface ARSyncDeleter (Private)
+@property (nonatomic, strong, readwrite) NSManagedObjectContext *context;
+@end
 
 SpecBegin(ARDeleter);
 
 describe(@"Adding objects", ^{
-    __block ARDeleter *sut;
+    __block ARSyncDeleter *sut;
 
     beforeAll(^{
-        sut = [[ARDeleter alloc] initWithManagedObjectContext:[CoreDataManager stubbedManagedObjectContext]];
+        sut = [[ARSyncDeleter alloc] init];
+        sut.context = [CoreDataManager stubbedManagedObjectContext];
     });
 
     it(@"adds an object via markObjectForDeletion", ^{
@@ -29,11 +35,12 @@ describe(@"Adding objects", ^{
 });
 
 describe(@"Removing objects", ^{
-    __block ARDeleter *sut;
+    __block ARSyncDeleter *sut;
 
     it(@"removes an object via unmarkObjectForDeletion", ^{
 
-        sut = [[ARDeleter alloc] initWithManagedObjectContext:[CoreDataManager stubbedManagedObjectContext]];
+        sut = [[ARSyncDeleter alloc] init];
+        sut.context = [CoreDataManager stubbedManagedObjectContext];
 
         Artwork *artwork = [Artwork objectInContext:sut.context];
         [sut markObjectForDeletion:artwork];
@@ -48,7 +55,9 @@ describe(@"Removing objects", ^{
         id mock = [OCMockObject partialMockForObject:context];
         [[mock expect] deleteObject:[OCMArg any]];
 
-        ARDeleter *sut = [[ARDeleter alloc] initWithManagedObjectContext:context];
+        ARSyncDeleter *sut = [[ARSyncDeleter alloc] init];
+        sut.context = context;
+
         Artwork *artwork = [Artwork objectInContext:context];
 
         [sut markObjectForDeletion:artwork];

@@ -3,7 +3,7 @@ upcoming:
   notes:
     - Lab Settings Master View [sarah]
     - Podfile uses `ARTSY_STAFF_MEMBER` to use closed source fonts [orta]
-
+    - [dev] Sync refactor to simplify sync side-effects (anaalytics, notifications etc) [orta]
 
 releases:
   - version: 2.4.4

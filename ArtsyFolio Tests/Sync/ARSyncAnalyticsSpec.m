@@ -2,14 +2,9 @@
 #import <ARAnalytics/ARAnalytics.h>
 #import "ARStubbedAnalytics.h"
 #import "ARDefaults.h"
+#import "ARSync+TestsExtension.h"
 
-@interface ARSync (private)
-@property (readwrite, nonatomic, strong) NSUserDefaults *defaults;
-@property (readwrite, nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@end
-
-
-SpecBegin(ARSyncAnalytics)
+SpecBegin(ARSyncAnalytics);
 
 __block ARSync *sync;
 __block ARSyncAnalytics *sut;
@@ -19,17 +14,15 @@ beforeEach(^{
     sut = [[ARSyncAnalytics alloc] init];
     analytics = [ARStubbedProvider setupAnalyticsWithStubbedProvider];
 
-    sync = [[ARSync alloc] init];
-    sync.managedObjectContext = [CoreDataManager stubbedManagedObjectContext];
-    sync.defaults = (id)[ForgeriesUserDefaults defaults:@{}];
+    sync = [ARSync syncForTesting];
 });
 
 describe(@"at the start", ^{
     it(@"sets ARSyncing in progress", ^{
-        expect([sync.defaults boolForKey:ARSyncingIsInProgress]).to.equal(NO);
+        expect([sync.config.defaults boolForKey:ARSyncingIsInProgress]).to.equal(NO);
 
         [sut syncDidStart:sync];
-        expect([sync.defaults boolForKey:ARSyncingIsInProgress]).to.equal(YES);
+        expect([sync.config.defaults boolForKey:ARSyncingIsInProgress]).to.equal(YES);
     });
 
     it(@"creates an analytics event", ^{
@@ -43,10 +36,10 @@ describe(@"at the start", ^{
 
 describe(@"at the end", ^{
     it(@"sets ARSyncing in progress as false", ^{
-        [sync.defaults setBool:YES forKey:ARSyncingIsInProgress];
+        [sync.config.defaults setBool:YES forKey:ARSyncingIsInProgress];
 
         [sut syncDidFinish:sync];
-        expect([sync.defaults boolForKey:ARSyncingIsInProgress]).to.equal(NO);
+        expect([sync.config.defaults boolForKey:ARSyncingIsInProgress]).to.equal(NO);
 
     });
 
@@ -56,6 +49,10 @@ describe(@"at the end", ^{
         [sut syncDidFinish:sync];
         expect(analytics.lastEventName).to.equal(@"sync_finished");
     });
+});
+
+it(@"gets created on a sync", ^{
+    expect([sync createsPluginInstanceOfClass:ARSyncAnalytics.class]).to.beTruthy();
 });
 
 

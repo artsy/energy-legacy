@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0130B5E03896BEBF3B3C6909 /* libPods-ArtsyFolio Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A94D169C442CE623270E08 /* libPods-ArtsyFolio Tests.a */; };
 		1ECE3F45F37F2A58ADEB6BCB /* libPods-ArtsyFolio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB736AE98DB5666E010A0CE /* libPods-ArtsyFolio.a */; };
-		342F9064DCA552635C1452CD /* ARSyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9C1748209CFA161C5BC8 /* ARSyncTests.m */; };
 		342F92BB0BDE0F26366ED40B /* ARShowDocumentDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F91298C81F0169C0145C6 /* ARShowDocumentDownloader.m */; };
 		342F9334FD3CCD087D0AB434 /* ARAlbumArtworksDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F965E4D4A27A5CD807007 /* ARAlbumArtworksDownloader.m */; };
 		342F93646813F4604F31B448 /* ARArtistDocumentDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F987E3A4B0C40F7E6FEB9 /* ARArtistDocumentDownloader.m */; };
@@ -236,6 +235,18 @@
 		60704A0019A6286A00AAF70D /* AREmailSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 607049FF19A6286A00AAF70D /* AREmailSettings.m */; };
 		60734110187D7E3900F66BAB /* ARAddArtworksTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6073410F187D7E3900F66BAB /* ARAddArtworksTableViewCell.m */; };
 		6073F6861A49E1AD00E26863 /* ARUserMetadataDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6073F6851A49E1AD00E26863 /* ARUserMetadataDownloader.m */; };
+		6074480C1BE3959300E20774 /* ARSyncConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6074480B1BE3959300E20774 /* ARSyncConfig.m */; };
+		607448121BE39E2900E20774 /* ARSyncDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 607448111BE39E2900E20774 /* ARSyncDefaults.m */; };
+		607448151BE39EDD00E20774 /* ARSyncInsomniac.m in Sources */ = {isa = PBXBuildFile; fileRef = 607448141BE39EDD00E20774 /* ARSyncInsomniac.m */; };
+		607448181BE3A1B000E20774 /* ARSyncBackgroundedCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 607448171BE3A1B000E20774 /* ARSyncBackgroundedCheck.m */; };
+		6074481B1BE3A5C300E20774 /* ARSyncNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 6074481A1BE3A5C300E20774 /* ARSyncNotification.m */; };
+		6074481E1BE3B45E00E20774 /* ARSyncRemoveiCloudAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 6074481D1BE3B45E00E20774 /* ARSyncRemoveiCloudAttributes.m */; };
+		607448201BE3BB2200E20774 /* ARSyncDefaultsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6074481F1BE3BB2200E20774 /* ARSyncDefaultsSpec.m */; };
+		607448231BE3BD8000E20774 /* ARSync+TestsExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 607448221BE3BD8000E20774 /* ARSync+TestsExtension.m */; };
+		607448251BE3C4EA00E20774 /* ARSyncInsomniacSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 607448241BE3C4EA00E20774 /* ARSyncInsomniacSpec.m */; };
+		607448271BE3C65D00E20774 /* ARSyncBackgroundedCheckSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 607448261BE3C65D00E20774 /* ARSyncBackgroundedCheckSpec.m */; };
+		607448291BE3C87800E20774 /* ARSyncNotificationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 607448281BE3C87800E20774 /* ARSyncNotificationSpec.m */; };
+		6074482B1BE3C93800E20774 /* ARSyncRemoveiCloudAttributesSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6074482A1BE3C93800E20774 /* ARSyncRemoveiCloudAttributesSpec.m */; };
 		60749278197015E5004F3C83 /* ARModernArtworkInfoViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60749277197015E5004F3C83 /* ARModernArtworkInfoViewControllerTests.m */; };
 		6074927B19701C4A004F3C83 /* ARModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6074927A19701C4A004F3C83 /* ARModelFactory.m */; };
 		6074F8CA14A10546000FE859 /* ARMailSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6074F8C814A10546000FE859 /* ARMailSettingsViewController.m */; };
@@ -415,7 +426,7 @@
 		60D210DA1AE0538900EA091C /* ARLocationDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D210D91AE0538900EA091C /* ARLocationDownloader.m */; };
 		60D210DD1AE12D9200EA091C /* ARLocationArtworksDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D210DC1AE12D9200EA091C /* ARLocationArtworksDownloader.m */; };
 		60D211121AE1721900EA091C /* ARArtworkContainerCoverDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D211111AE1721900EA091C /* ARArtworkContainerCoverDataSource.m */; };
-		60D46F5718E0CC4C00DA225B /* ARDeleterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D46F5618E0CC4C00DA225B /* ARDeleterTests.m */; };
+		60D46F5718E0CC4C00DA225B /* ARSyncDeleterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D46F5618E0CC4C00DA225B /* ARSyncDeleterTests.m */; };
 		60D4D71B198FD558001AB8AF /* ARAppDelegate+DevTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D4D71A198FD558001AB8AF /* ARAppDelegate+DevTools.m */; };
 		60D4D71D198FD853001AB8AF /* ARSwitchboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D4D71C198FD853001AB8AF /* ARSwitchboardTests.m */; };
 		60D57943162033BA00B6CDF0 /* ARAnimatedTickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D57942162033BA00B6CDF0 /* ARAnimatedTickView.m */; };
@@ -541,7 +552,7 @@
 		B3DBEDE6185AB48A00C345A1 /* ARThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DBEDE5185AB48A00C345A1 /* ARThumbnail.m */; };
 		B3DBEDE8185AB4D400C345A1 /* ARImageThumbnailCreatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DBEDE7185AB4D400C345A1 /* ARImageThumbnailCreatorTests.m */; };
 		B3FCE50C1864AD85009C0E12 /* ARMigrationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FCE50B1864AD85009C0E12 /* ARMigrationController.m */; };
-		B3FCE50F1864B5AA009C0E12 /* ARDeleter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FCE50E1864B5AA009C0E12 /* ARDeleter.m */; };
+		B3FCE50F1864B5AA009C0E12 /* ARSyncDeleter.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FCE50E1864B5AA009C0E12 /* ARSyncDeleter.m */; };
 		B50D95DB15168CEB00ED0704 /* ARDashedHighlightView.m in Sources */ = {isa = PBXBuildFile; fileRef = B50D95DA15168CEB00ED0704 /* ARDashedHighlightView.m */; };
 		B538AC0A14722DF80019AD62 /* BackButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B538ABF214722DF80019AD62 /* BackButtonBackground.png */; };
 		B538AC1714722DF80019AD62 /* AdditionalInfoArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B538AC0114722DF80019AD62 /* AdditionalInfoArrow.png */; };
@@ -665,7 +676,6 @@
 		342F9B8010D31EB3927EA5A2 /* ARSlugResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSlugResolver.h; sourceTree = "<group>"; };
 		342F9BB0B5897311E41663E0 /* ARDocumentFileDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDocumentFileDownloader.h; sourceTree = "<group>"; };
 		342F9C056ADCCBEE2C65DFD9 /* ARAddToAlbumViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAddToAlbumViewControllerTests.m; sourceTree = "<group>"; };
-		342F9C1748209CFA161C5BC8 /* ARSyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncTests.m; sourceTree = "<group>"; };
 		342F9C259F4B39E1E76F6C88 /* ARArtistDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARArtistDownloader.h; sourceTree = "<group>"; };
 		342F9CDA8347D04709B85A99 /* ARShowDocumentDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARShowDocumentDownloader.h; sourceTree = "<group>"; };
 		342F9CE422C2D8F8589CFDC2 /* ARDocumentFileDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDocumentFileDownloader.m; sourceTree = "<group>"; };
@@ -982,6 +992,25 @@
 		6073410F187D7E3900F66BAB /* ARAddArtworksTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAddArtworksTableViewCell.m; sourceTree = "<group>"; };
 		6073F6841A49E1AD00E26863 /* ARUserMetadataDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARUserMetadataDownloader.h; sourceTree = "<group>"; };
 		6073F6851A49E1AD00E26863 /* ARUserMetadataDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARUserMetadataDownloader.m; sourceTree = "<group>"; };
+		6074480A1BE3959200E20774 /* ARSyncConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSyncConfig.h; sourceTree = "<group>"; };
+		6074480B1BE3959300E20774 /* ARSyncConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncConfig.m; sourceTree = "<group>"; };
+		607448101BE39E2900E20774 /* ARSyncDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARSyncDefaults.h; path = SyncPlugin/ARSyncDefaults.h; sourceTree = "<group>"; };
+		607448111BE39E2900E20774 /* ARSyncDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARSyncDefaults.m; path = SyncPlugin/ARSyncDefaults.m; sourceTree = "<group>"; };
+		607448131BE39EDD00E20774 /* ARSyncInsomniac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSyncInsomniac.h; sourceTree = "<group>"; };
+		607448141BE39EDD00E20774 /* ARSyncInsomniac.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncInsomniac.m; sourceTree = "<group>"; };
+		607448161BE3A1B000E20774 /* ARSyncBackgroundedCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSyncBackgroundedCheck.h; sourceTree = "<group>"; };
+		607448171BE3A1B000E20774 /* ARSyncBackgroundedCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncBackgroundedCheck.m; sourceTree = "<group>"; };
+		607448191BE3A5C300E20774 /* ARSyncNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSyncNotification.h; sourceTree = "<group>"; };
+		6074481A1BE3A5C300E20774 /* ARSyncNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncNotification.m; sourceTree = "<group>"; };
+		6074481C1BE3B45E00E20774 /* ARSyncRemoveiCloudAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSyncRemoveiCloudAttributes.h; sourceTree = "<group>"; };
+		6074481D1BE3B45E00E20774 /* ARSyncRemoveiCloudAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncRemoveiCloudAttributes.m; sourceTree = "<group>"; };
+		6074481F1BE3BB2200E20774 /* ARSyncDefaultsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncDefaultsSpec.m; sourceTree = "<group>"; };
+		607448211BE3BD8000E20774 /* ARSync+TestsExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ARSync+TestsExtension.h"; sourceTree = "<group>"; };
+		607448221BE3BD8000E20774 /* ARSync+TestsExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ARSync+TestsExtension.m"; sourceTree = "<group>"; };
+		607448241BE3C4EA00E20774 /* ARSyncInsomniacSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncInsomniacSpec.m; sourceTree = "<group>"; };
+		607448261BE3C65D00E20774 /* ARSyncBackgroundedCheckSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncBackgroundedCheckSpec.m; sourceTree = "<group>"; };
+		607448281BE3C87800E20774 /* ARSyncNotificationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncNotificationSpec.m; sourceTree = "<group>"; };
+		6074482A1BE3C93800E20774 /* ARSyncRemoveiCloudAttributesSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncRemoveiCloudAttributesSpec.m; sourceTree = "<group>"; };
 		60749277197015E5004F3C83 /* ARModernArtworkInfoViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARModernArtworkInfoViewControllerTests.m; sourceTree = "<group>"; };
 		6074927919701C4A004F3C83 /* ARModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARModelFactory.h; sourceTree = "<group>"; };
 		6074927A19701C4A004F3C83 /* ARModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARModelFactory.m; sourceTree = "<group>"; };
@@ -1255,7 +1284,7 @@
 		60D211101AE1721900EA091C /* ARArtworkContainerCoverDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARArtworkContainerCoverDataSource.h; sourceTree = "<group>"; };
 		60D211111AE1721900EA091C /* ARArtworkContainerCoverDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtworkContainerCoverDataSource.m; sourceTree = "<group>"; };
 		60D264A715E78AC1001A192D /* ARArtworkContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARArtworkContainer.h; sourceTree = "<group>"; };
-		60D46F5618E0CC4C00DA225B /* ARDeleterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDeleterTests.m; sourceTree = "<group>"; };
+		60D46F5618E0CC4C00DA225B /* ARSyncDeleterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncDeleterTests.m; sourceTree = "<group>"; };
 		60D4D719198FD558001AB8AF /* ARAppDelegate+DevTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ARAppDelegate+DevTools.h"; path = "../ARAppDelegate+DevTools.h"; sourceTree = "<group>"; };
 		60D4D71A198FD558001AB8AF /* ARAppDelegate+DevTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ARAppDelegate+DevTools.m"; path = "../ARAppDelegate+DevTools.m"; sourceTree = "<group>"; };
 		60D4D71C198FD853001AB8AF /* ARSwitchboardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSwitchboardTests.m; sourceTree = "<group>"; };
@@ -1449,8 +1478,8 @@
 		B3DBEDE7185AB4D400C345A1 /* ARImageThumbnailCreatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARImageThumbnailCreatorTests.m; sourceTree = "<group>"; };
 		B3FCE50A1864AD85009C0E12 /* ARMigrationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMigrationController.h; sourceTree = "<group>"; };
 		B3FCE50B1864AD85009C0E12 /* ARMigrationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMigrationController.m; sourceTree = "<group>"; };
-		B3FCE50D1864B5AA009C0E12 /* ARDeleter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDeleter.h; sourceTree = "<group>"; };
-		B3FCE50E1864B5AA009C0E12 /* ARDeleter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDeleter.m; sourceTree = "<group>"; };
+		B3FCE50D1864B5AA009C0E12 /* ARSyncDeleter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSyncDeleter.h; sourceTree = "<group>"; };
+		B3FCE50E1864B5AA009C0E12 /* ARSyncDeleter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncDeleter.m; sourceTree = "<group>"; };
 		B50D95D915168CEB00ED0704 /* ARDashedHighlightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDashedHighlightView.h; sourceTree = "<group>"; };
 		B50D95DA15168CEB00ED0704 /* ARDashedHighlightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDashedHighlightView.m; sourceTree = "<group>"; };
 		B538ABF214722DF80019AD62 /* BackButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackButtonBackground.png; sourceTree = "<group>"; };
@@ -1878,20 +1907,39 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		6032E33F1BE21D53001C3494 /* SyncPlugin */ = {
+		6032E33F1BE21D53001C3494 /* SyncPlugins */ = {
 			isa = PBXGroup;
 			children = (
+				6032E3431BE21FAD001C3494 /* ARSyncPlugins.h */,
+				B3FCE50D1864B5AA009C0E12 /* ARSyncDeleter.h */,
+				B3FCE50E1864B5AA009C0E12 /* ARSyncDeleter.m */,
 				6032E3401BE21D81001C3494 /* ARSyncAnalytics.h */,
 				6032E3411BE21D81001C3494 /* ARSyncAnalytics.m */,
-				6032E3431BE21FAD001C3494 /* ARSyncPlugins.h */,
+				607448101BE39E2900E20774 /* ARSyncDefaults.h */,
+				607448111BE39E2900E20774 /* ARSyncDefaults.m */,
+				607448131BE39EDD00E20774 /* ARSyncInsomniac.h */,
+				607448141BE39EDD00E20774 /* ARSyncInsomniac.m */,
+				607448161BE3A1B000E20774 /* ARSyncBackgroundedCheck.h */,
+				607448171BE3A1B000E20774 /* ARSyncBackgroundedCheck.m */,
+				607448191BE3A5C300E20774 /* ARSyncNotification.h */,
+				6074481A1BE3A5C300E20774 /* ARSyncNotification.m */,
+				6074481C1BE3B45E00E20774 /* ARSyncRemoveiCloudAttributes.h */,
+				6074481D1BE3B45E00E20774 /* ARSyncRemoveiCloudAttributes.m */,
 			);
-			name = SyncPlugin;
+			name = SyncPlugins;
 			sourceTree = "<group>";
 		};
 		6032E3441BE22123001C3494 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
 				6032E3451BE22136001C3494 /* ARSyncAnalyticsSpec.m */,
+				6074481F1BE3BB2200E20774 /* ARSyncDefaultsSpec.m */,
+				607448241BE3C4EA00E20774 /* ARSyncInsomniacSpec.m */,
+				607448261BE3C65D00E20774 /* ARSyncBackgroundedCheckSpec.m */,
+				607448281BE3C87800E20774 /* ARSyncNotificationSpec.m */,
+				60D46F5618E0CC4C00DA225B /* ARSyncDeleterTests.m */,
+				6074482A1BE3C93800E20774 /* ARSyncRemoveiCloudAttributesSpec.m */,
+				342F92AB9FEEF15B485CB6D1 /* ARSlugResolverTests.m */,
 			);
 			name = Plugins;
 			sourceTree = "<group>";
@@ -1973,10 +2021,9 @@
 				60F1F0FE1B0391A4004B6C7F /* Steps */,
 				B3DBEDE7185AB4D400C345A1 /* ARImageThumbnailCreatorTests.m */,
 				B3DA7AE3185BAEAA00CDD11A /* ARTileArchiveDownloaderTests.m */,
-				342F9C1748209CFA161C5BC8 /* ARSyncTests.m */,
-				60D46F5618E0CC4C00DA225B /* ARDeleterTests.m */,
 				342F902A65B7E26B2838013D /* ARPagingDownloaderOperationTests.m */,
-				342F92AB9FEEF15B485CB6D1 /* ARSlugResolverTests.m */,
+				607448211BE3BD8000E20774 /* ARSync+TestsExtension.h */,
+				607448221BE3BD8000E20774 /* ARSync+TestsExtension.m */,
 			);
 			path = Sync;
 			sourceTree = "<group>";
@@ -2939,12 +2986,12 @@
 		B3DBEDA8185A666400C345A1 /* Sync */ = {
 			isa = PBXGroup;
 			children = (
-				6032E33F1BE21D53001C3494 /* SyncPlugin */,
+				6032E33F1BE21D53001C3494 /* SyncPlugins */,
 				60685F2218E601410072B4DF /* ARSyncOperations.h */,
 				B3DBEDAA185A66E800C345A1 /* ARSync.h */,
 				B3DBEDA9185A66E800C345A1 /* ARSync.m */,
-				B3FCE50D1864B5AA009C0E12 /* ARDeleter.h */,
-				B3FCE50E1864B5AA009C0E12 /* ARDeleter.m */,
+				6074480A1BE3959200E20774 /* ARSyncConfig.h */,
+				6074480B1BE3959300E20774 /* ARSyncConfig.m */,
 				B3CC1F8D1860B60800B146B5 /* ARSyncProgress.h */,
 				B3CC1F8E1860B60800B146B5 /* ARSyncProgress.m */,
 				60F8FD8418D1F3A600D80792 /* Admin UI */,
@@ -3886,6 +3933,7 @@
 				6038C47B19867A5600626DD6 /* ARExpectaExtensions.m in Sources */,
 				60138AD31961BD3B00E36EC6 /* ARArtworkMetadataExtendedViewTests.m in Sources */,
 				60EF3156186DB9C70093F6F1 /* ARTopViewControllerTests.m in Sources */,
+				6074482B1BE3C93800E20774 /* ARSyncRemoveiCloudAttributesSpec.m in Sources */,
 				609715EA19AE273A00970DBE /* ARPromptAlertViewControllerTests.m in Sources */,
 				60117F3E1917AB6E0072E500 /* NSFetchRequest+ARModelsTests.m in Sources */,
 				60685F2118E4DF870072B4DF /* XCTest+OHHTTP.m in Sources */,
@@ -3901,7 +3949,7 @@
 				605F113A18EB18190029A473 /* ARToolbarButtonsTests.m in Sources */,
 				60E9B6C918DA207900BC7FEA /* ARSyncronousTreeProvider.m in Sources */,
 				604D77E91A33AF5E006D55E4 /* ARAlbumViewControllerTests.m in Sources */,
-				60D46F5718E0CC4C00DA225B /* ARDeleterTests.m in Sources */,
+				60D46F5718E0CC4C00DA225B /* ARSyncDeleterTests.m in Sources */,
 				60EB677D1959CD6B00C9FA72 /* ARManagedObject+ModelFromJSON.m in Sources */,
 				B3DBEDE8185AB4D400C345A1 /* ARImageThumbnailCreatorTests.m in Sources */,
 				60F5762A19647AE60042B8BF /* ARSyncViewControllerTests.m in Sources */,
@@ -3910,6 +3958,9 @@
 				60327DF4198A5DE00075B399 /* ARTabbedViewControllerDataSource.m in Sources */,
 				60DED57D1975A72200853B78 /* ARImageViewCategoriesTests.m in Sources */,
 				839E42611B052DE800C4BF49 /* ARFolioMessageViewControllerTests.m in Sources */,
+				607448251BE3C4EA00E20774 /* ARSyncInsomniacSpec.m in Sources */,
+				607448231BE3BD8000E20774 /* ARSync+TestsExtension.m in Sources */,
+				607448201BE3BB2200E20774 /* ARSyncDefaultsSpec.m in Sources */,
 				8371DB021B6824A200285A8E /* ARStubbedLoginNetworkModel.m in Sources */,
 				600F1AA3187AB9280006288F /* ARSelectionHandlerTests.m in Sources */,
 				60EC79F91A9E75B3009196A1 /* ARModernEmailArtworksViewControllerTests.m in Sources */,
@@ -3928,7 +3979,7 @@
 				60AC10CE19479D5000274EBB /* ARFeedTranslatorTests.m in Sources */,
 				60E7E2DF1ABB2392007EAA8A /* ShowModelTests.m in Sources */,
 				609C27501AE813EA00E40D1F /* AROHHTTPNoStubAssertionBot.m in Sources */,
-				342F9064DCA552635C1452CD /* ARSyncTests.m in Sources */,
+				607448271BE3C65D00E20774 /* ARSyncBackgroundedCheckSpec.m in Sources */,
 				60F98B6F1958D36D0068E7EE /* ARModernArtworkMetadataViewControllerTests.m in Sources */,
 				602E71A91B2FAA1F0022033D /* ARSpotlightExporterSpec.m in Sources */,
 				60E39282190A63CE0091AC9E /* AREmailComposerTests.m in Sources */,
@@ -3945,6 +3996,7 @@
 				60F98D5C1A277A4200BDAD7C /* DocumentModelTests.m in Sources */,
 				342F96D41657FCF03B16936C /* ARPagingDownloaderOperationTests.m in Sources */,
 				60C21E3B198B9DEF005CA461 /* ARHostSelectionControllerTests.m in Sources */,
+				607448291BE3C87800E20774 /* ARSyncNotificationSpec.m in Sources */,
 				6032E3461BE22136001C3494 /* ARSyncAnalyticsSpec.m in Sources */,
 				60F98D591A26105800BDAD7C /* ARSlideshowImageViewTests.m in Sources */,
 				609256B8191A8195007C5107 /* ARAdminSettingsViewControllerTests.m in Sources */,
@@ -3997,6 +4049,7 @@
 				D8FAA9991442893600AA34BC /* ARGridViewController.m in Sources */,
 				B3DA7ADF185BA9EE00CDD11A /* ARTileArchive.m in Sources */,
 				60704A0019A6286A00AAF70D /* AREmailSettings.m in Sources */,
+				6074480C1BE3959300E20774 /* ARSyncConfig.m in Sources */,
 				8338831A1BAB2CAE00F21DED /* ARLabSettingsNavController.m in Sources */,
 				8305D6801AE05168004A270E /* ARThumbnailImageScrollView.m in Sources */,
 				D8FAA99E1442893600AA34BC /* Artist.m in Sources */,
@@ -4004,6 +4057,7 @@
 				607FAC981AFB7887008FA782 /* ARPopoverSegmentControl.m in Sources */,
 				60117F861917F6BE0072E500 /* _Partner.m in Sources */,
 				D8FAA99F1442893600AA34BC /* Artwork.m in Sources */,
+				607448151BE39EDD00E20774 /* ARSyncInsomniac.m in Sources */,
 				D8FAA9A01442893600AA34BC /* Album.m in Sources */,
 				60117F881917F6BE0072E500 /* _ShowDocument.m in Sources */,
 				601073FF19A3E3C300237DC6 /* ARViewInRoomViewController.m in Sources */,
@@ -4119,7 +4173,7 @@
 				60B4EC1115E3F1440000E044 /* ARPDFThumbnailCreationOperation.m in Sources */,
 				60B9492D15E5067700A09B84 /* ARDocumentContainerViewController.m in Sources */,
 				607905C215E78A3D0012672B /* ARArtworkContainerViewController.m in Sources */,
-				B3FCE50F1864B5AA009C0E12 /* ARDeleter.m in Sources */,
+				B3FCE50F1864B5AA009C0E12 /* ARSyncDeleter.m in Sources */,
 				60AE14B915EF89BF0009EE83 /* ARTabContentView.m in Sources */,
 				8371DAFE1B68213A00285A8E /* ARLoginNetworkModel.m in Sources */,
 				6058B8B215F0DDFD00D9CEB5 /* Location.m in Sources */,
@@ -4138,6 +4192,7 @@
 				60A118BF184CF07400FE242B /* UIBarButtonItem+toolbarHelpers.m in Sources */,
 				60B687CE16087AE800820176 /* AREditableImageGridViewCell.m in Sources */,
 				603AD9FF1609D4520094DEED /* UIButton+FolioButtons.m in Sources */,
+				6074481B1BE3A5C300E20774 /* ARSyncNotification.m in Sources */,
 				60C563D3160B40EB000E800E /* ARTitleLabel.m in Sources */,
 				6005637516145AA800FE25D0 /* UIDevice+SpaceStats.m in Sources */,
 				60EC79FC1A9E83FF009196A1 /* ARModernEmailArtworksViewControllerDataSource.m in Sources */,
@@ -4198,6 +4253,7 @@
 				60692E0D196BF28200455332 /* ARArtworkInfoAdditionalMetadataView.m in Sources */,
 				60117F821917F6BE0072E500 /* _Document.m in Sources */,
 				342F93646813F4604F31B448 /* ARArtistDocumentDownloader.m in Sources */,
+				607448181BE3A1B000E20774 /* ARSyncBackgroundedCheck.m in Sources */,
 				609B87E2196BCECD008729A1 /* ARModernArtworkInfoViewController.m in Sources */,
 				E641581318CE1F7900DEA948 /* ARInsetTextField.m in Sources */,
 				342F92BB0BDE0F26366ED40B /* ARShowDocumentDownloader.m in Sources */,
@@ -4214,6 +4270,7 @@
 				342F95E45FABD6D003E4BEB9 /* ARTileArchiveDownloader.m in Sources */,
 				342F9DE96C8A544A9CB068D0 /* ARShowDownloader.m in Sources */,
 				60A99DA219AF5F91004F82D0 /* AREditAlbumNavigationBar.m in Sources */,
+				607448121BE39E2900E20774 /* ARSyncDefaults.m in Sources */,
 				60124F6F191CFB1F008BE366 /* ARShowCoverShotDownloader.m in Sources */,
 				6006C761198EDA8500F955A0 /* ARPartnerSelectViewController.m in Sources */,
 				342F9E7ACEBAD0205BCF4307 /* ARShowArtworksDownloader.m in Sources */,
@@ -4221,6 +4278,7 @@
 				342F9B4038490EAC3581943F /* ARArtistDownloader.m in Sources */,
 				60EC79F71A9E506D009196A1 /* ARModernEmailArtworksViewController.m in Sources */,
 				6073F6861A49E1AD00E26863 /* ARUserMetadataDownloader.m in Sources */,
+				6074481E1BE3B45E00E20774 /* ARSyncRemoveiCloudAttributes.m in Sources */,
 				342F99B7CBE4A15B420A55D1 /* ARPagingDownloaderOperation.m in Sources */,
 				342F96F4AEF27F7C5D048C83 /* ARIDMapperDownloader.m in Sources */,
 				342F978B1865D89B2457B810 /* AREstimateDownloader.m in Sources */,

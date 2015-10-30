@@ -1,32 +1,18 @@
 #import "ARSync.h"
-#import "ARDeleter.h"
+#import "ARSyncDeleter.h"
 #import "ARSlugResolver.h"
 #import "ARSyncPlugins.h"
 #import "ARSyncOperations.h"
-#import "NSFileManager+SkipBackup.h"
-#import "ARFileUtils.h"
-#import <AFNetworking/AFNetworking.h>
-
-#if __has_include(<CoreSpotlight/CoreSpotlight.h>)
-#import "ARSpotlightExporter.h"
 #import <CoreSpotlight/CoreSpotlight.h>
-#endif
+
 
 @interface ARSync ()
-@property (readwrite, nonatomic, strong) NSMutableArray *operationQueues;
 
+@property (readwrite, nonatomic, strong) NSMutableArray *operationQueues;
 @property (readwrite, nonatomic, strong) DRBOperationTree *rootOperation;
-@property (readwrite, nonatomic, strong) NSUserDefaults *defaults;
-@property (readwrite, nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @property (readwrite, nonatomic, getter=isSyncing) BOOL syncing;
-@property (readwrite, nonatomic, getter=applicationHasBackgrounded) BOOL applicationHasGoneIntoTheBackground;
-
-@property (readwrite, nonatomic, strong) ARDeleter *deleter;
-@property (readwrite, nonatomic, strong) ARSlugResolver *resolver;
-
 @property (readwrite, nonatomic, strong) ARTileArchiveDownloader *tileDownloader;
-@property (readwrite, nonatomic, strong) UIApplication *sharedApplication;
 
 @end
 
@@ -49,65 +35,47 @@
     ARSyncLog(@"Sync started");
 
     self.operationQueues = [NSMutableArray array];
-    self.managedObjectContext = _managedObjectContext ?: [self createPrivateManagedObjectContext];
-
-    self.resolver = [[ARSlugResolver alloc] initWithManagedObjectContext:self.managedObjectContext];
-    self.deleter = [[ARDeleter alloc] initWithManagedObjectContext:self.managedObjectContext];
-    self.sharedApplication.idleTimerDisabled = YES;
-
-    [self markObjectsForDeletion:self.deleter];
-
     self.rootOperation = self.rootOperation ?: [self createSyncOperationTree];
-    DRBOperationTree *rootNode = self.rootOperation;
 
     NSArray *plugins = [self createPlugins];
-    [plugins each:^(id <ARSyncPlugin> plugin) {
-        [plugin syncDidStart:self];
-    }];
-
-    // sync metadata
+    [self runBeforeSyncPlugins:plugins];
     [self.progress start];
 
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-    [notificationCenter postNotificationName:ARSyncStartedNotification object:nil];
-    [notificationCenter addObserver:self selector:@selector(applicationWillResignActive:) name:ARApplicationDidGoIntoBackground object:nil];
-
     NSString *partnerSlug = [Partner currentPartnerID];
-
-    [rootNode enqueueOperationsForObject:partnerSlug completion:^{
+    [self.rootOperation enqueueOperationsForObject:partnerSlug completion:^{
         [self.tileDownloader writeSlugs];
-        [self.resolver resolveAllSlugs];
 
-        if ([self shouldDeleteUnfoundObjects]) {
-            [self.deleter deleteObjects];
-        }
-
+        [self runAfterSyncPlugins:plugins];
         [self save];
-
-        [plugins each:^(id <ARSyncPlugin> plugin) {
-            [plugin syncDidFinish:self];
-        }];
-        
-        [self updateDefaultsForSync];
 
         // Cleanup the tree so it's recreated next sync
         self.rootOperation = nil;
-
-        [self ensureNoLocalBackups];
-        [self syncSpotlightIndex];
-
         if (completion) completion();
-        self.sharedApplication.idleTimerDisabled = NO;
+    }];
+}
 
-        [notificationCenter postNotificationName:ARSyncFinishedNotification object:nil];
-        [notificationCenter removeObserver:self name:ARApplicationDidGoIntoBackground object:nil];
+- (void)runBeforeSyncPlugins:(NSArray *)plugins
+{
+    [plugins each:^(id<ARSyncPlugin> plugin) {
+        if ([plugin respondsToSelector:@selector(syncDidStart:)]) {
+            [plugin syncDidStart:self];
+        }
+    }];
+}
+
+- (void)runAfterSyncPlugins:(NSArray *)plugins
+{
+    [plugins each:^(id<ARSyncPlugin> plugin) {
+        if ([plugin respondsToSelector:@selector(syncDidFinish:)]) {
+            [plugin syncDidFinish:self];
+        }
     }];
 }
 
 - (void)save
 {
     NSError *error = nil;
-    if (![self.managedObjectContext save:&error]) {
+    if (![self.config.managedObjectContext save:&error]) {
         ARSyncLog(@"Error Saving MOC: %@", error.localizedDescription);
 
         NSArray *detailedErrors = [error userInfo][NSDetailedErrorsKey];
@@ -121,7 +89,7 @@
 
 - (DRBOperationTree *)createSyncOperationTree
 {
-    NSManagedObjectContext *context = self.managedObjectContext;
+    NSManagedObjectContext *context = self.config.managedObjectContext;
 
     NSOperationQueue *artworksOperationQueue = [[NSOperationQueue alloc] init];
     artworksOperationQueue.maxConcurrentOperationCount = 5;
@@ -171,7 +139,7 @@
     partnerNode.provider = [[ARPartnerFullMetadataDownloader alloc] initWithContext:context];
 
     estimateNode.provider = [[AREstimateDownloader alloc] initWithProgress:self.progress];
-    artworkNode.provider = [[ARArtworkDownloader alloc] initWithContext:context deleter:self.deleter];
+    artworkNode.provider = [[ARArtworkDownloader alloc] initWithContext:context deleter:self.config.deleter];
     userNode.provider = [[ARUserMetadataDownloader alloc] initWithContext:context];
 
     // images
@@ -183,26 +151,26 @@
     tileUnzipperNode.provider = [[ARTileUnzipper alloc] init];
 
     // shows
-    showNode.provider = [[ARShowDownloader alloc] initWithContext:context deleter:self.deleter];
+    showNode.provider = [[ARShowDownloader alloc] initWithContext:context deleter:self.config.deleter];
     showArtworksNode.provider = [[ARShowArtworksDownloader alloc] init];
-    showInstallationShotsNode.provider = [[ARShowInstallationShotsDownloader alloc] initWithContext:context deleter:self.deleter];
-    showCoversNode.provider = [[ARShowCoverShotDownloader alloc] initWithContext:context deleter:self.deleter];
+    showInstallationShotsNode.provider = [[ARShowInstallationShotsDownloader alloc] initWithContext:context deleter:self.config.deleter];
+    showCoversNode.provider = [[ARShowCoverShotDownloader alloc] initWithContext:context deleter:self.config.deleter];
 
     // documents
-    showDocumentsNode.provider = [[ARShowDocumentDownloader alloc] initWithContext:context deleter:self.deleter];
+    showDocumentsNode.provider = [[ARShowDocumentDownloader alloc] initWithContext:context deleter:self.config.deleter];
     documentFileNode.provider = [[ARDocumentFileDownloader alloc] initWithProgress:self.progress];
     documentThumbnailNode.provider = [[ARDocumentThumbnailCreator alloc] init];
 
     // artists
-    artistNode.provider = [[ARArtistDownloader alloc] initWithContext:context deleter:self.deleter];
-    artistDocumentsNode.provider = [[ARArtistDocumentDownloader alloc] initWithContext:context deleter:self.deleter];
+    artistNode.provider = [[ARArtistDownloader alloc] initWithContext:context deleter:self.config.deleter];
+    artistDocumentsNode.provider = [[ARArtistDocumentDownloader alloc] initWithContext:context deleter:self.config.deleter];
 
     // Albums
-    albumNode.provider = [[ARAlbumDownloader alloc] initWithContext:context deleter:self.deleter];
+    albumNode.provider = [[ARAlbumDownloader alloc] initWithContext:context deleter:self.config.deleter];
     albumArtworksNode.provider = [[ARAlbumArtworksDownloader alloc] init];
 
     // Location
-    locationNode.provider = [[ARLocationDownloader alloc] initWithContext:context deleter:self.deleter];
+    locationNode.provider = [[ARLocationDownloader alloc] initWithContext:context deleter:self.config.deleter];
     locationArtworksNode.provider = [[ARLocationArtworksDownloader alloc] init];
 
     // Metadata updating
@@ -256,7 +224,7 @@
 
 - (DRBOperationTree *)createPartnerMetadataTree
 {
-    NSManagedObjectContext *context = self.managedObjectContext;
+    NSManagedObjectContext *context = self.config.managedObjectContext;
 
     NSOperationQueue *requestOperationQueue = [[NSOperationQueue alloc] init];
 
@@ -267,11 +235,34 @@
     return partnerNode;
 }
 
-- (NSArray <id <ARSyncPlugin>>*)createPlugins
+- (NSArray<id<ARSyncPlugin>> *)createPlugins
 {
-    NSMutableArray *plugins = [NSMutableArray array];
+    /// The background check and the deleter are plugins
+    /// the deleter comes from the config, it's a bit of juggling
+    /// but worth it because we can then have all the sync step
+    /// configuration objects bound together.
 
-    [plugins addObject:[[ARSyncAnalytics alloc] init]];
+    ARSyncBackgroundedCheck *backgroundCheck = [[ARSyncBackgroundedCheck alloc] init];
+    self.config.deleter.backgroundCheck = backgroundCheck;
+
+    NSMutableArray *plugins = [@[
+
+        [[ARSyncAnalytics alloc] init],
+        [[ARSlugResolver alloc] init],
+        [[ARSyncDefaults alloc] init],
+        [[ARSyncInsomniac alloc] init],
+        [[ARSyncRemoveiCloudAttributes alloc] init],
+        backgroundCheck,
+        self.config.deleter,
+        [[ARSyncNotification alloc] init],
+
+    ] mutableCopy];
+
+    if (NSClassFromString(@"CSSearchableIndex")) {
+        CSSearchableIndex *index = [CSSearchableIndex defaultSearchableIndex];
+        ARSpotlightExporter *exporter = [[ARSpotlightExporter alloc] initWithIndex:index];
+        [plugins addObject:exporter];
+    }
 
     return plugins;
 }
@@ -279,11 +270,7 @@
 - (void)setPaused:(BOOL)paused
 {
     if (!self.isSyncing) return;
-
-    // This may not strictly true, but it's very possible that this has happened.
-    _applicationHasGoneIntoTheBackground = YES;
-
-    [self.operationQueues makeObjectsPerformSelector:@selector(setSuspended:) withObject:paused ? @YES : nil];
+    [self.operationQueues makeObjectsPerformSelector:@selector(setSuspended:) withObject:paused ? @YES : @NO];
 }
 
 - (void)cancel
@@ -291,19 +278,9 @@
     [self.operationQueues makeObjectsPerformSelector:@selector(cancelAllOperations)];
 }
 
-- (void)applicationWillResignActive:(NSNotification *)notification
-{
-    _applicationHasGoneIntoTheBackground = YES;
-}
-
-- (BOOL)shouldDeleteUnfoundObjects
-{
-    return self.applicationHasGoneIntoTheBackground == NO;
-}
-
 - (unsigned long long)estimatedNumBytesToDownload
 {
-    Partner *partner = [Partner currentPartnerInContext:self.managedObjectContext];
+    Partner *partner = [Partner currentPartnerInContext:self.config.managedObjectContext];
 
     // Whilst never being perfect, this came reasonably above
     // on energy test partner. real 151MB estimated 195MB
@@ -320,68 +297,12 @@
     return totalBytesToDownload;
 }
 
-- (void)markObjectsForDeletion:(ARDeleter *)deleter
-{
-    [@[ [Artwork class], [Artist class], [Image class], [Document class], [Show class], [Location class] ] each:^(Class klass) {
-        [deleter markAllObjectsInClassForDeletion:klass];
-    }];
-
-    // Local albums & all albums should be skipped by the deleter
-    [[Album downloadedAlbumsInContext:self.managedObjectContext] each:^(Album *album) {
-        [deleter markObjectForDeletion:album];
-    }];
-}
-
-- (void)updateDefaultsForSync
-{
-    [self.defaults setBool:YES forKey:ARFinishedFirstSync];
-    [self.defaults setObject:NSDate.date forKey:ARLastSyncDate];
-    [self.defaults setBool:NO forKey:ARRecommendSync];
-
-    NSString *appVersion = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
-    [self.defaults setObject:appVersion forKey:ARAppSyncVersion];
-
-    [self.defaults synchronize];
-}
-
-- (void)ensureNoLocalBackups
-{
-    NSString *userDocuments = [ARFileUtils userDocumentsDirectoryPath];
-    [[NSFileManager defaultManager] backgroundAddSkipBackupAttributeToDirectoryAtPath:userDocuments];
-}
-
-- (void)syncSpotlightIndex
-{
-#if __has_include(<CoreSpotlight/CoreSpotlight.h>)
-    if (!NSClassFromString(@"CSSearchableIndex")) return;
-
-    CSSearchableIndex *index = [CSSearchableIndex defaultSearchableIndex];
-    ARSpotlightExporter *exporter = [[ARSpotlightExporter alloc] initWithManagedObjectContext:self.managedObjectContext index:index];
-    [exporter updateCache];
-#endif
-}
-
 - (NSManagedObjectContext *)createPrivateManagedObjectContext
 {
     NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
     context.persistentStoreCoordinator = [CoreDataManager persistentStoreCoordinator];
     context.undoManager = nil;
     return context;
-}
-
-- (NSManagedObjectContext *)managedObjectContext
-{
-    return _managedObjectContext ?: [CoreDataManager mainManagedObjectContext];
-}
-
-- (NSUserDefaults *)defaults
-{
-    return _defaults ?: [NSUserDefaults standardUserDefaults];
-}
-
-- (UIApplication *)sharedApplication
-{
-    return _sharedApplication ?: [UIApplication sharedApplication];
 }
 
 @end
