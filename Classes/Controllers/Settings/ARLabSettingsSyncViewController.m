@@ -2,9 +2,12 @@
 #import "ARFlatButton.h"
 #import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 #import "ARTopViewController.h"
+#import "ARLabSettingsDetailViewManager.h"
 
 
 @interface ARLabSettingsSyncViewController ()
+
+@property (nonatomic, strong) ARSyncStatusViewModel *viewModel;
 
 @property (weak, nonatomic) IBOutlet ARSyncFlatButton *syncButton;
 @property (weak, nonatomic) IBOutlet UILabel *explanatoryTextLabel;
@@ -21,9 +24,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.previousSyncDateStrings = self.viewModel.previousSyncDateStrings;
-
     [self.syncButton setTitle:@"Sync Content".uppercaseString forState:UIControlStateNormal];
 
     NSString *string = self.explanatoryTextLabel.text;
@@ -74,9 +76,15 @@
     return attrString;
 }
 
+- (ARLabSettingsDetailViewManager *)manager
+{
+    UISplitViewController *splitController = self.splitViewController;
+    return (ARLabSettingsDetailViewManager *)splitController.delegate;
+}
+
 - (ARSyncStatusViewModel *)viewModel
 {
-    return _viewModel ?: [[ARSyncStatusViewModel alloc] initWithSync:[ARTopViewController sharedInstance].sync];
+    return _viewModel ?: [self.manager viewModelForSection:ARLabSettingsSectionSync];
 }
 
 @end

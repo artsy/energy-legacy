@@ -11,7 +11,7 @@
 #import "ARImageGridViewItem.h"
 #import "ARSettingsNavigationController.h"
 #import "AROptions.h"
-#import "ARLabSettingsViewController.h"
+#import "ARLabSettingsSplitViewController.h"
 
 NS_ENUM(NSInteger, ARTopViewControllers){
     ARTopViewControllerArtists = 0,

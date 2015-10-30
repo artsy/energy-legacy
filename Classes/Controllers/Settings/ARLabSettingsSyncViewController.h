@@ -1,8 +1,7 @@
 #import "ARSyncStatusViewModel.h"
+#import "ARLabSettingsDetailViewManager.h"
 
+@interface ARLabSettingsSyncViewController : UIViewController <SettingsSectionViewController, UITableViewDelegate, UITableViewDataSource>
 
-@interface ARLabSettingsSyncViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-
-@property (nonatomic, strong) ARSyncStatusViewModel *viewModel;
 
 @end

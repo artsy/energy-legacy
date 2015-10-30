@@ -1,9 +1,10 @@
 #import "ARLabSettingsMasterViewController.h"
 #import "AROptions.h"
-#import "ARLabSettingsNavController.h"
 #import "ARLabSettingsSectionButton.h"
 #import "ARToggleSwitch.h"
 #import "ARStoryboardIdentifiers.h"
+#import "ARLabSettingsSplitViewController.h"
+#import "ARLabSettingsDetailViewManager.h"
 
 
 @interface ARLabSettingsMasterViewController ()
@@ -11,15 +12,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *presentationModeLabel;
 
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *syncContentButton;
-
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *presentationModeButton;
 @property (weak, nonatomic) IBOutlet UIView *presentationModeToggle;
-
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *editPresentationModeButton;
 
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *backgroundButton;
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *emailButton;
-
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *supportButton;
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *logoutButton;
 
@@ -47,11 +45,7 @@
     /// Presentation Mode settings
     [self.presentationModeButton setTitle:NSLocalizedString(@"Presentation Mode", @"Title for presentation mode toggle button")];
     [self.presentationModeButton hideChevron];
-
-    ARToggleSwitch *toggle = [ARToggleSwitch buttonWithFrame:self.presentationModeToggle.frame];
-    toggle.userInteractionEnabled = NO;
-    [self.presentationModeButton addSubview:toggle];
-    toggle.on = self.presentationMode;
+    [self setupPresentationModeToggleSwitch];
 
     [self.editPresentationModeButton setTitle:NSLocalizedString(@"Edit Presentation Mode", @"Title for edit presentation mode settings button")];
     [self.editPresentationModeButton hideTopBorder];
@@ -68,6 +62,14 @@
     /// Logout
     [self.logoutButton setTitle:NSLocalizedString(@"Logout", @"Title for logout button")];
     [self.logoutButton hideChevron];
+}
+
+- (void)setupPresentationModeToggleSwitch
+{
+    ARToggleSwitch *toggle = [ARToggleSwitch buttonWithFrame:self.presentationModeToggle.frame];
+    toggle.userInteractionEnabled = NO;
+    [self.presentationModeButton addSubview:toggle];
+    toggle.on = self.presentationMode;
 }
 
 #pragma mark -
@@ -93,11 +95,6 @@
     }
 }
 
-- (IBAction)editPresentationModePressed:(id)sender
-{
-}
-
-
 #pragma mark -
 #pragma mark settings icon
 
@@ -118,8 +115,7 @@
 
 - (void)exitSettingsPanel
 {
-    NSAssert([self.navigationController isKindOfClass:ARLabSettingsNavController.class], @"Master parent must be an ARLabSettingsNavController");
-    [self.navigationController dismissViewControllerAnimated:NO completion:nil];
+    [(ARLabSettingsSplitViewController *)self.splitViewController exitSettingsPanel];
 }
 
 - (IBAction)ogSettingsButtonPressed:(id)sender
@@ -127,7 +123,6 @@
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:AROptionsUseLabSettings];
     [self exitSettingsPanel];
 }
-
 
 - (BOOL)prefersStatusBarHidden
 {

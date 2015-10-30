@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AhB-Tr-lmz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AhB-Tr-lmz">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -135,7 +135,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xm4-Ia-lle" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1193" y="814"/>
+            <point key="canvasLocation" x="1862" y="821"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wqt-dq-QUI">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="ZIK-Dz-F8x" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ecC-xr-28t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lXz-BW-0kX" kind="relationship" relationship="rootViewController" id="w7t-EQ-d2y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hK5-er-jsF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1001" y="821"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vBH-Qd-WBO">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="tnx-rc-Sqx" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DS6-e7-sUF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="V7h-Op-kFe" kind="relationship" relationship="rootViewController" id="xNG-0J-bXZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lmh-zL-JfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2814" y="821"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Vql-6P-U53">
@@ -164,10 +198,11 @@
                             <constraint firstItem="yat-b7-Gjx" firstAttribute="centerX" secondItem="rFq-4e-Ofy" secondAttribute="centerX" id="vHa-v9-zPd"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="hEX-rq-lxP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAI-5S-zGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1985" y="814"/>
+            <point key="canvasLocation" x="2814" y="1686"/>
         </scene>
         <!--Lab Settings Master View Controller-->
         <scene sceneID="kL2-SG-N9U">
@@ -207,7 +242,7 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="lXz-BW-0kX" kind="showDetail" identifier="Edit Sync Settings" id="oH8-e3-kfc"/>
+                                            <segue destination="ZIK-Dz-F8x" kind="showDetail" id="lWV-3G-m0S"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -298,8 +333,7 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <action selector="editPresentationModePressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="R7I-1q-mbd"/>
-                                            <segue destination="V7h-Op-kFe" kind="showDetail" identifier="Edit Presentation Mode Settings" id="Hpv-vo-YyT"/>
+                                            <segue destination="tnx-rc-Sqx" kind="showDetail" id="f9Y-Ta-CP8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -517,12 +551,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiu-YE-eub" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2271.5" y="-175"/>
+            <point key="canvasLocation" x="2177.5" y="-203"/>
         </scene>
-        <!--Lab Settings Nav Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="z82-vM-hqe">
             <objects>
-                <navigationController navigationBarHidden="YES" id="bMa-SS-pGI" customClass="ARLabSettingsNavController" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="bMa-SS-pGI" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R5s-nB-NSP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -541,19 +575,21 @@
         <!--ARLabSettingsSplitViewController-->
         <scene sceneID="dhZ-S1-cYX">
             <objects>
-                <splitViewController storyboardIdentifier="ARLabSettings" title="ARLabSettingsSplitViewController" id="AhB-Tr-lmz" customClass="ARLabSettingsViewController" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="ARLabSettings" title="ARLabSettingsSplitViewController" id="AhB-Tr-lmz" customClass="ARLabSettingsSplitViewController" sceneMemberID="viewController">
                     <connections>
+                        <outlet property="delegate" destination="1Az-MC-UV7" id="jH7-jn-5jh"/>
                         <segue destination="bMa-SS-pGI" kind="relationship" relationship="masterViewController" id="gRn-aJ-vXi"/>
-                        <segue destination="lXz-BW-0kX" kind="relationship" relationship="detailViewController" id="6Gb-fO-e1h"/>
+                        <segue destination="ZIK-Dz-F8x" kind="relationship" relationship="detailViewController" id="7Z3-1P-Emc"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tbi-6m-HPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="1Az-MC-UV7" customClass="ARLabSettingsDetailViewManager"/>
             </objects>
             <point key="canvasLocation" x="175" y="239"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oH8-e3-kfc"/>
+        <segue reference="7Z3-1P-Emc"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

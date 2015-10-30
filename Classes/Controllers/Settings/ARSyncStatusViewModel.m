@@ -1,8 +1,8 @@
+
 #import "ARSyncStatusViewModel.h"
 #import "NSString+TimeInterval.h"
 #import "Reachability+ConnectionExists.h"
 #import "NSDate+Presentation.h"
-#import "ARTopViewController.h"
 #import "SyncLog.h"
 
 
@@ -159,7 +159,7 @@
 #pragma mark -
 #pragma mark sync logs
 
-- (NSArray *)previousSyncDateStrings
+- (NSArray<NSString *> *)previousSyncDateStrings;
 {
     return [self.syncLogs map:^id(SyncLog *log) {
         return [log.dateStarted formattedString];

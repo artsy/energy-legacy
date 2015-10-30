@@ -44,6 +44,6 @@ typedef NS_ENUM(NSInteger, ARSyncImageNotification) {
 - (NSInteger)syncLogCount;
 
 /// Returns an array of formatted date strings for all recorded syncs
-- (NSArray *)previousSyncDateStrings;
+- (NSArray<NSString *> *)previousSyncDateStrings;
 
 @end
