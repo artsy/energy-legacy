@@ -4,6 +4,7 @@
 #import "ARSyncPlugins.h"
 #import "ARSyncOperations.h"
 #import "SyncLog.h"
+#import "ARSyncLogger.h"
 
 
 @interface ARSync ()
@@ -255,7 +256,7 @@
         backgroundCheck,
         self.config.deleter,
         [[ARSyncNotification alloc] init],
-
+        [[ARSyncLogger alloc] init],
     ] mutableCopy];
 
     if (NSClassFromString(@"CSSearchableIndex")) {

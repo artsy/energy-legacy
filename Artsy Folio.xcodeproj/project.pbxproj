@@ -529,6 +529,7 @@
 		8371DAFE1B68213A00285A8E /* ARLoginNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371DAFD1B68213A00285A8E /* ARLoginNetworkModel.m */; };
 		8371DB021B6824A200285A8E /* ARStubbedLoginNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371DB011B6824A200285A8E /* ARStubbedLoginNetworkModel.m */; };
 		837AF0B31BE7D0B700E606DF /* ARSyncLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 837AF0B21BE7D0B700E606DF /* ARSyncLogger.m */; };
+		837AF0B51BE7D2EB00E606DF /* ARSyncLoggerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 837AF0B41BE7D2EB00E606DF /* ARSyncLoggerSpec.m */; };
 		8383FB6B1BD83E33004B2A87 /* ARLabSettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8383FB6A1BD83E33004B2A87 /* ARLabSettingsViewControllerTests.m */; };
 		838BEEF31B31C9DF00D5FFC6 /* ARCMSStatusMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 838BEEF21B31C9DF00D5FFC6 /* ARCMSStatusMonitor.m */; };
 		839B59781B4DAA3900F24033 /* _EditionSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 839B59771B4DAA3900F24033 /* _EditionSet.m */; };
@@ -1437,6 +1438,7 @@
 		8371DB011B6824A200285A8E /* ARStubbedLoginNetworkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARStubbedLoginNetworkModel.m; sourceTree = "<group>"; };
 		837AF0B11BE7D0B700E606DF /* ARSyncLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSyncLogger.h; sourceTree = "<group>"; };
 		837AF0B21BE7D0B700E606DF /* ARSyncLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncLogger.m; sourceTree = "<group>"; };
+		837AF0B41BE7D2EB00E606DF /* ARSyncLoggerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncLoggerSpec.m; sourceTree = "<group>"; };
 		8383FB6A1BD83E33004B2A87 /* ARLabSettingsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsViewControllerTests.m; sourceTree = "<group>"; };
 		838BEEF11B31C9DF00D5FFC6 /* ARCMSStatusMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMSStatusMonitor.h; sourceTree = "<group>"; };
 		838BEEF21B31C9DF00D5FFC6 /* ARCMSStatusMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARCMSStatusMonitor.m; sourceTree = "<group>"; };
@@ -1947,6 +1949,7 @@
 				60D46F5618E0CC4C00DA225B /* ARSyncDeleterTests.m */,
 				6074482A1BE3C93800E20774 /* ARSyncRemoveiCloudAttributesSpec.m */,
 				342F92AB9FEEF15B485CB6D1 /* ARSlugResolverTests.m */,
+				837AF0B41BE7D2EB00E606DF /* ARSyncLoggerSpec.m */,
 			);
 			name = Plugins;
 			sourceTree = "<group>";
@@ -4004,6 +4007,7 @@
 				60AC10CE19479D5000274EBB /* ARFeedTranslatorTests.m in Sources */,
 				60E7E2DF1ABB2392007EAA8A /* ShowModelTests.m in Sources */,
 				609C27501AE813EA00E40D1F /* AROHHTTPNoStubAssertionBot.m in Sources */,
+				837AF0B51BE7D2EB00E606DF /* ARSyncLoggerSpec.m in Sources */,
 				607448271BE3C65D00E20774 /* ARSyncBackgroundedCheckSpec.m in Sources */,
 				60F98B6F1958D36D0068E7EE /* ARModernArtworkMetadataViewControllerTests.m in Sources */,
 				602E71A91B2FAA1F0022033D /* ARSpotlightExporterSpec.m in Sources */,
