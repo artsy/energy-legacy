@@ -14,16 +14,6 @@
 
 @implementation ARImageThumbnailCreatorTests
 
-- (void)setUp
-{
-    [super setUp];
-}
-
-- (void)tearDown
-{
-    [super tearDown];
-}
-
 - (id)mockFormat:(BOOL)large
 {
     id image = [OCMockObject mockForProtocol:@protocol(Image)];

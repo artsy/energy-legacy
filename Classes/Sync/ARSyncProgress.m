@@ -26,16 +26,16 @@ const NSUInteger ARSyncProgressNumSamples = 5;
 
 - (CGFloat)bytesPerSecond
 {
-    NSTimeInterval time = [[NSDate date] timeIntervalSinceDate:_startDate];
-    CGFloat bytesPerSecond = _numBytesDownloaded / time;
+    NSTimeInterval time = [[NSDate date] timeIntervalSinceDate:self.startDate];
+    CGFloat bytesPerSecond = self.numBytesDownloaded / time;
     return [self addSample:bytesPerSecond];
 }
 
 - (CGFloat)addSample:(CGFloat)sample
 {
-    NSUInteger n = [_samples count];
+    NSUInteger n = [self.samples count];
     if (n < ARSyncProgressNumSamples) {
-        [_samples addObject:@(sample)];
+        [self.samples addObject:@(sample)];
         CGFloat sum = 0;
         for (id sampleObj in _samples) {
             sum += [sampleObj floatValue];
@@ -43,8 +43,8 @@ const NSUInteger ARSyncProgressNumSamples = 5;
         self.movingAverage = sum / (n + 1);
     } else {
         id sampleObj = [_samples firstObject];
-        [_samples removeObject:sampleObj];
-        [_samples addObject:@(sample)];
+        [self.samples removeObject:sampleObj];
+        [self.samples addObject:@(sample)];
         self.movingAverage = self.movingAverage - [sampleObj floatValue] / ARSyncProgressNumSamples + sample / ARSyncProgressNumSamples;
     }
     return self.movingAverage;
@@ -52,7 +52,7 @@ const NSUInteger ARSyncProgressNumSamples = 5;
 
 - (NSTimeInterval)estimatedTimeRemaining
 {
-    unsigned long long numBytesRemaining = _numEstimatedBytes - _numBytesDownloaded;
+    unsigned long long numBytesRemaining = self.numEstimatedBytes - self.numBytesDownloaded;
     return numBytesRemaining / [self bytesPerSecond];
 }
 

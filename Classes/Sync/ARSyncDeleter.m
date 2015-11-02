@@ -1,23 +1,47 @@
-#import "ARDeleter.h"
+#import "ARSyncDeleter.h"
+#import "ARSyncBackgroundedCheck.h"
 
 
-@interface ARDeleter ()
-@property (nonatomic, strong) NSMutableSet *set;
+@interface ARSyncDeleter ()
+@property (nonatomic, strong, readwrite) NSMutableSet *set;
 @property (nonatomic, strong, readwrite) NSManagedObjectContext *context;
 @end
 
 
-@implementation ARDeleter
+@implementation ARSyncDeleter
 
-- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)context
+- (instancetype)init
 {
     self = [super init];
     if (!self) return nil;
 
     _set = [NSMutableSet set];
-    _context = context;
 
     return self;
+}
+
+- (void)syncDidStart:(ARSync *)sync
+{
+    // TODO: DI the context instead of using a property
+    self.context = sync.config.managedObjectContext;
+
+    NSArray *allClassesToRemoveIfNeeded = @[ Artwork.class, Artist.class, Image.class, Document.class, Show.class, Location.class ];
+    [allClassesToRemoveIfNeeded each:^(Class klass) {
+        [self markAllObjectsInClassForDeletion:klass];
+    }];
+
+    // Local albums & all albums should be skipped by the deleter
+    [[Album downloadedAlbumsInContext:self.context] each:^(Album *album) {
+        [self markObjectForDeletion:album];
+    }];
+}
+
+- (void)syncDidFinish:(ARSync *)sync
+{
+    if (self.backgroundCheck.applicationHasGoneIntoTheBackground) {
+        return;
+    }
+    [self deleteObjects];
 }
 
 - (void)markAllObjectsInClassForDeletion:(Class)klass

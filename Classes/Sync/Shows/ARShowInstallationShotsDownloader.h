@@ -1,9 +1,9 @@
 #import <DRBOperationTree/DRBOperationTree.h>
-#import "ARDeleter.h"
+#import "ARSyncDeleter.h"
 
 
 @interface ARShowInstallationShotsDownloader : NSObject <DRBOperationProvider>
 
-- (instancetype)initWithContext:(NSManagedObjectContext *)context deleter:(ARDeleter *)deleter;
+- (instancetype)initWithContext:(NSManagedObjectContext *)context deleter:(ARSyncDeleter *)deleter;
 
 @end

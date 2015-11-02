@@ -1,5 +1,5 @@
 #import "ARShowDownloader.h"
-#import "ARDeleter.h"
+#import "ARSyncDeleter.h"
 #import "ARRouter.h"
 #import "ARFeedTranslator.h"
 #import <AFNetworking/AFJSONRequestOperation.h>
@@ -7,14 +7,14 @@
 
 @interface ARShowDownloader ()
 @property (nonatomic, strong) NSManagedObjectContext *context;
-@property (nonatomic, strong) ARDeleter *deleter;
+@property (nonatomic, strong) ARSyncDeleter *deleter;
 @property (nonatomic, strong) NSString *partnerSlug;
 @end
 
 
 @implementation ARShowDownloader
 
-- (instancetype)initWithContext:(NSManagedObjectContext *)context deleter:(ARDeleter *)deleter
+- (instancetype)initWithContext:(NSManagedObjectContext *)context deleter:(ARSyncDeleter *)deleter
 {
     if ((self = [super init])) {
         _context = context;

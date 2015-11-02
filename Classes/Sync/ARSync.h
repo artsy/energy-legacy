@@ -1,22 +1,24 @@
 #import "ARSyncProgress.h"
+#import "ARSyncConfig.h"
+#import "ARSync.h"
 
-@class ARSync, ARDeleter, ARTileArchiveDownloader;
-
+@class ARSync;
 
 @protocol ARSyncDelegate <NSObject>
-
+@optional
 - (void)syncDidFinish:(ARSync *)sync;
-
 @end
 
 /// An API for registering interest with a
 /// sync on before and after callbacks.
 
 @protocol ARSyncPlugin <ARSyncDelegate>
-
+@optional
 - (void)syncDidStart:(ARSync *)sync;
 
 @end
+
+#import "ARSyncDeleter.h"
 
 
 @interface ARSync : NSObject
@@ -38,14 +40,8 @@
 
 @property (readwrite, nonatomic, weak) id<ARSyncDelegate> delegate;
 @property (readwrite, nonatomic, strong) ARSyncProgress *progress;
+@property (readwrite, nonatomic, strong) ARSyncConfig *config;
 
 @property (readonly, nonatomic, getter=isSyncing) BOOL syncing;
-@property (readonly, nonatomic, getter=applicationHasBackgrounded) BOOL applicationHasGoneIntoTheBackground;
-
-/// Move these to a sync config object
-
-@property (readonly, nonatomic, strong) NSUserDefaults *defaults;
-@property (readonly, nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-
 
 @end

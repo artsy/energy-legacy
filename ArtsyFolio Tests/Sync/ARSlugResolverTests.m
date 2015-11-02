@@ -1,14 +1,9 @@
-//
-// ARSlugResolver
-// Created by orta on 3/26/14.
-//
-//  Copyright (c) 2014 http://artsy.net. All rights reserved.
-
 #import "ARSlugResolver.h"
 #import "Artwork.h"
 #import "ModelStubs.h"
 #import "Album.h"
 #import "Show.h"
+#import "ARSync+TestsExtension.h"
 
 SpecBegin(ARSlugResolver);
 
@@ -21,6 +16,8 @@ describe(@"resolving albums", ^{
     __block NSManagedObjectContext *context;
     __block NSInteger preAlbumCount;
     __block NSArray *allAlbums;
+
+    __block ARSync *sync;
     
     beforeAll(^{
         context = [CoreDataManager stubbedManagedObjectContext];
@@ -53,8 +50,10 @@ describe(@"resolving albums", ^{
 
         preAlbumCount = [Album countInContext:context error:nil];
         
-        ARSlugResolver *resolver = [[ARSlugResolver alloc] initWithManagedObjectContext:context];
-        [resolver resolveSlugsForAlbums];
+        ARSlugResolver *resolver = [[ARSlugResolver alloc] init];
+
+        ARSync *sync = [ARSync syncForTesting:context];
+        [resolver syncDidFinish:sync];
         
         allAlbums = [Album findAllInContext:context];
         
@@ -87,9 +86,10 @@ describe(@"resolving albums", ^{
     
     it(@"contains a for sale album with only for sale artworks", ^{
         artwork2.isAvailableForSale = @YES;
-        
-        ARSlugResolver *resolver = [[ARSlugResolver alloc] initWithManagedObjectContext:context];
-        [resolver resolveSlugsForAlbums];
+
+        ARSlugResolver *resolver = [[ARSlugResolver alloc] init];
+        ARSync *sync = [ARSync syncForTesting:context];
+        [resolver syncDidFinish:sync];
 
         Album *forSaleAlbum = [Album findFirstByAttribute:@"slug" withValue:@"for_sale_works" inContext:context];
         expect(forSaleAlbum.artworks).to.contain(artwork2);
@@ -131,8 +131,9 @@ describe(@"resolving shows", ^{
         Show *show = [Show objectInContext:context];
         show.artworkSlugs = [NSSet setWithArray:slugs];
 
-        ARSlugResolver *resolver = [[ARSlugResolver alloc] initWithManagedObjectContext:context];
-        [resolver resolveSlugsForShows];
+        ARSlugResolver *resolver = [[ARSlugResolver alloc] init];
+        ARSync *sync = [ARSync syncForTesting:context];
+        [resolver syncDidFinish:sync];
 
         expect(show.artworks).to.contain(artwork);
         expect(show.artworks).to.contain(artwork2);
@@ -156,8 +157,9 @@ describe(@"resolving locations", ^{
         Location *location = [Location objectInContext:context];
         location.artworkSlugs = [NSSet setWithArray:slugs];
 
-        ARSlugResolver *resolver = [[ARSlugResolver alloc] initWithManagedObjectContext:context];
-        [resolver resolveSlugsForLocations];
+        ARSlugResolver *resolver = [[ARSlugResolver alloc] init];
+        ARSync *sync = [ARSync syncForTesting:context];
+        [resolver syncDidFinish:sync];
 
         expect(location.artworks).to.contain(artwork);
         expect(location.artworks).to.contain(artwork2);

@@ -1,6 +1,6 @@
 #import "ARIDMapperDownloader.h"
 
-@class ARDeleter;
+@class ARSyncDeleter;
 
 
 @interface ARShowDocumentDownloader : ARIDMapperDownloader

@@ -1,3 +1,5 @@
+#import "ARSync.h"
+
 // This only compiles on iOS9 SDKs and above
 // but they are still in beta, so no CI.
 
@@ -10,15 +12,14 @@
 /// Imports Artists and Artworks from a NSManagedObjectcontext into the Spotlight database on iOS9
 
 
-@interface ARSpotlightExporter : NSObject
+@interface ARSpotlightExporter : NSObject <ARSyncPlugin>
 
-/// Default init
-- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)context index:(CSSearchableIndex *)index;
+- (instancetype)initWithIndex:(CSSearchableIndex *)index;
 
 /// Resets local cache then updates with all artists and artworks, runs work on a background thread.
 - (void)updateCache;
 
-/// Empties the Spotlgiht cache in anticipation of new results
+/// Empties the Spotlight cache in anticipation of new results
 - (void)emptyLocalSpotlightCacheCompletion:(void (^)(NSError *error))completionHandler;
 
 /// Adds an array of CSSearchableItems to add to the spotlight index

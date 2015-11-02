@@ -4,6 +4,10 @@
 - (void)syncDidProgress:(ARSyncProgress *)progress;
 @end
 
+/// The progress keeps a running track of how far along in the
+/// downloading process we are. It does a great job of keeping track
+/// but in general, our estimates of how much to download need work.
+
 
 @interface ARSyncProgress : NSObject
 
