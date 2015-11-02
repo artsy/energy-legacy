@@ -216,6 +216,26 @@
 @end
 
 
+@implementation ARLabSyncFlatButton
+
+- (void)setup
+{
+    [super setup];
+
+    [self setBackgroundColor:UIColor.blackColor forState:UIControlStateNormal];
+    [self setBackgroundColor:UIColor.artsyPurple forState:UIControlStateHighlighted];
+
+    [self setBorderColor:UIColor.blackColor forState:UIControlStateNormal];
+    [self setBorderColor:UIColor.artsyLightGrey forState:UIControlStateDisabled];
+
+    [self setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+
+    [self changeColorsForStateChange];
+}
+
+@end
+
+
 @implementation ARAlertLowVisualPriorityButton
 
 - (void)setup

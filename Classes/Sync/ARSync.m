@@ -3,7 +3,8 @@
 #import "ARSlugResolver.h"
 #import "ARSyncPlugins.h"
 #import "ARSyncOperations.h"
-#import <CoreSpotlight/CoreSpotlight.h>
+#import "SyncLog.h"
+#import "ARSyncLogger.h"
 
 
 @interface ARSync ()
@@ -255,7 +256,7 @@
         backgroundCheck,
         self.config.deleter,
         [[ARSyncNotification alloc] init],
-
+        [[ARSyncLogger alloc] init],
     ] mutableCopy];
 
     if (NSClassFromString(@"CSSearchableIndex")) {

@@ -1,21 +1,26 @@
+
 #import "ARSyncStatusViewModel.h"
 #import "NSString+TimeInterval.h"
 #import "Reachability+ConnectionExists.h"
 #import "NSDate+Presentation.h"
+#import "SyncLog.h"
 
 
 @interface ARSyncStatusViewModel ()
 @property (nonatomic, strong) NSUserDefaults *defaults;
+@property (nonatomic, strong) NSManagedObjectContext *context;
+@property (nonatomic, strong) ARSync *sync;
 @end
 
 
 @implementation ARSyncStatusViewModel
 
-- (instancetype)initWithSync:(ARSync *)sync
+- (instancetype)initWithSync:(ARSync *)sync context:(NSManagedObjectContext *)context
 {
     self = [super init];
     if (!self) return nil;
 
+    self.context = context;
     self.sync = sync;
     self.sync.delegate = self;
 
@@ -150,6 +155,26 @@
         return [NSString stringWithFormat:lastSyncedFormat, [lastSynced formattedString]];
     }
     return @"";
+}
+
+#pragma mark -
+#pragma mark sync logs
+
+- (NSArray<NSString *> *)previousSyncDateStrings;
+{
+    return [self.syncLogs map:^id(SyncLog *log) {
+        return [log.dateStarted formattedString];
+    }];
+}
+
+- (NSInteger)syncLogCount
+{
+    return [SyncLog countInContext:self.context error:nil];
+}
+
+- (NSArray *)syncLogs
+{
+    return [SyncLog findAllSortedBy:@"dateStarted" ascending:YES inContext:self.context];
 }
 
 #pragma mark -

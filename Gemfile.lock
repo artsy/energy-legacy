@@ -204,6 +204,7 @@ GEM
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
     rubyzip (1.1.7)
+    sbconstants (1.1.2)
     second_curtain (0.3.0)
       aws-sdk-v1 (~> 1.52)
       mustache (~> 0.99)
@@ -256,6 +257,7 @@ DEPENDENCIES
   cocoapods-keys
   cocoapods-open
   fastlane
+  sbconstants
   second_curtain
   slather
   xcpretty

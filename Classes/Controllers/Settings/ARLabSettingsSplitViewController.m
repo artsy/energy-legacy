@@ -1,16 +1,16 @@
-#import "ARLabSettingsViewController.h"
+#import "ARLabSettingsSplitViewController.h"
 #import "ARTopViewController.h"
+#import "ARLabSettingsDetailViewManager.h"
 
-
-@implementation ARLabSettingsViewController
+@implementation ARLabSettingsSplitViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.delegate = self;
     self.preferredDisplayMode = [UIDevice isPad] ? UISplitViewControllerDisplayModeAllVisible : UISplitViewControllerDisplayModeAutomatic;
     self.preferredPrimaryColumnWidthFraction = 0.4;
+    
 }
 
 #pragma mark - exit strategy
@@ -24,14 +24,6 @@
     }
 
     [[ARTopViewController sharedInstance] dismissViewControllerAnimated:YES completion:NULL];
-}
-
-#pragma mark - UISplitViewControllerDelegate
-
-// Ensures the master view is shown by default on iPhone
-- (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController
-{
-    return YES;
 }
 
 - (BOOL)prefersStatusBarHidden

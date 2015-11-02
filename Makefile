@@ -27,6 +27,9 @@ mogenerate:
 		read CORE_DATA_VERSION; \
 		mogenerator -m "Resources/CoreData/ArtsyPartner.xcdatamodeld/ArtsyFolio v$$CORE_DATA_VERSION.xcdatamodel/" --base-class ARManagedObject --template-path config/mogenerator/artsy --machine-dir Classes/Models/Generated/ --human-dir /tmp/ --template-var arc=true
 
+storyboard_ids:
+	bundle exec sbconstants Classes/Util/App/ARStoryboardIdentifiers.h
+
 LOCAL_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 BRANCH = $(shell echo $(shell whoami)-$(shell git rev-parse --abbrev-ref HEAD))
 

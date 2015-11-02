@@ -18,13 +18,12 @@ typedef NS_ENUM(NSInteger, ARSyncImageNotification) {
 
 @interface ARSyncStatusViewModel : NSObject <ARSyncDelegate, ARSyncProgressDelegate>
 
-@property (nonatomic, strong) ARSync *sync;
 @property (nonatomic, assign) NSTimeInterval timeRemainingInSync;
 
 @property (nonatomic, assign) BOOL isSyncing;
 @property (nonatomic, assign) BOOL statusHasChanged;
 
-- (instancetype)initWithSync:(ARSync *)sync;
+- (instancetype)initWithSync:(ARSync *)sync context:(NSManagedObjectContext *)context;
 
 - (void)startSync;
 
@@ -40,5 +39,11 @@ typedef NS_ENUM(NSInteger, ARSyncImageNotification) {
 - (CGFloat)syncActivityViewAlpha;
 
 - (ARSyncImageNotification)currentSyncImageNotification;
+
+/// Returns the number of syncs logged on device
+- (NSInteger)syncLogCount;
+
+/// Returns an array of formatted date strings for all recorded syncs
+- (NSArray<NSString *> *)previousSyncDateStrings;
 
 @end

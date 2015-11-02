@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9058" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AhB-Tr-lmz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AhB-Tr-lmz">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9048"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="AGaramondPro-Regular.otf">
             <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
         </mutableArray>
         <mutableArray key="ITC_Avant_Garde_Gothic__Demi.ttf">
+            <string>AvantGardeGothicITCW01Dm</string>
+            <string>AvantGardeGothicITCW01Dm</string>
+            <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Lab Settings Sync View Controller-->
         <scene sceneID="Ozj-d1-V0z">
             <objects>
-                <viewController id="lXz-BW-0kX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Sync View Controller" id="lXz-BW-0kX" customClass="ARLabSettingsSyncViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5pM-C7-1Xy"/>
                         <viewControllerLayoutGuide type="bottom" id="1Mk-77-YAC"/>
@@ -26,18 +31,183 @@
                     <view key="view" contentMode="scaleToFill" id="atM-Rl-b4z">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SYNC CONTENT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRq-c0-8DC">
+                                <rect key="frame" x="226" y="45" width="149" height="26"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwG-Vf-Fgn">
+                                <rect key="frame" x="21" y="106" width="558" height="48"/>
+                                <animations/>
+                                <string key="text">Here is where you can sync artworks, documents, and information added on CMS with Folio. Given the big size of images, before syncing, please make sure you are on a strong Wi-Fi connection.</string>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9U-Ia-fHS" customClass="ARLabSyncFlatButton">
+                                <rect key="frame" x="156" y="179" width="289" height="35"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="16"/>
+                                <inset key="contentEdgeInsets" minX="85" minY="7" maxX="85" maxY="7"/>
+                                <state key="normal" title="SYNC CONTENT"/>
+                                <connections>
+                                    <action selector="syncButtonPressed:" destination="lXz-BW-0kX" eventType="touchUpInside" id="XkW-Zg-AqF"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PREVIOUS SYNCS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqP-c1-aQK">
+                                <rect key="frame" x="231" y="264" width="138" height="17"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="bvo-wb-tZW">
+                                <rect key="frame" x="21" y="281" width="558" height="319"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <edgeInsets key="layoutMargins" top="0.0" left="8" bottom="8" right="8"/>
+                                <color key="separatorColor" red="0.80937893282152062" green="0.82629024621212122" blue="0.80835198252595286" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="previousSyncCell" id="liS-em-7gK">
+                                        <rect key="frame" x="0.0" y="49.5" width="558" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="liS-em-7gK" id="JDf-3k-llm">
+                                            <rect key="frame" x="0.0" y="0.0" width="558" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lXz-BW-0kX" id="4eo-CB-2b7"/>
+                                    <outlet property="delegate" destination="lXz-BW-0kX" id="okQ-Ns-qk2"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vRq-c0-8DC" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="5aq-rL-z4w"/>
+                            <constraint firstItem="u9U-Ia-fHS" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="6Gd-XJ-7SI"/>
+                            <constraint firstItem="u9U-Ia-fHS" firstAttribute="top" secondItem="cwG-Vf-Fgn" secondAttribute="bottom" constant="25" id="7Fd-xW-b03"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cwG-Vf-Fgn" secondAttribute="trailing" constant="1" id="8kj-s0-z1P"/>
+                            <constraint firstItem="1Mk-77-YAC" firstAttribute="top" secondItem="bvo-wb-tZW" secondAttribute="bottom" id="8qb-dJ-po8"/>
+                            <constraint firstItem="vRq-c0-8DC" firstAttribute="top" secondItem="5pM-C7-1Xy" secondAttribute="bottom" constant="8" id="AZX-l9-q2B"/>
+                            <constraint firstItem="cwG-Vf-Fgn" firstAttribute="leading" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" constant="1" id="E3l-K6-yzA"/>
+                            <constraint firstItem="bvo-wb-tZW" firstAttribute="top" secondItem="u9U-Ia-fHS" secondAttribute="bottom" constant="30" id="EIG-cF-aXc"/>
+                            <constraint firstItem="cwG-Vf-Fgn" firstAttribute="top" secondItem="vRq-c0-8DC" secondAttribute="bottom" constant="35" id="FKP-GP-f7v"/>
+                            <constraint firstItem="iqP-c1-aQK" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="Jrm-NS-ntE"/>
+                            <constraint firstItem="bvo-wb-tZW" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="Obz-r0-PFm"/>
+                            <constraint firstItem="bvo-wb-tZW" firstAttribute="width" secondItem="cwG-Vf-Fgn" secondAttribute="width" id="Oli-Hd-xlg"/>
+                            <constraint firstItem="bvo-wb-tZW" firstAttribute="top" secondItem="iqP-c1-aQK" secondAttribute="bottom" id="VvR-IG-vNL"/>
+                            <constraint firstItem="bvo-wb-tZW" firstAttribute="width" secondItem="atM-Rl-b4z" secondAttribute="height" multiplier="14:15" id="cRF-WF-Upe"/>
+                            <constraint firstItem="u9U-Ia-fHS" firstAttribute="leading" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" constant="169" id="dLD-VY-OON"/>
+                            <constraint firstItem="vRq-c0-8DC" firstAttribute="top" secondItem="5pM-C7-1Xy" secondAttribute="bottom" constant="25" id="dvn-C4-1cR"/>
+                            <constraint firstItem="bvo-wb-tZW" firstAttribute="top" secondItem="cwG-Vf-Fgn" secondAttribute="bottom" constant="68" id="p48-q2-1Yf"/>
+                            <constraint firstItem="cwG-Vf-Fgn" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="ySr-VW-LTC"/>
+                            <constraint firstItem="iqP-c1-aQK" firstAttribute="top" secondItem="u9U-Ia-fHS" secondAttribute="bottom" constant="50" id="yca-6S-vPR"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="AZX-l9-q2B"/>
+                                <exclude reference="dLD-VY-OON"/>
+                                <exclude reference="EIG-cF-aXc"/>
+                                <exclude reference="cRF-WF-Upe"/>
+                                <exclude reference="p48-q2-1Yf"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="Ye7-Wv-PSn"/>
+                    <connections>
+                        <outlet property="explanatoryTextLabel" destination="cwG-Vf-Fgn" id="fYi-b3-PnZ"/>
+                        <outlet property="previousSyncsLabel" destination="iqP-c1-aQK" id="xXi-Vj-tNT"/>
+                        <outlet property="syncButton" destination="u9U-Ia-fHS" id="zL1-K0-Qtk"/>
+                        <outlet property="tableView" destination="bvo-wb-tZW" id="0Pj-x6-vEc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xm4-Ia-lle" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="995" y="569"/>
+            <point key="canvasLocation" x="1862" y="821"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wqt-dq-QUI">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="ZIK-Dz-F8x" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ecC-xr-28t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lXz-BW-0kX" kind="relationship" relationship="rootViewController" id="w7t-EQ-d2y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hK5-er-jsF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1001" y="821"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vBH-Qd-WBO">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="tnx-rc-Sqx" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DS6-e7-sUF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="V7h-Op-kFe" kind="relationship" relationship="rootViewController" id="xNG-0J-bXZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lmh-zL-JfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2814" y="821"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Vql-6P-U53">
+            <objects>
+                <viewController id="V7h-Op-kFe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rcw-0T-dBx"/>
+                        <viewControllerLayoutGuide type="bottom" id="04J-CV-69c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rFq-4e-Ofy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EDIT PRESENTATION MODE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yat-b7-Gjx">
+                                <rect key="frame" x="196" y="40" width="208" height="22"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yat-b7-Gjx" firstAttribute="top" secondItem="Rcw-0T-dBx" secondAttribute="bottom" constant="20" id="gVx-Gg-WYU"/>
+                            <constraint firstItem="yat-b7-Gjx" firstAttribute="centerX" secondItem="rFq-4e-Ofy" secondAttribute="centerX" id="vHa-v9-zPd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hEX-rq-lxP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cAI-5S-zGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2814" y="1686"/>
         </scene>
         <!--Lab Settings Master View Controller-->
         <scene sceneID="kL2-SG-N9U">
             <objects>
-                <viewController id="vMx-hu-Yme" customClass="ARLabSettingsMasterViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Settings Master View Controller" id="vMx-hu-Yme" customClass="ARLabSettingsMasterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I9E-fN-td1"/>
                         <viewControllerLayoutGuide type="bottom" id="QO3-Zr-Tia"/>
@@ -72,7 +242,7 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <action selector="syncButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="A8P-qP-SWw"/>
+                                            <segue destination="ZIK-Dz-F8x" kind="showDetail" identifier="Sync Settings" id="lWV-3G-m0S"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -163,7 +333,7 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <action selector="editPresentationModePressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="R7I-1q-mbd"/>
+                                            <segue destination="tnx-rc-Sqx" kind="showDetail" id="f9Y-Ta-CP8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -328,6 +498,7 @@
                             <constraint firstItem="elk-lP-AmA" firstAttribute="height" secondItem="UqU-EW-kcK" secondAttribute="height" id="Jp8-tT-50x"/>
                             <constraint firstItem="Hzk-ka-Ieb" firstAttribute="top" secondItem="UqU-EW-kcK" secondAttribute="bottom" constant="25" id="Kcg-0O-PN6"/>
                             <constraint firstItem="p6N-5v-yfh" firstAttribute="height" secondItem="UqU-EW-kcK" secondAttribute="height" id="L7Z-1b-TxG"/>
+                            <constraint firstItem="yVa-s8-m9i" firstAttribute="top" secondItem="I9E-fN-td1" secondAttribute="bottom" constant="15" id="LpS-Hi-3WN"/>
                             <constraint firstItem="bcL-Qn-3m0" firstAttribute="top" secondItem="OnH-PU-Est" secondAttribute="bottom" constant="15" id="MCy-ih-YTp"/>
                             <constraint firstItem="UqU-EW-kcK" firstAttribute="width" secondItem="qr3-nz-sZj" secondAttribute="height" multiplier="265:1024" id="Mwz-H0-Uin"/>
                             <constraint firstItem="UqU-EW-kcK" firstAttribute="top" secondItem="yVa-s8-m9i" secondAttribute="bottom" constant="25" id="Rl7-QS-NFF"/>
@@ -347,7 +518,6 @@
                             <constraint firstItem="UqU-EW-kcK" firstAttribute="width" secondItem="qr3-nz-sZj" secondAttribute="height" multiplier="265:1024" id="raz-Kh-H4r"/>
                             <constraint firstItem="e3k-Ce-4hS" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="t5J-tv-CeB"/>
                             <constraint firstItem="elk-lP-AmA" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="uHR-yH-8vG"/>
-                            <constraint firstItem="yVa-s8-m9i" firstAttribute="top" secondItem="I9E-fN-td1" secondAttribute="bottom" constant="15" id="voz-lq-93z"/>
                             <constraint firstItem="Udi-sX-Dx1" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="wIa-sF-31t"/>
                             <constraint firstItem="UqU-EW-kcK" firstAttribute="centerX" secondItem="qr3-nz-sZj" secondAttribute="centerX" id="xeQ-dw-T3l"/>
                             <constraint firstItem="bcL-Qn-3m0" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="y28-QR-WGG"/>
@@ -377,17 +547,16 @@
                         <outlet property="settingsIcon" destination="yVa-s8-m9i" id="Qe8-pa-NkO"/>
                         <outlet property="supportButton" destination="7RZ-pG-az1" id="AEB-OB-Y3j"/>
                         <outlet property="syncContentButton" destination="Awe-KF-u5N" id="haT-ZI-jkT"/>
-                        <segue destination="lXz-BW-0kX" kind="showDetail" id="FCf-01-qWU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiu-YE-eub" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1973.5" y="-203"/>
+            <point key="canvasLocation" x="2177.5" y="-203"/>
         </scene>
-        <!--Lab Settings Nav Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="z82-vM-hqe">
             <objects>
-                <navigationController navigationBarHidden="YES" id="bMa-SS-pGI" customClass="ARLabSettingsNavController" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="bMa-SS-pGI" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R5s-nB-NSP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -406,19 +575,21 @@
         <!--ARLabSettingsSplitViewController-->
         <scene sceneID="dhZ-S1-cYX">
             <objects>
-                <splitViewController storyboardIdentifier="ARLabSettings" title="ARLabSettingsSplitViewController" id="AhB-Tr-lmz" customClass="ARLabSettingsViewController" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="ARLabSettings" title="ARLabSettingsSplitViewController" id="AhB-Tr-lmz" customClass="ARLabSettingsSplitViewController" sceneMemberID="viewController">
                     <connections>
+                        <outlet property="delegate" destination="1Az-MC-UV7" id="jH7-jn-5jh"/>
                         <segue destination="bMa-SS-pGI" kind="relationship" relationship="masterViewController" id="gRn-aJ-vXi"/>
-                        <segue destination="lXz-BW-0kX" kind="relationship" relationship="detailViewController" id="ctT-K5-GpD"/>
+                        <segue destination="ZIK-Dz-F8x" kind="relationship" relationship="detailViewController" id="7Z3-1P-Emc"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tbi-6m-HPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="1Az-MC-UV7" customClass="ARLabSettingsDetailViewManager"/>
             </objects>
             <point key="canvasLocation" x="175" y="239"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FCf-01-qWU"/>
+        <segue reference="lWV-3G-m0S"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
