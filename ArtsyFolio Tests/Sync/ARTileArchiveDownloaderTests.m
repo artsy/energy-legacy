@@ -42,27 +42,6 @@
     return image;
 }
 
-- (void)testOperationForObject
-{
-    //    ARTileArchiveDownloader *downloader = [[ARTileArchiveDownloader alloc] init];
-    //
-    //    id image = [self mockImageWithSlug:@"image" needsTiles:YES];
-    //
-    //    __block ARImageFormat *format = nil;
-    //    NSOperation *operation = [downloader operationTree:nil
-    //                                    operationForObject:image
-    //                                          continuation:^(id object, void (^completion)()) {
-    //                                              format = object;
-    //                                          } failure:nil];
-    //
-    //    [self stubFileDownload];
-    //    [operation start];
-    //
-    //    expect(format).will.beTruthy();
-    //    expect([[NSFileManager defaultManager] fileExistsAtPath:[format path]]).to.beTruthy();
-    //    expect([[NSFileManager defaultManager] hasSkipBackupAttributeAtPath:[format path]]).to.beTruthy();
-}
-
 - (void)testImagesWithTiles
 {
     id image1 = [self mockImageWithSlug:@"image1" needsTiles:YES];

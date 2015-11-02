@@ -1,10 +1,10 @@
 #import <DRBOperationTree/DRBOperationTree.h>
 
-@class ARDeleter;
+@class ARSyncDeleter;
 
 
 @interface ARLocationDownloader : NSObject <DRBOperationProvider>
 
-- (instancetype)initWithContext:(NSManagedObjectContext *)context deleter:(ARDeleter *)deleter;
+- (instancetype)initWithContext:(NSManagedObjectContext *)context deleter:(ARSyncDeleter *)deleter;
 
 @end

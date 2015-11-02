@@ -1,12 +1,15 @@
+#import "ARSync.h"
+
+@class ARSyncBackgroundedCheck;
+
 /// Holds all the slugs for objects that should be deleted
 /// in a sync, you mark an object for deletion and unmark it
 /// later if found.
 
 
-@interface ARDeleter : NSObject
+@interface ARSyncDeleter : NSObject <ARSyncPlugin>
 
-/// Create an ARDeleter in a managed object context
-- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)context;
+@property (nonatomic, readwrite, strong) ARSyncBackgroundedCheck *backgroundCheck;
 
 /// Loop though all instances of a class within the deleter's context
 /// marking them for deletion
@@ -23,8 +26,5 @@
 
 /// All current marked objects
 - (NSSet *)markedObjects;
-
-/// Managed Object Context to run deletions from
-@property (nonatomic, strong, readonly) NSManagedObjectContext *context;
 
 @end

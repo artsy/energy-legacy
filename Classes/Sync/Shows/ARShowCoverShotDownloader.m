@@ -6,13 +6,13 @@
 
 @interface ARShowCoverShotDownloader ()
 @property (nonatomic, strong) NSManagedObjectContext *context;
-@property (nonatomic, strong) ARDeleter *deleter;
+@property (nonatomic, strong) ARSyncDeleter *deleter;
 @end
 
 
 @implementation ARShowCoverShotDownloader
 
-- (instancetype)initWithContext:(NSManagedObjectContext *)context deleter:(ARDeleter *)deleter
+- (instancetype)initWithContext:(NSManagedObjectContext *)context deleter:(ARSyncDeleter *)deleter
 {
     if ((self = [super init])) {
         _context = context;

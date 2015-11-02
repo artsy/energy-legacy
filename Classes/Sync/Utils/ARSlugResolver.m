@@ -2,88 +2,77 @@
 
 
 @interface ARSlugResolver ()
-@property (readwrite, nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @end
 
 
 @implementation ARSlugResolver
 
-- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)context
+- (void)syncDidFinish:(ARSync *)sync
 {
-    self = [super init];
-    if (!self) return nil;
-
-    _managedObjectContext = context;
-
-    return self;
-}
-
-- (void)resolveAllSlugs
-{
-    [self resolveSlugsForShows];
-    [self resolveSlugsForAlbums];
-    [self resolveSlugsForLocations];
+    [self resolveSlugsForShows:sync.config.managedObjectContext];
+    [self resolveSlugsForAlbums:sync.config.managedObjectContext];
+    [self resolveSlugsForLocations:sync.config.managedObjectContext];
 }
 
 // We cannot use the default accessors for the classes because
 // they have predicates on artwork count, and the defaults system
 
-- (NSArray *)allObjectsOfClass:(NSString *)klass
+- (NSArray *)allObjectsOfClass:(Class)klass inContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *req = [[NSFetchRequest alloc] init];
-    req.entity = [NSEntityDescription entityForName:klass inManagedObjectContext:self.managedObjectContext];
+    req.entity = [NSEntityDescription entityForName:NSStringFromClass(klass) inManagedObjectContext:context];
 
-    return [self.managedObjectContext executeFetchRequest:req error:nil];
+    return [context executeFetchRequest:req error:nil];
 }
 
-- (void)resolveSlugsForAlbums
+- (void)resolveSlugsForAlbums:(NSManagedObjectContext *)context
 {
-    NSArray *allAlbums = [self allObjectsOfClass:NSStringFromClass(Album.class)];
+    NSArray *allAlbums = [self allObjectsOfClass:Album.class inContext:context];
 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"editable = NO AND slug != 'all_artworks' AND slug != 'for_sale_works'"];
     NSArray *downloadedAlbums = [allAlbums filteredArrayUsingPredicate:predicate];
-    [self mapSlugsToArtworksForArtworkContainerArray:downloadedAlbums];
+    [self mapSlugsToArtworksForArtworkContainerArray:downloadedAlbums inContext:context];
 
     NSPredicate *allNonMagicAlbums = [NSPredicate predicateWithFormat:@"slug != 'all_artworks' AND slug != 'for_sale_works'"];
     NSArray *allUserAlbums = [allAlbums filteredArrayUsingPredicate:allNonMagicAlbums];
     [allUserAlbums makeObjectsPerformSelector:@selector(updateArtists)];
 
-    Album *allArtworksAlbum = [Album createOrFindAlbumInContext:self.managedObjectContext slug:@"all_artworks"];
+    Album *allArtworksAlbum = [Album createOrFindAlbumInContext:context slug:@"all_artworks"];
     allArtworksAlbum.name = NSLocalizedString(@"All Artworks", @"All Artworks Album title");
-    allArtworksAlbum.artworks = [NSSet setWithArray:[Artwork findAllInContext:self.managedObjectContext]];
+    allArtworksAlbum.artworks = [NSSet setWithArray:[Artwork findAllInContext:context]];
     allArtworksAlbum.editable = @(NO);
 
-    if ([[Partner currentPartnerInContext:self.managedObjectContext] hasForSaleWorks]) {
-        Album *forSaleWorksAlbum = [Album createOrFindAlbumInContext:self.managedObjectContext slug:@"for_sale_works"];
+    if ([[Partner currentPartnerInContext:context] hasForSaleWorks]) {
+        Album *forSaleWorksAlbum = [Album createOrFindAlbumInContext:context slug:@"for_sale_works"];
         forSaleWorksAlbum.name = NSLocalizedString(@"For Sale Works", @"For Sale Works Album Title");
         forSaleWorksAlbum.editable = @(NO);
 
         NSPredicate *forSaleWorks = [NSPredicate predicateWithFormat:@"isAvailableForSale = YES"];
-        forSaleWorksAlbum.artworks = [NSSet setWithArray:[Artwork findAllWithPredicate:forSaleWorks inContext:self.managedObjectContext]];
+        forSaleWorksAlbum.artworks = [NSSet setWithArray:[Artwork findAllWithPredicate:forSaleWorks inContext:context]];
     }
 }
 
-- (void)resolveSlugsForShows
+- (void)resolveSlugsForShows:(NSManagedObjectContext *)context
 {
-    NSArray *allShows = [self allObjectsOfClass:NSStringFromClass(Show.class)];
-    [self mapSlugsToArtworksForArtworkContainerArray:allShows];
+    NSArray *allShows = [self allObjectsOfClass:Show.class inContext:context];
+    [self mapSlugsToArtworksForArtworkContainerArray:allShows inContext:context];
     [allShows makeObjectsPerformSelector:@selector(updateArtists)];
 }
 
-- (void)resolveSlugsForLocations
+- (void)resolveSlugsForLocations:(NSManagedObjectContext *)context
 {
-    NSArray *allLocations = [self allObjectsOfClass:NSStringFromClass(Location.class)];
-    [self mapSlugsToArtworksForArtworkContainerArray:allLocations];
+    NSArray *allLocations = [self allObjectsOfClass:Location.class inContext:context];
+    [self mapSlugsToArtworksForArtworkContainerArray:allLocations inContext:context];
 }
 
-- (void)mapSlugsToArtworksForArtworkContainerArray:(NSArray *)objects
+- (void)mapSlugsToArtworksForArtworkContainerArray:(NSArray *)objects inContext:(NSManagedObjectContext *)context
 {
     [objects each:^(id container) {
 
         NSMutableSet *artworks = [NSMutableSet set];
 
         [[container artworkSlugs] each:^(NSString *slug) {
-            Artwork *artwork = [[Artwork findByAttribute:@"slug" withValue:slug inContext:self.managedObjectContext] firstObject];
+            Artwork *artwork = [[Artwork findByAttribute:@"slug" withValue:slug inContext:context] firstObject];
             if (artwork) {
                 [artworks addObject:artwork];
             } else {

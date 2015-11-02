@@ -12,15 +12,21 @@
 
 @implementation ARSpotlightExporter
 
-- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)context index:(CSSearchableIndex *)index
+- (instancetype)initWithIndex:(CSSearchableIndex *)index
 {
     self = [super init];
     if (!self) return nil;
 
-    _context = context;
     _index = index;
 
     return self;
+}
+
+- (void)syncDidFinish:(ARSync *)sync
+{
+    // TODO: Move to DI
+    self.context = sync.config.managedObjectContext;
+    [self updateCache];
 }
 
 - (void)updateCache

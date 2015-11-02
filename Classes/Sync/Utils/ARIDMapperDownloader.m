@@ -7,19 +7,19 @@
 #import "ARRouter.h"
 #import <AFNetworking/AFJSONRequestOperation.h>
 #import "ARIDMapperDownloader.h"
-#import "ARDeleter.h"
+#import "ARSyncDeleter.h"
 #import "ARFeedTranslator.h"
 
 
 @interface ARIDMapperDownloader ()
 @property (nonatomic, strong, readonly) NSManagedObjectContext *context;
-@property (nonatomic, strong, readonly) ARDeleter *deleter;
+@property (nonatomic, strong, readonly) ARSyncDeleter *deleter;
 @end
 
 
 @implementation ARIDMapperDownloader
 
-- (instancetype)initWithContext:(NSManagedObjectContext *)context deleter:(ARDeleter *)deleter
+- (instancetype)initWithContext:(NSManagedObjectContext *)context deleter:(ARSyncDeleter *)deleter
 {
     if ((self = [super init])) {
         _context = context;

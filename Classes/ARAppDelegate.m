@@ -78,8 +78,12 @@ void uncaughtExceptionHandler(NSException *exception);
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen.mainScreen bounds]];
 
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSManagedObjectContext *context = [CoreDataManager mainManagedObjectContext];
+
     _sync = [[ARSync alloc] init];
     self.sync.progress = [[ARSyncProgress alloc] init];
+    self.sync.config = [[ARSyncConfig alloc] initWithManagedObjectContext:context defaults:defaults deleter:[[ARSyncDeleter alloc] init]];
 
     _partnerSync = [[ARPartnerMetadataSync alloc] init];
     _statusWatcher = [[AROfflineStatusWatcher alloc] initWithSync:self.sync];
@@ -87,7 +91,6 @@ void uncaughtExceptionHandler(NSException *exception);
 
     [self.viewCoordinator setupFolioGrid];
 
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     BOOL useWhiteFolio = [defaults boolForKey:AROptionsUseWhiteFolio];
     BOOL hasLoggedInSyncedUser = [ARUserManager loginCredentialsExist] && [Partner currentPartner];
     BOOL hasLoggedInUnsyncedUser = [defaults boolForKey:ARStartedFirstSync] && ![defaults boolForKey:ARFinishedFirstSync];
