@@ -16,6 +16,13 @@ NSString *const ARShowAvailability = @"ARShowAvailability";
 NSString *const ARShowAvailableOnly = @"ARShowAvailableOnly";
 NSString *const ARShowConfidentialNotes = @"ARShowConfidentialNotes";
 
+// Lab settings; easier to do this for now than use the NOT versions of existing ones and have to retroactively change things later
+NSString *const ARHidePrices = @"ARHidePrices";
+NSString *const ARHideSoldWorksPrices = @"ARHideSoldWorksPrices";
+NSString *const ARHideNotForSaleWorks = @"ARHideNotForSaleWorks";
+NSString *const ARHideArtworkEditButton = @"ARHideArtworkEditButton";
+NSString *const ARPresentationMode = @"ARPresentationMode";
+
 NSString *const AREmailGreeting = @"AREmailGreeting";
 NSString *const AREmailSignature = @"AREmailSignature";
 NSString *const AREmailSubject = @"AREmailSubject";

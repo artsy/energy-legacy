@@ -3,6 +3,7 @@
 #import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 #import "ARTopViewController.h"
 #import "ARLabSettingsDetailViewManager.h"
+#import "NSString+NiceAttributedStrings.h"
 
 
 @interface ARLabSettingsSyncViewController ()
@@ -24,12 +25,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     self.previousSyncDateStrings = self.viewModel.previousSyncDateStrings;
     [self.syncButton setTitle:@"Sync Content".uppercaseString forState:UIControlStateNormal];
 
     NSString *string = self.explanatoryTextLabel.text;
-    [self.explanatoryTextLabel setAttributedText:[self expandedLineHeightBodyTextForString:string]];
+    self.explanatoryTextLabel.attributedText = [string attributedStringWithLineSpacing:10.0];
 
     NSString *previousSyncsText = self.viewModel.syncLogCount ? @"Previous Syncs" : @"You have no previous syncs";
     [self.previousSyncsLabel setAttributedText:[self expandedKernTextForString:previousSyncsText.uppercaseString]];
@@ -58,15 +59,6 @@
 {
     [self.viewModel startSync];
     [self.tableView reloadData];
-}
-
-- (NSAttributedString *)expandedLineHeightBodyTextForString:(NSString *)string
-{
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:string];
-    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    [style setLineSpacing:10];
-    [attrString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, string.length)];
-    return attrString;
 }
 
 - (NSAttributedString *)expandedKernTextForString:(NSString *)string
