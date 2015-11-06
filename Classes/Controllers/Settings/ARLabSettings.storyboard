@@ -23,7 +23,7 @@
         <!--Lab Settings Sync View Controller-->
         <scene sceneID="Ozj-d1-V0z">
             <objects>
-                <viewController storyboardIdentifier="Sync View Controller" id="lXz-BW-0kX" customClass="ARLabSettingsSyncViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Sync Settings View Controller" id="lXz-BW-0kX" customClass="ARLabSettingsSyncViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5pM-C7-1Xy"/>
                         <viewControllerLayoutGuide type="bottom" id="1Mk-77-YAC"/>
@@ -135,12 +135,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xm4-Ia-lle" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1862" y="821"/>
+            <point key="canvasLocation" x="1829" y="809"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Lab Settings Navigation Controller-->
         <scene sceneID="Wqt-dq-QUI">
             <objects>
-                <navigationController navigationBarHidden="YES" id="ZIK-Dz-F8x" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SettingsNavigationController" navigationBarHidden="YES" id="ZIK-Dz-F8x" customClass="ARLabSettingsNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ecC-xr-28t">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -148,33 +148,18 @@
                     </navigationBar>
                     <connections>
                         <segue destination="lXz-BW-0kX" kind="relationship" relationship="rootViewController" id="w7t-EQ-d2y"/>
+                        <segue destination="lXz-BW-0kX" kind="showDetail" identifier="Show Sync Settings View Controller" id="Ze5-Jl-LUP"/>
+                        <segue destination="V7h-Op-kFe" kind="showDetail" identifier="Show Presentation Mode Settings View Controller" id="Vel-ZI-L7G"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hK5-er-jsF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1001" y="821"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="vBH-Qd-WBO">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="tnx-rc-Sqx" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DS6-e7-sUF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="V7h-Op-kFe" kind="relationship" relationship="rootViewController" id="xNG-0J-bXZ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lmh-zL-JfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2814" y="821"/>
+            <point key="canvasLocation" x="1001" y="809"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Vql-6P-U53">
             <objects>
-                <viewController id="V7h-Op-kFe" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Presentation Mode View Controller" id="V7h-Op-kFe" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rcw-0T-dBx"/>
                         <viewControllerLayoutGuide type="bottom" id="04J-CV-69c"/>
@@ -202,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAI-5S-zGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2814" y="1686"/>
+            <point key="canvasLocation" x="1829" y="1586"/>
         </scene>
         <!--Lab Settings Master View Controller-->
         <scene sceneID="kL2-SG-N9U">
@@ -242,7 +227,7 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="ZIK-Dz-F8x" kind="showDetail" identifier="Sync Settings" id="lWV-3G-m0S"/>
+                                            <action selector="syncButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="6Aa-XE-tuS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -286,7 +271,7 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <action selector="presentationModeButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="NLQ-hf-38t"/>
+                                            <action selector="presentationModeButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="ddV-cX-6aX"/>
                                         </connections>
                                     </button>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAr-Aa-eK4" userLabel="Toggle Switch">
@@ -333,7 +318,7 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="tnx-rc-Sqx" kind="showDetail" id="f9Y-Ta-CP8"/>
+                                            <action selector="editPresentationModeButton:" destination="vMx-hu-Yme" eventType="touchUpInside" id="9ey-4c-hQP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -423,6 +408,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="265" height="50"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="supportButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="Fzb-X4-Vll"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -547,6 +535,7 @@
                         <outlet property="settingsIcon" destination="yVa-s8-m9i" id="Qe8-pa-NkO"/>
                         <outlet property="supportButton" destination="7RZ-pG-az1" id="AEB-OB-Y3j"/>
                         <outlet property="syncContentButton" destination="Awe-KF-u5N" id="haT-ZI-jkT"/>
+                        <segue destination="ZIK-Dz-F8x" kind="showDetail" id="UKy-Yb-d6b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiu-YE-eub" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -577,19 +566,18 @@
             <objects>
                 <splitViewController storyboardIdentifier="ARLabSettings" title="ARLabSettingsSplitViewController" id="AhB-Tr-lmz" customClass="ARLabSettingsSplitViewController" sceneMemberID="viewController">
                     <connections>
-                        <outlet property="delegate" destination="1Az-MC-UV7" id="jH7-jn-5jh"/>
                         <segue destination="bMa-SS-pGI" kind="relationship" relationship="masterViewController" id="gRn-aJ-vXi"/>
                         <segue destination="ZIK-Dz-F8x" kind="relationship" relationship="detailViewController" id="7Z3-1P-Emc"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tbi-6m-HPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="1Az-MC-UV7" customClass="ARLabSettingsDetailViewManager"/>
             </objects>
             <point key="canvasLocation" x="175" y="239"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lWV-3G-m0S"/>
+        <segue reference="UKy-Yb-d6b"/>
+        <segue reference="Ze5-Jl-LUP"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

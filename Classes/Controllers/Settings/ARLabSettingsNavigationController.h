@@ -1,0 +1,6 @@
+
+
+
+@interface ARLabSettingsNavigationController : UINavigationController
+
+@end

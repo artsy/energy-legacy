@@ -16,6 +16,8 @@ NSString *const ARShowAvailability = @"ARShowAvailability";
 NSString *const ARShowAvailableOnly = @"ARShowAvailableOnly";
 NSString *const ARShowConfidentialNotes = @"ARShowConfidentialNotes";
 
+NSString *const ARPresentationModeOn = @"ARPresentationModeOn";
+
 NSString *const AREmailGreeting = @"AREmailGreeting";
 NSString *const AREmailSignature = @"AREmailSignature";
 NSString *const AREmailSubject = @"AREmailSubject";
