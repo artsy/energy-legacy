@@ -7,9 +7,7 @@
 
 @interface ARLabSettingsNavigationController ()
 
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, strong) NSUserDefaults *defaults;
-@property (nonatomic, strong) ARSync *sync;
+
 @end
 
 
@@ -19,7 +17,7 @@
 {
     [super viewDidLoad];
     if ([self.topViewController isKindOfClass:ARLabSettingsSyncViewController.class]) {
-        ((ARLabSettingsSyncViewController *)self.topViewController).viewModel = self.syncViewModel;
+        [(ARLabSettingsSyncViewController *)self.topViewController setViewModel:self.syncViewModel];
     }
 }
 
@@ -32,7 +30,7 @@
 
         switch (vc.section) {
             case ARLabSettingsSectionSync:
-                ((ARLabSettingsSyncViewController *)vc).viewModel = self.syncViewModel;
+                [(ARLabSettingsSyncViewController *)vc setViewModel:self.syncViewModel];
                 break;
             default:
                 break;

@@ -532,6 +532,7 @@
 		8383FB6B1BD83E33004B2A87 /* ARLabSettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8383FB6A1BD83E33004B2A87 /* ARLabSettingsViewControllerTests.m */; };
 		838BEEF31B31C9DF00D5FFC6 /* ARCMSStatusMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 838BEEF21B31C9DF00D5FFC6 /* ARCMSStatusMonitor.m */; };
 		839B53CB1BEC473C008A6173 /* ARLabSettingsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839B53CA1BEC473C008A6173 /* ARLabSettingsNavigationController.m */; };
+		839B53CE1BF112D7008A6173 /* ARLabSettingsSyncViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 839B53CD1BF112D7008A6173 /* ARLabSettingsSyncViewControllerTests.m */; };
 		839B59781B4DAA3900F24033 /* _EditionSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 839B59771B4DAA3900F24033 /* _EditionSet.m */; };
 		839B597B1B4DB6D000F24033 /* EditionSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 839B597A1B4DB6D000F24033 /* EditionSet.m */; };
 		839C16C31B94B65C009D8FB4 /* ARSyncStatusViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 839C16C21B94B65C009D8FB4 /* ARSyncStatusViewModel.m */; };
@@ -1442,6 +1443,7 @@
 		838BEEF21B31C9DF00D5FFC6 /* ARCMSStatusMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARCMSStatusMonitor.m; sourceTree = "<group>"; };
 		839B53C91BEC473C008A6173 /* ARLabSettingsNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsNavigationController.h; sourceTree = "<group>"; };
 		839B53CA1BEC473C008A6173 /* ARLabSettingsNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsNavigationController.m; sourceTree = "<group>"; };
+		839B53CD1BF112D7008A6173 /* ARLabSettingsSyncViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsSyncViewControllerTests.m; sourceTree = "<group>"; };
 		839B59751B4D955900F24033 /* ArtsyFolio v2.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.4.xcdatamodel"; sourceTree = "<group>"; };
 		839B59761B4DAA3900F24033 /* _EditionSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _EditionSet.h; sourceTree = "<group>"; };
 		839B59771B4DAA3900F24033 /* _EditionSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _EditionSet.m; sourceTree = "<group>"; };
@@ -2015,7 +2017,7 @@
 				60EF3155186DB9C70093F6F1 /* ARTopViewControllerTests.m */,
 				604D77E81A33AF5E006D55E4 /* ARAlbumViewControllerTests.m */,
 				60EC79F81A9E75B3009196A1 /* ARModernEmailArtworksViewControllerTests.m */,
-				8383FB6A1BD83E33004B2A87 /* ARLabSettingsViewControllerTests.m */,
+				839B53CC1BF10DA1008A6173 /* Settings */,
 				60FDF6DC1AEAA21800173E81 /* ARSearchViewControllerTests.m */,
 				839E42601B052DE800C4BF49 /* ARFolioMessageViewControllerTests.m */,
 				834BA69C1B4AE74F009D18F7 /* ARFolioImageMessageViewControllerTests.m */,
@@ -2979,6 +2981,15 @@
 				609CB43C192BA8240056E741 /* ARLoginViewControllerTests.m */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		839B53CC1BF10DA1008A6173 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8383FB6A1BD83E33004B2A87 /* ARLabSettingsViewControllerTests.m */,
+				839B53CD1BF112D7008A6173 /* ARLabSettingsSyncViewControllerTests.m */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		B37F1663183EEA71007A7023 /* ArtsyFolio Tests */ = {
@@ -3985,6 +3996,7 @@
 				60F1F1021B04ACB0004B6C7F /* ARPartnerFullMetadataDownloaderSpec.m in Sources */,
 				60327DF4198A5DE00075B399 /* ARTabbedViewControllerDataSource.m in Sources */,
 				60DED57D1975A72200853B78 /* ARImageViewCategoriesTests.m in Sources */,
+				839B53CE1BF112D7008A6173 /* ARLabSettingsSyncViewControllerTests.m in Sources */,
 				839E42611B052DE800C4BF49 /* ARFolioMessageViewControllerTests.m in Sources */,
 				607448251BE3C4EA00E20774 /* ARSyncInsomniacSpec.m in Sources */,
 				607448231BE3BD8000E20774 /* ARSync+TestsExtension.m in Sources */,

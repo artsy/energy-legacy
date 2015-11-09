@@ -12,6 +12,7 @@
 
     self.preferredDisplayMode = [UIDevice isPad] ? UISplitViewControllerDisplayModeAllVisible : UISplitViewControllerDisplayModeAutomatic;
     self.preferredPrimaryColumnWidthFraction = 0.4;
+    self.delegate = self;
 }
 
 - (void)showDetailViewControllerForSettingsSection:(ARLabSettingsSection)section
@@ -24,10 +25,15 @@
             [nav performSegueWithIdentifier:ShowSyncSettingsViewController sender:nav];
             break;
         case ARLabSettingsSectionPresentationMode:
-            [nav performSegueWithIdentifier:ShowEditPresentationModeViewController sender:nav];
+            [nav performSegueWithIdentifier:ShowPresentationModeSettingsViewController sender:nav];
         default:
             break;
     }
+}
+
+- (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController
+{
+    return YES;
 }
 
 #pragma mark - exit strategy

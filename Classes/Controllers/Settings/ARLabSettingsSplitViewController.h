@@ -11,7 +11,7 @@ typedef NS_ENUM(NSInteger, ARLabSettingsSection) {
 @end
 
 
-@interface ARLabSettingsSplitViewController : UISplitViewController
+@interface ARLabSettingsSplitViewController : UISplitViewController <UISplitViewControllerDelegate>
 
 - (void)exitSettingsPanel;
 
