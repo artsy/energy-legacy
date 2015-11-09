@@ -23,7 +23,7 @@
         <!--Lab Settings Sync View Controller-->
         <scene sceneID="Ozj-d1-V0z">
             <objects>
-                <viewController storyboardIdentifier="Sync View Controller" id="lXz-BW-0kX" customClass="ARLabSettingsSyncViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Sync Settings View Controller" id="lXz-BW-0kX" customClass="ARLabSettingsSyncViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5pM-C7-1Xy"/>
                         <viewControllerLayoutGuide type="bottom" id="1Mk-77-YAC"/>
@@ -135,12 +135,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xm4-Ia-lle" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1862" y="821"/>
+            <point key="canvasLocation" x="1829" y="809"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Lab Settings Navigation Controller-->
         <scene sceneID="Wqt-dq-QUI">
             <objects>
-                <navigationController navigationBarHidden="YES" id="ZIK-Dz-F8x" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SettingsNavigationController" navigationBarHidden="YES" id="ZIK-Dz-F8x" customClass="ARLabSettingsNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ecC-xr-28t">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -148,33 +148,18 @@
                     </navigationBar>
                     <connections>
                         <segue destination="lXz-BW-0kX" kind="relationship" relationship="rootViewController" id="w7t-EQ-d2y"/>
+                        <segue destination="lXz-BW-0kX" kind="showDetail" identifier="Show Sync Settings View Controller" id="Ze5-Jl-LUP"/>
+                        <segue destination="V7h-Op-kFe" kind="showDetail" identifier="Show Presentation Mode Settings View Controller" id="Vel-ZI-L7G"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hK5-er-jsF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1001" y="821"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="vBH-Qd-WBO">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="tnx-rc-Sqx" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DS6-e7-sUF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="V7h-Op-kFe" kind="relationship" relationship="rootViewController" id="xNG-0J-bXZ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lmh-zL-JfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2814" y="821"/>
+            <point key="canvasLocation" x="1001" y="809"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Vql-6P-U53">
             <objects>
-                <viewController id="V7h-Op-kFe" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Presentation Mode View Controller" id="V7h-Op-kFe" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rcw-0T-dBx"/>
                         <viewControllerLayoutGuide type="bottom" id="04J-CV-69c"/>
@@ -202,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAI-5S-zGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2814" y="1686"/>
+            <point key="canvasLocation" x="1829" y="1590"/>
         </scene>
         <!--Lab Settings Master View Controller-->
         <scene sceneID="kL2-SG-N9U">
@@ -242,7 +227,7 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="ZIK-Dz-F8x" kind="showDetail" identifier="Sync Settings" id="lWV-3G-m0S"/>
+                                            <action selector="syncButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="6Aa-XE-tuS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -286,7 +271,7 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <action selector="presentationModeButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="NLQ-hf-38t"/>
+                                            <action selector="presentationModeButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="ddV-cX-6aX"/>
                                         </connections>
                                     </button>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAr-Aa-eK4" userLabel="Toggle Switch">
@@ -333,7 +318,7 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="tnx-rc-Sqx" kind="showDetail" id="f9Y-Ta-CP8"/>
+                                            <action selector="editPresentationModeButton:" destination="vMx-hu-Yme" eventType="touchUpInside" id="9ey-4c-hQP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -423,6 +408,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="265" height="50"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="supportButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="Fzb-X4-Vll"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -480,13 +468,9 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yVa-s8-m9i" firstAttribute="leading" secondItem="qr3-nz-sZj" secondAttribute="leadingMargin" id="0Zs-4O-sgf"/>
-                            <constraint firstItem="UqU-EW-kcK" firstAttribute="leading" secondItem="qr3-nz-sZj" secondAttribute="leadingMargin" constant="-7" id="4VQ-Rb-BG2"/>
                             <constraint firstItem="4ft-ij-hEu" firstAttribute="height" secondItem="UqU-EW-kcK" secondAttribute="height" id="4dA-Qc-y3C"/>
                             <constraint firstItem="OnH-PU-Est" firstAttribute="top" secondItem="Hzk-ka-Ieb" secondAttribute="bottom" id="5tC-w3-yJg"/>
                             <constraint firstItem="Udi-sX-Dx1" firstAttribute="height" secondItem="UqU-EW-kcK" secondAttribute="height" id="6iQ-5Y-Xug"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UqU-EW-kcK" secondAttribute="trailing" constant="-7" id="936-BO-ibA"/>
-                            <constraint firstItem="UqU-EW-kcK" firstAttribute="centerX" secondItem="qr3-nz-sZj" secondAttribute="centerX" id="9sO-sj-8YA"/>
                             <constraint firstItem="elk-lP-AmA" firstAttribute="centerX" secondItem="qr3-nz-sZj" secondAttribute="centerX" id="AWN-RU-uq4"/>
                             <constraint firstItem="OnH-PU-Est" firstAttribute="centerX" secondItem="qr3-nz-sZj" secondAttribute="centerX" id="Aaz-gR-KAF"/>
                             <constraint firstItem="UqU-EW-kcK" firstAttribute="width" secondItem="qr3-nz-sZj" secondAttribute="height" multiplier="265:1024" id="Acs-JZ-tCZ"/>
@@ -500,7 +484,6 @@
                             <constraint firstItem="p6N-5v-yfh" firstAttribute="height" secondItem="UqU-EW-kcK" secondAttribute="height" id="L7Z-1b-TxG"/>
                             <constraint firstItem="yVa-s8-m9i" firstAttribute="top" secondItem="I9E-fN-td1" secondAttribute="bottom" constant="15" id="LpS-Hi-3WN"/>
                             <constraint firstItem="bcL-Qn-3m0" firstAttribute="top" secondItem="OnH-PU-Est" secondAttribute="bottom" constant="15" id="MCy-ih-YTp"/>
-                            <constraint firstItem="UqU-EW-kcK" firstAttribute="width" secondItem="qr3-nz-sZj" secondAttribute="height" multiplier="265:1024" id="Mwz-H0-Uin"/>
                             <constraint firstItem="UqU-EW-kcK" firstAttribute="top" secondItem="yVa-s8-m9i" secondAttribute="bottom" constant="25" id="Rl7-QS-NFF"/>
                             <constraint firstItem="e3k-Ce-4hS" firstAttribute="top" secondItem="elk-lP-AmA" secondAttribute="bottom" constant="43" id="SSf-qb-3e6"/>
                             <constraint firstItem="p6N-5v-yfh" firstAttribute="centerX" secondItem="qr3-nz-sZj" secondAttribute="centerX" id="URC-fe-q7h"/>
@@ -515,23 +498,12 @@
                             <constraint firstItem="p6N-5v-yfh" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="kPR-4a-E0p"/>
                             <constraint firstItem="p6N-5v-yfh" firstAttribute="top" secondItem="bcL-Qn-3m0" secondAttribute="bottom" constant="50" id="nme-Bs-oyp"/>
                             <constraint firstItem="elk-lP-AmA" firstAttribute="top" secondItem="Udi-sX-Dx1" secondAttribute="bottom" constant="25" id="rOr-2V-0lA"/>
-                            <constraint firstItem="UqU-EW-kcK" firstAttribute="width" secondItem="qr3-nz-sZj" secondAttribute="height" multiplier="265:1024" id="raz-Kh-H4r"/>
                             <constraint firstItem="e3k-Ce-4hS" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="t5J-tv-CeB"/>
                             <constraint firstItem="elk-lP-AmA" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="uHR-yH-8vG"/>
                             <constraint firstItem="Udi-sX-Dx1" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="wIa-sF-31t"/>
                             <constraint firstItem="UqU-EW-kcK" firstAttribute="centerX" secondItem="qr3-nz-sZj" secondAttribute="centerX" id="xeQ-dw-T3l"/>
                             <constraint firstItem="bcL-Qn-3m0" firstAttribute="width" secondItem="UqU-EW-kcK" secondAttribute="width" id="y28-QR-WGG"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="0Zs-4O-sgf"/>
-                                <exclude reference="4VQ-Rb-BG2"/>
-                                <exclude reference="936-BO-ibA"/>
-                                <exclude reference="9sO-sj-8YA"/>
-                                <exclude reference="Mwz-H0-Uin"/>
-                                <exclude reference="raz-Kh-H4r"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Di0-B1-yjN"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -547,6 +519,7 @@
                         <outlet property="settingsIcon" destination="yVa-s8-m9i" id="Qe8-pa-NkO"/>
                         <outlet property="supportButton" destination="7RZ-pG-az1" id="AEB-OB-Y3j"/>
                         <outlet property="syncContentButton" destination="Awe-KF-u5N" id="haT-ZI-jkT"/>
+                        <segue destination="ZIK-Dz-F8x" kind="showDetail" id="UKy-Yb-d6b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiu-YE-eub" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -577,19 +550,18 @@
             <objects>
                 <splitViewController storyboardIdentifier="ARLabSettings" title="ARLabSettingsSplitViewController" id="AhB-Tr-lmz" customClass="ARLabSettingsSplitViewController" sceneMemberID="viewController">
                     <connections>
-                        <outlet property="delegate" destination="1Az-MC-UV7" id="jH7-jn-5jh"/>
                         <segue destination="bMa-SS-pGI" kind="relationship" relationship="masterViewController" id="gRn-aJ-vXi"/>
                         <segue destination="ZIK-Dz-F8x" kind="relationship" relationship="detailViewController" id="7Z3-1P-Emc"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tbi-6m-HPV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="1Az-MC-UV7" customClass="ARLabSettingsDetailViewManager"/>
             </objects>
             <point key="canvasLocation" x="175" y="239"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lWV-3G-m0S"/>
+        <segue reference="UKy-Yb-d6b"/>
+        <segue reference="Ze5-Jl-LUP"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

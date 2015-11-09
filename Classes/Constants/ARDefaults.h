@@ -15,6 +15,8 @@ extern NSString *const ARShowAvailability;
 extern NSString *const ARShowAvailableOnly;
 extern NSString *const ARShowConfidentialNotes;
 
+extern NSString *const ARPresentationModeOn;
+
 extern NSString *const AREmailGreeting;
 extern NSString *const AREmailSignature;
 extern NSString *const AREmailCCEmail;

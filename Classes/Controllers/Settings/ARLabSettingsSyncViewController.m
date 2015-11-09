@@ -2,12 +2,9 @@
 #import "ARFlatButton.h"
 #import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 #import "ARTopViewController.h"
-#import "ARLabSettingsDetailViewManager.h"
 
 
 @interface ARLabSettingsSyncViewController ()
-
-@property (nonatomic, strong) ARSyncStatusViewModel *viewModel;
 
 @property (weak, nonatomic) IBOutlet ARSyncFlatButton *syncButton;
 @property (weak, nonatomic) IBOutlet UILabel *explanatoryTextLabel;
@@ -21,10 +18,22 @@
 
 @implementation ARLabSettingsSyncViewController
 
+@synthesize section;
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (!self) return nil;
+
+    self.section = ARLabSettingsSectionSync;
+
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     self.previousSyncDateStrings = self.viewModel.previousSyncDateStrings;
     [self.syncButton setTitle:@"Sync Content".uppercaseString forState:UIControlStateNormal];
 
@@ -57,7 +66,6 @@
 - (IBAction)syncButtonPressed:(id)sender
 {
     [self.viewModel startSync];
-    [self.tableView reloadData];
 }
 
 - (NSAttributedString *)expandedLineHeightBodyTextForString:(NSString *)string
@@ -74,17 +82,6 @@
     NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:string];
     [attrString addAttribute:NSKernAttributeName value:@(1.5) range:NSMakeRange(0, string.length)];
     return attrString;
-}
-
-- (ARLabSettingsDetailViewManager *)manager
-{
-    UISplitViewController *splitController = self.splitViewController;
-    return (ARLabSettingsDetailViewManager *)splitController.delegate;
-}
-
-- (ARSyncStatusViewModel *)viewModel
-{
-    return _viewModel ?: [self.manager viewModelForSection:ARLabSettingsSectionSync];
 }
 
 @end

@@ -1,6 +1,8 @@
 #import "ARLabSettingsSplitViewController.h"
 #import "ARTopViewController.h"
-#import "ARLabSettingsDetailViewManager.h"
+#import "ARLabSettingsNavigationController.h"
+#import "ARStoryboardIdentifiers.h"
+
 
 @implementation ARLabSettingsSplitViewController
 
@@ -10,7 +12,28 @@
 
     self.preferredDisplayMode = [UIDevice isPad] ? UISplitViewControllerDisplayModeAllVisible : UISplitViewControllerDisplayModeAutomatic;
     self.preferredPrimaryColumnWidthFraction = 0.4;
-    
+    self.delegate = self;
+}
+
+- (void)showDetailViewControllerForSettingsSection:(ARLabSettingsSection)section
+{
+    ARLabSettingsNavigationController *nav = [self.storyboard instantiateViewControllerWithIdentifier:SettingsNavigationController];
+    [self showDetailViewController:nav sender:self];
+
+    switch (section) {
+        case ARLabSettingsSectionSync:
+            [nav performSegueWithIdentifier:ShowSyncSettingsViewController sender:nav];
+            break;
+        case ARLabSettingsSectionPresentationMode:
+            [nav performSegueWithIdentifier:ShowPresentationModeSettingsViewController sender:nav];
+        default:
+            break;
+    }
+}
+
+- (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController
+{
+    return YES;
 }
 
 #pragma mark - exit strategy
