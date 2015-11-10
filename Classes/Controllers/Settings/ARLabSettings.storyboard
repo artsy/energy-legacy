@@ -11,6 +11,7 @@
             <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
         </mutableArray>
         <mutableArray key="ITC_Avant_Garde_Gothic__Demi.ttf">
             <string>AvantGardeGothicITCW01Dm</string>
@@ -137,6 +138,92 @@
             </objects>
             <point key="canvasLocation" x="1829" y="809"/>
         </scene>
+        <!--Lab Settings Presentation Mode View Controller-->
+        <scene sceneID="abj-9B-mjj">
+            <objects>
+                <tableViewController storyboardIdentifier="Presentation Mode View Controller" id="vLZ-zc-DG3" customClass="ARLabSettingsPresentationModeViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="50" sectionHeaderHeight="18" sectionFooterHeight="18" id="sOl-Hn-fAh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <inset key="scrollIndicatorInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EDIT PRESENTATION MODE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FNI-jd-oZT">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="20"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="N0r-Cy-UBy">
+                            <rect key="frame" x="0.0" y="297.5" width="600" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVZ-xW-oJP">
+                                    <rect key="frame" x="20" y="18" width="560" height="34"/>
+                                    <animations/>
+                                    <string key="text">When Presentation Mode is enabled, all the information and features toggled ON will be hidden. Features toggled OFF will be visible.</string>
+                                    <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="17"/>
+                                    <color key="textColor" red="0.58458087914485168" green="0.58458087914485168" blue="0.58458087914485168" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <animations/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="UVZ-xW-oJP" firstAttribute="leading" secondItem="N0r-Cy-UBy" secondAttribute="leading" constant="20" id="0Il-U0-XOv"/>
+                                <constraint firstAttribute="trailing" secondItem="UVZ-xW-oJP" secondAttribute="trailing" constant="20" id="8u2-0D-c1x"/>
+                                <constraint firstItem="UVZ-xW-oJP" firstAttribute="centerX" secondItem="N0r-Cy-UBy" secondAttribute="centerX" id="Xn0-kc-LX0"/>
+                                <constraint firstItem="UVZ-xW-oJP" firstAttribute="centerY" secondItem="N0r-Cy-UBy" secondAttribute="centerY" id="xo5-wI-fzL"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oc8-hj-y8W">
+                                <rect key="frame" x="0.0" y="129.5" width="600" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oc8-hj-y8W" id="leD-1H-xiG">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Cfg-3y-FDE">
+                                <rect key="frame" x="0.0" y="179.5" width="600" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cfg-3y-FDE" id="2Wb-tz-kNs">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4Yx-VL-bmB">
+                                <rect key="frame" x="0.0" y="229.5" width="600" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Yx-VL-bmB" id="sXn-kQ-voW">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vLZ-zc-DG3" id="u5N-Na-wHP"/>
+                            <outlet property="delegate" destination="vLZ-zc-DG3" id="5Ud-cm-Mb5"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="explanatoryTextLabel" destination="UVZ-xW-oJP" id="Vwp-Md-r36"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EIU-fM-KDr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1667" y="1578"/>
+        </scene>
         <!--Lab Settings Navigation Controller-->
         <scene sceneID="Wqt-dq-QUI">
             <objects>
@@ -149,45 +236,12 @@
                     <connections>
                         <segue destination="lXz-BW-0kX" kind="relationship" relationship="rootViewController" id="w7t-EQ-d2y"/>
                         <segue destination="lXz-BW-0kX" kind="showDetail" identifier="Show Sync Settings View Controller" id="Ze5-Jl-LUP"/>
-                        <segue destination="V7h-Op-kFe" kind="showDetail" identifier="Show Presentation Mode Settings View Controller" id="Vel-ZI-L7G"/>
+                        <segue destination="vLZ-zc-DG3" kind="showDetail" identifier="Show Presentation Mode Settings View Controller" id="pKl-q8-aBh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hK5-er-jsF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1001" y="809"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Vql-6P-U53">
-            <objects>
-                <viewController storyboardIdentifier="Presentation Mode View Controller" id="V7h-Op-kFe" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Rcw-0T-dBx"/>
-                        <viewControllerLayoutGuide type="bottom" id="04J-CV-69c"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rFq-4e-Ofy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EDIT PRESENTATION MODE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yat-b7-Gjx">
-                                <rect key="frame" x="196" y="40" width="208" height="22"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="yat-b7-Gjx" firstAttribute="top" secondItem="Rcw-0T-dBx" secondAttribute="bottom" constant="20" id="gVx-Gg-WYU"/>
-                            <constraint firstItem="yat-b7-Gjx" firstAttribute="centerX" secondItem="rFq-4e-Ofy" secondAttribute="centerX" id="vHa-v9-zPd"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="hEX-rq-lxP"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cAI-5S-zGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1829" y="1590"/>
         </scene>
         <!--Lab Settings Master View Controller-->
         <scene sceneID="kL2-SG-N9U">

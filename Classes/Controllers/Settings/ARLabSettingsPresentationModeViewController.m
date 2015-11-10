@@ -7,8 +7,6 @@
 
 
 @interface ARLabSettingsPresentationModeViewController ()
-@property (nonatomic, strong) NSManagedObjectContext *context;
-@property (nonatomic, strong) NSUserDefaults *defaults;
 @property (nonatomic, copy) NSArray *presentationModeOptions;
 @property (weak, nonatomic) IBOutlet UILabel *explanatoryTextLabel;
 
@@ -17,24 +15,24 @@
 
 @implementation ARLabSettingsPresentationModeViewController
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
+- (void)viewDidLoad
 {
-    self = [super initWithCoder:aDecoder];
-    if (!self) return nil;
+    [super viewDidLoad];
+    self.explanatoryTextLabel.attributedText = [self.explanatoryTextLabel.text attributedStringWithLineSpacing:8];
 
     Partner *partner = [Partner currentPartnerInContext:self.context];
     NSMutableArray *presentationModeOptions = [NSMutableArray array];
 
     if ([partner hasWorksWithPrice]) {
         [presentationModeOptions addObject:@{
-            AROptionsKey : ARHidePrices,
+            AROptionsKey : ARShowPrices,
             AROptionsName : @"Hide All Artwork Prices"
         }];
     }
 
     if ([partner hasForSaleWorks]) {
         [presentationModeOptions addObject:@{
-            AROptionsKey : ARHideSoldWorksPrices,
+            AROptionsKey : ARShowPrices,
             AROptionsName : @"Hide Prices For Sold Works Only"
         }];
     }
@@ -48,27 +46,19 @@
 
     if ([partner hasConfidentialNotes]) {
         [presentationModeOptions addObject:@{
-            AROptionsKey : ARHideNotForSaleWorks,
+            AROptionsKey : ARShowPrices,
             AROptionsName : @"Hide Not For Sale Works"
         }];
     }
 
     if ([partner hasConfidentialNotes]) {
         [presentationModeOptions addObject:@{
-            AROptionsKey : ARHideArtworkEditButton,
+            AROptionsKey : ARShowPrices,
             AROptionsName : @"Hide Artwork Edit Button"
         }];
     }
 
     self.presentationModeOptions = [NSArray arrayWithArray:presentationModeOptions];
-
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.explanatoryTextLabel.attributedText = [self.explanatoryTextLabel.text attributedStringWithLineSpacing:10];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

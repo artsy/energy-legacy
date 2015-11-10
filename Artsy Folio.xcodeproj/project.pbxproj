@@ -527,6 +527,7 @@
 		8360FDE11BE96E56004878AC /* NSString+NiceAttributedStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8360FDE01BE96E56004878AC /* NSString+NiceAttributedStrings.m */; };
 		8369810E1B0E770B000BF9D7 /* full_logo_white_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8369810C1B0E770A000BF9D7 /* full_logo_white_large@2x.png */; };
 		8369810F1B0E770B000BF9D7 /* full_logo_white_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8369810D1B0E770A000BF9D7 /* full_logo_white_small@2x.png */; };
+		836DEDF71BF25824004A2362 /* ARLabSettingsPresentationModeViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 836DEDF61BF25824004A2362 /* ARLabSettingsPresentationModeViewControllerTests.m */; };
 		8371DAFE1B68213A00285A8E /* ARLoginNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371DAFD1B68213A00285A8E /* ARLoginNetworkModel.m */; };
 		8371DB021B6824A200285A8E /* ARStubbedLoginNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371DB011B6824A200285A8E /* ARStubbedLoginNetworkModel.m */; };
 		837AF0B31BE7D0B700E606DF /* ARSyncLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 837AF0B21BE7D0B700E606DF /* ARSyncLogger.m */; };
@@ -1437,6 +1438,7 @@
 		8360FDE01BE96E56004878AC /* NSString+NiceAttributedStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NiceAttributedStrings.m"; sourceTree = "<group>"; };
 		8369810C1B0E770A000BF9D7 /* full_logo_white_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "full_logo_white_large@2x.png"; sourceTree = "<group>"; };
 		8369810D1B0E770A000BF9D7 /* full_logo_white_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "full_logo_white_small@2x.png"; sourceTree = "<group>"; };
+		836DEDF61BF25824004A2362 /* ARLabSettingsPresentationModeViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsPresentationModeViewControllerTests.m; sourceTree = "<group>"; };
 		8371DAFC1B68213A00285A8E /* ARLoginNetworkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLoginNetworkModel.h; sourceTree = "<group>"; };
 		8371DAFD1B68213A00285A8E /* ARLoginNetworkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLoginNetworkModel.m; sourceTree = "<group>"; };
 		8371DB001B6824A200285A8E /* ARStubbedLoginNetworkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARStubbedLoginNetworkModel.h; sourceTree = "<group>"; };
@@ -2996,6 +2998,7 @@
 			children = (
 				8383FB6A1BD83E33004B2A87 /* ARLabSettingsViewControllerTests.m */,
 				839B53CD1BF112D7008A6173 /* ARLabSettingsSyncViewControllerTests.m */,
+				836DEDF61BF25824004A2362 /* ARLabSettingsPresentationModeViewControllerTests.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -3963,6 +3966,7 @@
 				6006C76A198EDF9300F955A0 /* ARAppTestDelegate+Tests.m in Sources */,
 				601E1A16194F87AB004B21E4 /* PartnerModelTests.m in Sources */,
 				609715EC19AE382700970DBE /* ARNewAlbumModalViewControllerTests.m in Sources */,
+				836DEDF71BF25824004A2362 /* ARLabSettingsPresentationModeViewControllerTests.m in Sources */,
 				6022A3121875CD9D008E7A23 /* AlbumModelTests.m in Sources */,
 				60F1F1001B0391B3004B6C7F /* ARPartnerMetadataUploaderSpec.m in Sources */,
 				60692E15196BFABB00455332 /* ARDebugPlaceholderView.m in Sources */,
