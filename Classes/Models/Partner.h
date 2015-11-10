@@ -27,6 +27,12 @@ typedef NS_ENUM(NSInteger, ARPartnerType) {
 /// Does the partner have any works for sale?
 - (BOOL)hasForSaleWorks;
 
+/// Does the partner have sold works? (this is not necessarily the opposite of For Sale)
+- (BOOL)hasSoldWorks;
+
+/// Does the partner have any sold works with prices?
+- (BOOL)hasSoldWorksWithPrices;
+
 /// Does the partner have any works with prices?
 - (BOOL)hasWorksWithPrice;
 

@@ -97,6 +97,11 @@
     return self.presentationModeOptions.count;
 }
 
++ (BOOL)shouldShowPresentationModeSettingsWithContext:(NSManagedObjectContext *)context
+{
+    return YES;
+}
+
 - (NSManagedObjectContext *)context
 {
     return _context ?: [CoreDataManager mainManagedObjectContext];

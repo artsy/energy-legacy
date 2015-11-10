@@ -66,9 +66,24 @@
     return ([Artwork findFirstWithPredicate:predicate inContext:self.managedObjectContext] != nil);
 }
 
+- (BOOL)hasSoldWorks
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"availability = 'sold'"];
+    return ([Artwork findFirstWithPredicate:predicate inContext:self.managedObjectContext] != nil);
+}
+
 - (BOOL)hasConfidentialNotes
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"confidentialNotes != ''"];
+    return ([Artwork findFirstWithPredicate:predicate inContext:self.managedObjectContext] != nil);
+}
+
+- (BOOL)hasSoldWorksWithPrices
+{
+    NSPredicate *hasPricesPredicate = [NSPredicate predicateWithFormat:@"displayPrice != '' OR backendPrice != ''"];
+    NSPredicate *hasSoldWorksPredicate = [NSPredicate predicateWithFormat:@"availability = 'sold'"];
+
+    NSCompoundPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[ hasPricesPredicate, hasSoldWorksPredicate ]];
     return ([Artwork findFirstWithPredicate:predicate inContext:self.managedObjectContext] != nil);
 }
 
