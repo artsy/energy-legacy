@@ -15,12 +15,7 @@ extern NSString *const ARShowAvailability;
 extern NSString *const ARShowAvailableOnly;
 extern NSString *const ARShowConfidentialNotes;
 
-extern NSString *const ARHidePrices;
-extern NSString *const ARHideSoldWorksPrices;
-extern NSString *const ARHideNotForSaleWorks;
-extern NSString *const ARHideArtworkEditButton;
-extern NSString *const ARPresentationMode;
-
+extern NSString *const ARPresentationModeOn;
 
 extern NSString *const AREmailGreeting;
 extern NSString *const AREmailSignature;

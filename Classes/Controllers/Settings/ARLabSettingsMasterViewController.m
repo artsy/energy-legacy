@@ -4,7 +4,7 @@
 #import "ARToggleSwitch.h"
 #import "ARStoryboardIdentifiers.h"
 #import "ARLabSettingsSplitViewController.h"
-#import "ARLabSettingsDetailViewManager.h"
+#import "ARLabSettingsNavigationController.h"
 
 
 @interface ARLabSettingsMasterViewController ()
@@ -20,9 +20,6 @@
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *emailButton;
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *supportButton;
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *logoutButton;
-
-@property (assign) BOOL presentationMode;
-
 @end
 
 
@@ -33,7 +30,6 @@
     [super viewDidLoad];
     [self setupSettingsIcon];
     [self setupSectionButtons];
-    self.presentationMode = NO;
     [self setPresentationModeLabelText:NSLocalizedString(@"Hides sensitive information when showing artworks to clients", @"Explanatory text for presentation mode setting")];
 }
 
@@ -69,7 +65,7 @@
     ARToggleSwitch *toggle = [ARToggleSwitch buttonWithFrame:self.presentationModeToggle.frame];
     toggle.userInteractionEnabled = NO;
     [self.presentationModeButton addSubview:toggle];
-    toggle.on = self.presentationMode;
+    toggle.on = [[NSUserDefaults standardUserDefaults] boolForKey:ARPresentationModeOn];
 }
 
 #pragma mark -
@@ -84,16 +80,35 @@
     [self.presentationModeLabel setAttributedText:attrString];
 }
 
+#pragma mark -
+#pragma mark buttons
+- (IBAction)syncButtonPressed:(id)sender
+{
+    [(ARLabSettingsSplitViewController *)self.splitViewController showDetailViewControllerForSettingsSection:ARLabSettingsSectionSync];
+}
+
 - (IBAction)presentationModeButtonPressed:(id)sender
 {
     ARToggleSwitch *toggle = [self.presentationModeButton.subviews find:^BOOL(UIView *subview) {
         return [subview isKindOfClass:ARToggleSwitch.class];
     }];
     if (toggle) {
-        toggle.on = !self.presentationMode;
-        self.presentationMode = !self.presentationMode;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        BOOL on = ![defaults boolForKey:ARPresentationModeOn];
+        [defaults setBool:on forKey:ARPresentationModeOn];
+        toggle.on = on;
     }
 }
+
+- (IBAction)editPresentationModeButton:(id)sender
+{
+    [(ARLabSettingsSplitViewController *)self.splitViewController showDetailViewControllerForSettingsSection:ARLabSettingsSectionPresentationMode];
+}
+
+- (IBAction)supportButtonPressed:(id)sender
+{
+}
+
 
 #pragma mark -
 #pragma mark settings icon
