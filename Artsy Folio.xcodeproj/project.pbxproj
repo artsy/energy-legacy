@@ -515,6 +515,7 @@
 		833883101BAB0E4600F21DED /* ARLabSettingsSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8338830F1BAB0E4600F21DED /* ARLabSettingsSplitViewController.m */; };
 		833AAC371BA9DF9A00B24D25 /* ARLabSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833AAC361BA9DF9A00B24D25 /* ARLabSettings.storyboard */; };
 		833AAC3E1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833AAC3D1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m */; };
+		834B40F71BF3EFEE00473FB0 /* Partner+InventoryHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B40F61BF3EFEE00473FB0 /* Partner+InventoryHelpers.m */; };
 		834BA6971B4ADDE9009D18F7 /* pencil_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 834BA6961B4ADDE9009D18F7 /* pencil_btn@2x.png */; };
 		834BA6991B4AE1A8009D18F7 /* pencil_btn_whiteborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 834BA6981B4AE1A8009D18F7 /* pencil_btn_whiteborder.png */; };
 		834BA69B1B4AE280009D18F7 /* pencil_btn_whiteborder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 834BA69A1B4AE280009D18F7 /* pencil_btn_whiteborder@2x.png */; };
@@ -1421,6 +1422,8 @@
 		833AAC3C1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsMasterViewController.h; sourceTree = "<group>"; };
 		833AAC3D1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsMasterViewController.m; sourceTree = "<group>"; };
 		8343B7BC1B4C5667005790A9 /* ArtsyFolio v2.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.3.xcdatamodel"; sourceTree = "<group>"; };
+		834B40F51BF3EFEE00473FB0 /* Partner+InventoryHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Partner+InventoryHelpers.h"; sourceTree = "<group>"; };
+		834B40F61BF3EFEE00473FB0 /* Partner+InventoryHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Partner+InventoryHelpers.m"; sourceTree = "<group>"; };
 		834BA6961B4ADDE9009D18F7 /* pencil_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pencil_btn@2x.png"; sourceTree = "<group>"; };
 		834BA6981B4AE1A8009D18F7 /* pencil_btn_whiteborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil_btn_whiteborder.png; sourceTree = "<group>"; };
 		834BA69A1B4AE280009D18F7 /* pencil_btn_whiteborder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pencil_btn_whiteborder@2x.png"; sourceTree = "<group>"; };
@@ -3386,6 +3389,8 @@
 				603C9B6615405D2800C9E361 /* UIImageView+ImageFrame.m */,
 				602AA6F019355F3300CE58DC /* UIViewController+SimpleChildren.h */,
 				602AA6F119355F3300CE58DC /* UIViewController+SimpleChildren.m */,
+				834B40F51BF3EFEE00473FB0 /* Partner+InventoryHelpers.h */,
+				834B40F61BF3EFEE00473FB0 /* Partner+InventoryHelpers.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -4125,6 +4130,7 @@
 				D8FAA9A81442893600AA34BC /* ARFeedTranslator.m in Sources */,
 				D8FAA9A91442893600AA34BC /* ARFileUtils.m in Sources */,
 				D8FAA9AA1442893600AA34BC /* ARRouter.m in Sources */,
+				834B40F71BF3EFEE00473FB0 /* Partner+InventoryHelpers.m in Sources */,
 				60F637AA199D2528008D2360 /* UIViewController+ControversialChanges.m in Sources */,
 				60E3926619085EFB0091AC9E /* ARSecureTextFieldWithPlaceholder.m in Sources */,
 				60F1F0FD1B0387BF004B6C7F /* ARPartnerMetadataUploader.m in Sources */,

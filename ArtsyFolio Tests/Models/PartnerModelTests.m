@@ -1,3 +1,5 @@
+#import "Partner+InventoryHelpers.h"
+
 SpecBegin(Partner);
 
 __block NSManagedObjectContext *context;

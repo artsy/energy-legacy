@@ -1,5 +1,5 @@
 #import "ARSlugResolver.h"
-
+#import "Partner+InventoryHelpers.h"
 
 @interface ARSlugResolver ()
 @end

@@ -4,6 +4,7 @@
 #import "ARToggleSwitch.h"
 #import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 #import "NSString+NiceAttributedStrings.h"
+#import "Partner+InventoryHelpers.h"
 
 
 @interface ARLabSettingsPresentationModeViewController ()
@@ -21,55 +22,58 @@
     self.explanatoryTextLabel.attributedText = [self.explanatoryTextLabel.text attributedStringWithLineSpacing:8];
 
     Partner *partner = [Partner currentPartnerInContext:self.context];
+    if (![partner hasUploadedWorks]) return; // zero state
+    
     NSMutableArray *presentationModeOptions = [NSMutableArray array];
 
     if ([partner hasWorksWithPrice]) {
         [presentationModeOptions addObject:@{
             AROptionsKey : ARShowPrices,
-            AROptionsName : @"Hide All Artwork Prices"
+            AROptionsName : @"Hide All Artwork Prices",
         }];
     }
 
-    if ([partner hasForSaleWorks]) {
+    if ([partner hasSoldWorksWithPrices]) {
         [presentationModeOptions addObject:@{
-            AROptionsKey : ARShowPrices,
-            AROptionsName : @"Hide Prices For Sold Works Only"
+            AROptionsKey : ARHidePricesForSoldWorks,
+            AROptionsName : @"Hide Prices For Sold Works Only",
         }];
     }
 
-    if ([partner hasPublishedWorks]) {
+    if ([partner hasUnpublishedWorks] && [partner hasPublishedWorks]) {
         [presentationModeOptions addObject:@{
             AROptionsKey : ARHideUnpublishedWorks,
-            AROptionsName : @"Hide Unpublished Works"
+            AROptionsName : @"Hide Unpublished Works",
+        }];
+    }
+
+    if ([partner hasNotForSaleWorks] && [partner hasForSaleWorks]) {
+        [presentationModeOptions addObject:@{
+            AROptionsKey : ARHideWorksNotForSale,
+            AROptionsName : @"Hide Not For Sale Works",
         }];
     }
 
     if ([partner hasConfidentialNotes]) {
         [presentationModeOptions addObject:@{
-            AROptionsKey : ARShowPrices,
-            AROptionsName : @"Hide Not For Sale Works"
+            AROptionsKey : ARShowConfidentialNotes,
+            AROptionsName : @"Hide Confidential Notes",
         }];
     }
-
-    if ([partner hasConfidentialNotes]) {
-        [presentationModeOptions addObject:@{
-            AROptionsKey : ARShowPrices,
-            AROptionsName : @"Hide Artwork Edit Button"
-        }];
-    }
-
+    
     self.presentationModeOptions = [NSArray arrayWithArray:presentationModeOptions];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDictionary *option = self.presentationModeOptions[indexPath.row];
+    
     UITableViewCell *cell = [[ARTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"presentationMode"];
-    cell.textLabel.text = self.presentationModeOptions[indexPath.row][AROptionsName];
+    cell.textLabel.text = option[AROptionsName];
     cell.textLabel.font = [UIFont serifFontWithSize:17];
 
     ARToggleSwitch *toggle = [ARToggleSwitch buttonWithFrame:CGRectMake(0, 0, 76, 28)];
-    NSString *option = self.presentationModeOptions[indexPath.row][AROptionsKey];
-    toggle.on = [self.defaults boolForKey:option];
+    toggle.on = [self.defaults boolForKey:option[AROptionsKey]];
     toggle.userInteractionEnabled = NO;
 
     cell.accessoryView = toggle;
@@ -80,10 +84,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *option = self.presentationModeOptions[indexPath.row][AROptionsKey];
+    NSDictionary *option = self.presentationModeOptions[indexPath.row];
 
-    BOOL on = ![self.defaults boolForKey:option];
-    [self.defaults setBool:on forKey:option];
+    BOOL on = ![self.defaults boolForKey:option[AROptionsKey]];
+    [self.defaults setBool:on forKey:option[AROptionsKey]];
     [self.defaults synchronize];
 
     ARToggleSwitch *toggle = (id)[tableView cellForRowAtIndexPath:indexPath].accessoryView;

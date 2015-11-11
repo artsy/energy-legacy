@@ -4,6 +4,7 @@
 #import "ARTableViewCell.h"
 #import "ARToggleSwitch.h"
 #import "ARTheme.h"
+#import "Partner+InventoryHelpers.h"
 
 NS_ENUM(NSInteger, ARAdminSettingsSection){
     ARAdminSettingSectionPublic,
