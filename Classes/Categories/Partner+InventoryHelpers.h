@@ -1,5 +1,6 @@
 
 
+
 @interface Partner (InventoryHelpers)
 
 /// Does the partner have any published works?
@@ -17,11 +18,11 @@
 /// Does the partner have sold works? (this is not necessarily the opposite of For Sale)
 - (BOOL)hasSoldWorks;
 
-/// Does the partner have any sold works with prices?
-- (BOOL)hasSoldWorksWithPrices;
-
 /// Does the partner have any works with prices?
 - (BOOL)hasWorksWithPrice;
+
+/// Does the partner have any sold works with prices?
+- (BOOL)hasSoldWorksWithPrices;
 
 /// Does the partner have any confidential notes associated with their artworks?
 - (BOOL)hasConfidentialNotes;

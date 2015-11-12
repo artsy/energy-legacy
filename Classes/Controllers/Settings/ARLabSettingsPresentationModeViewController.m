@@ -23,13 +23,13 @@
 
     Partner *partner = [Partner currentPartnerInContext:self.context];
     if (![partner hasUploadedWorks]) return; // zero state
-    
+
     NSMutableArray *presentationModeOptions = [NSMutableArray array];
 
     if ([partner hasWorksWithPrice]) {
         [presentationModeOptions addObject:@{
             AROptionsKey : ARShowPrices,
-            AROptionsName : @"Hide All Artwork Prices",
+            AROptionsName : @"Show All Artwork Prices",
         }];
     }
 
@@ -57,17 +57,17 @@
     if ([partner hasConfidentialNotes]) {
         [presentationModeOptions addObject:@{
             AROptionsKey : ARShowConfidentialNotes,
-            AROptionsName : @"Hide Confidential Notes",
+            AROptionsName : @"Show Confidential Notes",
         }];
     }
-    
+
     self.presentationModeOptions = [NSArray arrayWithArray:presentationModeOptions];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *option = self.presentationModeOptions[indexPath.row];
-    
+
     UITableViewCell *cell = [[ARTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"presentationMode"];
     cell.textLabel.text = option[AROptionsName];
     cell.textLabel.font = [UIFont serifFontWithSize:17];

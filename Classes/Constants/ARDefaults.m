@@ -16,6 +16,8 @@ NSString *const ARShowAvailability = @"ARShowAvailability";
 NSString *const ARShowAvailableOnly = @"ARShowAvailableOnly";
 NSString *const ARShowConfidentialNotes = @"ARShowConfidentialNotes";
 
+NSString *const ARHideAllPrices = @"ARHideAllPrices";
+NSString *const ARHideConfidentialNotes = @"ARHideConfidentialNotes";
 NSString *const ARHidePricesForSoldWorks = @"ARHidePricesForSoldWorks";
 NSString *const ARHideWorksNotForSale = @"ARHideWorksNotForSale";
 NSString *const ARPresentationModeOn = @"ARPresentationModeOn";

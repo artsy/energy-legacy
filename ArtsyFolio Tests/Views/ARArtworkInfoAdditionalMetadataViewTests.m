@@ -4,11 +4,15 @@
 #import "ARModelFactory.h"
 #import "UIDevice+DeviceInfo.h"
 #import "ARDefaults.h"
+#import "AROptions.h"
+#import "EditionSet.h"
+#import <Artsy+UILabels/ARLabelSubclasses.h>
 
 
 @interface ARArtworkInfoAdditionalMetadataView ()
 @property (nonatomic, strong) NSUserDefaults *defaults;
 - (instancetype)initWithArtwork:(Artwork *)artwork preferredWidth:(CGFloat)preferredWidth split:(BOOL)split defaults:(NSUserDefaults *)defaults;
+- (BOOL)shouldShowPriceOfEditionSet:(EditionSet *)set;
 @end
 
 SpecBegin(ARArtworkInfoAdditionalMetadataView);
@@ -16,6 +20,7 @@ SpecBegin(ARArtworkInfoAdditionalMetadataView);
 __block UIView *wrapper;
 __block ARArtworkInfoAdditionalMetadataView *sut;
 __block ForgeriesUserDefaults *fakeDefaults;
+__block NSManagedObjectContext *context;
 
 void (^setupSUTWithArtwork)(Artwork *artwork) = ^(Artwork *artwork) {
 
@@ -30,7 +35,11 @@ void (^setupSUTWithArtwork)(Artwork *artwork) = ^(Artwork *artwork) {
     [sut alignTop:@"0" leading:@"0" bottom:nil trailing:@"0" toView:wrapper];
 };
 
-describe(@"with metadata", ^{
+beforeEach(^{
+    context = [CoreDataManager stubbedManagedObjectContext];
+});
+
+describe(@"visually", ^{
 
     it(@"doesn't mess up inventory IDs using HTML chars", ^{
         Artwork *artwork = [Artwork stubbedModelFromJSON: @{ ARFeedInventoryIDKey: @"MI&N 12345" }];
@@ -40,7 +49,7 @@ describe(@"with metadata", ^{
         expect(inventoryIDLabel.text).to.equal(@"MI&N 12345");
     });
 
-    it(@"barely-filled artwork", ^{
+    it(@"looks right for barely-filled artworks", ^{
         Artwork *artwork = [Artwork stubbedModelFromJSON: @{
            @"signature": @"Signature that is long enough so that on an ipad it should be full length"
         }];
@@ -57,8 +66,7 @@ describe(@"with metadata", ^{
 
     });
 
-    it(@"semi-filled artwork", ^{
-        NSManagedObjectContext *context = [CoreDataManager stubbedManagedObjectContext];
+    it(@"looks right for semi-filled artworks", ^{
         Artwork *artwork = [ARModelFactory partiallyFilledArtworkInContext:context];
         [ARTestContext useContext:ARTestContextDeviceTypePad :^{
             setupSUTWithArtwork(artwork);
@@ -71,8 +79,7 @@ describe(@"with metadata", ^{
         }];
     });
 
-    it(@"filled artwork", ^{
-        NSManagedObjectContext *context = [CoreDataManager stubbedManagedObjectContext];
+    it(@"looks right for filled artworks", ^{
         Artwork *artwork = [ARModelFactory fullArtworkInContext:context];
 
         [ARTestContext useContext:ARTestContextDeviceTypePad :^{
@@ -86,8 +93,7 @@ describe(@"with metadata", ^{
         }];
     });
     
-    it(@"filled artwork with editions", ^{
-        NSManagedObjectContext *context = [CoreDataManager stubbedManagedObjectContext];
+    it(@"looks right for artworks with editions", ^{
         Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
         
         [ARTestContext useContext:ARTestContextDeviceTypePad :^{
@@ -101,49 +107,14 @@ describe(@"with metadata", ^{
         }];
     });
     
-    it(@"shows prices for editions when it should", ^{
-        NSManagedObjectContext *context = [CoreDataManager stubbedManagedObjectContext];
-        Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
-        
-        fakeDefaults = [ForgeriesUserDefaults defaults:@{
-                          ARShowPrices: @YES,
-        }];
-        
-        [ARTestContext useContext:ARTestContextDeviceTypePad :^{
-            setupSUTWithArtwork(artwork);
-            expect(wrapper).to.haveValidSnapshotNamed(@"editions with prices artwork ipad");
-        }];
-        
-        [ARTestContext useContext:ARTestContextDeviceTypePhone4 :^{
-            setupSUTWithArtwork(artwork);
-            expect(wrapper).to.haveValidSnapshotNamed(@"editions with prices artwork iphone");
-        }];
-    });
-    
-    it(@"hides confidential notes when it should", ^{
-        NSManagedObjectContext *context = [CoreDataManager stubbedManagedObjectContext];
-        Artwork *artwork = [ARModelFactory partiallyFilledArtworkInContext:context];
-        artwork.confidentialNotes = @"super secret";
-        
-        [ARTestContext useContext:ARTestContextDeviceTypePad :^{
-            setupSUTWithArtwork(artwork);
-            expect(wrapper).to.haveValidSnapshotNamed(@"hidden notes ipad");
-        }];
-        
-        [ARTestContext useContext:ARTestContextDeviceTypePhone4 :^{
-            setupSUTWithArtwork(artwork);
-            expect(wrapper).to.haveValidSnapshotNamed(@"hidden notes iphone");
-        }];
-    });
-
-    it(@"shows confidential notes when it should", ^{
-        NSManagedObjectContext *context = [CoreDataManager stubbedManagedObjectContext];
+    it(@"looks right for artworks with confidential notes", ^{
         Artwork *artwork = [ARModelFactory partiallyFilledArtworkInContext:context];
         artwork.confidentialNotes = @"super secret";
         
         fakeDefaults = [ForgeriesUserDefaults defaults:@{
-                     ARShowConfidentialNotes: @YES,
-        }];
+                         ARHideConfidentialNotes: @NO,
+                         AROptionsUseLabSettings: @YES
+                         }];
         
         [ARTestContext useContext:ARTestContextDeviceTypePad :^{
             setupSUTWithArtwork(artwork);
@@ -154,6 +125,148 @@ describe(@"with metadata", ^{
             setupSUTWithArtwork(artwork);
             expect(wrapper).to.haveValidSnapshotNamed(@"showing notes iphone");
         }];
+    });
+});
+
+describe(@"showing and hiding edition prices", ^{
+    
+    /// this test will disappear soon
+    it(@"shows edition prices when it should with old settings", ^{
+        Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
+        
+        fakeDefaults = [ForgeriesUserDefaults defaults:@{
+                         ARShowPrices: @YES,
+                         AROptionsUseLabSettings: @NO
+                         }];
+        
+        setupSUTWithArtwork(artwork);
+        
+        expect([sut shouldShowPriceOfEditionSet:artwork.editionSets.firstObject]).to.beTruthy();
+    });
+
+    /// this test will also disappear soon
+    it(@"hides edition prices when it should with old settings", ^{
+        Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
+        
+        fakeDefaults = [ForgeriesUserDefaults defaults:@{
+                         ARShowPrices: @NO,
+                         AROptionsUseLabSettings: @NO
+                         }];
+        
+        setupSUTWithArtwork(artwork);
+        
+        expect([sut shouldShowPriceOfEditionSet:artwork.editionSets.firstObject]).to.beFalsy();
+    });
+    
+    it(@"shows unsold edition prices", ^{
+        Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
+        
+        fakeDefaults = [ForgeriesUserDefaults defaults:@{
+                         AROptionsUseLabSettings: @YES,
+                         ARHideAllPrices: @NO,
+                         ARHidePricesForSoldWorks: @YES
+                         }];
+        
+        setupSUTWithArtwork(artwork);
+        
+        expect([sut shouldShowPriceOfEditionSet:artwork.editionSets.firstObject]).to.beTruthy();
+    });
+    
+    it(@"hides unsold edition prices", ^{
+        Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
+        
+        fakeDefaults = [ForgeriesUserDefaults defaults:@{
+                         AROptionsUseLabSettings: @YES,
+                         ARHideAllPrices: @YES,
+                         ARHidePricesForSoldWorks: @NO
+                         }];
+        
+        setupSUTWithArtwork(artwork);
+        
+        expect([sut shouldShowPriceOfEditionSet:artwork.editionSets.firstObject]).to.beFalsy();
+    });
+    
+    it(@"shows sold edition prices", ^{
+        Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
+        EditionSet *set = artwork.editionSets.firstObject;
+        set.availability = ARAvailabilitySold;
+        
+        fakeDefaults = [ForgeriesUserDefaults defaults:@{
+                         AROptionsUseLabSettings: @YES,
+                         ARHideAllPrices: @"NO",
+                         ARHidePricesForSoldWorks: @NO
+                         }];
+        
+        setupSUTWithArtwork(artwork);
+        
+        expect([sut shouldShowPriceOfEditionSet:artwork.editionSets.firstObject]).to.beTruthy();
+    });
+    
+    it(@"hides sold edition prices", ^{
+        Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
+        EditionSet *set = artwork.editionSets.firstObject;
+        set.availability = ARAvailabilitySold;
+        
+        fakeDefaults = [ForgeriesUserDefaults defaults:@{
+                         AROptionsUseLabSettings: @YES,
+                         ARHideAllPrices: @"NO",
+                         ARHidePricesForSoldWorks: @YES
+                         }];
+        
+        setupSUTWithArtwork(artwork);
+        
+        expect([sut shouldShowPriceOfEditionSet:artwork.editionSets.firstObject]).to.beFalsy();
+    });
+});
+
+describe(@"showing and hiding confidential notes", ^{
+    
+    it(@"shows confidential notes", ^{
+        Artwork *artwork = [ARModelFactory partiallyFilledArtworkInContext:context];
+        artwork.confidentialNotes = @"super secret";
+        
+        fakeDefaults = [ForgeriesUserDefaults defaults:@{
+                             ARHideConfidentialNotes: @NO,
+                             AROptionsUseLabSettings: @YES
+                             }];
+        
+        setupSUTWithArtwork(artwork);
+        
+        NSArray *stackViews = [sut.subviews.firstObject subviews];
+        
+        NSArray *labels = [stackViews map:^id(id object) {
+            return [object subviews];
+        }];
+        
+        UILabel *confidentialNotesView = [[labels flatten] find:^BOOL(UIView *subview) {
+            return [subview isKindOfClass:UILabel.class] && [((UILabel *)subview).text isEqualToString:@"CONFIDENTIAL NOTES"];
+        }];
+
+        expect(confidentialNotesView).to.beTruthy();
+    });
+    
+    it(@"hides confidential notes", ^{
+        Artwork *artwork = [ARModelFactory partiallyFilledArtworkInContext:context];
+        artwork.confidentialNotes = @"super secret";
+        
+        fakeDefaults = [ForgeriesUserDefaults defaults:@{
+                             ARHideConfidentialNotes: @YES,
+                             AROptionsUseLabSettings: @YES
+                             }];
+
+        setupSUTWithArtwork(artwork);
+        
+        NSArray *stackViews = [sut.subviews.firstObject subviews];
+        
+        NSArray *labels = [stackViews map:^id(id object) {
+            return [object subviews];
+        }];
+        
+        UILabel *confidentialNotesView = [[labels flatten] find:^BOOL(UIView *subview) {
+            return [subview isKindOfClass:UILabel.class] && [((UILabel *)subview).text isEqualToString:@"CONFIDENTIAL NOTES"];
+        }];
+
+        expect(confidentialNotesView).to.beFalsy();
     });
 });
 

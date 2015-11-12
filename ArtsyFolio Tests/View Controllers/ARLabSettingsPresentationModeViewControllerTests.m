@@ -31,13 +31,13 @@ beforeEach(^{
 
 describe(@"when showing and hiding toggles", ^{
     
-    it(@"shows Hide Prices toggle when artworks exist with prices", ^{
+    it(@"shows all prices toggle when artworks exist with prices", ^{
         Artwork *priceArtwork = genericArtworkInContext(context);
         priceArtwork.displayPrice = @"200";
         
         expect(numberOfRowsIn(subject)).to.equal(1);
     });
-    
+
     it(@"does not show Hide Prices For Sold Works toggle when there are no sold works with prices", ^{
         Artwork *soldArtwork = genericArtworkInContext(context);
         soldArtwork.availability = @"sold";
@@ -144,7 +144,8 @@ describe(@"no presentation mode settings", ^{
 SpecEnd
 
 
-Artwork *genericArtworkInContext(NSManagedObjectContext *context)
+    Artwork *
+    genericArtworkInContext(NSManagedObjectContext *context)
 {
     Artwork *artwork = [Artwork createInContext:context];
     artwork.confidentialNotes = @"";
@@ -163,12 +164,12 @@ ForgeriesUserDefaults *offDefaults()
 ForgeriesUserDefaults *onDefaults()
 {
     return [ForgeriesUserDefaults defaults:@{
-              ARHideUnpublishedWorks: @(YES),
-              ARShowPrices: @(YES),
-              ARShowConfidentialNotes: @(YES),
-              ARHideWorksNotForSale: @(YES),
-              ARHidePricesForSoldWorks: @(YES)
-            }];
+        ARHideUnpublishedWorks : @(YES),
+        ARShowPrices : @(YES),
+        ARShowConfidentialNotes : @(YES),
+        ARHideWorksNotForSale : @(YES),
+        ARHidePricesForSoldWorks : @(YES)
+    }];
 }
 
 NSInteger numberOfRowsIn(ARLabSettingsPresentationModeViewController *subject)
