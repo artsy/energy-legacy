@@ -72,7 +72,7 @@
         [artworkTexts addObject:artwork.inventoryID];
     }
 
-    if ([artwork.confidentialNotes length] && [self shouldShowConfidentialNotes]) {
+    if ([artwork.confidentialNotes length] && [self showConfidentialNotes]) {
         [artworkTitles addObject:@"Confidential Notes"];
         [artworkTexts addObject:[artwork.confidentialNotes stringByStrippingHTML]];
     }
@@ -138,7 +138,7 @@
         
         NSArray *editionAttributes = [set editionAttributes];
         
-        if ([self shouldShowPriceOfEditionSet:set] && set.internalPrice.length) {
+        if ([self showPriceOfEditionSet:set] && set.internalPrice.length) {
             editionAttributes = [editionAttributes arrayByAddingObject:set.internalPrice];
         }
         
@@ -151,7 +151,7 @@
     return editionsView;
 }
 
-- (BOOL)shouldShowConfidentialNotes
+- (BOOL)showConfidentialNotes
 {
     BOOL usingLabSettings = [self.defaults boolForKey:AROptionsUseLabSettings];
     if (!usingLabSettings) return [self.defaults boolForKey:ARShowConfidentialNotes];
@@ -160,7 +160,7 @@
 }
 
 /// A little sloppy, but necessary until I can phase out the old settings defaults
-- (BOOL)shouldShowPriceOfEditionSet:(EditionSet *)set
+- (BOOL)showPriceOfEditionSet:(EditionSet *)set
 {
     BOOL usingLabSettings = [self.defaults boolForKey:AROptionsUseLabSettings];
     if (!usingLabSettings) return [self.defaults boolForKey:ARShowPrices];

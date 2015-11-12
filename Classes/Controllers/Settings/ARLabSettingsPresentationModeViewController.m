@@ -28,8 +28,8 @@
 
     if ([partner hasWorksWithPrice]) {
         [presentationModeOptions addObject:@{
-            AROptionsKey : ARShowPrices,
-            AROptionsName : @"Show All Artwork Prices",
+            AROptionsKey : ARHideAllPrices,
+            AROptionsName : @"Hide All Artwork Prices",
         }];
     }
 
@@ -56,12 +56,12 @@
 
     if ([partner hasConfidentialNotes]) {
         [presentationModeOptions addObject:@{
-            AROptionsKey : ARShowConfidentialNotes,
-            AROptionsName : @"Show Confidential Notes",
+            AROptionsKey : ARHideConfidentialNotes,
+            AROptionsName : @"Hide Confidential Notes",
         }];
     }
 
-    self.presentationModeOptions = [NSArray arrayWithArray:presentationModeOptions];
+    _presentationModeOptions = [NSArray arrayWithArray:presentationModeOptions];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

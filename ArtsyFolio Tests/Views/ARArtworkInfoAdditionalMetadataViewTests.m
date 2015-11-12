@@ -12,7 +12,7 @@
 @interface ARArtworkInfoAdditionalMetadataView ()
 @property (nonatomic, strong) NSUserDefaults *defaults;
 - (instancetype)initWithArtwork:(Artwork *)artwork preferredWidth:(CGFloat)preferredWidth split:(BOOL)split defaults:(NSUserDefaults *)defaults;
-- (BOOL)shouldShowPriceOfEditionSet:(EditionSet *)set;
+- (BOOL)showPriceOfEditionSet:(EditionSet *)set;
 @end
 
 SpecBegin(ARArtworkInfoAdditionalMetadataView);
@@ -141,7 +141,7 @@ describe(@"showing and hiding edition prices", ^{
         
         setupSUTWithArtwork(artwork);
         
-        expect([sut shouldShowPriceOfEditionSet:artwork.editionSets.firstObject]).to.beTruthy();
+        expect([sut showPriceOfEditionSet:artwork.editionSets.firstObject]).to.beTruthy();
     });
 
     /// this test will also disappear soon
@@ -155,7 +155,7 @@ describe(@"showing and hiding edition prices", ^{
         
         setupSUTWithArtwork(artwork);
         
-        expect([sut shouldShowPriceOfEditionSet:artwork.editionSets.firstObject]).to.beFalsy();
+        expect([sut showPriceOfEditionSet:artwork.editionSets.firstObject]).to.beFalsy();
     });
     
     it(@"shows unsold edition prices", ^{
@@ -169,7 +169,7 @@ describe(@"showing and hiding edition prices", ^{
         
         setupSUTWithArtwork(artwork);
         
-        expect([sut shouldShowPriceOfEditionSet:artwork.editionSets.firstObject]).to.beTruthy();
+        expect([sut showPriceOfEditionSet:artwork.editionSets.firstObject]).to.beTruthy();
     });
     
     it(@"hides unsold edition prices", ^{
@@ -183,7 +183,7 @@ describe(@"showing and hiding edition prices", ^{
         
         setupSUTWithArtwork(artwork);
         
-        expect([sut shouldShowPriceOfEditionSet:artwork.editionSets.firstObject]).to.beFalsy();
+        expect([sut showPriceOfEditionSet:artwork.editionSets.firstObject]).to.beFalsy();
     });
     
     it(@"shows sold edition prices", ^{
@@ -199,7 +199,7 @@ describe(@"showing and hiding edition prices", ^{
         
         setupSUTWithArtwork(artwork);
         
-        expect([sut shouldShowPriceOfEditionSet:artwork.editionSets.firstObject]).to.beTruthy();
+        expect([sut showPriceOfEditionSet:artwork.editionSets.firstObject]).to.beTruthy();
     });
     
     it(@"hides sold edition prices", ^{
@@ -215,7 +215,7 @@ describe(@"showing and hiding edition prices", ^{
         
         setupSUTWithArtwork(artwork);
         
-        expect([sut shouldShowPriceOfEditionSet:artwork.editionSets.firstObject]).to.beFalsy();
+        expect([sut showPriceOfEditionSet:artwork.editionSets.firstObject]).to.beFalsy();
     });
 });
 

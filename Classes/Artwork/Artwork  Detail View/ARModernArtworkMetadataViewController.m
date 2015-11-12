@@ -3,6 +3,7 @@
 #import "ARArtworkMetadataExtendedView.h"
 #import "NSAttributedString+Artsy.h"
 #import "ARModernArtworkInfoViewController.h"
+#import "AROptions.h"
 
 
 @interface ARModernArtworkMetadataViewController ()
@@ -10,6 +11,7 @@
 @property (nonatomic, strong, readonly) UITapGestureRecognizer *artworkInfoTapGesture;
 @property (nonatomic, strong, readonly) UISwipeGestureRecognizer *artworkInfoSwipeGesture;
 @property (nonatomic, strong) UIView<ARArtworkMetadataViewable> *view;
+@property (nonatomic, strong) NSUserDefaults *defaults;
 @end
 
 
@@ -82,7 +84,7 @@
     ];
 
     NSMutableArray *labelArray = [NSMutableArray arrayWithArray:labels];
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:ARShowPrices] && !artwork.editionSets.count) {
+    if ([self showPrice]) {
         if (artwork.internalPrice) {
             [labelArray addObject:artwork.internalPrice];
         }
@@ -103,6 +105,20 @@
     self.artworkInfoTapGesture.enabled = self.showMultipageIndicator;
     self.artworkInfoSwipeGesture.enabled = self.showMultipageIndicator;
     [self.view layoutIfNeeded];
+}
+
+- (BOOL)showPrice
+{
+    if (![self.defaults boolForKey:AROptionsUseLabSettings]) return [self.defaults boolForKey:ARShowPrices];
+
+    if ([self.defaults boolForKey:ARHideAllPrices]) return NO;
+
+    if (self.artwork.editionSets.count) return NO;
+
+    BOOL isSold = [self.artwork.availability isEqualToString:ARAvailabilitySold];
+    if (isSold && [self.defaults boolForKey:ARHidePricesForSoldWorks]) return NO;
+
+    return YES;
 }
 
 - (BOOL)showMultipageIndicator
@@ -126,6 +142,11 @@
 - (void)showArtworkInfo:(NSNotification *)notification
 {
     self.view.alpha = 1;
+}
+
+- (NSUserDefaults *)defaults
+{
+    return _defaults ?: [NSUserDefaults standardUserDefaults];
 }
 
 @end

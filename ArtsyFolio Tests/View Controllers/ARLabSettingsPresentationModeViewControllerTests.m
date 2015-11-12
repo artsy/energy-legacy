@@ -130,8 +130,8 @@ describe(@"setting defaults", ^{
         
         ForgeriesUserDefaults *defaults = subject.defaults;
         expect(defaults.hasSyncronised).to.beTruthy();
-        expect(defaults.lastRequestedKey).to.equal(ARShowPrices);
-        expect([subject.defaults boolForKey:ARShowPrices]).to.beTruthy();
+        expect(defaults.lastRequestedKey).to.equal(ARHideAllPrices);
+        expect([subject.defaults boolForKey:ARHideAllPrices]).to.beTruthy();
     });
 });
 

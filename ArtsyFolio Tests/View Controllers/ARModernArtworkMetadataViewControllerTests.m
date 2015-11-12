@@ -1,20 +1,27 @@
 #import "ARModernArtworkMetadataViewController.h"
 #import "ARArtworkMetadataView.h"
+#import "ARModelFactory.h"
+#import "ARArtworkMetadataStack.h"
+#import "AROptions.h"
+#import "ARDefaults.h"
 
 
 @interface ARModernArtworkMetadataViewController ()
 @property (nonatomic, strong, readonly) UITapGestureRecognizer *artworkInfoTapGesture;
 @property (nonatomic, strong, readonly) UISwipeGestureRecognizer *artworkInfoSwipeGesture;
+@property (nonatomic, strong) NSUserDefaults *defaults;
 
 - (void)hideArtworkInfo:(NSNotification *)notification;
 - (void)showArtworkInfo:(NSNotification *)notification;
 
+- (BOOL)showPrice;
 @end
 
 SpecBegin(ARModernArtworkMetadataViewController);
 
 __block ARModernArtworkMetadataViewController *sut;
 __block NSManagedObjectContext *context;
+__block ForgeriesUserDefaults *testDefaults;
 __block Artwork *artwork;
 
 beforeEach(^{
@@ -108,5 +115,63 @@ describe(@"number of lines of artwork metadata", ^{
     });
 });
 
+describe(@"showing and hiding price", ^{
+    beforeEach(^{
+        context = [CoreDataManager stubbedManagedObjectContext];
+    });
+    
+    it(@"hides price when artwork has editions", ^{
+        artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
+        sut.artwork = artwork;
+        
+        testDefaults = [ForgeriesUserDefaults defaults:@{
+                                                         AROptionsUseLabSettings: @"YES",
+                                                         ARHideAllPrices: @"NO"
+                                                    }];
+
+        expect([sut showPrice]).to.beFalsy();
+    });
+    
+    it(@"hides price for artwork without editions when all prices are hidden", ^{
+        artwork = [ARModelFactory fullArtworkInContext:context];
+        sut.artwork = artwork;
+        
+        testDefaults = [ForgeriesUserDefaults defaults:@{
+                                                         ARHideAllPrices: @"YES",
+                                                         AROptionsUseLabSettings: @"YES",
+                                                }];
+        sut.defaults = testDefaults;
+        
+        expect([sut showPrice]).to.beFalsy();
+    });
+    
+    it(@"hides price for sold artwork when sold prices only are hidden", ^{
+        artwork = [ARModelFactory fullArtworkInContext:context];
+        artwork.availability = ARAvailabilitySold;
+        sut.artwork = artwork;
+        
+        testDefaults = [ForgeriesUserDefaults defaults:@{
+                                                         ARHideAllPrices: @"NO",
+                                                         AROptionsUseLabSettings: @"YES",
+                                                         ARHidePricesForSoldWorks: @"YES"
+                                                }];
+        sut.defaults = testDefaults;
+        
+        expect([sut showPrice]).to.beFalsy();
+    });
+    
+    it(@"shows price for artwork without editions", ^{
+        artwork = [ARModelFactory fullArtworkInContext:context];
+        sut.artwork = artwork;
+        
+        testDefaults = [ForgeriesUserDefaults defaults:@{
+                                                         ARHideAllPrices: @"NO",
+                                                         AROptionsUseLabSettings: @"YES",
+                                                 }];
+        sut.defaults = testDefaults;
+        
+        expect([sut showPrice]).to.beTruthy();
+    });
+});
 
 SpecEnd
