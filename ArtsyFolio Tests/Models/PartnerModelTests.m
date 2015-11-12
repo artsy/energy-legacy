@@ -1,3 +1,5 @@
+#import "Partner+InventoryHelpers.h"
+
 SpecBegin(Partner);
 
 __block NSManagedObjectContext *context;
@@ -78,6 +80,52 @@ describe(@"available artwork type checks", ^{
             artwork.isAvailableForSale = @NO;
 
             expect(partner.hasPublishedWorks).to.beFalsy();
+        });
+    });
+    
+    describe(@"sold works", ^{
+        it(@"returns true when the core data db has sold works", ^{
+            Artwork *artwork = [Artwork objectInContext:context];
+            artwork.availability = @"sold";
+            
+            expect(partner.hasSoldWorks).to.beTruthy();
+        });
+        
+        it(@"returns false when the core data db has no sold works", ^{
+            Artwork *artwork = [Artwork objectInContext:context];
+            artwork.availability = @"on hold";
+            
+            expect(partner.hasSoldWorks).to.beFalsy();
+        });
+        
+        it(@"returns true when the core data db has sold works with prices", ^{
+            Artwork *artwork0 = [Artwork objectInContext:context];
+            artwork0.availability = @"sold";
+            artwork0.displayPrice = @"200";
+            
+            expect(partner.hasSoldWorksWithPrices).to.beTruthy();
+        });
+        
+        it(@"returns false when the core data db has sold works without prices only", ^{
+            Artwork *artwork = [Artwork objectInContext:context];
+            artwork.availability = @"sold";
+            artwork.displayPrice = @"";
+            artwork.backendPrice = @"";
+            
+            expect(partner.hasSoldWorksWithPrices).to.beFalsy();
+        });
+        
+        it(@"returns false when the core data db has sold works without prices only and for sale works with prices", ^{
+            Artwork *artwork0 = [Artwork objectInContext:context];
+            artwork0.availability = @"sold";
+            artwork0.displayPrice = @"";
+            artwork0.backendPrice = @"";
+            
+            Artwork *artwork1 = [Artwork objectInContext:context];
+            artwork1.availability = @"for sale";
+            artwork1.displayPrice = @"300";
+            
+            expect(partner.hasSoldWorksWithPrices).to.beFalsy();
         });
     });
 

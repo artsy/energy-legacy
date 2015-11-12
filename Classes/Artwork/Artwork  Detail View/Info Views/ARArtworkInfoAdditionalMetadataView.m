@@ -4,6 +4,8 @@
 #import <Artsy+UILabels/ARLabelSubclasses.h>
 #import "EditionSet.h"
 #import <ORStackView/ORStackView.h>
+#import "NSString+NiceAttributedStrings.h"
+#import "AROptions.h"
 
 
 @interface ARArtworkInfoAdditionalMetadataView ()
@@ -70,7 +72,7 @@
         [artworkTexts addObject:artwork.inventoryID];
     }
 
-    if ([artwork.confidentialNotes length] && [self.defaults boolForKey:ARShowConfidentialNotes]) {
+    if ([artwork.confidentialNotes length] && [self showConfidentialNotes]) {
         [artworkTitles addObject:@"Confidential Notes"];
         [artworkTexts addObject:[artwork.confidentialNotes stringByStrippingHTML]];
     }
@@ -120,7 +122,7 @@
 - (UILabel *)bodyLabelWithText:(NSString *)text
 {
     UILabel *bodyLabel = [[ARSerifLabel alloc] initWithFrame:CGRectZero];
-    bodyLabel.attributedText = [self expandedLineHeightBodyTextForString:text];
+    bodyLabel.attributedText = [text attributedStringWithLineSpacing:4.0];
     bodyLabel.textColor = [UIColor artsyForegroundColor];
     bodyLabel.backgroundColor = [UIColor artsyBackgroundColor];
     bodyLabel.preferredMaxLayoutWidth = self.columnWidth;
@@ -128,26 +130,18 @@
     return bodyLabel;
 }
 
-- (NSAttributedString *)expandedLineHeightBodyTextForString:(NSString *)string
-{
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:string];
-    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    [style setLineSpacing:4];
-    [attrString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, string.length)];
-    return attrString;
-}
-
 - (ORStackView *)stackViewForEditionSets:(NSSet *)editionSets
 {
     ORStackView *editionsView = [[ORStackView alloc] init];
 
-    BOOL showPrices = [self.defaults boolForKey:ARShowPrices];
     [editionSets eachWithIndex:^(EditionSet *set, NSUInteger editionIndex) {
-
+        
         NSArray *editionAttributes = [set editionAttributes];
-        if (showPrices && set.internalPrice.length) {
+        
+        if ([self showPriceOfEditionSet:set] && set.internalPrice.length) {
             editionAttributes = [editionAttributes arrayByAddingObject:set.internalPrice];
         }
+        
         [editionAttributes eachWithIndex:^(NSString *attribute, NSUInteger attrIndex) {
             UILabel *label = [self bodyLabelWithText:attribute];
             [editionsView addSubview:label withTopMargin:(attrIndex == 0 && !(editionIndex == 0)) ? @"25" : @"2" sideMargin:@"0"];
@@ -155,6 +149,27 @@
     }];
 
     return editionsView;
+}
+
+- (BOOL)showConfidentialNotes
+{
+    BOOL usingLabSettings = [self.defaults boolForKey:AROptionsUseLabSettings];
+    if (!usingLabSettings) return [self.defaults boolForKey:ARShowConfidentialNotes];
+
+    return ![self.defaults boolForKey:ARHideConfidentialNotes];
+}
+
+/// A little sloppy, but necessary until I can phase out the old settings defaults
+- (BOOL)showPriceOfEditionSet:(EditionSet *)set
+{
+    BOOL usingLabSettings = [self.defaults boolForKey:AROptionsUseLabSettings];
+    if (!usingLabSettings) return [self.defaults boolForKey:ARShowPrices];
+
+    if ([self.defaults boolForKey:ARHideAllPrices]) return NO;
+
+    if ([set.availability isEqualToString:ARAvailabilitySold] && [self.defaults boolForKey:ARHidePricesForSoldWorks]) return NO;
+
+    return YES;
 }
 
 - (NSUserDefaults *)defaults

@@ -43,35 +43,6 @@
     self.subscriptionPlans = [SubscriptionPlan plansWithStringArray:subscriptionPlans inContext:self.managedObjectContext];
 }
 
-- (BOOL)hasUploadedWorks
-{
-    return self.artworksCount.boolValue || [Artwork countInContext:self.managedObjectContext error:nil];
-}
-
-- (BOOL)hasPublishedWorks
-{
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isPublished = YES"];
-    return ([Artwork findFirstWithPredicate:predicate inContext:self.managedObjectContext] != nil);
-}
-
-- (BOOL)hasWorksWithPrice
-{
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"displayPrice != '' OR backendPrice != ''"];
-    return ([Artwork findFirstWithPredicate:predicate inContext:self.managedObjectContext] != nil);
-}
-
-- (BOOL)hasForSaleWorks
-{
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isAvailableForSale = YES"];
-    return ([Artwork findFirstWithPredicate:predicate inContext:self.managedObjectContext] != nil);
-}
-
-- (BOOL)hasConfidentialNotes
-{
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"confidentialNotes != ''"];
-    return ([Artwork findFirstWithPredicate:predicate inContext:self.managedObjectContext] != nil);
-}
-
 + (Partner *)currentPartner
 {
     return [Partner findFirst];
@@ -80,6 +51,11 @@
 + (Partner *)currentPartnerInContext:(NSManagedObjectContext *)context
 {
     return [Partner findFirstInContext:context];
+}
+
+- (BOOL)hasUploadedWorks
+{
+    return self.artworksCount.boolValue || [Artwork countInContext:self.managedObjectContext error:nil];
 }
 
 - (NSDate *)lastCMSLoginDate

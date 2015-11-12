@@ -2,6 +2,7 @@
 #import "ARFlatButton.h"
 #import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 #import "ARTopViewController.h"
+#import "NSString+NiceAttributedStrings.h"
 
 
 @interface ARLabSettingsSyncViewController ()
@@ -38,7 +39,7 @@
     [self.syncButton setTitle:@"Sync Content".uppercaseString forState:UIControlStateNormal];
 
     NSString *string = self.explanatoryTextLabel.text;
-    [self.explanatoryTextLabel setAttributedText:[self expandedLineHeightBodyTextForString:string]];
+    self.explanatoryTextLabel.attributedText = [string attributedStringWithLineSpacing:10.0];
 
     NSString *previousSyncsText = self.viewModel.syncLogCount ? @"Previous Syncs" : @"You have no previous syncs";
     [self.previousSyncsLabel setAttributedText:[self expandedKernTextForString:previousSyncsText.uppercaseString]];
@@ -66,15 +67,6 @@
 - (IBAction)syncButtonPressed:(id)sender
 {
     [self.viewModel startSync];
-}
-
-- (NSAttributedString *)expandedLineHeightBodyTextForString:(NSString *)string
-{
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:string];
-    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    [style setLineSpacing:10];
-    [attrString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, string.length)];
-    return attrString;
 }
 
 - (NSAttributedString *)expandedKernTextForString:(NSString *)string

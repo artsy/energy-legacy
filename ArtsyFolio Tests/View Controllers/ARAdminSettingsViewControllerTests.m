@@ -2,6 +2,7 @@
 #import "ARDefaults.h"
 #import "AROptions.h"
 #import "ARTheme.h"
+#import "Partner+InventoryHelpers.h"
 
 
 @interface ARAdminSettingsViewController () <UITableViewDelegate>
