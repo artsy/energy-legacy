@@ -49,17 +49,20 @@
 
     if ([partner hasNotForSaleWorks] && [partner hasForSaleWorks]) {
         [presentationModeOptions addObject:@{
-            AROptionsKey : ARHideWorksNotForSale,
+            AROptionsKey : ARShowAvailableOnly,
             AROptionsName : @"Hide Not For Sale Works",
         }];
     }
 
-    if ([partner hasConfidentialNotes]) {
-        [presentationModeOptions addObject:@{
-            AROptionsKey : ARHideConfidentialNotes,
-            AROptionsName : @"Hide Confidential Notes",
-        }];
-    }
+    [presentationModeOptions addObject:@{
+        AROptionsKey : ARHideConfidentialNotes,
+        AROptionsName : @"Hide Confidential Notes",
+    }];
+
+    [presentationModeOptions addObject:@{
+        AROptionsKey : ARHideArtworkEditButton,
+        AROptionsName : @"Hide Artwork Edit Button",
+    }];
 
     _presentationModeOptions = [NSArray arrayWithArray:presentationModeOptions];
 }

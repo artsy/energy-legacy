@@ -13,6 +13,7 @@
 #import "ARPopoverController.h"
 #import "ARImageViewController.h"
 #import "ARModernEmailArtworksViewController.h"
+#import "AROptions.h"
 
 #if __has_include(<SafariServices/SafariServices.h>)
 @import SafariServices;
@@ -125,9 +126,12 @@
     self.emailButton = [UIBarButtonItem toolbarImageButtonWithName:@"Messages" withTarget:self andSelector:@selector(openEmailPopover:)];
     self.editButton = [UIBarButtonItem toolbarImageButtonWithName:@"Pencil" withTarget:self andSelector:@selector(openEditArtworkViewController:)];
 
-
     UIBarButtonItem *search = [(ARNavigationController *)self.navigationController newSearchPopoverButton];
-    self.navigationItem.rightBarButtonItems = @[ search, self.viewInRoom, self.albumsButton, self.emailButton, self.editButton ];
+
+    NSMutableArray *barButtonItems = [NSMutableArray arrayWithArray:@[ search, self.viewInRoom, self.albumsButton, self.emailButton ]];
+    if (self.showEditButton) [barButtonItems addObject:self.editButton];
+
+    self.navigationItem.rightBarButtonItems = barButtonItems;
 }
 
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed;
@@ -372,6 +376,12 @@
 - (NSDictionary *)dictionaryForAnalytics
 {
     return @{ @"artwork_id" : self.currentArtwork.title ?: @"" };
+}
+
+- (BOOL)showEditButton
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults boolForKey:AROptionsUseLabSettings] ? ([defaults boolForKey:ARPresentationModeOn] && ![defaults boolForKey:ARHideArtworkEditButton]) : YES;
 }
 
 #pragma mark -

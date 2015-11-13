@@ -21,6 +21,7 @@ NSString *const ARHideConfidentialNotes = @"ARHideConfidentialNotes";
 NSString *const ARHidePricesForSoldWorks = @"ARHidePricesForSoldWorks";
 NSString *const ARHideWorksNotForSale = @"ARHideWorksNotForSale";
 NSString *const ARPresentationModeOn = @"ARPresentationModeOn";
+NSString *const ARHideArtworkEditButton = @"ARHideArtworkEditButton";
 
 NSString *const AREmailGreeting = @"AREmailGreeting";
 NSString *const AREmailSignature = @"AREmailSignature";
@@ -51,6 +52,7 @@ NSString *const ARRecommendSync = @"ARRecommendSync";
         ARShowConfidentialNotes : @NO,
         ARStartedFirstSync : @NO,
         ARFinishedFirstSync : @NO,
+        ARHideArtworkEditButton : @NO,
         AREmailSubject : @"More information about %@ by %@",
         ARMultipleEmailSubject : @"More information about the artworks we discussed",
         ARMultipleSameArtistEmailSubject : @"More information about %@'s artworks",
