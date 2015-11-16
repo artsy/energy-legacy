@@ -7,8 +7,8 @@
 
 Artwork *genericArtworkInContext(NSManagedObjectContext *context);
 NSInteger numberOfRowsIn(ARLabSettingsPresentationModeViewController *subject);
-ForgeriesUserDefaults *offDefaults();
-ForgeriesUserDefaults *onDefaults();
+ForgeriesUserDefaults *offDefaults(void);
+ForgeriesUserDefaults *onDefaults(void);
 
 SpecBegin(ARLabSettingsPresentationModeViewController);
 
@@ -123,16 +123,10 @@ describe(@"setting defaults", ^{
         NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
         [subject tableView:subject.tableView didSelectRowAtIndexPath:path];
         
-        ForgeriesUserDefaults *defaults = subject.defaults;
+        ForgeriesUserDefaults *defaults = (id)subject.defaults;
         expect(defaults.hasSyncronised).to.beTruthy();
         expect(defaults.lastRequestedKey).to.equal(ARHideAllPrices);
         expect([subject.defaults boolForKey:ARHideAllPrices]).to.beTruthy();
-    });
-});
-
-describe(@"no presentation mode settings", ^{
-    it(@"handles this state correctly", ^{
-        
     });
 });
 

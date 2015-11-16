@@ -140,7 +140,7 @@ describe(@"showing and hiding price", ^{
                                                          ARHideAllPrices: @"YES",
                                                          AROptionsUseLabSettings: @"YES",
                                                 }];
-        sut.defaults = testDefaults;
+        sut.defaults = (id)testDefaults;
         
         expect([sut showPrice]).to.beFalsy();
     });
@@ -155,7 +155,7 @@ describe(@"showing and hiding price", ^{
                                                          AROptionsUseLabSettings: @"YES",
                                                          ARHidePricesForSoldWorks: @"YES"
                                                 }];
-        sut.defaults = testDefaults;
+        sut.defaults = (id)testDefaults;
         
         expect([sut showPrice]).to.beFalsy();
     });
@@ -168,7 +168,7 @@ describe(@"showing and hiding price", ^{
                                                          ARHideAllPrices: @"NO",
                                                          AROptionsUseLabSettings: @"YES",
                                                  }];
-        sut.defaults = testDefaults;
+        sut.defaults = (id)testDefaults;
         
         expect([sut showPrice]).to.beTruthy();
     });
