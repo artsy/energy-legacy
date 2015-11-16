@@ -32,71 +32,53 @@ beforeEach(^{
 describe(@"visuals", ^{
     itHasSnapshotsForViewControllerWithDevicesAndColorStates(@"default", ^id {
     
-        defaults = [ForgeriesUserDefaults defaults:@{ ARPresentationModeOn: @NO,
-                                                      AROptionsUseLabSettings: @YES
-                                                    }];
+        defaults = [ForgeriesUserDefaults defaults:@{ ARPresentationModeOn: @NO, AROptionsUseLabSettings: @YES }];
         
-        subject = [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil withDefaults:(id)defaults];
-        
-        return subject;
+        return [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil withDefaults:(id)defaults];
     });
 
     itHasSnapshotsForViewControllerWithDevicesAndColorStates(@"when hiding the artwork edit button", ^id {
 
-        defaults = [ForgeriesUserDefaults defaults:@{ ARPresentationModeOn: @YES,
-                                                      ARHideArtworkEditButton: @YES,
-                                                      AROptionsUseLabSettings: @YES
-                                                    }];
+        defaults = [ForgeriesUserDefaults defaults:@{ ARPresentationModeOn: @YES, ARHideArtworkEditButton: @YES, AROptionsUseLabSettings: @YES }];
         
-        subject = [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil withDefaults:(id)defaults];
-
-        return subject;
+        return [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil withDefaults:(id)defaults];
     });
 });
 
 describe(@"presentation mode", ^{
 
     it(@"hides artwork edit button when pres mode and hide button toggles are both on", ^{
-        defaults = [ForgeriesUserDefaults defaults:@{ ARPresentationModeOn: @YES,
-                                                      ARHideArtworkEditButton: @YES,
-                                                      AROptionsUseLabSettings: @YES
-                                                   }];
+        defaults = [ForgeriesUserDefaults defaults:@{ ARPresentationModeOn: @YES, ARHideArtworkEditButton: @YES, AROptionsUseLabSettings: @YES }];
         
         subject = [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil withDefaults:(id)defaults];
         
         navController = [[ARNavigationController alloc] initWithRootViewController:subject];
         
-        [subject viewWillAppear:NO];
+        [subject beginAppearanceTransition:YES animated:NO];
         
         expect(subject.navigationItem.rightBarButtonItems.count).to.equal(4);
     });
     
     it(@"shows artwork edit button when pres mode is on and hide button toggle is off", ^{
-        defaults = [ForgeriesUserDefaults defaults:@{ ARPresentationModeOn: @YES,
-                                                      ARHideArtworkEditButton: @NO,
-                                                      AROptionsUseLabSettings: @YES
-                                                      }];
+        defaults = [ForgeriesUserDefaults defaults:@{ ARPresentationModeOn: @YES, ARHideArtworkEditButton: @NO, AROptionsUseLabSettings: @YES }];
         
         subject = [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil withDefaults:(id)defaults];
         
         navController = [[ARNavigationController alloc] initWithRootViewController:subject];
         
-        [subject viewWillAppear:NO];
+        [subject beginAppearanceTransition:YES animated:NO];
         
         expect(subject.navigationItem.rightBarButtonItems.count).to.equal(5);
     });
 
     it(@"shows artwork edit button when pres mode is off and hide button toggle is on", ^{
-        defaults = [ForgeriesUserDefaults defaults:@{ ARPresentationModeOn: @NO,
-                                                      ARHideArtworkEditButton: @YES,
-                                                      AROptionsUseLabSettings: @YES
-                                                      }];
+        defaults = [ForgeriesUserDefaults defaults:@{ ARPresentationModeOn: @NO, ARHideArtworkEditButton: @YES, AROptionsUseLabSettings: @YES }];
         
         subject = [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil withDefaults:(id)defaults];
         
         navController = [[ARNavigationController alloc] initWithRootViewController:subject];
         
-        [subject viewWillAppear:NO];
+        [subject beginAppearanceTransition:YES animated:NO];
         
         expect(subject.navigationItem.rightBarButtonItems.count).to.equal(5);
     });
