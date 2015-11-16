@@ -7,6 +7,7 @@
 #import "AROptions.h"
 #import "EditionSet.h"
 #import <Artsy+UILabels/ARLabelSubclasses.h>
+#import "ORStackView+TestingHelpers.h"
 
 
 @interface ARArtworkInfoAdditionalMetadataView ()
@@ -257,7 +258,7 @@ describe(@"showing and hiding edition prices", ^{
 
 describe(@"showing and hiding confidential notes", ^{
     
-    it(@"respects Hide Conf Notes default in presentation mode when default is on", ^{
+    it(@"respects Hide Conf Notes default in presentation mode when HCN is on", ^{
         Artwork *artwork = [ARModelFactory partiallyFilledArtworkInContext:context];
         artwork.confidentialNotes = @"super secret";
         
@@ -269,20 +270,19 @@ describe(@"showing and hiding confidential notes", ^{
 
         setupSUTWithArtwork(artwork);
         
-        NSArray *stackViews = [sut.subviews.firstObject subviews];
-        
-        NSArray *labels = [stackViews map:^id(id object) {
-            return [object subviews];
+        NSArray *stackViews = [[sut.subviews.firstObject subviews] reject:^BOOL(id object) {
+            return ![object isKindOfClass:ORStackView.class];
         }];
         
-        UILabel *confidentialNotesView = [[labels flatten] find:^BOOL(UIView *subview) {
-            return [subview isKindOfClass:UILabel.class] && [((UILabel *)subview).text isEqualToString:@"CONFIDENTIAL NOTES"];
+        NSNumber *hasConfidentialNotesView = [stackViews reduce:@(NO) withBlock:^id(NSNumber *accumulator, ORStackView *stackView) {
+            if (accumulator.boolValue) return @(YES);
+            return @([stackView containsLabelWithText:@"confidential notes"]);
         }];
 
-        expect(confidentialNotesView).to.beFalsy();
+        expect(hasConfidentialNotesView).to.beFalsy();
     });
     
-    it(@"respects Hide Conf Notes default in presentation mode when default is off", ^{
+    it(@"respects Hide Conf Notes default in presentation mode when HCN is off", ^{
         Artwork *artwork = [ARModelFactory partiallyFilledArtworkInContext:context];
         artwork.confidentialNotes = @"super secret";
         
@@ -294,17 +294,17 @@ describe(@"showing and hiding confidential notes", ^{
 
         setupSUTWithArtwork(artwork);
         
-        NSArray *stackViews = [sut.subviews.firstObject subviews];
-        
-        NSArray *labels = [stackViews map:^id(id object) {
-            return [object subviews];
+        NSArray *stackViews = [[sut.subviews.firstObject subviews] reject:^BOOL(id object) {
+            return ![object isKindOfClass:ORStackView.class];
+        }];
+
+        NSNumber *hasConfidentialNotesView = [stackViews reduce:@(NO) withBlock:^id(NSNumber *accumulator, ORStackView *stackView) {
+            if (accumulator.boolValue) return @(YES);
+            return @([stackView containsLabelWithText:@"confidential notes"]);
         }];
         
-        UILabel *confidentialNotesView = [[labels flatten] find:^BOOL(UIView *subview) {
-            return [subview isKindOfClass:UILabel.class] && [((UILabel *)subview).text isEqualToString:@"CONFIDENTIAL NOTES"];
-        }];
         
-        expect(confidentialNotesView).to.beTruthy();
+        expect(hasConfidentialNotesView).to.beTruthy();
     });
     
     it(@"ignores Hide Conf Notes default when not in presentation mode", ^{
@@ -319,17 +319,16 @@ describe(@"showing and hiding confidential notes", ^{
         
         setupSUTWithArtwork(artwork);
         
-        NSArray *stackViews = [sut.subviews.firstObject subviews];
-        
-        NSArray *labels = [stackViews map:^id(id object) {
-            return [object subviews];
+        NSArray *stackViews = [[sut.subviews.firstObject subviews] reject:^BOOL(id object) {
+            return ![object isKindOfClass:ORStackView.class];
         }];
         
-        UILabel *confidentialNotesView = [[labels flatten] find:^BOOL(UIView *subview) {
-            return [subview isKindOfClass:UILabel.class] && [((UILabel *)subview).text isEqualToString:@"CONFIDENTIAL NOTES"];
+        NSNumber *hasConfidentialNotesView = [stackViews reduce:@(NO) withBlock:^id(NSNumber *accumulator, ORStackView *stackView) {
+            if (accumulator.boolValue) return @(YES);
+            return @([stackView containsLabelWithText:@"confidential notes"]);
         }];
         
-        expect(confidentialNotesView).to.beTruthy();
+        expect(hasConfidentialNotesView).to.beTruthy();
     });
 
 });
