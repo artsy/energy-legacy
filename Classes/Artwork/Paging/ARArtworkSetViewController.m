@@ -44,7 +44,7 @@
 
 @implementation ARArtworkSetViewController
 
-- (instancetype)initWithArtworks:(NSFetchedResultsController *)artworks atIndex:(NSInteger)index representedObject:(ARManagedObject *)representedObject withDefaults:(NSUserDefaults *)defaults
+- (instancetype)initWithArtworks:(NSFetchedResultsController *)artworks atIndex:(NSInteger)index representedObject:(ARManagedObject *)representedObject defaults:(NSUserDefaults *)defaults
 {
     self = [super init];
     if (!self) return nil;
@@ -132,7 +132,7 @@
     UIBarButtonItem *search = [(ARNavigationController *)self.navigationController newSearchPopoverButton];
 
     NSMutableArray *barButtonItems = [NSMutableArray arrayWithArray:@[ search, self.viewInRoom, self.albumsButton, self.emailButton ]];
-    if (self.showEditButton) [barButtonItems addObject:self.editButton];
+    if (self.shouldShowEditButton) [barButtonItems addObject:self.editButton];
 
     self.navigationItem.rightBarButtonItems = barButtonItems;
 }
@@ -381,9 +381,12 @@
     return @{ @"artwork_id" : self.currentArtwork.title ?: @"" };
 }
 
-- (BOOL)showEditButton
+- (BOOL)shouldShowEditButton
 {
-    return ([self.defaults boolForKey:AROptionsUseLabSettings] && [self.defaults boolForKey:ARPresentationModeOn]) ? ![self.defaults boolForKey:ARHideArtworkEditButton] : YES;
+    if (![self.defaults boolForKey:AROptionsUseLabSettings]) return YES;
+
+    BOOL presentationModeOn = [self.defaults boolForKey:ARPresentationModeOn];
+    return presentationModeOn ? ![self.defaults boolForKey:ARHideArtworkEditButton] : YES;
 }
 
 #pragma mark -

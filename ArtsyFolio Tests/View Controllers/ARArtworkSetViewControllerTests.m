@@ -34,14 +34,14 @@ describe(@"visuals", ^{
     
         defaults = [ForgeriesUserDefaults defaults:@{ ARPresentationModeOn: @NO, AROptionsUseLabSettings: @YES }];
         
-        return [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil withDefaults:(id)defaults];
+        return [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil defaults:(id)defaults];
     });
 
     itHasSnapshotsForViewControllerWithDevicesAndColorStates(@"when hiding the artwork edit button", ^id {
 
         defaults = [ForgeriesUserDefaults defaults:@{ ARPresentationModeOn: @YES, ARHideArtworkEditButton: @YES, AROptionsUseLabSettings: @YES }];
         
-        return [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil withDefaults:(id)defaults];
+        return [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil defaults:(id)defaults];
     });
 });
 
@@ -50,7 +50,7 @@ describe(@"presentation mode", ^{
     it(@"hides artwork edit button when pres mode and hide button toggles are both on", ^{
         defaults = [ForgeriesUserDefaults defaults:@{ ARPresentationModeOn: @YES, ARHideArtworkEditButton: @YES, AROptionsUseLabSettings: @YES }];
         
-        subject = [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil withDefaults:(id)defaults];
+        subject = [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil defaults:(id)defaults];
         
         navController = [[ARNavigationController alloc] initWithRootViewController:subject];
         
@@ -62,7 +62,7 @@ describe(@"presentation mode", ^{
     it(@"shows artwork edit button when pres mode is on and hide button toggle is off", ^{
         defaults = [ForgeriesUserDefaults defaults:@{ ARPresentationModeOn: @YES, ARHideArtworkEditButton: @NO, AROptionsUseLabSettings: @YES }];
         
-        subject = [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil withDefaults:(id)defaults];
+        subject = [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil defaults:(id)defaults];
         
         navController = [[ARNavigationController alloc] initWithRootViewController:subject];
         
@@ -74,7 +74,7 @@ describe(@"presentation mode", ^{
     it(@"shows artwork edit button when pres mode is off and hide button toggle is on", ^{
         defaults = [ForgeriesUserDefaults defaults:@{ ARPresentationModeOn: @NO, ARHideArtworkEditButton: @YES, AROptionsUseLabSettings: @YES }];
         
-        subject = [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil withDefaults:(id)defaults];
+        subject = [[ARArtworkSetViewController alloc] initWithArtworks:fetchResultscontroller atIndex:0 representedObject:nil defaults:(id)defaults];
         
         navController = [[ARNavigationController alloc] initWithRootViewController:subject];
         

@@ -237,7 +237,7 @@
     NSFetchedResultsController *controller = [self fetchedResultsControllerForArtworksRequest:fetchRequest];
 
     NSInteger index = [controller indexPathForObject:artwork].row;
-    ARArtworkSetViewController *artworkController = [[ARArtworkSetViewController alloc] initWithArtworks:controller atIndex:index representedObject:artwork.artist withDefaults:[NSUserDefaults standardUserDefaults]];
+    ARArtworkSetViewController *artworkController = [[ARArtworkSetViewController alloc] initWithArtworks:controller atIndex:index representedObject:artwork.artist defaults:[NSUserDefaults standardUserDefaults]];
 
     UINavigationController *navController = [self navigationController];
     [UIView animateWithDuration:ARAnimationQuickDuration animations:^{
@@ -272,7 +272,7 @@
 
 - (void)pushArtworkViewControllerWithArtworks:(NSFetchedResultsController *)artworks atIndex:(NSInteger)index representedObject:(ARManagedObject *)representedObject
 {
-    ARArtworkSetViewController *artworkController = [[ARArtworkSetViewController alloc] initWithArtworks:artworks atIndex:index representedObject:representedObject withDefaults:[NSUserDefaults standardUserDefaults]];
+    ARArtworkSetViewController *artworkController = [[ARArtworkSetViewController alloc] initWithArtworks:artworks atIndex:index representedObject:representedObject defaults:[NSUserDefaults standardUserDefaults]];
     [self.navigationController pushViewController:artworkController animated:YES];
 }
 
