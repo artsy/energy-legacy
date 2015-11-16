@@ -158,11 +158,12 @@ describe(@"showing and hiding edition prices", ^{
         expect([sut showPriceOfEditionSet:artwork.editionSets.firstObject]).to.beFalsy();
     });
     
-    it(@"shows unsold edition prices", ^{
+    it(@"shows unsold edition prices when pres mode is off", ^{
         Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
         
         fakeDefaults = [ForgeriesUserDefaults defaults:@{
                          AROptionsUseLabSettings: @YES,
+                         ARPresentationModeOn: @NO,
                          ARHideAllPrices: @NO,
                          ARHidePricesForSoldWorks: @YES
                          }];
@@ -172,11 +173,27 @@ describe(@"showing and hiding edition prices", ^{
         expect([sut showPriceOfEditionSet:artwork.editionSets.firstObject]).to.beTruthy();
     });
     
-    it(@"hides unsold edition prices", ^{
+    it(@"shows unsold edition prices when pres mode is on and sold work prices hidden", ^{
         Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
         
         fakeDefaults = [ForgeriesUserDefaults defaults:@{
                          AROptionsUseLabSettings: @YES,
+                         ARPresentationModeOn: @YES,
+                         ARHideAllPrices: @NO,
+                         ARHidePricesForSoldWorks: @YES
+                         }];
+
+        setupSUTWithArtwork(artwork);
+        
+        expect([sut showPriceOfEditionSet:artwork.editionSets.firstObject]).to.beTruthy();
+    });
+    
+    it(@"hides unsold edition prices when pres mode is on and all prices are hidden", ^{
+        Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
+        
+        fakeDefaults = [ForgeriesUserDefaults defaults:@{
+                         AROptionsUseLabSettings: @YES,
+                         ARPresentationModeOn: @YES,
                          ARHideAllPrices: @YES,
                          ARHidePricesForSoldWorks: @NO
                          }];
@@ -186,14 +203,32 @@ describe(@"showing and hiding edition prices", ^{
         expect([sut showPriceOfEditionSet:artwork.editionSets.firstObject]).to.beFalsy();
     });
     
-    it(@"shows sold edition prices", ^{
+    it(@"shows sold edition prices when pres mode is off", ^{
         Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
         EditionSet *set = artwork.editionSets.firstObject;
         set.availability = ARAvailabilitySold;
         
         fakeDefaults = [ForgeriesUserDefaults defaults:@{
                          AROptionsUseLabSettings: @YES,
-                         ARHideAllPrices: @"NO",
+                         ARPresentationModeOn: @NO,
+                         ARHideAllPrices: @"YES",
+                         ARHidePricesForSoldWorks: @YES
+                         }];
+        
+        setupSUTWithArtwork(artwork);
+        
+        expect([sut showPriceOfEditionSet:artwork.editionSets.firstObject]).to.beTruthy();
+    });
+
+    it(@"shows sold edition prices when pres mode is on and sold works prices are not hidden", ^{
+        Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
+        EditionSet *set = artwork.editionSets.firstObject;
+        set.availability = ARAvailabilitySold;
+        
+        fakeDefaults = [ForgeriesUserDefaults defaults:@{
+                         AROptionsUseLabSettings: @YES,
+                         ARPresentationModeOn: @YES,
+                         ARHideAllPrices: @NO,
                          ARHidePricesForSoldWorks: @NO
                          }];
         
@@ -202,13 +237,14 @@ describe(@"showing and hiding edition prices", ^{
         expect([sut showPriceOfEditionSet:artwork.editionSets.firstObject]).to.beTruthy();
     });
     
-    it(@"hides sold edition prices", ^{
+    it(@"hides sold edition prices when pres mode is on and sold works prices hidden", ^{
         Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
         EditionSet *set = artwork.editionSets.firstObject;
         set.availability = ARAvailabilitySold;
         
         fakeDefaults = [ForgeriesUserDefaults defaults:@{
                          AROptionsUseLabSettings: @YES,
+                         ARPresentationModeOn: @YES,
                          ARHideAllPrices: @"NO",
                          ARHidePricesForSoldWorks: @YES
                          }];
@@ -221,37 +257,14 @@ describe(@"showing and hiding edition prices", ^{
 
 describe(@"showing and hiding confidential notes", ^{
     
-    it(@"shows confidential notes", ^{
-        Artwork *artwork = [ARModelFactory partiallyFilledArtworkInContext:context];
-        artwork.confidentialNotes = @"super secret";
-        
-        fakeDefaults = [ForgeriesUserDefaults defaults:@{
-                             ARHideConfidentialNotes: @NO,
-                             AROptionsUseLabSettings: @YES
-                             }];
-        
-        setupSUTWithArtwork(artwork);
-        
-        NSArray *stackViews = [sut.subviews.firstObject subviews];
-        
-        NSArray *labels = [stackViews map:^id(id object) {
-            return [object subviews];
-        }];
-        
-        UILabel *confidentialNotesView = [[labels flatten] find:^BOOL(UIView *subview) {
-            return [subview isKindOfClass:UILabel.class] && [((UILabel *)subview).text isEqualToString:@"CONFIDENTIAL NOTES"];
-        }];
-
-        expect(confidentialNotesView).to.beTruthy();
-    });
-    
-    it(@"hides confidential notes", ^{
+    it(@"respects Hide Conf Notes default in presentation mode when default is on", ^{
         Artwork *artwork = [ARModelFactory partiallyFilledArtworkInContext:context];
         artwork.confidentialNotes = @"super secret";
         
         fakeDefaults = [ForgeriesUserDefaults defaults:@{
                              ARHideConfidentialNotes: @YES,
-                             AROptionsUseLabSettings: @YES
+                             AROptionsUseLabSettings: @YES,
+                             ARPresentationModeOn: @YES,
                              }];
 
         setupSUTWithArtwork(artwork);
@@ -268,6 +281,57 @@ describe(@"showing and hiding confidential notes", ^{
 
         expect(confidentialNotesView).to.beFalsy();
     });
+    
+    it(@"respects Hide Conf Notes default in presentation mode when default is off", ^{
+        Artwork *artwork = [ARModelFactory partiallyFilledArtworkInContext:context];
+        artwork.confidentialNotes = @"super secret";
+        
+        fakeDefaults = [ForgeriesUserDefaults defaults:@{
+                             ARHideConfidentialNotes: @NO,
+                             AROptionsUseLabSettings: @YES,
+                             ARPresentationModeOn: @YES,
+                             }];
+
+        setupSUTWithArtwork(artwork);
+        
+        NSArray *stackViews = [sut.subviews.firstObject subviews];
+        
+        NSArray *labels = [stackViews map:^id(id object) {
+            return [object subviews];
+        }];
+        
+        UILabel *confidentialNotesView = [[labels flatten] find:^BOOL(UIView *subview) {
+            return [subview isKindOfClass:UILabel.class] && [((UILabel *)subview).text isEqualToString:@"CONFIDENTIAL NOTES"];
+        }];
+        
+        expect(confidentialNotesView).to.beTruthy();
+    });
+    
+    it(@"ignores Hide Conf Notes default when not in presentation mode", ^{
+        Artwork *artwork = [ARModelFactory partiallyFilledArtworkInContext:context];
+        artwork.confidentialNotes = @"super secret";
+        
+        fakeDefaults = [ForgeriesUserDefaults defaults:@{
+                             ARHideConfidentialNotes: @YES,
+                             AROptionsUseLabSettings: @YES,
+                             ARPresentationModeOn: @NO,
+                         }];
+        
+        setupSUTWithArtwork(artwork);
+        
+        NSArray *stackViews = [sut.subviews.firstObject subviews];
+        
+        NSArray *labels = [stackViews map:^id(id object) {
+            return [object subviews];
+        }];
+        
+        UILabel *confidentialNotesView = [[labels flatten] find:^BOOL(UIView *subview) {
+            return [subview isKindOfClass:UILabel.class] && [((UILabel *)subview).text isEqualToString:@"CONFIDENTIAL NOTES"];
+        }];
+        
+        expect(confidentialNotesView).to.beTruthy();
+    });
+
 });
 
 SpecEnd

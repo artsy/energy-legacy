@@ -49,7 +49,7 @@
 
     if ([partner hasNotForSaleWorks] && [partner hasForSaleWorks]) {
         [presentationModeOptions addObject:@{
-            AROptionsKey : ARShowAvailableOnly,
+            AROptionsKey : ARHideWorksNotForSale,
             AROptionsName : @"Hide Not For Sale Works",
         }];
     }

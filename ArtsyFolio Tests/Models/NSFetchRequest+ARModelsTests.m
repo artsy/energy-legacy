@@ -45,7 +45,7 @@ describe(@"all instances of a container", ^{
 
 
     it(@"respects the show only available default for old settings", ^{
-        defaults[ARShowAvailableOnly] = @(YES);
+        defaults[ARHideWorksNotForSale] = @(YES);
 
         Artwork *artwork = artist1.artworks.firstObject;
         artwork.isAvailableForSale = @(YES);
@@ -73,7 +73,7 @@ describe(@"all instances of a container", ^{
     it(@"respects the hide unavailable default in presentation mode", ^{
         defaults[AROptionsUseLabSettings] = @(YES);
         defaults[ARPresentationModeOn] = @(YES);
-        defaults[ARShowAvailableOnly] = @(YES);
+        defaults[ARHideWorksNotForSale] = @(YES);
         
         Artwork *artwork = artist1.artworks.firstObject;
         artwork.isAvailableForSale = @(YES);
@@ -103,7 +103,7 @@ describe(@"all instances of a container", ^{
     it(@"ignores the hide unavailable default when not in presentation mode", ^{
         defaults[AROptionsUseLabSettings] = @(YES);
         defaults[ARPresentationModeOn] = @(NO);
-        defaults[ARShowAvailableOnly] = @(YES);
+        defaults[ARHideWorksNotForSale] = @(YES);
         
         Artwork *artwork = artist1.artworks.firstObject;
         artwork.isAvailableForSale = @(YES);
@@ -175,7 +175,7 @@ describe(@"all artworks from a container", ^{
     });
 
     it(@"respects the show only available default for old settings", ^{
-        defaults[ARShowAvailableOnly] = @(YES);
+        defaults[ARHideWorksNotForSale] = @(YES);
 
         artwork1.isAvailableForSale = @(YES);
         request = [NSFetchRequest ar_allArtworksOfArtworkContainerWithSelfPredicate:scopePredicate inContext:context defaults:(id)defaults];
@@ -189,7 +189,7 @@ describe(@"all artworks from a container", ^{
     it(@"respects the hide unavailable default in presentation mode", ^{
         defaults[AROptionsUseLabSettings] = @(YES);
         defaults[ARPresentationModeOn] = @(YES);
-        defaults[ARShowAvailableOnly] = @(YES);
+        defaults[ARHideWorksNotForSale] = @(YES);
         
         artwork1.isAvailableForSale = @(YES);
         request = [NSFetchRequest ar_allArtworksOfArtworkContainerWithSelfPredicate:scopePredicate inContext:context defaults:(id)defaults];
@@ -203,7 +203,7 @@ describe(@"all artworks from a container", ^{
     it(@"ignores the hide unavailable default when not in presentation mode", ^{
         defaults[AROptionsUseLabSettings] = @(YES);
         defaults[ARPresentationModeOn] = @(NO);
-        defaults[ARShowAvailableOnly] = @(YES);
+        defaults[ARHideWorksNotForSale] = @(YES);
         
         artwork1.isAvailableForSale = @(YES);
         request = [NSFetchRequest ar_allArtworksOfArtworkContainerWithSelfPredicate:scopePredicate inContext:context defaults:(id)defaults];
@@ -231,7 +231,7 @@ describe(@"all artworks from a container", ^{
     it(@"ignores the hide unpublished default when not in presentation mode", ^{
         defaults[AROptionsUseLabSettings] = @(YES);
         defaults[ARPresentationModeOn] = @(NO);
-        defaults[ARShowAvailableOnly] = @(YES);
+        defaults[ARHideWorksNotForSale] = @(YES);
         
         artwork1.isPublished = @(YES);
         request = [NSFetchRequest ar_allArtworksOfArtworkContainerWithSelfPredicate:scopePredicate inContext:context defaults:(id)defaults];

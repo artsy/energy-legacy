@@ -13,7 +13,6 @@ NSString *const ARLimitedAccess = @"ARLimitedAccess";
 NSString *const ARHideUnpublishedWorks = @"ARHideUnpublishedWorks";
 NSString *const ARShowPrices = @"ARShowPrices";
 NSString *const ARShowAvailability = @"ARShowAvailability";
-NSString *const ARShowAvailableOnly = @"ARShowAvailableOnly";
 NSString *const ARShowConfidentialNotes = @"ARShowConfidentialNotes";
 
 NSString *const ARHideAllPrices = @"ARHideAllPrices";
@@ -46,7 +45,6 @@ NSString *const ARRecommendSync = @"ARRecommendSync";
         ARHidePricesForSoldWorks : @NO,
         ARHideWorksNotForSale : @NO,
         ARHideUnpublishedWorks : @NO,
-        ARShowAvailableOnly : @NO,
         ARShowAvailability : @YES,
         ARShowPrices : @NO,
         ARShowConfidentialNotes : @NO,

@@ -73,9 +73,9 @@
 
 + (BOOL)hideUnavailableWithDefaults:(NSUserDefaults *)defaults
 {
-    if (![defaults boolForKey:AROptionsUseLabSettings]) return [defaults boolForKey:ARShowAvailableOnly];
+    if (![defaults boolForKey:AROptionsUseLabSettings]) return [defaults boolForKey:ARHideWorksNotForSale];
 
-    return [defaults boolForKey:ARPresentationModeOn] ? [defaults boolForKey:ARShowAvailableOnly] : NO;
+    return [defaults boolForKey:ARPresentationModeOn] ? [defaults boolForKey:ARHideWorksNotForSale] : NO;
 }
 
 @end

@@ -154,10 +154,12 @@ ForgeriesUserDefaults *onDefaults()
 {
     return [ForgeriesUserDefaults defaults:@{
         ARHideUnpublishedWorks : @(YES),
-        ARShowPrices : @(YES),
+        ARHideAllPrices : @(YES),
         ARShowConfidentialNotes : @(YES),
+        ARHideConfidentialNotes : @(YES),
         ARHideWorksNotForSale : @(YES),
-        ARHidePricesForSoldWorks : @(YES)
+        ARHidePricesForSoldWorks : @(YES),
+        ARHideArtworkEditButton : @(YES),
     }];
 }
 
