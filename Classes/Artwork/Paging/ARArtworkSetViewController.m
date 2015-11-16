@@ -37,12 +37,14 @@
 @property (nonatomic, weak) ARPagingArtworkViewController *pagingViewController;
 @property (nonatomic, weak) ARModernArtworkMetadataViewController *metadataViewController;
 
+@property (nonatomic, strong) NSUserDefaults *defaults;
+
 @end
 
 
 @implementation ARArtworkSetViewController
 
-- (instancetype)initWithArtworks:(NSFetchedResultsController *)artworks atIndex:(NSInteger)index representedObject:(ARManagedObject *)representedObject
+- (instancetype)initWithArtworks:(NSFetchedResultsController *)artworks atIndex:(NSInteger)index representedObject:(ARManagedObject *)representedObject withDefaults:(NSUserDefaults *)defaults
 {
     self = [super init];
     if (!self) return nil;
@@ -51,6 +53,7 @@
     _artworkResultsController = artworks;
     _representedObject = representedObject;
     _index = index;
+    _defaults = defaults;
 
     return self;
 }
@@ -380,8 +383,7 @@
 
 - (BOOL)showEditButton
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    return [defaults boolForKey:AROptionsUseLabSettings] ? ([defaults boolForKey:ARPresentationModeOn] && ![defaults boolForKey:ARHideArtworkEditButton]) : YES;
+    return ([self.defaults boolForKey:AROptionsUseLabSettings] && [self.defaults boolForKey:ARPresentationModeOn]) ? ![self.defaults boolForKey:ARHideArtworkEditButton] : YES;
 }
 
 #pragma mark -
