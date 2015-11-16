@@ -5,6 +5,7 @@
 #import "ARStoryboardIdentifiers.h"
 #import "ARLabSettingsSplitViewController.h"
 #import "ARLabSettingsNavigationController.h"
+#import "NSString+NiceAttributedStrings.h"
 
 
 @interface ARLabSettingsMasterViewController ()
@@ -73,11 +74,7 @@
 
 - (void)setPresentationModeLabelText:(NSString *)string
 {
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:string];
-    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    [style setLineSpacing:5];
-    [attrString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, string.length)];
-    [self.presentationModeLabel setAttributedText:attrString];
+    [self.presentationModeLabel setAttributedText:[string attributedStringWithLineSpacing:5]];
 }
 
 #pragma mark -

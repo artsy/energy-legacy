@@ -1,4 +1,5 @@
 #import "NSFetchRequest+ARModels.h"
+#import "AROptions.h"
 
 // As more and more filtering options become available it makes sense to
 // keep all of the places that need to react to them in one place.
@@ -30,11 +31,11 @@
         [predicates addObject:scopePredicate];
     }
 
-    if ([defaults boolForKey:ARHideUnpublishedWorks]) {
+    if ([self hideUnpublishedWithDefaults:defaults]) {
         [predicates addObject:[NSPredicate predicateWithFormat:@"isPublished == %@", @(YES)]];
     }
 
-    if ([defaults boolForKey:ARShowAvailableOnly]) {
+    if ([self hideUnavailableWithDefaults:defaults]) {
         [predicates addObject:[NSPredicate predicateWithFormat:@"isAvailableForSale == %@", @(YES)]];
     }
 
@@ -49,11 +50,11 @@
 {
     NSMutableArray *predicates = [NSMutableArray array];
 
-    if ([defaults boolForKey:ARHideUnpublishedWorks]) {
+    if ([self hideUnpublishedWithDefaults:defaults]) {
         [predicates addObject:[NSPredicate predicateWithFormat:@"ANY artworks.isPublished == %@", @(YES)]];
     }
 
-    if ([defaults boolForKey:ARShowAvailableOnly]) {
+    if ([self hideUnavailableWithDefaults:defaults]) {
         [predicates addObject:[NSPredicate predicateWithFormat:@"ANY artworks.isAvailableForSale == %@", @(YES)]];
     }
 
@@ -61,6 +62,20 @@
     [predicates addObject:[NSPredicate predicateWithFormat:@"artworks.@count > 0"]];
 
     return [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
+}
+
++ (BOOL)hideUnpublishedWithDefaults:(NSUserDefaults *)defaults
+{
+    if (![defaults boolForKey:AROptionsUseLabSettings]) return [defaults boolForKey:ARHideUnpublishedWorks];
+
+    return [defaults boolForKey:ARPresentationModeOn] ? [defaults boolForKey:ARHideUnpublishedWorks] : NO;
+}
+
++ (BOOL)hideUnavailableWithDefaults:(NSUserDefaults *)defaults
+{
+    if (![defaults boolForKey:AROptionsUseLabSettings]) return [defaults boolForKey:ARHideWorksNotForSale];
+
+    return [defaults boolForKey:ARPresentationModeOn] ? [defaults boolForKey:ARHideWorksNotForSale] : NO;
 }
 
 @end

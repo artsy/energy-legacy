@@ -156,6 +156,8 @@
     BOOL usingLabSettings = [self.defaults boolForKey:AROptionsUseLabSettings];
     if (!usingLabSettings) return [self.defaults boolForKey:ARShowConfidentialNotes];
 
+    if (![self.defaults boolForKey:ARPresentationModeOn]) return YES;
+
     return ![self.defaults boolForKey:ARHideConfidentialNotes];
 }
 
@@ -164,6 +166,8 @@
 {
     BOOL usingLabSettings = [self.defaults boolForKey:AROptionsUseLabSettings];
     if (!usingLabSettings) return [self.defaults boolForKey:ARShowPrices];
+
+    if (![self.defaults boolForKey:ARPresentationModeOn]) return YES;
 
     if ([self.defaults boolForKey:ARHideAllPrices]) return NO;
 

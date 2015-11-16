@@ -27,7 +27,7 @@ beforeEach(^{
 
     offDefaults = [[ForgeriesUserDefaults alloc] init];
     onDefaults = [ForgeriesUserDefaults defaults:@{
-        ARShowAvailableOnly: @(YES),
+        ARHideWorksNotForSale: @(YES),
         AROptionsUseWhiteFolio: @(YES),
         ARHideUnpublishedWorks: @(YES),
         ARShowPrices: @(YES),

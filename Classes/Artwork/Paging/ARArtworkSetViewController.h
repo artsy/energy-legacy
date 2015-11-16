@@ -7,7 +7,7 @@
 
 @interface ARArtworkSetViewController : UIViewController <UIPageViewControllerDelegate, MFMailComposeViewControllerDelegate, WYPopoverControllerDelegate, ARFolioImageMessageViewControllerDelegate>
 
-- (instancetype)initWithArtworks:(NSFetchedResultsController *)artworks atIndex:(NSInteger)index representedObject:(ARManagedObject *)representedObject;
+- (instancetype)initWithArtworks:(NSFetchedResultsController *)artworks atIndex:(NSInteger)index representedObject:(ARManagedObject *)representedObject defaults:(NSUserDefaults *)defaults;
 
 /// An optional context object for the artworks, usually an ARArtworkContainer
 @property (nonatomic, strong, readonly) ARManagedObject *representedObject;

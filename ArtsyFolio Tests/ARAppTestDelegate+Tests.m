@@ -20,7 +20,7 @@ static OCMockObject *defaultsClassMock;
         ARHideUnpublishedWorks : @NO,
         ARShowPrices : @NO,
         ARShowAvailability : @NO,
-        ARShowAvailableOnly : @NO,
+        ARHideWorksNotForSale : @NO,
         ARShowConfidentialNotes : @NO,
         AREmailGreeting : @"Email greeting",
         AREmailSignature : @"Email signature",

@@ -515,6 +515,7 @@
 		833883101BAB0E4600F21DED /* ARLabSettingsSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8338830F1BAB0E4600F21DED /* ARLabSettingsSplitViewController.m */; };
 		833AAC371BA9DF9A00B24D25 /* ARLabSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833AAC361BA9DF9A00B24D25 /* ARLabSettings.storyboard */; };
 		833AAC3E1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833AAC3D1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m */; };
+		8340E4661BFA8F9D0016648A /* ORStackView+TestingHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8340E4651BFA8F9D0016648A /* ORStackView+TestingHelpers.m */; };
 		834B40F71BF3EFEE00473FB0 /* Partner+InventoryHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B40F61BF3EFEE00473FB0 /* Partner+InventoryHelpers.m */; };
 		834BA6971B4ADDE9009D18F7 /* pencil_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 834BA6961B4ADDE9009D18F7 /* pencil_btn@2x.png */; };
 		834BA6991B4AE1A8009D18F7 /* pencil_btn_whiteborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 834BA6981B4AE1A8009D18F7 /* pencil_btn_whiteborder.png */; };
@@ -1421,6 +1422,8 @@
 		833AAC361BA9DF9A00B24D25 /* ARLabSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ARLabSettings.storyboard; sourceTree = "<group>"; };
 		833AAC3C1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsMasterViewController.h; sourceTree = "<group>"; };
 		833AAC3D1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsMasterViewController.m; sourceTree = "<group>"; };
+		8340E4641BFA8F9D0016648A /* ORStackView+TestingHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ORStackView+TestingHelpers.h"; sourceTree = "<group>"; };
+		8340E4651BFA8F9D0016648A /* ORStackView+TestingHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ORStackView+TestingHelpers.m"; sourceTree = "<group>"; };
 		8343B7BC1B4C5667005790A9 /* ArtsyFolio v2.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.3.xcdatamodel"; sourceTree = "<group>"; };
 		834B40F51BF3EFEE00473FB0 /* Partner+InventoryHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Partner+InventoryHelpers.h"; sourceTree = "<group>"; };
 		834B40F61BF3EFEE00473FB0 /* Partner+InventoryHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Partner+InventoryHelpers.m"; sourceTree = "<group>"; };
@@ -2341,6 +2344,8 @@
 				60AC10D61949DE4A00274EBB /* ARTestContext.m */,
 				601A44D01B04C7B500713590 /* SDWebImage+EasyCache.h */,
 				601A44D11B04C7B500713590 /* SDWebImage+EasyCache.m */,
+				8340E4641BFA8F9D0016648A /* ORStackView+TestingHelpers.h */,
+				8340E4651BFA8F9D0016648A /* ORStackView+TestingHelpers.m */,
 			);
 			path = "Testing Util Objects";
 			sourceTree = "<group>";
@@ -4020,6 +4025,7 @@
 				607448251BE3C4EA00E20774 /* ARSyncInsomniacSpec.m in Sources */,
 				607448231BE3BD8000E20774 /* ARSync+TestsExtension.m in Sources */,
 				607448201BE3BB2200E20774 /* ARSyncDefaultsSpec.m in Sources */,
+				8340E4661BFA8F9D0016648A /* ORStackView+TestingHelpers.m in Sources */,
 				8371DB021B6824A200285A8E /* ARStubbedLoginNetworkModel.m in Sources */,
 				600F1AA3187AB9280006288F /* ARSelectionHandlerTests.m in Sources */,
 				60EC79F91A9E75B3009196A1 /* ARModernEmailArtworksViewControllerTests.m in Sources */,

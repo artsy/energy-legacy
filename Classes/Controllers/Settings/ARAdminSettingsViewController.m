@@ -54,7 +54,7 @@ NS_ENUM(NSInteger, ARAdminSettingsSection){
 
     if ([partner hasForSaleWorks]) {
         [userOptions addObject:@{
-            AROptionsKey : ARShowAvailableOnly,
+            AROptionsKey : ARHideWorksNotForSale,
             AROptionsName : @"Show For Sale Works Only"
         }];
     }

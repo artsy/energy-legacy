@@ -13,6 +13,7 @@
 #import "ARPopoverController.h"
 #import "ARImageViewController.h"
 #import "ARModernEmailArtworksViewController.h"
+#import "AROptions.h"
 
 #if __has_include(<SafariServices/SafariServices.h>)
 @import SafariServices;
@@ -36,12 +37,14 @@
 @property (nonatomic, weak) ARPagingArtworkViewController *pagingViewController;
 @property (nonatomic, weak) ARModernArtworkMetadataViewController *metadataViewController;
 
+@property (nonatomic, strong) NSUserDefaults *defaults;
+
 @end
 
 
 @implementation ARArtworkSetViewController
 
-- (instancetype)initWithArtworks:(NSFetchedResultsController *)artworks atIndex:(NSInteger)index representedObject:(ARManagedObject *)representedObject
+- (instancetype)initWithArtworks:(NSFetchedResultsController *)artworks atIndex:(NSInteger)index representedObject:(ARManagedObject *)representedObject defaults:(NSUserDefaults *)defaults
 {
     self = [super init];
     if (!self) return nil;
@@ -50,6 +53,7 @@
     _artworkResultsController = artworks;
     _representedObject = representedObject;
     _index = index;
+    _defaults = defaults;
 
     return self;
 }
@@ -125,9 +129,12 @@
     self.emailButton = [UIBarButtonItem toolbarImageButtonWithName:@"Messages" withTarget:self andSelector:@selector(openEmailPopover:)];
     self.editButton = [UIBarButtonItem toolbarImageButtonWithName:@"Pencil" withTarget:self andSelector:@selector(openEditArtworkViewController:)];
 
-
     UIBarButtonItem *search = [(ARNavigationController *)self.navigationController newSearchPopoverButton];
-    self.navigationItem.rightBarButtonItems = @[ search, self.viewInRoom, self.albumsButton, self.emailButton, self.editButton ];
+
+    NSMutableArray *barButtonItems = [NSMutableArray arrayWithArray:@[ search, self.viewInRoom, self.albumsButton, self.emailButton ]];
+    if (self.shouldShowEditButton) [barButtonItems addObject:self.editButton];
+
+    self.navigationItem.rightBarButtonItems = barButtonItems;
 }
 
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed;
@@ -372,6 +379,14 @@
 - (NSDictionary *)dictionaryForAnalytics
 {
     return @{ @"artwork_id" : self.currentArtwork.title ?: @"" };
+}
+
+- (BOOL)shouldShowEditButton
+{
+    if (![self.defaults boolForKey:AROptionsUseLabSettings]) return YES;
+
+    BOOL presentationModeOn = [self.defaults boolForKey:ARPresentationModeOn];
+    return presentationModeOn ? ![self.defaults boolForKey:ARHideArtworkEditButton] : YES;
 }
 
 #pragma mark -
