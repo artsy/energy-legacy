@@ -6,9 +6,15 @@
 #import "ARLabSettingsSplitViewController.h"
 #import "ARLabSettingsNavigationController.h"
 #import "NSString+NiceAttributedStrings.h"
+#import "ARAppDelegate.h"
+
+typedef NS_ENUM(NSInteger, ARSupportSettingsAlertViewButtonIndex) {
+    ARSupportSettingsAlertViewButtonIndexCancel,
+    ARSupportSettingsAlertViewButtonIndexLogout
+};
 
 
-@interface ARLabSettingsMasterViewController ()
+@interface ARLabSettingsMasterViewController () <UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *settingsIcon;
 @property (weak, nonatomic) IBOutlet UILabel *presentationModeLabel;
 
@@ -102,10 +108,34 @@
     [(ARLabSettingsSplitViewController *)self.splitViewController showDetailViewControllerForSettingsSection:ARLabSettingsSectionPresentationMode];
 }
 
-- (IBAction)supportButtonPressed:(id)sender
+- (IBAction)logoutButtonPressed:(id)sender
 {
+    [self showLogoutAlertView];
 }
 
+- (void)showLogoutAlertView
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:NSLocalizedString(@"Do you want to logout?", @"Confirm Logout Prompt")
+                                                   delegate:self
+                                          cancelButtonTitle:NSLocalizedString(@"No", @"Cancel Logout Process")
+                                          otherButtonTitles:NSLocalizedString(@"Yes, logout", @"Confirm Logout"), nil];
+    [alert show];
+}
+
+#pragma mark - UIAlertView delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == ARSupportSettingsAlertViewButtonIndexLogout) {
+        [self exitSettingsPanel];
+
+        ARAppDelegate *appDelegate = (ARAppDelegate *)[[UIApplication sharedApplication] delegate];
+        [appDelegate startLogout];
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:ARDismissAllPopoversNotification object:nil];
+    }
+}
 
 #pragma mark -
 #pragma mark settings icon
