@@ -8,13 +8,16 @@
 #import "NSString+NiceAttributedStrings.h"
 #import "ARAppDelegate.h"
 
-typedef NS_ENUM(NSInteger, ARSupportSettingsAlertViewButtonIndex) {
-    ARSupportSettingsAlertViewButtonIndexCancel,
-    ARSupportSettingsAlertViewButtonIndexLogout
+typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
+    ARSettingsAlertViewButtonIndexCancel,
+    ARSettingsAlertViewButtonIndexLogout
 };
 
 
 @interface ARLabSettingsMasterViewController () <UIAlertViewDelegate>
+@property (nonatomic, strong) NSUserDefaults *defaults;
+@property (nonatomic, strong) ARAppDelegate *appDelegate;
+
 @property (weak, nonatomic) IBOutlet UIButton *settingsIcon;
 @property (weak, nonatomic) IBOutlet UILabel *presentationModeLabel;
 
@@ -72,7 +75,7 @@ typedef NS_ENUM(NSInteger, ARSupportSettingsAlertViewButtonIndex) {
     ARToggleSwitch *toggle = [ARToggleSwitch buttonWithFrame:self.presentationModeToggle.frame];
     toggle.userInteractionEnabled = NO;
     [self.presentationModeButton addSubview:toggle];
-    toggle.on = [[NSUserDefaults standardUserDefaults] boolForKey:ARPresentationModeOn];
+    toggle.on = [self.defaults boolForKey:ARPresentationModeOn];
 }
 
 #pragma mark -
@@ -96,9 +99,8 @@ typedef NS_ENUM(NSInteger, ARSupportSettingsAlertViewButtonIndex) {
         return [subview isKindOfClass:ARToggleSwitch.class];
     }];
     if (toggle) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        BOOL on = ![defaults boolForKey:ARPresentationModeOn];
-        [defaults setBool:on forKey:ARPresentationModeOn];
+        BOOL on = ![self.defaults boolForKey:ARPresentationModeOn];
+        [self.defaults setBool:on forKey:ARPresentationModeOn];
         toggle.on = on;
     }
 }
@@ -127,11 +129,10 @@ typedef NS_ENUM(NSInteger, ARSupportSettingsAlertViewButtonIndex) {
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == ARSupportSettingsAlertViewButtonIndexLogout) {
+    if (buttonIndex == ARSettingsAlertViewButtonIndexLogout) {
         [self exitSettingsPanel];
 
-        ARAppDelegate *appDelegate = (ARAppDelegate *)[[UIApplication sharedApplication] delegate];
-        [appDelegate startLogout];
+        [self.appDelegate startLogout];
 
         [[NSNotificationCenter defaultCenter] postNotificationName:ARDismissAllPopoversNotification object:nil];
     }
@@ -153,6 +154,19 @@ typedef NS_ENUM(NSInteger, ARSupportSettingsAlertViewButtonIndex) {
 }
 
 #pragma mark -
+#pragma mark dependency injection
+
+- (NSUserDefaults *)defaults
+{
+    return _defaults ?: [NSUserDefaults standardUserDefaults];
+}
+
+- (ARAppDelegate *)appDelegate
+{
+    return _appDelegate ?: (ARAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+#pragma mark -
 #pragma mark exit strategies
 
 - (void)exitSettingsPanel
@@ -162,7 +176,7 @@ typedef NS_ENUM(NSInteger, ARSupportSettingsAlertViewButtonIndex) {
 
 - (IBAction)ogSettingsButtonPressed:(id)sender
 {
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:AROptionsUseLabSettings];
+    [self.defaults setBool:NO forKey:AROptionsUseLabSettings];
     [self exitSettingsPanel];
 }
 
