@@ -6,9 +6,18 @@
 #import "ARLabSettingsSplitViewController.h"
 #import "ARLabSettingsNavigationController.h"
 #import "NSString+NiceAttributedStrings.h"
+#import "ARAppDelegate.h"
+
+typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
+    ARSettingsAlertViewButtonIndexCancel,
+    ARSettingsAlertViewButtonIndexLogout
+};
 
 
-@interface ARLabSettingsMasterViewController ()
+@interface ARLabSettingsMasterViewController () <UIAlertViewDelegate>
+@property (nonatomic, strong) NSUserDefaults *defaults;
+@property (nonatomic, strong) ARAppDelegate *appDelegate;
+
 @property (weak, nonatomic) IBOutlet UIButton *settingsIcon;
 @property (weak, nonatomic) IBOutlet UILabel *presentationModeLabel;
 
@@ -66,7 +75,7 @@
     ARToggleSwitch *toggle = [ARToggleSwitch buttonWithFrame:self.presentationModeToggle.frame];
     toggle.userInteractionEnabled = NO;
     [self.presentationModeButton addSubview:toggle];
-    toggle.on = [[NSUserDefaults standardUserDefaults] boolForKey:ARPresentationModeOn];
+    toggle.on = [self.defaults boolForKey:ARPresentationModeOn];
 }
 
 #pragma mark -
@@ -90,9 +99,8 @@
         return [subview isKindOfClass:ARToggleSwitch.class];
     }];
     if (toggle) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        BOOL on = ![defaults boolForKey:ARPresentationModeOn];
-        [defaults setBool:on forKey:ARPresentationModeOn];
+        BOOL on = ![self.defaults boolForKey:ARPresentationModeOn];
+        [self.defaults setBool:on forKey:ARPresentationModeOn];
         toggle.on = on;
     }
 }
@@ -102,10 +110,33 @@
     [(ARLabSettingsSplitViewController *)self.splitViewController showDetailViewControllerForSettingsSection:ARLabSettingsSectionPresentationMode];
 }
 
-- (IBAction)supportButtonPressed:(id)sender
+- (IBAction)logoutButtonPressed:(id)sender
 {
+    [self showLogoutAlertView];
 }
 
+- (void)showLogoutAlertView
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:NSLocalizedString(@"Do you want to logout?", @"Confirm Logout Prompt")
+                                                   delegate:self
+                                          cancelButtonTitle:NSLocalizedString(@"No", @"Cancel Logout Process")
+                                          otherButtonTitles:NSLocalizedString(@"Yes, logout", @"Confirm Logout"), nil];
+    [alert show];
+}
+
+#pragma mark - UIAlertView delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == ARSettingsAlertViewButtonIndexLogout) {
+        [self exitSettingsPanel];
+
+        [self.appDelegate startLogout];
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:ARDismissAllPopoversNotification object:nil];
+    }
+}
 
 #pragma mark -
 #pragma mark settings icon
@@ -123,6 +154,19 @@
 }
 
 #pragma mark -
+#pragma mark dependency injection
+
+- (NSUserDefaults *)defaults
+{
+    return _defaults ?: [NSUserDefaults standardUserDefaults];
+}
+
+- (ARAppDelegate *)appDelegate
+{
+    return _appDelegate ?: (ARAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+#pragma mark -
 #pragma mark exit strategies
 
 - (void)exitSettingsPanel
@@ -132,7 +176,7 @@
 
 - (IBAction)ogSettingsButtonPressed:(id)sender
 {
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:AROptionsUseLabSettings];
+    [self.defaults setBool:NO forKey:AROptionsUseLabSettings];
     [self exitSettingsPanel];
 }
 
