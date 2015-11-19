@@ -73,11 +73,15 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
     self.isPublished = [aDictionary objectForKeyNotNull:ARFeedPublishedKey];
 
     self.date = [aDictionary onlyStringForKey:ARFeedDateKey];
-    ;
+
     self.width = [aDictionary onlyDecimalForKey:ARFeedWidthKey];
     self.height = [aDictionary onlyDecimalForKey:ARFeedHeightKey];
     self.depth = [aDictionary onlyDecimalForKey:ARFeedDepthKey];
     self.diameter = [aDictionary onlyDecimalForKey:ARFeedDiameterKey];
+
+    /// The metric field in the response will be either 'cm' or 'in', so if it's 'cm', dimensions should be converted to inches. Hopefully, these are the only two systems of measurement we need to support in Folio for a long time.
+    BOOL shouldConvertToInches = [[aDictionary onlyStringForKey:ARFeedMetricKey] isEqualToString:@"cm"];
+    if (shouldConvertToInches) [self convertDimensionsToAmericanSystemOfMeasurement];
 
     self.availability = [aDictionary onlyStringForKey:ARFeedAvailabilityKey];
     self.isAvailableForSale = @([self.availability isEqualToString:@"for sale"]);
@@ -106,6 +110,19 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
     if ([aDictionary[ARFeedArtworkEditionSetsKey] count]) {
         self.editions = [aDictionary[ARFeedArtworkEditionSetsKey][0] onlyStringForKey:ARFeedArtworkEditionsKey];
     }
+}
+
+- (void)convertDimensionsToAmericanSystemOfMeasurement
+{
+    self.width = [self convertFromCMToIN:self.width];
+    self.height = [self convertFromCMToIN:self.height];
+    self.diameter = [self convertFromCMToIN:self.diameter];
+    self.depth = [self convertFromCMToIN:self.depth];
+}
+
+- (NSDecimalNumber *)convertFromCMToIN:(NSDecimalNumber *)value
+{
+    return [value decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"2.54"]];
 }
 
 - (void)willSave

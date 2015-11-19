@@ -19,6 +19,7 @@ NSString *const ARFeedMediumKey = @"medium";
 NSString *const ARFeedSeriesKey = @"series";
 NSString *const ARFeedSaleStateKey = @"forsale";
 NSString *const ARFeedDateKey = @"date";
+NSString *const ARFeedMetricKey = @"metric";
 NSString *const ARFeedWidthKey = @"width";
 NSString *const ARFeedHeightKey = @"height";
 NSString *const ARFeedDepthKey = @"depth";
