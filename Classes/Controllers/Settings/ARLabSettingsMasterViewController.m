@@ -1,12 +1,11 @@
 #import "ARLabSettingsMasterViewController.h"
-#import "AROptions.h"
 #import "ARLabSettingsSectionButton.h"
 #import "ARToggleSwitch.h"
 #import "ARStoryboardIdentifiers.h"
 #import "ARLabSettingsSplitViewController.h"
 #import "ARLabSettingsNavigationController.h"
 #import "NSString+NiceAttributedStrings.h"
-#import "ARAppDelegate.h"
+#import "ARLabSettingsMenuViewModel.h"
 
 typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
     ARSettingsAlertViewButtonIndexCancel,
@@ -15,8 +14,7 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 
 
 @interface ARLabSettingsMasterViewController () <UIAlertViewDelegate>
-@property (nonatomic, strong) NSUserDefaults *defaults;
-@property (nonatomic, strong) ARAppDelegate *appDelegate;
+@property (nonatomic, strong) ARLabSettingsMenuViewModel *viewModel;
 
 @property (weak, nonatomic) IBOutlet UIButton *settingsIcon;
 @property (weak, nonatomic) IBOutlet UILabel *presentationModeLabel;
@@ -38,6 +36,9 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _viewModel = _viewModel ?: [[ARLabSettingsMenuViewModel alloc] init];
+
     [self setupSettingsIcon];
     [self setupSectionButtons];
     [self setPresentationModeLabelText:NSLocalizedString(@"Hides sensitive information when showing artworks to clients", @"Explanatory text for presentation mode setting")];
@@ -46,27 +47,27 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 - (void)setupSectionButtons
 {
     /// Sync settings
-    [self.syncContentButton setTitle:NSLocalizedString(@"Sync Content", @"Title for sync settings button")];
+    [self.syncContentButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionSync]];
 
     /// Presentation Mode settings
-    [self.presentationModeButton setTitle:NSLocalizedString(@"Presentation Mode", @"Title for presentation mode toggle button")];
+    [self.presentationModeButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionPresentationMode]];
     [self.presentationModeButton hideChevron];
     [self setupPresentationModeToggleSwitch];
 
-    [self.editPresentationModeButton setTitle:NSLocalizedString(@"Edit Presentation Mode", @"Title for edit presentation mode settings button")];
+    [self.editPresentationModeButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionEditPresentationMode]];
     [self.editPresentationModeButton hideTopBorder];
 
     /// Miscellaneous settings
-    [self.backgroundButton setTitle:NSLocalizedString(@"Background", @"Title for background settings button")];
-    [self.emailButton setTitle:NSLocalizedString(@"Email", @"Title for email settings button")];
+    [self.backgroundButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionBackground]];
+    [self.emailButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionEmail]];
     [self.emailButton hideTopBorder];
 
     /// Intercom
-    [self.supportButton setTitle:NSLocalizedString(@"Support", @"Title for support button")];
+    [self.supportButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionSupport]];
     [self.supportButton hideChevron];
 
     /// Logout
-    [self.logoutButton setTitle:NSLocalizedString(@"Logout", @"Title for logout button")];
+    [self.logoutButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionLogout]];
     [self.logoutButton hideChevron];
 }
 
@@ -75,7 +76,7 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
     ARToggleSwitch *toggle = [ARToggleSwitch buttonWithFrame:self.presentationModeToggle.frame];
     toggle.userInteractionEnabled = NO;
     [self.presentationModeButton addSubview:toggle];
-    toggle.on = [self.defaults boolForKey:ARPresentationModeOn];
+    toggle.on = [self.viewModel presentationModeOn];
 }
 
 #pragma mark -
@@ -99,9 +100,8 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
         return [subview isKindOfClass:ARToggleSwitch.class];
     }];
     if (toggle) {
-        BOOL on = ![self.defaults boolForKey:ARPresentationModeOn];
-        [self.defaults setBool:on forKey:ARPresentationModeOn];
-        toggle.on = on;
+        [self.viewModel togglePresentationMode];
+        toggle.on = [self.viewModel presentationModeOn];
     }
 }
 
@@ -118,10 +118,10 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 - (void)showLogoutAlertView
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                    message:NSLocalizedString(@"Do you want to logout?", @"Confirm Logout Prompt")
+                                                    message:self.viewModel.logoutPrompt
                                                    delegate:self
-                                          cancelButtonTitle:NSLocalizedString(@"No", @"Cancel Logout Process")
-                                          otherButtonTitles:NSLocalizedString(@"Yes, logout", @"Confirm Logout"), nil];
+                                          cancelButtonTitle:self.viewModel.cancelLogoutButtonText
+                                          otherButtonTitles:self.viewModel.confirmLogoutText, nil];
     [alert show];
 }
 
@@ -131,10 +131,7 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 {
     if (buttonIndex == ARSettingsAlertViewButtonIndexLogout) {
         [self exitSettingsPanel];
-
-        [self.appDelegate startLogout];
-
-        [[NSNotificationCenter defaultCenter] postNotificationName:ARDismissAllPopoversNotification object:nil];
+        [self.viewModel logout];
     }
 }
 
@@ -143,7 +140,7 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 
 - (void)setupSettingsIcon
 {
-    [self.settingsIcon setImage:[[UIImage imageNamed:@"settings_btn_whiteborder"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [self.settingsIcon setImage:self.viewModel.settingsButtonImage forState:UIControlStateNormal];
     [self.settingsIcon setTintColor:UIColor.blackColor];
     [self.settingsIcon setBackgroundColor:UIColor.whiteColor];
 }
@@ -151,19 +148,6 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 - (IBAction)settingsIconPressed:(id)sender
 {
     [self exitSettingsPanel];
-}
-
-#pragma mark -
-#pragma mark dependency injection
-
-- (NSUserDefaults *)defaults
-{
-    return _defaults ?: [NSUserDefaults standardUserDefaults];
-}
-
-- (ARAppDelegate *)appDelegate
-{
-    return _appDelegate ?: (ARAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 #pragma mark -
@@ -176,7 +160,7 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 
 - (IBAction)ogSettingsButtonPressed:(id)sender
 {
-    [self.defaults setBool:NO forKey:AROptionsUseLabSettings];
+    [self.viewModel switchToOriginalSettings];
     [self exitSettingsPanel];
 }
 

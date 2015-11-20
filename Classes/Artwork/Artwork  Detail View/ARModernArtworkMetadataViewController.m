@@ -113,7 +113,7 @@
 
     if (![self.defaults boolForKey:AROptionsUseLabSettings]) return [self.defaults boolForKey:ARShowPrices];
 
-    if ([self.defaults boolForKey:ARHideAllPrices]) return NO;
+    if ([self.defaults boolForKey:ARPresentationModeOn] && [self.defaults boolForKey:ARHideAllPrices]) return NO;
 
     BOOL isSold = [self.artwork.availability isEqualToString:ARAvailabilitySold];
     if (isSold && [self.defaults boolForKey:ARHidePricesForSoldWorks]) return NO;

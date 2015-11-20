@@ -1,8 +1,11 @@
 typedef NS_ENUM(NSInteger, ARLabSettingsSection) {
     ARLabSettingsSectionSync,
     ARLabSettingsSectionPresentationMode,
+    ARLabSettingsSectionEditPresentationMode,
     ARLabSettingsSectionBackground,
     ARLabSettingsSectionEmail,
+    ARLabSettingsSectionSupport,
+    ARLabSettingsSectionLogout,
 };
 
 @protocol ARLabSettingsDetailViewController
