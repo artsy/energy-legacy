@@ -1,6 +1,7 @@
 #import "ARLabSettingsMenuViewModel.h"
 #import "ARAppDelegate.h"
 #import "AROptions.h"
+#import "NSString+NiceAttributedStrings.h"
 
 
 @interface ARLabSettingsMenuViewModel ()
@@ -42,6 +43,11 @@
         default:
             break;
     }
+}
+
+- (NSAttributedString *)presentationModeExplanatoryText
+{
+    return [NSLocalizedString(@"Hides sensitive information when showing artworks to clients", @"Explanatory text for presentation mode setting") attributedStringWithLineSpacing:5];
 }
 
 - (BOOL)presentationModeOn

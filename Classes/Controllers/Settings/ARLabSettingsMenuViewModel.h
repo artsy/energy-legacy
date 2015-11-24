@@ -8,6 +8,8 @@
 
 - (NSString *)buttonTitleForSettingsSection:(ARLabSettingsSection)section;
 
+- (NSAttributedString *)presentationModeExplanatoryText;
+
 - (BOOL)presentationModeOn;
 
 - (void)togglePresentationMode;

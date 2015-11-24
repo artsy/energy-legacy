@@ -41,7 +41,7 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 
     [self setupSettingsIcon];
     [self setupSectionButtons];
-    [self setPresentationModeLabelText:NSLocalizedString(@"Hides sensitive information when showing artworks to clients", @"Explanatory text for presentation mode setting")];
+    [self.presentationModeLabel setAttributedText:self.viewModel.presentationModeExplanatoryText];
 }
 
 - (void)setupSectionButtons
@@ -80,15 +80,8 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 }
 
 #pragma mark -
-#pragma mark labels
-
-- (void)setPresentationModeLabelText:(NSString *)string
-{
-    [self.presentationModeLabel setAttributedText:[string attributedStringWithLineSpacing:5]];
-}
-
-#pragma mark -
 #pragma mark buttons
+
 - (IBAction)syncButtonPressed:(id)sender
 {
     [(ARLabSettingsSplitViewController *)self.splitViewController showDetailViewControllerForSettingsSection:ARLabSettingsSectionSync];
