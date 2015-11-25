@@ -3,19 +3,23 @@
 #import <Foundation/Foundation.h>
 
 #pragma mark - navigationController.storyboardIdentifier
-extern NSString *const SettingsNavigationController;
+extern NSString * const SettingsNavigationController;
 
 #pragma mark - segue.identifier
-extern NSString *const ShowPresentationModeSettingsViewController;
-extern NSString *const ShowSyncSettingsViewController;
+extern NSString * const ShowEmailSettingsViewController;
+extern NSString * const ShowPresentationModeSettingsViewController;
+extern NSString * const ShowSyncSettingsViewController;
 
 #pragma mark - storyboardNames
-extern NSString *const ARLabSettings;
+extern NSString * const ARLabSettings;
 
 #pragma mark - tableViewCell.reuseIdentifier
-extern NSString *const previousSyncCell;
+extern NSString * const previousSyncCell;
+
+#pragma mark - tableViewController.storyboardIdentifier
+extern NSString * const PresentationModeViewController;
 
 #pragma mark - viewController.storyboardIdentifier
-extern NSString *const PresentationModeViewController;
-extern NSString *const SettingsMasterViewController;
-extern NSString *const SyncSettingsViewController;
+extern NSString * const SettingsMasterViewController;
+extern NSString * const SyncSettingsViewController;
+

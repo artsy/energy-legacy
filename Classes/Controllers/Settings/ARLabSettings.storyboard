@@ -12,8 +12,17 @@
             <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
         </mutableArray>
         <mutableArray key="ITC_Avant_Garde_Gothic__Demi.ttf">
+            <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
             <string>AvantGardeGothicITCW01Dm</string>
@@ -75,10 +84,10 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="previousSyncCell" id="liS-em-7gK">
-                                        <rect key="frame" x="0.0" y="50" width="558" height="44"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="558" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="liS-em-7gK" id="JDf-3k-llm">
-                                            <rect key="frame" x="0.0" y="0.0" width="558" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="558" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -161,7 +170,7 @@
                             <rect key="frame" x="0.0" y="297.5" width="600" height="70"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVZ-xW-oJP">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVZ-xW-oJP">
                                     <rect key="frame" x="20" y="18" width="560" height="34"/>
                                     <animations/>
                                     <string key="text">When Presentation Mode is enabled, all the information and features toggled ON will be hidden. Features toggled OFF will be visible.</string>
@@ -184,7 +193,7 @@
                                 <rect key="frame" x="0.0" y="129.5" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oc8-hj-y8W" id="leD-1H-xiG">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -194,7 +203,7 @@
                                 <rect key="frame" x="0.0" y="179.5" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cfg-3y-FDE" id="2Wb-tz-kNs">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -204,7 +213,7 @@
                                 <rect key="frame" x="0.0" y="229.5" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Yx-VL-bmB" id="sXn-kQ-voW">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -222,7 +231,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIU-fM-KDr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1667" y="1578"/>
+            <point key="canvasLocation" x="1829" y="1582"/>
         </scene>
         <!--Lab Settings Navigation Controller-->
         <scene sceneID="Wqt-dq-QUI">
@@ -237,11 +246,153 @@
                         <segue destination="lXz-BW-0kX" kind="relationship" relationship="rootViewController" id="w7t-EQ-d2y"/>
                         <segue destination="lXz-BW-0kX" kind="showDetail" identifier="Show Sync Settings View Controller" id="Ze5-Jl-LUP"/>
                         <segue destination="vLZ-zc-DG3" kind="showDetail" identifier="Show Presentation Mode Settings View Controller" id="pKl-q8-aBh"/>
+                        <segue destination="sR0-JI-dJf" kind="showDetail" identifier="Show Email Settings View Controller" id="b8V-Qe-zHr"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hK5-er-jsF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1001" y="809"/>
+        </scene>
+        <!--Lab Settings Email View Controller-->
+        <scene sceneID="r6z-tb-cMA">
+            <objects>
+                <viewController id="sR0-JI-dJf" customClass="ARLabSettingsEmailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xTe-6W-txd"/>
+                        <viewControllerLayoutGuide type="bottom" id="nEr-7Q-Iuw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iz4-cA-Ofb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHg-uY-RxH">
+                                <rect key="frame" x="271" y="45" width="58" height="25.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CC EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3z-dh-Aon">
+                                <rect key="frame" x="20" y="96" width="60.5" height="13"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GREETING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Iw-zb-jui">
+                                <rect key="frame" x="20" y="174" width="66.5" height="13"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGNATURE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMO-A1-xQP">
+                                <rect key="frame" x="20" y="286" width="72.5" height="13"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UBF-eZ-rpN">
+                                <rect key="frame" x="20" y="114" width="560" height="35"/>
+                                <animations/>
+                                <color key="tintColor" red="0.41568627450000001" green="0.043137254899999998" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="l6f-YA-JXj"/>
+                                </constraints>
+                                <color key="textColor" red="0.58458087910000001" green="0.58458087910000001" blue="0.58458087910000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="sR0-JI-dJf" id="yqJ-Hf-Fey"/>
+                                </connections>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2r4-2F-Wht">
+                                <rect key="frame" x="20" y="192" width="560" height="80"/>
+                                <animations/>
+                                <color key="tintColor" red="0.41568627450000001" green="0.043137254899999998" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="aD6-2q-zt3"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="wMJ-dv-mud"/>
+                                </constraints>
+                                <color key="textColor" red="0.58458087910000001" green="0.58458087910000001" blue="0.58458087910000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="wMJ-dv-mud"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="sR0-JI-dJf" id="wvm-Jg-AZc"/>
+                                </connections>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7pY-r3-w08">
+                                <rect key="frame" x="20" y="304" width="560" height="80"/>
+                                <animations/>
+                                <color key="tintColor" red="0.41568627450000001" green="0.043137254899999998" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="JWh-6v-lc9"/>
+                                </constraints>
+                                <color key="textColor" red="0.58458087910000001" green="0.58458087910000001" blue="0.58458087910000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="sR0-JI-dJf" id="cQr-73-fjV"/>
+                                </connections>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This signature will be displayed together with any signature you specified in your iOS mail settings." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9B-Ot-XQv">
+                                <rect key="frame" x="20" y="392" width="560" height="14"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SIGNATURE LINES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJl-56-FNq">
+                                <rect key="frame" x="20" y="426" width="142.5" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="UBF-eZ-rpN" secondAttribute="trailing" id="1Ym-z1-QGq"/>
+                            <constraint firstItem="1Iw-zb-jui" firstAttribute="leading" secondItem="UBF-eZ-rpN" secondAttribute="leading" id="38u-iM-O7f"/>
+                            <constraint firstItem="2r4-2F-Wht" firstAttribute="width" secondItem="UBF-eZ-rpN" secondAttribute="width" id="3nf-QI-ljJ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="UBF-eZ-rpN" secondAttribute="leading" id="D5l-hr-BRn"/>
+                            <constraint firstItem="t9B-Ot-XQv" firstAttribute="width" secondItem="7pY-r3-w08" secondAttribute="width" id="Fsp-rt-Rrm"/>
+                            <constraint firstItem="2r4-2F-Wht" firstAttribute="leading" secondItem="1Iw-zb-jui" secondAttribute="leading" id="HKE-Ui-Zkw"/>
+                            <constraint firstItem="7pY-r3-w08" firstAttribute="leading" secondItem="KMO-A1-xQP" secondAttribute="leading" id="I4m-eX-WZ1"/>
+                            <constraint firstItem="t9B-Ot-XQv" firstAttribute="top" secondItem="7pY-r3-w08" secondAttribute="bottom" constant="8" id="Ica-wE-Hci"/>
+                            <constraint firstItem="EJl-56-FNq" firstAttribute="top" secondItem="t9B-Ot-XQv" secondAttribute="bottom" constant="20" id="Wdk-Xw-kzX"/>
+                            <constraint firstItem="1Iw-zb-jui" firstAttribute="top" secondItem="UBF-eZ-rpN" secondAttribute="bottom" constant="25" id="Y2c-PU-whW"/>
+                            <constraint firstItem="tHg-uY-RxH" firstAttribute="top" secondItem="xTe-6W-txd" secondAttribute="bottom" constant="25" id="YEc-6p-9OV"/>
+                            <constraint firstItem="7pY-r3-w08" firstAttribute="width" secondItem="2r4-2F-Wht" secondAttribute="width" id="bJ5-jG-b2w"/>
+                            <constraint firstItem="H3z-dh-Aon" firstAttribute="top" secondItem="tHg-uY-RxH" secondAttribute="bottom" constant="25.5" id="cUE-Bo-iE6"/>
+                            <constraint firstItem="H3z-dh-Aon" firstAttribute="leading" secondItem="UBF-eZ-rpN" secondAttribute="leading" id="glO-e7-sH4"/>
+                            <constraint firstItem="t9B-Ot-XQv" firstAttribute="leading" secondItem="7pY-r3-w08" secondAttribute="leading" id="huz-43-yEf"/>
+                            <constraint firstItem="UBF-eZ-rpN" firstAttribute="top" secondItem="H3z-dh-Aon" secondAttribute="bottom" constant="5" id="lSw-q9-rYe"/>
+                            <constraint firstItem="7pY-r3-w08" firstAttribute="top" secondItem="KMO-A1-xQP" secondAttribute="bottom" constant="5" id="mxk-Bx-3Nf"/>
+                            <constraint firstItem="2r4-2F-Wht" firstAttribute="top" secondItem="1Iw-zb-jui" secondAttribute="bottom" constant="5" id="p7T-PX-Upz"/>
+                            <constraint firstItem="KMO-A1-xQP" firstAttribute="leading" secondItem="2r4-2F-Wht" secondAttribute="leading" id="qNs-ix-gKL"/>
+                            <constraint firstItem="EJl-56-FNq" firstAttribute="leading" secondItem="t9B-Ot-XQv" secondAttribute="leading" id="vvg-85-ECJ"/>
+                            <constraint firstItem="KMO-A1-xQP" firstAttribute="top" secondItem="2r4-2F-Wht" secondAttribute="bottom" constant="14" id="ydQ-sz-ZTg"/>
+                            <constraint firstItem="tHg-uY-RxH" firstAttribute="centerX" secondItem="iz4-cA-Ofb" secondAttribute="centerX" id="zZu-cF-lth"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ccEmailTextView" destination="UBF-eZ-rpN" id="j0t-7n-Bm9"/>
+                        <outlet property="greetingTextView" destination="2r4-2F-Wht" id="Ns3-GE-X3g"/>
+                        <outlet property="signatureExplanatoryLabel" destination="t9B-Ot-XQv" id="ie7-rv-RX0"/>
+                        <outlet property="signatureTextView" destination="7pY-r3-w08" id="c52-jz-mft"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="asY-Jd-BD8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1010" y="1565"/>
         </scene>
         <!--Lab Settings Master View Controller-->
         <scene sceneID="kL2-SG-N9U">
@@ -372,7 +523,7 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <action selector="editPresentationModeButton:" destination="vMx-hu-Yme" eventType="touchUpInside" id="9ey-4c-hQP"/>
+                                            <action selector="editPresentationModeButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="NPh-ik-TbR"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -435,6 +586,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="265" height="50"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="emailButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="pjT-Ac-anY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -462,9 +616,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="265" height="50"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="supportButtonPressed:" destination="vMx-hu-Yme" eventType="touchUpInside" id="Fzb-X4-Vll"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>

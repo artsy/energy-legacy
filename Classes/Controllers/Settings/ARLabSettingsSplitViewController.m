@@ -26,6 +26,8 @@
             break;
         case ARLabSettingsSectionPresentationMode:
             [nav performSegueWithIdentifier:ShowPresentationModeSettingsViewController sender:nav];
+        case ARLabSettingsSectionEmail:
+            [nav performSegueWithIdentifier:ShowEmailSettingsViewController sender:nav];
         default:
             break;
     }
