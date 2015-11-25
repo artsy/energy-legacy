@@ -8,17 +8,11 @@
 
 - (NSString *)buttonTitleForSettingsSection:(ARLabSettingsSection)section;
 
-- (NSAttributedString *)presentationModeExplanatoryText;
+- (NSString *)presentationModeExplanatoryText;
 
 - (BOOL)presentationModeOn;
 
 - (void)togglePresentationMode;
-
-- (NSString *)logoutPrompt;
-
-- (NSString *)cancelLogoutButtonText;
-
-- (NSString *)confirmLogoutText;
 
 - (UIImage *)settingsButtonImage;
 

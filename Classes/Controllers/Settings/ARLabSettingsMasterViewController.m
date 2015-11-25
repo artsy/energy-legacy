@@ -3,7 +3,6 @@
 #import "ARToggleSwitch.h"
 #import "ARStoryboardIdentifiers.h"
 #import "ARLabSettingsSplitViewController.h"
-#import "ARLabSettingsNavigationController.h"
 #import "NSString+NiceAttributedStrings.h"
 #import "ARLabSettingsMenuViewModel.h"
 
@@ -36,12 +35,12 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     _viewModel = _viewModel ?: [[ARLabSettingsMenuViewModel alloc] init];
 
     [self setupSettingsIcon];
     [self setupSectionButtons];
-    [self.presentationModeLabel setAttributedText:self.viewModel.presentationModeExplanatoryText];
+    [self.presentationModeLabel setAttributedText:[self.viewModel.presentationModeExplanatoryText attributedStringWithLineSpacing:5]];
 }
 
 - (void)setupSectionButtons
@@ -111,10 +110,10 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 - (void)showLogoutAlertView
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                    message:self.viewModel.logoutPrompt
+                                                    message:NSLocalizedString(@"Do you want to logout?", @"Confirm Logout Prompt")
                                                    delegate:self
-                                          cancelButtonTitle:self.viewModel.cancelLogoutButtonText
-                                          otherButtonTitles:self.viewModel.confirmLogoutText, nil];
+                                          cancelButtonTitle:NSLocalizedString(@"No", @"Cancel Logout Process")
+                                          otherButtonTitles:NSLocalizedString(@"Yes, logout", @"Confirm Logout"), nil];
     [alert show];
 }
 
