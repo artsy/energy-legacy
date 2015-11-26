@@ -1,14 +1,20 @@
 #import "ARLabSettingsMasterViewController.h"
-#import "AROptions.h"
 #import "ARLabSettingsSectionButton.h"
 #import "ARToggleSwitch.h"
 #import "ARStoryboardIdentifiers.h"
 #import "ARLabSettingsSplitViewController.h"
-#import "ARLabSettingsNavigationController.h"
 #import "NSString+NiceAttributedStrings.h"
+#import "ARLabSettingsMenuViewModel.h"
+
+typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
+    ARSettingsAlertViewButtonIndexCancel,
+    ARSettingsAlertViewButtonIndexLogout
+};
 
 
-@interface ARLabSettingsMasterViewController ()
+@interface ARLabSettingsMasterViewController () <UIAlertViewDelegate>
+@property (nonatomic, strong) ARLabSettingsMenuViewModel *viewModel;
+
 @property (weak, nonatomic) IBOutlet UIButton *settingsIcon;
 @property (weak, nonatomic) IBOutlet UILabel *presentationModeLabel;
 
@@ -29,35 +35,38 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    _viewModel = _viewModel ?: [[ARLabSettingsMenuViewModel alloc] init];
+
     [self setupSettingsIcon];
     [self setupSectionButtons];
-    [self setPresentationModeLabelText:NSLocalizedString(@"Hides sensitive information when showing artworks to clients", @"Explanatory text for presentation mode setting")];
+    [self.presentationModeLabel setAttributedText:[self.viewModel.presentationModeExplanatoryText attributedStringWithLineSpacing:5]];
 }
 
 - (void)setupSectionButtons
 {
     /// Sync settings
-    [self.syncContentButton setTitle:NSLocalizedString(@"Sync Content", @"Title for sync settings button")];
+    [self.syncContentButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionSync]];
 
     /// Presentation Mode settings
-    [self.presentationModeButton setTitle:NSLocalizedString(@"Presentation Mode", @"Title for presentation mode toggle button")];
+    [self.presentationModeButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionPresentationMode]];
     [self.presentationModeButton hideChevron];
     [self setupPresentationModeToggleSwitch];
 
-    [self.editPresentationModeButton setTitle:NSLocalizedString(@"Edit Presentation Mode", @"Title for edit presentation mode settings button")];
+    [self.editPresentationModeButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionEditPresentationMode]];
     [self.editPresentationModeButton hideTopBorder];
 
     /// Miscellaneous settings
-    [self.backgroundButton setTitle:NSLocalizedString(@"Background", @"Title for background settings button")];
-    [self.emailButton setTitle:NSLocalizedString(@"Email", @"Title for email settings button")];
+    [self.backgroundButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionBackground]];
+    [self.emailButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionEmail]];
     [self.emailButton hideTopBorder];
 
     /// Intercom
-    [self.supportButton setTitle:NSLocalizedString(@"Support", @"Title for support button")];
+    [self.supportButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionSupport]];
     [self.supportButton hideChevron];
 
     /// Logout
-    [self.logoutButton setTitle:NSLocalizedString(@"Logout", @"Title for logout button")];
+    [self.logoutButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionLogout]];
     [self.logoutButton hideChevron];
 }
 
@@ -66,19 +75,12 @@
     ARToggleSwitch *toggle = [ARToggleSwitch buttonWithFrame:self.presentationModeToggle.frame];
     toggle.userInteractionEnabled = NO;
     [self.presentationModeButton addSubview:toggle];
-    toggle.on = [[NSUserDefaults standardUserDefaults] boolForKey:ARPresentationModeOn];
-}
-
-#pragma mark -
-#pragma mark labels
-
-- (void)setPresentationModeLabelText:(NSString *)string
-{
-    [self.presentationModeLabel setAttributedText:[string attributedStringWithLineSpacing:5]];
+    toggle.on = [self.viewModel presentationModeOn];
 }
 
 #pragma mark -
 #pragma mark buttons
+
 - (IBAction)syncButtonPressed:(id)sender
 {
     [(ARLabSettingsSplitViewController *)self.splitViewController showDetailViewControllerForSettingsSection:ARLabSettingsSectionSync];
@@ -90,10 +92,8 @@
         return [subview isKindOfClass:ARToggleSwitch.class];
     }];
     if (toggle) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        BOOL on = ![defaults boolForKey:ARPresentationModeOn];
-        [defaults setBool:on forKey:ARPresentationModeOn];
-        toggle.on = on;
+        [self.viewModel togglePresentationMode];
+        toggle.on = [self.viewModel presentationModeOn];
     }
 }
 
@@ -102,17 +102,37 @@
     [(ARLabSettingsSplitViewController *)self.splitViewController showDetailViewControllerForSettingsSection:ARLabSettingsSectionPresentationMode];
 }
 
-- (IBAction)supportButtonPressed:(id)sender
+- (IBAction)logoutButtonPressed:(id)sender
 {
+    [self showLogoutAlertView];
 }
 
+- (void)showLogoutAlertView
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:NSLocalizedString(@"Do you want to logout?", @"Confirm Logout Prompt")
+                                                   delegate:self
+                                          cancelButtonTitle:NSLocalizedString(@"No", @"Cancel Logout Process")
+                                          otherButtonTitles:NSLocalizedString(@"Yes, logout", @"Confirm Logout"), nil];
+    [alert show];
+}
+
+#pragma mark - UIAlertView delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == ARSettingsAlertViewButtonIndexLogout) {
+        [self exitSettingsPanel];
+        [self.viewModel logout];
+    }
+}
 
 #pragma mark -
 #pragma mark settings icon
 
 - (void)setupSettingsIcon
 {
-    [self.settingsIcon setImage:[[UIImage imageNamed:@"settings_btn_whiteborder"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [self.settingsIcon setImage:self.viewModel.settingsButtonImage forState:UIControlStateNormal];
     [self.settingsIcon setTintColor:UIColor.blackColor];
     [self.settingsIcon setBackgroundColor:UIColor.whiteColor];
 }
@@ -132,7 +152,7 @@
 
 - (IBAction)ogSettingsButtonPressed:(id)sender
 {
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:AROptionsUseLabSettings];
+    [self.viewModel switchToOriginalSettings];
     [self exitSettingsPanel];
 }
 

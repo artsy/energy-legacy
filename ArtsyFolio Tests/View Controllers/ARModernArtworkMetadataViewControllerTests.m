@@ -120,54 +120,72 @@ describe(@"showing and hiding price", ^{
         context = [CoreDataManager stubbedManagedObjectContext];
     });
     
-    it(@"hides price when artwork has editions", ^{
+    it(@"always hides price when artwork has editions", ^{
         artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
         sut.artwork = artwork;
         
         testDefaults = [ForgeriesUserDefaults defaults:@{
-                                                         AROptionsUseLabSettings: @"YES",
-                                                         ARHideAllPrices: @"NO"
-                                                    }];
+                                                 AROptionsUseLabSettings: @YES,
+                                                 ARHideAllPrices: @NO,
+                                                 ARPresentationModeOn: @YES,
+                                              }];
 
         expect([sut showPrice]).to.beFalsy();
     });
     
-    it(@"hides price for artwork without editions when all prices are hidden", ^{
+    it(@"hides price when all prices are hidden and presentation mode is on", ^{
         artwork = [ARModelFactory fullArtworkInContext:context];
         sut.artwork = artwork;
         
         testDefaults = [ForgeriesUserDefaults defaults:@{
-                                                         ARHideAllPrices: @"YES",
-                                                         AROptionsUseLabSettings: @"YES",
-                                                }];
+                                                 ARHideAllPrices: @YES,
+                                                 AROptionsUseLabSettings: @YES,
+                                                 ARPresentationModeOn: @YES,
+                                              }];
         sut.defaults = (id)testDefaults;
         
         expect([sut showPrice]).to.beFalsy();
     });
+
+    it(@"always shows price when presentation mode is off", ^{
+        artwork = [ARModelFactory fullArtworkInContext:context];
+        sut.artwork = artwork;
+        
+        testDefaults = [ForgeriesUserDefaults defaults:@{
+                                                         ARHideAllPrices: @YES,
+                                                         AROptionsUseLabSettings: @YES,
+                                                         ARPresentationModeOn: @NO,
+                                                         }];
+        sut.defaults = (id)testDefaults;
+        
+        expect([sut showPrice]).to.beTruthy();
+    });
     
-    it(@"hides price for sold artwork when sold prices only are hidden", ^{
+    it(@"hides price for sold artwork when sold prices only are hidden and presentation mode is on", ^{
         artwork = [ARModelFactory fullArtworkInContext:context];
         artwork.availability = ARAvailabilitySold;
         sut.artwork = artwork;
         
         testDefaults = [ForgeriesUserDefaults defaults:@{
-                                                         ARHideAllPrices: @"NO",
-                                                         AROptionsUseLabSettings: @"YES",
-                                                         ARHidePricesForSoldWorks: @"YES"
+                                                         ARHideAllPrices: @NO,
+                                                         AROptionsUseLabSettings: @YES,
+                                                         ARHidePricesForSoldWorks: @YES,
+                                                         ARPresentationModeOn: @YES,
                                                 }];
         sut.defaults = (id)testDefaults;
         
         expect([sut showPrice]).to.beFalsy();
     });
     
-    it(@"shows price for artwork without editions", ^{
+    it(@"shows price when presentation mode is on and hide all prices is off", ^{
         artwork = [ARModelFactory fullArtworkInContext:context];
         sut.artwork = artwork;
         
         testDefaults = [ForgeriesUserDefaults defaults:@{
-                                                         ARHideAllPrices: @"NO",
-                                                         AROptionsUseLabSettings: @"YES",
-                                                 }];
+                                             ARHideAllPrices: @"NO",
+                                             AROptionsUseLabSettings: @"YES",
+                                             ARPresentationModeOn: @YES,
+                                             }];
         sut.defaults = (id)testDefaults;
         
         expect([sut showPrice]).to.beTruthy();
