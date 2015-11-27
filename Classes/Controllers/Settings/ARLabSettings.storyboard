@@ -20,6 +20,9 @@
             <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
+            <string>AGaramondPro-Regular</string>
         </mutableArray>
         <mutableArray key="ITC_Avant_Garde_Gothic__Demi.ttf">
             <string>AvantGardeGothicITCW01Dm</string>
@@ -256,8 +259,8 @@
         <!--Navigation Controller-->
         <scene sceneID="NbN-SJ-tf9">
             <objects>
-                <navigationController id="Xzl-IQ-cFo" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="k0T-it-khq">
+                <navigationController storyboardIdentifier="Email Settings Navigation Controller" id="Xzl-IQ-cFo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="k0T-it-khq" customClass="AREditAlbumNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
@@ -273,7 +276,7 @@
         <!--Lab Settings Email View Controller-->
         <scene sceneID="r6z-tb-cMA">
             <objects>
-                <viewController id="sR0-JI-dJf" customClass="ARLabSettingsEmailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Email Settings View Controller" id="sR0-JI-dJf" customClass="ARLabSettingsEmailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xTe-6W-txd"/>
                         <viewControllerLayoutGuide type="bottom" id="nEr-7Q-Iuw"/>
@@ -402,7 +405,7 @@
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <segue destination="KAv-LV-tJG" kind="show" identifier="Show Subject Lines View Controller" id="ovX-K1-11v"/>
+                                            <segue destination="H2a-fa-ben" kind="show" id="LE3-BN-TLb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -472,37 +475,74 @@
             </objects>
             <point key="canvasLocation" x="1001" y="1794"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="aL8-YJ-65O">
+        <!--Lab Settings Email Subject Lines View Controller-->
+        <scene sceneID="GkT-JW-fht">
             <objects>
-                <viewController id="KAv-LV-tJG" sceneMemberID="viewController">
+                <viewController id="H2a-fa-ben" customClass="ARLabSettingsEmailSubjectLinesViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8t4-13-JYf"/>
-                        <viewControllerLayoutGuide type="bottom" id="lvf-rs-lZJ"/>
+                        <viewControllerLayoutGuide type="top" id="BC8-6W-Jxa"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zsg-Ry-jLY"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dIs-kz-hfh">
+                    <view key="view" contentMode="scaleToFill" id="faA-Ip-DXy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUBJECT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30O-9q-9yk">
-                                <rect key="frame" x="263" y="290" width="74" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ONE ARTWORK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IC6-1b-Qqa">
+                                <rect key="frame" x="20" y="77" width="125.5" height="17"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In this field you can use %a to indicate where you want the artist name to be placed, and %t for the artwork." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFZ-IS-7re">
+                                <rect key="frame" x="20" y="212" width="560" height="34"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="17"/>
+                                <color key="textColor" red="0.58458087910000001" green="0.58458087910000001" blue="0.58458087910000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XHf-5p-pOU">
+                                <rect key="frame" x="20" y="104" width="560" height="100"/>
+                                <animations/>
+                                <color key="tintColor" red="0.41568627450000001" green="0.043137254899999998" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="UcK-gO-RkL"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="oGu-UR-Wz4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="oGu-UR-Wz4"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="H2a-fa-ben" id="3Fx-Av-wP2"/>
+                                </connections>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="30O-9q-9yk" firstAttribute="centerY" secondItem="dIs-kz-hfh" secondAttribute="centerY" id="CdF-ai-r0S"/>
-                            <constraint firstItem="30O-9q-9yk" firstAttribute="centerX" secondItem="dIs-kz-hfh" secondAttribute="centerX" id="J9W-n9-zYD"/>
+                            <constraint firstItem="XHf-5p-pOU" firstAttribute="leading" secondItem="IC6-1b-Qqa" secondAttribute="leading" id="EaN-Eq-COI"/>
+                            <constraint firstItem="XHf-5p-pOU" firstAttribute="top" secondItem="IC6-1b-Qqa" secondAttribute="bottom" constant="10" id="Hgs-NU-iDJ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="IC6-1b-Qqa" secondAttribute="leading" id="HmW-kC-g0s"/>
+                            <constraint firstItem="XHf-5p-pOU" firstAttribute="centerX" secondItem="faA-Ip-DXy" secondAttribute="centerX" id="IRr-aR-ZwD"/>
+                            <constraint firstItem="RFZ-IS-7re" firstAttribute="centerX" secondItem="faA-Ip-DXy" secondAttribute="centerX" id="Q5i-0g-xcx"/>
+                            <constraint firstItem="RFZ-IS-7re" firstAttribute="top" secondItem="XHf-5p-pOU" secondAttribute="bottom" constant="8" id="V1h-oL-TlS"/>
+                            <constraint firstItem="RFZ-IS-7re" firstAttribute="width" secondItem="XHf-5p-pOU" secondAttribute="width" id="lcg-Ya-7Q2"/>
+                            <constraint firstItem="IC6-1b-Qqa" firstAttribute="top" secondItem="BC8-6W-Jxa" secondAttribute="bottom" constant="13" id="ru1-Bx-xAH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="subjectTypeExplanatoryLabel" destination="RFZ-IS-7re" id="s1S-5A-Lmf"/>
+                        <outlet property="subjectTypeTitleLabel" destination="IC6-1b-Qqa" id="Fpg-mw-Nnv"/>
+                        <outlet property="textView" destination="XHf-5p-pOU" id="j49-Ps-NWR"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nLW-qw-pT2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MfK-le-O08" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1001" y="2658"/>
+            <point key="canvasLocation" x="1001" y="2528"/>
         </scene>
         <!--Lab Settings Master View Controller-->
         <scene sceneID="kL2-SG-N9U">

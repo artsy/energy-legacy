@@ -3,12 +3,12 @@
 #import <Foundation/Foundation.h>
 
 #pragma mark - navigationController.storyboardIdentifier
+extern NSString *const EmailSettingsNavigationController;
 extern NSString *const SettingsNavigationController;
 
 #pragma mark - segue.identifier
 extern NSString *const ShowEmailSettingsViewController;
 extern NSString *const ShowPresentationModeSettingsViewController;
-extern NSString *const ShowSubjectLinesViewController;
 extern NSString *const ShowSyncSettingsViewController;
 
 #pragma mark - storyboardNames
@@ -22,5 +22,6 @@ extern NSString *const previousSyncCell;
 extern NSString *const PresentationModeViewController;
 
 #pragma mark - viewController.storyboardIdentifier
+extern NSString *const EmailSettingsViewController;
 extern NSString *const SettingsMasterViewController;
 extern NSString *const SyncSettingsViewController;

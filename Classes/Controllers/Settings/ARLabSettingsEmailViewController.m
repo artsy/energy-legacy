@@ -1,20 +1,12 @@
 #import "ARLabSettingsEmailViewController.h"
-#import "ARLabSettingsEmailViewModel.h"
 #import "NSString+NiceAttributedStrings.h"
 #import "ARTableViewCell.h"
 #import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 #import "ARStoryboardIdentifiers.h"
-
-typedef NS_ENUM(NSInteger, AREmailSubjectType) {
-    AREmailSubjectTypeOneArtwork,
-    AREmailSubjectTypeMultipleArtworksMultipleArtists,
-    AREmailSubjectTypeMultipleArtworksSameArtist,
-};
+#import "ARLabSettingsEmailSubjectLinesViewController.h"
 
 
 @interface ARLabSettingsEmailViewController ()
-@property (nonatomic, strong) ARLabSettingsEmailViewModel *viewModel;
-
 @property (weak, nonatomic) IBOutlet UITextView *ccEmailTextView;
 @property (weak, nonatomic) IBOutlet UITextView *greetingTextView;
 @property (weak, nonatomic) IBOutlet UITextView *signatureTextView;
@@ -31,13 +23,12 @@ typedef NS_ENUM(NSInteger, AREmailSubjectType) {
 {
     [super viewDidLoad];
 
-    self.viewModel = [[ARLabSettingsEmailViewModel alloc] init];
+    _viewModel = _viewModel ?: [[ARLabSettingsEmailViewModel alloc] initWithDefaults:[NSUserDefaults standardUserDefaults]];
+
     [self setupTextViews];
 
     NSAttributedString *signatureLabelText = [self.viewModel.signatureExplanatoryText attributedStringWithLineSpacing:5];
     [self.signatureExplanatoryLabel setAttributedText:signatureLabelText];
-
-    [self setupNavigationBar];
 
     /// This deals with the default left margin in the table view cells
     self.tableView.contentInset = UIEdgeInsetsMake(0.0f, -15.0f, 0.0f, 0.0f);
@@ -53,21 +44,6 @@ typedef NS_ENUM(NSInteger, AREmailSubjectType) {
 {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
-}
-
-- (void)setupNavigationBar
-{
-    [self.navigationController.navigationBar setTitleTextAttributes:
-                                                 @{NSForegroundColorAttributeName : [UIColor blackColor],
-                                                   NSFontAttributeName : [UIFont sansSerifFontWithSize:20]}];
-
-    UINavigationBar *navigationBar = self.navigationController.navigationBar;
-    [navigationBar setBackgroundImage:[UIImage new]
-                       forBarPosition:UIBarPositionAny
-                           barMetrics:UIBarMetricsDefault];
-
-    [navigationBar setShadowImage:[UIImage new]];
-    navigationBar.barTintColor = [UIColor whiteColor];
 }
 
 - (void)setupTextViews
@@ -88,19 +64,9 @@ typedef NS_ENUM(NSInteger, AREmailSubjectType) {
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:EmailSubjectReuseIdentifier];
-    cell.textLabel.font = [UIFont serifFontWithSize:14];
 
-    switch (indexPath.row) {
-        case AREmailSubjectTypeOneArtwork:
-            cell.textLabel.text = @"One Artwork";
-            break;
-        case AREmailSubjectTypeMultipleArtworksMultipleArtists:
-            cell.textLabel.text = @"Multiple Artworks And Artists";
-            break;
-        case AREmailSubjectTypeMultipleArtworksSameArtist:
-            cell.textLabel.text = @"Multiple Artworks From Same Artist";
-            break;
-    }
+    cell.textLabel.font = [UIFont serifFontWithSize:14];
+    cell.textLabel.text = [self.viewModel titleForEmailSubjectType:indexPath.row];
 
     return cell;
 }
@@ -112,6 +78,10 @@ typedef NS_ENUM(NSInteger, AREmailSubjectType) {
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ([segue.destinationViewController isKindOfClass:ARLabSettingsEmailSubjectLinesViewController.class]) {
+        AREmailSubjectType selectedType = [self.tableView indexPathForSelectedRow].row;
+        [(ARLabSettingsEmailSubjectLinesViewController *)segue.destinationViewController setupWithSubjectType:selectedType viewModel:self.viewModel];
+    }
 }
 
 #pragma mark -
