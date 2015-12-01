@@ -34,6 +34,7 @@
 @property (nonatomic, strong) UIApplication *sharedApplication;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) ARLoginNetworkModel *networkModel;
+@property (nonatomic, strong) ARUserManager *userManager;
 @end
 
 
@@ -42,21 +43,10 @@
 - (instancetype)init
 {
     if ([UIDevice isPhone]) {
-        self = [super initWithNibName:@"ARPhoneLoginViewController" bundle:nil];
+        return [super initWithNibName:@"ARPhoneLoginViewController" bundle:nil];
     } else {
-        self = [super init];
+        return [super init];
     }
-
-    [self observeNotification:ARLoginFailedNotification globallyWithSelector:@selector(loginFailed:)];
-    [self observeNotification:ARLoginFailedServerNotification globallyWithSelector:@selector(loginFailedServer:)];
-    [self observeNotification:ARLoginCompleteNotification globallyWithSelector:@selector(loginCompleted:)];
-
-    return self;
-}
-
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - View lifecycle
@@ -146,11 +136,20 @@
 
     [self loginWithUsername:self.emailTextField.text andPassword:self.passwordTextField.text];
 
-    [self.activityIndicatorView startAnimating];
-    self.loginButton.enabled = NO;
-    self.loginButton.alpha = 0.3;
-
+    [self startLoading:YES];
     [self.view endEditing:YES];
+}
+
+- (void)startLoading:(BOOL)loading
+{
+    if (loading) {
+        [self.activityIndicatorView startAnimating];
+    } else {
+        [self.activityIndicatorView stopAnimating];
+    }
+
+    self.loginButton.enabled = !loading;
+    self.loginButton.alpha = loading ? 0.3 : 1;
 }
 
 - (IBAction)clearEmail:(id)sender
@@ -218,20 +217,50 @@
         username = @"orta@artsymail.com";
     }
 
-    [ARUserManager requestLoginWithUsername:username andPassword:password];
+    _userManager = self.userManager ?: [[ARUserManager alloc] init];
+    [self.userManager requestLoginWithUsername:username andPassword:password completion:^(BOOL success, NSError *error) {
+        if (success) {
+            [self loginCompleted];
+        } else {
+            [self handleNetworkError:error];
+        }
+    }];
 }
 
-- (void)loginFailed:(NSNotification *)aNotification
+- (void)handleNetworkError:(NSError *)error
 {
-    [self resetWithErrorMessage:@"Your email or password is incorrect."];
+    [self startLoading:NO];
+
+    [self.networkModel pingArtsy:^{
+        // Artsy is up
+        NSLog(@"Artsy is up");
+        NSString *serverError = error.userInfo[@"error_description"];
+
+        /// Let's have a less robotic error message for the most
+        /// common case.
+        if ([serverError isEqualToString:@"invalid email or password"]) {
+            serverError = @"Your email or password is incorrect.";
+        }
+
+        if (serverError) {
+            [self resetWithErrorMessage:serverError];
+        }
+
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        // Artsy is offline?
+
+        [self.networkModel pingApple:^{
+            /// If Apple is up, and we are down, then we are down for sure.
+            [self resetWithErrorMessage:@"Our servers are experiencing temporary technical difficulties. We have been notified of the problem and are working to fix it. Please contact partnersupport@artsy.net with any questions."];
+
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+            /// OK, they are definitely offline.
+            [self resetWithErrorMessage:@"Folio is having trouble connecting to Artsy, and the App Store, you may be having WIFI or networking issues."];
+        }];
+    }];
 }
 
-- (void)loginFailedServer:(NSNotification *)aNotification
-{
-    [self resetWithErrorMessage:@"Our servers are experiencing temporary technical difficulties. We have been notified of the problem and are working to fix it. Please contact partnersupport@artsy.net with any questions."];
-}
-
-- (void)loginCompleted:(NSNotification *)notification
+- (void)loginCompleted
 {
     // We need User info for analytics, and for testing if they're an admin
     [self.networkModel getUserInformation:^(id userInfo) {
@@ -377,20 +406,21 @@
     // Ensure the loadView has already been called
     self.view.backgroundColor = [UIColor blackColor];
     self.errorMessageLabel.text = NSLocalizedString(message, message);
+    [self reset];
 
     [self.userDefaults removeObjectForKey:AROAuthToken];
+    [self startLoading:NO];
     [self performSelectorOnMainThread:@selector(reset) withObject:nil waitUntilDone:YES];
 }
 
 - (void)reset
 {
+    [self.activityIndicatorView stopAnimating];
+
     [UIView animateWithDuration:ARAnimationQuickDuration animations:^{
-        [self.activityIndicatorView stopAnimating];
         self.loginButton.enabled = YES;
         self.loginButton.alpha = 1;
     }];
-
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma - UITextFieldDelegate methods

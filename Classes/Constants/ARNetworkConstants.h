@@ -4,7 +4,9 @@ extern NSString *const ARAuthHeader;
 
 extern NSString *const ARBaseURL;
 extern NSString *const ARStaticBaseURL;
-extern NSString *const AROAuthURL;
+
+extern NSString *const ARSiteUpURL;
+
 extern NSString *const ARArtworkURLFormat;
 extern NSString *const ARMyInfoURL;
 extern NSString *const ARMyPartnersURL;

@@ -27,6 +27,7 @@ target 'ArtsyFolio' do
     pod 'Artsy+UIColors'
     pod 'UIView+BooleanAnimations'
     pod 'ORStackView'
+    pod "Artsy+Authentication", :subspecs => ["EmailOnly"], :git => "https://github.com/artsy/Artsy-Authentication", :branch => "make_a_release"
 
     if ENV['ARTSY_STAFF_MEMBER'] || ENV['CI'] == 'true'
         pod 'Artsy+UIFonts', :git => "https://github.com/artsy/Artsy-UIFonts.git", :branch => "old_fonts_new_lib"

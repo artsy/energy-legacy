@@ -1,6 +1,7 @@
 upcoming:
   version: 2.5.0
   notes:
+    - Improved Error Messages for Login [orta]
     - [dev] Edit Presentation Mode Settings view controller [sarah]
     - [dev] Introduced Presentation Mode [sarah]
     - [dev] New sync settings view controller [sarah]

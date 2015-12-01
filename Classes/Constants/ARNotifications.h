@@ -5,10 +5,6 @@ extern NSString *const ARAllArtworksDownloadedNotification;
 extern NSString *const ARSyncStartedNotification;
 extern NSString *const ARSyncFinishedNotification;
 
-extern NSString *const ARLoginCompleteNotification;
-extern NSString *const ARLoginFailedNotification;
-extern NSString *const ARLoginFailedServerNotification;
-
 extern NSString *const ARArtworkEnsureShowingMetadataNotification;
 extern NSString *const ARToggleArtworkInfoNotification;
 extern NSString *const ARShowArtworkInfoNotification;
