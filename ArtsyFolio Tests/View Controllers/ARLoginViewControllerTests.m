@@ -22,7 +22,7 @@
 
 - (void)presentPartnerSelectionToolWithJSON:(NSArray *)JSON;
 - (void)presentAdminPartnerSelectionTool;
-- (void)loginCompleted:(NSNotification *)notification;
+- (void)loginCompleted;
 @end
 
 SpecBegin(ARLoginViewController);
@@ -43,19 +43,6 @@ it(@"look right on ipad", ^{
     }];
 });
 
-// This cannot be tested in Xcode 6, but it works when being ran on an iOS7 devide
-// when migrating to iOS8 only this can be changed
-
-pending(@"hides the ad on landscape orientation", ^{
-    [ARTestContext useContext:ARTestContextDeviceTypePad :^{
-        before();
-
-        BOOL should = [controller shouldAutorotateToInterfaceOrientation:UIInterfaceOrientationLandscapeLeft];
-        expect(should).to.beTruthy();
-        expect(controller.appRecommendationView.hidden).to.beTruthy();
-    }];
-});
-
 it(@"look right on phone", ^{
     [ARTestContext useContext:ARTestContextDeviceTypePhone4 :^{
         before();
@@ -69,7 +56,7 @@ it(@"presents partner selection tool for users with multiple partners", ^{
 
     id controllerMock = [OCMockObject partialMockForObject:controller];
     [[controllerMock expect] presentPartnerSelectionToolWithJSON:[OCMArg any]];
-    [controller loginCompleted:nil];
+    [controller loginCompleted];
     [controllerMock verify];
 });
 
@@ -79,7 +66,7 @@ it(@"presents admin tool when user is an admin", ^{
 
     id controllerMock = [OCMockObject partialMockForObject:controller];
     [[controllerMock expect] presentAdminPartnerSelectionTool];
-    [controller loginCompleted:nil];
+    [controller loginCompleted];
     [controllerMock verify];
 });
 
@@ -87,7 +74,7 @@ it(@"correctly parses in a partner", ^{
     before();
     controller.networkModel = [[ARStubbedLoginNetworkModel alloc] initWithPartnerCount:ARLoginPartnerCountOne isAdmin:NO];
 
-    [controller loginCompleted:nil];
+    [controller loginCompleted];
 
     expect([[Partner currentPartnerInContext:controller.managedObjectContext] name]).to.equal(@"Test Partner");
 });

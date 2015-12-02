@@ -233,7 +233,6 @@
 
     [self.networkModel pingArtsy:^{
         // Artsy is up
-        NSLog(@"Artsy is up");
         NSString *serverError = error.userInfo[@"error_description"];
 
         /// Let's have a less robotic error message for the most
