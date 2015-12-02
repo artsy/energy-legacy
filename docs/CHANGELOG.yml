@@ -1,6 +1,7 @@
 upcoming:
   version: 2.5.0
   notes:
+    - [dev] Added Intercom support to the new settings [sarah]
   	- [dev] Added unit conversion for artwork dimensions [sarah]
     - [dev] Edit Presentation Mode Settings view controller [sarah]
     - [dev] Introduced Presentation Mode [sarah]
