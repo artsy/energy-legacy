@@ -23,7 +23,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *emailLabel;
 @property (nonatomic, weak) IBOutlet UILabel *passwordLabel;
 @property (nonatomic, weak) IBOutlet UILabel *welcomeMessageLabel;
-@property (nonatomic, weak) IBOutlet UILabel *errorMessageLabel;
 @property (nonatomic, weak) IBOutlet UIButton *clearEmailButton;
 @property (nonatomic, weak) IBOutlet UIButton *clearPasswordButton;
 @property (nonatomic, weak) IBOutlet UILabel *iphoneSubheadingLabel;
@@ -254,7 +253,7 @@
 
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
             /// OK, they are definitely offline.
-            [self resetWithErrorMessage:@"Folio is having trouble connecting to Artsy, and the App Store, you may be having WIFI or networking issues."];
+            [self resetWithErrorMessage:@"Folio is having trouble connecting to Artsy, and the internet in general, you may be having WIFI or networking issues."];
         }];
     }];
 }

@@ -98,7 +98,7 @@ DEPENDENCIES:
   - Expecta+ContainerClasses (~> 1.0)
   - Expecta+Snapshots (= 2.0.0)
   - FLKAutoLayout (= 0.1.1)
-  - Forgeries/Mocks
+  - Forgeries/Mocks (from `https://github.com/ashfurrow/Forgeries.git`, branch `remove`)
   - GHMarkdownParser
   - GRMustache (~> 7.0)
   - Intercom
@@ -136,6 +136,9 @@ EXTERNAL SOURCES:
   Artsy+UIFonts:
     :branch: old_fonts_new_lib
     :git: https://github.com/artsy/Artsy-UIFonts.git
+  Forgeries:
+    :branch: remove
+    :git: https://github.com/ashfurrow/Forgeries.git
   Keys:
     :path: Pods/CocoaPodsKeys/
   ObjectiveSugar:
@@ -162,6 +165,9 @@ CHECKOUT OPTIONS:
   Artsy+UIFonts:
     :commit: 39f47deebf947aa4c07727fdf2b69e2feff17428
     :git: https://github.com/artsy/Artsy-UIFonts.git
+  Forgeries:
+    :commit: b763101eb029fd60df1b22c795514a8caf1d7dbb
+    :git: https://github.com/ashfurrow/Forgeries.git
   ObjectiveSugar:
     :commit: 14ac406bd0dbb7fd96c72924f9e7196608f456a4
     :git: https://github.com/supermarin/ObjectiveSugar.git

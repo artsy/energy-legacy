@@ -88,7 +88,7 @@ target 'ArtsyFolio Tests' do
 
     pod 'XCTest+OHHTTPStubSuiteCleanUp'
     pod 'OCMock'
-    pod 'Forgeries/Mocks'
+    pod 'Forgeries/Mocks', :git => "https://github.com/ashfurrow/Forgeries.git", :branch => "remove"
 end
 
 post_install do |installer|

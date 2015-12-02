@@ -1,5 +1,6 @@
 #import "ARLoginViewController.h"
 #import "ARStubbedLoginNetworkModel.h"
+#import "ARUserManager.h"
 
 /// Without this, the tests are dependant on if Eigen is installed
 @interface FakeApplication : NSObject
@@ -19,10 +20,12 @@
 @property (nonatomic, strong) UIApplication *sharedApplication;
 @property (nonatomic, strong) ARLoginNetworkModel *networkModel;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) ARUserManager *userManager;
 
 - (void)presentPartnerSelectionToolWithJSON:(NSArray *)JSON;
 - (void)presentAdminPartnerSelectionTool;
 - (void)loginCompleted;
+- (void)handleNetworkError:(NSError *)error;
 @end
 
 SpecBegin(ARLoginViewController);
@@ -34,7 +37,6 @@ dispatch_block_t before = ^{
     controller.sharedApplication = (id)[[FakeApplication alloc] init];
     controller.managedObjectContext = [CoreDataManager stubbedManagedObjectContext];
 };
-
 
 it(@"look right on ipad", ^{
     [ARTestContext useContext:ARTestContextDeviceTypePad :^{
@@ -78,5 +80,59 @@ it(@"correctly parses in a partner", ^{
 
     expect([[Partner currentPartnerInContext:controller.managedObjectContext] name]).to.equal(@"Test Partner");
 });
+
+describe(@"error handling", ^{
+    __block ARStubbedLoginNetworkModel *network;
+
+    beforeEach(^{
+        before();
+        network = [[ARStubbedLoginNetworkModel alloc] initWithPartnerCount:ARLoginPartnerCountMany isAdmin:NO];
+        controller.networkModel = network;
+    });
+
+    it(@"handles artsy errors ", ^{
+        NSError *error = [NSError errorWithDomain:@"hi" code:1 userInfo:@{
+            @"error_description": @"Random server error"
+        }];
+
+        network.isArtsyUp = true;
+        [controller handleNetworkError:error];
+        expect(controller.errorMessageLabel.text).to.equal(@"Random server error");
+    });
+
+    it(@"tweaks invalid login errors ", ^{
+        NSError *error = [NSError errorWithDomain:@"hi" code:1 userInfo:@{
+            @"error_description": @"invalid email or password"
+        }];
+
+        network.isArtsyUp = true;
+        [controller handleNetworkError:error];
+        expect(controller.errorMessageLabel.text).to.equal(@"Your email or password is incorrect.");
+    });
+
+    it(@"shows an error saying artsy is down when artsy is down and apple is up ", ^{
+        NSError *error = [NSError errorWithDomain:@"hi" code:1 userInfo:@{
+            @"error_description": @"invalid email or password"
+        }];
+
+        network.isArtsyUp = false;
+        network.isAppleUp = true;
+        [controller handleNetworkError:error];
+        expect(controller.errorMessageLabel.text).to.beginWith(@"Our servers are experiencing temporary technical difficulties.");
+    });
+
+    it(@"shows a different message if apple is down ", ^{
+        NSError *error = [NSError errorWithDomain:@"hi" code:1 userInfo:@{
+            @"error_description": @"invalid email or password"
+        }];
+
+        network.isArtsyUp = false;
+        network.isAppleUp = false;
+        [controller handleNetworkError:error];
+        expect(controller.errorMessageLabel.text).to.equal(@"Folio is having trouble connecting to Artsy, and the internet in general, you may be having WIFI or networking issues.");
+    });
+
+});
+
 
 SpecEnd

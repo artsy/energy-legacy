@@ -18,4 +18,6 @@
 @property (nonatomic, strong) IBOutlet ARTextFieldWithPlaceholder *emailTextField;
 @property (nonatomic, strong) IBOutlet ARTextFieldWithPlaceholder *passwordTextField;
 
+@property (nonatomic, weak) IBOutlet UILabel *errorMessageLabel;
+
 @end
