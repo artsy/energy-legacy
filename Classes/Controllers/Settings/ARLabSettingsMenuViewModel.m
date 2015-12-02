@@ -1,7 +1,6 @@
 #import "ARLabSettingsMenuViewModel.h"
 #import "ARAppDelegate.h"
 #import "AROptions.h"
-#import "NSString+NiceAttributedStrings.h"
 
 
 @interface ARLabSettingsMenuViewModel ()
@@ -16,10 +15,10 @@
 {
     self = [super init];
     if (!self) return nil;
-    
+
     _defaults = defaults;
     _appDelegate = appDelegate;
-    
+
     return self;
 }
 
@@ -40,47 +39,30 @@
             return NSLocalizedString(@"Support", @"Title for support button");
         case ARLabSettingsSectionLogout:
             return NSLocalizedString(@"Logout", @"Title for logout button");
-        default:
-            break;
     }
 }
 
-- (NSAttributedString *)presentationModeExplanatoryText
+- (NSString *)presentationModeExplanatoryText
 {
-    return [NSLocalizedString(@"Hides sensitive information when showing artworks to clients", @"Explanatory text for presentation mode setting") attributedStringWithLineSpacing:5];
+    return NSLocalizedString(@"Hides sensitive information when showing artworks to clients", @"Explanatory text for presentation mode setting");
 }
 
 - (BOOL)presentationModeOn
 {
     return [self.defaults boolForKey:ARPresentationModeOn];
 }
-//
+
 - (void)togglePresentationMode
 {
     BOOL on = ![self presentationModeOn];
     [self.defaults setBool:on forKey:ARPresentationModeOn];
 }
-//
-- (NSString *)logoutPrompt
-{
-    return NSLocalizedString(@"Do you want to logout?", @"Confirm Logout Prompt");
-}
-//
-- (NSString *)cancelLogoutButtonText
-{
-    return NSLocalizedString(@"No", @"Cancel Logout Process");
-}
-//
-- (NSString *)confirmLogoutText
-{
-    return NSLocalizedString(@"Yes, logout", @"Confirm Logout");
-}
-//
+
 - (UIImage *)settingsButtonImage
 {
     return [[UIImage imageNamed:@"settings_btn_whiteborder"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 }
-//
+
 - (void)logout
 {
     [self.appDelegate startLogout];
