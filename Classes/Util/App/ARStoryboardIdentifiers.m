@@ -23,5 +23,6 @@ NSString *const PresentationModeViewController = @"Presentation Mode View Contro
 
 #pragma mark - viewController.storyboardIdentifier
 NSString *const EmailSettingsViewController = @"Email Settings View Controller";
+NSString *const EmailSubjectSettingsViewController = @"Email Subject Settings View Controller";
 NSString *const SettingsMasterViewController = @"Settings Master View Controller";
 NSString *const SyncSettingsViewController = @"Sync Settings View Controller";

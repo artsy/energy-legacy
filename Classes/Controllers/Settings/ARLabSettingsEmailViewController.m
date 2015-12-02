@@ -96,12 +96,13 @@
 {
     textView.layer.borderColor = [UIColor artsyLightGrey].CGColor;
 
-    if (textView == self.ccEmailTextView)
+    if (textView == self.ccEmailTextView) {
         [self.viewModel setEmailDefault:self.ccEmailTextView.text WithKey:AREmailCCEmail];
-    else if (textView == self.greetingTextView)
+    } else if (textView == self.greetingTextView) {
         [self.viewModel setEmailDefault:self.greetingTextView.text WithKey:AREmailGreeting];
-    else if (textView == self.signatureTextView)
+    } else if (textView == self.signatureTextView) {
         [self.viewModel setEmailDefault:self.signatureTextView.text WithKey:AREmailSignature];
+    }
 }
 
 @end

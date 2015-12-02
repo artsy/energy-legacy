@@ -23,5 +23,6 @@ extern NSString *const PresentationModeViewController;
 
 #pragma mark - viewController.storyboardIdentifier
 extern NSString *const EmailSettingsViewController;
+extern NSString *const EmailSubjectSettingsViewController;
 extern NSString *const SettingsMasterViewController;
 extern NSString *const SyncSettingsViewController;

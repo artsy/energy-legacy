@@ -18,6 +18,7 @@ extern NSString *const ARFeedMediumKey;
 extern NSString *const ARFeedSeriesKey;
 extern NSString *const ARFeedSaleStateKey;
 extern NSString *const ARFeedDateKey;
+extern NSString *const ARFeedMetricKey;
 extern NSString *const ARFeedWidthKey;
 extern NSString *const ARFeedHeightKey;
 extern NSString *const ARFeedDepthKey;
