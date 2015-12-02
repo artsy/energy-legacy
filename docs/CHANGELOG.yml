@@ -1,6 +1,7 @@
 upcoming:
   version: 2.5.0
   notes:
+    - [dev] Added background settings view controller [sarah]
   	- [dev] Added unit conversion for artwork dimensions [sarah]
     - [dev] Edit Presentation Mode Settings view controller [sarah]
     - [dev] Introduced Presentation Mode [sarah]

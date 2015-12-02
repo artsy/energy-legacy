@@ -26,8 +26,8 @@
             break;
         case ARLabSettingsSectionPresentationMode:
             [nav performSegueWithIdentifier:ShowPresentationModeSettingsViewController sender:nav];
-        default:
-            break;
+        case ARLabSettingsSectionBackground:
+            [nav performSegueWithIdentifier:ShowBackgroundSettingsViewController sender:nav];
     }
 }
 

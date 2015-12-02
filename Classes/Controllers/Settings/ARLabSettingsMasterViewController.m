@@ -101,6 +101,10 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 {
     [(ARLabSettingsSplitViewController *)self.splitViewController showDetailViewControllerForSettingsSection:ARLabSettingsSectionPresentationMode];
 }
+- (IBAction)backgroundButtonPressed:(id)sender
+{
+    [(ARLabSettingsSplitViewController *)self.splitViewController showDetailViewControllerForSettingsSection:ARLabSettingsSectionBackground];
+}
 
 - (IBAction)logoutButtonPressed:(id)sender
 {
