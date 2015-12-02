@@ -5,6 +5,8 @@
 #import "ARLabSettingsSplitViewController.h"
 #import "NSString+NiceAttributedStrings.h"
 #import "ARLabSettingsMenuViewModel.h"
+#import <Intercom/Intercom.h>
+
 
 typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
     ARSettingsAlertViewButtonIndexCancel,
@@ -100,6 +102,12 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 - (IBAction)editPresentationModeButton:(id)sender
 {
     [(ARLabSettingsSplitViewController *)self.splitViewController showDetailViewControllerForSettingsSection:ARLabSettingsSectionPresentationMode];
+}
+
+- (IBAction)supportButtonPressed:(id)sender
+{
+    [Intercom presentMessageComposer];
+    [[NSNotificationCenter defaultCenter] postNotificationName:ARDismissAllPopoversNotification object:nil];
 }
 
 - (IBAction)logoutButtonPressed:(id)sender
