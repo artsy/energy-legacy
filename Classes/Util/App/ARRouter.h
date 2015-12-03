@@ -13,9 +13,10 @@
 
 + (NSURLRequest *)requestForURL:(NSURL *)url;
 
-/// User info
-+ (NSURLRequest *)newOAuthRequestWithUsername:(NSString *)username password:(NSString *)password;
+/// Misc site
++ (NSURLRequest *)newArtsyPing;
 
+/// User info
 + (NSURLRequest *)newUserInfoRequest;
 
 /// Partner info

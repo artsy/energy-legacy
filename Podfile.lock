@@ -15,6 +15,9 @@ PODS:
   - ARGenericTableViewController (1.0.2)
   - ARTiledImageView (1.2):
     - SDWebImage/Core
+  - Artsy+Authentication/email (1.5.0):
+    - ISO8601DateFormatter
+    - NSURL+QueryDictionary
   - Artsy+UIColors (1.0.0):
     - EDColor (~> 0.4)
   - Artsy+UIFonts (1.1.0)
@@ -56,6 +59,7 @@ PODS:
   - libextobjc/EXTScope (0.4.1):
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
+  - NSURL+QueryDictionary (1.1.0)
   - ObjectiveSugar (1.1.1)
   - OCMock (3.1.5)
   - OHHTTPStubs (3.1.6):
@@ -83,6 +87,7 @@ DEPENDENCIES:
   - ARCollectionViewMasonryLayout
   - ARGenericTableViewController (from `https://github.com/orta/ARGenericTableViewController.git`)
   - ARTiledImageView (from `https://github.com/dblock/ARTiledImageView.git`)
+  - Artsy+Authentication/email
   - Artsy+UIColors
   - Artsy+UIFonts (from `https://github.com/artsy/Artsy-UIFonts.git`, branch `old_fonts_new_lib`)
   - Artsy+UILabels
@@ -93,7 +98,7 @@ DEPENDENCIES:
   - Expecta+ContainerClasses (~> 1.0)
   - Expecta+Snapshots (= 2.0.0)
   - FLKAutoLayout (= 0.1.1)
-  - Forgeries/Mocks
+  - Forgeries/Mocks (from `https://github.com/ashfurrow/Forgeries.git`, branch `remove`)
   - GHMarkdownParser
   - GRMustache (~> 7.0)
   - Intercom
@@ -131,6 +136,9 @@ EXTERNAL SOURCES:
   Artsy+UIFonts:
     :branch: old_fonts_new_lib
     :git: https://github.com/artsy/Artsy-UIFonts.git
+  Forgeries:
+    :branch: remove
+    :git: https://github.com/ashfurrow/Forgeries.git
   Keys:
     :path: Pods/CocoaPodsKeys/
   ObjectiveSugar:
@@ -157,6 +165,9 @@ CHECKOUT OPTIONS:
   Artsy+UIFonts:
     :commit: 39f47deebf947aa4c07727fdf2b69e2feff17428
     :git: https://github.com/artsy/Artsy-UIFonts.git
+  Forgeries:
+    :commit: b763101eb029fd60df1b22c795514a8caf1d7dbb
+    :git: https://github.com/ashfurrow/Forgeries.git
   ObjectiveSugar:
     :commit: 14ac406bd0dbb7fd96c72924f9e7196608f456a4
     :git: https://github.com/supermarin/ObjectiveSugar.git
@@ -174,6 +185,7 @@ SPEC CHECKSUMS:
   ARCollectionViewMasonryLayout: 164b82010cf8ec99bc7a38cffe59a179d7e5a116
   ARGenericTableViewController: 61a0897ba66c35111b5d1cc3b44884282bd3c1a5
   ARTiledImageView: 000af4093f9bdcd0f754e6ebd964c90641389f90
+  Artsy+Authentication: 8ecf6729902827c49c9bc54155ac9495929fcbcb
   Artsy+UIColors: 7a4c987885a8d8da3e22672a3232761f929dd2b6
   Artsy+UIFonts: 108bfe625c45008ebb15c4c62003882dd345c4b8
   Artsy+UILabels: 43da757ee01bce8165ec83123eccccdf1fe8843c
@@ -197,6 +209,7 @@ SPEC CHECKSUMS:
   Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
   KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+  NSURL+QueryDictionary: dd0a5fec689a9b4780b6fa0e0225c01ca3ea653e
   ObjectiveSugar: 0729eb74a757ea48b109a8902178c9b89aa58a9f
   OCMock: 4c2925291f80407c3738dd1db14d21d0cc278864
   OHHTTPStubs: b671969016b4c6f5ee3c26080c81114ba82e0710
