@@ -1,9 +1,5 @@
 // Notification names
 
-NSString *const ARLoginCompleteNotification = @"ARLoginCompleteNotification";
-NSString *const ARLoginFailedNotification = @"ARLoginFailedNotification";
-NSString *const ARLoginFailedServerNotification = @"ARLoginFailedServerNotification";
-
 // New Sync notifications
 NSString *const ARLargeImageDownloadCompleteNotification = @"ARLargeImageDownloadCompleteNotification";
 NSString *const ARAllArtworksDownloadedNotification = @"ARAllArtworksDownloadedNotification";

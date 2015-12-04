@@ -51,7 +51,6 @@ NSString *const ARRecommendSync = @"ARRecommendSync";
         ARStartedFirstSync : @NO,
         ARFinishedFirstSync : @NO,
         ARHideArtworkEditButton : @NO,
-        AREmailCCEmail : [Partner currentPartner].email,
         AREmailSubject : @"More information about %@ by %@",
         ARMultipleEmailSubject : @"More information about the artworks we discussed",
         ARMultipleSameArtistEmailSubject : @"More information about %@'s artworks",
@@ -64,6 +63,9 @@ NSString *const ARRecommendSync = @"ARRecommendSync";
     setPartnerSettingsBlock = ^(NSNotification *notification) {
 
         Partner *partner = [Partner currentPartner];
+        
+        if (![defaults objectForKey:AREmailCCEmail]) [defaults setObject:[Partner currentPartner].email forKey:AREmailCCEmail];
+        
         [defaults setObject:partner.slug forKey:ARPartnerID];
         [defaults setObject:partner.partnerLimitedAccess forKey:ARLimitedAccess];
         [defaults synchronize];

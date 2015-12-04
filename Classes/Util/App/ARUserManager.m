@@ -3,61 +3,17 @@
 #import "ARRouter.h"
 #import <AFNetworking/AFJSONRequestOperation.h>
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
+#import <Artsy+Authentication/Artsy+Authentication.h>
+#import <Keys/FolioKeys.h>
 
-static ARUserManager *sharedUserManager;
+
+@interface ARUserManager ()
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
+@property (nonatomic, strong) ArtsyAuthentication *auth;
+@end
 
 
 @implementation ARUserManager
-
-+ (ARUserManager *)sharedUserManager
-{
-    if (sharedUserManager) {
-        return sharedUserManager;
-    }
-    sharedUserManager = [[ARUserManager alloc] init];
-
-    return sharedUserManager;
-}
-
-+ (BOOL)userIsLoggedIn
-{
-    return [[ARUserManager sharedUserManager] userIsLoggedIn];
-}
-
-+ (void)loginComplete:(NSDictionary *)theJSON withEmail:(NSString *)email andPassword:(NSString *)password
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *expiryDateString = theJSON[AROAuthTokenExpiryDateKey];
-
-    ISO8601DateFormatter *dateFormatter = [[ISO8601DateFormatter alloc] init];
-    NSDate *expiryDate = [dateFormatter dateFromString:expiryDateString];
-    NSString *accessToken = theJSON[AROAuthTokenKey];
-
-    [defaults setObject:accessToken forKey:AROAuthToken];
-    [ARRouter setAuthToken:accessToken];
-
-    //TODO: Unit test me
-    [defaults setObject:expiryDate forKey:AROAuthTokenExpiryDate];
-    [defaults setObject:email forKey:ARUserEmailAddress];
-    [defaults synchronize];
-
-    NSError *error = nil;
-    [SFHFKeychainUtils storeUsername:email andPassword:password
-                      forServiceName:ARAppName
-                      updateExisting:YES
-                               error:&error];
-    if (error) {
-        [defaults removeObjectForKey:ARUserEmailAddress];
-        NSLog(@"Error saving to keychain : %@", error.localizedDescription);
-    }
-
-    NSDictionary *info = @{
-        AROAuthTokenNotificationKey : accessToken,
-        AROAuthTokenExpiryDateNotificationKey : expiryDate
-    };
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:ARLoginCompleteNotification object:nil userInfo:info];
-}
 
 - (BOOL)userIsLoggedIn
 {
@@ -72,40 +28,65 @@ static ARUserManager *sharedUserManager;
     return authToken && tokenValid;
 }
 
-+ (BOOL)loginCredentialsExist
+- (BOOL)userCredentialsExist
 {
-    return ([[NSUserDefaults standardUserDefaults] valueForKey:ARUserEmailAddress] != nil);
+    return ([self.userDefaults valueForKey:ARUserEmailAddress] != nil);
 }
 
-+ (void)expireAuthToken
+- (void)expireAuthToken
 {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:AROAuthTokenExpiryDate];
+    [self.userDefaults removeObjectForKey:AROAuthTokenExpiryDate];
 }
 
-+ (void)requestLoginWithStoredCredentials
+- (void)requestLoginWithStoredCredentials
 {
-    NSString *username = [[NSUserDefaults standardUserDefaults] valueForKey:ARUserEmailAddress];
+    NSString *username = [self.userDefaults valueForKey:ARUserEmailAddress];
     NSString *password = [SFHFKeychainUtils getPasswordForUsername:username andServiceName:ARAppName error:nil];
-    [self requestLoginWithUsername:username andPassword:password];
+    [self requestLoginWithUsername:username andPassword:password completion:nil];
 }
 
-+ (void)requestLoginWithUsername:(NSString *)username andPassword:(NSString *)password
+- (void)requestLoginWithUsername:(NSString *)username andPassword:(NSString *)password completion:(void (^)(BOOL success, NSError *error))completion
 {
-    NSURLRequest *request = [ARRouter newOAuthRequestWithUsername:username password:password];
+    FolioKeys *keys = [[FolioKeys alloc] init];
+    _auth = self.auth ?: [[ArtsyAuthentication alloc] initWithClientID:keys.artsyAPIClientKey clientSecret:keys.artsyAPIClientSecret];
+    [self.auth logInWithEmail:username password:password completion:^(ArtsyToken *token, NSError *error) {
 
-    //you might think: 'It'd be nice to typedef these blocks!'
-    //but here's a compelling argument against that
-    //https://github.com/AFNetworking/AFNetworking/issues/102
-
-    AFJSONRequestOperation *op = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-             [ARUserManager loginComplete:JSON withEmail:username andPassword:password];
+        if (token) {
+            [self saveToken:token email:username];
+            [ARRouter setAuthToken:token.token];
+            [self saveEmail:username password:password];
         }
 
-        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-             NSString *notification = JSON ? ARLoginFailedNotification : ARLoginFailedServerNotification;
-             [[NSNotificationCenter defaultCenter] postNotificationName:notification object:nil];
-        }];
-    [op start];
+        if (completion) {
+            completion(token != nil, error);
+        }
+    }];
 }
+
+- (void)saveToken:(ArtsyToken *)token email:(NSString *)email
+{
+    NSUserDefaults *defaults = self.userDefaults;
+    [defaults setObject:token.token forKey:AROAuthToken];
+    [defaults setObject:token.expirationDate forKey:AROAuthTokenExpiryDate];
+    [defaults setObject:email forKey:ARUserEmailAddress];
+    [defaults synchronize];
+}
+
+- (void)saveEmail:(NSString *)email password:(NSString *)password
+{
+    NSError *error = nil;
+    [SFHFKeychainUtils storeUsername:email andPassword:password forServiceName:ARAppName updateExisting:YES error:&error];
+    if (error) {
+        [self.userDefaults removeObjectForKey:ARUserEmailAddress];
+        [self.userDefaults synchronize];
+        NSLog(@"Error saving to keychain : %@", error.localizedDescription);
+    }
+}
+
+- (NSUserDefaults *)userDefaults
+{
+    return _userDefaults ?: [NSUserDefaults standardUserDefaults];
+}
+
+
 @end

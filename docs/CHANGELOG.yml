@@ -2,13 +2,15 @@ upcoming:
   version: 2.5.0
   notes:
     - [dev] Added new email settings view controllers [sarah]
+    - Improved Error Messages for Login [orta]
+    - Introduced Presentation Mode [sarah]
+    - New Settings pages [sarah]
     - [dev] Added Intercom support to the new settings [sarah]
   	- [dev] Added unit conversion for artwork dimensions [sarah]
     - [dev] Edit Presentation Mode Settings view controller [sarah]
-    - [dev] Introduced Presentation Mode [sarah]
     - [dev] New sync settings view controller [sarah]
     - [dev] Lab Settings Master View [sarah]
-    - Podfile uses `ARTSY_STAFF_MEMBER` to use closed source fonts [orta]
+    - [dev] Podfile uses `ARTSY_STAFF_MEMBER` to use closed source fonts [orta]
     - [dev] Sync refactor to simplify sync side-effects (anaalytics, notifications etc) [orta]
 
 releases:
