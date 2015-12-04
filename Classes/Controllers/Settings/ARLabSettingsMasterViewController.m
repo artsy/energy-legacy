@@ -99,9 +99,14 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
     }
 }
 
-- (IBAction)editPresentationModeButton:(id)sender
+- (IBAction)editPresentationModeButtonPressed:(id)sender
 {
     [(ARLabSettingsSplitViewController *)self.splitViewController showDetailViewControllerForSettingsSection:ARLabSettingsSectionPresentationMode];
+}
+
+- (IBAction)emailButtonPressed:(id)sender
+{
+    [(ARLabSettingsSplitViewController *)self.splitViewController showDetailViewControllerForSettingsSection:ARLabSettingsSectionEmail];
 }
 
 - (IBAction)supportButtonPressed:(id)sender

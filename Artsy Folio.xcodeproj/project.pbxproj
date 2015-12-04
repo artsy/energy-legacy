@@ -537,6 +537,7 @@
 		8383FB6B1BD83E33004B2A87 /* ARLabSettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8383FB6A1BD83E33004B2A87 /* ARLabSettingsViewControllerTests.m */; };
 		8385C51E1BFFB6B90025B8E7 /* ARLabSettingsMenuViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8385C51D1BFFB6B90025B8E7 /* ARLabSettingsMenuViewModel.m */; };
 		838BEEF31B31C9DF00D5FFC6 /* ARCMSStatusMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 838BEEF21B31C9DF00D5FFC6 /* ARCMSStatusMonitor.m */; };
+		838E1E391C0E6B5A008C5B1A /* ARLabSettingsEmailSubjectLinesViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 838E1E381C0E6B5A008C5B1A /* ARLabSettingsEmailSubjectLinesViewControllerTests.m */; };
 		839B53CB1BEC473C008A6173 /* ARLabSettingsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839B53CA1BEC473C008A6173 /* ARLabSettingsNavigationController.m */; };
 		839B53CE1BF112D7008A6173 /* ARLabSettingsSyncViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 839B53CD1BF112D7008A6173 /* ARLabSettingsSyncViewControllerTests.m */; };
 		839B59781B4DAA3900F24033 /* _EditionSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 839B59771B4DAA3900F24033 /* _EditionSet.m */; };
@@ -550,6 +551,11 @@
 		83D8F05F1BFCED1000524F59 /* ARLabSettingsMasterViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D8F05E1BFCED1000524F59 /* ARLabSettingsMasterViewControllerTests.m */; };
 		83DA2F631BD6C1A000C55982 /* ARLabSettingsSectionButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83DA2F621BD6C1A000C55982 /* ARLabSettingsSectionButton.xib */; };
 		83DA2F661BD6C85E00C55982 /* ARLabSettingsSectionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DA2F651BD6C85E00C55982 /* ARLabSettingsSectionButton.m */; };
+		83E71DFB1C05189C00C44F92 /* ARLabSettingsEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E71DFA1C05189C00C44F92 /* ARLabSettingsEmailViewController.m */; };
+		83E71DFE1C051ED000C44F92 /* ARLabSettingsEmailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E71DFD1C051ED000C44F92 /* ARLabSettingsEmailViewModel.m */; };
+		83E995E61C07939600A8885F /* ARLabSettingsEmailViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E995E51C07939600A8885F /* ARLabSettingsEmailViewControllerTests.m */; };
+		83E995E81C079C7C00A8885F /* ARLabSettingsEmailViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E995E71C079C7C00A8885F /* ARLabSettingsEmailViewModelTests.m */; };
+		83FFE5A01C07A58E0005FBE2 /* ARLabSettingsEmailSubjectLinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FFE59F1C07A58E0005FBE2 /* ARLabSettingsEmailSubjectLinesViewController.m */; };
 		B337EB08184D246C0071FA29 /* ARImageTile.m in Sources */ = {isa = PBXBuildFile; fileRef = B337EB07184D246C0071FA29 /* ARImageTile.m */; };
 		B37F1653183EB211007A7023 /* AFHTTPRequestOperation+ARFileDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = B37F1652183EB211007A7023 /* AFHTTPRequestOperation+ARFileDownload.m */; };
 		B37F1668183EEA71007A7023 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B37F1666183EEA71007A7023 /* InfoPlist.strings */; };
@@ -1459,6 +1465,7 @@
 		8385C51D1BFFB6B90025B8E7 /* ARLabSettingsMenuViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsMenuViewModel.m; sourceTree = "<group>"; };
 		838BEEF11B31C9DF00D5FFC6 /* ARCMSStatusMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMSStatusMonitor.h; sourceTree = "<group>"; };
 		838BEEF21B31C9DF00D5FFC6 /* ARCMSStatusMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARCMSStatusMonitor.m; sourceTree = "<group>"; };
+		838E1E381C0E6B5A008C5B1A /* ARLabSettingsEmailSubjectLinesViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsEmailSubjectLinesViewControllerTests.m; sourceTree = "<group>"; };
 		839B53C91BEC473C008A6173 /* ARLabSettingsNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsNavigationController.h; sourceTree = "<group>"; };
 		839B53CA1BEC473C008A6173 /* ARLabSettingsNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsNavigationController.m; sourceTree = "<group>"; };
 		839B53CD1BF112D7008A6173 /* ARLabSettingsSyncViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsSyncViewControllerTests.m; sourceTree = "<group>"; };
@@ -1480,6 +1487,14 @@
 		83DA2F621BD6C1A000C55982 /* ARLabSettingsSectionButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ARLabSettingsSectionButton.xib; path = ../../Classes/Controllers/Settings/ARLabSettingsSectionButton.xib; sourceTree = "<group>"; };
 		83DA2F641BD6C85E00C55982 /* ARLabSettingsSectionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARLabSettingsSectionButton.h; path = ../../Controllers/Settings/ARLabSettingsSectionButton.h; sourceTree = "<group>"; };
 		83DA2F651BD6C85E00C55982 /* ARLabSettingsSectionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARLabSettingsSectionButton.m; path = ../../Controllers/Settings/ARLabSettingsSectionButton.m; sourceTree = "<group>"; };
+		83E71DF91C05189C00C44F92 /* ARLabSettingsEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsEmailViewController.h; sourceTree = "<group>"; };
+		83E71DFA1C05189C00C44F92 /* ARLabSettingsEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsEmailViewController.m; sourceTree = "<group>"; };
+		83E71DFC1C051ED000C44F92 /* ARLabSettingsEmailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsEmailViewModel.h; sourceTree = "<group>"; };
+		83E71DFD1C051ED000C44F92 /* ARLabSettingsEmailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsEmailViewModel.m; sourceTree = "<group>"; };
+		83E995E51C07939600A8885F /* ARLabSettingsEmailViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsEmailViewControllerTests.m; sourceTree = "<group>"; };
+		83E995E71C079C7C00A8885F /* ARLabSettingsEmailViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsEmailViewModelTests.m; sourceTree = "<group>"; };
+		83FFE59E1C07A58E0005FBE2 /* ARLabSettingsEmailSubjectLinesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsEmailSubjectLinesViewController.h; sourceTree = "<group>"; };
+		83FFE59F1C07A58E0005FBE2 /* ARLabSettingsEmailSubjectLinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsEmailSubjectLinesViewController.m; sourceTree = "<group>"; };
 		8F2DD602C6024E018FAA7223 /* Pods-ArtsyFolio Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArtsyFolio Tests.xcconfig"; sourceTree = "<group>"; };
 		A1F3785C79A10599104E0FB7 /* Pods-ArtsyFolio Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B337EB06184D246C0071FA29 /* ARImageTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARImageTile.h; sourceTree = "<group>"; };
@@ -2994,6 +3009,12 @@
 				8360FDDD1BE91061004878AC /* ARLabSettingsPresentationModeViewController.m */,
 				8351417D1BDE9D980046FB32 /* ARLabSettingsSyncViewController.h */,
 				8351417E1BDE9D980046FB32 /* ARLabSettingsSyncViewController.m */,
+				83E71DF91C05189C00C44F92 /* ARLabSettingsEmailViewController.h */,
+				83E71DFA1C05189C00C44F92 /* ARLabSettingsEmailViewController.m */,
+				83E71DFC1C051ED000C44F92 /* ARLabSettingsEmailViewModel.h */,
+				83E71DFD1C051ED000C44F92 /* ARLabSettingsEmailViewModel.m */,
+				83FFE59E1C07A58E0005FBE2 /* ARLabSettingsEmailSubjectLinesViewController.h */,
+				83FFE59F1C07A58E0005FBE2 /* ARLabSettingsEmailSubjectLinesViewController.m */,
 			);
 			name = "Detail View Controllers";
 			sourceTree = "<group>";
@@ -3015,6 +3036,9 @@
 				839B53CD1BF112D7008A6173 /* ARLabSettingsSyncViewControllerTests.m */,
 				836DEDF61BF25824004A2362 /* ARLabSettingsPresentationModeViewControllerTests.m */,
 				83D8F05E1BFCED1000524F59 /* ARLabSettingsMasterViewControllerTests.m */,
+				83E995E51C07939600A8885F /* ARLabSettingsEmailViewControllerTests.m */,
+				838E1E381C0E6B5A008C5B1A /* ARLabSettingsEmailSubjectLinesViewControllerTests.m */,
+				83E995E71C079C7C00A8885F /* ARLabSettingsEmailViewModelTests.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -4042,6 +4066,7 @@
 				6080489F1BA9D8770099FBB4 /* ARFilteredStackTrace.m in Sources */,
 				342F99895C696D1C88D43353 /* ModelStubs.m in Sources */,
 				609CB43F192BA8240056E741 /* ARLoginViewControllerTests.m in Sources */,
+				838E1E391C0E6B5A008C5B1A /* ARLabSettingsEmailSubjectLinesViewControllerTests.m in Sources */,
 				60ADD6901ACB4EB200A847B5 /* ARAppDelegateTests.m in Sources */,
 				60749278197015E5004F3C83 /* ARModernArtworkInfoViewControllerTests.m in Sources */,
 				609CB440192BA8240056E741 /* ARHostViewControllerTests.m in Sources */,
@@ -4049,6 +4074,7 @@
 				609F01D419A2A3AA00ACDD38 /* ARGridViewCellTests.m in Sources */,
 				60C777581B0E280D00BEFA97 /* ARInitialViewControllerSetupCoordinatorSpec.m in Sources */,
 				834BA69D1B4AE74F009D18F7 /* ARFolioImageMessageViewControllerTests.m in Sources */,
+				83E995E61C07939600A8885F /* ARLabSettingsEmailViewControllerTests.m in Sources */,
 				60DF63D4197D65C10017B50F /* ARGridViewTests.m in Sources */,
 				60AC10CE19479D5000274EBB /* ARFeedTranslatorTests.m in Sources */,
 				60E7E2DF1ABB2392007EAA8A /* ShowModelTests.m in Sources */,
@@ -4060,6 +4086,7 @@
 				60E39282190A63CE0091AC9E /* AREmailComposerTests.m in Sources */,
 				60B572B4194F3A79002B9A46 /* ARAdminPartnerSelectViewControllerTests.m in Sources */,
 				601A44D21B04C7B500713590 /* SDWebImage+EasyCache.m in Sources */,
+				83E995E81C079C7C00A8885F /* ARLabSettingsEmailViewModelTests.m in Sources */,
 				602601601AC0703300D5EBCB /* ARModernEmailArtworksViewControllerDataSourceTests.m in Sources */,
 				342F9AFFFFBA47BC9C6BAA06 /* ARGridViewControllerTests.m in Sources */,
 				60692E12196BFA0B00455332 /* ARAmbiguousSplitStackViewTests.m in Sources */,
@@ -4102,6 +4129,7 @@
 				602E286F195DFB97001997DF /* ARModernArtworkMetadataViewController.m in Sources */,
 				60F637FD199E668B008D2360 /* ARFolioLabelSubclasses.m in Sources */,
 				60774E3818FB6B85004D3A1B /* UIDevice+DeviceInfo.m in Sources */,
+				83E71DFB1C05189C00C44F92 /* ARLabSettingsEmailViewController.m in Sources */,
 				60D210DA1AE0538900EA091C /* ARLocationDownloader.m in Sources */,
 				6062B327155C362B006BEF6F /* ARSettingsNavigationController.m in Sources */,
 				60DB0AAA151C576F00DA8A33 /* ARThumbnailCreationOperation.m in Sources */,
@@ -4202,6 +4230,7 @@
 				4949E95415226C93003BF7D9 /* NSString+NiceFractions.m in Sources */,
 				60117F841917F6BE0072E500 /* _Location.m in Sources */,
 				4980A673152A6BFC000158BF /* ARArtistViewController.m in Sources */,
+				83E71DFE1C051ED000C44F92 /* ARLabSettingsEmailViewModel.m in Sources */,
 				60E7E2E41ABB2E59007EAA8A /* ARImageSetViewController.m in Sources */,
 				4980A676152A6C08000158BF /* ARAlbumViewController.m in Sources */,
 				83DA2F661BD6C85E00C55982 /* ARLabSettingsSectionButton.m in Sources */,
@@ -4233,6 +4262,7 @@
 				494D390515BE06B70088B619 /* ARAnalyticsConstants.m in Sources */,
 				60EF315A186DBF6A0093F6F1 /* ARTopViewToolbarController.m in Sources */,
 				CBA1998B185A46E000573048 /* ARBrowseProvider.m in Sources */,
+				83FFE5A01C07A58E0005FBE2 /* ARLabSettingsEmailSubjectLinesViewController.m in Sources */,
 				60AC186C15C7ED7500297135 /* NSData+MD5.m in Sources */,
 				60AC187C15C82A6C00297135 /* NSString+TimeInterval.m in Sources */,
 				60A34F5C15CA8C6600983442 /* NSFileManager+SkipBackup.m in Sources */,

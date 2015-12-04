@@ -1,6 +1,7 @@
 upcoming:
   version: 2.5.0
   notes:
+    - [dev] Added new email settings view controllers [sarah]
     - Improved Error Messages for Login [orta]
     - Introduced Presentation Mode [sarah]
     - New Settings pages [sarah]
