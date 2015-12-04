@@ -28,6 +28,10 @@
             [nav performSegueWithIdentifier:ShowPresentationModeSettingsViewController sender:nav];
         case ARLabSettingsSectionBackground:
             [nav performSegueWithIdentifier:ShowBackgroundSettingsViewController sender:nav];
+        case ARLabSettingsSectionEmail:
+            [nav performSegueWithIdentifier:ShowEmailSettingsViewController sender:nav];
+        default:
+            break;
     }
 }
 

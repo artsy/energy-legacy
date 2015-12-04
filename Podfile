@@ -27,6 +27,7 @@ target 'ArtsyFolio' do
     pod 'Artsy+UIColors'
     pod 'UIView+BooleanAnimations'
     pod 'ORStackView'
+    pod "Artsy+Authentication", :subspecs => ["email"]
 
     if ENV['ARTSY_STAFF_MEMBER'] || ENV['CI'] == 'true'
         pod 'Artsy+UIFonts', :git => "https://github.com/artsy/Artsy-UIFonts.git", :branch => "old_fonts_new_lib"
@@ -87,7 +88,7 @@ target 'ArtsyFolio Tests' do
 
     pod 'XCTest+OHHTTPStubSuiteCleanUp'
     pod 'OCMock'
-    pod 'Forgeries/Mocks'
+    pod 'Forgeries/Mocks', :git => "https://github.com/ashfurrow/Forgeries.git", :branch => "remove"
 end
 
 post_install do |installer|

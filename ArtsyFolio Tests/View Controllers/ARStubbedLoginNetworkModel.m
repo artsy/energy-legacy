@@ -69,4 +69,23 @@
     success(partnerMetadata);
 }
 
+- (void)pingArtsy:(void (^)(void))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))artsyFailure;
+{
+    if (self.isArtsyUp) {
+        success();
+    } else {
+        artsyFailure(nil, nil, nil, nil);
+    }
+}
+
+- (void)pingApple:(void (^)(void))success failure:(void (^)(NSURLRequest *, NSHTTPURLResponse *, NSError *))appleFailure
+{
+    if (self.isAppleUp) {
+        success();
+    } else {
+        appleFailure(nil, nil, nil);
+    }
+}
+
+
 @end

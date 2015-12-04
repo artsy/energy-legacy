@@ -57,18 +57,9 @@ static NSURL *staticBaseURL = nil;
     [httpClient setDefaultHeader:ARAuthHeader value:token];
 }
 
-+ (NSURLRequest *)newOAuthRequestWithUsername:(NSString *)username password:(NSString *)password
++ (NSURLRequest *)newArtsyPing
 {
-    FolioKeys *keys = [[FolioKeys alloc] init];
-    NSDictionary *params = @{
-        @"email" : username,
-        @"password" : password,
-        @"client_id" : [keys artsyAPIClientKey],
-        @"client_secret" : [keys artsyAPIClientSecret],
-        @"grant_type" : @"credentials",
-        @"scope" : @"offline_access"
-    };
-    return [httpClient requestWithMethod:@"GET" path:AROAuthURL parameters:params];
+    return [httpClient requestWithMethod:@"GET" path:ARSiteUpURL parameters:nil];
 }
 
 #pragma mark -

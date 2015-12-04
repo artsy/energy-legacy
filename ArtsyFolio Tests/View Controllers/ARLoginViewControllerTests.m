@@ -1,5 +1,6 @@
 #import "ARLoginViewController.h"
 #import "ARStubbedLoginNetworkModel.h"
+#import "ARUserManager.h"
 
 /// Without this, the tests are dependant on if Eigen is installed
 @interface FakeApplication : NSObject
@@ -19,10 +20,12 @@
 @property (nonatomic, strong) UIApplication *sharedApplication;
 @property (nonatomic, strong) ARLoginNetworkModel *networkModel;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) ARUserManager *userManager;
 
 - (void)presentPartnerSelectionToolWithJSON:(NSArray *)JSON;
 - (void)presentAdminPartnerSelectionTool;
-- (void)loginCompleted:(NSNotification *)notification;
+- (void)loginCompleted;
+- (void)handleNetworkError:(NSError *)error;
 @end
 
 SpecBegin(ARLoginViewController);
@@ -35,24 +38,10 @@ dispatch_block_t before = ^{
     controller.managedObjectContext = [CoreDataManager stubbedManagedObjectContext];
 };
 
-
 it(@"look right on ipad", ^{
     [ARTestContext useContext:ARTestContextDeviceTypePad :^{
         before();
         expect(controller).to.haveValidSnapshot();
-    }];
-});
-
-// This cannot be tested in Xcode 6, but it works when being ran on an iOS7 devide
-// when migrating to iOS8 only this can be changed
-
-pending(@"hides the ad on landscape orientation", ^{
-    [ARTestContext useContext:ARTestContextDeviceTypePad :^{
-        before();
-
-        BOOL should = [controller shouldAutorotateToInterfaceOrientation:UIInterfaceOrientationLandscapeLeft];
-        expect(should).to.beTruthy();
-        expect(controller.appRecommendationView.hidden).to.beTruthy();
     }];
 });
 
@@ -69,7 +58,7 @@ it(@"presents partner selection tool for users with multiple partners", ^{
 
     id controllerMock = [OCMockObject partialMockForObject:controller];
     [[controllerMock expect] presentPartnerSelectionToolWithJSON:[OCMArg any]];
-    [controller loginCompleted:nil];
+    [controller loginCompleted];
     [controllerMock verify];
 });
 
@@ -79,7 +68,7 @@ it(@"presents admin tool when user is an admin", ^{
 
     id controllerMock = [OCMockObject partialMockForObject:controller];
     [[controllerMock expect] presentAdminPartnerSelectionTool];
-    [controller loginCompleted:nil];
+    [controller loginCompleted];
     [controllerMock verify];
 });
 
@@ -87,9 +76,63 @@ it(@"correctly parses in a partner", ^{
     before();
     controller.networkModel = [[ARStubbedLoginNetworkModel alloc] initWithPartnerCount:ARLoginPartnerCountOne isAdmin:NO];
 
-    [controller loginCompleted:nil];
+    [controller loginCompleted];
 
     expect([[Partner currentPartnerInContext:controller.managedObjectContext] name]).to.equal(@"Test Partner");
 });
+
+describe(@"error handling", ^{
+    __block ARStubbedLoginNetworkModel *network;
+
+    beforeEach(^{
+        before();
+        network = [[ARStubbedLoginNetworkModel alloc] initWithPartnerCount:ARLoginPartnerCountMany isAdmin:NO];
+        controller.networkModel = network;
+    });
+
+    it(@"handles artsy errors ", ^{
+        NSError *error = [NSError errorWithDomain:@"hi" code:1 userInfo:@{
+            @"error_description": @"Random server error"
+        }];
+
+        network.isArtsyUp = true;
+        [controller handleNetworkError:error];
+        expect(controller.errorMessageLabel.text).to.equal(@"Random server error");
+    });
+
+    it(@"tweaks invalid login errors ", ^{
+        NSError *error = [NSError errorWithDomain:@"hi" code:1 userInfo:@{
+            @"error_description": @"invalid email or password"
+        }];
+
+        network.isArtsyUp = true;
+        [controller handleNetworkError:error];
+        expect(controller.errorMessageLabel.text).to.equal(@"Your email or password is incorrect.");
+    });
+
+    it(@"shows an error saying artsy is down when artsy is down and apple is up ", ^{
+        NSError *error = [NSError errorWithDomain:@"hi" code:1 userInfo:@{
+            @"error_description": @"invalid email or password"
+        }];
+
+        network.isArtsyUp = false;
+        network.isAppleUp = true;
+        [controller handleNetworkError:error];
+        expect(controller.errorMessageLabel.text).to.beginWith(@"Our servers are experiencing temporary technical difficulties.");
+    });
+
+    it(@"shows a different message if apple is down ", ^{
+        NSError *error = [NSError errorWithDomain:@"hi" code:1 userInfo:@{
+            @"error_description": @"invalid email or password"
+        }];
+
+        network.isArtsyUp = false;
+        network.isAppleUp = false;
+        [controller handleNetworkError:error];
+        expect(controller.errorMessageLabel.text).to.equal(@"Folio is having trouble connecting to Artsy, and the internet in general, you may be having WIFI or networking issues.");
+    });
+
+});
+
 
 SpecEnd

@@ -27,6 +27,7 @@ void uncaughtExceptionHandler(NSException *exception);
 @property (nonatomic, strong, readonly) ARInitialViewControllerSetupCoordinator *viewCoordinator;
 @property (nonatomic, strong, readonly) ARAnalyticsHelper *analyticsHelper;
 @property (nonatomic, strong, readonly) AROfflineStatusWatcher *statusWatcher;
+@property (nonatomic, strong, readonly) ARUserManager *userManager;
 
 // Needed for testing.
 @property (nonatomic, strong) id defaultsClassMock;
@@ -88,13 +89,14 @@ void uncaughtExceptionHandler(NSException *exception);
     _partnerSync = [[ARPartnerMetadataSync alloc] init];
     _statusWatcher = [[AROfflineStatusWatcher alloc] initWithSync:self.sync];
     _viewCoordinator = [[ARInitialViewControllerSetupCoordinator alloc] initWithWindow:self.window sync:self.sync];
+    _userManager = [[ARUserManager alloc] init];
 
     [self.viewCoordinator setupFolioGrid];
 
     BOOL useWhiteFolio = [defaults boolForKey:AROptionsUseWhiteFolio];
-    BOOL hasLoggedInSyncedUser = [ARUserManager loginCredentialsExist] && [Partner currentPartner];
+    BOOL hasLoggedInSyncedUser = self.userManager.userCredentialsExist && [Partner currentPartner];
     BOOL hasLoggedInUnsyncedUser = [defaults boolForKey:ARStartedFirstSync] && ![defaults boolForKey:ARFinishedFirstSync];
-    BOOL loggedIn = [ARUserManager userIsLoggedIn];
+    BOOL loggedIn = self.userManager.userIsLoggedIn;
     BOOL shouldLockOut = [defaults boolForKey:ARLimitedAccess];
 
     [ARTheme setupWithWhiteFolio:useWhiteFolio];
@@ -171,7 +173,7 @@ void uncaughtExceptionHandler(NSException *exception);
 {
     // let them through into the app whilst it re-auths in the background.
     [ARAnalytics event:@"Updating auth token"];
-    [ARUserManager requestLoginWithStoredCredentials];
+    [self.userManager requestLoginWithStoredCredentials];
 }
 
 #pragma mark -
