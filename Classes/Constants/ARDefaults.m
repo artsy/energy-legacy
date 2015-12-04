@@ -63,10 +63,8 @@ NSString *const ARRecommendSync = @"ARRecommendSync";
     setPartnerSettingsBlock = ^(NSNotification *notification) {
 
         Partner *partner = [Partner currentPartner];
-        
-        if (![defaults objectForKey:AREmailCCEmail]) [defaults setObject:[Partner currentPartner].email forKey:AREmailCCEmail];
-        
         [defaults setObject:partner.slug forKey:ARPartnerID];
+        [defaults setObject:partner.email forKey:AREmailCCEmail];
         [defaults setObject:partner.partnerLimitedAccess forKey:ARLimitedAccess];
         [defaults synchronize];
 
