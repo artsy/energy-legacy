@@ -223,6 +223,7 @@
 		606B1EDB1846805E00CC3DBD /* Transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 606B1EDA1846805E00CC3DBD /* Transparent.png */; };
 		606B1EDD184681FF00CC3DBD /* Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 606B1EDC184681FF00CC3DBD /* Black.png */; };
 		606C6794170B1B4200A9C0EB /* ARTabbedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C6793170B1B4200A9C0EB /* ARTabbedViewController.m */; };
+		606C84771C16009400C6D15F /* ARStubbedNetworkQualityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C84761C16009400C6D15F /* ARStubbedNetworkQualityIndicator.m */; };
 		606DF15615516F5900E2F74C /* MenuBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 606DF15415516F5900E2F74C /* MenuBack.png */; };
 		606DF15815516F5900E2F74C /* MenuBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606DF15515516F5900E2F74C /* MenuBack@2x.png */; };
 		606DF1611551720000E2F74C /* ARSettingsNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606DF15E1551720000E2F74C /* ARSettingsNavigationController.xib */; };
@@ -985,6 +986,8 @@
 		606B1EDC184681FF00CC3DBD /* Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Black.png; sourceTree = "<group>"; };
 		606C6792170B1B4100A9C0EB /* ARTabbedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTabbedViewController.h; sourceTree = "<group>"; };
 		606C6793170B1B4200A9C0EB /* ARTabbedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTabbedViewController.m; sourceTree = "<group>"; };
+		606C84751C16009400C6D15F /* ARStubbedNetworkQualityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARStubbedNetworkQualityIndicator.h; sourceTree = "<group>"; };
+		606C84761C16009400C6D15F /* ARStubbedNetworkQualityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARStubbedNetworkQualityIndicator.m; sourceTree = "<group>"; };
 		606DF15415516F5900E2F74C /* MenuBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuBack.png; sourceTree = "<group>"; };
 		606DF15515516F5900E2F74C /* MenuBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuBack@2x.png"; sourceTree = "<group>"; };
 		606DF15C1551720000E2F74C /* ARSettingsNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSettingsNavigationController.h; sourceTree = "<group>"; };
@@ -1796,6 +1799,8 @@
 				60D4D71C198FD853001AB8AF /* ARSwitchboardTests.m */,
 				6086648D1A31D5D60030226D /* ARRootNavigationControllerDelegateSpec.m */,
 				60ADD68F1ACB4EB200A847B5 /* ARAppDelegateTests.m */,
+				606C84751C16009400C6D15F /* ARStubbedNetworkQualityIndicator.h */,
+				606C84761C16009400C6D15F /* ARStubbedNetworkQualityIndicator.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -4004,6 +4009,7 @@
 				6044737C1A24FCED008A4AF0 /* UIViewController+LoadViews.m in Sources */,
 				60E1C97019B0030600B748FD /* AREditAlbumArtistViewControllerTests.m in Sources */,
 				609715DB19ACC1A700970DBE /* ARSelectionToolbarViewTests.m in Sources */,
+				606C84771C16009400C6D15F /* ARStubbedNetworkQualityIndicator.m in Sources */,
 				6038C47E19867BF300626DD6 /* ARTabbedViewControllerTests.m in Sources */,
 				B3DA7AE4185BAEAA00CDD11A /* ARTileArchiveDownloaderTests.m in Sources */,
 				60FDF6DD1AEAA21800173E81 /* ARSearchViewControllerTests.m in Sources */,

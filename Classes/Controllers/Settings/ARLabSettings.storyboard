@@ -92,13 +92,6 @@
                                     <outlet property="delegate" destination="lXz-BW-0kX" id="okQ-Ns-qk2"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UnV-En-Ysx">
-                                <rect key="frame" x="453" y="20" width="113" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -137,7 +130,6 @@
                     <connections>
                         <outlet property="explanatoryTextLabel" destination="cwG-Vf-Fgn" id="fYi-b3-PnZ"/>
                         <outlet property="previousSyncsLabel" destination="iqP-c1-aQK" id="xXi-Vj-tNT"/>
-                        <outlet property="qualityLevel" destination="UnV-En-Ysx" id="pwP-Az-fWS"/>
                         <outlet property="syncButton" destination="u9U-Ia-fHS" id="zL1-K0-Qtk"/>
                         <outlet property="tableView" destination="bvo-wb-tZW" id="0Pj-x6-vEc"/>
                     </connections>

@@ -3,6 +3,7 @@
 #import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 #import "ARTopViewController.h"
 #import "NSString+NiceAttributedStrings.h"
+#import "ARSyncStatusViewModel.h"
 #import "ARNetworkQualityIndicator.h"
 
 
@@ -14,10 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSArray *previousSyncDateStrings;
-
-@property (weak, nonatomic) IBOutlet UILabel *qualityLevel;
-@property (strong, nonatomic) ARNetworkQualityIndicator *qualityIndicator;
-
 @end
 
 
@@ -50,7 +47,7 @@
 
     self.qualityIndicator = self.qualityIndicator ?: [[ARNetworkQualityIndicator alloc] init];
     [self.qualityIndicator beginObservingNetworkQuality:^(ARNetworkQuality quality) {
-        self.qualityLevel.text = [NSString stringWithFormat:@"%@", @(quality)];
+        NSLog(@"NETWORK Q: %@", @(quality));
     }];
 }
 
