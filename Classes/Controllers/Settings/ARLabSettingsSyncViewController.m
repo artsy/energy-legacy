@@ -3,6 +3,7 @@
 #import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 #import "ARTopViewController.h"
 #import "NSString+NiceAttributedStrings.h"
+#import "ARNetworkQualityIndicator.h"
 
 
 @interface ARLabSettingsSyncViewController ()
@@ -13,6 +14,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSArray *previousSyncDateStrings;
+
+@property (weak, nonatomic) IBOutlet UILabel *qualityLevel;
+@property (strong, nonatomic) ARNetworkQualityIndicator *qualityIndicator;
 
 @end
 
@@ -43,6 +47,16 @@
 
     NSString *previousSyncsText = self.viewModel.syncLogCount ? @"Previous Syncs" : @"You have no previous syncs";
     [self.previousSyncsLabel setAttributedText:[self expandedKernTextForString:previousSyncsText.uppercaseString]];
+
+    self.qualityIndicator = self.qualityIndicator ?: [[ARNetworkQualityIndicator alloc] init];
+    [self.qualityIndicator beginObservingNetworkQuality:^(ARNetworkQuality quality) {
+        self.qualityLevel.text = [NSString stringWithFormat:@"%@", @(quality)];
+    }];
+}
+
+- (void)dealloc
+{
+    [self.qualityIndicator stopObservingNetworkQuality];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
