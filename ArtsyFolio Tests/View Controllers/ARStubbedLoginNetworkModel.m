@@ -69,22 +69,14 @@
     success(partnerMetadata);
 }
 
-- (void)pingArtsy:(void (^)(void))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))artsyFailure;
+- (void)pingArtsy:(void (^)(BOOL completed, NSTimeInterval time))completion
 {
-    if (self.isArtsyUp) {
-        success();
-    } else {
-        artsyFailure(nil, nil, nil, nil);
-    }
+    completion(self.isArtsyUp, 1);
 }
 
-- (void)pingApple:(void (^)(void))success failure:(void (^)(NSURLRequest *, NSHTTPURLResponse *, NSError *))appleFailure
+- (void)pingApple:(void (^)(BOOL completed, NSTimeInterval time))completion
 {
-    if (self.isAppleUp) {
-        success();
-    } else {
-        appleFailure(nil, nil, nil);
-    }
+    completion(self.isAppleUp, 1);
 }
 
 

@@ -230,30 +230,32 @@
 {
     [self startLoading:NO];
 
-    [self.networkModel pingArtsy:^{
-        // Artsy is up
-        NSString *serverError = error.userInfo[@"error_description"];
+    [self.networkModel pingArtsy:^(BOOL connected, NSTimeInterval timeToConnect) {
+        if (connected) {
+            // Artsy is up
+            NSString *serverError = error.userInfo[@"error_description"];
 
-        /// Let's have a less robotic error message for the most
-        /// common case.
-        if ([serverError isEqualToString:@"invalid email or password"]) {
-            serverError = @"Your email or password is incorrect.";
+            /// Let's have a less robotic error message for the most
+            /// common case.
+            if ([serverError isEqualToString:@"invalid email or password"]) {
+                serverError = @"Your email or password is incorrect.";
+            }
+
+            if (serverError) {
+                [self resetWithErrorMessage:serverError];
+            }
+            return;
         }
 
-        if (serverError) {
-            [self resetWithErrorMessage:serverError];
-        }
-
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         // Artsy is offline?
-
-        [self.networkModel pingApple:^{
-            /// If Apple is up, and we are down, then we are down for sure.
-            [self resetWithErrorMessage:@"Our servers are experiencing temporary technical difficulties. We have been notified of the problem and are working to fix it. Please contact partnersupport@artsy.net with any questions."];
-
-        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-            /// OK, they are definitely offline.
-            [self resetWithErrorMessage:@"Folio is having trouble connecting to Artsy, and the internet in general, you may be having WIFI or networking issues."];
+        [self.networkModel pingApple:^(BOOL connected, NSTimeInterval timeToConnect) {
+            if (connected) {
+                /// If Apple is up, and we are down, then we are down for sure.
+                [self resetWithErrorMessage:@"Our servers are experiencing temporary technical difficulties. We have been notified of the problem and are working to fix it. Please contact partnersupport@artsy.net with any questions."];
+            } else {
+                /// OK, they are definitely offline.
+                [self resetWithErrorMessage:@"Folio is having trouble connecting to Artsy, and the internet in general, you may be having WIFI or networking issues."];
+            }
         }];
     }];
 }

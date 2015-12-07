@@ -1,6 +1,12 @@
 #import "ARLoginNetworkModel.h"
 #import "ARRouter.h"
 #import <AFNetworking/AFJSONRequestOperation.h>
+#import "ARNetworkQualityIndicator.h"
+
+
+@interface ARLoginNetworkModel ()
+@property (nonatomic, strong) ARNetworkQualityIndicator *quality;
+@end
 
 
 @implementation ARLoginNetworkModel
@@ -57,33 +63,16 @@
 }
 
 
-- (void)pingArtsy:(void (^)(void))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure
+- (void)pingArtsy:(void (^)(BOOL connected, NSTimeInterval timeToConnect))completion;
 {
-    NSURLRequest *request = [ARRouter newArtsyPing];
-
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        success();
-
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        if (failure) failure(request, response, error, JSON);
-    }];
-
-    [operation start];
+    self.quality = self.quality ?: [[ARNetworkQualityIndicator alloc] init];
+    [self.quality pingArtsy:completion];
 }
 
-- (void)pingApple:(void (^)(void))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure
+- (void)pingApple:(void (^)(BOOL connected, NSTimeInterval timeToConnect))completion;
 {
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.apple.com/"] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.0];
-
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        success();
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(operation.request, operation.response, error);
-    }];
-
-    [operation start];
+    self.quality = self.quality ?: [[ARNetworkQualityIndicator alloc] init];
+    [self.quality pingApple:completion];
 }
-
 
 @end
