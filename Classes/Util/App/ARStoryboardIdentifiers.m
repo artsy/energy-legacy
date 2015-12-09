@@ -7,6 +7,7 @@ NSString *const EmailSettingsNavigationController = @"Email Settings Navigation 
 NSString *const SettingsNavigationController = @"SettingsNavigationController";
 
 #pragma mark - segue.identifier
+NSString *const ShowBackgroundSettingsViewController = @"Show Background Settings View Controller";
 NSString *const ShowEmailSettingsViewController = @"Show Email Settings View Controller";
 NSString *const ShowPresentationModeSettingsViewController = @"Show Presentation Mode Settings View Controller";
 NSString *const ShowSyncSettingsViewController = @"Show Sync Settings View Controller";
@@ -19,6 +20,7 @@ NSString *const EmailSubjectReuseIdentifier = @"EmailSubjectReuseIdentifier";
 NSString *const previousSyncCell = @"previousSyncCell";
 
 #pragma mark - tableViewController.storyboardIdentifier
+NSString *const BackgroundSettingsViewController = @"Background Settings View Controller";
 NSString *const PresentationModeViewController = @"Presentation Mode View Controller";
 
 #pragma mark - viewController.storyboardIdentifier
