@@ -178,4 +178,11 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
     return YES;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+
 @end

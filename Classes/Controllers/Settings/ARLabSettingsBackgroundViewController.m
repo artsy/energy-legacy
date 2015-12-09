@@ -8,6 +8,10 @@
 
 @implementation ARLabSettingsBackgroundViewController
 
+- (void)viewDidLoad
+{
+    [self.navigationController setNavigationBarHidden:[UIDevice isPad]];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

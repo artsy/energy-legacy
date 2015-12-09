@@ -21,6 +21,8 @@
     [super viewDidLoad];
     self.explanatoryTextLabel.attributedText = [self.explanatoryTextLabel.text attributedStringWithLineSpacing:8];
 
+    [self.navigationController setNavigationBarHidden:[UIDevice isPad]];
+
     Partner *partner = [Partner currentPartnerInContext:self.context];
     if (![partner hasUploadedWorks]) return; // zero state
 

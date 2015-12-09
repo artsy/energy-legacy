@@ -13,31 +13,49 @@
     self.preferredDisplayMode = [UIDevice isPad] ? UISplitViewControllerDisplayModeAllVisible : UISplitViewControllerDisplayModeAutomatic;
     self.preferredPrimaryColumnWidthFraction = 0.4;
     self.delegate = self;
+
+    self.navigationItem.leftBarButtonItem = [self.splitViewController displayModeButtonItem];
+
+    [self showDetailViewControllerForSettingsSection:ARLabSettingsSectionSync];
 }
 
 - (void)showDetailViewControllerForSettingsSection:(ARLabSettingsSection)section
 {
-    ARLabSettingsNavigationController *nav = [self.storyboard instantiateViewControllerWithIdentifier:SettingsNavigationController];
-    [self showDetailViewController:nav sender:self];
+    UIViewController *detailViewController;
 
     switch (section) {
         case ARLabSettingsSectionSync:
-            [nav performSegueWithIdentifier:ShowSyncSettingsViewController sender:nav];
+            detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:SyncSettingsViewController];
             break;
         case ARLabSettingsSectionPresentationMode:
-            [nav performSegueWithIdentifier:ShowPresentationModeSettingsViewController sender:nav];
+            detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:PresentationModeViewController];
+            break;
         case ARLabSettingsSectionBackground:
-            [nav performSegueWithIdentifier:ShowBackgroundSettingsViewController sender:nav];
+            detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:BackgroundSettingsViewController];
+            break;
         case ARLabSettingsSectionEmail:
-            [nav performSegueWithIdentifier:ShowEmailSettingsViewController sender:nav];
-        default:
+            detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:EmailSettingsViewController];
             break;
     }
+
+    ARLabSettingsNavigationController *nav = [self detailNavigationController];
+    [nav pushViewController:detailViewController animated:YES];
+    [self showDetailViewController:nav sender:self];
 }
 
 - (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController
 {
     return YES;
+}
+
+- (ARLabSettingsNavigationController *)detailNavigationController
+{
+    return [self.storyboard instantiateViewControllerWithIdentifier:SettingsNavigationController];
+}
+
+- (ARLabSettingsNavigationController *)detailNavigationControllerWithRoot:(UIViewController *)rootVC
+{
+    return [[ARLabSettingsNavigationController alloc] initWithRootViewController:rootVC];
 }
 
 #pragma mark - exit strategy

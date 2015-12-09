@@ -36,6 +36,8 @@
 {
     [super viewDidLoad];
 
+    [self.navigationController setNavigationBarHidden:[UIDevice isPad]];
+
     self.previousSyncDateStrings = self.viewModel.previousSyncDateStrings;
     [self.syncButton setTitle:@"Sync Content".uppercaseString forState:UIControlStateNormal];
 

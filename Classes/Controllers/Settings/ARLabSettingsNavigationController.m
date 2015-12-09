@@ -3,6 +3,7 @@
 #import "ARSyncStatusViewModel.h"
 #import "ARLabSettingsSyncViewController.h"
 #import "ARTopViewController.h"
+#import "ARLabSettingsMasterViewController.h"
 
 
 @interface ARLabSettingsNavigationController ()
@@ -21,12 +22,12 @@
     }
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    BOOL isDetailViewController = [segue.destinationViewController conformsToProtocol:@protocol(ARLabSettingsDetailViewController)];
+    BOOL isDetailViewController = [viewController conformsToProtocol:@protocol(ARLabSettingsDetailViewController)];
 
     if (isDetailViewController) {
-        UIViewController<ARLabSettingsDetailViewController> *vc = segue.destinationViewController;
+        UIViewController<ARLabSettingsDetailViewController> *vc = viewController;
 
         switch (vc.section) {
             case ARLabSettingsSectionSync:
@@ -36,6 +37,8 @@
                 break;
         }
     }
+
+    [super pushViewController:viewController animated:animated];
 }
 
 - (ARSyncStatusViewModel *)syncViewModel

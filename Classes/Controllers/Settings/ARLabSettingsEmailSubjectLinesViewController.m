@@ -25,6 +25,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    [self.navigationController setNavigationBarHidden:NO];
+
     self.navigationItem.title = NSLocalizedString(@"Subject", @"Title for email subject view controller").uppercaseString;
 
     self.subjectTypeTitleLabel.text = [self.viewModel titleForEmailSubjectType:self.subjectType];
