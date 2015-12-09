@@ -4,6 +4,7 @@
 #import "ARSyncStatusViewModel.h"
 #import "SyncLog.h"
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
+#import "ARStubbedNetworkQualityIndicator.h"
 
 SpecBegin(ARLabSettingsSyncViewController);
 
@@ -16,6 +17,7 @@ beforeEach(^{
     subject = [sb instantiateViewControllerWithIdentifier:SyncSettingsViewController];
     
     subject.viewModel = [[ARSyncStatusViewModel alloc] initWithSync:nil context:context];
+    subject.qualityIndicator = [[ARStubbedNetworkQualityIndicator alloc] init];
 });
 
 describe(@"visuals", ^{

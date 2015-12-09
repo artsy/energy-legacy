@@ -17,9 +17,9 @@ typedef NS_ENUM(NSInteger, ARLoginPartnerCount) {
 - (void)getFullMetadataForPartnerWithID:(NSString *)partnerID success:(void (^)(id partnerDictionary))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure;
 
 /// Is Artsy up?
-- (void)pingArtsy:(void (^)(void))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure;
+- (void)pingArtsy:(void (^)(BOOL connected, NSTimeInterval timeToConnect))completion;
 
 /// Is Apple up? A pretty reliable way to check if the user is offline
-- (void)pingApple:(void (^)(void))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure;
+- (void)pingApple:(void (^)(BOOL connected, NSTimeInterval timeToConnect))completion;
 
 @end

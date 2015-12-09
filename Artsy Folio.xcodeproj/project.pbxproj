@@ -168,6 +168,7 @@
 		6032E3421BE21D81001C3494 /* ARSyncAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 6032E3411BE21D81001C3494 /* ARSyncAnalytics.m */; };
 		6032E3461BE22136001C3494 /* ARSyncAnalyticsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6032E3451BE22136001C3494 /* ARSyncAnalyticsSpec.m */; };
 		6032E3491BE22203001C3494 /* ARStubbedAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 6032E3481BE22203001C3494 /* ARStubbedAnalytics.m */; };
+		603485501C10EA860027F753 /* ARNetworkQualityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6034854F1C10EA860027F753 /* ARNetworkQualityIndicator.m */; };
 		6036A2391BCE99620090D5FC /* ARIntercomProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6036A2381BCE99620090D5FC /* ARIntercomProvider.m */; };
 		6038C47B19867A5600626DD6 /* ARExpectaExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6038C47A19867A5600626DD6 /* ARExpectaExtensions.m */; };
 		6038C47E19867BF300626DD6 /* ARTabbedViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6038C47D19867BF300626DD6 /* ARTabbedViewControllerTests.m */; };
@@ -222,6 +223,7 @@
 		606B1EDB1846805E00CC3DBD /* Transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 606B1EDA1846805E00CC3DBD /* Transparent.png */; };
 		606B1EDD184681FF00CC3DBD /* Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 606B1EDC184681FF00CC3DBD /* Black.png */; };
 		606C6794170B1B4200A9C0EB /* ARTabbedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C6793170B1B4200A9C0EB /* ARTabbedViewController.m */; };
+		606C84771C16009400C6D15F /* ARStubbedNetworkQualityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C84761C16009400C6D15F /* ARStubbedNetworkQualityIndicator.m */; };
 		606DF15615516F5900E2F74C /* MenuBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 606DF15415516F5900E2F74C /* MenuBack.png */; };
 		606DF15815516F5900E2F74C /* MenuBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606DF15515516F5900E2F74C /* MenuBack@2x.png */; };
 		606DF1611551720000E2F74C /* ARSettingsNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606DF15E1551720000E2F74C /* ARSettingsNavigationController.xib */; };
@@ -910,6 +912,8 @@
 		6032E3451BE22136001C3494 /* ARSyncAnalyticsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncAnalyticsSpec.m; sourceTree = "<group>"; };
 		6032E3471BE22203001C3494 /* ARStubbedAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARStubbedAnalytics.h; path = ../ARStubbedAnalytics.h; sourceTree = "<group>"; };
 		6032E3481BE22203001C3494 /* ARStubbedAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARStubbedAnalytics.m; path = ../ARStubbedAnalytics.m; sourceTree = "<group>"; };
+		6034854E1C10EA860027F753 /* ARNetworkQualityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARNetworkQualityIndicator.h; sourceTree = "<group>"; };
+		6034854F1C10EA860027F753 /* ARNetworkQualityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARNetworkQualityIndicator.m; sourceTree = "<group>"; };
 		6036A2371BCE99620090D5FC /* ARIntercomProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARIntercomProvider.h; path = Debugging/ARIntercomProvider.h; sourceTree = "<group>"; };
 		6036A2381BCE99620090D5FC /* ARIntercomProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARIntercomProvider.m; path = Debugging/ARIntercomProvider.m; sourceTree = "<group>"; };
 		6038C47A19867A5600626DD6 /* ARExpectaExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARExpectaExtensions.m; sourceTree = "<group>"; };
@@ -990,6 +994,8 @@
 		606B1EDC184681FF00CC3DBD /* Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Black.png; sourceTree = "<group>"; };
 		606C6792170B1B4100A9C0EB /* ARTabbedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTabbedViewController.h; sourceTree = "<group>"; };
 		606C6793170B1B4200A9C0EB /* ARTabbedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTabbedViewController.m; sourceTree = "<group>"; };
+		606C84751C16009400C6D15F /* ARStubbedNetworkQualityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARStubbedNetworkQualityIndicator.h; sourceTree = "<group>"; };
+		606C84761C16009400C6D15F /* ARStubbedNetworkQualityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARStubbedNetworkQualityIndicator.m; sourceTree = "<group>"; };
 		606DF15415516F5900E2F74C /* MenuBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuBack.png; sourceTree = "<group>"; };
 		606DF15515516F5900E2F74C /* MenuBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuBack@2x.png"; sourceTree = "<group>"; };
 		606DF15C1551720000E2F74C /* ARSettingsNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSettingsNavigationController.h; sourceTree = "<group>"; };
@@ -1813,6 +1819,8 @@
 				60D4D71C198FD853001AB8AF /* ARSwitchboardTests.m */,
 				6086648D1A31D5D60030226D /* ARRootNavigationControllerDelegateSpec.m */,
 				60ADD68F1ACB4EB200A847B5 /* ARAppDelegateTests.m */,
+				606C84751C16009400C6D15F /* ARStubbedNetworkQualityIndicator.h */,
+				606C84761C16009400C6D15F /* ARStubbedNetworkQualityIndicator.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -2112,6 +2120,8 @@
 				605F1D44183EC175007EFE74 /* ARSwitchBoard.m */,
 				83A412871BDE88B500E061BC /* ARStoryboardIdentifiers.h */,
 				83A412881BDE8B9900E061BC /* ARStoryboardIdentifiers.m */,
+				6034854E1C10EA860027F753 /* ARNetworkQualityIndicator.h */,
+				6034854F1C10EA860027F753 /* ARNetworkQualityIndicator.m */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -4031,6 +4041,7 @@
 				6044737C1A24FCED008A4AF0 /* UIViewController+LoadViews.m in Sources */,
 				60E1C97019B0030600B748FD /* AREditAlbumArtistViewControllerTests.m in Sources */,
 				609715DB19ACC1A700970DBE /* ARSelectionToolbarViewTests.m in Sources */,
+				606C84771C16009400C6D15F /* ARStubbedNetworkQualityIndicator.m in Sources */,
 				6038C47E19867BF300626DD6 /* ARTabbedViewControllerTests.m in Sources */,
 				B3DA7AE4185BAEAA00CDD11A /* ARTileArchiveDownloaderTests.m in Sources */,
 				60FDF6DD1AEAA21800173E81 /* ARSearchViewControllerTests.m in Sources */,
@@ -4218,6 +4229,7 @@
 				4962C06814E03A9F003E7845 /* ARTiledZoomConstants.m in Sources */,
 				83C4CC581C0EB9AD00C86774 /* ARLabSettingsBackgroundViewController.m in Sources */,
 				B5FC6BE814EEE06000EB7AB9 /* ARGridView.m in Sources */,
+				603485501C10EA860027F753 /* ARNetworkQualityIndicator.m in Sources */,
 				60C20F051836B20D00846A60 /* ARGroupedView.m in Sources */,
 				60117F801917F6BE0072E500 /* _ArtistDocument.m in Sources */,
 				60F63801199E8F4D008D2360 /* ARSyncMessageViewController.m in Sources */,
