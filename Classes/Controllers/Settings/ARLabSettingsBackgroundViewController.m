@@ -27,6 +27,15 @@
 {
     [super viewDidLoad];
     [self setupNavigationBar];
+
+    /// extends the height of the tableview header; unfortunately, you can't do this with autolayout size classes yet
+    if ([UIDevice isPhone]) {
+        UIView *header = self.tableView.tableHeaderView;
+        CGRect frame = header.frame;
+        frame.size.height = frame.size.height + 20;
+        header.frame = frame;
+        [self.tableView updateConstraintsIfNeeded];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

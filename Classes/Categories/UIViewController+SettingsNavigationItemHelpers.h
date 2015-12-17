@@ -9,4 +9,8 @@
 /// Adds an Artsy custom back button as a left bar button item on its caller
 - (void)addSettingsBackButtonWithTarget:(SEL)target animated:(BOOL)animated;
 
+
+/// Adds a titleView with specified font size and offset from left
+- (void)addTitleViewWithText:(NSString *)text font:(UIFont *)font xOffset:(CGFloat)offset;
+
 @end

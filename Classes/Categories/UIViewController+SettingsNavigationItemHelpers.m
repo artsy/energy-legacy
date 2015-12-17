@@ -58,10 +58,32 @@
     backButton.titleLabel.font = [UIFont sansSerifFontWithSize:10];
     [backButton addTarget:self action:target forControlEvents:UIControlEventTouchUpInside];
 
-    backButton.frame = [UIDevice isPad] ? CGRectMake(0, 0, 80, 40) : CGRectMake(0, 0, 65, 32);
+    backButton.frame = [UIDevice isPad] ? CGRectMake(0, 0, 80, 40) : CGRectMake(0, 0, 60, 30);
 
     backButton.accessibilityLabel = @"BackButton";
     return [[UIBarButtonItem alloc] initWithCustomView:backButton];
+}
+
+- (void)addTitleViewWithText:(NSString *)text font:(UIFont *)font xOffset:(CGFloat)offset
+{
+    UILabel *titleView = (UILabel *)self.navigationItem.titleView;
+    if (!titleView) {
+        titleView = [[UILabel alloc] initWithFrame:CGRectZero];
+        titleView.font = font;
+        titleView.textColor = [UIColor blackColor];
+        titleView.textAlignment = NSTextAlignmentCenter;
+        titleView.text = text;
+
+        self.navigationItem.titleView = titleView;
+    }
+
+    [self.navigationItem.titleView sizeToFit];
+
+    if (offset) {
+        CGRect currentFrame = self.navigationItem.titleView.frame;
+        currentFrame.size.width = currentFrame.size.width + 30;
+        self.navigationItem.titleView.frame = currentFrame;
+    }
 }
 
 @end

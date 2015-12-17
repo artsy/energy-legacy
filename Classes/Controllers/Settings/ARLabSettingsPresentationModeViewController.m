@@ -82,6 +82,15 @@
     }];
 
     _presentationModeOptions = [NSArray arrayWithArray:presentationModeOptions];
+
+    /// extends the height of the tableview header; unfortunately, you can't do this with autolayout size classes yet
+    if ([UIDevice isPhone]) {
+        UIView *header = self.tableView.tableHeaderView;
+        CGRect frame = header.frame;
+        frame.size.height = frame.size.height + 20;
+        header.frame = frame;
+        [self.tableView updateConstraintsIfNeeded];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -128,22 +137,7 @@
         return;
     }
 
-    /// necessary for this title alone; considering adding this to the navigation bar class
-    UILabel *titleView = (UILabel *)self.navigationItem.titleView;
-    if (!titleView) {
-        titleView = [[UILabel alloc] initWithFrame:CGRectZero];
-        titleView.font = [UIFont sansSerifFontWithSize:ARPhoneFontSansRegular];
-        titleView.textColor = [UIColor blackColor];
-        titleView.textAlignment = NSTextAlignmentRight;
-        titleView.text = title;
-
-        self.navigationItem.titleView = titleView;
-    }
-
-    [self.navigationItem.titleView sizeToFit];
-    CGRect currentFrame = self.navigationItem.titleView.frame;
-    CGFloat xOffset = 30;
-    self.navigationItem.titleView.frame = CGRectMake(currentFrame.origin.x, currentFrame.origin.y, currentFrame.size.width + xOffset, currentFrame.size.height);
+    [self addTitleViewWithText:title font:[UIFont sansSerifFontWithSize:ARPhoneFontSansRegular] xOffset:40];
 }
 
 - (NSManagedObjectContext *)context

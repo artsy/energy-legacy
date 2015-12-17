@@ -16,7 +16,7 @@
 
     [self setTitleTextAttributes:@{
         NSForegroundColorAttributeName : [UIColor blackColor],
-        NSFontAttributeName : [UIDevice isPad] ? [UIFont sansSerifFontWithSize:ARFontSansLarge] : [UIFont sansSerifFontWithSize:ARPhoneFontSansLarge]
+        NSFontAttributeName : [UIDevice isPad] ? [UIFont sansSerifFontWithSize:ARFontSansLarge] : [UIFont sansSerifFontWithSize:ARPhoneFontSansRegular]
     }];
 
     return self;

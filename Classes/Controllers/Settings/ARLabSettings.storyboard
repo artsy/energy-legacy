@@ -105,7 +105,7 @@
                         <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwG-Vf-Fgn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="cwG-Vf-Fgn">
                                 <rect key="frame" x="21" y="10" width="558" height="48"/>
                                 <animations/>
                                 <string key="text">Here is where you can sync artworks, documents, and information added on CMS with Folio. Given the big size of images, before syncing, please make sure you are on a strong Wi-Fi connection.</string>
@@ -128,7 +128,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PREVIOUS SYNCS" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqP-c1-aQK">
-                                <rect key="frame" x="235.5" y="170" width="129.5" height="16"/>
+                                <rect key="frame" x="236" y="170" width="129" height="16"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -197,7 +197,9 @@
                             <constraint firstItem="u9U-Ia-fHS" firstAttribute="top" secondItem="cwG-Vf-Fgn" secondAttribute="bottom" constant="25" id="7Fd-xW-b03"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cwG-Vf-Fgn" secondAttribute="trailing" constant="1" id="8kj-s0-z1P"/>
                             <constraint firstItem="cwG-Vf-Fgn" firstAttribute="leading" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" constant="1" id="E3l-K6-yzA"/>
-                            <constraint firstItem="cwG-Vf-Fgn" firstAttribute="top" secondItem="5pM-C7-1Xy" secondAttribute="bottom" constant="10" id="I0H-m4-K4l"/>
+                            <constraint firstItem="cwG-Vf-Fgn" firstAttribute="top" secondItem="5pM-C7-1Xy" secondAttribute="bottom" constant="10" id="I0H-m4-K4l">
+                                <variation key="widthClass=compact" constant="30"/>
+                            </constraint>
                             <constraint firstItem="1Mk-77-YAC" firstAttribute="top" secondItem="bvo-wb-tZW" secondAttribute="bottom" id="I9Q-dY-Uuv"/>
                             <constraint firstItem="iqP-c1-aQK" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="Jrm-NS-ntE"/>
                             <constraint firstItem="bvo-wb-tZW" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="Obz-r0-PFm"/>
@@ -392,7 +394,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIU-fM-KDr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1001" y="1548"/>
+            <point key="canvasLocation" x="966" y="1548"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wqt-dq-QUI">
@@ -454,14 +456,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GREETING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agp-ht-YWK">
-                                                <rect key="frame" x="15" y="115" width="76.5" height="15"/>
+                                                <rect key="frame" x="15" y="115" width="77" height="15"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGNATURE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ty-g4-i02">
-                                                <rect key="frame" x="15" y="305" width="83.5" height="15"/>
+                                                <rect key="frame" x="15" y="305" width="84" height="15"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="15"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -529,14 +531,28 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <view key="tableHeaderView" contentMode="scaleToFill" id="1Xa-4B-siF">
-                                                            <rect key="frame" x="0.0" y="0.0" width="570" height="1"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="570" height="2"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgt-8e-oID">
+                                                                    <rect key="frame" x="15" y="1" width="555" height="1"/>
+                                                                    <animations/>
+                                                                    <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="1" id="D3z-Gg-uMf"/>
+                                                                    </constraints>
+                                                                </view>
+                                                            </subviews>
                                                             <animations/>
-                                                            <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="hgt-8e-oID" secondAttribute="trailing" id="24S-CQ-aDu"/>
+                                                                <constraint firstAttribute="bottom" secondItem="hgt-8e-oID" secondAttribute="bottom" id="3GB-rA-7zx"/>
+                                                                <constraint firstItem="hgt-8e-oID" firstAttribute="leading" secondItem="1Xa-4B-siF" secondAttribute="leading" constant="15" id="icb-qU-G4M"/>
+                                                            </constraints>
                                                         </view>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="EmailSubjectReuseIdentifier" id="0x1-Qn-BpW" customClass="ARTableViewCell">
-                                                                <rect key="frame" x="0.0" y="29" width="570" height="50"/>
+                                                                <rect key="frame" x="0.0" y="30" width="570" height="50"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0x1-Qn-BpW" id="VeQ-Gu-EHF">
                                                                     <rect key="frame" x="0.0" y="0.0" width="570" height="49.5"/>
@@ -607,7 +623,9 @@
                                             <constraint firstItem="rZe-qR-uh4" firstAttribute="top" secondItem="Rko-kr-Fdq" secondAttribute="bottom" constant="10" id="NIM-1n-KwM"/>
                                             <constraint firstItem="1XW-Z7-9sY" firstAttribute="top" secondItem="PR6-Dj-HWh" secondAttribute="bottom" constant="14" id="NIZ-R6-INK"/>
                                             <constraint firstAttribute="bottom" secondItem="1XW-Z7-9sY" secondAttribute="bottom" constant="50" id="QcC-bs-Jzg"/>
-                                            <constraint firstItem="Rko-kr-Fdq" firstAttribute="top" secondItem="M3g-v0-aSg" secondAttribute="top" constant="20" id="RzO-ck-SAk"/>
+                                            <constraint firstItem="Rko-kr-Fdq" firstAttribute="top" secondItem="M3g-v0-aSg" secondAttribute="top" constant="20" id="RzO-ck-SAk">
+                                                <variation key="widthClass=compact" constant="30"/>
+                                            </constraint>
                                             <constraint firstItem="rZe-qR-uh4" firstAttribute="leading" secondItem="Rko-kr-Fdq" secondAttribute="leading" id="SOK-1p-jSg"/>
                                             <constraint firstItem="1fq-Zr-c7V" firstAttribute="leading" secondItem="6Ty-g4-i02" secondAttribute="leading" id="Uz1-HS-2KW"/>
                                             <constraint firstItem="1XW-Z7-9sY" firstAttribute="width" secondItem="PK3-ei-FCm" secondAttribute="width" id="fX4-wB-JRn"/>
@@ -655,7 +673,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asY-Jd-BD8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="338" y="1633.5"/>
+            <point key="canvasLocation" x="112.5" y="1633.5"/>
         </scene>
         <!--Lab Settings Email Subject Lines View Controller-->
         <scene sceneID="GkT-JW-fht">
@@ -670,21 +688,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ONE ARTWORK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IC6-1b-Qqa">
-                                <rect key="frame" x="20" y="13" width="110.5" height="15"/>
+                                <rect key="frame" x="20" y="20" width="111" height="15"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In this field you can use %a to indicate where you want the artist name to be placed, and %t for the artwork." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFZ-IS-7re">
-                                <rect key="frame" x="20" y="158" width="560" height="34"/>
+                                <rect key="frame" x="20" y="165" width="560" height="34"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="17"/>
                                 <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XHf-5p-pOU">
-                                <rect key="frame" x="20" y="38" width="560" height="110"/>
+                                <rect key="frame" x="20" y="45" width="560" height="110"/>
                                 <animations/>
                                 <color key="tintColor" red="0.41568627450000001" green="0.043137254899999998" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -713,7 +731,9 @@
                             <constraint firstItem="RFZ-IS-7re" firstAttribute="centerX" secondItem="faA-Ip-DXy" secondAttribute="centerX" id="Q5i-0g-xcx"/>
                             <constraint firstItem="RFZ-IS-7re" firstAttribute="top" secondItem="XHf-5p-pOU" secondAttribute="bottom" constant="10" id="V1h-oL-TlS"/>
                             <constraint firstItem="RFZ-IS-7re" firstAttribute="width" secondItem="XHf-5p-pOU" secondAttribute="width" id="lcg-Ya-7Q2"/>
-                            <constraint firstItem="IC6-1b-Qqa" firstAttribute="top" secondItem="BC8-6W-Jxa" secondAttribute="bottom" constant="13" id="ru1-Bx-xAH"/>
+                            <constraint firstItem="IC6-1b-Qqa" firstAttribute="top" secondItem="BC8-6W-Jxa" secondAttribute="bottom" constant="20" id="ru1-Bx-xAH">
+                                <variation key="widthClass=compact" constant="30"/>
+                            </constraint>
                         </constraints>
                     </view>
                     <connections>
@@ -724,7 +744,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfK-le-O08" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="338" y="2532.5"/>
+            <point key="canvasLocation" x="112" y="2528.5"/>
         </scene>
         <!--Lab Settings Master View Controller-->
         <scene sceneID="JlK-zY-KPG">

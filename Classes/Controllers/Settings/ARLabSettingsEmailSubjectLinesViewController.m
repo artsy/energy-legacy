@@ -43,7 +43,7 @@
 - (void)setupNavigationBar
 {
     [self addSettingsBackButtonWithTarget:@selector(popViewController) animated:YES];
-    self.title = NSLocalizedString(@"Subject", @"Title for email subject view controller").uppercaseString;
+    self.title = NSLocalizedString(@"Subject Lines", @"Title for email subject lines view controller").uppercaseString;
 }
 
 - (void)popViewController

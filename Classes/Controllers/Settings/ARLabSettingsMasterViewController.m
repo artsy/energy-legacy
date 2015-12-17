@@ -53,7 +53,9 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 
-    if ([UIDevice isPhone]) self.title = @"Settings".uppercaseString;
+    if ([UIDevice isPhone]) {
+        [self addTitleViewWithText:@"Settings".uppercaseString font:[UIFont sansSerifFontWithSize:ARPhoneFontSansLarge] xOffset:0];
+    }
 
     [self addSettingsExitButtonWithTarget:@selector(exitSettingsPanel) animated:YES];
 }
@@ -162,6 +164,5 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 {
     return YES;
 }
-
 
 @end
