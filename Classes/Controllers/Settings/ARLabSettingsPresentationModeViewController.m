@@ -121,6 +121,31 @@
     return self.presentationModeOptions.count;
 }
 
+- (void)setTitle:(NSString *)title
+{
+    if ([UIDevice isPad]) {
+        [super setTitle:title];
+        return;
+    }
+
+    /// necessary for this title alone; considering adding this to the navigation bar class
+    UILabel *titleView = (UILabel *)self.navigationItem.titleView;
+    if (!titleView) {
+        titleView = [[UILabel alloc] initWithFrame:CGRectZero];
+        titleView.font = [UIFont sansSerifFontWithSize:ARPhoneFontSansRegular];
+        titleView.textColor = [UIColor blackColor];
+        titleView.textAlignment = NSTextAlignmentRight;
+        titleView.text = title;
+
+        self.navigationItem.titleView = titleView;
+    }
+
+    [self.navigationItem.titleView sizeToFit];
+    CGRect currentFrame = self.navigationItem.titleView.frame;
+    CGFloat xOffset = 30;
+    self.navigationItem.titleView.frame = CGRectMake(currentFrame.origin.x, currentFrame.origin.y, currentFrame.size.width + xOffset, currentFrame.size.height);
+}
+
 - (NSManagedObjectContext *)context
 {
     return _context ?: [CoreDataManager mainManagedObjectContext];

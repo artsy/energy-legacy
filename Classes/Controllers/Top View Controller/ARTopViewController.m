@@ -131,7 +131,10 @@ NS_ENUM(NSInteger, ARTopViewControllers){
 
 - (void)checkSyncStatus
 {
-    if (![Partner currentPartnerInContext:self.managedObjectContext]) return;
+    /// The sync notification badge is disabled until we add network status & notification context to the Lab Settings Sync View Controller
+    if (![Partner currentPartnerInContext:self.managedObjectContext] || [[NSUserDefaults standardUserDefaults] boolForKey:AROptionsUseLabSettings]) {
+        return;
+    }
 
     [self.cmsMonitor checkCMSForUpdates:^(BOOL updated) {
         if (updated) {

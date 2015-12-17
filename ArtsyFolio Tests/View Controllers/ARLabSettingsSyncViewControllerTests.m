@@ -7,7 +7,7 @@
 
 
 @interface ARLabSettingsSyncViewController ()
-@property ARSyncStatusViewModel *viewModel;
+@property (nonatomic, strong) ARSyncStatusViewModel *viewModel;
 @end
 
 SpecBegin(ARLabSettingsSyncViewController);

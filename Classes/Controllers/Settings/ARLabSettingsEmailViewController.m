@@ -116,7 +116,9 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController.navigationController setNavigationBarHidden:NO animated:YES];
 
-    if ([UIDevice isPhone]) [self addSettingsBackButtonWithTarget:@selector(returnToMasterViewController) animated:YES];
+    if ([UIDevice isPhone]) {
+        [self addSettingsBackButtonWithTarget:@selector(returnToMasterViewController) animated:YES];
+    }
 
     self.title = @"Email".uppercaseString;
 }
