@@ -143,8 +143,29 @@ describe(@"toolbar", ^{
             [ARTestContext endContext];
         });
 
-        it(@"should default to 1 toolbar item", ^{
+        it(@"should default to 0 toolbar items on right and 1 on left", ^{
             id partialTopVC = stubbedTopVCWithDisplayMode(ARDisplayModeAllArtists);
+            id mockNavItem = [partialTopVC navigationItem];
+            
+            /// The right side shouldn't have bar button items
+            [[mockNavItem expect] setRightBarButtonItems:[OCMArg checkWithBlock:^BOOL(NSArray *array) {
+                return (array.count == 0);
+            }]];
+            
+            /// The left side should have the settings button
+            [[mockNavItem expect] setLeftBarButtonItem:[OCMArg checkWithBlock:^BOOL(UIBarButtonItem *button) {
+                return [button.accessibilityLabel isEqualToString:@"settings"];
+            }]];
+
+            ARTopViewToolbarController *toolbarController = [[ARTopViewToolbarController alloc] initWithTopVC:partialTopVC];
+            [toolbarController setupDefaultToolbarItems];
+
+            [mockNavItem verify];
+        });
+
+
+        it(@"should show an additional toolbar item on all albums", ^{
+            id partialTopVC = stubbedTopVCWithDisplayMode(ARDisplayModeAllAlbums);
             id mockNavItem = [partialTopVC navigationItem];
 
             [[mockNavItem expect] setRightBarButtonItems:[OCMArg checkWithBlock:^BOOL(NSArray *array) {
@@ -157,22 +178,7 @@ describe(@"toolbar", ^{
             [mockNavItem verify];
         });
 
-
-        it(@"should show and additional toolbar item on all albums", ^{
-            id partialTopVC = stubbedTopVCWithDisplayMode(ARDisplayModeAllAlbums);
-            id mockNavItem = [partialTopVC navigationItem];
-
-            [[mockNavItem expect] setRightBarButtonItems:[OCMArg checkWithBlock:^BOOL(NSArray *array) {
-                return (array.count == 2);
-            }]];
-
-            ARTopViewToolbarController *toolbarController = [[ARTopViewToolbarController alloc] initWithTopVC:partialTopVC];
-            [toolbarController setupDefaultToolbarItems];
-
-            [mockNavItem verify];
-        });
-
-        it(@"show edit button", ^{
+        it(@"shows edit button", ^{
             id mockAlbum = [OCMockObject mockForClass:Album.class];
             [[[[mockAlbum stub] classMethod] andReturnValue:OCMOCK_VALUE(2U)] count:nil];
 
@@ -180,9 +186,9 @@ describe(@"toolbar", ^{
             id mockNavItem = [partialTopVC navigationItem];
 
             [[mockNavItem expect] setRightBarButtonItems:[OCMArg checkWithBlock:^BOOL(NSArray *items) {
-                if (items.count != 2) return NO;
+                if (!items.count) return NO;
 
-                UIButton *editButton = [items[1] representedButton];
+                UIButton *editButton = [items[0] representedButton];
                 return ([editButton.titleLabel.text isEqualToString:@"EDIT"]);
             }]];
 

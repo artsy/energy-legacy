@@ -1,0 +1,6 @@
+
+
+
+@interface ARTransparentOverlayViewController : UIViewController
+
+@end

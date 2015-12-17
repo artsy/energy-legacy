@@ -1,7 +1,8 @@
 #import "ARLabSettingsSplitViewController.h"
 #import "ARTopViewController.h"
-#import "ARLabSettingsNavigationController.h"
 #import "ARStoryboardIdentifiers.h"
+#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
+#import "ARBaseViewController+TransparentModals.h"
 
 
 @implementation ARLabSettingsSplitViewController
@@ -10,24 +11,29 @@
 {
     [super viewDidLoad];
 
-    self.preferredDisplayMode = [UIDevice isPad] ? UISplitViewControllerDisplayModeAllVisible : UISplitViewControllerDisplayModeAutomatic;
+    self.preferredDisplayMode = [UIDevice isPad] ? UISplitViewControllerDisplayModeAllVisible : UISplitViewControllerDisplayModeAllVisible;
     self.preferredPrimaryColumnWidthFraction = 0.4;
     self.delegate = self;
 
-    self.navigationItem.leftBarButtonItem = [self.splitViewController displayModeButtonItem];
+    /// This ensures the detail view background is clear on iPad
+    self.view.backgroundColor = [UIColor clearColor];
+    self.view.opaque = NO;
 
-    [self showDetailViewControllerForSettingsSection:ARLabSettingsSectionSync];
+    [self showDetailViewController:[self.storyboard instantiateViewControllerWithIdentifier:TransparentViewController] sender:self];
 }
 
 - (void)showDetailViewControllerForSettingsSection:(ARLabSettingsSection)section
 {
+    self.view.backgroundColor = [UIColor artsyLightGrey];
+    self.view.opaque = YES;
+
     UIViewController *detailViewController;
 
     switch (section) {
         case ARLabSettingsSectionSync:
             detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:SyncSettingsViewController];
             break;
-        case ARLabSettingsSectionPresentationMode:
+        case ARLabSettingsSectionEditPresentationMode:
             detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:PresentationModeViewController];
             break;
         case ARLabSettingsSectionBackground:
@@ -36,26 +42,19 @@
         case ARLabSettingsSectionEmail:
             detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:EmailSettingsViewController];
             break;
+        default:
+            break;
     }
 
-    ARLabSettingsNavigationController *nav = [self detailNavigationController];
-    [nav pushViewController:detailViewController animated:YES];
-    [self showDetailViewController:nav sender:self];
+
+    UINavigationController *detailNavigationController = [self.storyboard instantiateViewControllerWithIdentifier:SettingsNavigationController];
+    [detailNavigationController pushViewController:detailViewController animated:YES];
+    [self showDetailViewController:detailNavigationController sender:self];
 }
 
 - (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController
 {
     return YES;
-}
-
-- (ARLabSettingsNavigationController *)detailNavigationController
-{
-    return [self.storyboard instantiateViewControllerWithIdentifier:SettingsNavigationController];
-}
-
-- (ARLabSettingsNavigationController *)detailNavigationControllerWithRoot:(UIViewController *)rootVC
-{
-    return [[ARLabSettingsNavigationController alloc] initWithRootViewController:rootVC];
 }
 
 #pragma mark - exit strategy
@@ -69,11 +68,6 @@
     }
 
     [[ARTopViewController sharedInstance] dismissViewControllerAnimated:YES completion:NULL];
-}
-
-- (BOOL)prefersStatusBarHidden
-{
-    return YES;
 }
 
 @end

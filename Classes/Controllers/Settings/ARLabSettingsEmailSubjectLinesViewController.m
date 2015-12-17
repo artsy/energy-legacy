@@ -1,6 +1,8 @@
 #import "ARLabSettingsEmailSubjectLinesViewController.h"
 #import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 #import "ARNavigationBar.h"
+#import "UIViewController+SettingsNavigationItemHelpers.h"
+#import "NSString+NiceAttributedStrings.h"
 
 
 @interface ARLabSettingsEmailSubjectLinesViewController ()
@@ -26,12 +28,10 @@
 {
     [super viewDidLoad];
 
-    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 
-    self.navigationItem.title = NSLocalizedString(@"Subject", @"Title for email subject view controller").uppercaseString;
-
-    self.subjectTypeTitleLabel.text = [self.viewModel titleForEmailSubjectType:self.subjectType];
-    self.subjectTypeExplanatoryLabel.text = [self.viewModel explanatoryTextForSubjectType:self.subjectType];
+    self.subjectTypeTitleLabel.text = [self.viewModel titleForEmailSubjectType:self.subjectType].uppercaseString;
+    self.subjectTypeExplanatoryLabel.attributedText = [[self.viewModel explanatoryTextForSubjectType:self.subjectType] attributedStringWithLineSpacing:5];
 
     [self setupNavigationBar];
     [self setupTextView];
@@ -42,42 +42,8 @@
 
 - (void)setupNavigationBar
 {
-    UINavigationBar *navigationBar = self.navigationController.navigationBar;
-
-    navigationBar.barTintColor = [UIColor whiteColor];
-    navigationBar.tintColor = [UIColor blackColor];
-
-    [navigationBar setTitleTextAttributes:
-                       @{NSForegroundColorAttributeName : [UIColor blackColor],
-                         NSFontAttributeName : [UIFont sansSerifFontWithSize:20]}];
-
-    [self addBackButton];
-    [self hideBottomBorder];
-}
-
-- (void)hideBottomBorder
-{
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-                                                 forBarPosition:UIBarPositionAny
-                                                     barMetrics:UIBarMetricsDefault];
-
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-}
-
-- (void)addBackButton
-{
-    if ([self.navigationController.viewControllers count] > 1) {
-        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [backButton setBackgroundImage:[UIImage imageNamed:@"MenuBack"] forState:UIControlStateNormal];
-        [backButton setBackgroundImage:[UIImage imageNamed:@"MenuBackSelected"] forState:UIControlStateHighlighted];
-        backButton.titleLabel.font = [UIFont sansSerifFontWithSize:ARFontSansSmall];
-        [backButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
-        backButton.frame = CGRectMake(0, 0, 80, 40);
-        backButton.accessibilityLabel = @"SettingsBackButton";
-        UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-        self.navigationItem.hidesBackButton = YES;
-        self.navigationItem.leftBarButtonItem = barButtonItem;
-    }
+    [self addSettingsBackButtonWithTarget:@selector(popViewController) animated:YES];
+    self.title = NSLocalizedString(@"Subject", @"Title for email subject view controller").uppercaseString;
 }
 
 - (void)popViewController

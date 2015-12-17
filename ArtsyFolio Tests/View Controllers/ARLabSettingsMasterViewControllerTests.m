@@ -5,7 +5,8 @@
 #import "ARLabSettingsMenuViewModel.h"
 #import "ARDefaults.h"
 
-@interface ARLabSettingsMasterViewController()
+
+@interface ARLabSettingsMasterViewController ()
 @property ARLabSettingsMenuViewModel *viewModel;
 @end
 
@@ -24,8 +25,10 @@ beforeEach(^{
 });
 
 describe(@"visuals", ^{
-    it(@"looks right by default", ^{
-        expect(subject).to.haveValidSnapshot();
+    itHasSnapshotsForDevices(@"looks right by default", ^{
+        UINavigationController *nav = [storyboard instantiateViewControllerWithIdentifier:SettingsPrimaryNavigationController];
+        [nav pushViewController:subject animated:NO];
+        return nav;
     });
     
     it(@"looks right when presentation mode is on", ^{

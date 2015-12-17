@@ -57,7 +57,7 @@
 {
     switch (type) {
         case AREmailSubjectTypeOneArtwork:
-            return NSLocalizedString(@"In this field, you can use %a to indicate where you want the artist's name to be placed and %t for the artwork title.", @"Explanatory text for editing the email subject for emails with one artwork");
+            return NSLocalizedString(@"In this field, you can use %a to indicate where you want the artist's name to be placed, and %t for the artwork title.", @"Explanatory text for editing the email subject for emails with one artwork");
         case AREmailSubjectTypeMultipleArtworksMultipleArtists:
             return @"";
         case AREmailSubjectTypeMultipleArtworksSameArtist:
@@ -82,7 +82,7 @@
 
 - (NSString *)signatureExplanatoryText
 {
-    return NSLocalizedString(@"This signature will be displayed together with any signature you specified in your iOS mail settings.", @"Explanatory text for email signature field");
+    return NSLocalizedString(@"This signature will be displayed together with any signature you specified in your iOS Mail settings.", @"Explanatory text for email signature field");
 }
 
 - (NSUserDefaults *)defaults

@@ -4,6 +4,7 @@
 #import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 #import "ARStoryboardIdentifiers.h"
 #import "ARLabSettingsEmailSubjectLinesViewController.h"
+#import "UIViewController+SettingsNavigationItemHelpers.h"
 
 
 @interface ARLabSettingsEmailViewController ()
@@ -19,11 +20,25 @@
 
 @implementation ARLabSettingsEmailViewController
 
+@synthesize section;
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (!self) return nil;
+
+    self.section = ARLabSettingsSectionEmail;
+
+    self.title = @"Email".uppercaseString;
+
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    [self.navigationController setNavigationBarHidden:[UIDevice isPad]];
+    [self setupNavigationBar];
 
     _viewModel = _viewModel ?: [[ARLabSettingsEmailViewModel alloc] initWithDefaults:[NSUserDefaults standardUserDefaults]];
 
@@ -42,7 +57,7 @@
         textView.layer.borderColor = [UIColor artsyLightGrey].CGColor;
         textView.layer.borderWidth = 2.0;
         
-        textView.contentInset = UIEdgeInsetsMake(5, 0, 5, 0);
+        textView.contentInset = UIEdgeInsetsMake(5, 0, 0, 0);
         textView.textContainer.lineFragmentPadding = 10;
     }];
 
@@ -55,7 +70,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:EmailSubjectReuseIdentifier];
 
-    cell.textLabel.font = [UIFont serifFontWithSize:14];
+    cell.textLabel.font = [UIFont serifFontWithSize:ARFontSerif];
     cell.textLabel.text = [self.viewModel titleForEmailSubjectType:indexPath.row];
 
     return cell;
@@ -93,6 +108,22 @@
     } else if (textView == self.signatureTextView) {
         [self.viewModel setEmailDefault:self.signatureTextView.text WithKey:AREmailSignature];
     }
+}
+
+
+- (void)setupNavigationBar
+{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.navigationController.navigationController setNavigationBarHidden:NO animated:YES];
+
+    if ([UIDevice isPhone]) [self addSettingsBackButtonWithTarget:@selector(returnToMasterViewController) animated:YES];
+
+    self.title = @"Email".uppercaseString;
+}
+
+- (void)returnToMasterViewController
+{
+    [self.navigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

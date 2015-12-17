@@ -6,6 +6,9 @@
 #import "NSString+NiceAttributedStrings.h"
 #import "ARLabSettingsMenuViewModel.h"
 #import <Intercom/Intercom.h>
+#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
+#import "UIViewController+SettingsNavigationItemHelpers.h"
+#import <EDColor/EDColor.h>
 
 
 typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
@@ -22,7 +25,7 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *syncContentButton;
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *presentationModeButton;
-@property (weak, nonatomic) IBOutlet UIView *presentationModeToggle;
+@property (weak, nonatomic) IBOutlet ARToggleSwitch *presentationModeToggle;
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *editPresentationModeButton;
 
 @property (weak, nonatomic) IBOutlet ARLabSettingsSectionButton *backgroundButton;
@@ -40,9 +43,19 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 
     _viewModel = _viewModel ?: [[ARLabSettingsMenuViewModel alloc] init];
 
-    [self setupSettingsIcon];
+    [self setupNavigationBar];
+
     [self setupSectionButtons];
     [self.presentationModeLabel setAttributedText:[self.viewModel.presentationModeExplanatoryText attributedStringWithLineSpacing:5]];
+}
+
+- (void)setupNavigationBar
+{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+
+    if ([UIDevice isPhone]) self.title = @"Settings".uppercaseString;
+
+    [self addSettingsExitButtonWithTarget:@selector(exitSettingsPanel) animated:YES];
 }
 
 - (void)setupSectionButtons
@@ -53,7 +66,7 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
     /// Presentation Mode settings
     [self.presentationModeButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionPresentationMode]];
     [self.presentationModeButton hideChevron];
-    [self setupPresentationModeToggleSwitch];
+    self.presentationModeToggle.on = [self.viewModel presentationModeOn];
 
     [self.editPresentationModeButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionEditPresentationMode]];
     [self.editPresentationModeButton hideTopBorder];
@@ -72,14 +85,6 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
     [self.logoutButton hideChevron];
 }
 
-- (void)setupPresentationModeToggleSwitch
-{
-    ARToggleSwitch *toggle = [ARToggleSwitch buttonWithFrame:self.presentationModeToggle.frame];
-    toggle.userInteractionEnabled = NO;
-    [self.presentationModeButton addSubview:toggle];
-    toggle.on = [self.viewModel presentationModeOn];
-}
-
 #pragma mark -
 #pragma mark buttons
 
@@ -90,18 +95,13 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 
 - (IBAction)presentationModeButtonPressed:(id)sender
 {
-    ARToggleSwitch *toggle = [self.presentationModeButton.subviews find:^BOOL(UIView *subview) {
-        return [subview isKindOfClass:ARToggleSwitch.class];
-    }];
-    if (toggle) {
-        [self.viewModel togglePresentationMode];
-        toggle.on = [self.viewModel presentationModeOn];
-    }
+    [self.viewModel togglePresentationMode];
+    self.presentationModeToggle.on = [self.viewModel presentationModeOn];
 }
 
 - (IBAction)editPresentationModeButtonPressed:(id)sender
 {
-    [(ARLabSettingsSplitViewController *)self.splitViewController showDetailViewControllerForSettingsSection:ARLabSettingsSectionPresentationMode];
+    [(ARLabSettingsSplitViewController *)self.splitViewController showDetailViewControllerForSettingsSection:ARLabSettingsSectionEditPresentationMode];
 }
 - (IBAction)backgroundButtonPressed:(id)sender
 {
@@ -145,21 +145,6 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 }
 
 #pragma mark -
-#pragma mark settings icon
-
-- (void)setupSettingsIcon
-{
-    [self.settingsIcon setImage:self.viewModel.settingsButtonImage forState:UIControlStateNormal];
-    [self.settingsIcon setTintColor:UIColor.blackColor];
-    [self.settingsIcon setBackgroundColor:UIColor.whiteColor];
-}
-
-- (IBAction)settingsIconPressed:(id)sender
-{
-    [self exitSettingsPanel];
-}
-
-#pragma mark -
 #pragma mark exit strategies
 
 - (void)exitSettingsPanel
@@ -176,12 +161,6 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
 }
 
 

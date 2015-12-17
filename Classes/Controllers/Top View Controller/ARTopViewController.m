@@ -323,12 +323,15 @@ NS_ENUM(NSInteger, ARTopViewControllers){
         [self dismissPopoversAnimated:animated];
 
     } else if ([[NSUserDefaults standardUserDefaults] boolForKey:AROptionsUseLabSettings] && [[User currentUser] isAdmin]) {
-
         UIStoryboard *labSettings = [UIStoryboard storyboardWithName:@"ARLabSettings" bundle:nil];
         UIViewController *labSettingsViewController = [labSettings instantiateInitialViewController];
 
-        labSettingsViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        labSettingsViewController.modalTransitionStyle = [UIDevice isPad] ? UIModalTransitionStyleCrossDissolve : UIModalTransitionStyleCoverVertical;
+        self.modalPresentationStyle = UIModalPresentationCurrentContext;
+
+
         [self presentViewController:labSettingsViewController animated:YES completion:nil];
+
     } else {
         [self dismissPopoversAnimated:animated];
         [[NSNotificationCenter defaultCenter] postNotificationName:ARDismissAllPopoversNotification object:nil];

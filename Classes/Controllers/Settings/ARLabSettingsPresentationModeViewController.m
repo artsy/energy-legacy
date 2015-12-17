@@ -5,6 +5,7 @@
 #import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 #import "NSString+NiceAttributedStrings.h"
 #import "Partner+InventoryHelpers.h"
+#import "UIViewController+SettingsNavigationItemHelpers.h"
 
 
 @interface ARLabSettingsPresentationModeViewController ()
@@ -16,29 +17,43 @@
 
 @implementation ARLabSettingsPresentationModeViewController
 
+@synthesize section;
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (!self) return nil;
+
+    self.section = ARLabSettingsSectionEditPresentationMode;
+
+    self.title = @"Edit Presentation Mode".uppercaseString;
+
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    [self setupNavigationBar];
+
     self.explanatoryTextLabel.attributedText = [self.explanatoryTextLabel.text attributedStringWithLineSpacing:8];
 
-    [self.navigationController setNavigationBarHidden:[UIDevice isPad]];
-
     Partner *partner = [Partner currentPartnerInContext:self.context];
-    if (![partner hasUploadedWorks]) return; // zero state
 
     NSMutableArray *presentationModeOptions = [NSMutableArray array];
 
     if ([partner hasWorksWithPrice]) {
         [presentationModeOptions addObject:@{
             AROptionsKey : ARHideAllPrices,
-            AROptionsName : @"Hide All Artwork Prices",
+            AROptionsName : @"Hide Prices",
         }];
     }
 
     if ([partner hasSoldWorksWithPrices]) {
         [presentationModeOptions addObject:@{
             AROptionsKey : ARHidePricesForSoldWorks,
-            AROptionsName : @"Hide Prices For Sold Works Only",
+            AROptionsName : @"Hide Price For Sold Works",
         }];
     }
 
@@ -52,7 +67,7 @@
     if ([partner hasNotForSaleWorks] && [partner hasForSaleWorks]) {
         [presentationModeOptions addObject:@{
             AROptionsKey : ARHideWorksNotForSale,
-            AROptionsName : @"Hide Not For Sale Works",
+            AROptionsName : @"Hide Works Not For Sale",
         }];
     }
 
@@ -114,6 +129,20 @@
 - (NSUserDefaults *)defaults
 {
     return _defaults ?: [NSUserDefaults standardUserDefaults];
+}
+
+- (void)setupNavigationBar
+{
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+
+    if ([UIDevice isPhone]) {
+        [self addSettingsBackButtonWithTarget:@selector(returnToMasterViewController) animated:YES];
+    }
+}
+
+- (void)returnToMasterViewController
+{
+    [self.navigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

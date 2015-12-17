@@ -6,6 +6,7 @@ SpecBegin(ARLabSettingsBackgroundViewController);
 
 __block UIStoryboard *storyboard;
 __block ARLabSettingsBackgroundViewController *subject;
+__block UINavigationController *navController;
 
 beforeAll(^{
     storyboard = [UIStoryboard storyboardWithName:@"ARLabSettings" bundle:nil];
@@ -17,14 +18,19 @@ beforeEach(^{
 });
 
 describe(@"visuals", ^{
+    beforeEach(^{
+        navController = [storyboard instantiateViewControllerWithIdentifier:SettingsNavigationController];
+    });
 
     it(@"looks right when white Folio is off", ^{
-        expect(subject).to.haveValidSnapshot();
+        [navController pushViewController:subject animated:NO];
+        expect(navController).to.haveValidSnapshot();
     });
     
     it(@"looks right when white Folio is on", ^{
         [subject.defaults setBool:YES forKey:AROptionsUseWhiteFolio];
-        expect(subject).to.haveValidSnapshot();
+        [navController pushViewController:subject animated:NO];
+        expect(navController).to.haveValidSnapshot();
     });
 });
 

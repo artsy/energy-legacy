@@ -4,13 +4,29 @@
 #import "ARTableViewCell.h"
 #import "ARTheme.h"
 #import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
+#import "UIViewController+SettingsNavigationItemHelpers.h"
 
 
 @implementation ARLabSettingsBackgroundViewController
 
+@synthesize section;
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (!self) return nil;
+
+    self.section = ARLabSettingsSectionBackground;
+
+    self.title = @"Background".uppercaseString;
+
+    return self;
+}
+
 - (void)viewDidLoad
 {
-    [self.navigationController setNavigationBarHidden:[UIDevice isPad]];
+    [super viewDidLoad];
+    [self setupNavigationBar];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,6 +77,17 @@
 - (NSUserDefaults *)defaults
 {
     return _defaults ?: [NSUserDefaults standardUserDefaults];
+}
+
+- (void)setupNavigationBar
+{
+    if ([UIDevice isPhone]) [self addSettingsBackButtonWithTarget:@selector(returnToMasterViewController) animated:YES];
+}
+
+
+- (void)returnToMasterViewController
+{
+    [self.navigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end
