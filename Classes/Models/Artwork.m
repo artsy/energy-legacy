@@ -122,7 +122,8 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
 
 - (NSDecimalNumber *)convertFromCMToIN:(NSDecimalNumber *)value
 {
-    return [value decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"2.54"]];
+    NSNumber *inches = @([value floatValue] / 2.54);
+    return [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%@", inches]];
 }
 
 - (void)willSave
