@@ -20,6 +20,7 @@ SpecBegin(ARLabSettingsEmailViewController);
 
 __block UIStoryboard *storyboard;
 __block ARLabSettingsEmailViewController *subject;
+__block UINavigationController *navController;
 __block ForgeriesUserDefaults *mockDefaults;
 
 beforeAll(^{
@@ -28,10 +29,14 @@ beforeAll(^{
 
 beforeEach(^{
     subject = [storyboard instantiateViewControllerWithIdentifier:EmailSettingsViewController];
-
 });
 
 describe(@"visuals", ^{
+    
+    beforeEach(^{
+        navController = [storyboard instantiateViewControllerWithIdentifier:SettingsNavigationController];
+    });
+    
     it(@"looks right by default", ^{
         mockDefaults = [ForgeriesUserDefaults defaults:@{ AREmailCCEmail : @"email@gallery.com",
                                                           AREmailGreeting : @"Here is a nice email about sculpture.",
@@ -40,14 +45,17 @@ describe(@"visuals", ^{
         
         subject.viewModel = [[ARLabSettingsEmailViewModel alloc] initWithDefaults:(id)mockDefaults];
         
-        expect(subject).to.haveValidSnapshot();
+        [navController pushViewController:subject animated:NO];
+        expect(navController).to.haveValidSnapshot();
     });
     
     it(@"looks right during text editing", ^{
         [subject beginAppearanceTransition:YES animated:NO];
         
         [subject textViewDidBeginEditing:subject.ccEmailTextView];
-        expect(subject).to.haveValidSnapshot();
+        
+        [navController pushViewController:subject animated:NO];
+        expect(navController).to.haveValidSnapshot();
     });
 });
 

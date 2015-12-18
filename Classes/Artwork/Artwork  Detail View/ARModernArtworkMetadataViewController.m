@@ -123,9 +123,19 @@
 
 - (BOOL)showMultipageIndicator
 {
-    BOOL shouldShowConfidentialNotes = [[NSUserDefaults standardUserDefaults] boolForKey:ARShowConfidentialNotes] && self.artwork.confidentialNotes.length;
     BOOL hasMultipleEditions = self.artwork.editionSets.count;
-    return self.artwork.hasAdditionalInfo || self.artwork.hasAdditionalImages || hasMultipleEditions || shouldShowConfidentialNotes;
+    BOOL showConfidentialNotes = self.shouldShowConfidentialNotes && self.artwork.confidentialNotes.length;
+    return self.artwork.hasAdditionalInfo || self.artwork.hasAdditionalImages || hasMultipleEditions || showConfidentialNotes;
+}
+
+- (BOOL)shouldShowConfidentialNotes
+{
+    BOOL usingLabSettings = [self.defaults boolForKey:AROptionsUseLabSettings];
+    if (!usingLabSettings) return [self.defaults boolForKey:ARShowConfidentialNotes];
+
+    if (![self.defaults boolForKey:ARPresentationModeOn]) return YES;
+
+    return ![self.defaults boolForKey:ARHideConfidentialNotes];
 }
 
 - (void)registerForNotifications

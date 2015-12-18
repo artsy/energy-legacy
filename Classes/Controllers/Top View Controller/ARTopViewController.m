@@ -131,7 +131,10 @@ NS_ENUM(NSInteger, ARTopViewControllers){
 
 - (void)checkSyncStatus
 {
-    if (![Partner currentPartnerInContext:self.managedObjectContext]) return;
+    /// The sync notification badge is disabled until we add network status & notification context to the Lab Settings Sync View Controller
+    if (![Partner currentPartnerInContext:self.managedObjectContext] || [[NSUserDefaults standardUserDefaults] boolForKey:AROptionsUseLabSettings]) {
+        return;
+    }
 
     [self.cmsMonitor checkCMSForUpdates:^(BOOL updated) {
         if (updated) {
@@ -323,12 +326,15 @@ NS_ENUM(NSInteger, ARTopViewControllers){
         [self dismissPopoversAnimated:animated];
 
     } else if ([[NSUserDefaults standardUserDefaults] boolForKey:AROptionsUseLabSettings] && [[User currentUser] isAdmin]) {
-
         UIStoryboard *labSettings = [UIStoryboard storyboardWithName:@"ARLabSettings" bundle:nil];
         UIViewController *labSettingsViewController = [labSettings instantiateInitialViewController];
 
-        labSettingsViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        labSettingsViewController.modalTransitionStyle = [UIDevice isPad] ? UIModalTransitionStyleCrossDissolve : UIModalTransitionStyleCoverVertical;
+        self.modalPresentationStyle = UIModalPresentationCurrentContext;
+
+
         [self presentViewController:labSettingsViewController animated:YES completion:nil];
+
     } else {
         [self dismissPopoversAnimated:animated];
         [[NSNotificationCenter defaultCenter] postNotificationName:ARDismissAllPopoversNotification object:nil];

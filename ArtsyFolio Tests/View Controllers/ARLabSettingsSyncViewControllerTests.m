@@ -1,4 +1,3 @@
-#import "ARLabSettingsNavigationController.h"
 #import "ARLabSettingsSyncViewController.h"
 #import "ARStoryboardIdentifiers.h"
 #import "ARSyncStatusViewModel.h"
@@ -6,23 +5,37 @@
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 #import "ARStubbedNetworkQualityIndicator.h"
 
+
+@interface ARLabSettingsSyncViewController ()
+@property (nonatomic, strong) ARSyncStatusViewModel *viewModel;
+@end
+
 SpecBegin(ARLabSettingsSyncViewController);
 
 __block NSManagedObjectContext *context;
+__block UIStoryboard *storyboard;
 __block ARLabSettingsSyncViewController *subject;
+__block UINavigationController *navController;
+
+beforeAll(^{
+    storyboard = [UIStoryboard storyboardWithName:@"ARLabSettings" bundle:nil];
+});
 
 beforeEach(^{
     context = [CoreDataManager stubbedManagedObjectContext];
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ARLabSettings" bundle:nil];
-    subject = [sb instantiateViewControllerWithIdentifier:SyncSettingsViewController];
-    
+    subject = [storyboard instantiateViewControllerWithIdentifier:SyncSettingsViewController];
     subject.viewModel = [[ARSyncStatusViewModel alloc] initWithSync:nil context:context];
     subject.qualityIndicator = [[ARStubbedNetworkQualityIndicator alloc] init];
 });
 
 describe(@"visuals", ^{
+    beforeEach(^{
+        navController = [storyboard instantiateViewControllerWithIdentifier:SettingsNavigationController];
+    });
+    
     it(@"looks right with no previous syncs", ^{
-        expect(subject).to.haveValidSnapshot();
+        [navController pushViewController:subject animated:NO];
+        expect(navController).to.haveValidSnapshot ();
     });
     
     it(@"looks right with existing sync records", ^{
@@ -33,7 +46,8 @@ describe(@"visuals", ^{
         SyncLog *syncLog1 = [SyncLog objectInContext:context];
         syncLog1.dateStarted = [formatter dateFromString:@"2015-11-17T02:22:22"];
         
-        expect(subject).to.haveValidSnapshot();
+        [navController pushViewController:subject animated:NO];
+        expect(navController).to.haveValidSnapshot();
     });
 });
 

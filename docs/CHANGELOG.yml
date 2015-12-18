@@ -1,6 +1,9 @@
 upcoming:
   version: 2.5.0
   notes:
+    - [dev] Added a custom navigation bar for all settings views [sarah]
+    - [dev] iPhone support for settings panel [sarah]
+    - [dev] On iPad, only the primary view controller shows up until a detail is selected [sarah]
     - [dev] Added background settings view controller [sarah]
     - [dev] Added new email settings view controllers [sarah]
     - Improved Error Messages for Login [orta]

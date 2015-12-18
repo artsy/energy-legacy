@@ -108,9 +108,6 @@
                     <exclude reference="x2m-Mc-U6U"/>
                 </mask>
             </variation>
-            <connections>
-                <action selector="settingsButtonPressed:" destination="-1" eventType="touchUpInside" id="i2R-IS-tM2"/>
-            </connections>
             <point key="canvasLocation" x="558" y="446"/>
         </view>
     </objects>

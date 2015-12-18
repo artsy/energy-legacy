@@ -16,6 +16,24 @@
     return button;
 }
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (!self) return nil;
+
+    [self setupLayers];
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (!self) return nil;
+
+    [self setupLayers];
+    [self setOn:NO];
+    return self;
+}
 
 - (void)setOn:(BOOL)on
 {
@@ -58,11 +76,8 @@
     return selectionAnimation;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (void)setupLayers
 {
-    self = [super initWithFrame:frame];
-    if (!self) return nil;
-
     CGRect theCAFrame = CGRectMake(0.5, 1.5, 74, 26);
 
     _backgroundLayer = [CAShapeLayer layer];
@@ -107,7 +122,6 @@
 
     [self.layer setMask:maskLayer];
     [self.layer setMasksToBounds:YES];
-    return self;
 }
 
 @end

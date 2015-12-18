@@ -82,7 +82,6 @@
     if (!self.settingsPopoverItem) {
         _settingsPopoverItem = [UIBarButtonItem toolbarImageButtonWithName:@"settings" withTarget:self.topViewController andSelector:@selector(toggleSettingsPopover)];
     }
-    [items addObject:self.settingsPopoverItem];
 
     BOOL showEditAlbums = (self.topViewController.displayMode == ARDisplayModeAllAlbums);
     if (showEditAlbums && [UIDevice isPad]) {
@@ -90,19 +89,20 @@
         [items addObject:createAlbumButton];
     }
 
-    [self setToolbarItems:items];
+    [self setToolbarItems:items settingsItem:self.settingsPopoverItem];
 }
 
-- (void)setToolbarItems:(NSArray *)items
+- (void)setToolbarItems:(NSArray *)items settingsItem:(UIBarButtonItem *)settingsItem
 {
     if ([UIDevice isPad]) {
-        self.navigationItem.leftBarButtonItem = nil;
+        self.navigationItem.leftBarButtonItem = settingsItem;
         self.navigationItem.rightBarButtonItems = items;
     } else {
         self.navigationItem.rightBarButtonItem = [items firstObject];
-        self.navigationItem.leftBarButtonItems = [items select:^BOOL(id object) {
+        NSArray *remainingItems = [items select:^BOOL(id object) {
             return [items indexOfObject:object] != 0;
         }];
+        self.navigationItem.leftBarButtonItems = @[ settingsItem, remainingItems ].flatten;
     }
 }
 

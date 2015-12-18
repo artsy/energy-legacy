@@ -4,10 +4,39 @@
 #import "ARTableViewCell.h"
 #import "ARTheme.h"
 #import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
+#import "UIViewController+SettingsNavigationItemHelpers.h"
 
 
 @implementation ARLabSettingsBackgroundViewController
 
+@synthesize section;
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (!self) return nil;
+
+    self.section = ARLabSettingsSectionBackground;
+
+    self.title = @"Background".uppercaseString;
+
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self setupNavigationBar];
+
+    /// extends the height of the tableview header; unfortunately, you can't do this with autolayout size classes yet
+    if ([UIDevice isPhone]) {
+        UIView *header = self.tableView.tableHeaderView;
+        CGRect frame = header.frame;
+        frame.size.height = frame.size.height + 20;
+        header.frame = frame;
+        [self.tableView updateConstraintsIfNeeded];
+    }
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -57,6 +86,17 @@
 - (NSUserDefaults *)defaults
 {
     return _defaults ?: [NSUserDefaults standardUserDefaults];
+}
+
+- (void)setupNavigationBar
+{
+    if ([UIDevice isPhone]) [self addSettingsBackButtonWithTarget:@selector(returnToMasterViewController) animated:YES];
+}
+
+
+- (void)returnToMasterViewController
+{
+    [self.navigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

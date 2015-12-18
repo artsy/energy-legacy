@@ -1,4 +1,3 @@
-#import "ARLabSettingsNavigationController.h"
 #import "ARLabSettingsPresentationModeViewController.h"
 #import "ARStoryboardIdentifiers.h"
 #import "AROptions.h"
@@ -14,6 +13,7 @@ SpecBegin(ARLabSettingsPresentationModeViewController);
 
 __block NSManagedObjectContext *context;
 __block ARLabSettingsPresentationModeViewController *subject;
+__block UINavigationController *navController;
 __block UIStoryboard *storyboard;
 
 beforeAll(^{
@@ -26,7 +26,6 @@ beforeEach(^{
     
     subject = [storyboard instantiateViewControllerWithIdentifier:PresentationModeViewController];
     subject.context = context;
-
 });
 
 describe(@"when showing and hiding toggles", ^{
@@ -81,6 +80,10 @@ describe(@"when showing and hiding toggles", ^{
 });
 
 describe(@"setting defaults", ^{
+    beforeEach(^{
+        navController = [storyboard instantiateViewControllerWithIdentifier:SettingsNavigationController];
+    });
+    
     it(@"shows all toggles off when defaults are false", ^{
         Artwork *publishedArtwork = genericArtworkInContext(context);
         publishedArtwork.backendPrice = @"32";
@@ -93,7 +96,9 @@ describe(@"setting defaults", ^{
 
         subject.defaults = (id)offDefaults();
         
-        expect(subject).to.haveValidSnapshot();
+        [navController pushViewController:subject animated:NO];
+        
+        expect(navController).to.haveValidSnapshot();
     });
 
     it(@"shows all toggles on when defaults are true", ^{
@@ -108,7 +113,9 @@ describe(@"setting defaults", ^{
         
         subject.defaults = (id)onDefaults();
         
-        expect(subject).to.haveValidSnapshot();
+        [navController pushViewController:subject animated:NO];
+        
+        expect(navController).to.haveValidSnapshot();
     });
 
 });
