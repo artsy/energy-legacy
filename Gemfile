@@ -5,10 +5,13 @@ gem 'second_curtain'
 gem "chairs"
 gem "sbconstants"
 
-gem "cocoapods"
-gem "cocoapods-keys"
+gem 'cocoapods', :git => "https://github.com/CocoaPods/CocoaPods.git", :branch => "seg-podfile-refactor"
+gem 'cocoapods-core', :git => "https://github.com/CocoaPods/Core.git", :branch => "seg-podfile-refactor"
+gem 'xcodeproj', :git => "https://github.com/CocoaPods/Xcodeproj.git"
+
+gem 'cocoapods-keys'
+gem 'cocoapods-deintegrate', :git => "https://github.com/CocoaPods/cocoapods-deintegrate.git"
 gem "cocoapods-open"
-gem 'cocoapods-deintegrate'
 
 group :deployment do
   gem "fastlane"
