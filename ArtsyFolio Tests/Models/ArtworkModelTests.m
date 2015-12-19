@@ -41,7 +41,8 @@ describe(@"json parsing", ^{
     });
     
     it(@"does convert dimensions if using metric system", ^{
-        NSDecimalNumber *convertedWidth = [[NSDecimalNumber decimalNumberWithString:@"22"] decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"2.54"]];
+        NSNumber *value = @(22/2.54);
+        NSDecimalNumber *convertedWidth = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%@", value]];
         expect(artwork2.width).to.equal(convertedWidth);
     });
 
