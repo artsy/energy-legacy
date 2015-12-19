@@ -99,6 +99,7 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 {
     [self.viewModel togglePresentationMode];
     self.presentationModeToggle.on = [self.viewModel presentationModeOn];
+    [[NSNotificationCenter defaultCenter] postNotificationName:ARUserDidChangeGridFilteringSettingsNotification object:nil];
 }
 
 - (IBAction)editPresentationModeButtonPressed:(id)sender
