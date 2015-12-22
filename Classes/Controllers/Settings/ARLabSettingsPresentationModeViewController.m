@@ -113,16 +113,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *option = self.presentationModeOptions[indexPath.row];
+    NSString *option = self.presentationModeOptions[indexPath.row][AROptionsKey];
 
-    BOOL on = ![self.defaults boolForKey:option[AROptionsKey]];
-    [self.defaults setBool:on forKey:option[AROptionsKey]];
+    BOOL on = ![self.defaults boolForKey:option];
+    [self.defaults setBool:on forKey:option];
     [self.defaults synchronize];
 
     ARToggleSwitch *toggle = (id)[tableView cellForRowAtIndexPath:indexPath].accessoryView;
     toggle.on = on;
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:ARUserDidChangeGridFilteringSettingsNotification object:nil];
+    /// If presentation mode is on when grid filtering options are changed, post a notification to reload grid view data
+    BOOL isAFilteringOption = (option == ARHideUnpublishedWorks || option == ARHideWorksNotForSale);
+    if (isAFilteringOption && [self.defaults boolForKey:ARPresentationModeOn]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:ARUserDidChangeGridFilteringSettingsNotification object:nil];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

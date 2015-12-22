@@ -137,6 +137,40 @@ describe(@"setting defaults", ^{
     });
 });
 
+describe(@"selecting an artwork filtering cell", ^{
+    
+    it(@"posts a notification if presentation mode is on", ^{
+        Artwork *artwork1 = genericArtworkInContext(context);
+        Artwork *artwork2 = genericArtworkInContext(context);
+        artwork2.isAvailableForSale = @(NO);
+        
+        NSIndexPath *hideNotForSaleWorksIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+
+        subject.defaults = (id)onDefaults();
+        [subject.defaults setBool:YES forKey:ARPresentationModeOn];
+        
+        expect(^{
+            [subject tableView:subject.tableView didSelectRowAtIndexPath:hideNotForSaleWorksIndexPath];
+        }).to.notify(ARUserDidChangeGridFilteringSettingsNotification);
+    });
+    
+    it(@"does not post a notification if presentation mode is off", ^{
+        Artwork *artwork1 = genericArtworkInContext(context);
+        Artwork *artwork2 = genericArtworkInContext(context);
+        artwork2.isPublished = @(NO);
+        
+        NSIndexPath *hideUnpublishedWorksIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        
+        subject.defaults = (id)onDefaults();
+        [subject.defaults setBool:NO forKey:ARPresentationModeOn];
+        
+        expect(^{
+            [subject tableView:subject.tableView didSelectRowAtIndexPath:hideUnpublishedWorksIndexPath];
+        }).toNot.notify(ARUserDidChangeGridFilteringSettingsNotification);
+    });
+
+});
+
 SpecEnd
 
 
