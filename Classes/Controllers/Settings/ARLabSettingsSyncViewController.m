@@ -7,17 +7,21 @@
 #import "ARNetworkQualityIndicator.h"
 #import "UIViewController+SettingsNavigationItemHelpers.h"
 #import "ARSettingsNavigationBar.h"
+#import "ARProgressView.h"
+#import "KVOController/FBKVOController.h"
 
 
 @interface ARLabSettingsSyncViewController ()
 @property (nonatomic, strong) ARSyncStatusViewModel *viewModel;
+@property (nonatomic, strong) FBKVOController *kvoController;
 
 @property (weak, nonatomic) IBOutlet ARSyncFlatButton *syncButton;
 @property (weak, nonatomic) IBOutlet UILabel *explanatoryTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *previousSyncsLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet ARProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UILabel *syncProgressLabel;
 
-@property (strong, nonatomic) NSArray *previousSyncDateStrings;
 @end
 
 
@@ -31,8 +35,8 @@
     if (!self) return nil;
 
     self.section = ARLabSettingsSectionSync;
-
     self.title = @"Sync Content".uppercaseString;
+    self.kvoController = [FBKVOController controllerWithObserver:self];
 
     return self;
 }
@@ -42,9 +46,11 @@
     [super viewDidLoad];
 
     [self setupNavigationBar];
+    [self setupSyncObserver];
 
-    self.previousSyncDateStrings = self.viewModel.previousSyncDateStrings;
     [self.syncButton setTitle:@"Sync Content".uppercaseString forState:UIControlStateNormal];
+    [self.syncButton setTitle:@"Sync Currently Unavailable".uppercaseString forState:UIControlStateDisabled];
+    [self.syncButton setBackgroundColor:UIColor.artsyHeavyGrey forState:UIControlStateDisabled];
 
     NSString *string = self.explanatoryTextLabel.text;
     self.explanatoryTextLabel.attributedText = [string attributedStringWithLineSpacing:7.0];
@@ -56,12 +62,31 @@
     [self.qualityIndicator beginObservingNetworkQuality:^(ARNetworkQuality quality) {
         NSLog(@"NETWORK Q: %@", @(quality));
     }];
+
+    self.syncButton.hidden = !self.viewModel.shouldShowSyncButton;
+
+    [self update];
+}
+
+- (void)setupSyncObserver
+{
+    [self.kvoController observe:self.viewModel keyPath:@"isSyncing" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
+        NSLog(@"Sync status has changed : %@", @(self.viewModel.currentSyncPercentDone));
+        [self update];
+    }];
+
+    [self.kvoController observe:self.viewModel keyPath:@"currentSyncPercentDone" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
+        [self updateProgressView];
+    }];
 }
 
 - (void)dealloc
 {
     [self.qualityIndicator stopObservingNetworkQuality];
 }
+
+#pragma mark -
+#pragma mark previous syncs tableview
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -75,16 +100,87 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.previousSyncDateStrings) {
-        cell.textLabel.text = self.previousSyncDateStrings[indexPath.row];
+    if (self.viewModel.previousSyncDateStrings) {
+        cell.textLabel.text = self.viewModel.previousSyncDateStrings[indexPath.row];
         cell.textLabel.font = [UIFont serifFontWithSize:15];
         cell.textLabel.textColor = UIColor.artsyHeavyGrey;
     }
 }
 
+#pragma mark -
+#pragma mark sync button
+
+- (void)update
+{
+    if (self.viewModel.shouldShowSyncButton) {
+        [self configureSyncButton];
+    } else {
+        self.syncButton.hidden = YES;
+        [self showProgressView];
+    }
+}
+
+- (void)configureSyncButton
+{
+    [self.syncButton setTitle:self.viewModel.syncButtonTitle forState:UIControlStateNormal];
+
+    BOOL enableSyncButton = self.viewModel.shouldEnableSyncButton;
+    self.syncButton.alpha = enableSyncButton ? 1 : 0.5;
+    self.syncButton.userInteractionEnabled = enableSyncButton;
+
+    self.syncButton.backgroundColor = UIColor.blackColor;
+    self.syncButton.borderColor = UIColor.blackColor;
+}
+
 - (IBAction)syncButtonPressed:(id)sender
 {
     [self.viewModel startSync];
+    [self showProgressView];
+}
+
+- (void)showProgressView
+{
+    self.progressView.alpha = 0;
+
+    self.syncProgressLabel.text = self.viewModel.syncInProgressTitle;
+    self.syncProgressLabel.alpha = 0;
+
+    self.progressView.innerColor = UIColor.blackColor;
+    self.progressView.outerColor = UIColor.blackColor;
+    self.progressView.emptyColor = UIColor.whiteColor;
+    self.progressView.progress = 0.0;
+
+    [UIView animateWithDuration:ARAnimationQuickDuration animations:^{
+        self.syncButton.alpha = 0;
+        self.progressView.alpha = 1;
+        self.syncProgressLabel.alpha = 1;
+    } completion:^(BOOL finished) {
+        self.syncButton.hidden = YES;
+    }];
+}
+
+- (void)updateProgressView
+{
+    CGFloat currentProgress = self.viewModel.currentSyncPercentDone;
+    self.progressView.progress = currentProgress;
+    self.syncProgressLabel.text = self.viewModel.syncInProgressTitle;
+    if (currentProgress == 1) {
+        [self hideProgressView];
+        [self.tableView reloadData];
+    }
+}
+
+- (void)hideProgressView
+{
+    self.syncButton.alpha = 0;
+
+    [UIView animateWithDuration:ARAnimationDuration animations:^{
+        self.progressView.alpha = 0;
+        self.syncProgressLabel.alpha = 0;
+        self.syncButton.alpha = 1;
+    } completion:^(BOOL finished) {
+        self.syncButton.hidden = NO;
+    }];
 }
 
 - (NSAttributedString *)expandedKernTextForString:(NSString *)string
@@ -93,6 +189,9 @@
     [attrString addAttribute:NSKernAttributeName value:@(1.3) range:NSMakeRange(0, string.length)];
     return attrString;
 }
+
+#pragma mark -
+#pragma mark navigation
 
 - (void)setupNavigationBar
 {
@@ -104,9 +203,15 @@
     [self.navigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
+#pragma mark -
+#pragma mark dependency injection
+
 - (ARSyncStatusViewModel *)viewModel
 {
-    return _viewModel ?: [[ARSyncStatusViewModel alloc] initWithSync:ARTopViewController.sharedInstance.sync context:CoreDataManager.mainManagedObjectContext];
+    if (!_viewModel) {
+        _viewModel = [[ARSyncStatusViewModel alloc] initWithSync:ARTopViewController.sharedInstance.sync context:CoreDataManager.mainManagedObjectContext];
+    }
+    return _viewModel;
 }
 
 @end

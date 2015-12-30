@@ -23,6 +23,8 @@
     self.context = context;
     self.sync = sync;
     self.sync.delegate = self;
+    self.sync.progress.delegate = self;
+    self.isSyncing = self.sync.isSyncing;
 
     return self;
 }
@@ -39,11 +41,14 @@
 - (void)syncDidProgress:(ARSyncProgress *)progress
 {
     self.timeRemainingInSync = progress.estimatedTimeRemaining;
+    self.currentSyncPercentDone = progress.percentDone;
 }
 
 - (void)syncDidFinish:(ARSync *)sync
 {
     self.isSyncing = NO;
+    self.currentSyncPercentDone = 1;
+    self.timeRemainingInSync = 0;
 }
 
 - (ARSyncStatus)syncStatus
@@ -74,11 +79,46 @@
     return !(self.syncStatus == ARSyncStatusSyncing);
 }
 
+- (NSString *)syncButtonTitle
+{
+    if (self.syncStatus == ARSyncStatusRecommendSync) {
+        return NSLocalizedString(@"Sync New Content", @"Sync button text when we're recommending a sync");
+    } else if (self.syncStatus == ARSyncStatusOffline) {
+        return NSLocalizedString(@"Syncing Unavailable Offline", @"Sync button text when there's no network connection");
+    }
+
+    return NSLocalizedString(@"Sync Content", @"Sync button text after syncing completed");
+}
+
 - (UIColor *)syncButtonColor
 {
     if (self.syncStatus == ARSyncStatusRecommendSync) return [UIColor artsyPurple];
     return [UIColor artsyHeavyGrey];
 }
+
+#pragma mark -
+#pragma mark sync logs
+
+- (NSArray<NSString *> *)previousSyncDateStrings;
+{
+    NSSortDescriptor *sortByDate = [[NSSortDescriptor alloc] initWithKey:@"dateStarted" ascending:NO];
+    return [[self.syncLogs sortedArrayUsingDescriptors:@[ sortByDate ]] map:^id(SyncLog *log) {
+        return log.dateStarted.formattedString;
+    }];
+}
+
+- (NSInteger)syncLogCount
+{
+    return [SyncLog countInContext:self.context error:nil];
+}
+
+- (NSArray *)syncLogs
+{
+    return [SyncLog findAllSortedBy:@"dateStarted" ascending:YES inContext:self.context];
+}
+
+#pragma mark -
+#pragma mark deprecated methods
 
 - (CGFloat)syncActivityViewAlpha
 {
@@ -95,9 +135,6 @@
     else
         return ARSyncImageNotificationNone;
 }
-
-#pragma mark -
-#pragma mark text methods
 
 - (NSString *)titleText
 {
@@ -133,18 +170,24 @@
     }
 }
 
-- (NSString *)syncButtonTitle
+- (NSString *)syncInProgressTitle
 {
-    if (self.syncStatus == ARSyncStatusRecommendSync) return NSLocalizedString(@"Sync New Content", @"Sync button text when we're recommending a sync");
+    NSTimeInterval remaining = self.sync.progress.estimatedTimeRemaining;
 
-    return NSLocalizedString(@"Sync Content", @"Sync button text after syncing completed");
-}
+    if (self.isSyncing && remaining > 0) {
+        NSTimeInterval oneDay = 86400;
+        NSString *timeLeft = [NSString cappedStringForTimeInterval:remaining cap:oneDay];
 
-- (NSString *)syncInProgressTitle:(NSTimeInterval)estimatedTimeRemaining
-{
-    NSTimeInterval remaining = estimatedTimeRemaining;
-    NSTimeInterval oneDay = 86400;
-    return [NSString cappedStringForTimeInterval:remaining cap:oneDay];
+        if ([timeLeft containsString:@"less than"] || [timeLeft containsString:@"about"]) {
+            timeLeft = [timeLeft stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:[[timeLeft substringToIndex:1] capitalizedString]];
+        } else {
+            timeLeft = [NSString stringWithFormat:@"About %@", timeLeft.lowercaseString];
+        }
+
+        return [@[ @"Syncing in progress.", timeLeft, @"remaining..." ] componentsJoinedByString:@" "];
+    }
+
+    return @"Loading...";
 }
 
 - (NSString *)lastSyncedString
@@ -157,25 +200,6 @@
     return @"";
 }
 
-#pragma mark -
-#pragma mark sync logs
-
-- (NSArray<NSString *> *)previousSyncDateStrings;
-{
-    return [self.syncLogs map:^id(SyncLog *log) {
-        return [log.dateStarted formattedString];
-    }];
-}
-
-- (NSInteger)syncLogCount
-{
-    return [SyncLog countInContext:self.context error:nil];
-}
-
-- (NSArray *)syncLogs
-{
-    return [SyncLog findAllSortedBy:@"dateStarted" ascending:YES inContext:self.context];
-}
 
 #pragma mark -
 #pragma mark dependency injection
