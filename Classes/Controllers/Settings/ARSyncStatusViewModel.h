@@ -1,4 +1,6 @@
 #import "ARSync.h"
+#import "ARNetworkQualityIndicator.h"
+
 
 @class ARSyncStatusViewModel;
 
@@ -21,8 +23,8 @@ typedef NS_ENUM(NSInteger, ARSyncImageNotification) {
 @property (nonatomic, assign) NSTimeInterval timeRemainingInSync;
 @property (nonatomic, assign) CGFloat currentSyncPercentDone;
 
-@property (nonatomic, assign) BOOL isSyncing;
-@property (nonatomic, assign) BOOL statusHasChanged;
+@property (nonatomic, assign) BOOL isActivelySyncing;
+@property (nonatomic, assign) ARNetworkQuality networkQuality;
 
 - (instancetype)initWithSync:(ARSync *)sync context:(NSManagedObjectContext *)context;
 

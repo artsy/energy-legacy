@@ -4,12 +4,14 @@
 #import "Reachability+ConnectionExists.h"
 #import "NSDate+Presentation.h"
 #import "SyncLog.h"
+#import "AROptions.h"
 
 
 @interface ARSyncStatusViewModel ()
 @property (nonatomic, strong) NSUserDefaults *defaults;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) ARSync *sync;
+@property (nonatomic, strong) ARNetworkQualityIndicator *qualityIndicator;
 @end
 
 
@@ -24,7 +26,17 @@
     self.sync = sync;
     self.sync.delegate = self;
     self.sync.progress.delegate = self;
-    self.isSyncing = self.sync.isSyncing;
+    self.isActivelySyncing = self.sync.isSyncing;
+
+    self.qualityIndicator = self.qualityIndicator ?: [[ARNetworkQualityIndicator alloc] init];
+    [self.qualityIndicator beginObservingNetworkQuality:^(ARNetworkQuality quality) {
+        self.networkQuality = quality;
+        
+        /// If we're offline, we can't be actively syncing, so whoever is observing isActivelySyncing should update
+        if (quality == ARNetworkQualityOffline) {
+            self.isActivelySyncing = NO;
+        }
+    }];
 
     return self;
 }
@@ -34,7 +46,7 @@
 
 - (void)startSync
 {
-    self.isSyncing = YES;
+    self.isActivelySyncing = YES;
     [self.sync sync];
 }
 
@@ -42,22 +54,26 @@
 {
     self.timeRemainingInSync = progress.estimatedTimeRemaining;
     self.currentSyncPercentDone = progress.percentDone;
+
+    /// If this value was changed because of network quality, turn it back on
+    if (!self.isActivelySyncing) self.isActivelySyncing = YES;
 }
 
 - (void)syncDidFinish:(ARSync *)sync
 {
-    self.isSyncing = NO;
+    self.isActivelySyncing = NO;
     self.currentSyncPercentDone = 1;
     self.timeRemainingInSync = 0;
 }
 
 - (ARSyncStatus)syncStatus
 {
-    BOOL isOffline = ![Reachability connectionExists];
+    BOOL isOffline = self.networkQuality == ARNetworkQualityOffline;
 
     if (isOffline) {
         return ARSyncStatusOffline;
     } else if (self.sync.isSyncing) {
+        self.isActivelySyncing = YES;
         return ARSyncStatusSyncing;
     } else if ([self.defaults boolForKey:ARRecommendSync]) {
         return ARSyncStatusRecommendSync;
@@ -83,8 +99,8 @@
 {
     if (self.syncStatus == ARSyncStatusRecommendSync) {
         return NSLocalizedString(@"Sync New Content", @"Sync button text when we're recommending a sync");
-    } else if (self.syncStatus == ARSyncStatusOffline) {
-        return NSLocalizedString(@"Syncing Unavailable Offline", @"Sync button text when there's no network connection");
+    } else if ([self.defaults boolForKey:AROptionsUseLabSettings] && self.syncStatus == ARSyncStatusOffline) {
+        return NSLocalizedString(@"Sync Unavailable", @"Sync button text when there's no network connection");
     }
 
     return NSLocalizedString(@"Sync Content", @"Sync button text after syncing completed");
@@ -174,7 +190,7 @@
 {
     NSTimeInterval remaining = self.sync.progress.estimatedTimeRemaining;
 
-    if (self.isSyncing && remaining > 0) {
+    if (self.isActivelySyncing && remaining > 0) {
         NSTimeInterval oneDay = 86400;
         NSString *timeLeft = [NSString cappedStringForTimeInterval:remaining cap:oneDay];
 
@@ -200,6 +216,10 @@
     return @"";
 }
 
+- (void)dealloc
+{
+    [self.qualityIndicator stopObservingNetworkQuality];
+}
 
 #pragma mark -
 #pragma mark dependency injection

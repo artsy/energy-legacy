@@ -4,7 +4,6 @@
 #import "ARTopViewController.h"
 #import "NSString+NiceAttributedStrings.h"
 #import "ARSyncStatusViewModel.h"
-#import "ARNetworkQualityIndicator.h"
 #import "UIViewController+SettingsNavigationItemHelpers.h"
 #import "ARSettingsNavigationBar.h"
 #import "ARProgressView.h"
@@ -36,7 +35,6 @@
 
     self.section = ARLabSettingsSectionSync;
     self.title = @"Sync Content".uppercaseString;
-    self.kvoController = [FBKVOController controllerWithObserver:self];
 
     return self;
 }
@@ -47,9 +45,9 @@
 
     [self setupNavigationBar];
     [self setupSyncObserver];
+    [self setupProgressView];
 
     [self.syncButton setTitle:@"Sync Content".uppercaseString forState:UIControlStateNormal];
-    [self.syncButton setTitle:@"Sync Currently Unavailable".uppercaseString forState:UIControlStateDisabled];
     [self.syncButton setBackgroundColor:UIColor.artsyHeavyGrey forState:UIControlStateDisabled];
 
     NSString *string = self.explanatoryTextLabel.text;
@@ -58,11 +56,6 @@
     NSString *previousSyncsText = self.viewModel.syncLogCount ? @"Previous Syncs" : @"You have no previous syncs";
     [self.previousSyncsLabel setAttributedText:[previousSyncsText.uppercaseString attributedStringWithKern:1.3]];
 
-    self.qualityIndicator = self.qualityIndicator ?: [[ARNetworkQualityIndicator alloc] init];
-    [self.qualityIndicator beginObservingNetworkQuality:^(ARNetworkQuality quality) {
-        NSLog(@"NETWORK Q: %@", @(quality));
-    }];
-
     self.syncButton.hidden = !self.viewModel.shouldShowSyncButton;
 
     [self update];
@@ -70,20 +63,15 @@
 
 - (void)setupSyncObserver
 {
-    [self.kvoController observe:self.viewModel keyPath:@"isSyncing" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
-        NSLog(@"Sync status has changed : %@", @(self.viewModel.currentSyncPercentDone));
+    [self.KVOController observe:self.viewModel keyPaths:@[ @"isActivelySyncing", @"networkQuality" ] options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
         [self update];
     }];
 
-    [self.kvoController observe:self.viewModel keyPath:@"currentSyncPercentDone" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
+    [self.KVOController observe:self.viewModel keyPath:@"currentSyncPercentDone" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
         [self updateProgressView];
     }];
 }
 
-- (void)dealloc
-{
-    [self.qualityIndicator stopObservingNetworkQuality];
-}
 
 #pragma mark -
 #pragma mark previous syncs tableview
@@ -112,11 +100,11 @@
 
 - (void)update
 {
-    if (self.viewModel.shouldShowSyncButton) {
-        [self configureSyncButton];
+    if (self.viewModel.isActivelySyncing) {
+        if (!self.progressView.alpha) [self showProgressView];
     } else {
-        self.syncButton.hidden = YES;
-        [self showProgressView];
+        [self hideProgressView];
+        [self configureSyncButton];
     }
 }
 
@@ -126,29 +114,28 @@
 
     BOOL enableSyncButton = self.viewModel.shouldEnableSyncButton;
     self.syncButton.alpha = enableSyncButton ? 1 : 0.5;
-    self.syncButton.userInteractionEnabled = enableSyncButton;
+    self.syncButton.enabled = enableSyncButton;
+}
 
-    self.syncButton.backgroundColor = UIColor.blackColor;
-    self.syncButton.borderColor = UIColor.blackColor;
+- (void)setupProgressView
+{
+    self.progressView.innerColor = UIColor.blackColor;
+    self.progressView.outerColor = UIColor.blackColor;
+    self.progressView.emptyColor = UIColor.whiteColor;
+    self.progressView.progress = 0.0;
 }
 
 - (IBAction)syncButtonPressed:(id)sender
 {
     [self.viewModel startSync];
-    [self showProgressView];
+    [self update];
 }
 
 - (void)showProgressView
 {
-    self.progressView.alpha = 0;
+    if (self.progressView.alpha) return;
 
     self.syncProgressLabel.text = self.viewModel.syncInProgressTitle;
-    self.syncProgressLabel.alpha = 0;
-
-    self.progressView.innerColor = UIColor.blackColor;
-    self.progressView.outerColor = UIColor.blackColor;
-    self.progressView.emptyColor = UIColor.whiteColor;
-    self.progressView.progress = 0.0;
 
     [UIView animateWithDuration:ARAnimationQuickDuration animations:^{
         self.syncButton.alpha = 0;
@@ -172,7 +159,7 @@
 
 - (void)hideProgressView
 {
-    self.syncButton.alpha = 0;
+    if (!self.progressView.alpha) return;
 
     [UIView animateWithDuration:ARAnimationDuration animations:^{
         self.progressView.alpha = 0;

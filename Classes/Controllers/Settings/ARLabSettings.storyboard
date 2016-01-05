@@ -114,21 +114,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9U-Ia-fHS" customClass="ARLabSyncFlatButton">
-                                <rect key="frame" x="156" y="83" width="289" height="37"/>
+                                <rect key="frame" x="21" y="83" width="558" height="37"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="u6M-wx-Mxg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="16"/>
-                                <inset key="contentEdgeInsets" minX="85" minY="7" maxX="85" maxY="7"/>
                                 <state key="normal" title="SYNC CONTENT"/>
                                 <connections>
                                     <action selector="syncButtonPressed:" destination="lXz-BW-0kX" eventType="touchUpInside" id="XkW-Zg-AqF"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PREVIOUS SYNCS" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqP-c1-aQK">
-                                <rect key="frame" x="236" y="164" width="129.5" height="16"/>
+                                <rect key="frame" x="236" y="164" width="130" height="16"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -213,6 +212,7 @@
                             <constraint firstItem="h5S-EC-XNG" firstAttribute="leading" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" constant="25" id="8iw-EI-4uM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cwG-Vf-Fgn" secondAttribute="trailing" constant="1" id="8kj-s0-z1P"/>
                             <constraint firstItem="cwG-Vf-Fgn" firstAttribute="leading" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" constant="1" id="E3l-K6-yzA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="u9U-Ia-fHS" secondAttribute="trailing" constant="1" id="GPK-RE-Zwe"/>
                             <constraint firstItem="cwG-Vf-Fgn" firstAttribute="top" secondItem="5pM-C7-1Xy" secondAttribute="bottom" constant="10" id="I0H-m4-K4l">
                                 <variation key="widthClass=compact" constant="30"/>
                             </constraint>
@@ -223,6 +223,7 @@
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="4Q0-ju-wY9" secondAttribute="trailing" constant="5" id="Uhj-HO-2KM"/>
                             <constraint firstItem="bvo-wb-tZW" firstAttribute="top" secondItem="iqP-c1-aQK" secondAttribute="bottom" constant="10" id="VvR-IG-vNL"/>
                             <constraint firstItem="iqP-c1-aQK" firstAttribute="top" secondItem="4Q0-ju-wY9" secondAttribute="bottom" constant="25" id="ZEL-4n-QJq"/>
+                            <constraint firstItem="u9U-Ia-fHS" firstAttribute="leading" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" constant="1" id="ZY2-6l-LQ3"/>
                             <constraint firstItem="4Q0-ju-wY9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" constant="5" id="aqI-1P-k5f"/>
                             <constraint firstItem="4Q0-ju-wY9" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="dPj-O3-y14"/>
                             <constraint firstItem="4Q0-ju-wY9" firstAttribute="top" secondItem="h5S-EC-XNG" secondAttribute="bottom" constant="15" id="gDQ-Gf-9ln"/>
@@ -308,7 +309,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ta-Vo-WrY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1639" y="1548"/>
+            <point key="canvasLocation" x="1639" y="1586"/>
         </scene>
         <!--Lab Settings Presentation Mode View Controller-->
         <scene sceneID="abj-9B-mjj">
@@ -418,7 +419,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIU-fM-KDr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="966" y="1548"/>
+            <point key="canvasLocation" x="1001" y="1586"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wqt-dq-QUI">
@@ -697,7 +698,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asY-Jd-BD8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112.5" y="1633.5"/>
+            <point key="canvasLocation" x="364" y="1671.5"/>
         </scene>
         <!--Lab Settings Email Subject Lines View Controller-->
         <scene sceneID="GkT-JW-fht">
@@ -768,7 +769,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfK-le-O08" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112" y="2528.5"/>
+            <point key="canvasLocation" x="364" y="2584.5"/>
         </scene>
         <!--Lab Settings Master View Controller-->
         <scene sceneID="JlK-zY-KPG">
