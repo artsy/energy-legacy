@@ -19,7 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *previousSyncsLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet ARProgressView *progressView;
-@property (weak, nonatomic) IBOutlet UILabel *syncProgressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *syncStatusLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *wifiSymbolImageView;
 
 @end
 
@@ -44,7 +45,7 @@
     [super viewDidLoad];
 
     [self setupNavigationBar];
-    [self setupSyncObserver];
+    [self setupObservers];
     [self setupProgressView];
 
     [self.syncButton setTitle:@"Sync Content".uppercaseString forState:UIControlStateNormal];
@@ -58,18 +59,14 @@
 
     self.syncButton.hidden = !self.viewModel.shouldShowSyncButton;
 
-    [self update];
+    [self updateSubviews];
 }
 
-- (void)setupSyncObserver
+- (void)setupObservers
 {
-    [self.KVOController observe:self.viewModel keyPaths:@[ @"isActivelySyncing", @"networkQuality" ] options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
-        [self update];
-    }];
+    [self.KVOController observe:self.viewModel keyPath:@"networkQuality" options:NSKeyValueObservingOptionNew action:@selector(updateSubviews)];
 
-    [self.KVOController observe:self.viewModel keyPath:@"currentSyncPercentDone" options:NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary *change) {
-        [self updateProgressView];
-    }];
+    [self.KVOController observe:self.viewModel keyPath:@"currentSyncPercentDone" options:NSKeyValueObservingOptionNew action:@selector(updateProgressView)];
 }
 
 
@@ -98,17 +95,20 @@
 #pragma mark -
 #pragma mark sync button
 
-- (void)update
+- (void)updateSubviews
 {
+    [self updateStatusLabel];
+
     if (self.viewModel.isActivelySyncing) {
         if (!self.progressView.alpha) [self showProgressView];
+        [self updateProgressView];
     } else {
-        [self hideProgressView];
-        [self configureSyncButton];
+        if (self.progressView.alpha) [self hideProgressView];
+        [self updateSyncButton];
     }
 }
 
-- (void)configureSyncButton
+- (void)updateSyncButton
 {
     [self.syncButton setTitle:self.viewModel.syncButtonTitle forState:UIControlStateNormal];
 
@@ -116,6 +116,26 @@
     self.syncButton.alpha = enableSyncButton ? 1 : 0.5;
     self.syncButton.enabled = enableSyncButton;
 }
+
+- (IBAction)syncButtonPressed:(id)sender
+{
+    [self.viewModel startSync];
+    [self updateSubviews];
+}
+
+#pragma mark -
+#pragma mark status label
+
+- (void)updateStatusLabel
+{
+    self.wifiSymbolImageView.hidden = self.viewModel.isActivelySyncing;
+    self.wifiSymbolImageView.image = self.viewModel.wifiStatusImage;
+    self.syncStatusLabel.text = self.viewModel.statusLabelText;
+    self.syncStatusLabel.textColor = self.viewModel.statusLabelTextColor;
+}
+
+#pragma mark -
+#pragma mark progress view
 
 - (void)setupProgressView
 {
@@ -125,36 +145,25 @@
     self.progressView.progress = 0.0;
 }
 
-- (IBAction)syncButtonPressed:(id)sender
+- (void)updateProgressView
 {
-    [self.viewModel startSync];
-    [self update];
+    CGFloat currentProgress = self.viewModel.currentSyncPercentDone;
+    self.progressView.progress = currentProgress;
 }
 
 - (void)showProgressView
 {
     if (self.progressView.alpha) return;
 
-    self.syncProgressLabel.text = self.viewModel.syncInProgressTitle;
-
     [UIView animateWithDuration:ARAnimationQuickDuration animations:^{
         self.syncButton.alpha = 0;
+        self.wifiSymbolImageView.alpha = 0;
         self.progressView.alpha = 1;
-        self.syncProgressLabel.alpha = 1;
     } completion:^(BOOL finished) {
         self.syncButton.hidden = YES;
     }];
-}
 
-- (void)updateProgressView
-{
-    CGFloat currentProgress = self.viewModel.currentSyncPercentDone;
-    self.progressView.progress = currentProgress;
-    self.syncProgressLabel.text = self.viewModel.syncInProgressTitle;
-    if (currentProgress == 1) {
-        [self hideProgressView];
-        [self.tableView reloadData];
-    }
+    self.progressView.progress = 0.1;
 }
 
 - (void)hideProgressView
@@ -163,8 +172,8 @@
 
     [UIView animateWithDuration:ARAnimationDuration animations:^{
         self.progressView.alpha = 0;
-        self.syncProgressLabel.alpha = 0;
         self.syncButton.alpha = 1;
+        self.wifiSymbolImageView.alpha = 1;
     } completion:^(BOOL finished) {
         self.syncButton.hidden = NO;
     }];

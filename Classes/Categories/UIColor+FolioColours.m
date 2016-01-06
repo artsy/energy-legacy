@@ -1,5 +1,6 @@
 #import <EDColor/EDColor.h>
 
+
 @implementation UIColor (ArtsyColours)
 
 // We will be asking for frontColor or backColor very often
@@ -31,6 +32,11 @@ static BOOL ARUseWhiteFolio;
 + (UIColor *)artsyHighlightGreen
 {
     return [UIColor colorWithHex:0x5ADB7B];
+}
+
++ (UIColor *)artsyHeavyGreen
+{
+    return [UIColor colorWithHex:0x4d8008];
 }
 
 @end

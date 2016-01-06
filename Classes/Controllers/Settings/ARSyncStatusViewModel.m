@@ -11,13 +11,17 @@
 @property (nonatomic, strong) NSUserDefaults *defaults;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) ARSync *sync;
-@property (nonatomic, strong) ARNetworkQualityIndicator *qualityIndicator;
 @end
 
 
 @implementation ARSyncStatusViewModel
 
 - (instancetype)initWithSync:(ARSync *)sync context:(NSManagedObjectContext *)context
+{
+    return [self initWithSync:sync context:context qualityIndicator:[[ARNetworkQualityIndicator alloc] init]];
+}
+
+- (instancetype)initWithSync:(ARSync *)sync context:(NSManagedObjectContext *)context qualityIndicator:(ARNetworkQualityIndicator *)qualityIndicator
 {
     self = [super init];
     if (!self) return nil;
@@ -26,19 +30,18 @@
     self.sync = sync;
     self.sync.delegate = self;
     self.sync.progress.delegate = self;
-    self.isActivelySyncing = self.sync.isSyncing;
 
-    self.qualityIndicator = self.qualityIndicator ?: [[ARNetworkQualityIndicator alloc] init];
+    self.qualityIndicator = qualityIndicator;
     [self.qualityIndicator beginObservingNetworkQuality:^(ARNetworkQuality quality) {
         self.networkQuality = quality;
-        
-        /// If we're offline, we can't be actively syncing, so whoever is observing isActivelySyncing should update
-        if (quality == ARNetworkQualityOffline) {
-            self.isActivelySyncing = NO;
-        }
     }];
 
     return self;
+}
+
+- (BOOL)isActivelySyncing
+{
+    return self.networkQuality != ARNetworkQualityOffline && self.sync.isSyncing;
 }
 
 #pragma mark -
@@ -46,7 +49,7 @@
 
 - (void)startSync
 {
-    self.isActivelySyncing = YES;
+    self.currentSyncPercentDone = 0;
     [self.sync sync];
 }
 
@@ -54,26 +57,19 @@
 {
     self.timeRemainingInSync = progress.estimatedTimeRemaining;
     self.currentSyncPercentDone = progress.percentDone;
-
-    /// If this value was changed because of network quality, turn it back on
-    if (!self.isActivelySyncing) self.isActivelySyncing = YES;
 }
 
 - (void)syncDidFinish:(ARSync *)sync
 {
-    self.isActivelySyncing = NO;
     self.currentSyncPercentDone = 1;
     self.timeRemainingInSync = 0;
 }
 
 - (ARSyncStatus)syncStatus
 {
-    BOOL isOffline = self.networkQuality == ARNetworkQualityOffline;
-
-    if (isOffline) {
+    if (self.isOffline) {
         return ARSyncStatusOffline;
     } else if (self.sync.isSyncing) {
-        self.isActivelySyncing = YES;
         return ARSyncStatusSyncing;
     } else if ([self.defaults boolForKey:ARRecommendSync]) {
         return ARSyncStatusRecommendSync;
@@ -82,12 +78,56 @@
     }
 }
 
+- (UIImage *)wifiStatusImage
+{
+    switch (self.networkQuality) {
+        case ARNetworkQualityGood:
+            return [UIImage imageNamed:@"wifi-strong"];
+            break;
+        case ARNetworkQualityOK:
+        case ARNetworkQualitySlow:
+            return [UIImage imageNamed:@"wifi-weak"];
+        case ARNetworkQualityOffline:
+            return [UIImage imageNamed:@"wifi-off"];
+    }
+}
+
+- (NSString *)statusLabelText
+{
+    if (self.isActivelySyncing) return self.syncInProgressTitle;
+
+    switch (self.networkQuality) {
+        case ARNetworkQualityGood:
+            return NSLocalizedString(@"Your WiFi signal is strong.", @"Text for strong wifi signal");
+            break;
+        case ARNetworkQualityOK:
+        case ARNetworkQualitySlow:
+            return NSLocalizedString(@"Your WiFi signal is weak. We recommend seeking a stronger signal for the fastest sync.", @"Suggestion to find better wifi before syncing");
+            break;
+        case ARNetworkQualityOffline:
+            return NSLocalizedString(@"You are not connected to WiFi right now.", @"Text to tell the user they aren't connected to WiFi");
+            break;
+    }
+}
+
+- (UIColor *)statusLabelTextColor
+{
+    if (!self.isActivelySyncing && self.networkQuality == ARNetworkQualityGood) return UIColor.artsyHeavyGreen;
+
+    return UIColor.blackColor;
+}
+
 #pragma mark -
 #pragma mark sync button
 
 - (BOOL)shouldEnableSyncButton
 {
-    return !(self.syncStatus == ARSyncStatusOffline);
+    if (![self.defaults boolForKey:AROptionsUseLabSettings]) {
+        return !(self.syncStatus == ARSyncStatusOffline); /// Deprecated; will be removed once old settings are totally replaced
+
+    } else {
+        return !(self.networkQuality == ARNetworkQualityOffline);
+    }
 }
 
 - (BOOL)shouldShowSyncButton

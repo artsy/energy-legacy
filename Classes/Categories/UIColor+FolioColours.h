@@ -1,5 +1,6 @@
 
 
+
 @interface UIColor (ArtsyColours)
 
 + (void)updateFolioColorsToWhite:(BOOL)useWhiteFolio;
@@ -10,5 +11,6 @@
 + (UIColor *)artsySingleLineGrey;
 
 + (UIColor *)artsyHighlightGreen;
++ (UIColor *)artsyHeavyGreen;
 
 @end

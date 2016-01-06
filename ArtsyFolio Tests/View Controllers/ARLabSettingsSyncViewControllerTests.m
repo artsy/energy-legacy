@@ -10,6 +10,12 @@
 @property (nonatomic, strong) ARSyncStatusViewModel *viewModel;
 @end
 
+
+@interface ARSyncStatusViewModel ()
+- (instancetype)initWithSync:(ARSync *)sync context:(NSManagedObjectContext *)context qualityIndicator:(ARNetworkQualityIndicator *)qualityIndicator;
+
+@end
+
 SpecBegin(ARLabSettingsSyncViewController);
 
 __block NSManagedObjectContext *context;
@@ -24,13 +30,14 @@ beforeAll(^{
 beforeEach(^{
     context = [CoreDataManager stubbedManagedObjectContext];
     subject = [storyboard instantiateViewControllerWithIdentifier:SyncSettingsViewController];
-    subject.viewModel = [[ARSyncStatusViewModel alloc] initWithSync:nil context:context];
-    subject.qualityIndicator = [[ARStubbedNetworkQualityIndicator alloc] init];
+    
+    subject.viewModel = [[ARSyncStatusViewModel alloc] initWithSync:nil context:context qualityIndicator:[[ARStubbedNetworkQualityIndicator alloc] init]];
 });
 
-describe(@"visuals", ^{
+describe(@"viewing sync records", ^{
     beforeEach(^{
         navController = [storyboard instantiateViewControllerWithIdentifier:SettingsNavigationController];
+        subject.viewModel.networkQuality = ARNetworkQualityGood;
     });
     
     it(@"looks right with no previous syncs", ^{
@@ -48,6 +55,30 @@ describe(@"visuals", ^{
         
         [navController pushViewController:subject animated:NO];
         expect(navController).to.haveValidSnapshot();
+    });
+});
+
+describe(@"responding to network changes", ^{
+    beforeEach(^{
+        navController = [storyboard instantiateViewControllerWithIdentifier:SettingsNavigationController];
+    });
+    
+    it(@"looks right with good network quality", ^{
+        [navController pushViewController:subject animated:NO];
+        subject.viewModel.networkQuality = ARNetworkQualityGood;
+        expect(navController).to.haveValidSnapshot ();
+    });
+    
+    it(@"looks right with poor network quality", ^{
+        [navController pushViewController:subject animated:NO];
+        subject.viewModel.networkQuality = ARNetworkQualitySlow;
+        expect(navController).to.haveValidSnapshot ();
+    });
+    
+    it(@"looks right with no network connection", ^{
+        [navController pushViewController:subject animated:NO];
+        subject.viewModel.networkQuality = ARNetworkQualityOffline;
+        expect(navController).to.haveValidSnapshot ();
     });
 });
 

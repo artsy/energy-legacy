@@ -23,16 +23,23 @@ typedef NS_ENUM(NSInteger, ARSyncImageNotification) {
 @property (nonatomic, assign) NSTimeInterval timeRemainingInSync;
 @property (nonatomic, assign) CGFloat currentSyncPercentDone;
 
-@property (nonatomic, assign) BOOL isActivelySyncing;
+@property (nonatomic, assign) BOOL isOffline;
 @property (nonatomic, assign) ARNetworkQuality networkQuality;
+@property (nonatomic, strong) ARNetworkQualityIndicator *qualityIndicator;
 
 - (instancetype)initWithSync:(ARSync *)sync context:(NSManagedObjectContext *)context;
 
 - (void)startSync;
 
+- (BOOL)isActivelySyncing;
+
+- (UIImage *)wifiStatusImage;
+- (UIColor *)statusLabelTextColor;
+
 - (NSString *)titleText;
 - (NSString *)subtitleText;
 - (NSString *)syncInProgressTitle;
+- (NSString *)statusLabelText;
 
 - (BOOL)shouldShowSyncButton;
 - (BOOL)shouldEnableSyncButton;
