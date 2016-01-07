@@ -1,22 +1,23 @@
 upcoming:
   version: 2.5.0
   notes:
-    - [dev] Added a custom navigation bar for all settings views [sarah]
-    - [dev] iPhone support for settings panel [sarah]
-    - [dev] On iPad, only the primary view controller shows up until a detail is selected [sarah]
-    - [dev] Added background settings view controller [sarah]
-    - [dev] Added new email settings view controllers [sarah]
+    - (dev) Added a custom navigation bar for all settings views [sarah]
+    - (dev) iPhone support for settings panel [sarah]
+    - (dev) On iPad, only the primary view controller shows up until a detail is selected [sarah]
+    - (dev) Added background settings view controller [sarah]
+    - (dev) Added new email settings view controllers [sarah]
     - Improved Error Messages for Login [orta]
     - Introduced Presentation Mode [sarah]
     - New Settings pages [sarah]
-    - [dev] Added Intercom support to the new settings [sarah]
-    - [dev] Added unit conversion for artwork dimensions [sarah]
-    - [dev] Edit Presentation Mode Settings view controller [sarah]
-    - [dev] New sync settings view controller [sarah]
-    - [dev] Lab Settings Master View [sarah]
-    - [dev] Podfile uses `ARTSY_STAFF_MEMBER` to use closed source fonts [orta]
-    - [dev] Sync refactor to simplify sync side-effects (anaalytics, notifications etc) [orta]
-    - [dev] Added Danger to the CI
+    - (dev) Added Intercom support to the new settings [sarah]
+    - (dev) Added unit conversion for artwork dimensions [sarah]
+    - (dev) Edit Presentation Mode Settings view controller [sarah]
+    - (dev) New sync settings view controller [sarah]
+    - (dev) Lab Settings Master View [sarah]
+    - (dev) Podfile uses `ARTSY_STAFF_MEMBER` to use closed source fonts [orta]
+    - (dev) Sync refactor to simplify sync side-effects (anaalytics, notifications etc) [orta]
+    - (dev) Added Danger to the CI [orta]
+    - (dev) Uses testflight for betas [orta]
 
 releases:
   - version: 2.4.4

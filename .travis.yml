@@ -22,6 +22,7 @@ install:
 script:
  - make test
  - bundle exec danger
+ - make deploy_if_beta_branch
 
 notifications:
   slack: artsy:9hT8HcywAEZV7dJrbSNGcR6u

@@ -1,4 +1,4 @@
-artsy:
+artsy: certs
 	git submodule init
 	git submodule update
 	config/spacecommander/setup-repo.sh
@@ -32,6 +32,12 @@ storyboard_ids:
 
 certs:
 	bundle exec match appstore --readonly
+
+deploy_if_beta_branch:
+	if [ "$(LOCAL_BRANCH)" == "beta" ]; then make certs; bundle exec fastlane beta; fi
+
+deploy:
+	git push origin "$(LOCAL_BRANCH):beta"
 
 LOCAL_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 BRANCH = $(shell echo $(shell whoami)-$(shell git rev-parse --abbrev-ref HEAD))
