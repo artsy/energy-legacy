@@ -59,5 +59,4 @@ lane :beta do
   sh "git checkout ../Resources/"
   `rm ../*.dSYM.zip`
   `rm ../*.ipa`
-
 end
