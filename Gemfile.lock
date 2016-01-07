@@ -79,6 +79,12 @@ GEM
       security (~> 0.1.2)
       term-ansicolor (~> 1.0.7)
       terminal-table (~> 1.4.5)
+    danger (0.1.1)
+      claide (~> 0.8)
+      colored
+      git (~> 1.2.9)
+      nap
+      octokit
     deliver (0.12.1)
       credentials_manager (>= 0.3.0)
       excon
@@ -136,6 +142,7 @@ GEM
       fastlane_core (>= 0.7.2)
       mini_magick (~> 4.0.2)
     fuzzy_match (2.0.4)
+    git (1.2.9.1)
     highline (1.7.2)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
@@ -181,6 +188,8 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     ntlm-http (0.1.1)
+    octokit (4.2.0)
+      sawyer (~> 0.6.0, >= 0.5.3)
     osx_keychain (1.0.1)
       RubyInline (~> 3)
     pbxplorer (1.0.0)
@@ -204,6 +213,9 @@ GEM
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
     rubyzip (1.1.7)
+    sawyer (0.6.0)
+      addressable (~> 2.3.5)
+      faraday (~> 0.8, < 0.10)
     sbconstants (1.1.2)
     second_curtain (0.3.0)
       aws-sdk-v1 (~> 1.52)
@@ -256,6 +268,7 @@ DEPENDENCIES
   cocoapods-deintegrate
   cocoapods-keys
   cocoapods-open
+  danger
   fastlane
   sbconstants
   second_curtain
@@ -263,4 +276,4 @@ DEPENDENCIES
   xcpretty
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
