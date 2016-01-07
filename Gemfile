@@ -14,7 +14,3 @@ gem 'danger'
 group :deployment do
   gem "fastlane"
 end
-
-group :ci do
-  gem "slather"
-end
