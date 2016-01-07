@@ -20,40 +20,53 @@ typedef NS_ENUM(NSInteger, ARSyncImageNotification) {
 
 @interface ARSyncStatusViewModel : NSObject <ARSyncDelegate, ARSyncProgressDelegate>
 
-@property (nonatomic, assign) NSTimeInterval timeRemainingInSync;
-@property (nonatomic, assign) CGFloat currentSyncPercentDone;
 
-@property (nonatomic, assign) BOOL isOffline;
-@property (nonatomic, assign) ARNetworkQuality networkQuality;
 @property (nonatomic, strong) ARNetworkQualityIndicator *qualityIndicator;
+@property (nonatomic, assign) ARNetworkQuality networkQuality;
+@property (nonatomic, assign) CGFloat currentSyncPercentDone;
 
 - (instancetype)initWithSync:(ARSync *)sync context:(NSManagedObjectContext *)context;
 
+/// Initiates a sync
 - (void)startSync;
 
+/// Can be checked to see if a sync is actively taking place; will be OFF if there's no network connection
 - (BOOL)isActivelySyncing;
 
+/// Can be used to ensure the sync button isn't pressed when offline
+- (BOOL)shouldEnableSyncButton;
+
+/// Returns a WiFi icon that corresponds to the current network status
 - (UIImage *)wifiStatusImage;
+
+/// Text color that corresponds to current network status
 - (UIColor *)statusLabelTextColor;
 
-- (NSString *)titleText;
-- (NSString *)subtitleText;
-- (NSString *)syncInProgressTitle;
+/// Returns a string that describes either the network status or the time remaining in an active sync
 - (NSString *)statusLabelText;
 
-- (BOOL)shouldShowSyncButton;
-- (BOOL)shouldEnableSyncButton;
-- (NSString *)syncButtonTitle;
-- (UIColor *)syncButtonColor;
-
-- (CGFloat)syncActivityViewAlpha;
-
-- (ARSyncImageNotification)currentSyncImageNotification;
+/// Titles for the sync button states; should be used during button setup
+- (NSString *)syncButtonNormalTitle;
+- (NSString *)SyncButtonDisabledTitle;
 
 /// Returns the number of syncs logged on device
 - (NSInteger)syncLogCount;
 
 /// Returns an array of formatted date strings for all recorded syncs
 - (NSArray<NSString *> *)previousSyncDateStrings;
+
+
+/// Methods & property below are deprecated; will be removed with old settings
+
+@property (nonatomic, assign) BOOL isOffline;
+
+- (NSString *)titleText;
+- (NSString *)subtitleText;
+- (BOOL)shouldShowSyncButton;
+- (NSString *)syncButtonTitle;
+- (UIColor *)syncButtonColor;
+- (CGFloat)syncActivityViewAlpha;
+
+- (ARSyncImageNotification)currentSyncImageNotification;
 
 @end

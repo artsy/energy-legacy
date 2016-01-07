@@ -45,10 +45,12 @@
     [super viewDidLoad];
 
     [self setupNavigationBar];
-    [self setupObservers];
     [self setupProgressView];
+    [self setupObservers];
 
-    [self.syncButton setTitle:@"Sync Content".uppercaseString forState:UIControlStateNormal];
+    [self.syncButton setTitle:self.viewModel.syncButtonNormalTitle forState:UIControlStateNormal];
+
+    [self.syncButton setTitle:self.viewModel.SyncButtonDisabledTitle forState:UIControlStateDisabled];
     [self.syncButton setBackgroundColor:UIColor.artsyHeavyGrey forState:UIControlStateDisabled];
 
     NSString *string = self.explanatoryTextLabel.text;
@@ -56,16 +58,11 @@
 
     NSString *previousSyncsText = self.viewModel.syncLogCount ? @"Previous Syncs" : @"You have no previous syncs";
     [self.previousSyncsLabel setAttributedText:[previousSyncsText.uppercaseString attributedStringWithKern:1.3]];
-
-    self.syncButton.hidden = !self.viewModel.shouldShowSyncButton;
-
-    [self updateSubviews];
 }
 
 - (void)setupObservers
 {
     [self.KVOController observe:self.viewModel keyPath:@"networkQuality" options:NSKeyValueObservingOptionNew action:@selector(updateSubviews)];
-
     [self.KVOController observe:self.viewModel keyPath:@"currentSyncPercentDone" options:NSKeyValueObservingOptionNew action:@selector(updateProgressView)];
 }
 
@@ -92,26 +89,30 @@
     }
 }
 
-#pragma mark -
-#pragma mark sync button
-
 - (void)updateSubviews
+{
+    [self updateSubviewsAnimated:YES];
+}
+
+- (void)updateSubviewsAnimated:(BOOL)animated
 {
     [self updateStatusLabel];
 
+    /// If a sync is in progress, show the progress view. Otherwise, don't.
     if (self.viewModel.isActivelySyncing) {
-        if (!self.progressView.alpha) [self showProgressView];
+        if (!self.progressView.alpha) [self showProgressViewAnimated:animated];
         [self updateProgressView];
     } else {
-        if (self.progressView.alpha) [self hideProgressView];
+        if (self.progressView.alpha) [self hideProgressViewAnimated:animated];
         [self updateSyncButton];
     }
 }
 
+#pragma mark -
+#pragma mark sync button
+
 - (void)updateSyncButton
 {
-    [self.syncButton setTitle:self.viewModel.syncButtonTitle forState:UIControlStateNormal];
-
     BOOL enableSyncButton = self.viewModel.shouldEnableSyncButton;
     self.syncButton.alpha = enableSyncButton ? 1 : 0.5;
     self.syncButton.enabled = enableSyncButton;
@@ -151,32 +152,31 @@
     self.progressView.progress = currentProgress;
 }
 
-- (void)showProgressView
+- (void)showProgressViewAnimated:(BOOL)animated
 {
     if (self.progressView.alpha) return;
 
-    [UIView animateWithDuration:ARAnimationQuickDuration animations:^{
+    [UIView animateIf:animated duration:ARAnimationQuickDuration:^{
         self.syncButton.alpha = 0;
         self.wifiSymbolImageView.alpha = 0;
         self.progressView.alpha = 1;
-    } completion:^(BOOL finished) {
-        self.syncButton.hidden = YES;
     }];
 
+    self.syncButton.hidden = YES;
     self.progressView.progress = 0.1;
 }
 
-- (void)hideProgressView
+- (void)hideProgressViewAnimated:(BOOL)animated
 {
     if (!self.progressView.alpha) return;
 
-    [UIView animateWithDuration:ARAnimationDuration animations:^{
+    [UIView animateIf:animated duration:ARAnimationQuickDuration:^{
         self.progressView.alpha = 0;
         self.syncButton.alpha = 1;
         self.wifiSymbolImageView.alpha = 1;
-    } completion:^(BOOL finished) {
-        self.syncButton.hidden = NO;
     }];
+
+    self.syncButton.hidden = NO;
 }
 
 - (NSAttributedString *)expandedKernTextForString:(NSString *)string

@@ -509,6 +509,9 @@
 		60FFE3BC156FAE5000A138D3 /* RecentlyUploadedPlaceholder@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60FFE3B9156FAE5000A138D3 /* RecentlyUploadedPlaceholder@2x.jpg */; };
 		8305D6801AE05168004A270E /* ARThumbnailImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8305D67F1AE05168004A270E /* ARThumbnailImageScrollView.m */; };
 		8312011E1B73C3F600E1A988 /* ARViewInRoomViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8312011D1B73C3F600E1A988 /* ARViewInRoomViewTests.m */; };
+		832075B81C3F274000C0A114 /* wifi-off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 832075B51C3F274000C0A114 /* wifi-off@2x.png */; };
+		832075B91C3F274000C0A114 /* wifi-strong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 832075B61C3F274000C0A114 /* wifi-strong@2x.png */; };
+		832075BA1C3F274000C0A114 /* wifi-weak@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 832075B71C3F274000C0A114 /* wifi-weak@2x.png */; };
 		83272D121B99365E0083D9C4 /* ArtworkModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83272D111B99365E0083D9C4 /* ArtworkModelTests.m */; };
 		833023041B448CF800C97266 /* close_window.png in Resources */ = {isa = PBXBuildFile; fileRef = 833023031B448CF800C97266 /* close_window.png */; };
 		833023061B4492C900C97266 /* EditInCMSScreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 833023051B4492C900C97266 /* EditInCMSScreenshot.png */; };
@@ -534,9 +537,6 @@
 		836DEDF71BF25824004A2362 /* ARLabSettingsPresentationModeViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 836DEDF61BF25824004A2362 /* ARLabSettingsPresentationModeViewControllerTests.m */; };
 		8371DAFE1B68213A00285A8E /* ARLoginNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371DAFD1B68213A00285A8E /* ARLoginNetworkModel.m */; };
 		8371DB021B6824A200285A8E /* ARStubbedLoginNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371DB011B6824A200285A8E /* ARStubbedLoginNetworkModel.m */; };
-		8376F6B71C3CAB7D00E1C82B /* wifi-strong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8376F6B61C3CAB7D00E1C82B /* wifi-strong@2x.png */; };
-		8376F6B91C3CABA300E1C82B /* wifi-weak@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8376F6B81C3CABA300E1C82B /* wifi-weak@2x.png */; };
-		8376F6BB1C3CABD100E1C82B /* wifi-off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8376F6BA1C3CABD100E1C82B /* wifi-off@2x.png */; };
 		837AF0B31BE7D0B700E606DF /* ARSyncLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 837AF0B21BE7D0B700E606DF /* ARSyncLogger.m */; };
 		837AF0B51BE7D2EB00E606DF /* ARSyncLoggerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 837AF0B41BE7D2EB00E606DF /* ARSyncLoggerSpec.m */; };
 		8381FB111C1A34A7005A4B84 /* UIViewController+SettingsNavigationItemHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381FB101C1A34A7005A4B84 /* UIViewController+SettingsNavigationItemHelpers.m */; };
@@ -1433,6 +1433,9 @@
 		8305D67E1AE05168004A270E /* ARThumbnailImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARThumbnailImageScrollView.h; sourceTree = "<group>"; };
 		8305D67F1AE05168004A270E /* ARThumbnailImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARThumbnailImageScrollView.m; sourceTree = "<group>"; };
 		8312011D1B73C3F600E1A988 /* ARViewInRoomViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARViewInRoomViewTests.m; sourceTree = "<group>"; };
+		832075B51C3F274000C0A114 /* wifi-off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi-off@2x.png"; sourceTree = "<group>"; };
+		832075B61C3F274000C0A114 /* wifi-strong@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi-strong@2x.png"; sourceTree = "<group>"; };
+		832075B71C3F274000C0A114 /* wifi-weak@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi-weak@2x.png"; sourceTree = "<group>"; };
 		83272D111B99365E0083D9C4 /* ArtworkModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkModelTests.m; sourceTree = "<group>"; };
 		833023031B448CF800C97266 /* close_window.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = close_window.png; path = Navigation/close_window.png; sourceTree = "<group>"; };
 		833023051B4492C900C97266 /* EditInCMSScreenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EditInCMSScreenshot.png; sourceTree = "<group>"; };
@@ -1471,9 +1474,6 @@
 		8371DAFD1B68213A00285A8E /* ARLoginNetworkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLoginNetworkModel.m; sourceTree = "<group>"; };
 		8371DB001B6824A200285A8E /* ARStubbedLoginNetworkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARStubbedLoginNetworkModel.h; sourceTree = "<group>"; };
 		8371DB011B6824A200285A8E /* ARStubbedLoginNetworkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARStubbedLoginNetworkModel.m; sourceTree = "<group>"; };
-		8376F6B61C3CAB7D00E1C82B /* wifi-strong@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-strong@2x.png"; path = "../../../../../Folio/wifi-strong@2x.png"; sourceTree = "<group>"; };
-		8376F6B81C3CABA300E1C82B /* wifi-weak@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-weak@2x.png"; path = "../../../../../Folio/wifi-weak@2x.png"; sourceTree = "<group>"; };
-		8376F6BA1C3CABD100E1C82B /* wifi-off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wifi-off@2x.png"; path = "../../../../../Folio/wifi-off@2x.png"; sourceTree = "<group>"; };
 		837AF0B11BE7D0B700E606DF /* ARSyncLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSyncLogger.h; sourceTree = "<group>"; };
 		837AF0B21BE7D0B700E606DF /* ARSyncLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncLogger.m; sourceTree = "<group>"; };
 		837AF0B41BE7D2EB00E606DF /* ARSyncLoggerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncLoggerSpec.m; sourceTree = "<group>"; };
@@ -1913,9 +1913,9 @@
 		601DBE4D152C7838002DC5BC /* In-App symbols */ = {
 			isa = PBXGroup;
 			children = (
-				8376F6BA1C3CABD100E1C82B /* wifi-off@2x.png */,
-				8376F6B81C3CABA300E1C82B /* wifi-weak@2x.png */,
-				8376F6B61C3CAB7D00E1C82B /* wifi-strong@2x.png */,
+				832075B51C3F274000C0A114 /* wifi-off@2x.png */,
+				832075B61C3F274000C0A114 /* wifi-strong@2x.png */,
+				832075B71C3F274000C0A114 /* wifi-weak@2x.png */,
 				83D0E6C31B346EED00DDFDBB /* alert-badge-large.png */,
 				83D0E6C41B346EED00DDFDBB /* alert-badge-small.png */,
 				6075076E154B0A3A003CBAC7 /* SearchGlass.png */,
@@ -3769,6 +3769,7 @@
 				601A59C41A5E16090038E8CC /* Icon-Small.png in Resources */,
 				60F63802199E8F4D008D2360 /* ARSyncMessageViewController.xib in Resources */,
 				60F1272A14DFD760007ECFCE /* ARDisplaySettingsViewController.xib in Resources */,
+				832075BA1C3F274000C0A114 /* wifi-weak@2x.png in Resources */,
 				60928CB81A5E1AF600DDA769 /* Default-375w-667h@2x~iphone.png in Resources */,
 				4961100614EACBC500135DC0 /* Remove_Clean_Button_Active.png in Resources */,
 				4961100A14EACD8C00135DC0 /* Remove_Clean_Button.png in Resources */,
@@ -3778,7 +3779,6 @@
 				6080025514FE5D450018B464 /* DeleteButtonActive.png in Resources */,
 				6080025714FE5D450018B464 /* DeleteButton.png in Resources */,
 				60F2090D14FFBEE4002B68C6 /* DoneButtonBackground.png in Resources */,
-				8376F6B91C3CABA300E1C82B /* wifi-weak@2x.png in Resources */,
 				6006C75E198EDA8500F955A0 /* ARLoginViewController.xib in Resources */,
 				609744CA150F9BC000A16BC8 /* Default-Portrait@2x~ipad.png in Resources */,
 				609744CC150F9BC300A16BC8 /* Default-Landscape@2x~ipad.png in Resources */,
@@ -3890,6 +3890,7 @@
 				60E39279190891660091AC9E /* settings_btn@2x.png in Resources */,
 				60B3418B1609CE92002A5926 /* viewinroom_btn_solidwhite.png in Resources */,
 				601A59C81A5E16090038E8CC /* Icon-Spotlight-40@2x.png in Resources */,
+				832075B81C3F274000C0A114 /* wifi-off@2x.png in Resources */,
 				60B3418D1609CE92002A5926 /* viewinroom_btn_solidwhite@2x.png in Resources */,
 				6010740A19A3E7BD00237DC6 /* ViewInRoom_Bench@2x.png in Resources */,
 				60B3418F1609CE92002A5926 /* viewinroom_btn_whiteborder.png in Resources */,
@@ -3906,7 +3907,6 @@
 				834BA69B1B4AE280009D18F7 /* pencil_btn_whiteborder@2x.png in Resources */,
 				60C563CC160B196A000E800E /* switch_seperator.png in Resources */,
 				6006C763198EDA8500F955A0 /* ARPhoneSyncViewController.xib in Resources */,
-				8376F6BB1C3CABD100E1C82B /* wifi-off@2x.png in Resources */,
 				60C563CE160B196A000E800E /* switch_seperator@2x.png in Resources */,
 				601A59C21A5E16090038E8CC /* Icon-Small-50.png in Resources */,
 				499F54D516389AEF00E3F1F2 /* AlbumIcon(Noartwork).png in Resources */,
@@ -3919,6 +3919,7 @@
 				6006C767198EDA8500F955A0 /* ARPadViewInRoomViewController.xib in Resources */,
 				60F8FD8918D1F3C700D80792 /* ARSyncAdminViewController.xib in Resources */,
 				601A59CB1A5E16090038E8CC /* Icon@2x.png in Resources */,
+				832075B91C3F274000C0A114 /* wifi-strong@2x.png in Resources */,
 				60665B5D1733EA24003F96E8 /* support_email_template.html in Resources */,
 				601A59CA1A5E16090038E8CC /* Icon.png in Resources */,
 				60B2C8021743AFF90019DB9B /* ToggleOff.png in Resources */,
@@ -3931,7 +3932,6 @@
 				601A59C61A5E16090038E8CC /* Icon-Small@3x.png in Resources */,
 				497E036F174DC3F600B211AD /* ARPromptAlertViewController.xib in Resources */,
 				60F3A1B41B657EDB0000727D /* oss_stubbed_data.sqlite in Resources */,
-				8376F6B71C3CAB7D00E1C82B /* wifi-strong@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

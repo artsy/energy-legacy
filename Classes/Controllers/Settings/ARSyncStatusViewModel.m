@@ -11,6 +11,8 @@
 @property (nonatomic, strong) NSUserDefaults *defaults;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) ARSync *sync;
+
+@property (nonatomic, assign) NSTimeInterval timeRemainingInSync;
 @end
 
 
@@ -39,18 +41,18 @@
     return self;
 }
 
-- (BOOL)isActivelySyncing
-{
-    return self.networkQuality != ARNetworkQualityOffline && self.sync.isSyncing;
-}
-
 #pragma mark -
-#pragma mark sync methods
+#pragma mark sync actions & sync delegate methods
 
 - (void)startSync
 {
     self.currentSyncPercentDone = 0;
     [self.sync sync];
+}
+
+- (BOOL)isActivelySyncing
+{
+    return self.networkQuality != ARNetworkQualityOffline && self.sync.isSyncing;
 }
 
 - (void)syncDidProgress:(ARSyncProgress *)progress
@@ -65,18 +67,18 @@
     self.timeRemainingInSync = 0;
 }
 
-- (ARSyncStatus)syncStatus
+- (BOOL)shouldEnableSyncButton
 {
-    if (self.isOffline) {
-        return ARSyncStatusOffline;
-    } else if (self.sync.isSyncing) {
-        return ARSyncStatusSyncing;
-    } else if ([self.defaults boolForKey:ARRecommendSync]) {
-        return ARSyncStatusRecommendSync;
+    if (![self.defaults boolForKey:AROptionsUseLabSettings]) {
+        return !(self.syncStatus == ARSyncStatusOffline); /// Deprecated; will be removed once old settings are totally replaced
+
     } else {
-        return ARSyncStatusUpToDate;
+        return !(self.networkQuality == ARNetworkQualityOffline);
     }
 }
+
+#pragma mark -
+#pragma mark aesthetic elements
 
 - (UIImage *)wifiStatusImage
 {
@@ -91,6 +93,16 @@
             return [UIImage imageNamed:@"wifi-off"];
     }
 }
+
+- (UIColor *)statusLabelTextColor
+{
+    if (!self.isActivelySyncing && self.networkQuality == ARNetworkQualityGood) return UIColor.artsyHeavyGreen;
+
+    return UIColor.blackColor;
+}
+
+#pragma mark -
+#pragma mark text methods
 
 - (NSString *)statusLabelText
 {
@@ -110,46 +122,36 @@
     }
 }
 
-- (UIColor *)statusLabelTextColor
+- (NSString *)syncButtonNormalTitle
 {
-    if (!self.isActivelySyncing && self.networkQuality == ARNetworkQualityGood) return UIColor.artsyHeavyGreen;
-
-    return UIColor.blackColor;
+    return NSLocalizedString(@"Sync Content", @"Sync button text after syncing completed").uppercaseString;
 }
 
-#pragma mark -
-#pragma mark sync button
-
-- (BOOL)shouldEnableSyncButton
+- (NSString *)SyncButtonDisabledTitle
 {
-    if (![self.defaults boolForKey:AROptionsUseLabSettings]) {
-        return !(self.syncStatus == ARSyncStatusOffline); /// Deprecated; will be removed once old settings are totally replaced
-
-    } else {
-        return !(self.networkQuality == ARNetworkQualityOffline);
-    }
+    return NSLocalizedString(@"Sync Unavailable", @"Sync button text when there's no network connection").uppercaseString;
 }
 
-- (BOOL)shouldShowSyncButton
+- (NSString *)syncInProgressTitle
 {
-    return !(self.syncStatus == ARSyncStatusSyncing);
-}
+    NSTimeInterval remaining = self.sync.progress.estimatedTimeRemaining;
 
-- (NSString *)syncButtonTitle
-{
-    if (self.syncStatus == ARSyncStatusRecommendSync) {
-        return NSLocalizedString(@"Sync New Content", @"Sync button text when we're recommending a sync");
-    } else if ([self.defaults boolForKey:AROptionsUseLabSettings] && self.syncStatus == ARSyncStatusOffline) {
-        return NSLocalizedString(@"Sync Unavailable", @"Sync button text when there's no network connection");
+    if (self.isActivelySyncing && remaining > 0) {
+        NSTimeInterval oneDay = 86400;
+        NSString *timeLeft = [NSString cappedStringForTimeInterval:remaining cap:oneDay];
+
+        if (!timeLeft) {
+            return @"Loading...";
+        } else if ([timeLeft containsString:@"less than"] || [timeLeft containsString:@"about"]) {
+            timeLeft = [timeLeft stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:[[timeLeft substringToIndex:1] capitalizedString]];
+        } else {
+            timeLeft = [NSString stringWithFormat:@"About %@", timeLeft.lowercaseString];
+        }
+
+        return [@[ @"Syncing in progress.", timeLeft, @"remaining..." ] componentsJoinedByString:@" "];
     }
 
-    return NSLocalizedString(@"Sync Content", @"Sync button text after syncing completed");
-}
-
-- (UIColor *)syncButtonColor
-{
-    if (self.syncStatus == ARSyncStatusRecommendSync) return [UIColor artsyPurple];
-    return [UIColor artsyHeavyGrey];
+    return @"Loading...";
 }
 
 #pragma mark -
@@ -174,7 +176,56 @@
 }
 
 #pragma mark -
+#pragma mark dependency injection
+
+- (NSUserDefaults *)defaults
+{
+    return _defaults ?: [NSUserDefaults standardUserDefaults];
+}
+
+- (void)dealloc
+{
+    [self.qualityIndicator stopObservingNetworkQuality];
+}
+
+
+#pragma mark -
 #pragma mark deprecated methods
+
+- (ARSyncStatus)syncStatus
+{
+    if (self.isOffline) {
+        return ARSyncStatusOffline;
+    } else if (self.sync.isSyncing) {
+        return ARSyncStatusSyncing;
+    } else if ([self.defaults boolForKey:ARRecommendSync]) {
+        return ARSyncStatusRecommendSync;
+    } else {
+        return ARSyncStatusUpToDate;
+    }
+}
+
+- (BOOL)shouldShowSyncButton
+{
+    return !(self.syncStatus == ARSyncStatusSyncing);
+}
+
+- (UIColor *)syncButtonColor
+{
+    if (self.syncStatus == ARSyncStatusRecommendSync) return [UIColor artsyPurple];
+    return [UIColor artsyHeavyGrey];
+}
+
+- (NSString *)syncButtonTitle
+{
+    if (self.syncStatus == ARSyncStatusRecommendSync) {
+        return NSLocalizedString(@"Sync New Content", @"Sync button text when we're recommending a sync");
+    } else if ([self.defaults boolForKey:AROptionsUseLabSettings] && self.syncStatus == ARSyncStatusOffline) {
+        return NSLocalizedString(@"Sync Unavailable", @"Sync button text when there's no network connection").uppercaseString;
+    }
+
+    return NSLocalizedString(@"Sync Content", @"Sync button text after syncing completed").uppercaseString;
+}
 
 - (CGFloat)syncActivityViewAlpha
 {
@@ -226,26 +277,6 @@
     }
 }
 
-- (NSString *)syncInProgressTitle
-{
-    NSTimeInterval remaining = self.sync.progress.estimatedTimeRemaining;
-
-    if (self.isActivelySyncing && remaining > 0) {
-        NSTimeInterval oneDay = 86400;
-        NSString *timeLeft = [NSString cappedStringForTimeInterval:remaining cap:oneDay];
-
-        if ([timeLeft containsString:@"less than"] || [timeLeft containsString:@"about"]) {
-            timeLeft = [timeLeft stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:[[timeLeft substringToIndex:1] capitalizedString]];
-        } else {
-            timeLeft = [NSString stringWithFormat:@"About %@", timeLeft.lowercaseString];
-        }
-
-        return [@[ @"Syncing in progress.", timeLeft, @"remaining..." ] componentsJoinedByString:@" "];
-    }
-
-    return @"Loading...";
-}
-
 - (NSString *)lastSyncedString
 {
     NSDate *lastSynced = [self.defaults objectForKey:ARLastSyncDate];
@@ -254,19 +285,6 @@
         return [NSString stringWithFormat:lastSyncedFormat, [lastSynced formattedString]];
     }
     return @"";
-}
-
-- (void)dealloc
-{
-    [self.qualityIndicator stopObservingNetworkQuality];
-}
-
-#pragma mark -
-#pragma mark dependency injection
-
-- (NSUserDefaults *)defaults
-{
-    return _defaults ?: [NSUserDefaults standardUserDefaults];
 }
 
 @end
