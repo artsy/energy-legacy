@@ -20,8 +20,8 @@ install:
  - bundle exec pod install
 
 script:
-- make test
+ - make test
+ - bundle exec danger
 
-after_success: bundle exec slather
 notifications:
   slack: artsy:9hT8HcywAEZV7dJrbSNGcR6u
