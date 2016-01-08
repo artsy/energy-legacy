@@ -51,7 +51,7 @@
 
 - (BOOL)isActivelySyncing
 {
-    return self.networkQuality != ARNetworkQualityOffline && self.sync.isSyncing;
+    return (self.networkQuality != ARNetworkQualityOffline) && self.sync.isSyncing;
 }
 
 - (void)syncDidProgress:(ARSyncProgress *)progress
