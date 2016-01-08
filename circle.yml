@@ -2,22 +2,26 @@ machine:
   xcode:
     version: "7.0"
   environment:
-    # Private repo access
-    GITHUB_API_KEY: secret
-    # SecondCurtain
+    # Public - Ace
     UPLOAD_IOS_SNAPSHOT_BUCKET_NAME: eigen-ci
-    AWS_ACCESS_KEY_ID: secret
-    AWS_SECRET_ACCESS_KEY: secret
-    # CocoaPods Keys
-    ArtsyAPIClientSecret : "3a33d2085cbd1176153f99781bbce7c6"
-    ArtsyAPIClientKey : "e750db60ac506978fc70"
-    HockeyAppBetaID : "-"
-    HockeyAppLiveID : "-"
-    IntercomAppID : "-"
-    IntercomAPIKey : "-"
-    SegmentProduction : "-"
-    SegmentBeta : "-"
-    SegmentDev : "-"
+
+    # Private - Keeps us in business - Ace.
+    AWS_ACCESS_KEY_ID : from_admin
+    AWS_SECRET_ACCESS_KEY : from_admin
+    DANGER_GITHUB_API_TOKEN : from_admin
+    FASTLANE_PASSWORD : from_admin
+    FASTLANE_USERNAME : from_admin
+    GITHUB_API_KEY : from_admin
+    MATCH_PASSWORD : from_admin
+    ArtsyAPIClientSecret : from_admin
+    ArtsyAPIClientKey : from_admin
+    HockeyAppBetaID : from_admin
+    HockeyAppLiveID : from_admin
+    IntercomAppID : from_admin
+    IntercomAPIKey : from_admin
+    SegmentProduction : from_admin
+    SegmentBeta	: from_admin
+
   post:
     - echo "machine github.com login $GITHUB_API_KEY" > ~/.netrc
     - chmod 600 ~/.netrc
