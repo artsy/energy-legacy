@@ -46,7 +46,8 @@ GEM
     cocoapods-deintegrate (0.2.1)
       cocoapods (~> 0.34)
     cocoapods-downloader (0.9.3)
-    cocoapods-keys (1.2.1)
+    cocoapods-keys (1.6.0)
+      dotenv
       osx_keychain
     cocoapods-open (0.0.8)
     cocoapods-plugins (0.4.2)
