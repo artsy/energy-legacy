@@ -12,7 +12,6 @@
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) ARSync *sync;
 
-@property (nonatomic, assign) NSTimeInterval timeRemainingInSync;
 @end
 
 
@@ -134,7 +133,7 @@
 
 - (NSString *)syncInProgressTitle
 {
-    NSTimeInterval remaining = self.sync.progress.estimatedTimeRemaining;
+    NSTimeInterval remaining = self.timeRemainingInSync;
 
     if (self.isActivelySyncing && remaining > 0) {
         NSTimeInterval oneDay = 86400;

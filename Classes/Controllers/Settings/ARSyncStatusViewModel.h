@@ -24,6 +24,7 @@ typedef NS_ENUM(NSInteger, ARSyncImageNotification) {
 @property (nonatomic, strong) ARNetworkQualityIndicator *qualityIndicator;
 @property (nonatomic, assign) ARNetworkQuality networkQuality;
 @property (nonatomic, assign) CGFloat currentSyncPercentDone;
+@property (nonatomic, assign) NSTimeInterval timeRemainingInSync;
 
 - (instancetype)initWithSync:(ARSync *)sync context:(NSManagedObjectContext *)context;
 
