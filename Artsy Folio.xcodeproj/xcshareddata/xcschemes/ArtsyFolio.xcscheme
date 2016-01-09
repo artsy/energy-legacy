@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D8D208AB141405A500A823E3"
-               BuildableName = "Folio &#x3b2;.app"
+               BuildableName = "Artsy Folio.app"
                BlueprintName = "ArtsyFolio"
                ReferencedContainer = "container:Artsy Folio.xcodeproj">
             </BuildableReference>
@@ -29,7 +29,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D8D208AB141405A500A823E3"
-               BuildableName = "Folio &#x3b2;.app"
+               BuildableName = "Artsy Folio.app"
                BlueprintName = "ArtsyFolio"
                ReferencedContainer = "container:Artsy Folio.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D8D208AB141405A500A823E3"
-            BuildableName = "Folio &#x3b2;.app"
+            BuildableName = "Artsy Folio.app"
             BlueprintName = "ArtsyFolio"
             ReferencedContainer = "container:Artsy Folio.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D8D208AB141405A500A823E3"
-            BuildableName = "Folio &#x3b2;.app"
+            BuildableName = "Artsy Folio.app"
             BlueprintName = "ArtsyFolio"
             ReferencedContainer = "container:Artsy Folio.xcodeproj">
          </BuildableReference>
@@ -109,7 +109,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D8D208AB141405A500A823E3"
-            BuildableName = "Folio &#x3b2;.app"
+            BuildableName = "Artsy Folio.app"
             BlueprintName = "ArtsyFolio"
             ReferencedContainer = "container:Artsy Folio.xcodeproj">
          </BuildableReference>

@@ -5,7 +5,6 @@ Deployment
 
 We deploy betas to Hockey App via [fastlane](http://fastlane.tools). You will need to have set the ENV vars:
 
-* `HOCKEY_API_TOKEN`  - accessible via HockeyApp's website. 
 * `SLACK_URL` - accessible via the Slack admin.
 
 To start the build run `bundle exec fastlane beta`. All details for our deployment can be found in the `Fastfile` in the `fastlane` directory.
@@ -19,12 +18,12 @@ To start the build run `bundle exec fastlane beta`. All details for our deployme
 3. Update `CHANGELOG.yml` with the release number.
 4. Add and commit the changed files, typically with `-m "Preparing for the next release, version X.Y.Z."`.
 
-IMPORTANT: We use the "Artsy Inc Account" not "ARTSY INC" - which is our enterprise account. For setting up these, consult [artsy/potential](https://github.com/artsy/potential/blob/master/mobile/mobile.md)
+IMPORTANT: We use the "Art.sy Inc." account not "ARTSY INC" - which is our enterprise account. For setting up these, consult [artsy/potential](https://github.com/artsy/potential/blob/master/mobile/mobile.md)
 
 ### Prepare in iTunes Connect
 
 1. You need to have copy for the next release, for minor releases this is just a list of notable changes.
-2. Log in to [iTunes Connect](https://itunesconnect.apple.com) as it@artsymail.com ( team _Art.sy Inc_ ).
+2. Log in to [iTunes Connect](https://itunesconnect.apple.com) as it@artsymail.com ( team _Art.sy Inc._ ).
 3. Manage Your Apps > Which-ever app > Add new version.
 
 ### Release to AppStore
@@ -38,7 +37,7 @@ IMPORTANT: We use the "Artsy Inc Account" not "ARTSY INC" - which is our enterpr
 
 ### Upon Successful Submission
 
-1. Return to iTunes Connect and click ‘Submit for Review’. Then answer the subequent questions as follows:
+1. Return to iTunes Connect and click ‘Submit for Review’. Then answer the subsequent questions as follows:
   * Have you added or made changes to encryption features since your last submission of this app?: NO
   * Does your app contain, display, or access third-party content?: YES
   * Do you have all necessary rights to that content […]?: YES
@@ -49,5 +48,5 @@ IMPORTANT: We use the "Artsy Inc Account" not "ARTSY INC" - which is our enterpr
 ### Prepare for the Next Release
 
 1. Run `make next`. This runs `pod install` and prompts for the next version number.
-2. Add a new section to CHANGELOG called _Next_.
+2. Empty the upcoming section of the changelog.yml.
 3. Add and commit the changed files, typically with `-m "Preparing for development, version X.Y.Z."`.

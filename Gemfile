@@ -13,4 +13,5 @@ gem 'danger'
 
 group :deployment do
   gem "fastlane"
+  gem "match"
 end

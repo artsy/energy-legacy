@@ -3,7 +3,7 @@ Getting Confident
 
 Once you've got a feel for the language, and some of the patterns here's some advice to start speeding you up in getting around the systems.
 
-Use Reveal 
+Use Reveal
 ---------------
 [Reveal](http://revealapp.com) is a tool for inspecting the view hierarchy. Folio was _featured_ on their website as an example of how pretty it looks. You should have Reveal installed, and when our app is loaded you select the simulator type in the top left of Reveal. See this [gist](https://gist.github.com/raven/8553761) for getting started, or be lazy: quit Xcode and run:
 
@@ -27,7 +27,7 @@ Documentation is essential. Having quick access is even more useful. With Dash I
 
 If you insist on using Xcode
 ---------------
-I kinda understand, it's worth the switch. Anyway.
+I understand, it's worth checking out though. Anyway.
 
-* Use Xcode Plugins. The Git & FuzzyAutoComplete ones especially. See http://alcatraz.io
+* Use Xcode Plugins. The GitHub & FuzzyAutoComplete ones especially. See http://alcatraz.io
 * Make "Open Quickly" command + t in Xcode
