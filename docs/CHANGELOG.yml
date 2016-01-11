@@ -23,7 +23,7 @@ upcoming:
     - (dev) Podfile uses `ARTSY_STAFF_MEMBER` to use closed source fonts [orta]
     - (dev) Sync refactor to simplify sync side-effects (anaalytics, notifications etc) [orta]
     - (dev) Added Danger to the CI [orta]
-    - (dev) Uses testflight for betas [orta]
+    - (dev) Uses testflight for betas, and ships dsyms to hockey [orta]
 
 releases:
   - version: 2.4.4

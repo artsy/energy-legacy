@@ -21,6 +21,8 @@ machine:
     IntercomAPIKey : from_admin
     SegmentProduction : from_admin
     SegmentBeta	: from_admin
+    HOCKEY_API_TOKEN : from_admin
+    SLACK_URL : from_admin
 
   post:
     - echo "machine github.com login $GITHUB_API_KEY" > ~/.netrc
