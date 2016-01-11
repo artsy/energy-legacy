@@ -3,10 +3,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="AGaramondPro-Regular.otf">
+            <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
             <string>AGaramondPro-Regular</string>
@@ -113,28 +115,27 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9U-Ia-fHS" customClass="ARLabSyncFlatButton">
-                                <rect key="frame" x="156" y="83" width="289" height="37"/>
+                                <rect key="frame" x="95" y="83" width="410" height="37"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="u6M-wx-Mxg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="16"/>
-                                <inset key="contentEdgeInsets" minX="85" minY="7" maxX="85" maxY="7"/>
                                 <state key="normal" title="SYNC CONTENT"/>
                                 <connections>
                                     <action selector="syncButtonPressed:" destination="lXz-BW-0kX" eventType="touchUpInside" id="XkW-Zg-AqF"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PREVIOUS SYNCS" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqP-c1-aQK">
-                                <rect key="frame" x="236" y="170" width="129" height="16"/>
+                                <rect key="frame" x="236" y="182" width="129.5" height="16"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bvo-wb-tZW">
-                                <rect key="frame" x="21" y="196" width="558" height="360"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bvo-wb-tZW">
+                                <rect key="frame" x="21" y="208" width="558" height="348"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="8" bottom="8" right="8"/>
@@ -173,7 +174,7 @@
                                         <rect key="frame" x="0.0" y="30" width="558" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="liS-em-7gK" id="JDf-3k-llm">
-                                            <rect key="frame" x="0.0" y="0.0" width="558" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="558" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -188,14 +189,41 @@
                                     <outlet property="delegate" destination="lXz-BW-0kX" id="okQ-Ns-qk2"/>
                                 </connections>
                             </tableView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5S-EC-XNG" customClass="ARProgressView">
+                                <rect key="frame" x="45" y="88" width="510" height="20"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.41568627450000001" green="0.043137254899999998" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Qum-72-ZH4"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your WiFi signal is strong." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Q0-ju-wY9">
+                                <rect key="frame" x="213" y="135" width="174" height="17"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="17"/>
+                                <color key="textColor" red="0.30196078431372547" green="0.50196078431372548" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi-strong.png" translatesAutoresizingMaskIntoConstraints="NO" id="LD3-ex-Mkr">
+                                <rect key="frame" x="194" y="137" width="14" height="11"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LD3-ex-Mkr" secondAttribute="height" multiplier="5:4" id="4H7-Lj-cmO"/>
+                                    <constraint firstAttribute="height" constant="11" id="jTa-SY-3sE"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="u9U-Ia-fHS" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="6Gd-XJ-7SI"/>
+                            <constraint firstItem="u9U-Ia-fHS" firstAttribute="width" secondItem="cwG-Vf-Fgn" secondAttribute="width" id="6P1-uZ-jKZ"/>
                             <constraint firstItem="u9U-Ia-fHS" firstAttribute="top" secondItem="cwG-Vf-Fgn" secondAttribute="bottom" constant="25" id="7Fd-xW-b03"/>
+                            <constraint firstItem="h5S-EC-XNG" firstAttribute="leading" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" constant="25" id="8iw-EI-4uM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cwG-Vf-Fgn" secondAttribute="trailing" constant="1" id="8kj-s0-z1P"/>
+                            <constraint firstItem="h5S-EC-XNG" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="Cme-bh-gmG"/>
                             <constraint firstItem="cwG-Vf-Fgn" firstAttribute="leading" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" constant="1" id="E3l-K6-yzA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="u9U-Ia-fHS" secondAttribute="trailing" constant="75" id="GPK-RE-Zwe"/>
                             <constraint firstItem="cwG-Vf-Fgn" firstAttribute="top" secondItem="5pM-C7-1Xy" secondAttribute="bottom" constant="10" id="I0H-m4-K4l">
                                 <variation key="widthClass=compact" constant="30"/>
                             </constraint>
@@ -203,17 +231,49 @@
                             <constraint firstItem="iqP-c1-aQK" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="Jrm-NS-ntE"/>
                             <constraint firstItem="bvo-wb-tZW" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="Obz-r0-PFm"/>
                             <constraint firstItem="bvo-wb-tZW" firstAttribute="width" secondItem="cwG-Vf-Fgn" secondAttribute="width" id="Oli-Hd-xlg"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="4Q0-ju-wY9" secondAttribute="trailing" constant="5" id="Uhj-HO-2KM"/>
+                            <constraint firstItem="LD3-ex-Mkr" firstAttribute="top" secondItem="u9U-Ia-fHS" secondAttribute="bottom" constant="17" id="V2v-eh-aPt"/>
                             <constraint firstItem="bvo-wb-tZW" firstAttribute="top" secondItem="iqP-c1-aQK" secondAttribute="bottom" constant="10" id="VvR-IG-vNL"/>
+                            <constraint firstItem="LD3-ex-Mkr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" constant="10" id="XvI-CS-x0s"/>
+                            <constraint firstItem="iqP-c1-aQK" firstAttribute="top" secondItem="4Q0-ju-wY9" secondAttribute="bottom" constant="30" id="ZEL-4n-QJq"/>
+                            <constraint firstItem="u9U-Ia-fHS" firstAttribute="leading" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" constant="75" id="ZY2-6l-LQ3"/>
+                            <constraint firstItem="4Q0-ju-wY9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="atM-Rl-b4z" secondAttribute="leadingMargin" constant="5" id="aqI-1P-k5f"/>
+                            <constraint firstItem="4Q0-ju-wY9" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="dPj-O3-y14"/>
+                            <constraint firstItem="h5S-EC-XNG" firstAttribute="top" secondItem="cwG-Vf-Fgn" secondAttribute="bottom" constant="30" id="hFY-W2-CA6"/>
+                            <constraint firstItem="4Q0-ju-wY9" firstAttribute="top" secondItem="u9U-Ia-fHS" secondAttribute="bottom" constant="15" id="lcu-5W-LnB"/>
+                            <constraint firstItem="h5S-EC-XNG" firstAttribute="width" secondItem="cwG-Vf-Fgn" secondAttribute="width" id="uUi-Gn-jwK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h5S-EC-XNG" secondAttribute="trailing" constant="25" id="vy9-cI-O5y"/>
+                            <constraint firstItem="4Q0-ju-wY9" firstAttribute="leading" secondItem="LD3-ex-Mkr" secondAttribute="trailing" constant="5" id="yKd-ns-FoH"/>
                             <constraint firstItem="cwG-Vf-Fgn" firstAttribute="centerX" secondItem="atM-Rl-b4z" secondAttribute="centerX" id="ySr-VW-LTC"/>
-                            <constraint firstItem="iqP-c1-aQK" firstAttribute="top" secondItem="u9U-Ia-fHS" secondAttribute="bottom" constant="50" id="yca-6S-vPR"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6P1-uZ-jKZ"/>
+                                <exclude reference="Cme-bh-gmG"/>
+                                <exclude reference="uUi-Gn-jwK"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="6P1-uZ-jKZ"/>
+                                <exclude reference="GPK-RE-Zwe"/>
+                                <exclude reference="ZY2-6l-LQ3"/>
+                                <exclude reference="8iw-EI-4uM"/>
+                                <include reference="Cme-bh-gmG"/>
+                                <include reference="uUi-Gn-jwK"/>
+                                <exclude reference="vy9-cI-O5y"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Ye7-Wv-PSn"/>
                     <connections>
                         <outlet property="explanatoryTextLabel" destination="cwG-Vf-Fgn" id="fYi-b3-PnZ"/>
                         <outlet property="previousSyncsLabel" destination="iqP-c1-aQK" id="xXi-Vj-tNT"/>
+                        <outlet property="progressView" destination="h5S-EC-XNG" id="YAs-aN-cGy"/>
                         <outlet property="syncButton" destination="u9U-Ia-fHS" id="zL1-K0-Qtk"/>
+                        <outlet property="syncStatusLabel" destination="4Q0-ju-wY9" id="Eq4-hb-SaD"/>
                         <outlet property="tableView" destination="bvo-wb-tZW" id="0Pj-x6-vEc"/>
+                        <outlet property="wifiSymbolImageView" destination="LD3-ex-Mkr" id="Fhn-Ig-N5t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xm4-Ia-lle" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -266,7 +326,7 @@
                                         <rect key="frame" x="0.0" y="10" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XLR-qu-nbE" id="7tP-Fl-Ow7">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -283,7 +343,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ta-Vo-WrY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1639" y="1548"/>
+            <point key="canvasLocation" x="1639" y="1586"/>
         </scene>
         <!--Lab Settings Presentation Mode View Controller-->
         <scene sceneID="abj-9B-mjj">
@@ -355,7 +415,7 @@
                                 <rect key="frame" x="0.0" y="38" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oc8-hj-y8W" id="leD-1H-xiG">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -365,7 +425,7 @@
                                 <rect key="frame" x="0.0" y="88" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cfg-3y-FDE" id="2Wb-tz-kNs">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -375,7 +435,7 @@
                                 <rect key="frame" x="0.0" y="138" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Yx-VL-bmB" id="sXn-kQ-voW">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -393,7 +453,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIU-fM-KDr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="966" y="1548"/>
+            <point key="canvasLocation" x="1001" y="1586"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wqt-dq-QUI">
@@ -554,7 +614,7 @@
                                                                 <rect key="frame" x="0.0" y="30" width="570" height="50"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0x1-Qn-BpW" id="VeQ-Gu-EHF">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="570" height="50"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="570" height="49.5"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Chevron_Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="jqk-8B-Nbu">
@@ -672,7 +732,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asY-Jd-BD8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112.5" y="1633.5"/>
+            <point key="canvasLocation" x="364" y="1671.5"/>
         </scene>
         <!--Lab Settings Email Subject Lines View Controller-->
         <scene sceneID="GkT-JW-fht">
@@ -743,7 +803,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfK-le-O08" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112" y="2528.5"/>
+            <point key="canvasLocation" x="364" y="2584.5"/>
         </scene>
         <!--Lab Settings Master View Controller-->
         <scene sceneID="JlK-zY-KPG">
@@ -1117,6 +1177,7 @@
     <resources>
         <image name="Chevron_Gray.png" width="8" height="13"/>
         <image name="White.png" width="1" height="1"/>
+        <image name="wifi-strong.png" width="697" height="536"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pLu-7S-IIQ"/>
