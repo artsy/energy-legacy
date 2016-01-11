@@ -44,6 +44,10 @@
 
     NSString *partnerSlug = [Partner currentPartnerID];
     [self.rootOperation enqueueOperationsForObject:partnerSlug completion:^{
+
+        /// This ensures the isSyncing variable is set to NO before the plugins run
+        if (completion) completion();
+
         [self.tileDownloader writeSlugs];
 
         [self runAfterSyncPlugins:plugins];
@@ -51,7 +55,6 @@
 
         // Cleanup the tree so it's recreated next sync
         self.rootOperation = nil;
-        if (completion) completion();
     }];
 }
 

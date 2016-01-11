@@ -3,6 +3,7 @@ upcoming:
   notes:
     - (dev) Updated sync view controller copy [sarah]
     - (dev) Removed sync notification badge from settings icon [sarah]
+    - (dev) Fix for main settings button corresponding to sync status [sarah]
     - (dev) Added a sync progress bar and WiFi status messaging to sync settings [sarah]
     - (dev) Added a custom navigation bar for all settings views [sarah]
     - (dev) iPhone support for settings panel [sarah]
