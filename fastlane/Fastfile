@@ -13,7 +13,7 @@ lane :test do
 end
 
 lane :build_for_beta do
-  xcodebuild sdk: "iphoneos", configuration: "Beta"
+  xcodebuild sdk: "iphoneos", configuration: "Debug"
 end
 
 lane :beta do
@@ -43,11 +43,10 @@ lane :beta do
   sh 'cat "../Resources/Images/App Icons + Launch/Beta-icon.png" | tee ../Resources/Images/App\ Icons\ +\ Launch/Icon* > /dev/null'
 
   # Build
-  ipa configuration: "Beta", scheme: "ArtsyFolio"
+  gym configuration: "Release", scheme: "ArtsyFolio"
+  pilot changelog: release_notes
 
-  hockey api_token: ENV['HOCKEY_API_TOKEN'], notes: release_notes
-
-  slack message: "There is a new Folio beta available. Download it at https://artsy.net/foliobeta",
+  slack message: "There is a new Folio beta available. Grab it from Testflight on your iOS device.",
         channel: "Folio",
         payload: {
           'Version' => latest_version,
@@ -59,5 +58,4 @@ lane :beta do
   sh "git checkout ../Resources/"
   `rm ../*.dSYM.zip`
   `rm ../*.ipa`
-
 end

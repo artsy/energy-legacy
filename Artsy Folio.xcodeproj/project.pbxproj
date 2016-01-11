@@ -92,6 +92,7 @@
 		6006C769198EDA8500F955A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6006C75A198EDA8500F955A0 /* Localizable.strings */; };
 		6006C76A198EDF9300F955A0 /* ARAppTestDelegate+Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AC10C519479D5000274EBB /* ARAppTestDelegate+Tests.m */; };
 		600856FD19353CED005741CF /* ARTiledImageDataSourceWithImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 600856FC19353CED005741CF /* ARTiledImageDataSourceWithImage.m */; };
+		600AD6151C3E9CC700E027A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 600AD6141C3E9CC700E027A7 /* Images.xcassets */; };
 		600F1A9F187A17C40006288F /* AREditAlbumArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600F1A9E187A17C40006288F /* AREditAlbumArtistViewController.m */; };
 		600F1AA3187AB9280006288F /* ARSelectionHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 600F1AA2187AB9280006288F /* ARSelectionHandlerTests.m */; };
 		601073FF19A3E3C300237DC6 /* ARViewInRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601073FE19A3E3C300237DC6 /* ARViewInRoomViewController.m */; };
@@ -122,24 +123,6 @@
 		60138AD1195E21E300E36EC6 /* ARArtworkMetadataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 60138AD0195E21E300E36EC6 /* ARArtworkMetadataStack.m */; };
 		60138AD31961BD3B00E36EC6 /* ARArtworkMetadataExtendedViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60138AD21961BD3B00E36EC6 /* ARArtworkMetadataExtendedViewTests.m */; };
 		601A44D21B04C7B500713590 /* SDWebImage+EasyCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 601A44D11B04C7B500713590 /* SDWebImage+EasyCache.m */; };
-		601A59BA1A5E16090038E8CC /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59A81A5E16090038E8CC /* Icon-60.png */; };
-		601A59BB1A5E16090038E8CC /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59A91A5E16090038E8CC /* Icon-60@2x.png */; };
-		601A59BC1A5E16090038E8CC /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59AA1A5E16090038E8CC /* Icon-60@3x.png */; };
-		601A59BD1A5E16090038E8CC /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59AB1A5E16090038E8CC /* Icon-72.png */; };
-		601A59BE1A5E16090038E8CC /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59AC1A5E16090038E8CC /* Icon-72@2x.png */; };
-		601A59BF1A5E16090038E8CC /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59AD1A5E16090038E8CC /* Icon-76.png */; };
-		601A59C01A5E16090038E8CC /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59AE1A5E16090038E8CC /* Icon-76@2x.png */; };
-		601A59C11A5E16090038E8CC /* Icon-76@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59AF1A5E16090038E8CC /* Icon-76@3x.png */; };
-		601A59C21A5E16090038E8CC /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59B01A5E16090038E8CC /* Icon-Small-50.png */; };
-		601A59C31A5E16090038E8CC /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59B11A5E16090038E8CC /* Icon-Small-50@2x.png */; };
-		601A59C41A5E16090038E8CC /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59B21A5E16090038E8CC /* Icon-Small.png */; };
-		601A59C51A5E16090038E8CC /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59B31A5E16090038E8CC /* Icon-Small@2x.png */; };
-		601A59C61A5E16090038E8CC /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59B41A5E16090038E8CC /* Icon-Small@3x.png */; };
-		601A59C71A5E16090038E8CC /* Icon-Spotlight-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59B51A5E16090038E8CC /* Icon-Spotlight-40.png */; };
-		601A59C81A5E16090038E8CC /* Icon-Spotlight-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59B61A5E16090038E8CC /* Icon-Spotlight-40@2x.png */; };
-		601A59C91A5E16090038E8CC /* Icon-Spotlight-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59B71A5E16090038E8CC /* Icon-Spotlight-40@3x.png */; };
-		601A59CA1A5E16090038E8CC /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59B81A5E16090038E8CC /* Icon.png */; };
-		601A59CB1A5E16090038E8CC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 601A59B91A5E16090038E8CC /* Icon@2x.png */; };
 		601C621C1871C35D00A68B08 /* ARTextToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C621B1871C35D00A68B08 /* ARTextToolbarButton.m */; };
 		601C62211871C74900A68B08 /* ButtonBackgroundWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 601C62201871C74900A68B08 /* ButtonBackgroundWhite@2x.png */; };
 		601DBE52152C7980002DC5BC /* check-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 601DBE4E152C7980002DC5BC /* check-active.png */; };
@@ -413,7 +396,6 @@
 		60C1495B1500EFB100D6715D /* ARBaseViewController+TransparentModals.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C1495A1500EFB100D6715D /* ARBaseViewController+TransparentModals.m */; };
 		60C20F051836B20D00846A60 /* ARGroupedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C20F041836B20D00846A60 /* ARGroupedView.m */; };
 		60C21E3B198B9DEF005CA461 /* ARHostSelectionControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C21E3A198B9DEF005CA461 /* ARHostSelectionControllerTests.m */; };
-		60C279BB1BE2310300229C8C /* Pods-ArtsyFolio.beta.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 60C279B81BE2310300229C8C /* Pods-ArtsyFolio.beta.xcconfig */; };
 		60C279BC1BE2310300229C8C /* Pods-ArtsyFolio.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 60C279B91BE2310300229C8C /* Pods-ArtsyFolio.debug.xcconfig */; };
 		60C279BD1BE2310300229C8C /* Pods-ArtsyFolio.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 60C279BA1BE2310300229C8C /* Pods-ArtsyFolio.release.xcconfig */; };
 		60C563CC160B196A000E800E /* switch_seperator.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C563CA160B196A000E800E /* switch_seperator.png */; };
@@ -711,7 +693,6 @@
 		342F9EBCD72F7CC0D2258556 /* ARImageThumbnailCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARImageThumbnailCreator.m; sourceTree = "<group>"; };
 		342F9EC9FA53B592D5B7409E /* ARGridViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARGridViewDataSource.m; sourceTree = "<group>"; };
 		342F9F9659313511F3E8B570 /* ARGridViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARGridViewDataSource.h; sourceTree = "<group>"; };
-		386C6E8371378188D38EA54E /* Pods-ArtsyFolio Tests.beta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio Tests.beta.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests.beta.xcconfig"; sourceTree = "<group>"; };
 		411D96D71731528B00598854 /* ARLogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLogoutViewController.h; sourceTree = "<group>"; };
 		411D96D81731528B00598854 /* ARLogoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLogoutViewController.m; sourceTree = "<group>"; };
 		4137E7B617304ED000D85A93 /* ARLogoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLogoutManager.h; sourceTree = "<group>"; };
@@ -806,6 +787,7 @@
 		6006C75A198EDA8500F955A0 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		600856FB19353CED005741CF /* ARTiledImageDataSourceWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTiledImageDataSourceWithImage.h; sourceTree = "<group>"; };
 		600856FC19353CED005741CF /* ARTiledImageDataSourceWithImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTiledImageDataSourceWithImage.m; sourceTree = "<group>"; };
+		600AD6141C3E9CC700E027A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ArtsyFolio/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		600F1A9D187A17C40006288F /* AREditAlbumArtistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREditAlbumArtistViewController.h; sourceTree = "<group>"; };
 		600F1A9E187A17C40006288F /* AREditAlbumArtistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREditAlbumArtistViewController.m; sourceTree = "<group>"; };
 		600F1AA2187AB9280006288F /* ARSelectionHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSelectionHandlerTests.m; sourceTree = "<group>"; };
@@ -861,24 +843,6 @@
 		60138AD21961BD3B00E36EC6 /* ARArtworkMetadataExtendedViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtworkMetadataExtendedViewTests.m; sourceTree = "<group>"; };
 		601A44D01B04C7B500713590 /* SDWebImage+EasyCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImage+EasyCache.h"; sourceTree = "<group>"; };
 		601A44D11B04C7B500713590 /* SDWebImage+EasyCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage+EasyCache.m"; sourceTree = "<group>"; };
-		601A59A81A5E16090038E8CC /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
-		601A59A91A5E16090038E8CC /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
-		601A59AA1A5E16090038E8CC /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
-		601A59AB1A5E16090038E8CC /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
-		601A59AC1A5E16090038E8CC /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
-		601A59AD1A5E16090038E8CC /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
-		601A59AE1A5E16090038E8CC /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
-		601A59AF1A5E16090038E8CC /* Icon-76@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@3x.png"; sourceTree = "<group>"; };
-		601A59B01A5E16090038E8CC /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
-		601A59B11A5E16090038E8CC /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
-		601A59B21A5E16090038E8CC /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
-		601A59B31A5E16090038E8CC /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
-		601A59B41A5E16090038E8CC /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
-		601A59B51A5E16090038E8CC /* Icon-Spotlight-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight-40.png"; sourceTree = "<group>"; };
-		601A59B61A5E16090038E8CC /* Icon-Spotlight-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight-40@2x.png"; sourceTree = "<group>"; };
-		601A59B71A5E16090038E8CC /* Icon-Spotlight-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight-40@3x.png"; sourceTree = "<group>"; };
-		601A59B81A5E16090038E8CC /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		601A59B91A5E16090038E8CC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		601C621A1871C35D00A68B08 /* ARTextToolbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTextToolbarButton.h; sourceTree = "<group>"; };
 		601C621B1871C35D00A68B08 /* ARTextToolbarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTextToolbarButton.m; sourceTree = "<group>"; };
 		601C62201871C74900A68B08 /* ButtonBackgroundWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ButtonBackgroundWhite@2x.png"; sourceTree = "<group>"; };
@@ -1286,7 +1250,6 @@
 		60C20F031836B20D00846A60 /* ARGroupedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARGroupedView.h; sourceTree = "<group>"; };
 		60C20F041836B20D00846A60 /* ARGroupedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARGroupedView.m; sourceTree = "<group>"; };
 		60C21E3A198B9DEF005CA461 /* ARHostSelectionControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARHostSelectionControllerTests.m; sourceTree = "<group>"; };
-		60C279B81BE2310300229C8C /* Pods-ArtsyFolio.beta.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio.beta.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio.beta.xcconfig"; sourceTree = "<group>"; };
 		60C279B91BE2310300229C8C /* Pods-ArtsyFolio.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio.debug.xcconfig"; sourceTree = "<group>"; };
 		60C279BA1BE2310300229C8C /* Pods-ArtsyFolio.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio.release.xcconfig"; sourceTree = "<group>"; };
 		60C563CA160B196A000E800E /* switch_seperator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_seperator.png; sourceTree = "<group>"; };
@@ -1775,11 +1738,9 @@
 		4CA134617D297561534F4A38 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				60C279B81BE2310300229C8C /* Pods-ArtsyFolio.beta.xcconfig */,
 				60C279B91BE2310300229C8C /* Pods-ArtsyFolio.debug.xcconfig */,
 				60C279BA1BE2310300229C8C /* Pods-ArtsyFolio.release.xcconfig */,
 				DE9981EA47475E88B6812508 /* Pods-ArtsyFolio Tests.release.xcconfig */,
-				386C6E8371378188D38EA54E /* Pods-ArtsyFolio Tests.beta.xcconfig */,
 				A1F3785C79A10599104E0FB7 /* Pods-ArtsyFolio Tests.debug.xcconfig */,
 			);
 			name = Pods;
@@ -3199,24 +3160,6 @@
 				8369810C1B0E770A000BF9D7 /* full_logo_white_large@2x.png */,
 				8369810D1B0E770A000BF9D7 /* full_logo_white_small@2x.png */,
 				6095BEC51B0B7AF00094E681 /* Beta-icon.png */,
-				601A59A81A5E16090038E8CC /* Icon-60.png */,
-				601A59A91A5E16090038E8CC /* Icon-60@2x.png */,
-				601A59AA1A5E16090038E8CC /* Icon-60@3x.png */,
-				601A59AB1A5E16090038E8CC /* Icon-72.png */,
-				601A59AC1A5E16090038E8CC /* Icon-72@2x.png */,
-				601A59AD1A5E16090038E8CC /* Icon-76.png */,
-				601A59AE1A5E16090038E8CC /* Icon-76@2x.png */,
-				601A59AF1A5E16090038E8CC /* Icon-76@3x.png */,
-				601A59B01A5E16090038E8CC /* Icon-Small-50.png */,
-				601A59B11A5E16090038E8CC /* Icon-Small-50@2x.png */,
-				601A59B21A5E16090038E8CC /* Icon-Small.png */,
-				601A59B31A5E16090038E8CC /* Icon-Small@2x.png */,
-				601A59B41A5E16090038E8CC /* Icon-Small@3x.png */,
-				601A59B51A5E16090038E8CC /* Icon-Spotlight-40.png */,
-				601A59B61A5E16090038E8CC /* Icon-Spotlight-40@2x.png */,
-				601A59B71A5E16090038E8CC /* Icon-Spotlight-40@3x.png */,
-				601A59B81A5E16090038E8CC /* Icon.png */,
-				601A59B91A5E16090038E8CC /* Icon@2x.png */,
 				49AFB07A165466F000B21E3D /* iTunesArtwork.png */,
 				49AFB07B165466F000B21E3D /* iTunesArtwork@2x.png */,
 			);
@@ -3621,6 +3564,7 @@
 		D8FAA9721442893500AA34BC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				600AD6141C3E9CC700E027A7 /* Images.xcassets */,
 				60F8FA981BC83592009763E9 /* Launch Screen.xib */,
 				6028B13F161ADF800027F52D /* CoreData */,
 				B538ABEE14722DF80019AD62 /* Images */,
@@ -3749,12 +3693,10 @@
 				B538AC1A14722DF80019AD62 /* NavigationBarBackground.png in Resources */,
 				60E39277190891660091AC9E /* addtoalbum_btn@2x.png in Resources */,
 				B58785411479BCB500A5C772 /* ForwardButtonBackground.png in Resources */,
-				601A59BC1A5E16090038E8CC /* Icon-60@3x.png in Resources */,
 				6027030C147B15FC008BD84A /* ButtonBackgroundWhite.png in Resources */,
 				6027030D147B15FC008BD84A /* ButtonBackground.png in Resources */,
 				60EC85031491377300E193A7 /* email_artwork_template.html in Resources */,
 				60EAE0DA1497D78C006B55E8 /* ARSettingsViewController.xib in Resources */,
-				601A59BA1A5E16090038E8CC /* Icon-60.png in Resources */,
 				60928CBA1A5E1AF600DDA769 /* Default@2x.png in Resources */,
 				6006C768198EDA8500F955A0 /* InfoPlist.strings in Resources */,
 				83DA2F631BD6C1A000C55982 /* ARLabSettingsSectionButton.xib in Resources */,
@@ -3766,7 +3708,7 @@
 				6010740819A3E7BD00237DC6 /* ViewInRoom_Base@2x.png in Resources */,
 				6006C764198EDA8500F955A0 /* ARSearchViewController.xib in Resources */,
 				60BDA97914DC06E500852753 /* DoneButtonBackgroundTransparent.png in Resources */,
-				601A59C41A5E16090038E8CC /* Icon-Small.png in Resources */,
+				600AD6151C3E9CC700E027A7 /* Images.xcassets in Resources */,
 				60F63802199E8F4D008D2360 /* ARSyncMessageViewController.xib in Resources */,
 				60F1272A14DFD760007ECFCE /* ARDisplaySettingsViewController.xib in Resources */,
 				832075BA1C3F274000C0A114 /* wifi-weak@2x.png in Resources */,
@@ -3793,13 +3735,11 @@
 				601DBE54152C7980002DC5BC /* check-inactive.png in Resources */,
 				601DBE56152C7980002DC5BC /* check-inactive@2x.png in Resources */,
 				601DBE58152C7980002DC5BC /* check-active@2x.png in Resources */,
-				601A59C11A5E16090038E8CC /* Icon-76@3x.png in Resources */,
 				8356C1741B20A4A3000E03B5 /* ARFolioMessageViewController.xib in Resources */,
 				60EB6E11153888790019FC23 /* DeleteButtonActive@2x.png in Resources */,
 				60928CB71A5E1AF600DDA769 /* Default-568h@2x.png in Resources */,
 				833104DB1B43316600B68E52 /* ARFolioImageMessageViewController.xib in Resources */,
 				60EB6E13153888790019FC23 /* DeleteButton@2x.png in Resources */,
-				60C279BB1BE2310300229C8C /* Pods-ArtsyFolio.beta.xcconfig in Resources */,
 				60BA58A0153C21D8005E0576 /* ARAlertViewController.xib in Resources */,
 				60750770154B0A3A003CBAC7 /* SearchGlass.png in Resources */,
 				60750772154B0A3A003CBAC7 /* SearchGlass@2x.png in Resources */,
@@ -3815,7 +3755,6 @@
 				6010740C19A3E7BD00237DC6 /* ViewInRoom_Wall_Right@2x.png in Resources */,
 				6010740919A3E7BD00237DC6 /* ViewInRoom_BaseNoBench@2x.png in Resources */,
 				6010740B19A3E7BD00237DC6 /* ViewInRoom_Man_3@2x.png in Resources */,
-				601A59C31A5E16090038E8CC /* Icon-Small-50@2x.png in Resources */,
 				609E4C3A15625272004F9E58 /* RoomWoodPortrait2x.jpg in Resources */,
 				609E4C3C15625272004F9E58 /* RoomWoodPortrait3x.jpg in Resources */,
 				609E4C3E15625272004F9E58 /* RoomWoodLandscape3x.jpg in Resources */,
@@ -3834,14 +3773,12 @@
 				834BA6991B4AE1A8009D18F7 /* pencil_btn_whiteborder.png in Resources */,
 				6006C769198EDA8500F955A0 /* Localizable.strings in Resources */,
 				60FFE3BC156FAE5000A138D3 /* RecentlyUploadedPlaceholder@2x.jpg in Resources */,
-				601A59BD1A5E16090038E8CC /* Icon-72.png in Resources */,
 				60B340871609C25B002A5926 /* action_btn_solidwhite.png in Resources */,
 				60B340891609C25B002A5926 /* action_btn_solidwhite@2x.png in Resources */,
 				6041E3D91887F8A000FADB67 /* BackButtonBackgroundWhite.png in Resources */,
 				60B3408B1609C25B002A5926 /* action_btn_whiteborder.png in Resources */,
 				6041E3DA1887F8A000FADB67 /* BackButtonBackgroundWhite@2x.png in Resources */,
 				60B3408D1609C25B002A5926 /* action_btn_whiteborder@2x.png in Resources */,
-				601A59C91A5E16090038E8CC /* Icon-Spotlight-40@3x.png in Resources */,
 				606B1EDD184681FF00CC3DBD /* Black.png in Resources */,
 				60B340B71609C28D002A5926 /* garbage_btn_solidwhite.png in Resources */,
 				60C279BD1BE2310300229C8C /* Pods-ArtsyFolio.release.xcconfig in Resources */,
@@ -3853,25 +3790,21 @@
 				60B340CF1609C2C1002A5926 /* plus_btn_solidwhite.png in Resources */,
 				60B6085A1A41847300C2BBE5 /* PhoneAddArtworksButton@2x.png in Resources */,
 				60B340D11609C2C1002A5926 /* plus_btn_solidwhite@2x.png in Resources */,
-				601A59BF1A5E16090038E8CC /* Icon-76.png in Resources */,
 				83D0E6C61B346EED00DDFDBB /* alert-badge-small.png in Resources */,
 				60B340D31609C2C1002A5926 /* plus_btn_whiteborder.png in Resources */,
 				60B340D51609C2C1002A5926 /* plus_btn_whiteborder@2x.png in Resources */,
 				60B6085B1A41847300C2BBE5 /* PhoneCreateAlbumButton@2x.png in Resources */,
 				60E3927E190891FD0091AC9E /* search_btn@2x.png in Resources */,
-				601A59BE1A5E16090038E8CC /* Icon-72@2x.png in Resources */,
 				60B340ED1609C2E9002A5926 /* refresh_btn_solidwhite.png in Resources */,
 				60E3927A190891660091AC9E /* viewinroom_btn@2x.png in Resources */,
 				60B340EF1609C2E9002A5926 /* refresh_btn_solidwhite@2x.png in Resources */,
 				60B340F11609C2E9002A5926 /* refresh_btn_whiteborder.png in Resources */,
 				60B340F31609C2E9002A5926 /* refresh_btn_whiteborder@2x.png in Resources */,
 				60B340F91609C2E9002A5926 /* search_btn_solidwhite.png in Resources */,
-				601A59C01A5E16090038E8CC /* Icon-76@2x.png in Resources */,
 				60B340FB1609C2E9002A5926 /* search_btn_solidwhite@2x.png in Resources */,
 				60B340FD1609C2E9002A5926 /* search_btn_whiteborder.png in Resources */,
 				60B340FF1609C2E9002A5926 /* search_btn_whiteborder@2x.png in Resources */,
 				60B341191609C303002A5926 /* settings_btn_solidwhite.png in Resources */,
-				601A59C71A5E16090038E8CC /* Icon-Spotlight-40.png in Resources */,
 				60B3411B1609C303002A5926 /* settings_btn_solidwhite@2x.png in Resources */,
 				60B3411D1609C303002A5926 /* settings_btn_whiteborder.png in Resources */,
 				6006C75F198EDA8500F955A0 /* ARLogoutViewController.xib in Resources */,
@@ -3882,9 +3815,7 @@
 				60B3417D1609CE92002A5926 /* messages_btn_solidwhite@2x.png in Resources */,
 				60B3417F1609CE92002A5926 /* messages_btn_whiteborder.png in Resources */,
 				601C62211871C74900A68B08 /* ButtonBackgroundWhite@2x.png in Resources */,
-				601A59BB1A5E16090038E8CC /* Icon-60@2x.png in Resources */,
 				60E3927C1908917C0091AC9E /* btn_whiteborder@2x.png in Resources */,
-				601A59C51A5E16090038E8CC /* Icon-Small@2x.png in Resources */,
 				83D0E6C51B346EED00DDFDBB /* alert-badge-large.png in Resources */,
 				60B341811609CE92002A5926 /* messages_btn_whiteborder@2x.png in Resources */,
 				60E39279190891660091AC9E /* settings_btn@2x.png in Resources */,
@@ -3908,7 +3839,6 @@
 				60C563CC160B196A000E800E /* switch_seperator.png in Resources */,
 				6006C763198EDA8500F955A0 /* ARPhoneSyncViewController.xib in Resources */,
 				60C563CE160B196A000E800E /* switch_seperator@2x.png in Resources */,
-				601A59C21A5E16090038E8CC /* Icon-Small-50.png in Resources */,
 				499F54D516389AEF00E3F1F2 /* AlbumIcon(Noartwork).png in Resources */,
 				499F54D616389AEF00E3F1F2 /* AlbumIcon(Noartwork)@2x.png in Resources */,
 				496AA8EB164DC7B100747DE1 /* FileIcon_generic.png in Resources */,
@@ -3921,7 +3851,6 @@
 				601A59CB1A5E16090038E8CC /* Icon@2x.png in Resources */,
 				832075B91C3F274000C0A114 /* wifi-strong@2x.png in Resources */,
 				60665B5D1733EA24003F96E8 /* support_email_template.html in Resources */,
-				601A59CA1A5E16090038E8CC /* Icon.png in Resources */,
 				60B2C8021743AFF90019DB9B /* ToggleOff.png in Resources */,
 				833023061B4492C900C97266 /* EditInCMSScreenshot.png in Resources */,
 				60B2C8051743AFF90019DB9B /* ToggleOff@2x.png in Resources */,
@@ -3929,7 +3858,6 @@
 				60B2C80B1743AFF90019DB9B /* ToggleOn@2x.png in Resources */,
 				60B2C8191743D2750019DB9B /* ARSupportSettingsViewController.xib in Resources */,
 				6055B78A1872E8390043B937 /* ARAdminSettingsViewController.xib in Resources */,
-				601A59C61A5E16090038E8CC /* Icon-Small@3x.png in Resources */,
 				497E036F174DC3F600B211AD /* ARPromptAlertViewController.xib in Resources */,
 				60F3A1B41B657EDB0000727D /* oss_stubbed_data.sqlite in Resources */,
 			);
@@ -4515,8 +4443,6 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
@@ -4544,7 +4470,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 60C279B91BE2310300229C8C /* Pods-ArtsyFolio.debug.xcconfig */;
 			buildSettings = {
-				APPLICATION_BUNDLE_IDENTIFIER = net.artsy.folio.dev;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
@@ -4604,8 +4531,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APPLICATION_BUNDLE_IDENTIFIER)";
 				PRODUCT_MODULE_NAME = Folio;
 				PRODUCT_NAME = FolioDev;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=*]" = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/Util/ArtsyFolio-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -4639,32 +4564,6 @@
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
-		};
-		B37F1670183EEA71007A7023 /* Beta */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 386C6E8371378188D38EA54E /* Pods-ArtsyFolio Tests.beta.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FolioDev.app/FolioDev";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Supporting Files/ArtsyFolio Tests-Prefix.pch";
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				INFOPLIST_FILE = "Supporting Files/ArtsyFolio Tests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.artsy.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ArtsyFolio Tests/Util/ArtsyFolio Tests-Bridging-Header.h";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Beta;
 		};
 		B37F1671183EEA71007A7023 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -4700,106 +4599,6 @@
 			};
 			name = Debug;
 		};
-		D84CCC39143BE93A009FB61E /* Beta */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				COPY_PHASE_STRIP = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
-				MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR = YES;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "e505fd5b-e1a1-4c29-b3ad-d68698b21309";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Beta;
-		};
-		D84CCC3A143BE93A009FB61E /* Beta */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60C279B81BE2310300229C8C /* Pods-ArtsyFolio.beta.xcconfig */;
-			buildSettings = {
-				APPLICATION_BUNDLE_IDENTIFIER = net.artsy.folio.beta;
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
-				COPY_PHASE_STRIP = NO;
-				DEFINES_MODULE = YES;
-				ENABLE_BITCODE = NO;
-				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ArtsyPartner-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"CONFIGURATION_$(CONFIGURATION)",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				GCC_WARN_PEDANTIC = NO;
-				INFOPLIST_FILE = "Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MODULE_NAME = Folio;
-				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
-				MOMC_NO_WARNINGS = YES;
-				MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR = YES;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"\"-isystem${PODS_ROOT}/Headers\"",
-					"\"-isystem${PODS_ROOT}/Headers/AFNetworking\"",
-					"\"-isystem${PODS_ROOT}/Headers/ARAnalytics\"",
-					"\"-isystem${PODS_ROOT}/Headers/CocoaLumberjack\"",
-					"\"-isystem${PODS_ROOT}/Headers/DDProgressView\"",
-					"\"-isystem${PODS_ROOT}/Headers/DRBOperationTree\"",
-					"\"-isystem${PODS_ROOT}/Headers/EXPMatchers+FBSnapshotTest\"",
-					"\"-isystem${PODS_ROOT}/Headers/Expecta\"",
-					"\"-isystem${PODS_ROOT}/Headers/Expecta+ContainerClasses\"",
-					"\"-isystem${PODS_ROOT}/Headers/FBSnapshotTestCase\"",
-					"\"-isystem${PODS_ROOT}/Headers/GHMarkdownParser\"",
-					"\"-isystem${PODS_ROOT}/Headers/GRMustache\"",
-					"\"-isystem${PODS_ROOT}/Headers/HockeySDK\"",
-					"\"-isystem${PODS_ROOT}/Headers/ISO8601DateFormatter\"",
-					"\"-isystem${PODS_ROOT}/Headers/JRSwizzle\"",
-					"\"-isystem${PODS_ROOT}/Headers/Mixpanel\"",
-					"\"-isystem${PODS_ROOT}/Headers/OCMock\"",
-					"\"-isystem${PODS_ROOT}/Headers/OHHTTPStubs\"",
-					"\"-isystem${PODS_ROOT}/Headers/ORKeyboardReactingApplication\"",
-					"\"-isystem${PODS_ROOT}/Headers/ObjectiveSugar\"",
-					"\"-isystem${PODS_ROOT}/Headers/Reachability\"",
-					"\"-isystem${PODS_ROOT}/Headers/SDWebImage\"",
-					"\"-isystem${PODS_ROOT}/Headers/SFHFKeychainUtils\"",
-					"\"-isystem${PODS_ROOT}/Headers/Specta\"",
-					"\"-isystem${PODS_ROOT}/Headers/XCTest+OHHTTPStubSuiteCleanUp\"",
-					"\"-isystem${PODS_ROOT}/Headers/ZipArchive\"",
-					"\"-isystem${PODS_ROOT}/Headers/ZipArchive/minizip\"",
-					"\"-isystem${PODS_ROOT}/Headers/libextobjc\"",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APPLICATION_BUNDLE_IDENTIFIER)";
-				PRODUCT_MODULE_NAME = Folio;
-				PRODUCT_NAME = "Folio β";
-				RUN_CLANG_STATIC_ANALYZER = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Classes/Util/ArtsyFolio-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Beta;
-		};
 		D8D208D5141405A600A823E3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -4824,7 +4623,7 @@
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "8e320920-4171-47bc-ba5d-fed8ba626e0b";
+				PROVISIONING_PROFILE = "572d2be5-e180-41a8-b9f3-844de8341b18";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -4835,10 +4634,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 60C279BA1BE2310300229C8C /* Pods-ArtsyFolio.release.xcconfig */;
 			buildSettings = {
-				APPLICATION_BUNDLE_IDENTIFIER = sy.art.folio;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
@@ -4907,31 +4708,28 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B37F166F183EEA71007A7023 /* Release */,
-				B37F1670183EEA71007A7023 /* Beta */,
 				B37F1671183EEA71007A7023 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Beta;
+			defaultConfigurationName = Release;
 		};
 		D8D208A6141405A500A823E3 /* Build configuration list for PBXProject "Artsy Folio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D8D208D5141405A600A823E3 /* Release */,
-				D84CCC39143BE93A009FB61E /* Beta */,
 				60CA3109182D9DEB0022C7C8 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Beta;
+			defaultConfigurationName = Release;
 		};
 		D8D208D6141405A600A823E3 /* Build configuration list for PBXNativeTarget "ArtsyFolio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D8D208D8141405A600A823E3 /* Release */,
-				D84CCC3A143BE93A009FB61E /* Beta */,
 				60CA310A182D9DEB0022C7C8 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Beta;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

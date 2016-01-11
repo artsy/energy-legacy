@@ -1,0 +1,44 @@
+machine:
+  xcode:
+    version: "7.0"
+  environment:
+    # Public - Ace
+    UPLOAD_IOS_SNAPSHOT_BUCKET_NAME: eigen-ci
+
+    # Private - Keeps us in business - Ace.
+    AWS_ACCESS_KEY_ID : from_admin
+    AWS_SECRET_ACCESS_KEY : from_admin
+    DANGER_GITHUB_API_TOKEN : from_admin
+    FASTLANE_PASSWORD : from_admin
+    FASTLANE_USERNAME : from_admin
+    GITHUB_API_KEY : from_admin
+    MATCH_PASSWORD : from_admin
+    ArtsyAPIClientSecret : from_admin
+    ArtsyAPIClientKey : from_admin
+    HockeyAppBetaID : from_admin
+    HockeyAppLiveID : from_admin
+    IntercomAppID : from_admin
+    IntercomAPIKey : from_admin
+    SegmentProduction : from_admin
+    SegmentBeta	: from_admin
+
+  post:
+    - echo "machine github.com login $GITHUB_API_KEY" > ~/.netrc
+    - chmod 600 ~/.netrc
+
+dependencies:
+  override:
+    - bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3 --without development
+    - bundle exec pod install
+  cache_directories:
+    - vendor/bundle
+    - Pods
+
+test:
+  pre:
+    - make build
+  override:
+    - make test
+    - bundle exec danger
+  post:
+    - make deploy_if_beta_branch
