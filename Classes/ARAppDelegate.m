@@ -97,19 +97,18 @@ void uncaughtExceptionHandler(NSException *exception);
     BOOL hasLoggedInSyncedUser = self.userManager.userCredentialsExist && [Partner currentPartner];
     BOOL hasLoggedInUnsyncedUser = [defaults boolForKey:ARStartedFirstSync] && ![defaults boolForKey:ARFinishedFirstSync];
     BOOL loggedIn = self.userManager.userIsLoggedIn;
-    BOOL shouldLockOut = [defaults boolForKey:ARLimitedAccess];
 
     [ARTheme setupWithWhiteFolio:useWhiteFolio];
 
-    if ([Partner currentPartner] && shouldLockOut) {
-        [ARAnalytics event:ARLockoutEvent];
-        [self.viewCoordinator presentLockoutScreenContext:[CoreDataManager mainManagedObjectContext]];
-
-    } else if (ARIsOSSBuild) {
+    if (ARIsOSSBuild) {
         // NO-OP
         // This means it opens like normal, but won't trigger a sync.
         ARAppLifecycleLog(@"Loading OSS version of Folio - we hope you enjoy looking around!");
         ARAppLifecycleLog(@"\n Send us questions to mobile@artsymail.com or write issues on artsy/energy.");
+
+    } else if (self.shouldLockout) {
+        /// Handles lockout for partners who could be offline
+        [self.viewCoordinator presentLockoutScreenContext:[CoreDataManager mainManagedObjectContext]];
 
     } else if (hasLoggedInSyncedUser && !hasLoggedInUnsyncedUser) {
         if (!loggedIn) {
@@ -119,15 +118,18 @@ void uncaughtExceptionHandler(NSException *exception);
 
         [ARAnalytics identifyUserWithID:[User currentUser].slug andEmailAddress:[User currentUser].email];
 
-        [_partnerSync performPartnerMetadataSync:^{
-            if (![Partner currentPartner].hasUploadedWorks) {
+        [self updatePartnerMetadataCompletion:^{
+            if (self.shouldLockout) {
+                [ARAnalytics event:ARLockoutEvent];
+                [self.viewCoordinator presentLockoutScreenContext:[CoreDataManager mainManagedObjectContext]];
+            } else if (![Partner currentPartner].hasUploadedWorks) {
                 [ARAnalytics event:ARZeroStateEvent];
                 [self.viewCoordinator presentZeroStateScreen];
             }
         }];
 
     } else if (hasLoggedInUnsyncedUser) {
-        // If we quit in the middle of the first sync, go back to sync view
+        // If we quit in the middle of the first sync, go back to sync view. Lockout will occur after sync for ineligible partners.
         [self.viewCoordinator presentSyncScreen:YES];
 
     } else {
@@ -147,6 +149,21 @@ void uncaughtExceptionHandler(NSException *exception);
 {
     [self.sync cancel];
     [self.viewCoordinator presentLogoutScreen:YES];
+}
+
+#pragma mark -
+#pragma mark Lockout
+
+- (BOOL)shouldLockout
+{
+    return [Partner currentPartner] && [[NSUserDefaults standardUserDefaults] boolForKey:ARLimitedAccess];
+}
+
+- (void)updatePartnerMetadataCompletion:(void (^)())completion
+{
+    [_partnerSync performPartnerMetadataSync:^{
+        if (completion) completion();
+    }];
 }
 
 #pragma mark -
@@ -190,6 +207,10 @@ void uncaughtExceptionHandler(NSException *exception);
     if (![self isInTestingEnvironment] && [Partner currentPartnerID]) {
         [ARAnalytics event:ARSessionStarted];
         [ARAnalytics startTimingEvent:ARSession];
+
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:ARLimitedAccess]) {
+            [self.viewCoordinator presentLockoutScreenContext:[CoreDataManager mainManagedObjectContext]];
+        }
     }
 }
 
