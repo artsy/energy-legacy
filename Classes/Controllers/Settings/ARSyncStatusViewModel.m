@@ -116,7 +116,7 @@
             return NSLocalizedString(@"Your WiFi signal is weak. We recommend seeking a stronger signal for the fastest sync.", @"Suggestion to find better wifi before syncing");
             break;
         case ARNetworkQualityOffline:
-            return NSLocalizedString(@"You are not connected to WiFi right now.", @"Text to tell the user they aren't connected to WiFi");
+            return NSLocalizedString(@"You are not connected to WiFi. Please establish a strong WiFi connection to start syncing.", @"Text to tell the user they aren't connected to WiFi");
             break;
     }
 }

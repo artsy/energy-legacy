@@ -46,7 +46,7 @@ describe(@"viewing sync records", ^{
     
     it(@"looks right with no previous syncs", ^{
         
-        expect(navController).to.haveValidSnapshot ();
+        expect(navController).to.haveValidSnapshot();
     });
     
     it(@"looks right with existing sync records", ^{
@@ -69,7 +69,7 @@ describe(@"responding to network changes", ^{
         [subject beginAppearanceTransition:YES animated:NO];
         [subject updateSubviewsAnimated:NO];
         
-        expect(navController).to.haveValidSnapshot ();
+        expect(navController).to.haveValidSnapshot();
     });
     
     it(@"looks right with poor network quality", ^{
@@ -85,7 +85,7 @@ describe(@"responding to network changes", ^{
         [subject beginAppearanceTransition:YES animated:NO];
         [subject updateSubviewsAnimated:NO];
         
-        expect(navController).to.haveValidSnapshot ();
+        expect(navController).to.haveValidSnapshot();
     });
 });
 

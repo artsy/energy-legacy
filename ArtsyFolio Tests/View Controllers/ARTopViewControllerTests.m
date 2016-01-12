@@ -51,7 +51,7 @@ describe(@"visuals", ^{
         return sut;
     });
     
-    itHasSnapshotsForViewControllerWithDevicesAndColorStates(@"shows sync notification when cmsMonitor recommends sync", ^{
+    pending(@"shows sync notification when cmsMonitor recommends sync", ^{
         before();
         
         [Partner createInContext:context.context];

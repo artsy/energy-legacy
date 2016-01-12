@@ -74,11 +74,8 @@ NS_ENUM(NSInteger, ARTopViewControllers){
     [self setEditing:NO animated:NO];
     [self.toolbarController setupDefaultToolbarItems];
 
-    if (!self.hasCheckedSyncStatus) {
-        _cmsMonitor = _cmsMonitor ?: [[ARCMSStatusMonitor alloc] init];
-        [self checkSyncStatus];
-        _hasCheckedSyncStatus = YES;
-    }
+    /// This is a feature that will likely be reinstated soon; for now, it should be hidden. If the user just updated their version of Folio, this will hide it.
+    [self.toolbarController hideSyncNotificationBadge];
 
     [ARSearchViewController sharedController].selectedItem = nil;
 }
@@ -124,23 +121,6 @@ NS_ENUM(NSInteger, ARTopViewControllers){
 - (void)fadeInSwitchView
 {
     [_switchView fadeInFromDisabledAnimated:!self.skipFadeIn];
-}
-
-#pragma mark -
-#pragma mark Sync Notifications
-
-- (void)checkSyncStatus
-{
-    /// The sync notification badge is disabled until we add network status & notification context to the Lab Settings Sync View Controller
-    if (![Partner currentPartnerInContext:self.managedObjectContext] || [[NSUserDefaults standardUserDefaults] boolForKey:AROptionsUseLabSettings]) {
-        return;
-    }
-
-    [self.cmsMonitor checkCMSForUpdates:^(BOOL updated) {
-        if (updated) {
-            [self.toolbarController showSyncNotificationBadge];
-        }
-    }];
 }
 
 #pragma mark -

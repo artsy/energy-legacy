@@ -104,7 +104,7 @@ DEPENDENCIES:
   - Intercom
   - ISO8601DateFormatter (~> 0.7)
   - JLRoutes
-  - Keys (from `Pods/CocoaPodsKeys/`)
+  - Keys (from `Pods/CocoaPodsKeys`)
   - KVOController
   - libextobjc/EXTKeyPathCoding (~> 0.3)
   - libextobjc/EXTScope (~> 0.3)
@@ -140,7 +140,7 @@ EXTERNAL SOURCES:
     :branch: remove
     :git: https://github.com/ashfurrow/Forgeries.git
   Keys:
-    :path: Pods/CocoaPodsKeys/
+    :path: Pods/CocoaPodsKeys
   ObjectiveSugar:
     :git: https://github.com/supermarin/ObjectiveSugar.git
   TPKeyboardAvoiding:
