@@ -1,6 +1,7 @@
 upcoming:
   version: 2.5.0
   notes:
+    - (dev) Removed sync notification badge from settings icon [sarah]
     - (dev) Added a sync progress bar and WiFi status messaging to sync settings [sarah]
     - (dev) Added a custom navigation bar for all settings views [sarah]
     - (dev) iPhone support for settings panel [sarah]
