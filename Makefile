@@ -9,8 +9,21 @@ oss:
 	bundle -v >/dev/null 2>&1 || { echo "Energy requires bundler, but it's not installed.  You can install it via '[sudo] gem install bundler'. If you are new to ruby, we *strongly* recommend using a sudo-less installation: https://guides.cocoapods.org/using/getting-started.html#sudo-less-installation" >&2; exit 1; }
 	xcode-select -p >/dev/null 2>&1 || { echo "Energy requires that Apple's command line Xcode tools are installed.  You can install them by running: 'xcode-select --install'. " >&2; exit 1; }
 	bundle install
+	$(MAKE) ci_keys
 	find . -type f -name 'ArtsyPartner-Prefix.pch' -exec sed -i '' 's/ARIsOSSBuild = NO;/ARIsOSSBuild = YES;/g'  {} +
 	bundle exec pod install
+	
+ci_keys:
+	bundle exec pod keys set "ArtsyAPIClientSecret" "3a33d2085cbd1176153f99781bbce7c6" Folio
+	bundle exec pod keys set "ArtsyAPIClientKey" "e750db60ac506978fc70"
+	bundle exec pod keys set "HockeyAppBetaID" "-"
+	bundle exec pod keys set "HockeyAppLiveID" "-"
+	bundle exec pod keys set "SegmentProduction" "-"
+	bundle exec pod keys set "SegmentDev" "-"
+	bundle exec pod keys set "SegmentBeta" "-"
+	bundle exec pod keys set "IntercomAppID" "-"
+	bundle exec pod keys set "IntercomAPIKey" "-"
+
 
 ### Xcode tooling
 
