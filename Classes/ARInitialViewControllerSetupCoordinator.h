@@ -43,4 +43,7 @@
 /// Creates and presents a FolioMessageView with link to CMS
 - (void)presentZeroStateScreen;
 
+/// Removes the current modal
+- (void)dismissCurrentModal;
+
 @end

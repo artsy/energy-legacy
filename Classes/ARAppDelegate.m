@@ -97,18 +97,16 @@ void uncaughtExceptionHandler(NSException *exception);
     BOOL hasLoggedInSyncedUser = self.userManager.userCredentialsExist && [Partner currentPartner];
     BOOL hasLoggedInUnsyncedUser = [defaults boolForKey:ARStartedFirstSync] && ![defaults boolForKey:ARFinishedFirstSync];
     BOOL loggedIn = self.userManager.userIsLoggedIn;
+    BOOL lockedOut = NO;
 
     [ARTheme setupWithWhiteFolio:useWhiteFolio];
+
 
     if (ARIsOSSBuild) {
         // NO-OP
         // This means it opens like normal, but won't trigger a sync.
         ARAppLifecycleLog(@"Loading OSS version of Folio - we hope you enjoy looking around!");
         ARAppLifecycleLog(@"\n Send us questions to mobile@artsymail.com or write issues on artsy/energy.");
-
-    } else if (self.shouldLockout) {
-        /// Handles lockout for partners who could be offline
-        [self.viewCoordinator presentLockoutScreenContext:[CoreDataManager mainManagedObjectContext]];
 
     } else if (hasLoggedInSyncedUser && !hasLoggedInUnsyncedUser) {
         if (!loggedIn) {
@@ -118,11 +116,25 @@ void uncaughtExceptionHandler(NSException *exception);
 
         [ARAnalytics identifyUserWithID:[User currentUser].slug andEmailAddress:[User currentUser].email];
 
+        /// Check to see if the partner was previously locked out and lock them out if so
+        if (self.shouldLockout) {
+            lockedOut = YES;
+            [self lockout];
+        }
+
+        /// Update the metadata in case their status has changed since last sync, or they have no artworks
         [self updatePartnerMetadataCompletion:^{
-            if (self.shouldLockout) {
-                [ARAnalytics event:ARLockoutEvent];
-                [self.viewCoordinator presentLockoutScreenContext:[CoreDataManager mainManagedObjectContext]];
+
+            if (self.shouldLockout && !lockedOut) {
+                /// If they've had access revoked since last sync and they aren't currently locked out, lockout
+                [self lockout];
+
+            } else if (lockedOut) {
+                /// If their access was restored since last sync and they're currently locked out, remove the modal
+                [self.viewCoordinator dismissCurrentModal];
+
             } else if (![Partner currentPartner].hasUploadedWorks) {
+                /// If they have no uploaded works, present the zero state modal
                 [ARAnalytics event:ARZeroStateEvent];
                 [self.viewCoordinator presentZeroStateScreen];
             }
@@ -164,6 +176,12 @@ void uncaughtExceptionHandler(NSException *exception);
     [_partnerSync performPartnerMetadataSync:^{
         if (completion) completion();
     }];
+}
+
+- (void)lockout
+{
+    [ARAnalytics event:ARLockoutEvent];
+    [self.viewCoordinator presentLockoutScreenContext:[CoreDataManager mainManagedObjectContext]];
 }
 
 #pragma mark -
@@ -208,6 +226,8 @@ void uncaughtExceptionHandler(NSException *exception);
         [ARAnalytics event:ARSessionStarted];
         [ARAnalytics startTimingEvent:ARSession];
 
+
+        /// Check to see if they should be locked out each time the app is opened
         if ([[NSUserDefaults standardUserDefaults] boolForKey:ARLimitedAccess]) {
             [self.viewCoordinator presentLockoutScreenContext:[CoreDataManager mainManagedObjectContext]];
         }
