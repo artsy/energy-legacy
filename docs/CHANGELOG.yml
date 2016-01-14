@@ -1,6 +1,7 @@
 upcoming:
   version: 2.5.0
   notes:
+    - (dev) App delegate now checks for eligibility more often [sarah]
     - (dev) Updated sync view controller copy [sarah]
     - (dev) Removed sync notification badge from settings icon [sarah]
     - (dev) Added a sync progress bar and WiFi status messaging to sync settings [sarah]

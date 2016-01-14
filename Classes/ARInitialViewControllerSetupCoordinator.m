@@ -183,4 +183,10 @@
     [self.window.rootViewController presentTransparentModalViewController:zeroStateViewController animated:NO withAlpha:1];
 }
 
+- (void)dismissCurrentModal
+{
+    [self.window.rootViewController dismissTransparentModalViewControllerAnimated:YES];
+}
+
+
 @end
