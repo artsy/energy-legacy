@@ -5,7 +5,7 @@
 
 - (void)syncDidFinish:(ARSync *)sync
 {
-    self.onSyncCompletion();
+    if (self.onSyncCompletion) self.onSyncCompletion();
 }
 
 @end
