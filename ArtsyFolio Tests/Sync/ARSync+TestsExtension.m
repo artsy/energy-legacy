@@ -42,9 +42,11 @@
 
 - (BOOL)createsPluginInstanceOfClass:(Class) class
 {
-    return [self.createPlugins find:^BOOL(id object) {
+    id object = [self.createPlugins find:^BOOL(id object) {
         return [object isKindOfClass:class];
-    }] != nil;
+    }];
+
+    return object != nil;
 }
 
     - (BOOL)createsSyncStepInstanceOfClass : (Class) class
