@@ -259,6 +259,10 @@
 		6086649B1A32271F0030226D /* SyncError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6086649A1A32271F0030226D /* SyncError.m */; };
 		6089CF6B14EBE4F300F17636 /* SearchCancelBGSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 6089CF6914EBE4F300F17636 /* SearchCancelBGSelected.png */; };
 		6089CF6D14EBE4F300F17636 /* SearchCancelBGNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 6089CF6A14EBE4F300F17636 /* SearchCancelBGNormal.png */; };
+		608B012F1C4811F300C6B535 /* SyncSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 608B012E1C4811F300C6B535 /* SyncSpec.m */; };
+		608B01321C4817D100C6B535 /* ARStubbedSyncProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 608B01311C4817D100C6B535 /* ARStubbedSyncProvider.m */; };
+		608B01361C481E5100C6B535 /* ARStubbedSyncDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 608B01351C481E5100C6B535 /* ARStubbedSyncDelegate.m */; };
+		608B01391C4821BD00C6B535 /* ARStubbedDRBOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 608B01381C4821BD00C6B535 /* ARStubbedDRBOperation.m */; };
 		608B6C051833D59B0007E12C /* NSString+StringSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 608B6C041833D59B0007E12C /* NSString+StringSize.m */; };
 		608C703A169B863500C89623 /* ARAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C7039169B863500C89623 /* ARAnalyticsHelper.m */; };
 		609256B4191A7017007C5107 /* ARSettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 609256B3191A7017007C5107 /* ARSettingsViewControllerTests.m */; };
@@ -1052,6 +1056,13 @@
 		6089CF6914EBE4F300F17636 /* SearchCancelBGSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchCancelBGSelected.png; sourceTree = "<group>"; };
 		6089CF6A14EBE4F300F17636 /* SearchCancelBGNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchCancelBGNormal.png; sourceTree = "<group>"; };
 		608AF9DE15A5A9BE00F608B7 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		608B012E1C4811F300C6B535 /* SyncSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncSpec.m; sourceTree = "<group>"; };
+		608B01301C4817D100C6B535 /* ARStubbedSyncProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARStubbedSyncProvider.h; sourceTree = "<group>"; };
+		608B01311C4817D100C6B535 /* ARStubbedSyncProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARStubbedSyncProvider.m; sourceTree = "<group>"; };
+		608B01341C481E5100C6B535 /* ARStubbedSyncDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARStubbedSyncDelegate.h; sourceTree = "<group>"; };
+		608B01351C481E5100C6B535 /* ARStubbedSyncDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARStubbedSyncDelegate.m; sourceTree = "<group>"; };
+		608B01371C4821BD00C6B535 /* ARStubbedDRBOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARStubbedDRBOperation.h; sourceTree = "<group>"; };
+		608B01381C4821BD00C6B535 /* ARStubbedDRBOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARStubbedDRBOperation.m; sourceTree = "<group>"; };
 		608B6C031833D59B0007E12C /* NSString+StringSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringSize.h"; sourceTree = "<group>"; };
 		608B6C041833D59B0007E12C /* NSString+StringSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringSize.m"; sourceTree = "<group>"; };
 		608C7038169B863500C89623 /* ARAnalyticsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARAnalyticsHelper.h; path = Debugging/ARAnalyticsHelper.h; sourceTree = "<group>"; };
@@ -2055,12 +2066,12 @@
 		6055B77C1872DF900043B937 /* Sync */ = {
 			isa = PBXGroup;
 			children = (
+				608B01331C481E3900C6B535 /* Stubbed Sync Utils */,
 				6032E3441BE22123001C3494 /* Plugins */,
 				60F1F0FE1B0391A4004B6C7F /* Sync Steps */,
 				B3DBEDE7185AB4D400C345A1 /* ARImageThumbnailCreatorTests.m */,
 				B3DA7AE3185BAEAA00CDD11A /* ARTileArchiveDownloaderTests.m */,
-				607448211BE3BD8000E20774 /* ARSync+TestsExtension.h */,
-				607448221BE3BD8000E20774 /* ARSync+TestsExtension.m */,
+				608B012E1C4811F300C6B535 /* SyncSpec.m */,
 			);
 			path = Sync;
 			sourceTree = "<group>";
@@ -2318,6 +2329,21 @@
 				600856FC19353CED005741CF /* ARTiledImageDataSourceWithImage.m */,
 			);
 			path = "Zoom View";
+			sourceTree = "<group>";
+		};
+		608B01331C481E3900C6B535 /* Stubbed Sync Utils */ = {
+			isa = PBXGroup;
+			children = (
+				608B01301C4817D100C6B535 /* ARStubbedSyncProvider.h */,
+				608B01311C4817D100C6B535 /* ARStubbedSyncProvider.m */,
+				608B01341C481E5100C6B535 /* ARStubbedSyncDelegate.h */,
+				608B01351C481E5100C6B535 /* ARStubbedSyncDelegate.m */,
+				607448211BE3BD8000E20774 /* ARSync+TestsExtension.h */,
+				607448221BE3BD8000E20774 /* ARSync+TestsExtension.m */,
+				608B01371C4821BD00C6B535 /* ARStubbedDRBOperation.h */,
+				608B01381C4821BD00C6B535 /* ARStubbedDRBOperation.m */,
+			);
+			name = "Stubbed Sync Utils";
 			sourceTree = "<group>";
 		};
 		6095024518440FF400495CFC /* Theming */ = {
@@ -3820,7 +3846,6 @@
 				60B341811609CE92002A5926 /* messages_btn_whiteborder@2x.png in Resources */,
 				60E39279190891660091AC9E /* settings_btn@2x.png in Resources */,
 				60B3418B1609CE92002A5926 /* viewinroom_btn_solidwhite.png in Resources */,
-				601A59C81A5E16090038E8CC /* Icon-Spotlight-40@2x.png in Resources */,
 				832075B81C3F274000C0A114 /* wifi-off@2x.png in Resources */,
 				60B3418D1609CE92002A5926 /* viewinroom_btn_solidwhite@2x.png in Resources */,
 				6010740A19A3E7BD00237DC6 /* ViewInRoom_Bench@2x.png in Resources */,
@@ -3848,7 +3873,6 @@
 				496AA8EE164DC7B100747DE1 /* FileIcon_textdoc@2x.png in Resources */,
 				6006C767198EDA8500F955A0 /* ARPadViewInRoomViewController.xib in Resources */,
 				60F8FD8918D1F3C700D80792 /* ARSyncAdminViewController.xib in Resources */,
-				601A59CB1A5E16090038E8CC /* Icon@2x.png in Resources */,
 				832075B91C3F274000C0A114 /* wifi-strong@2x.png in Resources */,
 				60665B5D1733EA24003F96E8 /* support_email_template.html in Resources */,
 				60B2C8021743AFF90019DB9B /* ToggleOff.png in Resources */,
@@ -3988,6 +4012,7 @@
 				60F6CA1A19903E6800628D72 /* ARArtworkSetViewControllerTests.m in Sources */,
 				60F63804199E966E008D2360 /* ARSyncMessageViewControllerTests.m in Sources */,
 				60692E17196C06F700455332 /* ARArtworkInfoAdditionalMetadataViewTests.m in Sources */,
+				608B01391C4821BD00C6B535 /* ARStubbedDRBOperation.m in Sources */,
 				60ADD6931ACB555100A847B5 /* ARSynchronousOperationTree.m in Sources */,
 				60B2866A19AA925A0014857F /* ARDocumentPreviewViewControllerTests.m in Sources */,
 				B3DBEDE0185A74A700C345A1 /* ARImageDownloaderTests.m in Sources */,
@@ -3999,6 +4024,7 @@
 				606C84771C16009400C6D15F /* ARStubbedNetworkQualityIndicator.m in Sources */,
 				6038C47E19867BF300626DD6 /* ARTabbedViewControllerTests.m in Sources */,
 				B3DA7AE4185BAEAA00CDD11A /* ARTileArchiveDownloaderTests.m in Sources */,
+				608B01321C4817D100C6B535 /* ARStubbedSyncProvider.m in Sources */,
 				60FDF6DD1AEAA21800173E81 /* ARSearchViewControllerTests.m in Sources */,
 				6038C47B19867A5600626DD6 /* ARExpectaExtensions.m in Sources */,
 				60138AD31961BD3B00E36EC6 /* ARArtworkMetadataExtendedViewTests.m in Sources */,
@@ -4046,6 +4072,7 @@
 				60749278197015E5004F3C83 /* ARModernArtworkInfoViewControllerTests.m in Sources */,
 				609CB440192BA8240056E741 /* ARHostViewControllerTests.m in Sources */,
 				60327DF1198A48640075B399 /* ARBottomAlignedToolbarTests.m in Sources */,
+				608B01361C481E5100C6B535 /* ARStubbedSyncDelegate.m in Sources */,
 				609F01D419A2A3AA00ACDD38 /* ARGridViewCellTests.m in Sources */,
 				60C777581B0E280D00BEFA97 /* ARInitialViewControllerSetupCoordinatorSpec.m in Sources */,
 				834BA69D1B4AE74F009D18F7 /* ARFolioImageMessageViewControllerTests.m in Sources */,
@@ -4083,6 +4110,7 @@
 				60D4D71D198FD853001AB8AF /* ARSwitchboardTests.m in Sources */,
 				342F99689EFEA687EF113A71 /* ARAddToAlbumViewControllerTests.m in Sources */,
 				8383FB6B1BD83E33004B2A87 /* ARLabSettingsViewControllerTests.m in Sources */,
+				608B012F1C4811F300C6B535 /* SyncSpec.m in Sources */,
 				6032E3491BE22203001C3494 /* ARStubbedAnalytics.m in Sources */,
 				60D7A1A01A66F1F00036F11F /* PartnerOptionModelTestsTests.m in Sources */,
 				6086648E1A31D5D60030226D /* ARRootNavigationControllerDelegateSpec.m in Sources */,

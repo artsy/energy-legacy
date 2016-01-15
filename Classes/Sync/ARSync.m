@@ -22,11 +22,8 @@
 
 - (void)sync
 {
-    self.syncing = YES;
     __weak typeof(self) weakSelf = self;
-
     [self performSync:^{
-        weakSelf.syncing = NO;
         [weakSelf.delegate syncDidFinish:self];
     }];
 }
@@ -34,6 +31,7 @@
 - (void)performSync:(void (^)())completion
 {
     ARSyncLog(@"Sync started");
+    self.syncing = YES;
 
     self.operationQueues = [NSMutableArray array];
     self.rootOperation = self.rootOperation ?: [self createSyncOperationTree];
@@ -42,16 +40,21 @@
     [self runBeforeSyncPlugins:plugins];
     [self.progress start];
 
+    __weak typeof(self) weakSelf = self;
+
     NSString *partnerSlug = [Partner currentPartnerID];
     [self.rootOperation enqueueOperationsForObject:partnerSlug completion:^{
-        [self.tileDownloader writeSlugs];
 
-        [self runAfterSyncPlugins:plugins];
-        [self save];
+        weakSelf.syncing = NO;
+        [weakSelf.tileDownloader writeSlugs];
+
+        [weakSelf runAfterSyncPlugins:plugins];
+        [weakSelf save];
+
+        if (completion) completion();
 
         // Cleanup the tree so it's recreated next sync
-        self.rootOperation = nil;
-        if (completion) completion();
+        weakSelf.rootOperation = nil;
     }];
 }
 
