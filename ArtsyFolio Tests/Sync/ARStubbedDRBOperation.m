@@ -4,6 +4,7 @@
 
 @implementation ARStubbedDRBOperation
 
+/// Replaces asynchronous dispatch with synchronous dispatch on the main queue only; doesn't retry if it fails
 - (void)enqueueOperationForObject:(id)object dispatchGroup:(dispatch_group_t)group
 {
     dispatch_group_enter(group);
@@ -26,6 +27,7 @@
     [operation start];
 }
 
+/// Replaces dispatch_group_notify with the synchronous dispatch_group_wait
 - (void)enqueueOperationsForObject:(id)object completion:(void (^)())completion
 {
     [self.provider operationTree:self objectsForObject:object completion:^(NSArray *objects) {
