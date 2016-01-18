@@ -48,7 +48,7 @@ lane :beta do
   gym configuration: "Release", scheme: "ArtsyFolio"
 
   # Ship to hockey first, testflight has to wait: "processing"
-  hockey notes: release_notes, api_token: ENV['HOCKEY_API_TOKEN']
+  hockey notes: release_notes, api_token: ENV['HOCKEY_API_TOKEN'], public_identifier: ENV['HockeyAppLiveID']
 
   pilot changelog: release_notes
 

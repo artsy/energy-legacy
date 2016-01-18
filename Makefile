@@ -12,7 +12,7 @@ oss:
 	$(MAKE) ci_keys
 	find . -type f -name 'ArtsyPartner-Prefix.pch' -exec sed -i '' 's/ARIsOSSBuild = NO;/ARIsOSSBuild = YES;/g'  {} +
 	bundle exec pod install
-	
+
 ci_keys:
 	bundle exec pod keys set "ArtsyAPIClientSecret" "3a33d2085cbd1176153f99781bbce7c6" Folio
 	bundle exec pod keys set "ArtsyAPIClientKey" "e750db60ac506978fc70"
@@ -58,6 +58,7 @@ deploy_if_beta_branch:
 
 deploy:
 	git push origin "$(LOCAL_BRANCH):beta"
+	open "https://circleci.com/gh/artsy/eigen/tree/beta"
 
 LOCAL_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 BRANCH = $(shell echo $(shell whoami)-$(shell git rev-parse --abbrev-ref HEAD))
