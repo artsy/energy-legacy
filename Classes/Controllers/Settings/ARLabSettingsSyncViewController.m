@@ -45,13 +45,12 @@
     [super viewDidLoad];
 
     [self setupNavigationBar];
+    [self setupSyncButton];
     [self setupProgressView];
+
+    /// Make sure the view loads with an accurate initial state
+    [self updateSubviewsAnimated:NO];
     [self setupObservers];
-
-    [self.syncButton setTitle:self.viewModel.syncButtonNormalTitle forState:UIControlStateNormal];
-
-    [self.syncButton setTitle:self.viewModel.SyncButtonDisabledTitle forState:UIControlStateDisabled];
-    [self.syncButton setBackgroundColor:UIColor.artsyHeavyGrey forState:UIControlStateDisabled];
 
     NSString *string = self.explanatoryTextLabel.text;
     self.explanatoryTextLabel.attributedText = [string attributedStringWithLineSpacing:7.0];
@@ -111,11 +110,27 @@
 #pragma mark -
 #pragma mark sync button
 
+- (void)setupSyncButton
+{
+    [self.syncButton setTitle:self.viewModel.syncButtonEnabledTitle forState:UIControlStateNormal];
+
+    [self.syncButton setBackgroundColor:self.viewModel.syncButtonColor forState:UIControlStateNormal];
+    [self.syncButton setBorderColor:self.viewModel.syncButtonColor];
+
+    [self.syncButton setTitle:self.viewModel.syncButtonDisabledTitle forState:UIControlStateDisabled];
+    [self.syncButton setBackgroundColor:UIColor.artsyHeavyGrey forState:UIControlStateDisabled];
+}
+
 - (void)updateSyncButton
 {
     BOOL enableSyncButton = self.viewModel.shouldEnableSyncButton;
     self.syncButton.alpha = enableSyncButton ? 1 : 0.5;
     self.syncButton.enabled = enableSyncButton;
+
+    [self.syncButton setTitle:self.viewModel.syncButtonEnabledTitle forState:UIControlStateNormal];
+
+    [self.syncButton setBackgroundColor:self.viewModel.syncButtonColor forState:UIControlStateNormal];
+    [self.syncButton setBorderColor:self.viewModel.syncButtonColor];
 }
 
 - (IBAction)syncButtonPressed:(id)sender

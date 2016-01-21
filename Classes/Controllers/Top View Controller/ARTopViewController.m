@@ -74,8 +74,7 @@ NS_ENUM(NSInteger, ARTopViewControllers){
     [self setEditing:NO animated:NO];
     [self.toolbarController setupDefaultToolbarItems];
 
-    /// This is a feature that will likely be reinstated soon; for now, it should be hidden. If the user just updated their version of Folio, this will hide it.
-    [self.toolbarController hideSyncNotificationBadge];
+    [self updateSyncNotificationBadge];
 
     [ARSearchViewController sharedController].selectedItem = nil;
 }
@@ -121,6 +120,20 @@ NS_ENUM(NSInteger, ARTopViewControllers){
 - (void)fadeInSwitchView
 {
     [_switchView fadeInFromDisabledAnimated:!self.skipFadeIn];
+}
+
+#pragma mark -
+#pragma mark Sync Notifications Badge
+
+- (void)updateSyncNotificationBadge
+{
+    [self.cmsMonitor checkCMSForUpdates:^(BOOL updated) {
+        if (updated) {
+            [self.toolbarController showSyncNotificationBadge];
+        } else {
+            [self.toolbarController hideSyncNotificationBadge];
+        }
+    }];
 }
 
 #pragma mark -
@@ -306,6 +319,8 @@ NS_ENUM(NSInteger, ARTopViewControllers){
         [self dismissPopoversAnimated:animated];
 
     } else if ([[NSUserDefaults standardUserDefaults] boolForKey:AROptionsUseLabSettings]) {
+        [self.toolbarController hideSyncNotificationBadge];
+
         UIStoryboard *labSettings = [UIStoryboard storyboardWithName:@"ARLabSettings" bundle:nil];
         UIViewController *labSettingsViewController = [labSettings instantiateInitialViewController];
 
@@ -579,5 +594,9 @@ NS_ENUM(NSInteger, ARTopViewControllers){
     return _switchBoard ?: [ARSwitchBoard sharedSwitchboard];
 }
 
+- (ARCMSStatusMonitor *)cmsMonitor
+{
+    return _cmsMonitor ?: [[ARCMSStatusMonitor alloc] initWithContext:self.managedObjectContext];
+}
 
 @end

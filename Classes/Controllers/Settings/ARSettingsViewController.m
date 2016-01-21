@@ -271,7 +271,7 @@ static const NSInteger kHeightOfSettingsCell = 130;
     self.syncButton.alpha = enableSyncButton ? 1 : 0.5;
     self.syncButton.userInteractionEnabled = enableSyncButton;
 
-    UIColor *buttonColor = self.syncStatusViewModel.syncButtonColor;
+    UIColor *buttonColor = self.syncStatusViewModel.syncButtonColorLegacy;
     self.syncButton.backgroundColor = buttonColor;
     self.syncButton.borderColor = buttonColor;
 }

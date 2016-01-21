@@ -51,7 +51,7 @@ describe(@"visuals", ^{
         return sut;
     });
     
-    pending(@"shows sync notification when cmsMonitor recommends sync", ^{
+    itHasSnapshotsForViewControllerWithDevicesAndColorStates(@"shows sync notification when cmsMonitor recommends sync", ^{
         before();
         
         [Partner createInContext:context.context];
@@ -89,6 +89,7 @@ describe(@"state", ^{
     it(@"doesn't load in editing mode", ^{
         ARTopViewController *topVC = [[ARTopViewController alloc] init];
         topVC.managedObjectContext = [CoreDataManager stubbedManagedObjectContext];
+        topVC.cmsMonitor = stubbedCMSMonitorWithSyncRecommendation(NO);
         [topVC beginAppearanceTransition:YES animated:NO];
         [topVC endAppearanceTransition];
         expect(topVC.editing).to.beFalsy();
@@ -103,6 +104,7 @@ describe(@"toolbar", ^{
     beforeAll(^{
         topVC = [[ARTopViewController alloc] init];
         topVC.managedObjectContext = [CoreDataManager stubbedManagedObjectContext];
+        topVC.cmsMonitor = stubbedCMSMonitorWithSyncRecommendation(NO);
         topVC.switchBoard = [[ARSwitchBoard alloc] initWithNavigationController:nil context:topVC.managedObjectContext];
 
         toolbarControllerMock = [OCMockObject niceMockForClass:[ARTopViewToolbarController class]];

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="ITC_Avant_Garde_Gothic__Demi.ttf">
@@ -13,6 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ARLabSettingsSectionButton">
             <connections>
+                <outlet property="alertBadge" destination="cwg-i0-l2p" id="sVE-Qw-2Zb"/>
                 <outlet property="bottomBorder" destination="Qm1-MD-x0D" id="R4X-k7-gBu"/>
                 <outlet property="chevron" destination="Ixc-ST-ddB" id="TkX-dP-cvJ"/>
                 <outlet property="settingTitleLabel" destination="ptC-60-dlp" id="r2e-0b-oKN"/>
@@ -27,9 +29,9 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Chevron_Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ixc-ST-ddB">
                     <rect key="frame" x="257" y="18" width="8" height="13"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Ixc-ST-ddB" secondAttribute="height" multiplier="8:13" id="hsi-yw-Xe1"/>
+                        <constraint firstAttribute="height" constant="13" id="lxy-IM-21O"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -39,7 +41,6 @@
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhx-uX-VEd">
                     <rect key="frame" x="0.0" y="0.0" width="265" height="1"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.87264838242771647" green="0.87264838242771647" blue="0.87264838242771647" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="B5X-Pn-en1"/>
@@ -47,7 +48,6 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qm1-MD-x0D">
                     <rect key="frame" x="0.0" y="49" width="265" height="1"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.87264838242771647" green="0.87264838242771647" blue="0.87264838242771647" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="w33-oe-hum"/>
@@ -55,63 +55,44 @@
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SETTING TITLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptC-60-dlp">
                     <rect key="frame" x="0.0" y="16" width="86" height="18"/>
-                    <animations/>
                     <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alert-badge-large.png" translatesAutoresizingMaskIntoConstraints="NO" id="cwg-i0-l2p">
+                    <rect key="frame" x="231" y="17" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="cwg-i0-l2p" secondAttribute="height" multiplier="1:1" id="VJt-jl-V3g"/>
+                    </constraints>
+                </imageView>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <accessibility key="accessibilityConfiguration">
                 <accessibilityTraits key="traits" button="YES"/>
             </accessibility>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Ixc-ST-ddB" secondAttribute="trailing" id="0GB-97-s5d"/>
                 <constraint firstAttribute="trailing" secondItem="Ixc-ST-ddB" secondAttribute="trailing" id="BdG-EI-9Ou"/>
-                <constraint firstItem="ptC-60-dlp" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="43:25" id="K7x-2p-9Oe"/>
                 <constraint firstItem="Qm1-MD-x0D" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="N3E-9K-mN5"/>
-                <constraint firstItem="Qm1-MD-x0D" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="O2T-wd-3Tw"/>
-                <constraint firstItem="rhx-uX-VEd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="QFG-DN-VlF"/>
                 <constraint firstItem="ptC-60-dlp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZUZ-p7-4PI"/>
-                <constraint firstItem="rhx-uX-VEd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZbG-6d-dhQ"/>
-                <constraint firstAttribute="trailing" secondItem="Ixc-ST-ddB" secondAttribute="trailing" constant="8" id="bkl-Bp-Gvb"/>
-                <constraint firstItem="Ixc-ST-ddB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dH6-Ig-pIH"/>
+                <constraint firstItem="Ixc-ST-ddB" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="4:25" id="Zdz-dq-H8Q"/>
                 <constraint firstItem="ptC-60-dlp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ehJ-54-F8o"/>
-                <constraint firstItem="rhx-uX-VEd" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="f7g-Wa-suO"/>
                 <constraint firstItem="rhx-uX-VEd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gSX-Lz-Zpk"/>
-                <constraint firstAttribute="bottom" secondItem="Qm1-MD-x0D" secondAttribute="bottom" id="jXw-5F-VLj"/>
+                <constraint firstItem="cwg-i0-l2p" firstAttribute="height" secondItem="Ixc-ST-ddB" secondAttribute="height" multiplier="1.2" id="hNg-Z5-ZdN"/>
+                <constraint firstItem="Ixc-ST-ddB" firstAttribute="leading" secondItem="cwg-i0-l2p" secondAttribute="trailing" constant="10" id="lyN-Ct-DVW"/>
                 <constraint firstItem="rhx-uX-VEd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nUs-xw-GLO"/>
-                <constraint firstItem="Ixc-ST-ddB" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="4:25" id="q9s-xO-YLg"/>
+                <constraint firstItem="cwg-i0-l2p" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qD5-Uv-OAx"/>
                 <constraint firstAttribute="bottom" secondItem="Qm1-MD-x0D" secondAttribute="bottom" id="vIY-Qu-eOB"/>
-                <constraint firstItem="Ixc-ST-ddB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="x2m-Mc-U6U"/>
                 <constraint firstItem="rhx-uX-VEd" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="xwa-rs-8Ul"/>
-                <constraint firstItem="Qm1-MD-x0D" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="y3T-KH-5hk"/>
                 <constraint firstItem="Ixc-ST-ddB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zQE-KG-Mz4"/>
                 <constraint firstItem="Qm1-MD-x0D" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zdD-r5-xg9"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="QFG-DN-VlF"/>
-                    <exclude reference="ZbG-6d-dhQ"/>
-                    <exclude reference="f7g-Wa-suO"/>
-                    <exclude reference="K7x-2p-9Oe"/>
-                    <exclude reference="O2T-wd-3Tw"/>
-                    <exclude reference="jXw-5F-VLj"/>
-                    <exclude reference="y3T-KH-5hk"/>
-                    <exclude reference="0GB-97-s5d"/>
-                    <exclude reference="bkl-Bp-Gvb"/>
-                    <exclude reference="dH6-Ig-pIH"/>
-                    <exclude reference="q9s-xO-YLg"/>
-                    <exclude reference="x2m-Mc-U6U"/>
-                </mask>
-            </variation>
-            <point key="canvasLocation" x="558" y="446"/>
+            <point key="canvasLocation" x="557.5" y="446"/>
         </view>
     </objects>
     <resources>
         <image name="Chevron_Gray.png" width="8" height="13"/>
+        <image name="alert-badge-large.png" width="46" height="46"/>
     </resources>
 </document>

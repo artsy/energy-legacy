@@ -78,6 +78,20 @@ describe(@"toggling presentation mode", ^{
     });
 });
 
+describe(@"showing and hiding the sync recommendation badge", ^{
+    it(@"shows the badge when it should recommend a sync", ^{
+        subject.viewModel = viewModelWithDefaultsAndContext(@{ ARRecommendSync: @YES }, context);
+        
+        expect(subject).to.haveValidSnapshot();
+    });
+    
+    it(@"hides the badge when sync is up to date", ^{
+        subject.viewModel = viewModelWithDefaultsAndContext(@{ ARRecommendSync: @NO }, context);
+        
+        expect(subject).to.haveValidSnapshot();
+    });
+});
+
 SpecEnd
 
     ARLabSettingsMenuViewModel *

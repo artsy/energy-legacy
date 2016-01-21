@@ -68,6 +68,7 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 {
     /// Sync settings
     [self.syncContentButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionSync]];
+    [self.syncContentButton showAlertBadge:self.viewModel.shouldShowSyncNotification];
 
     /// Presentation mode settings
     [self setupPresentationModeButton];
@@ -98,8 +99,12 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 
 - (void)defaultsChanged
 {
+    /// Check if presentation mode should be enabled
     [self enablePresentationModeToggle:self.viewModel.shouldEnablePresentationMode];
     self.presentationModeLabel.attributedText = [self.viewModel.presentationModeExplanatoryText attributedStringWithLineSpacing:5];
+
+    /// Check for sync completion
+    [self.syncContentButton showAlertBadge:self.viewModel.shouldShowSyncNotification];
 }
 
 - (void)enablePresentationModeToggle:(BOOL)enable

@@ -4,6 +4,7 @@
 #import "SyncLog.h"
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 #import "ARStubbedNetworkQualityIndicator.h"
+#import "ARDefaults.h"
 
 
 @interface ARLabSettingsSyncViewController ()
@@ -14,6 +15,7 @@
 
 @interface ARSyncStatusViewModel ()
 - (instancetype)initWithSync:(ARSync *)sync context:(NSManagedObjectContext *)context qualityIndicator:(ARNetworkQualityIndicator *)qualityIndicator;
+@property (nonatomic, strong) NSUserDefaults *defaults;
 @end
 
 SpecBegin(ARLabSettingsSyncViewController);
@@ -107,6 +109,15 @@ describe(@"during a sync", ^{
         
         [subject beginAppearanceTransition:YES animated:NO];
         [subject updateSubviewsAnimated:NO];
+        
+        expect(navController).to.haveValidSnapshot();
+    });
+});
+
+describe(@"recommending new syncs", ^{
+    it(@"looks right when there is new content", ^{
+        subject.viewModel.networkQuality = ARNetworkQualityGood;
+        subject.viewModel.defaults = (id)[ForgeriesUserDefaults defaults:@{ ARRecommendSync: @YES }];
         
         expect(navController).to.haveValidSnapshot();
     });
