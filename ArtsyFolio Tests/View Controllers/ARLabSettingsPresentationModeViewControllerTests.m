@@ -83,7 +83,7 @@ describe(@"setting defaults", ^{
     beforeEach(^{
         navController = [storyboard instantiateViewControllerWithIdentifier:SettingsNavigationController];
     });
-    
+
     it(@"shows all toggles off when defaults are false", ^{
         Artwork *publishedArtwork = genericArtworkInContext(context);
         publishedArtwork.backendPrice = @"32";
@@ -95,6 +95,7 @@ describe(@"setting defaults", ^{
         unpublishedArtwork.confidentialNotes = @"fjdkalfjdks";
 
         subject.defaults = (id)offDefaults();
+        [subject.defaults setBool:YES forKey:ARHasInitializedPresentationMode];
         
         [navController pushViewController:subject animated:NO];
         

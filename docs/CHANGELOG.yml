@@ -1,6 +1,7 @@
 upcoming:
   version: 2.5.0
   notes:
+    - (dev) Disables presentation mode if no presentation settings are on [sarah]
     - (dev) App delegate now checks for eligibility more often [sarah]
     - (dev) Updated sync view controller copy [sarah]
     - (dev) Removed sync notification badge from settings icon [sarah]

@@ -1,6 +1,6 @@
 #import "ARLabSettingsSplitViewController.h"
 #import "ARStoryboardIdentifiers.h"
-#import "ARLabSettingsMasterViewController.h"
+#import "ARDefaults.h"
 
 SpecBegin(ARLabSettingsViewController);
 
@@ -13,8 +13,8 @@ beforeAll(^{
 });
 
 before(^{
-    context = [CoreDataManager stubbedManagedObjectContext];
     subject = [storyboard instantiateViewControllerWithIdentifier:@"Settings Split View Controller"];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:ARHasInitializedPresentationMode];
 });
 
 describe(@"on ipad", ^{

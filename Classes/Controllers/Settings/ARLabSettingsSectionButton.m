@@ -31,6 +31,12 @@
     [self.settingTitleLabel setText:title.uppercaseString];
 }
 
+- (void)setTitleTextColor:(UIColor *)color
+{
+    [self.settingTitleLabel setTextColor:color];
+}
+
+
 - (void)hideTopBorder
 {
     self.topBorder.alpha = 0;

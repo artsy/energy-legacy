@@ -305,9 +305,7 @@ NS_ENUM(NSInteger, ARTopViewControllers){
     if (self.settingsPopoverController.isPopoverVisible) {
         [self dismissPopoversAnimated:animated];
 
-    } else if ([[User currentUser] isAdmin]) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:AROptionsUseLabSettings];
-
+    } else if ([[NSUserDefaults standardUserDefaults] boolForKey:AROptionsUseLabSettings]) {
         UIStoryboard *labSettings = [UIStoryboard storyboardWithName:@"ARLabSettings" bundle:nil];
         UIViewController *labSettingsViewController = [labSettings instantiateInitialViewController];
 
