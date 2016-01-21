@@ -101,13 +101,6 @@
 
     ARToggleSwitch *toggle = [ARToggleSwitch buttonWithFrame:CGRectMake(0, 0, 76, 28)];
 
-    /// By default, all presentation mode options are OFF
-    //    if (!self.didInitializeOptions) {
-    //        toggle.on = YES;
-    //        [self.defaults setBool:YES forKey:option[AROptionsKey]];
-    //    } else {
-    //        toggle.on = [self.defaults boolForKey:option[AROptionsKey]];
-    //    }
     toggle.on = [self.defaults boolForKey:option[AROptionsKey]];
 
     toggle.userInteractionEnabled = NO;
