@@ -860,7 +860,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presentation Mode Text" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FO8-4F-5Y3">
-                                                <rect key="frame" x="16" y="210" width="259" height="6"/>
+                                                <rect key="frame" x="16" y="210" width="259" height="16"/>
                                                 <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="17"/>
                                                 <color key="textColor" red="0.64172979799999996" green="0.64172979799999996" blue="0.64172979799999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -982,7 +982,7 @@
                                             <constraint firstItem="FO8-4F-5Y3" firstAttribute="centerX" secondItem="zVh-jW-Wxi" secondAttribute="centerX" id="2Jj-nD-FyE"/>
                                             <constraint firstItem="1H8-d9-Zyk" firstAttribute="centerX" secondItem="zVh-jW-Wxi" secondAttribute="centerX" id="2X1-VS-JjD"/>
                                             <constraint firstItem="9Pf-8v-Dpi" firstAttribute="top" secondItem="dS2-yR-ph7" secondAttribute="bottom" constant="25" id="4p3-L2-SFQ"/>
-                                            <constraint firstItem="7Ct-Q3-ZGl" firstAttribute="top" secondItem="FO8-4F-5Y3" secondAttribute="bottom" constant="60" id="5I3-Of-Ynq"/>
+                                            <constraint firstItem="7Ct-Q3-ZGl" firstAttribute="top" secondItem="FO8-4F-5Y3" secondAttribute="bottom" constant="50" id="5I3-Of-Ynq"/>
                                             <constraint firstItem="1H8-d9-Zyk" firstAttribute="top" secondItem="9Pf-8v-Dpi" secondAttribute="bottom" id="6oo-pt-YQL"/>
                                             <constraint firstItem="LXD-1b-oS1" firstAttribute="centerX" secondItem="zVh-jW-Wxi" secondAttribute="centerX" id="9GM-81-kLA"/>
                                             <constraint firstItem="LXD-1b-oS1" firstAttribute="height" secondItem="dS2-yR-ph7" secondAttribute="height" id="GKe-8I-LHY"/>
