@@ -164,7 +164,7 @@
                                         <rect key="frame" x="0.0" y="30" width="558" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="liS-em-7gK" id="JDf-3k-llm">
-                                            <rect key="frame" x="0.0" y="0.0" width="558" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="558" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -306,7 +306,7 @@
                                         <rect key="frame" x="0.0" y="10" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XLR-qu-nbE" id="7tP-Fl-Ow7">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -387,7 +387,7 @@
                                 <rect key="frame" x="0.0" y="38" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oc8-hj-y8W" id="leD-1H-xiG">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -395,7 +395,7 @@
                                 <rect key="frame" x="0.0" y="88" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cfg-3y-FDE" id="2Wb-tz-kNs">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -403,7 +403,7 @@
                                 <rect key="frame" x="0.0" y="138" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Yx-VL-bmB" id="sXn-kQ-voW">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -567,7 +567,7 @@
                                                                 <rect key="frame" x="0.0" y="30" width="570" height="50"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0x1-Qn-BpW" id="VeQ-Gu-EHF">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="570" height="49"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="570" height="49.5"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Chevron_Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="jqk-8B-Nbu">
@@ -859,9 +859,9 @@
                                                     <constraint firstItem="cg2-hd-q5c" firstAttribute="centerX" secondItem="1H8-d9-Zyk" secondAttribute="centerX" id="v6I-WW-kmS"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presentation Mode Text" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FO8-4F-5Y3">
-                                                <rect key="frame" x="16" y="210" width="259" height="16"/>
-                                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="16"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presentation Mode Text" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FO8-4F-5Y3">
+                                                <rect key="frame" x="16" y="210" width="259" height="6"/>
+                                                <fontDescription key="fontDescription" name="AGaramondPro-Regular" family="Adobe Garamond Pro" pointSize="17"/>
                                                 <color key="textColor" red="0.64172979799999996" green="0.64172979799999996" blue="0.64172979799999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -982,7 +982,7 @@
                                             <constraint firstItem="FO8-4F-5Y3" firstAttribute="centerX" secondItem="zVh-jW-Wxi" secondAttribute="centerX" id="2Jj-nD-FyE"/>
                                             <constraint firstItem="1H8-d9-Zyk" firstAttribute="centerX" secondItem="zVh-jW-Wxi" secondAttribute="centerX" id="2X1-VS-JjD"/>
                                             <constraint firstItem="9Pf-8v-Dpi" firstAttribute="top" secondItem="dS2-yR-ph7" secondAttribute="bottom" constant="25" id="4p3-L2-SFQ"/>
-                                            <constraint firstItem="7Ct-Q3-ZGl" firstAttribute="top" secondItem="FO8-4F-5Y3" secondAttribute="bottom" constant="50" id="5I3-Of-Ynq"/>
+                                            <constraint firstItem="7Ct-Q3-ZGl" firstAttribute="top" secondItem="FO8-4F-5Y3" secondAttribute="bottom" constant="60" id="5I3-Of-Ynq"/>
                                             <constraint firstItem="1H8-d9-Zyk" firstAttribute="top" secondItem="9Pf-8v-Dpi" secondAttribute="bottom" id="6oo-pt-YQL"/>
                                             <constraint firstItem="LXD-1b-oS1" firstAttribute="centerX" secondItem="zVh-jW-Wxi" secondAttribute="centerX" id="9GM-81-kLA"/>
                                             <constraint firstItem="LXD-1b-oS1" firstAttribute="height" secondItem="dS2-yR-ph7" secondAttribute="height" id="GKe-8I-LHY"/>
@@ -1091,7 +1091,7 @@
     <resources>
         <image name="Chevron_Gray.png" width="8" height="13"/>
         <image name="White.png" width="1" height="1"/>
-        <image name="wifi-strong.png" width="697" height="536"/>
+        <image name="wifi-strong.png" width="50" height="38"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pLu-7S-IIQ"/>

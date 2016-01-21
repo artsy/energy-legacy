@@ -11,7 +11,6 @@
 @interface ARLabSettingsPresentationModeViewController ()
 @property (nonatomic, copy) NSArray *presentationModeOptions;
 @property (weak, nonatomic) IBOutlet UILabel *explanatoryTextLabel;
-
 @end
 
 
@@ -25,7 +24,6 @@
     if (!self) return nil;
 
     self.section = ARLabSettingsSectionEditPresentationMode;
-
     self.title = @"Edit Presentation Mode".uppercaseString;
 
     return self;
@@ -102,7 +100,16 @@
     cell.textLabel.font = [UIFont serifFontWithSize:17];
 
     ARToggleSwitch *toggle = [ARToggleSwitch buttonWithFrame:CGRectMake(0, 0, 76, 28)];
+
+    /// By default, all presentation mode options are OFF
+    //    if (!self.didInitializeOptions) {
+    //        toggle.on = YES;
+    //        [self.defaults setBool:YES forKey:option[AROptionsKey]];
+    //    } else {
+    //        toggle.on = [self.defaults boolForKey:option[AROptionsKey]];
+    //    }
     toggle.on = [self.defaults boolForKey:option[AROptionsKey]];
+
     toggle.userInteractionEnabled = NO;
 
     cell.accessoryView = toggle;

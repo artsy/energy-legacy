@@ -1,25 +1,57 @@
 #import "ARLabSettingsMenuViewModel.h"
 #import "ARAppDelegate.h"
 #import "AROptions.h"
+#import "Partner+InventoryHelpers.h"
 
 
 @interface ARLabSettingsMenuViewModel ()
 @property (nonatomic, strong) NSUserDefaults *defaults;
 @property (nonatomic, strong) ARAppDelegate *appDelegate;
+@property (nonatomic, strong) NSManagedObjectContext *context;
+@property (nonatomic, assign) BOOL didInitializePresentationMode;
 @end
 
 
 @implementation ARLabSettingsMenuViewModel
 
-- (instancetype)initWithDefaults:(NSUserDefaults *)defaults appDelegate:(ARAppDelegate *)appDelegate
+- (instancetype)initWithDefaults:(NSUserDefaults *)defaults context:(NSManagedObjectContext *)context appDelegate:(ARAppDelegate *)appDelegate
 {
     self = [super init];
     if (!self) return nil;
 
     _defaults = defaults;
     _appDelegate = appDelegate;
+    _context = context;
 
     return self;
+}
+
+- (void)initializePresentationMode
+{
+    if ([self.defaults boolForKey:ARHasInitializedPresentationMode]) return;
+
+    Partner *partner = [Partner currentPartnerInContext:self.context];
+    NSMutableArray *relevantPresentationModeSettings = [NSMutableArray arrayWithArray:@[ ARHasInitializedPresentationMode, ARHideConfidentialNotes, ARHideArtworkEditButton ]];
+
+    if ([partner hasWorksWithPrice]) {
+        [relevantPresentationModeSettings addObject:ARHideAllPrices];
+    }
+
+    if ([partner hasSoldWorksWithPrices]) {
+        [relevantPresentationModeSettings addObject:ARHidePricesForSoldWorks];
+    }
+
+    if ([partner hasUnpublishedWorks] && [partner hasPublishedWorks]) {
+        [relevantPresentationModeSettings addObject:ARHideUnpublishedWorks];
+    }
+
+    if ([partner hasNotForSaleWorks] && [partner hasForSaleWorks]) {
+        [relevantPresentationModeSettings addObject:ARHideWorksNotForSale];
+    }
+
+    [relevantPresentationModeSettings each:^(NSString *settingKey) {
+        [self.defaults setBool:YES forKey:settingKey];
+    }];
 }
 
 - (NSString *)buttonTitleForSettingsSection:(ARLabSettingsSection)section
@@ -30,7 +62,7 @@
         case ARLabSettingsSectionPresentationMode:
             return NSLocalizedString(@"Presentation Mode", @"Title for presentation mode toggle button");
         case ARLabSettingsSectionEditPresentationMode:
-            return NSLocalizedString(@"Edit Presentation Mode", @"Title for edit presentation mode settings button");
+            return NSLocalizedString(@"Presentation Mode Settings", @"Title for edit presentation mode settings button");
         case ARLabSettingsSectionBackground:
             return NSLocalizedString(@"Background", @"Title for background settings button");
         case ARLabSettingsSectionEmail:
@@ -44,7 +76,11 @@
 
 - (NSString *)presentationModeExplanatoryText
 {
-    return NSLocalizedString(@"Hides sensitive information when showing artworks to clients", @"Explanatory text for presentation mode setting");
+    if (self.shouldEnablePresentationMode) {
+        return NSLocalizedString(@"Presentation Mode hides sensitive information when showing artworks to clients.", @"Explanatory text for presentation mode when it's enabled");
+    } else {
+        return NSLocalizedString(@"Presentation Mode hides sensitive information when showing artworks to clients. To use presentation mode, turn on one or more options in Presentation Mode Settings.", @"Explanatory text for presentation mode when it's disabled");
+    }
 }
 
 - (BOOL)presentationModeOn
@@ -56,6 +92,16 @@
 {
     BOOL on = ![self presentationModeOn];
     [self.defaults setBool:on forKey:ARPresentationModeOn];
+}
+
+- (void)disablePresentationMode
+{
+    [self.defaults setObject:NO forKey:ARPresentationModeOn];
+}
+
+- (BOOL)shouldEnablePresentationMode
+{
+    return [self.defaults boolForKey:ARHideAllPrices] || [self.defaults boolForKey:ARHidePricesForSoldWorks] || [self.defaults boolForKey:ARHideUnpublishedWorks] || [self.defaults boolForKey:ARHideWorksNotForSale] || [self.defaults boolForKey:ARHideConfidentialNotes] || [self.defaults boolForKey:ARHideArtworkEditButton];
 }
 
 - (UIImage *)settingsButtonImage
@@ -85,6 +131,11 @@
 - (ARAppDelegate *)appDelegate
 {
     return _appDelegate ?: (ARAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+- (NSManagedObjectContext *)context
+{
+    return _context ?: [CoreDataManager mainManagedObjectContext];
 }
 
 @end

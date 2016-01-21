@@ -4,7 +4,6 @@
 #import "ARStoryboardIdentifiers.h"
 #import "ARLabSettingsSplitViewController.h"
 #import "NSString+NiceAttributedStrings.h"
-#import "ARLabSettingsMenuViewModel.h"
 #import <Intercom/Intercom.h>
 #import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 #import "UIViewController+SettingsNavigationItemHelpers.h"
@@ -18,8 +17,6 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 
 
 @interface ARLabSettingsMasterViewController () <UIAlertViewDelegate>
-@property (nonatomic, strong) ARLabSettingsMenuViewModel *viewModel;
-
 @property (weak, nonatomic) IBOutlet UIButton *settingsIcon;
 @property (weak, nonatomic) IBOutlet UILabel *presentationModeLabel;
 
@@ -44,9 +41,16 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
     _viewModel = _viewModel ?: [[ARLabSettingsMenuViewModel alloc] init];
 
     [self setupNavigationBar];
+    [self registerForNotifications];
+    [self.viewModel initializePresentationMode];
 
     [self setupSectionButtons];
     [self.presentationModeLabel setAttributedText:[self.viewModel.presentationModeExplanatoryText attributedStringWithLineSpacing:5]];
+}
+
+- (void)registerForNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(defaultsChanged) name:NSUserDefaultsDidChangeNotification object:nil];
 }
 
 - (void)setupNavigationBar
@@ -65,11 +69,8 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
     /// Sync settings
     [self.syncContentButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionSync]];
 
-    /// Presentation Mode settings
-    [self.presentationModeButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionPresentationMode]];
-    [self.presentationModeButton hideChevron];
-    self.presentationModeToggle.on = [self.viewModel presentationModeOn];
-
+    /// Presentation mode settings
+    [self setupPresentationModeButton];
     [self.editPresentationModeButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionEditPresentationMode]];
     [self.editPresentationModeButton hideTopBorder];
 
@@ -87,6 +88,31 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
     [self.logoutButton hideChevron];
 }
 
+- (void)setupPresentationModeButton
+{
+    self.presentationModeToggle.on = [self.viewModel presentationModeOn];
+    [self.presentationModeButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARLabSettingsSectionPresentationMode]];
+    [self.presentationModeButton hideChevron];
+    [self enablePresentationModeToggle:self.viewModel.shouldEnablePresentationMode];
+}
+
+- (void)defaultsChanged
+{
+    [self enablePresentationModeToggle:self.viewModel.shouldEnablePresentationMode];
+    self.presentationModeLabel.attributedText = [self.viewModel.presentationModeExplanatoryText attributedStringWithLineSpacing:5];
+}
+
+- (void)enablePresentationModeToggle:(BOOL)enable
+{
+    self.presentationModeToggle.enabled = enable;
+    [self.presentationModeButton setTitleTextColor:enable ? UIColor.blackColor : UIColor.artsyHeavyGrey];
+
+    if (self.presentationModeToggle.on && !enable) {
+        self.presentationModeToggle.on = NO;
+        [self.viewModel disablePresentationMode];
+    }
+}
+
 #pragma mark -
 #pragma mark buttons
 
@@ -97,6 +123,10 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 
 - (IBAction)presentationModeButtonPressed:(id)sender
 {
+    if (!self.presentationModeToggle.isEnabled) {
+        return;
+    }
+
     [self.viewModel togglePresentationMode];
     self.presentationModeToggle.on = [self.viewModel presentationModeOn];
     [[NSNotificationCenter defaultCenter] postNotificationName:ARUserDidChangeGridFilteringSettingsNotification object:nil];

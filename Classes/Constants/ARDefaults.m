@@ -15,12 +15,15 @@ NSString *const ARShowPrices = @"ARShowPrices";
 NSString *const ARShowAvailability = @"ARShowAvailability";
 NSString *const ARShowConfidentialNotes = @"ARShowConfidentialNotes";
 
+NSString *const AROptionsUseLabSettings = @"AROptionsUseLabSettings";
+NSString *const ARPresentationModeOn = @"ARPresentationModeOn";
 NSString *const ARHideAllPrices = @"ARHideAllPrices";
 NSString *const ARHideConfidentialNotes = @"ARHideConfidentialNotes";
 NSString *const ARHidePricesForSoldWorks = @"ARHidePricesForSoldWorks";
 NSString *const ARHideWorksNotForSale = @"ARHideWorksNotForSale";
-NSString *const ARPresentationModeOn = @"ARPresentationModeOn";
 NSString *const ARHideArtworkEditButton = @"ARHideArtworkEditButton";
+
+NSString *const ARHasInitializedPresentationMode = @"ARHasInitializedPresentationMode";
 
 NSString *const AREmailGreeting = @"AREmailGreeting";
 NSString *const AREmailSignature = @"AREmailSignature";
@@ -41,16 +44,15 @@ NSString *const ARRecommendSync = @"ARRecommendSync";
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *defaultDefaults = @{
+        AROptionsUseLabSettings : @YES,
         ARPresentationModeOn : @NO,
-        ARHidePricesForSoldWorks : @NO,
-        ARHideWorksNotForSale : @NO,
-        ARHideUnpublishedWorks : @NO,
+        ARHasInitializedPresentationMode : @NO,
+
         ARShowAvailability : @YES,
         ARShowPrices : @NO,
         ARShowConfidentialNotes : @NO,
         ARStartedFirstSync : @NO,
         ARFinishedFirstSync : @NO,
-        ARHideArtworkEditButton : @NO,
         AREmailSubject : @"More information about %@ by %@",
         ARMultipleEmailSubject : @"More information about the artworks we discussed",
         ARMultipleSameArtistEmailSubject : @"More information about %@'s artworks",
