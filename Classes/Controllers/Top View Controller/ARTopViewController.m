@@ -127,11 +127,13 @@ NS_ENUM(NSInteger, ARTopViewControllers){
 
 - (void)updateSyncNotificationBadge
 {
+    __weak typeof(self) weakSelf = self;
+
     [self.cmsMonitor checkCMSForUpdates:^(BOOL updated) {
         if (updated) {
-            [self.toolbarController showSyncNotificationBadge];
+            [weakSelf.toolbarController showSyncNotificationBadge];
         } else {
-            [self.toolbarController hideSyncNotificationBadge];
+            [weakSelf.toolbarController hideSyncNotificationBadge];
         }
     }];
 }

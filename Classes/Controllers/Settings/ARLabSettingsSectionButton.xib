@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="ITC_Avant_Garde_Gothic__Demi.ttf">
@@ -14,7 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ARLabSettingsSectionButton">
             <connections>
-                <outlet property="alertBadge" destination="cwg-i0-l2p" id="sVE-Qw-2Zb"/>
+                <outlet property="alertBadge" destination="LK2-iC-Luu" id="HCf-LQ-zjq"/>
                 <outlet property="bottomBorder" destination="Qm1-MD-x0D" id="R4X-k7-gBu"/>
                 <outlet property="chevron" destination="Ixc-ST-ddB" id="TkX-dP-cvJ"/>
                 <outlet property="settingTitleLabel" destination="ptC-60-dlp" id="r2e-0b-oKN"/>
@@ -30,8 +29,8 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Chevron_Gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ixc-ST-ddB">
                     <rect key="frame" x="257" y="18" width="8" height="13"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="13" id="al6-We-s9W"/>
                         <constraint firstAttribute="width" secondItem="Ixc-ST-ddB" secondAttribute="height" multiplier="8:13" id="hsi-yw-Xe1"/>
-                        <constraint firstAttribute="height" constant="13" id="lxy-IM-21O"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -59,10 +58,11 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alert-badge-large.png" translatesAutoresizingMaskIntoConstraints="NO" id="cwg-i0-l2p">
-                    <rect key="frame" x="231" y="17" width="16" height="16"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alert-badge-large.png" translatesAutoresizingMaskIntoConstraints="NO" id="LK2-iC-Luu">
+                    <rect key="frame" x="233" y="17" width="16" height="16"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="cwg-i0-l2p" secondAttribute="height" multiplier="1:1" id="VJt-jl-V3g"/>
+                        <constraint firstAttribute="height" constant="16" id="6wR-q5-7xV"/>
+                        <constraint firstAttribute="width" secondItem="LK2-iC-Luu" secondAttribute="height" multiplier="1:1" id="T9b-Bz-ByV"/>
                     </constraints>
                 </imageView>
             </subviews>
@@ -71,16 +71,14 @@
                 <accessibilityTraits key="traits" button="YES"/>
             </accessibility>
             <constraints>
+                <constraint firstItem="Ixc-ST-ddB" firstAttribute="leading" secondItem="LK2-iC-Luu" secondAttribute="trailing" constant="8" id="4S5-gJ-cMs"/>
                 <constraint firstAttribute="trailing" secondItem="Ixc-ST-ddB" secondAttribute="trailing" id="BdG-EI-9Ou"/>
                 <constraint firstItem="Qm1-MD-x0D" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="N3E-9K-mN5"/>
                 <constraint firstItem="ptC-60-dlp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZUZ-p7-4PI"/>
-                <constraint firstItem="Ixc-ST-ddB" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="4:25" id="Zdz-dq-H8Q"/>
                 <constraint firstItem="ptC-60-dlp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ehJ-54-F8o"/>
                 <constraint firstItem="rhx-uX-VEd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gSX-Lz-Zpk"/>
-                <constraint firstItem="cwg-i0-l2p" firstAttribute="height" secondItem="Ixc-ST-ddB" secondAttribute="height" multiplier="1.2" id="hNg-Z5-ZdN"/>
-                <constraint firstItem="Ixc-ST-ddB" firstAttribute="leading" secondItem="cwg-i0-l2p" secondAttribute="trailing" constant="10" id="lyN-Ct-DVW"/>
                 <constraint firstItem="rhx-uX-VEd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nUs-xw-GLO"/>
-                <constraint firstItem="cwg-i0-l2p" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qD5-Uv-OAx"/>
+                <constraint firstItem="LK2-iC-Luu" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="quH-Zq-d9C"/>
                 <constraint firstAttribute="bottom" secondItem="Qm1-MD-x0D" secondAttribute="bottom" id="vIY-Qu-eOB"/>
                 <constraint firstItem="rhx-uX-VEd" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="xwa-rs-8Ul"/>
                 <constraint firstItem="Ixc-ST-ddB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zQE-KG-Mz4"/>
@@ -88,7 +86,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="557.5" y="446"/>
+            <point key="canvasLocation" x="558" y="446"/>
         </view>
     </objects>
     <resources>
