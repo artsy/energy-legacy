@@ -1,7 +1,7 @@
 #import "ARLabSettingsSplitViewController.h"
 #import "ARTopViewController.h"
 #import "ARStoryboardIdentifiers.h"
-#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
+
 #import "ARBaseViewController+TransparentModals.h"
 
 

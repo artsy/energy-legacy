@@ -3,7 +3,7 @@
 #import "ARToggleSwitch.h"
 #import "ARTableViewCell.h"
 #import "ARTheme.h"
-#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
+
 #import "UIViewController+SettingsNavigationItemHelpers.h"
 
 

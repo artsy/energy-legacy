@@ -1,5 +1,4 @@
 #import "ARSettingsNavigationBar.h"
-#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 
 
 @implementation ARSettingsNavigationBar

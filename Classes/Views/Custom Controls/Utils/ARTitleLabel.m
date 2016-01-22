@@ -1,4 +1,4 @@
-#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
+
 #import "ARTitleLabel.h"
 
 static CGFloat MaximumPortraitTitleWidth = 320;

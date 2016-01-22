@@ -1,5 +1,5 @@
 #import "ARLabSettingsEmailSubjectLinesViewController.h"
-#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
+
 #import "ARNavigationBar.h"
 #import "UIViewController+SettingsNavigationItemHelpers.h"
 #import "NSString+NiceAttributedStrings.h"
