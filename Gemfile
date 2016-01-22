@@ -9,7 +9,7 @@ gem "cocoapods"
 gem "cocoapods-keys"
 gem "cocoapods-open"
 gem 'cocoapods-deintegrate'
-gem 'danger'
+gem 'danger', :git => "https://github.com/krausefx/danger.git"
 
 group :deployment do
   gem "fastlane"
