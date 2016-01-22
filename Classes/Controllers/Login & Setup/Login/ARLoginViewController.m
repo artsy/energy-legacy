@@ -1,4 +1,4 @@
-#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
+
 
 #import "ARLoginViewController.h"
 #import "ARSync.h"

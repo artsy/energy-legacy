@@ -3,6 +3,7 @@ upcoming:
   notes:
     - (dev) Brought back sync recommendations [sarah]
     - (dev) Added tests for menu view model [sarah]
+    - (dev) Fix OSS fonts [orta]
     - (dev) Disables presentation mode if no presentation settings are on [sarah]
     - (dev) App delegate now checks for eligibility more often [sarah]
     - (dev) Updated sync view controller copy [sarah]

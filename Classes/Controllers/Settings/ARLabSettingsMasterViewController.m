@@ -5,7 +5,7 @@
 #import "ARLabSettingsSplitViewController.h"
 #import "NSString+NiceAttributedStrings.h"
 #import <Intercom/Intercom.h>
-#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
+
 #import "UIViewController+SettingsNavigationItemHelpers.h"
 #import <EDColor/EDColor.h>
 
