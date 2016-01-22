@@ -46,9 +46,9 @@ typedef NS_ENUM(NSInteger, ARSyncImageNotification) {
 /// Returns a string that describes either the network status or the time remaining in an active sync
 - (NSString *)statusLabelText;
 
-/// Titles for the sync button states; should be used during button setup
-- (NSString *)syncButtonNormalTitle;
-- (NSString *)SyncButtonDisabledTitle;
+/// Titles for the sync button states
+- (NSString *)syncButtonEnabledTitle;
+- (NSString *)syncButtonDisabledTitle;
 
 /// Returns the number of syncs logged on device
 - (NSInteger)syncLogCount;
@@ -61,6 +61,7 @@ typedef NS_ENUM(NSInteger, ARSyncImageNotification) {
 
 @property (nonatomic, assign) BOOL isOffline;
 
+- (UIColor *)syncButtonColorLegacy;
 - (NSString *)titleText;
 - (NSString *)subtitleText;
 - (BOOL)shouldShowSyncButton;

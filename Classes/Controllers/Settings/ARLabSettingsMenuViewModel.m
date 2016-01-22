@@ -26,6 +26,11 @@
     return self;
 }
 
+- (BOOL)shouldShowSyncNotification
+{
+    return [self.defaults boolForKey:ARRecommendSync];
+}
+
 - (void)initializePresentationMode
 {
     if ([self.defaults boolForKey:ARHasInitializedPresentationMode]) return;

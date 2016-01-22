@@ -32,6 +32,7 @@
     self.sync.delegate = self;
     self.sync.progress.delegate = self;
 
+    self.networkQuality = ARNetworkQualityGood;
     self.qualityIndicator = qualityIndicator;
     [self.qualityIndicator beginObservingNetworkQuality:^(ARNetworkQuality quality) {
         self.networkQuality = quality;
@@ -52,6 +53,11 @@
 - (BOOL)isActivelySyncing
 {
     return (self.networkQuality != ARNetworkQualityOffline) && self.sync.isSyncing;
+}
+
+- (BOOL)recommendSync
+{
+    return (self.networkQuality != ARNetworkQualityOffline) && [self.defaults boolForKey:ARRecommendSync];
 }
 
 - (void)syncDidProgress:(ARSyncProgress *)progress
@@ -100,6 +106,13 @@
     return UIColor.blackColor;
 }
 
+- (UIColor *)syncButtonColor
+{
+    if ((self.networkQuality != ARNetworkQualityOffline) && [self.defaults boolForKey:ARRecommendSync]) return [UIColor artsyPurple];
+
+    return UIColor.blackColor;
+}
+
 #pragma mark -
 #pragma mark text methods
 
@@ -121,14 +134,18 @@
     }
 }
 
-- (NSString *)syncButtonNormalTitle
+- (NSString *)syncButtonDisabledTitle
 {
-    return NSLocalizedString(@"Sync Content", @"Sync button text after syncing completed").uppercaseString;
+    return NSLocalizedString(@"Sync Unavailable", @"Sync button text when there's no network connection");
 }
 
-- (NSString *)SyncButtonDisabledTitle
+- (NSString *)syncButtonEnabledTitle
 {
-    return NSLocalizedString(@"Sync Unavailable", @"Sync button text when there's no network connection").uppercaseString;
+    if (self.recommendSync) {
+        return NSLocalizedString(@"Sync New Content", @"Sync button text when recommending a sync");
+    } else {
+        return NSLocalizedString(@"Sync Content", @"Sync button text after syncing completed");
+    }
 }
 
 - (NSString *)syncInProgressTitle
@@ -209,7 +226,7 @@
     return !(self.syncStatus == ARSyncStatusSyncing);
 }
 
-- (UIColor *)syncButtonColor
+- (UIColor *)syncButtonColorLegacy
 {
     if (self.syncStatus == ARSyncStatusRecommendSync) return [UIColor artsyPurple];
     return [UIColor artsyHeavyGrey];

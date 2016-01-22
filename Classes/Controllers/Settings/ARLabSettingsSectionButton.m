@@ -8,6 +8,7 @@
 @property (weak, nonatomic) IBOutlet UIView *topBorder;
 @property (weak, nonatomic) IBOutlet UIView *bottomBorder;
 @property (weak, nonatomic) IBOutlet UIImageView *chevron;
+@property (weak, nonatomic) IBOutlet UIImageView *alertBadge;
 
 @end
 
@@ -23,6 +24,8 @@
     self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
     [self addSubview:self.view];
 
+    self.alertBadge.hidden = YES;
+
     return self;
 }
 
@@ -36,7 +39,6 @@
     [self.settingTitleLabel setTextColor:color];
 }
 
-
 - (void)hideTopBorder
 {
     self.topBorder.alpha = 0;
@@ -45,6 +47,11 @@
 - (void)hideChevron
 {
     self.chevron.alpha = 0;
+}
+
+- (void)showAlertBadge:(BOOL)show
+{
+    self.alertBadge.hidden = !show;
 }
 
 @end
