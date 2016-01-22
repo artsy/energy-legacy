@@ -1,5 +1,4 @@
 #import "UIViewController+SettingsNavigationItemHelpers.h"
-#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 
 
 @implementation UIViewController (SettingsNavigationItemHelpers)

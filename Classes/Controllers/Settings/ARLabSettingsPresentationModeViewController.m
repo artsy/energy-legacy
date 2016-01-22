@@ -2,7 +2,7 @@
 #import "ARTableViewCell.h"
 #import "AROptions.h"
 #import "ARToggleSwitch.h"
-#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
+
 #import "NSString+NiceAttributedStrings.h"
 #import "Partner+InventoryHelpers.h"
 #import "UIViewController+SettingsNavigationItemHelpers.h"

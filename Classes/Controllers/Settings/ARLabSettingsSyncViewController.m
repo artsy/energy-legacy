@@ -1,6 +1,6 @@
 #import "ARLabSettingsSyncViewController.h"
 #import "ARFlatButton.h"
-#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
+
 #import "ARTopViewController.h"
 #import "NSString+NiceAttributedStrings.h"
 #import "ARSyncStatusViewModel.h"
