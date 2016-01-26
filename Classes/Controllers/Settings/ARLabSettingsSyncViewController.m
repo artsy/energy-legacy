@@ -165,6 +165,9 @@
 {
     CGFloat currentProgress = self.viewModel.currentSyncPercentDone;
     self.progressView.progress = currentProgress;
+    if (currentProgress == 1) {
+        [self.tableView reloadData];
+    }
 }
 
 - (void)showProgressViewAnimated:(BOOL)animated
