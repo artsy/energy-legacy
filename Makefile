@@ -43,7 +43,7 @@ test:
 mogenerate:
 	@printf 'What is the new Core Data version? '; \
 		read CORE_DATA_VERSION; \
-		mogenerator -m "Resources/CoreData/ArtsyPartner.xcdatamodeld/ArtsyFolio v$$CORE_DATA_VERSION.xcdatamodel/" --base-class ARManagedObject --template-path config/mogenerator/artsy --machine-dir Classes/Models/Generated/ --human-dir /tmp/ --template-var arc=true
+		mogenerator -m "Resources/CoreData/ArtsyPartner.xcdatamodeld/ArtsyFolio v$$CORE_DATA_VERSION.xcdatamodel" --base-class ARManagedObject --template-path config/mogenerator/artsy --machine-dir Classes/Models/Generated --human-dir /tmp --template-var arc=true
 
 storyboard_ids:
 	bundle exec sbconstants Classes/Util/App/ARStoryboardIdentifiers.h
