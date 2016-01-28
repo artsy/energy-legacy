@@ -30,11 +30,6 @@ You will have a running version of the Artsy app by hitting `Build > Run`.
 
 Instead of `make oss` in the above, run `make artsy` to set up [spacecommander](https://github.com/square/spacecommander).
 
-### Don't work at Artsy?
-
-We're actively looking for more [mobile developers](https://www.artsy.net/job/mobile-engineer) to join our
-[team](https://github.com/artsy/mobile/). Want work in NYC, and do impactful work in the open? Get in contact.
-
 ### Troubleshooting
 
 If you are seeing `bundle: command not found` when running the OSS Quick Start commands, you will need to install [bundler](http://bundler.io). You can do this by writing `sudo gem install bundler`.
