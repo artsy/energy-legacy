@@ -1,12 +1,12 @@
 #import "ARTransparentOverlayViewController.h"
-#import "ARLabSettingsSplitViewController.h"
+#import "ARSettingsSplitViewController.h"
 
 
 @implementation ARTransparentOverlayViewController
 
 - (IBAction)handleTap:(UITapGestureRecognizer *)recognizer
 {
-    [(ARLabSettingsSplitViewController *)self.splitViewController exitSettingsPanel];
+    [(ARSettingsSplitViewController *)self.splitViewController exitSettingsPanel];
 }
 
 @end

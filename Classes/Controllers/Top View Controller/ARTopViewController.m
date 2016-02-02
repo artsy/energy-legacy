@@ -9,7 +9,7 @@
 #import "ARGridViewDataSource.h"
 #import "ARImageGridViewItem.h"
 #import "AROptions.h"
-#import "ARLabSettingsSplitViewController.h"
+#import "ARSettingsSplitViewController.h"
 
 NS_ENUM(NSInteger, ARTopViewControllers){
     ARTopViewControllerArtists = 0,
@@ -315,13 +315,13 @@ NS_ENUM(NSInteger, ARTopViewControllers){
 {
     [self.toolbarController hideSyncNotificationBadge];
 
-    UIStoryboard *labSettings = [UIStoryboard storyboardWithName:@"ARLabSettings" bundle:nil];
-    UIViewController *labSettingsViewController = [labSettings instantiateInitialViewController];
+    UIStoryboard *settingsStoryboard = [UIStoryboard storyboardWithName:@"ARSettings" bundle:nil];
+    UIViewController *settingsViewController = [settingsStoryboard instantiateInitialViewController];
 
-    labSettingsViewController.modalTransitionStyle = [UIDevice isPad] ? UIModalTransitionStyleCrossDissolve : UIModalTransitionStyleCoverVertical;
+    settingsViewController.modalTransitionStyle = [UIDevice isPad] ? UIModalTransitionStyleCrossDissolve : UIModalTransitionStyleCoverVertical;
     self.modalPresentationStyle = UIModalPresentationCurrentContext;
 
-    [self presentViewController:labSettingsViewController animated:animated completion:nil];
+    [self presentViewController:settingsViewController animated:animated completion:nil];
 }
 
 #pragma mark -
