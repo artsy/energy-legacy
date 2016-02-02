@@ -15,7 +15,6 @@ NSString *const ARShowPrices = @"ARShowPrices";
 NSString *const ARShowAvailability = @"ARShowAvailability";
 NSString *const ARShowConfidentialNotes = @"ARShowConfidentialNotes";
 
-NSString *const AROptionsUseLabSettings = @"AROptionsUseLabSettings";
 NSString *const ARPresentationModeOn = @"ARPresentationModeOn";
 NSString *const ARHideAllPrices = @"ARHideAllPrices";
 NSString *const ARHideConfidentialNotes = @"ARHideConfidentialNotes";
@@ -44,7 +43,6 @@ NSString *const ARRecommendSync = @"ARRecommendSync";
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *defaultDefaults = @{
-        AROptionsUseLabSettings : @YES,
         ARPresentationModeOn : @NO,
         ARHasInitializedPresentationMode : @NO,
 

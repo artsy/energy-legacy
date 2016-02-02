@@ -1,6 +1,6 @@
 #import "ARLabSettingsSyncViewController.h"
 #import "ARStoryboardIdentifiers.h"
-#import "ARSyncStatusViewModel.h"
+#import "ARSyncSettingsViewModel.h"
 #import "SyncLog.h"
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 #import "ARStubbedNetworkQualityIndicator.h"
@@ -8,12 +8,12 @@
 
 
 @interface ARLabSettingsSyncViewController ()
-@property (nonatomic, strong) ARSyncStatusViewModel *viewModel;
+@property (nonatomic, strong) ARSyncSettingsViewModel *viewModel;
 - (void)updateSubviewsAnimated:(BOOL)animated;
 @end
 
 
-@interface ARSyncStatusViewModel ()
+@interface ARSyncSettingsViewModel ()
 - (instancetype)initWithSync:(ARSync *)sync context:(NSManagedObjectContext *)context qualityIndicator:(ARNetworkQualityIndicator *)qualityIndicator;
 @property (nonatomic, strong) NSUserDefaults *defaults;
 @end
@@ -34,7 +34,7 @@ beforeEach(^{
     context = [CoreDataManager stubbedManagedObjectContext];
     subject = [storyboard instantiateViewControllerWithIdentifier:SyncSettingsViewController];
     
-    subject.viewModel = [[ARSyncStatusViewModel alloc] initWithSync:nil context:context qualityIndicator:[[ARStubbedNetworkQualityIndicator alloc] init]];
+    subject.viewModel = [[ARSyncSettingsViewModel alloc] initWithSync:nil context:context qualityIndicator:[[ARStubbedNetworkQualityIndicator alloc] init]];
     mockViewModel = [OCMockObject partialMockForObject:subject.viewModel];
     
     navController = [storyboard instantiateViewControllerWithIdentifier:SettingsNavigationController];

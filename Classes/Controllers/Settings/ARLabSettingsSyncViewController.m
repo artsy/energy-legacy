@@ -3,7 +3,7 @@
 
 #import "ARTopViewController.h"
 #import "NSString+NiceAttributedStrings.h"
-#import "ARSyncStatusViewModel.h"
+#import "ARSyncSettingsViewModel.h"
 #import "UIViewController+SettingsNavigationItemHelpers.h"
 #import "ARSettingsNavigationBar.h"
 #import "ARProgressView.h"
@@ -11,7 +11,7 @@
 
 
 @interface ARLabSettingsSyncViewController ()
-@property (nonatomic, strong) ARSyncStatusViewModel *viewModel;
+@property (nonatomic, strong) ARSyncSettingsViewModel *viewModel;
 @property (nonatomic, strong) FBKVOController *kvoController;
 
 @property (weak, nonatomic) IBOutlet ARSyncFlatButton *syncButton;
@@ -220,7 +220,7 @@
 #pragma mark -
 #pragma mark dependency injection
 
-- (ARSyncStatusViewModel *)viewModel
+- (ARSyncSettingsViewModel *)viewModel
 {
     if (!_viewModel) {
         _viewModel = [[ARSyncStatusViewModel alloc] initWithSync:ARTopViewController.sharedInstance.sync context:CoreDataManager.mainManagedObjectContext];

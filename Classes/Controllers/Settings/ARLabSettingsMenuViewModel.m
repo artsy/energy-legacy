@@ -120,11 +120,6 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:ARDismissAllPopoversNotification object:nil];
 }
 
-- (void)switchToOriginalSettings
-{
-    [self.defaults setBool:NO forKey:AROptionsUseLabSettings];
-}
-
 #pragma mark -
 #pragma mark dependency injection
 

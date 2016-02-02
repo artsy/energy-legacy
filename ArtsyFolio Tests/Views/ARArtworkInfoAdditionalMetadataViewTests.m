@@ -114,7 +114,6 @@ describe(@"visually", ^{
         
         fakeDefaults = [ForgeriesUserDefaults defaults:@{
                          ARHideConfidentialNotes: @NO,
-                         AROptionsUseLabSettings: @YES
                          }];
         
         [ARTestContext useContext:ARTestContextDeviceTypePad :^{
@@ -131,39 +130,10 @@ describe(@"visually", ^{
 
 describe(@"showing and hiding edition prices", ^{
     
-    /// this test will disappear soon
-    it(@"shows edition prices when it should with old settings", ^{
-        Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
-        
-        fakeDefaults = [ForgeriesUserDefaults defaults:@{
-                         ARShowPrices: @YES,
-                         AROptionsUseLabSettings: @NO
-                         }];
-        
-        setupSUTWithArtwork(artwork);
-        
-        expect([sut showPriceOfEditionSet:artwork.editionSets.firstObject]).to.beTruthy();
-    });
-
-    /// this test will also disappear soon
-    it(@"hides edition prices when it should with old settings", ^{
-        Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
-        
-        fakeDefaults = [ForgeriesUserDefaults defaults:@{
-                         ARShowPrices: @NO,
-                         AROptionsUseLabSettings: @NO
-                         }];
-        
-        setupSUTWithArtwork(artwork);
-        
-        expect([sut showPriceOfEditionSet:artwork.editionSets.firstObject]).to.beFalsy();
-    });
-    
     it(@"shows unsold edition prices when pres mode is off", ^{
         Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
         
         fakeDefaults = [ForgeriesUserDefaults defaults:@{
-                         AROptionsUseLabSettings: @YES,
                          ARPresentationModeOn: @NO,
                          ARHideAllPrices: @NO,
                          ARHidePricesForSoldWorks: @YES
@@ -178,7 +148,6 @@ describe(@"showing and hiding edition prices", ^{
         Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
         
         fakeDefaults = [ForgeriesUserDefaults defaults:@{
-                         AROptionsUseLabSettings: @YES,
                          ARPresentationModeOn: @YES,
                          ARHideAllPrices: @NO,
                          ARHidePricesForSoldWorks: @YES
@@ -193,7 +162,6 @@ describe(@"showing and hiding edition prices", ^{
         Artwork *artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
         
         fakeDefaults = [ForgeriesUserDefaults defaults:@{
-                         AROptionsUseLabSettings: @YES,
                          ARPresentationModeOn: @YES,
                          ARHideAllPrices: @YES,
                          ARHidePricesForSoldWorks: @NO
@@ -210,7 +178,6 @@ describe(@"showing and hiding edition prices", ^{
         set.availability = ARAvailabilitySold;
         
         fakeDefaults = [ForgeriesUserDefaults defaults:@{
-                         AROptionsUseLabSettings: @YES,
                          ARPresentationModeOn: @NO,
                          ARHideAllPrices: @"YES",
                          ARHidePricesForSoldWorks: @YES
@@ -227,7 +194,6 @@ describe(@"showing and hiding edition prices", ^{
         set.availability = ARAvailabilitySold;
         
         fakeDefaults = [ForgeriesUserDefaults defaults:@{
-                         AROptionsUseLabSettings: @YES,
                          ARPresentationModeOn: @YES,
                          ARHideAllPrices: @NO,
                          ARHidePricesForSoldWorks: @NO
@@ -244,7 +210,6 @@ describe(@"showing and hiding edition prices", ^{
         set.availability = ARAvailabilitySold;
         
         fakeDefaults = [ForgeriesUserDefaults defaults:@{
-                         AROptionsUseLabSettings: @YES,
                          ARPresentationModeOn: @YES,
                          ARHideAllPrices: @"NO",
                          ARHidePricesForSoldWorks: @YES
@@ -264,7 +229,6 @@ describe(@"showing and hiding confidential notes", ^{
         
         fakeDefaults = [ForgeriesUserDefaults defaults:@{
                              ARHideConfidentialNotes: @YES,
-                             AROptionsUseLabSettings: @YES,
                              ARPresentationModeOn: @YES,
                              }];
 
@@ -288,7 +252,6 @@ describe(@"showing and hiding confidential notes", ^{
         
         fakeDefaults = [ForgeriesUserDefaults defaults:@{
                              ARHideConfidentialNotes: @NO,
-                             AROptionsUseLabSettings: @YES,
                              ARPresentationModeOn: @YES,
                              }];
 
@@ -313,7 +276,6 @@ describe(@"showing and hiding confidential notes", ^{
         
         fakeDefaults = [ForgeriesUserDefaults defaults:@{
                              ARHideConfidentialNotes: @YES,
-                             AROptionsUseLabSettings: @YES,
                              ARPresentationModeOn: @NO,
                          }];
         

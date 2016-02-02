@@ -1,5 +1,5 @@
 
-#import "ARSyncStatusViewModel.h"
+#import "ARSyncSettingsViewModel.h"
 #import "NSString+TimeInterval.h"
 #import "Reachability+ConnectionExists.h"
 #import "NSDate+Presentation.h"
@@ -7,7 +7,7 @@
 #import "AROptions.h"
 
 
-@interface ARSyncStatusViewModel ()
+@interface ARSyncSettingsViewModel ()
 @property (nonatomic, strong) NSUserDefaults *defaults;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) ARSync *sync;
@@ -15,7 +15,7 @@
 @end
 
 
-@implementation ARSyncStatusViewModel
+@implementation ARSyncSettingsViewModel
 
 - (instancetype)initWithSync:(ARSync *)sync context:(NSManagedObjectContext *)context
 {
@@ -55,6 +55,11 @@
     return (self.networkQuality != ARNetworkQualityOffline) && self.sync.isSyncing;
 }
 
+- (BOOL)shouldEnableSyncButton
+{
+    return !(self.networkQuality == ARNetworkQualityOffline);
+}
+
 - (BOOL)recommendSync
 {
     return (self.networkQuality != ARNetworkQualityOffline) && [self.defaults boolForKey:ARRecommendSync];
@@ -70,16 +75,6 @@
 {
     self.currentSyncPercentDone = 1;
     self.timeRemainingInSync = 0;
-}
-
-- (BOOL)shouldEnableSyncButton
-{
-    if (![self.defaults boolForKey:AROptionsUseLabSettings]) {
-        return !(self.syncStatus == ARSyncStatusOffline); /// Deprecated; will be removed once old settings are totally replaced
-
-    } else {
-        return !(self.networkQuality == ARNetworkQualityOffline);
-    }
 }
 
 #pragma mark -
@@ -202,105 +197,6 @@
 - (void)dealloc
 {
     [self.qualityIndicator stopObservingNetworkQuality];
-}
-
-
-#pragma mark -
-#pragma mark deprecated methods
-
-- (ARSyncStatus)syncStatus
-{
-    if (self.isOffline) {
-        return ARSyncStatusOffline;
-    } else if (self.sync.isSyncing) {
-        return ARSyncStatusSyncing;
-    } else if ([self.defaults boolForKey:ARRecommendSync]) {
-        return ARSyncStatusRecommendSync;
-    } else {
-        return ARSyncStatusUpToDate;
-    }
-}
-
-- (BOOL)shouldShowSyncButton
-{
-    return !(self.syncStatus == ARSyncStatusSyncing);
-}
-
-- (UIColor *)syncButtonColorLegacy
-{
-    if (self.syncStatus == ARSyncStatusRecommendSync) return [UIColor artsyPurple];
-    return [UIColor artsyHeavyGrey];
-}
-
-- (NSString *)syncButtonTitle
-{
-    if (self.syncStatus == ARSyncStatusRecommendSync) {
-        return NSLocalizedString(@"Sync New Content", @"Sync button text when we're recommending a sync");
-    } else if ([self.defaults boolForKey:AROptionsUseLabSettings] && self.syncStatus == ARSyncStatusOffline) {
-        return NSLocalizedString(@"Sync Unavailable", @"Sync button text when there's no network connection").uppercaseString;
-    }
-
-    return NSLocalizedString(@"Sync Content", @"Sync button text after syncing completed").uppercaseString;
-}
-
-- (CGFloat)syncActivityViewAlpha
-{
-    if (self.syncStatus == ARSyncStatusSyncing) return 1;
-    return 0;
-}
-
-- (ARSyncImageNotification)currentSyncImageNotification
-{
-    if (self.syncStatus == ARSyncStatusUpToDate)
-        return ARSyncImageNotificationUpToDate;
-    else if (self.syncStatus == ARSyncStatusRecommendSync)
-        return ARSyncImageNotificationRecommendSync;
-    else
-        return ARSyncImageNotificationNone;
-}
-
-- (NSString *)titleText
-{
-    switch (self.syncStatus) {
-        case ARSyncStatusOffline:
-            return [self lastSyncedString];
-
-        case ARSyncStatusRecommendSync:
-            return NSLocalizedString(@"New Content in CMS", @"New content in CMS label");
-
-        case ARSyncStatusSyncing:
-            return NSLocalizedString(@"Sync in progress...", @"Sync is in progress string with ellipses");
-
-        case ARSyncStatusUpToDate:
-            return NSLocalizedString(@"Content is up to date", @"All content up-to-date string");
-    }
-}
-
-- (NSString *)subtitleText
-{
-    switch (self.syncStatus) {
-        case ARSyncStatusOffline:
-            return NSLocalizedString(@"Syncing is not available offline", @"Label that tells user they cannot sync without a network connection");
-
-        case ARSyncStatusRecommendSync:
-            return [self lastSyncedString];
-
-        case ARSyncStatusSyncing:
-            return @"";
-
-        case ARSyncStatusUpToDate:
-            return [self lastSyncedString];
-    }
-}
-
-- (NSString *)lastSyncedString
-{
-    NSDate *lastSynced = [self.defaults objectForKey:ARLastSyncDate];
-    if (lastSynced) {
-        NSString *lastSyncedFormat = NSLocalizedString(@"Last synced %@", @"Text for saying the last time you synced was %@");
-        return [NSString stringWithFormat:lastSyncedFormat, [lastSynced formattedString]];
-    }
-    return @"";
 }
 
 @end

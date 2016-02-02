@@ -66,15 +66,11 @@
 
 + (BOOL)hideUnpublishedWithDefaults:(NSUserDefaults *)defaults
 {
-    if (![defaults boolForKey:AROptionsUseLabSettings]) return [defaults boolForKey:ARHideUnpublishedWorks];
-
     return [defaults boolForKey:ARPresentationModeOn] ? [defaults boolForKey:ARHideUnpublishedWorks] : NO;
 }
 
 + (BOOL)hideUnavailableWithDefaults:(NSUserDefaults *)defaults
 {
-    if (![defaults boolForKey:AROptionsUseLabSettings]) return [defaults boolForKey:ARHideWorksNotForSale];
-
     return [defaults boolForKey:ARPresentationModeOn] ? [defaults boolForKey:ARHideWorksNotForSale] : NO;
 }
 

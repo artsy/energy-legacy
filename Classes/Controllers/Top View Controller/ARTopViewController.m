@@ -1,7 +1,6 @@
 #import "ARTopViewToolbarController.h"
 #import "ARUnderLinedSwitchView.h"
 #import "ARTopViewController.h"
-#import "ARSettingsViewController.h"
 #import "ARTopViewController+EditingAlbum.h"
 #import "ARBaseViewController+TransparentModals.h"
 #import "ARSearchViewController.h"
@@ -9,7 +8,6 @@
 #import "ARSyncMessageViewController.h"
 #import "ARGridViewDataSource.h"
 #import "ARImageGridViewItem.h"
-#import "ARSettingsNavigationController.h"
 #import "AROptions.h"
 #import "ARLabSettingsSplitViewController.h"
 
@@ -24,7 +22,6 @@ NS_ENUM(NSInteger, ARTopViewControllers){
 
 @property (nonatomic, strong) ARTabContentView *tabView;
 @property (nonatomic, strong) ARUnderLinedSwitchView *switchView;
-@property (nonatomic, strong) ARPopoverController *settingsPopoverController;
 @property (nonatomic, strong) ARTopViewToolbarController *toolbarController;
 @property (nonatomic, assign) BOOL hasCheckedSyncStatus;
 @property (nonatomic, strong) ARSwitchBoard *switchBoard;
@@ -57,7 +54,6 @@ NS_ENUM(NSInteger, ARTopViewControllers){
     _toolbarController = [[ARTopViewToolbarController alloc] initWithTopVC:self];
 
     [self registerForAlbumEditNotifications];
-    [self observeNotification:ARDismissAllPopoversNotification globallyWithSelector:@selector(dismissPopovers)];
 
     return self;
 }
@@ -307,89 +303,25 @@ NS_ENUM(NSInteger, ARTopViewControllers){
 }
 
 #pragma mark -
-#pragma mark Popover
+#pragma mark Settings
 
-- (void)toggleSettingsPopover
+- (void)toggleSettingsMenu
 {
-    [self toggleSettingsPopoverAnimated:YES];
+    [self toggleSettingsMenu:YES];
 }
 
-- (void)toggleSettingsPopoverAnimated:(BOOL)animated
+- (void)toggleSettingsMenu:(BOOL)animated
 
 {
-    if (self.settingsPopoverController.isPopoverVisible) {
-        [self dismissPopoversAnimated:animated];
+    [self.toolbarController hideSyncNotificationBadge];
 
-    } else if ([[NSUserDefaults standardUserDefaults] boolForKey:AROptionsUseLabSettings]) {
-        [self.toolbarController hideSyncNotificationBadge];
+    UIStoryboard *labSettings = [UIStoryboard storyboardWithName:@"ARLabSettings" bundle:nil];
+    UIViewController *labSettingsViewController = [labSettings instantiateInitialViewController];
 
-        UIStoryboard *labSettings = [UIStoryboard storyboardWithName:@"ARLabSettings" bundle:nil];
-        UIViewController *labSettingsViewController = [labSettings instantiateInitialViewController];
+    labSettingsViewController.modalTransitionStyle = [UIDevice isPad] ? UIModalTransitionStyleCrossDissolve : UIModalTransitionStyleCoverVertical;
+    self.modalPresentationStyle = UIModalPresentationCurrentContext;
 
-        labSettingsViewController.modalTransitionStyle = [UIDevice isPad] ? UIModalTransitionStyleCrossDissolve : UIModalTransitionStyleCoverVertical;
-        self.modalPresentationStyle = UIModalPresentationCurrentContext;
-
-
-        [self presentViewController:labSettingsViewController animated:YES completion:nil];
-
-    } else {
-        [self dismissPopoversAnimated:animated];
-        [[NSNotificationCenter defaultCenter] postNotificationName:ARDismissAllPopoversNotification object:nil];
-
-        ARSettingsViewController *settingsViewController = [[ARSettingsViewController alloc] init];
-        [settingsViewController setSync:self.sync];
-
-        ARSettingsNavigationController *navController = [[NSBundle mainBundle] loadNibNamed:@"ARSettingsNavigationController" owner:self options:nil][0];
-        navController.viewControllers = @[ settingsViewController ];
-
-        UIButton *settingsButton = self.toolbarController.settingsPopoverItem.representedButton;
-        settingsButton.selected = YES;
-
-        [self.toolbarController hideSyncNotificationBadge];
-
-        _settingsPopoverController = [[ARPopoverController alloc] initWithContentViewController:navController];
-
-        NSMutableArray *buttons = [NSMutableArray array];
-        for (UIBarButtonItem *item in self.navigationItem.rightBarButtonItems) {
-            [buttons addObject:item.customView];
-        }
-
-        self.settingsPopoverController.passthroughViews = buttons;
-        self.settingsPopoverController.delegate = self;
-        navController.hostPopoverController = self.settingsPopoverController;
-
-        CGRect buttonFrame = [self.view convertRect:settingsButton.frame fromView:[settingsButton superview]];
-        [self.settingsPopoverController presentPopoverFromRect:buttonFrame
-                                                        inView:self.view
-                                      permittedArrowDirections:WYPopoverArrowDirectionUp
-                                                      animated:animated];
-    }
-}
-
-#pragma mark -
-#pragma mark Popovers
-
-- (void)dismissPopovers
-{
-    [self dismissPopoversAnimated:NO];
-}
-
-- (void)dismissPopoversAnimated:(BOOL)animate
-{
-    [self.settingsPopoverController dismissPopoverAnimated:animate];
-    [self popoverControllerDidDismissPopover:self.settingsPopoverController];
-}
-
-- (void)popoverControllerDidDismissPopover:(ARPopoverController *)aPopoverController
-{
-    if (aPopoverController == self.settingsPopoverController) {
-        self.toolbarController.settingsPopoverItem.representedButton.selected = NO;
-    }
-}
-
-- (BOOL)popoverControllerShouldDismissPopover:(ARPopoverController *)popoverController
-{
-    return YES;
+    [self presentViewController:labSettingsViewController animated:animated completion:nil];
 }
 
 #pragma mark -
@@ -512,7 +444,6 @@ NS_ENUM(NSInteger, ARTopViewControllers){
 {
     _editing = editing;
 
-    [self dismissPopoversAnimated:animated];
     BOOL showingAlbumsOnPhone = (self.displayMode == ARDisplayModeAllAlbums) && ![UIDevice isPad];
     [self showBottomToolbar:showingAlbumsOnPhone || editing animated:animated];
 

@@ -28,7 +28,7 @@
 
 - (void)reloadCurrentViewController;
 
-- (void)toggleSettingsPopover;
+- (void)toggleSettingsMenu;
 
 - (void)toggleEditMode;
 

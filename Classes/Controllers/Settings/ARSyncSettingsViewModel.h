@@ -2,23 +2,9 @@
 #import "ARNetworkQualityIndicator.h"
 
 
-@class ARSyncStatusViewModel;
+@class ARSyncSettingsViewModel;
 
-typedef NS_ENUM(NSInteger, ARSyncStatus) {
-    ARSyncStatusSyncing,
-    ARSyncStatusUpToDate,
-    ARSyncStatusRecommendSync,
-    ARSyncStatusOffline,
-};
-
-typedef NS_ENUM(NSInteger, ARSyncImageNotification) {
-    ARSyncImageNotificationUpToDate,
-    ARSyncImageNotificationRecommendSync,
-    ARSyncImageNotificationNone,
-};
-
-
-@interface ARSyncStatusViewModel : NSObject <ARSyncDelegate, ARSyncProgressDelegate>
+@interface ARSyncSettingsViewModel : NSObject <ARSyncDelegate, ARSyncProgressDelegate>
 
 
 @property (nonatomic, strong) ARNetworkQualityIndicator *qualityIndicator;
@@ -46,6 +32,9 @@ typedef NS_ENUM(NSInteger, ARSyncImageNotification) {
 /// Returns a string that describes either the network status or the time remaining in an active sync
 - (NSString *)statusLabelText;
 
+/// Color for sync button; will be either black or purple
+- (UIColor *)syncButtonColor;
+
 /// Titles for the sync button states
 - (NSString *)syncButtonEnabledTitle;
 - (NSString *)syncButtonDisabledTitle;
@@ -55,20 +44,5 @@ typedef NS_ENUM(NSInteger, ARSyncImageNotification) {
 
 /// Returns an array of formatted date strings for all recorded syncs
 - (NSArray<NSString *> *)previousSyncDateStrings;
-
-
-/// Methods & property below are deprecated; will be removed with old settings
-
-@property (nonatomic, assign) BOOL isOffline;
-
-- (UIColor *)syncButtonColorLegacy;
-- (NSString *)titleText;
-- (NSString *)subtitleText;
-- (BOOL)shouldShowSyncButton;
-- (NSString *)syncButtonTitle;
-- (UIColor *)syncButtonColor;
-- (CGFloat)syncActivityViewAlpha;
-
-- (ARSyncImageNotification)currentSyncImageNotification;
 
 @end

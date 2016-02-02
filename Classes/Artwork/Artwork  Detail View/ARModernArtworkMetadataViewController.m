@@ -109,9 +109,8 @@
 
 - (BOOL)showPrice
 {
+    /// If there are multiple editions, show prices with full metadata instead
     if (self.artwork.editionSets.count) return NO;
-
-    if (![self.defaults boolForKey:AROptionsUseLabSettings]) return [self.defaults boolForKey:ARShowPrices];
 
     if ([self.defaults boolForKey:ARPresentationModeOn] && [self.defaults boolForKey:ARHideAllPrices]) return NO;
 
@@ -130,12 +129,7 @@
 
 - (BOOL)shouldShowConfidentialNotes
 {
-    BOOL usingLabSettings = [self.defaults boolForKey:AROptionsUseLabSettings];
-    if (!usingLabSettings) return [self.defaults boolForKey:ARShowConfidentialNotes];
-
-    if (![self.defaults boolForKey:ARPresentationModeOn]) return YES;
-
-    return ![self.defaults boolForKey:ARHideConfidentialNotes];
+    return [self.defaults boolForKey:ARPresentationModeOn] ? ![self.defaults boolForKey:ARHideConfidentialNotes] : YES;
 }
 
 - (void)registerForNotifications
