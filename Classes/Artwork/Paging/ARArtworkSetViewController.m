@@ -383,8 +383,6 @@
 
 - (BOOL)shouldShowEditButton
 {
-    if (![self.defaults boolForKey:AROptionsUseLabSettings]) return YES;
-
     BOOL presentationModeOn = [self.defaults boolForKey:ARPresentationModeOn];
     return presentationModeOn ? ![self.defaults boolForKey:ARHideArtworkEditButton] : YES;
 }

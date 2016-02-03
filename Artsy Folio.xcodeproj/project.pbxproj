@@ -172,9 +172,7 @@
 		6047CB7314D98F8E00B751E5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6047CB7214D98F8D00B751E5 /* Security.framework */; };
 		604D181216868029006CC028 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 604D181116868029006CC028 /* CoreTelephony.framework */; };
 		604D77E91A33AF5E006D55E4 /* ARAlbumViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 604D77E81A33AF5E006D55E4 /* ARAlbumViewControllerTests.m */; };
-		6055B77F1872DFE80043B937 /* ARAdminSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6055B77E1872DFE80043B937 /* ARAdminSettingsViewController.m */; };
 		6055B7861872E2CC0043B937 /* AROptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6055B7851872E2CC0043B937 /* AROptions.m */; };
-		6055B78A1872E8390043B937 /* ARAdminSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6055B7891872E8390043B937 /* ARAdminSettingsViewController.xib */; };
 		6058B8B215F0DDFD00D9CEB5 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 6058B8B115F0DDFD00D9CEB5 /* Location.m */; };
 		6058DB1315DA621D00D35A13 /* ARShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6058DB1115DA621C00D35A13 /* ARShowViewController.m */; };
 		605DC40519B67C62004AE616 /* ARPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605DC40419B67C62004AE616 /* ARPopoverController.m */; };
@@ -189,8 +187,6 @@
 		6060299719A25E160062A4F2 /* ARGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6060299619A25E160062A4F2 /* ARGridViewCell.m */; };
 		6060299A19A287790062A4F2 /* ARHighlightableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6060299919A287790062A4F2 /* ARHighlightableImageView.m */; };
 		6060299C19A288570062A4F2 /* ARHighlightableImageViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6060299B19A288570062A4F2 /* ARHighlightableImageViewTests.m */; };
-		6062B326155C35FD006BEF6F /* ARMenuNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 606DF164155173B000E2F74C /* ARMenuNavigationBar.m */; };
-		6062B327155C362B006BEF6F /* ARSettingsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 606DF15D1551720000E2F74C /* ARSettingsNavigationController.m */; };
 		6062B365155D2312006BEF6F /* MenuBackSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 6062B363155D2312006BEF6F /* MenuBackSelected.png */; };
 		6062B367155D2312006BEF6F /* MenuBackSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6062B364155D2312006BEF6F /* MenuBackSelected@2x.png */; };
 		60665B5D1733EA24003F96E8 /* support_email_template.html in Resources */ = {isa = PBXBuildFile; fileRef = 60665B5C1733EA24003F96E8 /* support_email_template.html */; };
@@ -209,7 +205,6 @@
 		606C84771C16009400C6D15F /* ARStubbedNetworkQualityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 606C84761C16009400C6D15F /* ARStubbedNetworkQualityIndicator.m */; };
 		606DF15615516F5900E2F74C /* MenuBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 606DF15415516F5900E2F74C /* MenuBack.png */; };
 		606DF15815516F5900E2F74C /* MenuBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606DF15515516F5900E2F74C /* MenuBack@2x.png */; };
-		606DF1611551720000E2F74C /* ARSettingsNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606DF15E1551720000E2F74C /* ARSettingsNavigationController.xib */; };
 		606DF1691551749B00E2F74C /* White.png in Resources */ = {isa = PBXBuildFile; fileRef = 606DF1681551749B00E2F74C /* White.png */; };
 		606E6869192110C90044F6ED /* ARAppDataMigrationsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 606E6868192110C90044F6ED /* ARAppDataMigrationsTest.m */; };
 		606E686E192110E20044F6ED /* ArtsyPartner_1.3.5.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 606E686A192110E20044F6ED /* ArtsyPartner_1.3.5.sqlite */; };
@@ -233,9 +228,6 @@
 		6074482B1BE3C93800E20774 /* ARSyncRemoveiCloudAttributesSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6074482A1BE3C93800E20774 /* ARSyncRemoveiCloudAttributesSpec.m */; };
 		60749278197015E5004F3C83 /* ARModernArtworkInfoViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60749277197015E5004F3C83 /* ARModernArtworkInfoViewControllerTests.m */; };
 		6074927B19701C4A004F3C83 /* ARModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6074927A19701C4A004F3C83 /* ARModelFactory.m */; };
-		6074F8CA14A10546000FE859 /* ARMailSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6074F8C814A10546000FE859 /* ARMailSettingsViewController.m */; };
-		6074F8CB14A10546000FE859 /* ARMailSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6074F8C914A10546000FE859 /* ARMailSettingsViewController.xib */; };
-		6074F8D014A11C98000FE859 /* ARSettingsBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6074F8CF14A11C98000FE859 /* ARSettingsBaseViewController.m */; };
 		60750770154B0A3A003CBAC7 /* SearchGlass.png in Resources */ = {isa = PBXBuildFile; fileRef = 6075076E154B0A3A003CBAC7 /* SearchGlass.png */; };
 		60750772154B0A3A003CBAC7 /* SearchGlass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6075076F154B0A3A003CBAC7 /* SearchGlass@2x.png */; };
 		60774E3818FB6B85004D3A1B /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 60774E3718FB6B85004D3A1B /* UIDevice+DeviceInfo.m */; };
@@ -265,9 +257,6 @@
 		608B01391C4821BD00C6B535 /* ARStubbedDRBOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 608B01381C4821BD00C6B535 /* ARStubbedDRBOperation.m */; };
 		608B6C051833D59B0007E12C /* NSString+StringSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 608B6C041833D59B0007E12C /* NSString+StringSize.m */; };
 		608C703A169B863500C89623 /* ARAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C7039169B863500C89623 /* ARAnalyticsHelper.m */; };
-		609256B4191A7017007C5107 /* ARSettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 609256B3191A7017007C5107 /* ARSettingsViewControllerTests.m */; };
-		609256B6191A7718007C5107 /* ARSupportSettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 609256B5191A7718007C5107 /* ARSupportSettingsViewControllerTests.m */; };
-		609256B8191A8195007C5107 /* ARAdminSettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 609256B7191A8195007C5107 /* ARAdminSettingsViewControllerTests.m */; };
 		60928CB71A5E1AF600DDA769 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60928CB31A5E1AF600DDA769 /* Default-568h@2x.png */; };
 		60928CB81A5E1AF600DDA769 /* Default-375w-667h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 60928CB41A5E1AF600DDA769 /* Default-375w-667h@2x~iphone.png */; };
 		60928CB91A5E1AF600DDA769 /* Default-414w-736h@3x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 60928CB51A5E1AF600DDA769 /* Default-414w-736h@3x~iphone.png */; };
@@ -343,8 +332,6 @@
 		60B2C8051743AFF90019DB9B /* ToggleOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B2C7FF1743AFF90019DB9B /* ToggleOff@2x.png */; };
 		60B2C8081743AFF90019DB9B /* ToggleOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B2C8001743AFF90019DB9B /* ToggleOn.png */; };
 		60B2C80B1743AFF90019DB9B /* ToggleOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B2C8011743AFF90019DB9B /* ToggleOn@2x.png */; };
-		60B2C8161743D2750019DB9B /* ARSupportSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B2C8141743D2740019DB9B /* ARSupportSettingsViewController.m */; };
-		60B2C8191743D2750019DB9B /* ARSupportSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60B2C8151743D2750019DB9B /* ARSupportSettingsViewController.xib */; };
 		60B340871609C25B002A5926 /* action_btn_solidwhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B3407B1609C25B002A5926 /* action_btn_solidwhite.png */; };
 		60B340891609C25B002A5926 /* action_btn_solidwhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B3407C1609C25B002A5926 /* action_btn_solidwhite@2x.png */; };
 		60B3408B1609C25B002A5926 /* action_btn_whiteborder.png in Resources */ = {isa = PBXBuildFile; fileRef = 60B3407D1609C25B002A5926 /* action_btn_whiteborder.png */; };
@@ -441,8 +428,6 @@
 		60E3927E190891FD0091AC9E /* search_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60E3927D190891FD0091AC9E /* search_btn@2x.png */; };
 		60E39280190896C50091AC9E /* messages_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60E3927F190896C50091AC9E /* messages_btn@2x.png */; };
 		60E39282190A63CE0091AC9E /* AREmailComposerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E39281190A63CE0091AC9E /* AREmailComposerTests.m */; };
-		60E452BD14A132B600EB5BFE /* ARSettingsDefaultsEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E452BB14A132B600EB5BFE /* ARSettingsDefaultsEditor.m */; };
-		60E452BE14A132B600EB5BFE /* ARSettingsDefaultsEditor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60E452BC14A132B600EB5BFE /* ARSettingsDefaultsEditor.xib */; };
 		60E57C0B187C42D20088C2CF /* ARLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E57C0A187C42D20088C2CF /* ARLogging.m */; };
 		60E6321C1B3AD1F200FA5538 /* ARAppTestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E6321B1B3AD1F200FA5538 /* ARAppTestDelegate.m */; };
 		60E72B9F1991388700D83B6D /* ARStubbedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E72B9E1991388700D83B6D /* ARStubbedImage.m */; };
@@ -454,8 +439,6 @@
 		60E7E2F11ABB47D1007EAA8A /* InstallShotImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7E2F01ABB47D1007EAA8A /* InstallShotImage.m */; };
 		60E7E2F31ABB47E2007EAA8A /* _InstallShotImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7E2ED1ABB47A3007EAA8A /* _InstallShotImage.m */; };
 		60E9B6C918DA207900BC7FEA /* ARSyncronousTreeProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E9B6C818DA207900BC7FEA /* ARSyncronousTreeProvider.m */; };
-		60EAE0D91497D78C006B55E8 /* ARSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EAE0D71497D78B006B55E8 /* ARSettingsViewController.m */; };
-		60EAE0DA1497D78C006B55E8 /* ARSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60EAE0D81497D78B006B55E8 /* ARSettingsViewController.xib */; };
 		60EAE0E21497F52F006B55E8 /* ARTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EAE0E11497F52F006B55E8 /* ARTableHeaderView.m */; };
 		60EB677D1959CD6B00C9FA72 /* ARManagedObject+ModelFromJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB677C1959CD6B00C9FA72 /* ARManagedObject+ModelFromJSON.m */; };
 		60EB6780195A1E3C00C9FA72 /* ARArtworkMetadataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB677F195A1E3C00C9FA72 /* ARArtworkMetadataView.m */; };
@@ -468,7 +451,6 @@
 		60EC85031491377300E193A7 /* email_artwork_template.html in Resources */ = {isa = PBXBuildFile; fileRef = 60EC85021491377300E193A7 /* email_artwork_template.html */; };
 		60EF3156186DB9C70093F6F1 /* ARTopViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EF3155186DB9C70093F6F1 /* ARTopViewControllerTests.m */; };
 		60EF315A186DBF6A0093F6F1 /* ARTopViewToolbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EF3159186DBF6A0093F6F1 /* ARTopViewToolbarController.m */; };
-		60F1272A14DFD760007ECFCE /* ARDisplaySettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F1272714DFD75F007ECFCE /* ARDisplaySettingsViewController.xib */; };
 		60F1F0FD1B0387BF004B6C7F /* ARPartnerMetadataUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F1F0FC1B0387BF004B6C7F /* ARPartnerMetadataUploader.m */; };
 		60F1F1001B0391B3004B6C7F /* ARPartnerMetadataUploaderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F1F0FF1B0391B3004B6C7F /* ARPartnerMetadataUploaderSpec.m */; };
 		60F1F1021B04ACB0004B6C7F /* ARPartnerFullMetadataDownloaderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F1F1011B04ACB0004B6C7F /* ARPartnerFullMetadataDownloaderSpec.m */; };
@@ -503,9 +485,9 @@
 		833023061B4492C900C97266 /* EditInCMSScreenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 833023051B4492C900C97266 /* EditInCMSScreenshot.png */; };
 		833104DB1B43316600B68E52 /* ARFolioImageMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833104DA1B43316600B68E52 /* ARFolioImageMessageViewController.xib */; };
 		833104DE1B433FBE00B68E52 /* ARFolioImageMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833104DD1B433FBE00B68E52 /* ARFolioImageMessageViewController.m */; };
-		833883101BAB0E4600F21DED /* ARLabSettingsSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8338830F1BAB0E4600F21DED /* ARLabSettingsSplitViewController.m */; };
-		833AAC371BA9DF9A00B24D25 /* ARLabSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833AAC361BA9DF9A00B24D25 /* ARLabSettings.storyboard */; };
-		833AAC3E1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833AAC3D1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m */; };
+		833883101BAB0E4600F21DED /* ARSettingsSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8338830F1BAB0E4600F21DED /* ARSettingsSplitViewController.m */; };
+		833AAC371BA9DF9A00B24D25 /* ARSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833AAC361BA9DF9A00B24D25 /* ARSettings.storyboard */; };
+		833AAC3E1BA9FD4200B24D25 /* ARSettingsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833AAC3D1BA9FD4200B24D25 /* ARSettingsMenuViewController.m */; };
 		8340E4661BFA8F9D0016648A /* ORStackView+TestingHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8340E4651BFA8F9D0016648A /* ORStackView+TestingHelpers.m */; };
 		834B40F71BF3EFEE00473FB0 /* Partner+InventoryHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 834B40F61BF3EFEE00473FB0 /* Partner+InventoryHelpers.m */; };
 		834BA6971B4ADDE9009D18F7 /* pencil_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 834BA6961B4ADDE9009D18F7 /* pencil_btn@2x.png */; };
@@ -514,45 +496,45 @@
 		834BA69D1B4AE74F009D18F7 /* ARFolioImageMessageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 834BA69C1B4AE74F009D18F7 /* ARFolioImageMessageViewControllerTests.m */; };
 		8350BF181B03DBF0006D42AC /* ARFolioMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8350BF171B03DBF0006D42AC /* ARFolioMessageViewController.m */; };
 		835112771B3318A900AC9C79 /* ARPartnerMetadataSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 835112761B3318A900AC9C79 /* ARPartnerMetadataSync.m */; };
-		8351417F1BDE9D980046FB32 /* ARLabSettingsSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8351417E1BDE9D980046FB32 /* ARLabSettingsSyncViewController.m */; };
+		8351417F1BDE9D980046FB32 /* ARSyncSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8351417E1BDE9D980046FB32 /* ARSyncSettingsViewController.m */; };
 		8356C1741B20A4A3000E03B5 /* ARFolioMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8356C1731B20A4A3000E03B5 /* ARFolioMessageViewController.xib */; };
-		8360FDDE1BE91061004878AC /* ARLabSettingsPresentationModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8360FDDD1BE91061004878AC /* ARLabSettingsPresentationModeViewController.m */; };
+		8360FDDE1BE91061004878AC /* ARPresentationModeSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8360FDDD1BE91061004878AC /* ARPresentationModeSettingsViewController.m */; };
 		8360FDE11BE96E56004878AC /* NSString+NiceAttributedStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8360FDE01BE96E56004878AC /* NSString+NiceAttributedStrings.m */; };
 		8369810E1B0E770B000BF9D7 /* full_logo_white_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8369810C1B0E770A000BF9D7 /* full_logo_white_large@2x.png */; };
 		8369810F1B0E770B000BF9D7 /* full_logo_white_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8369810D1B0E770A000BF9D7 /* full_logo_white_small@2x.png */; };
-		836DEDF71BF25824004A2362 /* ARLabSettingsPresentationModeViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 836DEDF61BF25824004A2362 /* ARLabSettingsPresentationModeViewControllerTests.m */; };
+		836DEDF71BF25824004A2362 /* ARPresentationModeSettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 836DEDF61BF25824004A2362 /* ARPresentationModeSettingsViewControllerTests.m */; };
 		8371DAFE1B68213A00285A8E /* ARLoginNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371DAFD1B68213A00285A8E /* ARLoginNetworkModel.m */; };
 		8371DB021B6824A200285A8E /* ARStubbedLoginNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371DB011B6824A200285A8E /* ARStubbedLoginNetworkModel.m */; };
 		837AF0B31BE7D0B700E606DF /* ARSyncLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 837AF0B21BE7D0B700E606DF /* ARSyncLogger.m */; };
 		837AF0B51BE7D2EB00E606DF /* ARSyncLoggerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 837AF0B41BE7D2EB00E606DF /* ARSyncLoggerSpec.m */; };
 		8381FB111C1A34A7005A4B84 /* UIViewController+SettingsNavigationItemHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381FB101C1A34A7005A4B84 /* UIViewController+SettingsNavigationItemHelpers.m */; };
-		8383FB6B1BD83E33004B2A87 /* ARLabSettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8383FB6A1BD83E33004B2A87 /* ARLabSettingsViewControllerTests.m */; };
-		8385C51E1BFFB6B90025B8E7 /* ARLabSettingsMenuViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8385C51D1BFFB6B90025B8E7 /* ARLabSettingsMenuViewModel.m */; };
+		8383FB6B1BD83E33004B2A87 /* ARSettingsSplitViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8383FB6A1BD83E33004B2A87 /* ARSettingsSplitViewControllerTests.m */; };
+		8385C51E1BFFB6B90025B8E7 /* ARSettingsMenuViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8385C51D1BFFB6B90025B8E7 /* ARSettingsMenuViewModel.m */; };
 		838BEEF31B31C9DF00D5FFC6 /* ARCMSStatusMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 838BEEF21B31C9DF00D5FFC6 /* ARCMSStatusMonitor.m */; };
-		838E1E391C0E6B5A008C5B1A /* ARLabSettingsEmailSubjectLinesViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 838E1E381C0E6B5A008C5B1A /* ARLabSettingsEmailSubjectLinesViewControllerTests.m */; };
-		839B53CE1BF112D7008A6173 /* ARLabSettingsSyncViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 839B53CD1BF112D7008A6173 /* ARLabSettingsSyncViewControllerTests.m */; };
+		838E1E391C0E6B5A008C5B1A /* AREmailSubjectLineSettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 838E1E381C0E6B5A008C5B1A /* AREmailSubjectLineSettingsViewControllerTests.m */; };
+		839B53CE1BF112D7008A6173 /* ARSyncSettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 839B53CD1BF112D7008A6173 /* ARSyncSettingsViewControllerTests.m */; };
 		839B59781B4DAA3900F24033 /* _EditionSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 839B59771B4DAA3900F24033 /* _EditionSet.m */; };
 		839B597B1B4DB6D000F24033 /* EditionSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 839B597A1B4DB6D000F24033 /* EditionSet.m */; };
-		839C16C31B94B65C009D8FB4 /* ARSyncStatusViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 839C16C21B94B65C009D8FB4 /* ARSyncStatusViewModel.m */; };
+		839C16C31B94B65C009D8FB4 /* ARSyncSettingsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 839C16C21B94B65C009D8FB4 /* ARSyncSettingsViewModel.m */; };
 		839E42611B052DE800C4BF49 /* ARFolioMessageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 839E42601B052DE800C4BF49 /* ARFolioMessageViewControllerTests.m */; };
 		83A179101B34A309000AC4AA /* UIView+ARImageBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A1790F1B34A309000AC4AA /* UIView+ARImageBadge.m */; };
 		83A412891BDE8B9900E061BC /* ARStoryboardIdentifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A412881BDE8B9900E061BC /* ARStoryboardIdentifiers.m */; };
-		83C4CC5A1C0EBEC100C86774 /* ARLabSettingsBackgroundViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C4CC591C0EBEC100C86774 /* ARLabSettingsBackgroundViewControllerTests.m */; };
+		83C4CC5A1C0EBEC100C86774 /* ARBackgroundSettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C4CC591C0EBEC100C86774 /* ARBackgroundSettingsViewControllerTests.m */; };
 		83D072DA1C20A36600E664B8 /* ARPrefersHiddenStatusBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D072D91C20A36600E664B8 /* ARPrefersHiddenStatusBarViewController.m */; };
 		83D072DD1C22588A00E664B8 /* ARTransparentOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D072DC1C22588A00E664B8 /* ARTransparentOverlayViewController.m */; };
 		83D0E6C51B346EED00DDFDBB /* alert-badge-large.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D0E6C31B346EED00DDFDBB /* alert-badge-large.png */; };
 		83D0E6C61B346EED00DDFDBB /* alert-badge-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D0E6C41B346EED00DDFDBB /* alert-badge-small.png */; };
-		83D8F05F1BFCED1000524F59 /* ARLabSettingsMasterViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D8F05E1BFCED1000524F59 /* ARLabSettingsMasterViewControllerTests.m */; };
-		83DA2F631BD6C1A000C55982 /* ARLabSettingsSectionButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83DA2F621BD6C1A000C55982 /* ARLabSettingsSectionButton.xib */; };
-		83DA2F661BD6C85E00C55982 /* ARLabSettingsSectionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DA2F651BD6C85E00C55982 /* ARLabSettingsSectionButton.m */; };
-		83DA76121C18D77E00FC8A37 /* ARLabSettingsBackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DA76111C18D77E00FC8A37 /* ARLabSettingsBackgroundViewController.m */; };
+		83D8F05F1BFCED1000524F59 /* ARSettingsMenuViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D8F05E1BFCED1000524F59 /* ARSettingsMenuViewControllerTests.m */; };
+		83DA2F631BD6C1A000C55982 /* ARSettingsSectionButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83DA2F621BD6C1A000C55982 /* ARSettingsSectionButton.xib */; };
+		83DA2F661BD6C85E00C55982 /* ARSettingsSectionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DA2F651BD6C85E00C55982 /* ARSettingsSectionButton.m */; };
+		83DA76121C18D77E00FC8A37 /* ARBackgroundSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DA76111C18D77E00FC8A37 /* ARBackgroundSettingsViewController.m */; };
 		83DA76151C19D97100FC8A37 /* ARSettingsNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DA76141C19D97100FC8A37 /* ARSettingsNavigationBar.m */; };
-		83E71DFB1C05189C00C44F92 /* ARLabSettingsEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E71DFA1C05189C00C44F92 /* ARLabSettingsEmailViewController.m */; };
-		83E71DFE1C051ED000C44F92 /* ARLabSettingsEmailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E71DFD1C051ED000C44F92 /* ARLabSettingsEmailViewModel.m */; };
-		83E995E61C07939600A8885F /* ARLabSettingsEmailViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E995E51C07939600A8885F /* ARLabSettingsEmailViewControllerTests.m */; };
-		83E995E81C079C7C00A8885F /* ARLabSettingsEmailViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E995E71C079C7C00A8885F /* ARLabSettingsEmailViewModelTests.m */; };
-		83EEDB3B1C5150EB00B203DB /* ARLabSettingsMenuViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EEDB3A1C5150EB00B203DB /* ARLabSettingsMenuViewModelTests.m */; };
-		83FFE5A01C07A58E0005FBE2 /* ARLabSettingsEmailSubjectLinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FFE59F1C07A58E0005FBE2 /* ARLabSettingsEmailSubjectLinesViewController.m */; };
+		83E71DFB1C05189C00C44F92 /* AREmailSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E71DFA1C05189C00C44F92 /* AREmailSettingsViewController.m */; };
+		83E71DFE1C051ED000C44F92 /* AREmailSettingsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E71DFD1C051ED000C44F92 /* AREmailSettingsViewModel.m */; };
+		83E995E61C07939600A8885F /* AREmailSettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E995E51C07939600A8885F /* AREmailSettingsViewControllerTests.m */; };
+		83E995E81C079C7C00A8885F /* AREmailSettingsViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E995E71C079C7C00A8885F /* AREmailSettingsViewModelTests.m */; };
+		83EEDB3B1C5150EB00B203DB /* ARSettingsMenuViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EEDB3A1C5150EB00B203DB /* ARSettingsMenuViewModelTests.m */; };
+		83FFE5A01C07A58E0005FBE2 /* AREmailSubjectLineSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FFE59F1C07A58E0005FBE2 /* AREmailSubjectLineSettingsViewController.m */; };
 		B337EB08184D246C0071FA29 /* ARImageTile.m in Sources */ = {isa = PBXBuildFile; fileRef = B337EB07184D246C0071FA29 /* ARImageTile.m */; };
 		B37F1653183EB211007A7023 /* AFHTTPRequestOperation+ARFileDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = B37F1652183EB211007A7023 /* AFHTTPRequestOperation+ARFileDownload.m */; };
 		B37F1668183EEA71007A7023 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B37F1666183EEA71007A7023 /* InfoPlist.strings */; };
@@ -922,11 +904,8 @@
 		6047CB7214D98F8D00B751E5 /* Security.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		604D181116868029006CC028 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		604D77E81A33AF5E006D55E4 /* ARAlbumViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAlbumViewControllerTests.m; sourceTree = "<group>"; };
-		6055B77D1872DFE80043B937 /* ARAdminSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAdminSettingsViewController.h; sourceTree = "<group>"; };
-		6055B77E1872DFE80043B937 /* ARAdminSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAdminSettingsViewController.m; sourceTree = "<group>"; };
 		6055B7841872E2CC0043B937 /* AROptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AROptions.h; sourceTree = "<group>"; };
 		6055B7851872E2CC0043B937 /* AROptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AROptions.m; sourceTree = "<group>"; };
-		6055B7891872E8390043B937 /* ARAdminSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARAdminSettingsViewController.xib; sourceTree = "<group>"; };
 		6058B8B015F0DDFD00D9CEB5 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		6058B8B115F0DDFD00D9CEB5 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		6058DB1015DA621B00D35A13 /* ARShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARShowViewController.h; sourceTree = "<group>"; };
@@ -973,11 +952,6 @@
 		606C84761C16009400C6D15F /* ARStubbedNetworkQualityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARStubbedNetworkQualityIndicator.m; sourceTree = "<group>"; };
 		606DF15415516F5900E2F74C /* MenuBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuBack.png; sourceTree = "<group>"; };
 		606DF15515516F5900E2F74C /* MenuBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuBack@2x.png"; sourceTree = "<group>"; };
-		606DF15C1551720000E2F74C /* ARSettingsNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSettingsNavigationController.h; sourceTree = "<group>"; };
-		606DF15D1551720000E2F74C /* ARSettingsNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSettingsNavigationController.m; sourceTree = "<group>"; };
-		606DF15E1551720000E2F74C /* ARSettingsNavigationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARSettingsNavigationController.xib; sourceTree = "<group>"; };
-		606DF163155173B000E2F74C /* ARMenuNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMenuNavigationBar.h; sourceTree = "<group>"; };
-		606DF164155173B000E2F74C /* ARMenuNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMenuNavigationBar.m; sourceTree = "<group>"; };
 		606DF1681551749B00E2F74C /* White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = White.png; sourceTree = "<group>"; };
 		606E6868192110C90044F6ED /* ARAppDataMigrationsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAppDataMigrationsTest.m; sourceTree = "<group>"; };
 		606E686A192110E20044F6ED /* ArtsyPartner_1.3.5.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ArtsyPartner_1.3.5.sqlite; sourceTree = "<group>"; };
@@ -1012,11 +986,6 @@
 		60749277197015E5004F3C83 /* ARModernArtworkInfoViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARModernArtworkInfoViewControllerTests.m; sourceTree = "<group>"; };
 		6074927919701C4A004F3C83 /* ARModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARModelFactory.h; sourceTree = "<group>"; };
 		6074927A19701C4A004F3C83 /* ARModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARModelFactory.m; sourceTree = "<group>"; };
-		6074F8C714A10546000FE859 /* ARMailSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMailSettingsViewController.h; sourceTree = "<group>"; };
-		6074F8C814A10546000FE859 /* ARMailSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMailSettingsViewController.m; sourceTree = "<group>"; };
-		6074F8C914A10546000FE859 /* ARMailSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARMailSettingsViewController.xib; sourceTree = "<group>"; };
-		6074F8CE14A11C98000FE859 /* ARSettingsBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSettingsBaseViewController.h; sourceTree = "<group>"; };
-		6074F8CF14A11C98000FE859 /* ARSettingsBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSettingsBaseViewController.m; sourceTree = "<group>"; };
 		6075076E154B0A3A003CBAC7 /* SearchGlass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchGlass.png; sourceTree = "<group>"; };
 		6075076F154B0A3A003CBAC7 /* SearchGlass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchGlass@2x.png"; sourceTree = "<group>"; };
 		607712D31BAA0854009C3AFA /* ArtsyFolio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ArtsyFolio-Bridging-Header.h"; path = "Classes/Util/ArtsyFolio-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -1068,9 +1037,6 @@
 		608B6C041833D59B0007E12C /* NSString+StringSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringSize.m"; sourceTree = "<group>"; };
 		608C7038169B863500C89623 /* ARAnalyticsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARAnalyticsHelper.h; path = Debugging/ARAnalyticsHelper.h; sourceTree = "<group>"; };
 		608C7039169B863500C89623 /* ARAnalyticsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARAnalyticsHelper.m; path = Debugging/ARAnalyticsHelper.m; sourceTree = "<group>"; };
-		609256B3191A7017007C5107 /* ARSettingsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSettingsViewControllerTests.m; sourceTree = "<group>"; };
-		609256B5191A7718007C5107 /* ARSupportSettingsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSupportSettingsViewControllerTests.m; sourceTree = "<group>"; };
-		609256B7191A8195007C5107 /* ARAdminSettingsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAdminSettingsViewControllerTests.m; sourceTree = "<group>"; };
 		60928CB31A5E1AF600DDA769 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		60928CB41A5E1AF600DDA769 /* Default-375w-667h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-375w-667h@2x~iphone.png"; sourceTree = "<group>"; };
 		60928CB51A5E1AF600DDA769 /* Default-414w-736h@3x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-414w-736h@3x~iphone.png"; sourceTree = "<group>"; };
@@ -1191,9 +1157,6 @@
 		60B2C7FF1743AFF90019DB9B /* ToggleOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToggleOff@2x.png"; sourceTree = "<group>"; };
 		60B2C8001743AFF90019DB9B /* ToggleOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToggleOn.png; sourceTree = "<group>"; };
 		60B2C8011743AFF90019DB9B /* ToggleOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToggleOn@2x.png"; sourceTree = "<group>"; };
-		60B2C8131743D2740019DB9B /* ARSupportSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSupportSettingsViewController.h; sourceTree = "<group>"; };
-		60B2C8141743D2740019DB9B /* ARSupportSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSupportSettingsViewController.m; sourceTree = "<group>"; };
-		60B2C8151743D2750019DB9B /* ARSupportSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARSupportSettingsViewController.xib; sourceTree = "<group>"; };
 		60B3407B1609C25B002A5926 /* action_btn_solidwhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action_btn_solidwhite.png; sourceTree = "<group>"; };
 		60B3407C1609C25B002A5926 /* action_btn_solidwhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action_btn_solidwhite@2x.png"; sourceTree = "<group>"; };
 		60B3407D1609C25B002A5926 /* action_btn_whiteborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action_btn_whiteborder.png; sourceTree = "<group>"; };
@@ -1326,9 +1289,6 @@
 		60E3927D190891FD0091AC9E /* search_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search_btn@2x.png"; sourceTree = "<group>"; };
 		60E3927F190896C50091AC9E /* messages_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messages_btn@2x.png"; sourceTree = "<group>"; };
 		60E39281190A63CE0091AC9E /* AREmailComposerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREmailComposerTests.m; sourceTree = "<group>"; };
-		60E452BA14A132B600EB5BFE /* ARSettingsDefaultsEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSettingsDefaultsEditor.h; sourceTree = "<group>"; };
-		60E452BB14A132B600EB5BFE /* ARSettingsDefaultsEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSettingsDefaultsEditor.m; sourceTree = "<group>"; };
-		60E452BC14A132B600EB5BFE /* ARSettingsDefaultsEditor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARSettingsDefaultsEditor.xib; sourceTree = "<group>"; };
 		60E57C09187C42D20088C2CF /* ARLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLogging.h; sourceTree = "<group>"; };
 		60E57C0A187C42D20088C2CF /* ARLogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLogging.m; sourceTree = "<group>"; };
 		60E6321A1B3AD1F200FA5538 /* ARAppTestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARAppTestDelegate.h; path = ../ARAppTestDelegate.h; sourceTree = "<group>"; };
@@ -1350,9 +1310,6 @@
 		60E7E2F01ABB47D1007EAA8A /* InstallShotImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstallShotImage.m; sourceTree = "<group>"; };
 		60E9B6C718DA207900BC7FEA /* ARSyncronousTreeProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSyncronousTreeProvider.h; sourceTree = "<group>"; };
 		60E9B6C818DA207900BC7FEA /* ARSyncronousTreeProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncronousTreeProvider.m; sourceTree = "<group>"; };
-		60EAE0D61497D78A006B55E8 /* ARSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSettingsViewController.h; sourceTree = "<group>"; };
-		60EAE0D71497D78B006B55E8 /* ARSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSettingsViewController.m; sourceTree = "<group>"; };
-		60EAE0D81497D78B006B55E8 /* ARSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARSettingsViewController.xib; sourceTree = "<group>"; };
 		60EAE0E01497F52F006B55E8 /* ARTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTableHeaderView.h; sourceTree = "<group>"; };
 		60EAE0E11497F52F006B55E8 /* ARTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTableHeaderView.m; sourceTree = "<group>"; };
 		60EB677B1959CD6B00C9FA72 /* ARManagedObject+ModelFromJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ARManagedObject+ModelFromJSON.h"; sourceTree = "<group>"; };
@@ -1374,7 +1331,6 @@
 		60EF3155186DB9C70093F6F1 /* ARTopViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTopViewControllerTests.m; sourceTree = "<group>"; };
 		60EF3158186DBF6A0093F6F1 /* ARTopViewToolbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTopViewToolbarController.h; sourceTree = "<group>"; };
 		60EF3159186DBF6A0093F6F1 /* ARTopViewToolbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTopViewToolbarController.m; sourceTree = "<group>"; };
-		60F1272714DFD75F007ECFCE /* ARDisplaySettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARDisplaySettingsViewController.xib; sourceTree = "<group>"; };
 		60F1F0FB1B0387BF004B6C7F /* ARPartnerMetadataUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARPartnerMetadataUploader.h; sourceTree = "<group>"; };
 		60F1F0FC1B0387BF004B6C7F /* ARPartnerMetadataUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPartnerMetadataUploader.m; sourceTree = "<group>"; };
 		60F1F0FF1B0391B3004B6C7F /* ARPartnerMetadataUploaderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPartnerMetadataUploaderSpec.m; sourceTree = "<group>"; };
@@ -1417,11 +1373,11 @@
 		833104DA1B43316600B68E52 /* ARFolioImageMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFolioImageMessageViewController.xib; sourceTree = "<group>"; };
 		833104DC1B433FBE00B68E52 /* ARFolioImageMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFolioImageMessageViewController.h; sourceTree = "<group>"; };
 		833104DD1B433FBE00B68E52 /* ARFolioImageMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFolioImageMessageViewController.m; sourceTree = "<group>"; };
-		8338830E1BAB0E4600F21DED /* ARLabSettingsSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsSplitViewController.h; sourceTree = "<group>"; };
-		8338830F1BAB0E4600F21DED /* ARLabSettingsSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsSplitViewController.m; sourceTree = "<group>"; };
-		833AAC361BA9DF9A00B24D25 /* ARLabSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ARLabSettings.storyboard; sourceTree = "<group>"; };
-		833AAC3C1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsMasterViewController.h; sourceTree = "<group>"; };
-		833AAC3D1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsMasterViewController.m; sourceTree = "<group>"; };
+		8338830E1BAB0E4600F21DED /* ARSettingsSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSettingsSplitViewController.h; sourceTree = "<group>"; };
+		8338830F1BAB0E4600F21DED /* ARSettingsSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSettingsSplitViewController.m; sourceTree = "<group>"; };
+		833AAC361BA9DF9A00B24D25 /* ARSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ARSettings.storyboard; sourceTree = "<group>"; };
+		833AAC3C1BA9FD4200B24D25 /* ARSettingsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSettingsMenuViewController.h; sourceTree = "<group>"; };
+		833AAC3D1BA9FD4200B24D25 /* ARSettingsMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSettingsMenuViewController.m; sourceTree = "<group>"; };
 		8340E4641BFA8F9D0016648A /* ORStackView+TestingHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ORStackView+TestingHelpers.h"; sourceTree = "<group>"; };
 		8340E4651BFA8F9D0016648A /* ORStackView+TestingHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ORStackView+TestingHelpers.m"; sourceTree = "<group>"; };
 		8343B7BC1B4C5667005790A9 /* ArtsyFolio v2.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.3.xcdatamodel"; sourceTree = "<group>"; };
@@ -1435,16 +1391,16 @@
 		8350BF171B03DBF0006D42AC /* ARFolioMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFolioMessageViewController.m; sourceTree = "<group>"; };
 		835112751B3318A900AC9C79 /* ARPartnerMetadataSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARPartnerMetadataSync.h; sourceTree = "<group>"; };
 		835112761B3318A900AC9C79 /* ARPartnerMetadataSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPartnerMetadataSync.m; sourceTree = "<group>"; };
-		8351417D1BDE9D980046FB32 /* ARLabSettingsSyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsSyncViewController.h; sourceTree = "<group>"; };
-		8351417E1BDE9D980046FB32 /* ARLabSettingsSyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsSyncViewController.m; sourceTree = "<group>"; };
+		8351417D1BDE9D980046FB32 /* ARSyncSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSyncSettingsViewController.h; sourceTree = "<group>"; };
+		8351417E1BDE9D980046FB32 /* ARSyncSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncSettingsViewController.m; sourceTree = "<group>"; };
 		8356C1731B20A4A3000E03B5 /* ARFolioMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFolioMessageViewController.xib; sourceTree = "<group>"; };
-		8360FDDC1BE91061004878AC /* ARLabSettingsPresentationModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsPresentationModeViewController.h; sourceTree = "<group>"; };
-		8360FDDD1BE91061004878AC /* ARLabSettingsPresentationModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsPresentationModeViewController.m; sourceTree = "<group>"; };
+		8360FDDC1BE91061004878AC /* ARPresentationModeSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARPresentationModeSettingsViewController.h; sourceTree = "<group>"; };
+		8360FDDD1BE91061004878AC /* ARPresentationModeSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPresentationModeSettingsViewController.m; sourceTree = "<group>"; };
 		8360FDDF1BE96E56004878AC /* NSString+NiceAttributedStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NiceAttributedStrings.h"; sourceTree = "<group>"; };
 		8360FDE01BE96E56004878AC /* NSString+NiceAttributedStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NiceAttributedStrings.m"; sourceTree = "<group>"; };
 		8369810C1B0E770A000BF9D7 /* full_logo_white_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "full_logo_white_large@2x.png"; sourceTree = "<group>"; };
 		8369810D1B0E770A000BF9D7 /* full_logo_white_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "full_logo_white_small@2x.png"; sourceTree = "<group>"; };
-		836DEDF61BF25824004A2362 /* ARLabSettingsPresentationModeViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsPresentationModeViewControllerTests.m; sourceTree = "<group>"; };
+		836DEDF61BF25824004A2362 /* ARPresentationModeSettingsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPresentationModeSettingsViewControllerTests.m; sourceTree = "<group>"; };
 		8371DAFC1B68213A00285A8E /* ARLoginNetworkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLoginNetworkModel.h; sourceTree = "<group>"; };
 		8371DAFD1B68213A00285A8E /* ARLoginNetworkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLoginNetworkModel.m; sourceTree = "<group>"; };
 		8371DB001B6824A200285A8E /* ARStubbedLoginNetworkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARStubbedLoginNetworkModel.h; sourceTree = "<group>"; };
@@ -1454,49 +1410,49 @@
 		837AF0B41BE7D2EB00E606DF /* ARSyncLoggerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncLoggerSpec.m; sourceTree = "<group>"; };
 		8381FB0F1C1A34A7005A4B84 /* UIViewController+SettingsNavigationItemHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SettingsNavigationItemHelpers.h"; sourceTree = "<group>"; };
 		8381FB101C1A34A7005A4B84 /* UIViewController+SettingsNavigationItemHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SettingsNavigationItemHelpers.m"; sourceTree = "<group>"; };
-		8383FB6A1BD83E33004B2A87 /* ARLabSettingsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsViewControllerTests.m; sourceTree = "<group>"; };
-		8385C51C1BFFB6B90025B8E7 /* ARLabSettingsMenuViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsMenuViewModel.h; sourceTree = "<group>"; };
-		8385C51D1BFFB6B90025B8E7 /* ARLabSettingsMenuViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsMenuViewModel.m; sourceTree = "<group>"; };
+		8383FB6A1BD83E33004B2A87 /* ARSettingsSplitViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSettingsSplitViewControllerTests.m; sourceTree = "<group>"; };
+		8385C51C1BFFB6B90025B8E7 /* ARSettingsMenuViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSettingsMenuViewModel.h; sourceTree = "<group>"; };
+		8385C51D1BFFB6B90025B8E7 /* ARSettingsMenuViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSettingsMenuViewModel.m; sourceTree = "<group>"; };
 		838BEEF11B31C9DF00D5FFC6 /* ARCMSStatusMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMSStatusMonitor.h; sourceTree = "<group>"; };
 		838BEEF21B31C9DF00D5FFC6 /* ARCMSStatusMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARCMSStatusMonitor.m; sourceTree = "<group>"; };
-		838E1E381C0E6B5A008C5B1A /* ARLabSettingsEmailSubjectLinesViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsEmailSubjectLinesViewControllerTests.m; sourceTree = "<group>"; };
-		839B53CD1BF112D7008A6173 /* ARLabSettingsSyncViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsSyncViewControllerTests.m; sourceTree = "<group>"; };
+		838E1E381C0E6B5A008C5B1A /* AREmailSubjectLineSettingsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREmailSubjectLineSettingsViewControllerTests.m; sourceTree = "<group>"; };
+		839B53CD1BF112D7008A6173 /* ARSyncSettingsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncSettingsViewControllerTests.m; sourceTree = "<group>"; };
 		839B59751B4D955900F24033 /* ArtsyFolio v2.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.4.xcdatamodel"; sourceTree = "<group>"; };
 		839B59761B4DAA3900F24033 /* _EditionSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _EditionSet.h; sourceTree = "<group>"; };
 		839B59771B4DAA3900F24033 /* _EditionSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _EditionSet.m; sourceTree = "<group>"; };
 		839B59791B4DB6D000F24033 /* EditionSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditionSet.h; sourceTree = "<group>"; };
 		839B597A1B4DB6D000F24033 /* EditionSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditionSet.m; sourceTree = "<group>"; };
-		839C16C11B94B65C009D8FB4 /* ARSyncStatusViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSyncStatusViewModel.h; sourceTree = "<group>"; };
-		839C16C21B94B65C009D8FB4 /* ARSyncStatusViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncStatusViewModel.m; sourceTree = "<group>"; };
+		839C16C11B94B65C009D8FB4 /* ARSyncSettingsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSyncSettingsViewModel.h; sourceTree = "<group>"; };
+		839C16C21B94B65C009D8FB4 /* ARSyncSettingsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncSettingsViewModel.m; sourceTree = "<group>"; };
 		839E42601B052DE800C4BF49 /* ARFolioMessageViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFolioMessageViewControllerTests.m; sourceTree = "<group>"; };
 		83A1790E1B34A309000AC4AA /* UIView+ARImageBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ARImageBadge.h"; sourceTree = "<group>"; };
 		83A1790F1B34A309000AC4AA /* UIView+ARImageBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ARImageBadge.m"; sourceTree = "<group>"; };
 		83A412871BDE88B500E061BC /* ARStoryboardIdentifiers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARStoryboardIdentifiers.h; sourceTree = "<group>"; };
 		83A412881BDE8B9900E061BC /* ARStoryboardIdentifiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARStoryboardIdentifiers.m; sourceTree = "<group>"; };
-		83C4CC591C0EBEC100C86774 /* ARLabSettingsBackgroundViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsBackgroundViewControllerTests.m; sourceTree = "<group>"; };
+		83C4CC591C0EBEC100C86774 /* ARBackgroundSettingsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARBackgroundSettingsViewControllerTests.m; sourceTree = "<group>"; };
 		83D072D81C20A36600E664B8 /* ARPrefersHiddenStatusBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARPrefersHiddenStatusBarViewController.h; sourceTree = "<group>"; };
 		83D072D91C20A36600E664B8 /* ARPrefersHiddenStatusBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPrefersHiddenStatusBarViewController.m; sourceTree = "<group>"; };
 		83D072DB1C22588A00E664B8 /* ARTransparentOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTransparentOverlayViewController.h; sourceTree = "<group>"; };
 		83D072DC1C22588A00E664B8 /* ARTransparentOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTransparentOverlayViewController.m; sourceTree = "<group>"; };
 		83D0E6C31B346EED00DDFDBB /* alert-badge-large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-badge-large.png"; sourceTree = "<group>"; };
 		83D0E6C41B346EED00DDFDBB /* alert-badge-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-badge-small.png"; sourceTree = "<group>"; };
-		83D8F05E1BFCED1000524F59 /* ARLabSettingsMasterViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsMasterViewControllerTests.m; sourceTree = "<group>"; };
-		83DA2F621BD6C1A000C55982 /* ARLabSettingsSectionButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ARLabSettingsSectionButton.xib; path = ../../Classes/Controllers/Settings/ARLabSettingsSectionButton.xib; sourceTree = "<group>"; };
-		83DA2F641BD6C85E00C55982 /* ARLabSettingsSectionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARLabSettingsSectionButton.h; path = ../../Controllers/Settings/ARLabSettingsSectionButton.h; sourceTree = "<group>"; };
-		83DA2F651BD6C85E00C55982 /* ARLabSettingsSectionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARLabSettingsSectionButton.m; path = ../../Controllers/Settings/ARLabSettingsSectionButton.m; sourceTree = "<group>"; };
-		83DA76101C18D77E00FC8A37 /* ARLabSettingsBackgroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsBackgroundViewController.h; sourceTree = "<group>"; };
-		83DA76111C18D77E00FC8A37 /* ARLabSettingsBackgroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsBackgroundViewController.m; sourceTree = "<group>"; };
+		83D8F05E1BFCED1000524F59 /* ARSettingsMenuViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSettingsMenuViewControllerTests.m; sourceTree = "<group>"; };
+		83DA2F621BD6C1A000C55982 /* ARSettingsSectionButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ARSettingsSectionButton.xib; path = ../../Classes/Controllers/Settings/ARSettingsSectionButton.xib; sourceTree = "<group>"; };
+		83DA2F641BD6C85E00C55982 /* ARSettingsSectionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARSettingsSectionButton.h; path = ../../Controllers/Settings/ARSettingsSectionButton.h; sourceTree = "<group>"; };
+		83DA2F651BD6C85E00C55982 /* ARSettingsSectionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARSettingsSectionButton.m; path = ../../Controllers/Settings/ARSettingsSectionButton.m; sourceTree = "<group>"; };
+		83DA76101C18D77E00FC8A37 /* ARBackgroundSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARBackgroundSettingsViewController.h; sourceTree = "<group>"; };
+		83DA76111C18D77E00FC8A37 /* ARBackgroundSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARBackgroundSettingsViewController.m; sourceTree = "<group>"; };
 		83DA76131C19D97100FC8A37 /* ARSettingsNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSettingsNavigationBar.h; sourceTree = "<group>"; };
 		83DA76141C19D97100FC8A37 /* ARSettingsNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSettingsNavigationBar.m; sourceTree = "<group>"; };
-		83E71DF91C05189C00C44F92 /* ARLabSettingsEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsEmailViewController.h; sourceTree = "<group>"; };
-		83E71DFA1C05189C00C44F92 /* ARLabSettingsEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsEmailViewController.m; sourceTree = "<group>"; };
-		83E71DFC1C051ED000C44F92 /* ARLabSettingsEmailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsEmailViewModel.h; sourceTree = "<group>"; };
-		83E71DFD1C051ED000C44F92 /* ARLabSettingsEmailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsEmailViewModel.m; sourceTree = "<group>"; };
-		83E995E51C07939600A8885F /* ARLabSettingsEmailViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsEmailViewControllerTests.m; sourceTree = "<group>"; };
-		83E995E71C079C7C00A8885F /* ARLabSettingsEmailViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsEmailViewModelTests.m; sourceTree = "<group>"; };
-		83EEDB3A1C5150EB00B203DB /* ARLabSettingsMenuViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsMenuViewModelTests.m; sourceTree = "<group>"; };
-		83FFE59E1C07A58E0005FBE2 /* ARLabSettingsEmailSubjectLinesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLabSettingsEmailSubjectLinesViewController.h; sourceTree = "<group>"; };
-		83FFE59F1C07A58E0005FBE2 /* ARLabSettingsEmailSubjectLinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLabSettingsEmailSubjectLinesViewController.m; sourceTree = "<group>"; };
+		83E71DF91C05189C00C44F92 /* AREmailSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREmailSettingsViewController.h; sourceTree = "<group>"; };
+		83E71DFA1C05189C00C44F92 /* AREmailSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREmailSettingsViewController.m; sourceTree = "<group>"; };
+		83E71DFC1C051ED000C44F92 /* AREmailSettingsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREmailSettingsViewModel.h; sourceTree = "<group>"; };
+		83E71DFD1C051ED000C44F92 /* AREmailSettingsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREmailSettingsViewModel.m; sourceTree = "<group>"; };
+		83E995E51C07939600A8885F /* AREmailSettingsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREmailSettingsViewControllerTests.m; sourceTree = "<group>"; };
+		83E995E71C079C7C00A8885F /* AREmailSettingsViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREmailSettingsViewModelTests.m; sourceTree = "<group>"; };
+		83EEDB3A1C5150EB00B203DB /* ARSettingsMenuViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSettingsMenuViewModelTests.m; sourceTree = "<group>"; };
+		83FFE59E1C07A58E0005FBE2 /* AREmailSubjectLineSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREmailSubjectLineSettingsViewController.h; sourceTree = "<group>"; };
+		83FFE59F1C07A58E0005FBE2 /* AREmailSubjectLineSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREmailSubjectLineSettingsViewController.m; sourceTree = "<group>"; };
 		8F2DD602C6024E018FAA7223 /* Pods-ArtsyFolio Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArtsyFolio Tests.xcconfig"; sourceTree = "<group>"; };
 		A1F3785C79A10599104E0FB7 /* Pods-ArtsyFolio Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B337EB06184D246C0071FA29 /* ARImageTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARImageTile.h; sourceTree = "<group>"; };
@@ -2035,7 +1991,6 @@
 				60E7E2DB1ABB1CED007EAA8A /* Grids */,
 				342F9C056ADCCBEE2C65DFD9 /* ARAddToAlbumViewControllerTests.m */,
 				60B572B3194F3A79002B9A46 /* ARAdminPartnerSelectViewControllerTests.m */,
-				609256B7191A8195007C5107 /* ARAdminSettingsViewControllerTests.m */,
 				60A99DA819AFB773004F82D0 /* ARAlbumEditNavigationControllerTests.m */,
 				60F6CA1919903E6800628D72 /* ARArtworkSetViewControllerTests.m */,
 				60B2866919AA925A0014857F /* ARDocumentPreviewViewControllerTests.m */,
@@ -2048,8 +2003,6 @@
 				60F98B6E1958D36D0068E7EE /* ARModernArtworkMetadataViewControllerTests.m */,
 				609715EB19AE382700970DBE /* ARNewAlbumModalViewControllerTests.m */,
 				609715E919AE273A00970DBE /* ARPromptAlertViewControllerTests.m */,
-				609256B3191A7017007C5107 /* ARSettingsViewControllerTests.m */,
-				609256B5191A7718007C5107 /* ARSupportSettingsViewControllerTests.m */,
 				60F63803199E966E008D2360 /* ARSyncMessageViewControllerTests.m */,
 				60F5762919647AE60042B8BF /* ARSyncViewControllerTests.m */,
 				6038C47D19867BF300626DD6 /* ARTabbedViewControllerTests.m */,
@@ -2210,8 +2163,6 @@
 				60A99D9F19AF5F5F004F82D0 /* Toolbars */,
 				49C1944914F96FD500DAEB93 /* ARNavigationController.h */,
 				49C1944A14F96FD500DAEB93 /* ARNavigationController.m */,
-				606DF15C1551720000E2F74C /* ARSettingsNavigationController.h */,
-				606DF15D1551720000E2F74C /* ARSettingsNavigationController.m */,
 				605F1D46183EC298007EFE74 /* ARContentControllers.h */,
 				60AC3E4E19AE623700E48C37 /* ARAlbumEditNavigationController.h */,
 				60AC3E4F19AE623700E48C37 /* ARAlbumEditNavigationController.m */,
@@ -2257,21 +2208,18 @@
 		6074F8CD14A11C72000FE859 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				60E452BA14A132B600EB5BFE /* ARSettingsDefaultsEditor.h */,
-				60E452BB14A132B600EB5BFE /* ARSettingsDefaultsEditor.m */,
-				6074F8CE14A11C98000FE859 /* ARSettingsBaseViewController.h */,
-				6074F8CF14A11C98000FE859 /* ARSettingsBaseViewController.m */,
-				60EAE0D61497D78A006B55E8 /* ARSettingsViewController.h */,
-				839C16C11B94B65C009D8FB4 /* ARSyncStatusViewModel.h */,
-				839C16C21B94B65C009D8FB4 /* ARSyncStatusViewModel.m */,
-				60EAE0D71497D78B006B55E8 /* ARSettingsViewController.m */,
-				6074F8C714A10546000FE859 /* ARMailSettingsViewController.h */,
-				6074F8C814A10546000FE859 /* ARMailSettingsViewController.m */,
-				60B2C8131743D2740019DB9B /* ARSupportSettingsViewController.h */,
-				60B2C8141743D2740019DB9B /* ARSupportSettingsViewController.m */,
-				6055B77D1872DFE80043B937 /* ARAdminSettingsViewController.h */,
-				6055B77E1872DFE80043B937 /* ARAdminSettingsViewController.m */,
-				835C57DB1BE2FFBC002CFF89 /* LabSettings */,
+				839C16C11B94B65C009D8FB4 /* ARSyncSettingsViewModel.h */,
+				839C16C21B94B65C009D8FB4 /* ARSyncSettingsViewModel.m */,
+				8338830E1BAB0E4600F21DED /* ARSettingsSplitViewController.h */,
+				8338830F1BAB0E4600F21DED /* ARSettingsSplitViewController.m */,
+				833AAC3C1BA9FD4200B24D25 /* ARSettingsMenuViewController.h */,
+				833AAC3D1BA9FD4200B24D25 /* ARSettingsMenuViewController.m */,
+				8385C51C1BFFB6B90025B8E7 /* ARSettingsMenuViewModel.h */,
+				8385C51D1BFFB6B90025B8E7 /* ARSettingsMenuViewModel.m */,
+				835C57E41BE31717002CFF89 /* Detail View Controllers */,
+				833AAC361BA9DF9A00B24D25 /* ARSettings.storyboard */,
+				83D072D81C20A36600E664B8 /* ARPrefersHiddenStatusBarViewController.h */,
+				83D072D91C20A36600E664B8 /* ARPrefersHiddenStatusBarViewController.m */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -2419,8 +2367,6 @@
 			children = (
 				49C1940B14F969E400DAEB93 /* ARNavigationBar.h */,
 				49C1940C14F969E400DAEB93 /* ARNavigationBar.m */,
-				606DF163155173B000E2F74C /* ARMenuNavigationBar.h */,
-				606DF164155173B000E2F74C /* ARMenuNavigationBar.m */,
 				60A99DA019AF5F91004F82D0 /* AREditAlbumNavigationBar.h */,
 				60A99DA119AF5F91004F82D0 /* AREditAlbumNavigationBar.m */,
 				83DA76131C19D97100FC8A37 /* ARSettingsNavigationBar.h */,
@@ -2595,8 +2541,8 @@
 				60DA7E101638BEA100728135 /* Utils */,
 				60DA7E0E1638BE6200728135 /* TableViews */,
 				608446BD1637DB4A00065EF0 /* Switch Views */,
-				83DA2F641BD6C85E00C55982 /* ARLabSettingsSectionButton.h */,
-				83DA2F651BD6C85E00C55982 /* ARLabSettingsSectionButton.m */,
+				83DA2F641BD6C85E00C55982 /* ARSettingsSectionButton.h */,
+				83DA2F651BD6C85E00C55982 /* ARSettingsSectionButton.m */,
 				601156F515456132004D8576 /* ARFlatButton.h */,
 				601156F615456132004D8576 /* ARFlatButton.m */,
 				601156F115456119004D8576 /* ARThumbnailImageSelectionView.h */,
@@ -3009,38 +2955,21 @@
 			name = Messages;
 			sourceTree = "<group>";
 		};
-		835C57DB1BE2FFBC002CFF89 /* LabSettings */ = {
-			isa = PBXGroup;
-			children = (
-				8338830E1BAB0E4600F21DED /* ARLabSettingsSplitViewController.h */,
-				8338830F1BAB0E4600F21DED /* ARLabSettingsSplitViewController.m */,
-				833AAC3C1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.h */,
-				833AAC3D1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m */,
-				8385C51C1BFFB6B90025B8E7 /* ARLabSettingsMenuViewModel.h */,
-				8385C51D1BFFB6B90025B8E7 /* ARLabSettingsMenuViewModel.m */,
-				835C57E41BE31717002CFF89 /* Detail View Controllers */,
-				833AAC361BA9DF9A00B24D25 /* ARLabSettings.storyboard */,
-				83D072D81C20A36600E664B8 /* ARPrefersHiddenStatusBarViewController.h */,
-				83D072D91C20A36600E664B8 /* ARPrefersHiddenStatusBarViewController.m */,
-			);
-			name = LabSettings;
-			sourceTree = "<group>";
-		};
 		835C57E41BE31717002CFF89 /* Detail View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8360FDDC1BE91061004878AC /* ARLabSettingsPresentationModeViewController.h */,
-				8360FDDD1BE91061004878AC /* ARLabSettingsPresentationModeViewController.m */,
-				83DA76101C18D77E00FC8A37 /* ARLabSettingsBackgroundViewController.h */,
-				83DA76111C18D77E00FC8A37 /* ARLabSettingsBackgroundViewController.m */,
-				8351417D1BDE9D980046FB32 /* ARLabSettingsSyncViewController.h */,
-				8351417E1BDE9D980046FB32 /* ARLabSettingsSyncViewController.m */,
-				83E71DF91C05189C00C44F92 /* ARLabSettingsEmailViewController.h */,
-				83E71DFA1C05189C00C44F92 /* ARLabSettingsEmailViewController.m */,
-				83E71DFC1C051ED000C44F92 /* ARLabSettingsEmailViewModel.h */,
-				83E71DFD1C051ED000C44F92 /* ARLabSettingsEmailViewModel.m */,
-				83FFE59E1C07A58E0005FBE2 /* ARLabSettingsEmailSubjectLinesViewController.h */,
-				83FFE59F1C07A58E0005FBE2 /* ARLabSettingsEmailSubjectLinesViewController.m */,
+				8360FDDC1BE91061004878AC /* ARPresentationModeSettingsViewController.h */,
+				8360FDDD1BE91061004878AC /* ARPresentationModeSettingsViewController.m */,
+				83DA76101C18D77E00FC8A37 /* ARBackgroundSettingsViewController.h */,
+				83DA76111C18D77E00FC8A37 /* ARBackgroundSettingsViewController.m */,
+				8351417D1BDE9D980046FB32 /* ARSyncSettingsViewController.h */,
+				8351417E1BDE9D980046FB32 /* ARSyncSettingsViewController.m */,
+				83E71DF91C05189C00C44F92 /* AREmailSettingsViewController.h */,
+				83E71DFA1C05189C00C44F92 /* AREmailSettingsViewController.m */,
+				83E71DFC1C051ED000C44F92 /* AREmailSettingsViewModel.h */,
+				83E71DFD1C051ED000C44F92 /* AREmailSettingsViewModel.m */,
+				83FFE59E1C07A58E0005FBE2 /* AREmailSubjectLineSettingsViewController.h */,
+				83FFE59F1C07A58E0005FBE2 /* AREmailSubjectLineSettingsViewController.m */,
 				83D072DB1C22588A00E664B8 /* ARTransparentOverlayViewController.h */,
 				83D072DC1C22588A00E664B8 /* ARTransparentOverlayViewController.m */,
 			);
@@ -3060,15 +2989,15 @@
 		839B53CC1BF10DA1008A6173 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				8383FB6A1BD83E33004B2A87 /* ARLabSettingsViewControllerTests.m */,
-				839B53CD1BF112D7008A6173 /* ARLabSettingsSyncViewControllerTests.m */,
-				836DEDF61BF25824004A2362 /* ARLabSettingsPresentationModeViewControllerTests.m */,
-				83D8F05E1BFCED1000524F59 /* ARLabSettingsMasterViewControllerTests.m */,
-				83C4CC591C0EBEC100C86774 /* ARLabSettingsBackgroundViewControllerTests.m */,
-				83E995E51C07939600A8885F /* ARLabSettingsEmailViewControllerTests.m */,
-				838E1E381C0E6B5A008C5B1A /* ARLabSettingsEmailSubjectLinesViewControllerTests.m */,
-				83E995E71C079C7C00A8885F /* ARLabSettingsEmailViewModelTests.m */,
-				83EEDB3A1C5150EB00B203DB /* ARLabSettingsMenuViewModelTests.m */,
+				8383FB6A1BD83E33004B2A87 /* ARSettingsSplitViewControllerTests.m */,
+				839B53CD1BF112D7008A6173 /* ARSyncSettingsViewControllerTests.m */,
+				836DEDF61BF25824004A2362 /* ARPresentationModeSettingsViewControllerTests.m */,
+				83D8F05E1BFCED1000524F59 /* ARSettingsMenuViewControllerTests.m */,
+				83C4CC591C0EBEC100C86774 /* ARBackgroundSettingsViewControllerTests.m */,
+				83E995E51C07939600A8885F /* AREmailSettingsViewControllerTests.m */,
+				838E1E381C0E6B5A008C5B1A /* AREmailSubjectLineSettingsViewControllerTests.m */,
+				83E995E71C079C7C00A8885F /* AREmailSettingsViewModelTests.m */,
+				83EEDB3A1C5150EB00B203DB /* ARSettingsMenuViewModelTests.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -3252,15 +3181,8 @@
 			isa = PBXGroup;
 			children = (
 				60E3925F19085CFC0091AC9E /* Phone */,
-				83DA2F621BD6C1A000C55982 /* ARLabSettingsSectionButton.xib */,
+				83DA2F621BD6C1A000C55982 /* ARSettingsSectionButton.xib */,
 				60BA589D153C21D8005E0576 /* ARAlertViewController.xib */,
-				60F1272714DFD75F007ECFCE /* ARDisplaySettingsViewController.xib */,
-				60EAE0D81497D78B006B55E8 /* ARSettingsViewController.xib */,
-				60E452BC14A132B600EB5BFE /* ARSettingsDefaultsEditor.xib */,
-				60B2C8151743D2750019DB9B /* ARSupportSettingsViewController.xib */,
-				606DF15E1551720000E2F74C /* ARSettingsNavigationController.xib */,
-				6074F8C914A10546000FE859 /* ARMailSettingsViewController.xib */,
-				6055B7891872E8390043B937 /* ARAdminSettingsViewController.xib */,
 				833104DA1B43316600B68E52 /* ARFolioImageMessageViewController.xib */,
 			);
 			path = Nibs;
@@ -3715,7 +3637,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				833AAC371BA9DF9A00B24D25 /* ARLabSettings.storyboard in Resources */,
+				833AAC371BA9DF9A00B24D25 /* ARSettings.storyboard in Resources */,
 				833023041B448CF800C97266 /* close_window.png in Resources */,
 				B538AC0A14722DF80019AD62 /* BackButtonBackground.png in Resources */,
 				B538AC1714722DF80019AD62 /* AdditionalInfoArrow.png in Resources */,
@@ -3725,12 +3647,9 @@
 				6027030C147B15FC008BD84A /* ButtonBackgroundWhite.png in Resources */,
 				6027030D147B15FC008BD84A /* ButtonBackground.png in Resources */,
 				60EC85031491377300E193A7 /* email_artwork_template.html in Resources */,
-				60EAE0DA1497D78C006B55E8 /* ARSettingsViewController.xib in Resources */,
 				60928CBA1A5E1AF600DDA769 /* Default@2x.png in Resources */,
 				6006C768198EDA8500F955A0 /* InfoPlist.strings in Resources */,
-				83DA2F631BD6C1A000C55982 /* ARLabSettingsSectionButton.xib in Resources */,
-				6074F8CB14A10546000FE859 /* ARMailSettingsViewController.xib in Resources */,
-				60E452BE14A132B600EB5BFE /* ARSettingsDefaultsEditor.xib in Resources */,
+				83DA2F631BD6C1A000C55982 /* ARSettingsSectionButton.xib in Resources */,
 				6006C762198EDA8500F955A0 /* ARPhoneLoginViewController.xib in Resources */,
 				6006C760198EDA8500F955A0 /* ARPartnerSelectView.xib in Resources */,
 				6010740D19A3E7BD00237DC6 /* ViewInRoom_Wall@2x.png in Resources */,
@@ -3739,7 +3658,6 @@
 				60BDA97914DC06E500852753 /* DoneButtonBackgroundTransparent.png in Resources */,
 				600AD6151C3E9CC700E027A7 /* Images.xcassets in Resources */,
 				60F63802199E8F4D008D2360 /* ARSyncMessageViewController.xib in Resources */,
-				60F1272A14DFD760007ECFCE /* ARDisplaySettingsViewController.xib in Resources */,
 				832075BA1C3F274000C0A114 /* wifi-weak@2x.png in Resources */,
 				60928CB81A5E1AF600DDA769 /* Default-375w-667h@2x~iphone.png in Resources */,
 				4961100614EACBC500135DC0 /* Remove_Clean_Button_Active.png in Resources */,
@@ -3774,7 +3692,6 @@
 				60750772154B0A3A003CBAC7 /* SearchGlass@2x.png in Resources */,
 				606DF15615516F5900E2F74C /* MenuBack.png in Resources */,
 				606DF15815516F5900E2F74C /* MenuBack@2x.png in Resources */,
-				606DF1611551720000E2F74C /* ARSettingsNavigationController.xib in Resources */,
 				606DF1691551749B00E2F74C /* White.png in Resources */,
 				60B608581A41847300C2BBE5 /* PadAddArtworksButton@2x.png in Resources */,
 				6062B365155D2312006BEF6F /* MenuBackSelected.png in Resources */,
@@ -3883,8 +3800,6 @@
 				60B2C8051743AFF90019DB9B /* ToggleOff@2x.png in Resources */,
 				60B2C8081743AFF90019DB9B /* ToggleOn.png in Resources */,
 				60B2C80B1743AFF90019DB9B /* ToggleOn@2x.png in Resources */,
-				60B2C8191743D2750019DB9B /* ARSupportSettingsViewController.xib in Resources */,
-				6055B78A1872E8390043B937 /* ARAdminSettingsViewController.xib in Resources */,
 				497E036F174DC3F600B211AD /* ARPromptAlertViewController.xib in Resources */,
 				60F3A1B41B657EDB0000727D /* oss_stubbed_data.sqlite in Resources */,
 			);
@@ -4008,7 +3923,7 @@
 				6006C76A198EDF9300F955A0 /* ARAppTestDelegate+Tests.m in Sources */,
 				601E1A16194F87AB004B21E4 /* PartnerModelTests.m in Sources */,
 				609715EC19AE382700970DBE /* ARNewAlbumModalViewControllerTests.m in Sources */,
-				836DEDF71BF25824004A2362 /* ARLabSettingsPresentationModeViewControllerTests.m in Sources */,
+				836DEDF71BF25824004A2362 /* ARPresentationModeSettingsViewControllerTests.m in Sources */,
 				6022A3121875CD9D008E7A23 /* AlbumModelTests.m in Sources */,
 				60F1F1001B0391B3004B6C7F /* ARPartnerMetadataUploaderSpec.m in Sources */,
 				60692E15196BFABB00455332 /* ARDebugPlaceholderView.m in Sources */,
@@ -4035,13 +3950,11 @@
 				6074482B1BE3C93800E20774 /* ARSyncRemoveiCloudAttributesSpec.m in Sources */,
 				609715EA19AE273A00970DBE /* ARPromptAlertViewControllerTests.m in Sources */,
 				60117F3E1917AB6E0072E500 /* NSFetchRequest+ARModelsTests.m in Sources */,
-				83D8F05F1BFCED1000524F59 /* ARLabSettingsMasterViewControllerTests.m in Sources */,
+				83D8F05F1BFCED1000524F59 /* ARSettingsMenuViewControllerTests.m in Sources */,
 				60685F2118E4DF870072B4DF /* XCTest+OHHTTP.m in Sources */,
 				60A99DA919AFB773004F82D0 /* ARAlbumEditNavigationControllerTests.m in Sources */,
-				609256B6191A7718007C5107 /* ARSupportSettingsViewControllerTests.m in Sources */,
 				60AAA349187038F100561B0C /* AREditAlbumViewControllerTests.m in Sources */,
-				83EEDB3B1C5150EB00B203DB /* ARLabSettingsMenuViewModelTests.m in Sources */,
-				609256B4191A7017007C5107 /* ARSettingsViewControllerTests.m in Sources */,
+				83EEDB3B1C5150EB00B203DB /* ARSettingsMenuViewModelTests.m in Sources */,
 				60A99DA719AF6C74004F82D0 /* ARBorderedSerifLabelTests.m in Sources */,
 				60E7E2DD1ABB1D09007EAA8A /* ARTabbedViewControllerDataSourceTests.m in Sources */,
 				6060299C19A288570062A4F2 /* ARHighlightableImageViewTests.m in Sources */,
@@ -4050,7 +3963,7 @@
 				60E9B6C918DA207900BC7FEA /* ARSyncronousTreeProvider.m in Sources */,
 				604D77E91A33AF5E006D55E4 /* ARAlbumViewControllerTests.m in Sources */,
 				60D46F5718E0CC4C00DA225B /* ARSyncDeleterTests.m in Sources */,
-				83C4CC5A1C0EBEC100C86774 /* ARLabSettingsBackgroundViewControllerTests.m in Sources */,
+				83C4CC5A1C0EBEC100C86774 /* ARBackgroundSettingsViewControllerTests.m in Sources */,
 				60EB677D1959CD6B00C9FA72 /* ARManagedObject+ModelFromJSON.m in Sources */,
 				B3DBEDE8185AB4D400C345A1 /* ARImageThumbnailCreatorTests.m in Sources */,
 				60F5762A19647AE60042B8BF /* ARSyncViewControllerTests.m in Sources */,
@@ -4058,7 +3971,7 @@
 				60F1F1021B04ACB0004B6C7F /* ARPartnerFullMetadataDownloaderSpec.m in Sources */,
 				60327DF4198A5DE00075B399 /* ARTabbedViewControllerDataSource.m in Sources */,
 				60DED57D1975A72200853B78 /* ARImageViewCategoriesTests.m in Sources */,
-				839B53CE1BF112D7008A6173 /* ARLabSettingsSyncViewControllerTests.m in Sources */,
+				839B53CE1BF112D7008A6173 /* ARSyncSettingsViewControllerTests.m in Sources */,
 				839E42611B052DE800C4BF49 /* ARFolioMessageViewControllerTests.m in Sources */,
 				607448251BE3C4EA00E20774 /* ARSyncInsomniacSpec.m in Sources */,
 				607448231BE3BD8000E20774 /* ARSync+TestsExtension.m in Sources */,
@@ -4071,7 +3984,7 @@
 				6080489F1BA9D8770099FBB4 /* ARFilteredStackTrace.m in Sources */,
 				342F99895C696D1C88D43353 /* ModelStubs.m in Sources */,
 				609CB43F192BA8240056E741 /* ARLoginViewControllerTests.m in Sources */,
-				838E1E391C0E6B5A008C5B1A /* ARLabSettingsEmailSubjectLinesViewControllerTests.m in Sources */,
+				838E1E391C0E6B5A008C5B1A /* AREmailSubjectLineSettingsViewControllerTests.m in Sources */,
 				60ADD6901ACB4EB200A847B5 /* ARAppDelegateTests.m in Sources */,
 				60749278197015E5004F3C83 /* ARModernArtworkInfoViewControllerTests.m in Sources */,
 				609CB440192BA8240056E741 /* ARHostViewControllerTests.m in Sources */,
@@ -4080,7 +3993,7 @@
 				609F01D419A2A3AA00ACDD38 /* ARGridViewCellTests.m in Sources */,
 				60C777581B0E280D00BEFA97 /* ARInitialViewControllerSetupCoordinatorSpec.m in Sources */,
 				834BA69D1B4AE74F009D18F7 /* ARFolioImageMessageViewControllerTests.m in Sources */,
-				83E995E61C07939600A8885F /* ARLabSettingsEmailViewControllerTests.m in Sources */,
+				83E995E61C07939600A8885F /* AREmailSettingsViewControllerTests.m in Sources */,
 				60DF63D4197D65C10017B50F /* ARGridViewTests.m in Sources */,
 				60AC10CE19479D5000274EBB /* ARFeedTranslatorTests.m in Sources */,
 				60E7E2DF1ABB2392007EAA8A /* ShowModelTests.m in Sources */,
@@ -4092,7 +4005,7 @@
 				60E39282190A63CE0091AC9E /* AREmailComposerTests.m in Sources */,
 				60B572B4194F3A79002B9A46 /* ARAdminPartnerSelectViewControllerTests.m in Sources */,
 				601A44D21B04C7B500713590 /* SDWebImage+EasyCache.m in Sources */,
-				83E995E81C079C7C00A8885F /* ARLabSettingsEmailViewModelTests.m in Sources */,
+				83E995E81C079C7C00A8885F /* AREmailSettingsViewModelTests.m in Sources */,
 				602601601AC0703300D5EBCB /* ARModernEmailArtworksViewControllerDataSourceTests.m in Sources */,
 				342F9AFFFFBA47BC9C6BAA06 /* ARGridViewControllerTests.m in Sources */,
 				60692E12196BFA0B00455332 /* ARAmbiguousSplitStackViewTests.m in Sources */,
@@ -4106,14 +4019,13 @@
 				607448291BE3C87800E20774 /* ARSyncNotificationSpec.m in Sources */,
 				6032E3461BE22136001C3494 /* ARSyncAnalyticsSpec.m in Sources */,
 				60F98D591A26105800BDAD7C /* ARSlideshowImageViewTests.m in Sources */,
-				609256B8191A8195007C5107 /* ARAdminSettingsViewControllerTests.m in Sources */,
 				609715E019ACFCCE00970DBE /* ARBlockRunner.m in Sources */,
 				609C27521AE81FAD00E40D1F /* ARArtworkContainerCoverDataSourceTests.m in Sources */,
 				342F948BFEED0A6CD3718F93 /* ARSlugResolverTests.m in Sources */,
 				60AB08C8198238B400290C99 /* ARStubbedCoreData.m in Sources */,
 				60D4D71D198FD853001AB8AF /* ARSwitchboardTests.m in Sources */,
 				342F99689EFEA687EF113A71 /* ARAddToAlbumViewControllerTests.m in Sources */,
-				8383FB6B1BD83E33004B2A87 /* ARLabSettingsViewControllerTests.m in Sources */,
+				8383FB6B1BD83E33004B2A87 /* ARSettingsSplitViewControllerTests.m in Sources */,
 				608B012F1C4811F300C6B535 /* SyncSpec.m in Sources */,
 				6032E3491BE22203001C3494 /* ARStubbedAnalytics.m in Sources */,
 				60D7A1A01A66F1F00036F11F /* PartnerOptionModelTestsTests.m in Sources */,
@@ -4136,9 +4048,8 @@
 				602E286F195DFB97001997DF /* ARModernArtworkMetadataViewController.m in Sources */,
 				60F637FD199E668B008D2360 /* ARFolioLabelSubclasses.m in Sources */,
 				60774E3818FB6B85004D3A1B /* UIDevice+DeviceInfo.m in Sources */,
-				83E71DFB1C05189C00C44F92 /* ARLabSettingsEmailViewController.m in Sources */,
+				83E71DFB1C05189C00C44F92 /* AREmailSettingsViewController.m in Sources */,
 				60D210DA1AE0538900EA091C /* ARLocationDownloader.m in Sources */,
-				6062B327155C362B006BEF6F /* ARSettingsNavigationController.m in Sources */,
 				60DB0AAA151C576F00DA8A33 /* ARThumbnailCreationOperation.m in Sources */,
 				D8D208FA141405C300A823E3 /* main.m in Sources */,
 				D8FAA98F1442893600AA34BC /* ARAppDelegate.m in Sources */,
@@ -4184,7 +4095,7 @@
 				60E3926619085EFB0091AC9E /* ARSecureTextFieldWithPlaceholder.m in Sources */,
 				60F1F0FD1B0387BF004B6C7F /* ARPartnerMetadataUploader.m in Sources */,
 				D8FAA9AB1442893600AA34BC /* ARUserManager.m in Sources */,
-				8360FDDE1BE91061004878AC /* ARLabSettingsPresentationModeViewController.m in Sources */,
+				8360FDDE1BE91061004878AC /* ARPresentationModeSettingsViewController.m in Sources */,
 				609991F01A4593C300741423 /* ARPartnerFullMetadataDownloader.m in Sources */,
 				600856FD19353CED005741CF /* ARTiledImageDataSourceWithImage.m in Sources */,
 				6045D74E19757868008D1FFB /* UIImageView+ArtsySetURL.m in Sources */,
@@ -4193,19 +4104,15 @@
 				60C777541B0E163E00BEFA97 /* AROfflineStatusWatcher.m in Sources */,
 				D89624FD1454E59C006E6558 /* ARSearchViewController.m in Sources */,
 				D8549C23145922DA00BE95D5 /* Image.m in Sources */,
-				83DA76121C18D77E00FC8A37 /* ARLabSettingsBackgroundViewController.m in Sources */,
+				83DA76121C18D77E00FC8A37 /* ARBackgroundSettingsViewController.m in Sources */,
 				D84AA9E3146B8635005557EA /* NSDictionary+ObjectForKey.m in Sources */,
 				839B597B1B4DB6D000F24033 /* EditionSet.m in Sources */,
 				60117F851917F6BE0072E500 /* _Note.m in Sources */,
 				60600DEB1475A04800D48ABB /* ARDateLabel.m in Sources */,
 				602702F31479D146008BD84A /* ARFontSizeConstants.m in Sources */,
-				60EAE0D91497D78C006B55E8 /* ARSettingsViewController.m in Sources */,
 				60EAE0E21497F52F006B55E8 /* ARTableHeaderView.m in Sources */,
-				6074F8CA14A10546000FE859 /* ARMailSettingsViewController.m in Sources */,
 				83DA76151C19D97100FC8A37 /* ARSettingsNavigationBar.m in Sources */,
 				6036A2391BCE99620090D5FC /* ARIntercomProvider.m in Sources */,
-				6074F8D014A11C98000FE859 /* ARSettingsBaseViewController.m in Sources */,
-				60E452BD14A132B600EB5BFE /* ARSettingsDefaultsEditor.m in Sources */,
 				60E0358219B5F1CB006F7C1E /* _SyncLog.m in Sources */,
 				6055B7861872E2CC0043B937 /* AROptions.m in Sources */,
 				60B813921B8276CF0046A52C /* ARZeroStateMessageViewController.m in Sources */,
@@ -4240,10 +4147,10 @@
 				4949E95415226C93003BF7D9 /* NSString+NiceFractions.m in Sources */,
 				60117F841917F6BE0072E500 /* _Location.m in Sources */,
 				4980A673152A6BFC000158BF /* ARArtistViewController.m in Sources */,
-				83E71DFE1C051ED000C44F92 /* ARLabSettingsEmailViewModel.m in Sources */,
+				83E71DFE1C051ED000C44F92 /* AREmailSettingsViewModel.m in Sources */,
 				60E7E2E41ABB2E59007EAA8A /* ARImageSetViewController.m in Sources */,
 				4980A676152A6C08000158BF /* ARAlbumViewController.m in Sources */,
-				83DA2F661BD6C85E00C55982 /* ARLabSettingsSectionButton.m in Sources */,
+				83DA2F661BD6C85E00C55982 /* ARSettingsSectionButton.m in Sources */,
 				4980A679152B4B1F000158BF /* ARTopViewController.m in Sources */,
 				60117F871917F6BE0072E500 /* _Show.m in Sources */,
 				60BA589E153C21D8005E0576 /* ARAlertViewController.m in Sources */,
@@ -4260,11 +4167,9 @@
 				60E7E2F11ABB47D1007EAA8A /* InstallShotImage.m in Sources */,
 				493284661551CD3700EAF959 /* Document.m in Sources */,
 				49C1940D14F969E400DAEB93 /* ARNavigationBar.m in Sources */,
-				6062B326155C35FD006BEF6F /* ARMenuNavigationBar.m in Sources */,
 				60B95A821AC5FB80008AF85E /* ARGroupedTableViewHeader.m in Sources */,
 				60FDF6DB1AE97F5400173E81 /* ARSortOrderHost.m in Sources */,
 				B3DBEDE6185AB48A00C345A1 /* ARThumbnail.m in Sources */,
-				6055B77F1872DFE80043B937 /* ARAdminSettingsViewController.m in Sources */,
 				603FA9881598698200BDCC9F /* Reachability+ConnectionExists.m in Sources */,
 				49EC7BE715A613D600053A38 /* ARManagedObject.m in Sources */,
 				6085133A15B4435A0062236F /* ARDocumentPreviewViewController.m in Sources */,
@@ -4272,7 +4177,7 @@
 				494D390515BE06B70088B619 /* ARAnalyticsConstants.m in Sources */,
 				60EF315A186DBF6A0093F6F1 /* ARTopViewToolbarController.m in Sources */,
 				CBA1998B185A46E000573048 /* ARBrowseProvider.m in Sources */,
-				83FFE5A01C07A58E0005FBE2 /* ARLabSettingsEmailSubjectLinesViewController.m in Sources */,
+				83FFE5A01C07A58E0005FBE2 /* AREmailSubjectLineSettingsViewController.m in Sources */,
 				60AC186C15C7ED7500297135 /* NSData+MD5.m in Sources */,
 				60AC187C15C82A6C00297135 /* NSString+TimeInterval.m in Sources */,
 				60A34F5C15CA8C6600983442 /* NSFileManager+SkipBackup.m in Sources */,
@@ -4345,9 +4250,9 @@
 				60AA6D40171EB42E00C7447A /* NSFileManager+FolderSize.m in Sources */,
 				494D50EA173025F100D77AEB /* ARSortDefinition.m in Sources */,
 				60117F811917F6BE0072E500 /* _Artwork.m in Sources */,
-				833883101BAB0E4600F21DED /* ARLabSettingsSplitViewController.m in Sources */,
+				833883101BAB0E4600F21DED /* ARSettingsSplitViewController.m in Sources */,
 				494FE8DF1731D7E500568394 /* ARSortViewController.m in Sources */,
-				839C16C31B94B65C009D8FB4 /* ARSyncStatusViewModel.m in Sources */,
+				839C16C31B94B65C009D8FB4 /* ARSyncSettingsViewModel.m in Sources */,
 				609502481844101C00495CFC /* ARTheme.m in Sources */,
 				4137E7B817304ED000D85A93 /* ARLogoutManager.m in Sources */,
 				411D96DA1731528B00598854 /* ARLogoutViewController.m in Sources */,
@@ -4358,14 +4263,13 @@
 				60DEB61A1A237E880046686D /* ARSlideshowImageView.m in Sources */,
 				B337EB08184D246C0071FA29 /* ARImageTile.m in Sources */,
 				415416B617396B1000709811 /* ARFileUtils+FolioAdditions.m in Sources */,
-				8351417F1BDE9D980046FB32 /* ARLabSettingsSyncViewController.m in Sources */,
+				8351417F1BDE9D980046FB32 /* ARSyncSettingsViewController.m in Sources */,
 				493E2951173B07E700644DCB /* ARSortCache.m in Sources */,
 				60AA47AB17413E0A0006119F /* ARTickedTableViewCell.m in Sources */,
-				833AAC3E1BA9FD4200B24D25 /* ARLabSettingsMasterViewController.m in Sources */,
+				833AAC3E1BA9FD4200B24D25 /* ARSettingsMenuViewController.m in Sources */,
 				60B590CF1A248EC10073DB85 /* ARProgressView.m in Sources */,
 				4148D66D17410F0B00169FD2 /* ARMultipleButtonsPopoverViewController.m in Sources */,
 				60B2C7FA1743AC200019DB9B /* ARToggleSwitch.m in Sources */,
-				60B2C8161743D2750019DB9B /* ARSupportSettingsViewController.m in Sources */,
 				60118689174D084700B878A1 /* ArtsyPartner.xcdatamodeld in Sources */,
 				60E57C0B187C42D20088C2CF /* ARLogging.m in Sources */,
 				49F150CB174DB3920017230E /* ARPromptAlertViewController.m in Sources */,
@@ -4396,7 +4300,7 @@
 				6006C761198EDA8500F955A0 /* ARPartnerSelectViewController.m in Sources */,
 				342F9E7ACEBAD0205BCF4307 /* ARShowArtworksDownloader.m in Sources */,
 				342F9F94B54C6148E6E72C98 /* ARArtworkDownloader.m in Sources */,
-				8385C51E1BFFB6B90025B8E7 /* ARLabSettingsMenuViewModel.m in Sources */,
+				8385C51E1BFFB6B90025B8E7 /* ARSettingsMenuViewModel.m in Sources */,
 				342F9B4038490EAC3581943F /* ARArtistDownloader.m in Sources */,
 				60EC79F71A9E506D009196A1 /* ARModernEmailArtworksViewController.m in Sources */,
 				83D072DD1C22588A00E664B8 /* ARTransparentOverlayViewController.m in Sources */,

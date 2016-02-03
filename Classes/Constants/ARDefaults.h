@@ -14,7 +14,6 @@ extern NSString *const ARShowPrices;
 extern NSString *const ARShowAvailability;
 extern NSString *const ARShowConfidentialNotes;
 
-extern NSString *const AROptionsUseLabSettings;
 extern NSString *const ARPresentationModeOn;
 extern NSString *const ARHideAllPrices;
 extern NSString *const ARHideConfidentialNotes;

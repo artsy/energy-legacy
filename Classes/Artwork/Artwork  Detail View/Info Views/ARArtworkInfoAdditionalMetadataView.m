@@ -153,27 +153,16 @@
 
 - (BOOL)showConfidentialNotes
 {
-    BOOL usingLabSettings = [self.defaults boolForKey:AROptionsUseLabSettings];
-    if (!usingLabSettings) return [self.defaults boolForKey:ARShowConfidentialNotes];
-
-    if (![self.defaults boolForKey:ARPresentationModeOn]) return YES;
-
-    return ![self.defaults boolForKey:ARHideConfidentialNotes];
+    /// If presentation mode is off, always show notes. Otherwise, check the confidential notes toggle.
+    return [self.defaults boolForKey:ARPresentationModeOn] ? ![self.defaults boolForKey:ARHideConfidentialNotes] : YES;
 }
 
-/// A little sloppy, but necessary until I can phase out the old settings defaults
 - (BOOL)showPriceOfEditionSet:(EditionSet *)set
 {
-    BOOL usingLabSettings = [self.defaults boolForKey:AROptionsUseLabSettings];
-    if (!usingLabSettings) return [self.defaults boolForKey:ARShowPrices];
+    /// Check if all prices should be hidden, and if not, check if the work is sold
+    BOOL shouldHidePrice = [self.defaults boolForKey:ARHideAllPrices] || ([set.availability isEqualToString:ARAvailabilitySold] && [self.defaults boolForKey:ARHidePricesForSoldWorks]);
 
-    if (![self.defaults boolForKey:ARPresentationModeOn]) return YES;
-
-    if ([self.defaults boolForKey:ARHideAllPrices]) return NO;
-
-    if ([set.availability isEqualToString:ARAvailabilitySold] && [self.defaults boolForKey:ARHidePricesForSoldWorks]) return NO;
-
-    return YES;
+    return [self.defaults boolForKey:ARPresentationModeOn] ? !shouldHidePrice : YES;
 }
 
 - (NSUserDefaults *)defaults

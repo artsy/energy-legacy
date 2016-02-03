@@ -125,12 +125,12 @@ describe(@"toolbar", ^{
     it(@"should react to sync change notifications", ^{
         ARTopViewToolbarController *controller = [[ARTopViewToolbarController alloc] initWithTopVC:topVC];
         [controller setupDefaultToolbarItems];
-        UIImage *initialImage = controller.settingsPopoverItem.representedButton.currentImage;
+        UIImage *initialImage = controller.settingsBarButtonItem.representedButton.currentImage;
 
         [[NSNotificationCenter defaultCenter] postNotificationName:ARSyncStartedNotification object:nil];
-        expect(initialImage).toNot.equal(controller.settingsPopoverItem.representedButton.currentImage);
+        expect(initialImage).toNot.equal(controller.settingsBarButtonItem.representedButton.currentImage);
 
-        UIImage *changedImage = controller.settingsPopoverItem.representedButton.currentImage;
+        UIImage *changedImage = controller.settingsBarButtonItem.representedButton.currentImage;
         [[NSNotificationCenter defaultCenter] postNotificationName:ARSyncFinishedNotification object:nil];
         expect(initialImage).toNot.equal(changedImage);
     });

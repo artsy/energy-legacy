@@ -125,7 +125,6 @@ describe(@"showing and hiding price", ^{
         sut.artwork = artwork;
         
         testDefaults = [ForgeriesUserDefaults defaults:@{
-                                                 AROptionsUseLabSettings: @YES,
                                                  ARHideAllPrices: @NO,
                                                  ARPresentationModeOn: @YES,
                                               }];
@@ -139,7 +138,6 @@ describe(@"showing and hiding price", ^{
         
         testDefaults = [ForgeriesUserDefaults defaults:@{
                                                  ARHideAllPrices: @YES,
-                                                 AROptionsUseLabSettings: @YES,
                                                  ARPresentationModeOn: @YES,
                                               }];
         sut.defaults = (id)testDefaults;
@@ -153,7 +151,6 @@ describe(@"showing and hiding price", ^{
         
         testDefaults = [ForgeriesUserDefaults defaults:@{
                                                          ARHideAllPrices: @YES,
-                                                         AROptionsUseLabSettings: @YES,
                                                          ARPresentationModeOn: @NO,
                                                          }];
         sut.defaults = (id)testDefaults;
@@ -168,7 +165,6 @@ describe(@"showing and hiding price", ^{
         
         testDefaults = [ForgeriesUserDefaults defaults:@{
                                                          ARHideAllPrices: @NO,
-                                                         AROptionsUseLabSettings: @YES,
                                                          ARHidePricesForSoldWorks: @YES,
                                                          ARPresentationModeOn: @YES,
                                                 }];
@@ -183,7 +179,6 @@ describe(@"showing and hiding price", ^{
         
         testDefaults = [ForgeriesUserDefaults defaults:@{
                                              ARHideAllPrices: @"NO",
-                                             AROptionsUseLabSettings: @"YES",
                                              ARPresentationModeOn: @YES,
                                              }];
         sut.defaults = (id)testDefaults;

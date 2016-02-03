@@ -30,8 +30,9 @@ describe(@"collection methods", ^{
             [[[[userDefaults stub] classMethod] andReturn:hideUnpublished] standardUserDefaults];
         });
 
-        it(@"hides artists with only unpublished works when hide is set", ^{
+        it(@"hides artists with only unpublished works when hide is set and presentation mode on", ^{
             hideUnpublished.defaults[ARHideUnpublishedWorks] = @(YES);
+            hideUnpublished.defaults[ARPresentationModeOn] = @(YES);
 
             NSFetchRequest *allArtistsRequest = [Artist allArtistsFetchRequestInContext:context];
             NSArray *allArtists = [context executeFetchRequest:allArtistsRequest error:nil];
@@ -39,8 +40,19 @@ describe(@"collection methods", ^{
             expect([allArtists containsObject:artist3]).to.beFalsy();
         });
 
-        it(@"shows artists with only unpublished works when hide is off", ^{
+        it(@"shows artists with only unpublished works when hide is off and presentation mode on", ^{
             hideUnpublished.defaults[ARHideUnpublishedWorks] = @(NO);
+            hideUnpublished.defaults[ARPresentationModeOn] = @(YES);
+
+            NSFetchRequest *allArtistsRequest = [Artist allArtistsFetchRequestInContext:context];
+            NSArray *allArtists = [context executeFetchRequest:allArtistsRequest error:nil];
+            expect([allArtists containsObject:artist1]).to.beTruthy();
+            expect([allArtists containsObject:artist3]).to.beTruthy();
+        });
+
+        it(@"does not hide any artists when presentation mode is off", ^{
+            hideUnpublished.defaults[ARHideUnpublishedWorks] = @(YES);
+            hideUnpublished.defaults[ARPresentationModeOn] = @(NO);
 
             NSFetchRequest *allArtistsRequest = [Artist allArtistsFetchRequestInContext:context];
             NSArray *allArtists = [context executeFetchRequest:allArtistsRequest error:nil];

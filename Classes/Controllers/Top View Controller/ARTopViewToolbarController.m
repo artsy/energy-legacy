@@ -38,18 +38,18 @@
 - (void)updateSettingsButtonIcon
 {
     if (self.topViewController.sync.isSyncing) {
-        [self.settingsPopoverItem.representedButton setToolbarImagesWithName:@"Refresh"];
+        [self.settingsBarButtonItem.representedButton setToolbarImagesWithName:@"Refresh"];
     } else {
-        [self.settingsPopoverItem.representedButton setToolbarImagesWithName:@"Settings"];
+        [self.settingsBarButtonItem.representedButton setToolbarImagesWithName:@"Settings"];
     }
 }
 
 - (void)showSyncNotificationBadge
 {
-    if (!self.settingsPopoverItem.representedButton.badge) {
-        [self addNotificationBadge:self.settingsPopoverItem.representedButton];
+    if (!self.settingsBarButtonItem.representedButton.badge) {
+        [self addNotificationBadge:self.settingsBarButtonItem.representedButton];
     } else {
-        self.settingsPopoverItem.representedButton.badge.hidden = NO;
+        self.settingsBarButtonItem.representedButton.badge.hidden = NO;
     }
 }
 
@@ -66,9 +66,9 @@
 
 - (void)hideSyncNotificationBadge
 {
-    if (self.settingsPopoverItem.representedButton.badge) {
-        self.settingsPopoverItem.representedButton.badge.hidden = YES;
-        [self.settingsPopoverItem.representedButton.badge removeFromSuperview];
+    if (self.settingsBarButtonItem.representedButton.badge) {
+        self.settingsBarButtonItem.representedButton.badge.hidden = YES;
+        [self.settingsBarButtonItem.representedButton.badge removeFromSuperview];
     }
 }
 
@@ -79,8 +79,8 @@
     UIBarButtonItem *search = self.navigationController.newSearchPopoverButton;
     if (search) [items addObject:search];
 
-    if (!self.settingsPopoverItem) {
-        _settingsPopoverItem = [UIBarButtonItem toolbarImageButtonWithName:@"settings" withTarget:self.topViewController andSelector:@selector(toggleSettingsPopover)];
+    if (!self.settingsBarButtonItem) {
+        _settingsBarButtonItem = [UIBarButtonItem toolbarImageButtonWithName:@"settings" withTarget:self.topViewController andSelector:@selector(toggleSettingsMenu)];
     }
 
     BOOL showEditAlbums = (self.topViewController.displayMode == ARDisplayModeAllAlbums);
@@ -89,7 +89,7 @@
         [items addObject:createAlbumButton];
     }
 
-    [self setToolbarItems:items settingsItem:self.settingsPopoverItem];
+    [self setToolbarItems:items settingsItem:self.settingsBarButtonItem];
 }
 
 - (void)setToolbarItems:(NSArray *)items settingsItem:(UIBarButtonItem *)settingsItem
