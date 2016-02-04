@@ -5,13 +5,12 @@ gem 'second_curtain'
 gem "chairs"
 gem "sbconstants"
 
-gem "cocoapods"
+gem "cocoapods", '1.0.0.beta.3'
 gem "cocoapods-keys"
-gem "cocoapods-open"
-gem 'cocoapods-deintegrate'
-gem 'danger', :git => "https://github.com/krausefx/danger.git"
+
 
 group :deployment do
+  gem 'danger', :git => "https://github.com/krausefx/danger.git", :branch => "support_cp_1"
   gem "fastlane"
   gem "match"
 end

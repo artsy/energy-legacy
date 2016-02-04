@@ -1,7 +1,7 @@
 #import "ARArtworkInfoAdditionalMetadataView.h"
 #import "Artwork+HTMLTexts.h"
 #import "NSString+StripHTML.h"
-#import <Artsy+UILabels/ARLabelSubclasses.h>
+#import <Artsy_UILabels/ARLabelSubclasses.h>
 #import "EditionSet.h"
 #import <ORStackView/ORStackView.h>
 #import "NSString+NiceAttributedStrings.h"

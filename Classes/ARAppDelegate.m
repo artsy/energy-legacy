@@ -1,4 +1,4 @@
-#import <HockeySDK-Source/HockeySDK.h>
+#import <HockeySDK_Source/HockeySDK.h>
 #import <JLRoutes/JLRoutes.h>
 
 #import "ARAppDelegate.h"

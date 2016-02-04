@@ -3,7 +3,7 @@
 #import "AREmailSubjectLineSettingsViewController.h"
 #import "ARStoryboardIdentifiers.h"
 #import "ARDefaults.h"
-#import <Artsy+UIColors/UIColor+ArtsyColors.h>
+#import <Artsy_UIColors/UIColor+ArtsyColors.h>
 
 
 @interface AREmailSettingsViewController ()

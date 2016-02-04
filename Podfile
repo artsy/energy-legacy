@@ -2,32 +2,33 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/artsy/Specs.git'
 
 platform :ios, '8.0'
+use_frameworks!
 
 # Yep.
 inhibit_all_warnings!
 
 plugin 'cocoapods-keys', {
-    :project => "Folio",
-    :target => "ArtsyFolio",
-    :keys => [
-    "ArtsyAPIClientSecret",
-    "ArtsyAPIClientKey",
-    "HockeyAppBetaID",
-    "HockeyAppLiveID",
-    "IntercomAppID",
-    "IntercomAPIKey",
-    "SegmentProduction",
-    "SegmentBeta",
-    "SegmentDev"
+     :project => "Folio",
+     :target => "ArtsyFolio",
+     :keys => [
+     "ArtsyAPIClientSecret",
+     "ArtsyAPIClientKey",
+     "HockeyAppBetaID",
+     "HockeyAppLiveID",
+     "IntercomAppID",
+     "IntercomAPIKey",
+     "SegmentProduction",
+     "SegmentBeta",
+     "SegmentDev"
 ]}
 
 target 'ArtsyFolio' do
     # Artsy
-    pod 'Artsy+UILabels'
+    pod 'Artsy+UILabels', :git => "https://github.com/artsy/Artsy-UILabels.git"
     pod 'Artsy+UIColors'
     pod 'UIView+BooleanAnimations'
     pod 'ORStackView'
-    pod "Artsy+Authentication", :subspecs => ["email"]
+    pod "Artsy+Authentication", :subspecs => ["email"], :git => "https://github.com/artsy/Artsy-Authentication.git", :branch => "cp-frameworks"
 
     if ENV['ARTSY_STAFF_MEMBER'] || ENV['CI'] == 'true'
         pod 'Artsy+UIFonts', :git => "https://github.com/artsy/Artsy-UIFonts.git", :branch => "old_fonts_new_lib"
@@ -75,27 +76,30 @@ target 'ArtsyFolio' do
 
     # This is not an Artsy project
     pod 'ARGenericTableViewController', :git => 'https://github.com/orta/ARGenericTableViewController.git'
-end
 
-target 'ArtsyFolio Tests' do
-    pod 'Specta'
-    pod 'Expecta'
-    pod 'OHHTTPStubs', '~> 3.0'
+    target 'ArtsyFolio Tests' do
+        inherit! :search_paths
 
-    pod 'Expecta+Snapshots', "2.0.0"
-    pod 'Expecta+ContainerClasses', '~> 1.0'
-    pod 'Expecta+Comparison', '~> 0.1'
+        pod 'Specta'
+        pod 'Expecta'
+        pod 'OHHTTPStubs', '~> 3.0'
 
-    pod 'XCTest+OHHTTPStubSuiteCleanUp'
-    pod 'OCMock'
-    pod 'Forgeries/Mocks', :git => "https://github.com/ashfurrow/Forgeries.git", :branch => "remove"
-end
+        pod 'Expecta+Snapshots', "2.0.0"
+        pod 'Expecta+ContainerClasses', '~> 1.0'
+        pod 'Expecta+Comparison', '~> 0.1'
 
-post_install do |installer|
-  # Disable bitcode for now. Specifically needed for HockeySDK and ARAnalytics.
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['ENABLE_BITCODE'] = 'NO'
+        pod 'XCTest+OHHTTPStubSuiteCleanUp'
+        pod 'OCMock'
+        pod 'Forgeries/Mocks'
     end
-  end
 end
+
+#  might not be needed ATM
+# post_install do |installer|
+#   # Disable bitcode for now. Specifically needed for HockeySDK and ARAnalytics.
+#   installer.pods_project.targets.each do |target|
+#     target.build_configurations.each do |config|
+#       config.build_settings['ENABLE_BITCODE'] = 'NO'
+#     end
+#   end
+# end
