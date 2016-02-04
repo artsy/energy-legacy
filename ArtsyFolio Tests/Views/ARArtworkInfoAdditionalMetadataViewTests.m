@@ -6,7 +6,7 @@
 #import "ARDefaults.h"
 #import "AROptions.h"
 #import "EditionSet.h"
-#import <Artsy+UILabels/ARLabelSubclasses.h>
+#import <Artsy_UILabels/ARLabelSubclasses.h>
 #import "ORStackView+TestingHelpers.h"
 
 

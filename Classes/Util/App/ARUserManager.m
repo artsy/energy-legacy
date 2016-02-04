@@ -3,7 +3,7 @@
 #import "ARRouter.h"
 #import <AFNetworking/AFJSONRequestOperation.h>
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
-#import <Artsy+Authentication/Artsy+Authentication.h>
+#import <Artsy_Authentication/Artsy+Authentication.h>
 #import <Keys/FolioKeys.h>
 
 
