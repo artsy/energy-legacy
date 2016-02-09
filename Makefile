@@ -1,6 +1,6 @@
 ### Setup
 
-artsy: certs
+artsy:
 	git submodule init
 	git submodule update
 	config/spacecommander/setup-repo.sh
@@ -47,9 +47,6 @@ mogenerate:
 
 storyboard_ids:
 	bundle exec sbconstants Classes/Util/App/ARStoryboardIdentifiers.h
-
-certs:
-	bundle exec match appstore --readonly
 
 ### Git Faffing
 
