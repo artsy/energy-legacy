@@ -61,7 +61,7 @@
         printf("   Stack trace: %s\n\n\n\n", [stackTrace componentsJoinedByString:@"\n                "].UTF8String);
     }
 
-    _XCTPrimitiveFail(spectaExample, @"Failed due to unstubbed networking.");
+    XCTFail(spectaExample, @"Failed due to unstubbed networking.");
     return nil;
 }
 
