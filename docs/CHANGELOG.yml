@@ -1,6 +1,7 @@
 upcoming:
   version: 2.5.0
   notes:
+    - (dev) Removed match from makefile [maxim]
     - (dev) Brought back sync recommendations [sarah]
     - (dev) Added tests for menu view model [sarah]
     - (dev) Fix OSS fonts [orta]
