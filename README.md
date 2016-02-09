@@ -28,9 +28,9 @@ You will have a running version of the Artsy app by hitting `Build > Run`.
 
 ### Work at Artsy?
 
-Instead of `make oss` in the above, run `make artsy` to set up [spacecommander](https://github.com/square/spacecommander).
-Set an environment variable of `ARTSY_STAFF_MEMBER` to `true`.
-Run `bundle exec pod install`. More info [here](https://guides.cocoapods.org/using/a-gemfile.html), if you're curious.
+- Instead of `make oss` in the above, run `make artsy` to set up [spacecommander](https://github.com/square/spacecommander).
+- Set an environment variable of `ARTSY_STAFF_MEMBER` to `true`.
+- Run `bundle exec pod install`. More info [here](https://guides.cocoapods.org/using/a-gemfile.html), if you're curious.
 
 ### Troubleshooting
 
