@@ -111,6 +111,7 @@
     DRBOperationTree *partnerNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *userNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *estimateNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
+
     DRBOperationTree *artworkNode = [[DRBOperationTree alloc] initWithOperationQueue:artworksOperationQueue];
     DRBOperationTree *imageNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *imageThumbnailNode = [[DRBOperationTree alloc] initWithOperationQueue:imageOperationQueue];
