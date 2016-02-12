@@ -4,6 +4,7 @@ artsy:
 	git submodule init
 	git submodule update
 	config/spacecommander/setup-repo.sh
+	git update-index --assume-unchanged Classes/ARAppDelegate+DevTools.m
 
 oss:
 	bundle -v >/dev/null 2>&1 || { echo "Energy requires bundler, but it's not installed.  You can install it via '[sudo] gem install bundler'. If you are new to ruby, we *strongly* recommend using a sudo-less installation: https://guides.cocoapods.org/using/getting-started.html#sudo-less-installation" >&2; exit 1; }
