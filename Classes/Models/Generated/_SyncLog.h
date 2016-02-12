@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct SyncLogAttributes {
     __unsafe_unretained NSString *albumsDelta;
     __unsafe_unretained NSString *artworkDelta;
@@ -29,11 +28,8 @@ extern const struct SyncLogRelationships {
 @interface _SyncLog : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (SyncLogID *)objectID;
 
 @property (nonatomic, strong) NSNumber *albumsDelta;
@@ -51,35 +47,27 @@ extern const struct SyncLogRelationships {
 @interface _SyncLog (CoreDataGeneratedPrimitiveAccessors)
 
 - (NSNumber *)primitiveAlbumsDelta;
-
 - (void)setPrimitiveAlbumsDelta:(NSNumber *)value;
 
 - (NSNumber *)primitiveArtworkDelta;
-
 - (void)setPrimitiveArtworkDelta:(NSNumber *)value;
 
 - (NSDate *)primitiveDateStarted;
-
 - (void)setPrimitiveDateStarted:(NSDate *)value;
 
 - (NSNumber *)primitiveEstimatedDownload;
-
 - (void)setPrimitiveEstimatedDownload:(NSNumber *)value;
 
 - (NSNumber *)primitiveShowDelta;
-
 - (void)setPrimitiveShowDelta:(NSNumber *)value;
 
 - (NSNumber *)primitiveTimeToCompletion;
-
 - (void)setPrimitiveTimeToCompletion:(NSNumber *)value;
 
 - (NSNumber *)primitiveTotalDownloaded;
-
 - (void)setPrimitiveTotalDownloaded:(NSNumber *)value;
 
 - (SyncError *)primitiveSyncErrors;
-
 - (void)setPrimitiveSyncErrors:(SyncError *)value;
 
 @end

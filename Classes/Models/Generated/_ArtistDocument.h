@@ -13,11 +13,8 @@
 @interface _ArtistDocument : Document {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (ArtistDocumentID *)objectID;
 
 @end

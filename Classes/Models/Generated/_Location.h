@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct LocationAttributes {
     __unsafe_unretained NSString *address;
     __unsafe_unretained NSString *addressSecond;
@@ -33,11 +32,8 @@ extern const struct LocationRelationships {
 @interface _Location : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (LocationID *)objectID;
 
 @property (nonatomic, strong) NSString *address;
@@ -51,11 +47,9 @@ extern const struct LocationRelationships {
 @property (nonatomic, strong) NSString *state;
 
 @property (nonatomic, strong) NSSet *artworks;
-
 - (NSMutableSet *)artworksSet;
 
 @property (nonatomic, strong) NSSet *shows;
-
 - (NSMutableSet *)showsSet;
 
 @end
@@ -63,22 +57,16 @@ extern const struct LocationRelationships {
 
 @interface _Location (ArtworksCoreDataGeneratedAccessors)
 - (void)addArtworks:(NSSet *)value_;
-
 - (void)removeArtworks:(NSSet *)value_;
-
 - (void)addArtworksObject:(Artwork *)value_;
-
 - (void)removeArtworksObject:(Artwork *)value_;
 @end
 
 
 @interface _Location (ShowsCoreDataGeneratedAccessors)
 - (void)addShows:(NSSet *)value_;
-
 - (void)removeShows:(NSSet *)value_;
-
 - (void)addShowsObject:(Show *)value_;
-
 - (void)removeShowsObject:(Show *)value_;
 @end
 
@@ -86,47 +74,36 @@ extern const struct LocationRelationships {
 @interface _Location (CoreDataGeneratedPrimitiveAccessors)
 
 - (NSString *)primitiveAddress;
-
 - (void)setPrimitiveAddress:(NSString *)value;
 
 - (NSString *)primitiveAddressSecond;
-
 - (void)setPrimitiveAddressSecond:(NSString *)value;
 
 - (NSString *)primitiveCity;
-
 - (void)setPrimitiveCity:(NSString *)value;
 
 - (NSString *)primitiveGeoPoint;
-
 - (void)setPrimitiveGeoPoint:(NSString *)value;
 
 - (NSString *)primitiveName;
-
 - (void)setPrimitiveName:(NSString *)value;
 
 - (NSString *)primitivePhone;
-
 - (void)setPrimitivePhone:(NSString *)value;
 
 - (NSString *)primitivePostalCode;
-
 - (void)setPrimitivePostalCode:(NSString *)value;
 
 - (NSString *)primitiveSlug;
-
 - (void)setPrimitiveSlug:(NSString *)value;
 
 - (NSString *)primitiveState;
-
 - (void)setPrimitiveState:(NSString *)value;
 
 - (NSMutableSet *)primitiveArtworks;
-
 - (void)setPrimitiveArtworks:(NSMutableSet *)value;
 
 - (NSMutableSet *)primitiveShows;
-
 - (void)setPrimitiveShows:(NSMutableSet *)value;
 
 @end

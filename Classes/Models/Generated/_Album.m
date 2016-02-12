@@ -64,7 +64,6 @@ const struct AlbumRelationships AlbumRelationships = {
 @dynamic updatedAt;
 
 @dynamic artists;
-
 - (NSMutableSet *)artistsSet
 {
     [self willAccessValueForKey:@"artists"];
@@ -74,7 +73,6 @@ const struct AlbumRelationships AlbumRelationships = {
 }
 
 @dynamic artworks;
-
 - (NSMutableSet *)artworksSet
 {
     [self willAccessValueForKey:@"artworks"];
@@ -85,7 +83,6 @@ const struct AlbumRelationships AlbumRelationships = {
 
 @dynamic cover;
 @dynamic documents;
-
 - (NSMutableSet *)documentsSet
 {
     [self willAccessValueForKey:@"documents"];

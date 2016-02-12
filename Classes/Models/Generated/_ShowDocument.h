@@ -13,11 +13,8 @@
 @interface _ShowDocument : Document {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (ShowDocumentID *)objectID;
 
 @end

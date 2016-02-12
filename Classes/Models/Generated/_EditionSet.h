@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct EditionSetAttributes {
     __unsafe_unretained NSString *artistProofs;
     __unsafe_unretained NSString *availability;
@@ -40,11 +39,8 @@ extern const struct EditionSetRelationships {
 @interface _EditionSet : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (EditionSetID *)objectID;
 
 @property (nonatomic, strong) NSString *artistProofs;

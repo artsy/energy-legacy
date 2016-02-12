@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct ArtworkAttributes {
     __unsafe_unretained NSString *availability;
     __unsafe_unretained NSString *backendPrice;
@@ -70,11 +69,8 @@ extern const struct ArtworkRelationships {
 @interface _Artwork : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (ArtworkID *)objectID;
 
 @property (nonatomic, strong) NSString *availability;
@@ -110,31 +106,24 @@ extern const struct ArtworkRelationships {
 @property (nonatomic, strong) Artist *artist;
 
 @property (nonatomic, strong) NSSet *collections;
-
 - (NSMutableSet *)collectionsSet;
 
 @property (nonatomic, strong) NSSet *editionSets;
-
 - (NSMutableSet *)editionSetsSet;
 
 @property (nonatomic, strong) NSSet *images;
-
 - (NSMutableSet *)imagesSet;
 
 @property (nonatomic, strong) NSSet *installShotsFeaturingArtwork;
-
 - (NSMutableSet *)installShotsFeaturingArtworkSet;
 
 @property (nonatomic, strong) NSSet *locations;
-
 - (NSMutableSet *)locationsSet;
-
 @property (nonatomic, strong) Image *mainImage;
 @property (nonatomic, strong) Note *notes;
 @property (nonatomic, strong) Partner *partner;
 
 @property (nonatomic, strong) NSSet *shows;
-
 - (NSMutableSet *)showsSet;
 
 @end
@@ -142,66 +131,48 @@ extern const struct ArtworkRelationships {
 
 @interface _Artwork (CollectionsCoreDataGeneratedAccessors)
 - (void)addCollections:(NSSet *)value_;
-
 - (void)removeCollections:(NSSet *)value_;
-
 - (void)addCollectionsObject:(Album *)value_;
-
 - (void)removeCollectionsObject:(Album *)value_;
 @end
 
 
 @interface _Artwork (EditionSetsCoreDataGeneratedAccessors)
 - (void)addEditionSets:(NSSet *)value_;
-
 - (void)removeEditionSets:(NSSet *)value_;
-
 - (void)addEditionSetsObject:(EditionSet *)value_;
-
 - (void)removeEditionSetsObject:(EditionSet *)value_;
 @end
 
 
 @interface _Artwork (ImagesCoreDataGeneratedAccessors)
 - (void)addImages:(NSSet *)value_;
-
 - (void)removeImages:(NSSet *)value_;
-
 - (void)addImagesObject:(Image *)value_;
-
 - (void)removeImagesObject:(Image *)value_;
 @end
 
 
 @interface _Artwork (InstallShotsFeaturingArtworkCoreDataGeneratedAccessors)
 - (void)addInstallShotsFeaturingArtwork:(NSSet *)value_;
-
 - (void)removeInstallShotsFeaturingArtwork:(NSSet *)value_;
-
 - (void)addInstallShotsFeaturingArtworkObject:(Image *)value_;
-
 - (void)removeInstallShotsFeaturingArtworkObject:(Image *)value_;
 @end
 
 
 @interface _Artwork (LocationsCoreDataGeneratedAccessors)
 - (void)addLocations:(NSSet *)value_;
-
 - (void)removeLocations:(NSSet *)value_;
-
 - (void)addLocationsObject:(Location *)value_;
-
 - (void)removeLocationsObject:(Location *)value_;
 @end
 
 
 @interface _Artwork (ShowsCoreDataGeneratedAccessors)
 - (void)addShows:(NSSet *)value_;
-
 - (void)removeShows:(NSSet *)value_;
-
 - (void)addShowsObject:(Show *)value_;
-
 - (void)removeShowsObject:(Show *)value_;
 @end
 
@@ -209,163 +180,123 @@ extern const struct ArtworkRelationships {
 @interface _Artwork (CoreDataGeneratedPrimitiveAccessors)
 
 - (NSString *)primitiveAvailability;
-
 - (void)setPrimitiveAvailability:(NSString *)value;
 
 - (NSString *)primitiveBackendPrice;
-
 - (void)setPrimitiveBackendPrice:(NSString *)value;
 
 - (NSString *)primitiveCategory;
-
 - (void)setPrimitiveCategory:(NSString *)value;
 
 - (NSString *)primitiveConfidentialNotes;
-
 - (void)setPrimitiveConfidentialNotes:(NSString *)value;
 
 - (NSDate *)primitiveCreatedAt;
-
 - (void)setPrimitiveCreatedAt:(NSDate *)value;
 
 - (NSString *)primitiveDate;
-
 - (void)setPrimitiveDate:(NSString *)value;
 
 - (NSDecimalNumber *)primitiveDepth;
-
 - (void)setPrimitiveDepth:(NSDecimalNumber *)value;
 
 - (NSDecimalNumber *)primitiveDiameter;
-
 - (void)setPrimitiveDiameter:(NSDecimalNumber *)value;
 
 - (NSString *)primitiveDimensionsCM;
-
 - (void)setPrimitiveDimensionsCM:(NSString *)value;
 
 - (NSString *)primitiveDimensionsInches;
-
 - (void)setPrimitiveDimensionsInches:(NSString *)value;
 
 - (NSString *)primitiveDisplayPrice;
-
 - (void)setPrimitiveDisplayPrice:(NSString *)value;
 
 - (NSString *)primitiveDisplayTitle;
-
 - (void)setPrimitiveDisplayTitle:(NSString *)value;
 
 - (NSString *)primitiveEditions;
-
 - (void)setPrimitiveEditions:(NSString *)value;
 
 - (NSString *)primitiveExhibitionHistory;
-
 - (void)setPrimitiveExhibitionHistory:(NSString *)value;
 
 - (NSDecimalNumber *)primitiveHeight;
-
 - (void)setPrimitiveHeight:(NSDecimalNumber *)value;
 
 - (NSString *)primitiveImageRights;
-
 - (void)setPrimitiveImageRights:(NSString *)value;
 
 - (NSString *)primitiveInfo;
-
 - (void)setPrimitiveInfo:(NSString *)value;
 
 - (NSString *)primitiveInventoryID;
-
 - (void)setPrimitiveInventoryID:(NSString *)value;
 
 - (NSNumber *)primitiveIsAvailableForSale;
-
 - (void)setPrimitiveIsAvailableForSale:(NSNumber *)value;
 
 - (NSNumber *)primitiveIsPriceHidden;
-
 - (void)setPrimitiveIsPriceHidden:(NSNumber *)value;
 
 - (NSNumber *)primitiveIsPublished;
-
 - (void)setPrimitiveIsPublished:(NSNumber *)value;
 
 - (NSString *)primitiveLiterature;
-
 - (void)setPrimitiveLiterature:(NSString *)value;
 
 - (NSString *)primitiveMedium;
-
 - (void)setPrimitiveMedium:(NSString *)value;
 
 - (NSString *)primitiveProvenance;
-
 - (void)setPrimitiveProvenance:(NSString *)value;
 
 - (NSString *)primitiveSeries;
-
 - (void)setPrimitiveSeries:(NSString *)value;
 
 - (NSString *)primitiveSignature;
-
 - (void)setPrimitiveSignature:(NSString *)value;
 
 - (NSString *)primitiveSlug;
-
 - (void)setPrimitiveSlug:(NSString *)value;
 
 - (NSString *)primitiveTitle;
-
 - (void)setPrimitiveTitle:(NSString *)value;
 
 - (NSDate *)primitiveUpdatedAt;
-
 - (void)setPrimitiveUpdatedAt:(NSDate *)value;
 
 - (NSDecimalNumber *)primitiveWidth;
-
 - (void)setPrimitiveWidth:(NSDecimalNumber *)value;
 
 - (Artist *)primitiveArtist;
-
 - (void)setPrimitiveArtist:(Artist *)value;
 
 - (NSMutableSet *)primitiveCollections;
-
 - (void)setPrimitiveCollections:(NSMutableSet *)value;
 
 - (NSMutableSet *)primitiveEditionSets;
-
 - (void)setPrimitiveEditionSets:(NSMutableSet *)value;
 
 - (NSMutableSet *)primitiveImages;
-
 - (void)setPrimitiveImages:(NSMutableSet *)value;
 
 - (NSMutableSet *)primitiveInstallShotsFeaturingArtwork;
-
 - (void)setPrimitiveInstallShotsFeaturingArtwork:(NSMutableSet *)value;
 
 - (NSMutableSet *)primitiveLocations;
-
 - (void)setPrimitiveLocations:(NSMutableSet *)value;
 
 - (Image *)primitiveMainImage;
-
 - (void)setPrimitiveMainImage:(Image *)value;
 
 - (Note *)primitiveNotes;
-
 - (void)setPrimitiveNotes:(Note *)value;
 
 - (Partner *)primitivePartner;
-
 - (void)setPrimitivePartner:(Partner *)value;
 
 - (NSMutableSet *)primitiveShows;
-
 - (void)setPrimitiveShows:(NSMutableSet *)value;
 
 @end
