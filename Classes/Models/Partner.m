@@ -25,7 +25,7 @@
     self.subscriptionState = [dict onlyStringForKey:ARFeedPartnerSubscriptionStateKey];
     self.region = [dict onlyStringForKey:ARFeedRegionKey];
     self.partnerLimitedAccess = [dict onlyNumberForKey:ARFeedHasLimitedPartnerToolAccessKey];
-    self.relativeSize = [dict onlyStringForKey:ARFeedRelativeSizeKey];
+    self.relativeSize = [dict onlyNumberForKey:ARFeedRelativeSizeKey];
     self.contractType = [dict onlyStringForKey:ARFeedPartnerContractTypeKey];
     self.hasFullProfile = [dict onlyNumberForKey:ARFeedHasFullProfileKey];
     self.hasDefaultProfile = [dict onlyNumberForKey:ARFeedHasDefaultProfileIDKey];
