@@ -7,7 +7,28 @@ __block Partner *partner;
 
 beforeEach(^{
     context = [CoreDataManager stubbedManagedObjectContext];
-    partner = [Partner objectInContext:context];
+    partner = [Partner modelFromJSON:@{ ARFeedNameKey : @"Folio",
+                                        ARFeedWebsiteKey : @"http://www.artsy.net",
+                                        ARFeedEmailKey : @"test@artsy.net",
+                                        ARFeedTypeKey : @"Gallery",
+                                        ARFeedArtworksCountKey : @27,
+                                        ARFeedArtistDocumentsCountKey : @3,
+                                        ARFeedArtistsCountKey : @4,
+                                        ARFeedPartnerSubscriptionStateKey : @"active",
+                                        ARFeedRegionKey : @"Europe",
+                                        ARFeedHasLimitedPartnerToolAccessKey : @NO,
+                                        ARFeedRelativeSizeKey : @1,
+                                        ARFeedPartnerContractTypeKey : @"subscription",
+                                        ARFeedHasFullProfileKey : @NO,
+                                        ARFeedHasDefaultProfileIDKey : @"some_string",
+                                        ARFeedDefaultProfilePublicKey : @NO,
+                                        ARFeedPartnerRawIDKey : @"1234",
+                                        ARFeedPartnerIsFoundingPartnerKey : @NO,
+                                        ARFeedPartnerAdminKey : @{@"id" : @"1234", @"_id":@"1234", @"name" : @"tester", @"default_profile_id" : @"uniqueusername"},
+                                        ARFeedPartnerFlagsKey : @{@"last_folio_access" : @"2016-02-10", @"last_cms_access": @"2015-07-28T21:24:54.495+00:00"},
+                                        ARFeedPartnerSubscriptionPlansNameKey : @[@"standard"]
+                                       }
+                           inContext: context];
 });
 
 it(@"current partner gets first partner in context", ^{

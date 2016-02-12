@@ -82,7 +82,6 @@ const struct ArtistRelationships ArtistRelationships = {
 @dynamic years;
 
 @dynamic albumsFeaturingArtist;
-
 - (NSMutableSet *)albumsFeaturingArtistSet
 {
     [self willAccessValueForKey:@"albumsFeaturingArtist"];
@@ -92,7 +91,6 @@ const struct ArtistRelationships ArtistRelationships = {
 }
 
 @dynamic artworks;
-
 - (NSMutableSet *)artworksSet
 {
     [self willAccessValueForKey:@"artworks"];
@@ -103,7 +101,6 @@ const struct ArtistRelationships ArtistRelationships = {
 
 @dynamic cover;
 @dynamic documents;
-
 - (NSMutableSet *)documentsSet
 {
     [self willAccessValueForKey:@"documents"];
@@ -114,7 +111,6 @@ const struct ArtistRelationships ArtistRelationships = {
 
 @dynamic installShotsFeaturingArtist;
 @dynamic showsFeaturingArtist;
-
 - (NSMutableSet *)showsFeaturingArtistSet
 {
     [self willAccessValueForKey:@"showsFeaturingArtist"];

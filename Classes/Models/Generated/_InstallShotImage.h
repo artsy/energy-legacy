@@ -23,11 +23,8 @@ extern const struct InstallShotImageRelationships {
 @interface _InstallShotImage : Image {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (InstallShotImageID *)objectID;
 
 @property (nonatomic, strong) NSString *caption;
@@ -39,11 +36,9 @@ extern const struct InstallShotImageRelationships {
 @interface _InstallShotImage (CoreDataGeneratedPrimitiveAccessors)
 
 - (NSString *)primitiveCaption;
-
 - (void)setPrimitiveCaption:(NSString *)value;
 
 - (Show *)primitiveShowWithImageInInstallation;
-
 - (void)setPrimitiveShowWithImageInInstallation:(Show *)value;
 
 @end

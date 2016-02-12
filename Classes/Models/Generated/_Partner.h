@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct PartnerAttributes {
     __unsafe_unretained NSString *active;
     __unsafe_unretained NSString *artistDocumentsCount;
@@ -13,7 +12,6 @@ extern const struct PartnerAttributes {
     __unsafe_unretained NSString *createdAt;
     __unsafe_unretained NSString *defaultProfileID;
     __unsafe_unretained NSString *defaultProfilePublic;
-    __unsafe_unretained NSString *directlyContactable;
     __unsafe_unretained NSString *email;
     __unsafe_unretained NSString *foundingPartner;
     __unsafe_unretained NSString *hasDefaultProfile;
@@ -53,11 +51,8 @@ extern const struct PartnerRelationships {
 @interface _Partner : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (PartnerID *)objectID;
 
 @property (nonatomic, strong) NSNumber *active;
@@ -68,7 +63,6 @@ extern const struct PartnerRelationships {
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) NSString *defaultProfileID;
 @property (nonatomic, strong) NSNumber *defaultProfilePublic;
-@property (nonatomic, strong) NSNumber *directlyContactable;
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSNumber *foundingPartner;
 @property (nonatomic, strong) NSNumber *hasDefaultProfile;
@@ -78,7 +72,7 @@ extern const struct PartnerRelationships {
 @property (nonatomic, strong) NSNumber *partnerLimitedAccess;
 @property (nonatomic, strong) NSString *partnerType;
 @property (nonatomic, strong) NSString *region;
-@property (nonatomic, strong) NSString *relativeSize;
+@property (nonatomic, strong) NSNumber *relativeSize;
 @property (nonatomic, strong) NSString *representativeEmail;
 @property (nonatomic, strong) NSNumber *showDocumentsCount;
 @property (nonatomic, strong) NSString *slug;
@@ -88,15 +82,12 @@ extern const struct PartnerRelationships {
 @property (nonatomic, strong) User *admin;
 
 @property (nonatomic, strong) NSSet *artworks;
-
 - (NSMutableSet *)artworksSet;
 
 @property (nonatomic, strong) NSSet *flags;
-
 - (NSMutableSet *)flagsSet;
 
 @property (nonatomic, strong) NSSet *subscriptionPlans;
-
 - (NSMutableSet *)subscriptionPlansSet;
 
 @end
@@ -104,33 +95,24 @@ extern const struct PartnerRelationships {
 
 @interface _Partner (ArtworksCoreDataGeneratedAccessors)
 - (void)addArtworks:(NSSet *)value_;
-
 - (void)removeArtworks:(NSSet *)value_;
-
 - (void)addArtworksObject:(Artwork *)value_;
-
 - (void)removeArtworksObject:(Artwork *)value_;
 @end
 
 
 @interface _Partner (FlagsCoreDataGeneratedAccessors)
 - (void)addFlags:(NSSet *)value_;
-
 - (void)removeFlags:(NSSet *)value_;
-
 - (void)addFlagsObject:(PartnerOption *)value_;
-
 - (void)removeFlagsObject:(PartnerOption *)value_;
 @end
 
 
 @interface _Partner (SubscriptionPlansCoreDataGeneratedAccessors)
 - (void)addSubscriptionPlans:(NSSet *)value_;
-
 - (void)removeSubscriptionPlans:(NSSet *)value_;
-
 - (void)addSubscriptionPlansObject:(SubscriptionPlan *)value_;
-
 - (void)removeSubscriptionPlansObject:(SubscriptionPlan *)value_;
 @end
 
@@ -138,119 +120,87 @@ extern const struct PartnerRelationships {
 @interface _Partner (CoreDataGeneratedPrimitiveAccessors)
 
 - (NSNumber *)primitiveActive;
-
 - (void)setPrimitiveActive:(NSNumber *)value;
 
 - (NSNumber *)primitiveArtistDocumentsCount;
-
 - (void)setPrimitiveArtistDocumentsCount:(NSNumber *)value;
 
 - (NSNumber *)primitiveArtistsCount;
-
 - (void)setPrimitiveArtistsCount:(NSNumber *)value;
 
 - (NSNumber *)primitiveArtworksCount;
-
 - (void)setPrimitiveArtworksCount:(NSNumber *)value;
 
 - (NSString *)primitiveContractType;
-
 - (void)setPrimitiveContractType:(NSString *)value;
 
 - (NSDate *)primitiveCreatedAt;
-
 - (void)setPrimitiveCreatedAt:(NSDate *)value;
 
 - (NSString *)primitiveDefaultProfileID;
-
 - (void)setPrimitiveDefaultProfileID:(NSString *)value;
 
 - (NSNumber *)primitiveDefaultProfilePublic;
-
 - (void)setPrimitiveDefaultProfilePublic:(NSNumber *)value;
 
-- (NSNumber *)primitiveDirectlyContactable;
-
-- (void)setPrimitiveDirectlyContactable:(NSNumber *)value;
-
 - (NSString *)primitiveEmail;
-
 - (void)setPrimitiveEmail:(NSString *)value;
 
 - (NSNumber *)primitiveFoundingPartner;
-
 - (void)setPrimitiveFoundingPartner:(NSNumber *)value;
 
 - (NSNumber *)primitiveHasDefaultProfile;
-
 - (void)setPrimitiveHasDefaultProfile:(NSNumber *)value;
 
 - (NSNumber *)primitiveHasFullProfile;
-
 - (void)setPrimitiveHasFullProfile:(NSNumber *)value;
 
 - (NSString *)primitiveName;
-
 - (void)setPrimitiveName:(NSString *)value;
 
 - (NSString *)primitivePartnerID;
-
 - (void)setPrimitivePartnerID:(NSString *)value;
 
 - (NSNumber *)primitivePartnerLimitedAccess;
-
 - (void)setPrimitivePartnerLimitedAccess:(NSNumber *)value;
 
 - (NSString *)primitivePartnerType;
-
 - (void)setPrimitivePartnerType:(NSString *)value;
 
 - (NSString *)primitiveRegion;
-
 - (void)setPrimitiveRegion:(NSString *)value;
 
-- (NSString *)primitiveRelativeSize;
-
-- (void)setPrimitiveRelativeSize:(NSString *)value;
+- (NSNumber *)primitiveRelativeSize;
+- (void)setPrimitiveRelativeSize:(NSNumber *)value;
 
 - (NSString *)primitiveRepresentativeEmail;
-
 - (void)setPrimitiveRepresentativeEmail:(NSString *)value;
 
 - (NSNumber *)primitiveShowDocumentsCount;
-
 - (void)setPrimitiveShowDocumentsCount:(NSNumber *)value;
 
 - (NSString *)primitiveSlug;
-
 - (void)setPrimitiveSlug:(NSString *)value;
 
 - (NSString *)primitiveSubscriptionState;
-
 - (void)setPrimitiveSubscriptionState:(NSString *)value;
 
 - (NSDate *)primitiveUpdatedAt;
-
 - (void)setPrimitiveUpdatedAt:(NSDate *)value;
 
 - (NSString *)primitiveWebsite;
-
 - (void)setPrimitiveWebsite:(NSString *)value;
 
 - (User *)primitiveAdmin;
-
 - (void)setPrimitiveAdmin:(User *)value;
 
 - (NSMutableSet *)primitiveArtworks;
-
 - (void)setPrimitiveArtworks:(NSMutableSet *)value;
 
 - (NSMutableSet *)primitiveFlags;
-
 - (void)setPrimitiveFlags:(NSMutableSet *)value;
 
 - (NSMutableSet *)primitiveSubscriptionPlans;
-
 - (void)setPrimitiveSubscriptionPlans:(NSMutableSet *)value;
 
 @end

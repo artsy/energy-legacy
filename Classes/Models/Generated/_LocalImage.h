@@ -13,11 +13,8 @@
 @interface _LocalImage : Image {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (LocalImageID *)objectID;
 
 @end

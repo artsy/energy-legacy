@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct ArtistAttributes {
     __unsafe_unretained NSString *awards;
     __unsafe_unretained NSString *biography;
@@ -50,11 +49,8 @@ extern const struct ArtistRelationships {
 @interface _Artist : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (ArtistID *)objectID;
 
 @property (nonatomic, strong) NSString *awards;
@@ -77,23 +73,17 @@ extern const struct ArtistRelationships {
 @property (nonatomic, strong) NSString *years;
 
 @property (nonatomic, strong) NSSet *albumsFeaturingArtist;
-
 - (NSMutableSet *)albumsFeaturingArtistSet;
 
 @property (nonatomic, strong) NSSet *artworks;
-
 - (NSMutableSet *)artworksSet;
-
 @property (nonatomic, strong) Image *cover;
 
 @property (nonatomic, strong) NSSet *documents;
-
 - (NSMutableSet *)documentsSet;
-
 @property (nonatomic, strong) Image *installShotsFeaturingArtist;
 
 @property (nonatomic, strong) NSSet *showsFeaturingArtist;
-
 - (NSMutableSet *)showsFeaturingArtistSet;
 
 @end
@@ -101,44 +91,32 @@ extern const struct ArtistRelationships {
 
 @interface _Artist (AlbumsFeaturingArtistCoreDataGeneratedAccessors)
 - (void)addAlbumsFeaturingArtist:(NSSet *)value_;
-
 - (void)removeAlbumsFeaturingArtist:(NSSet *)value_;
-
 - (void)addAlbumsFeaturingArtistObject:(Album *)value_;
-
 - (void)removeAlbumsFeaturingArtistObject:(Album *)value_;
 @end
 
 
 @interface _Artist (ArtworksCoreDataGeneratedAccessors)
 - (void)addArtworks:(NSSet *)value_;
-
 - (void)removeArtworks:(NSSet *)value_;
-
 - (void)addArtworksObject:(Artwork *)value_;
-
 - (void)removeArtworksObject:(Artwork *)value_;
 @end
 
 
 @interface _Artist (DocumentsCoreDataGeneratedAccessors)
 - (void)addDocuments:(NSSet *)value_;
-
 - (void)removeDocuments:(NSSet *)value_;
-
 - (void)addDocumentsObject:(Document *)value_;
-
 - (void)removeDocumentsObject:(Document *)value_;
 @end
 
 
 @interface _Artist (ShowsFeaturingArtistCoreDataGeneratedAccessors)
 - (void)addShowsFeaturingArtist:(NSSet *)value_;
-
 - (void)removeShowsFeaturingArtist:(NSSet *)value_;
-
 - (void)addShowsFeaturingArtistObject:(Show *)value_;
-
 - (void)removeShowsFeaturingArtistObject:(Show *)value_;
 @end
 
@@ -146,99 +124,75 @@ extern const struct ArtistRelationships {
 @interface _Artist (CoreDataGeneratedPrimitiveAccessors)
 
 - (NSString *)primitiveAwards;
-
 - (void)setPrimitiveAwards:(NSString *)value;
 
 - (NSString *)primitiveBiography;
-
 - (void)setPrimitiveBiography:(NSString *)value;
 
 - (NSString *)primitiveBlurb;
-
 - (void)setPrimitiveBlurb:(NSString *)value;
 
 - (NSDate *)primitiveCreatedAt;
-
 - (void)setPrimitiveCreatedAt:(NSDate *)value;
 
 - (NSDate *)primitiveDeathDate;
-
 - (void)setPrimitiveDeathDate:(NSDate *)value;
 
 - (NSString *)primitiveDisplayName;
-
 - (void)setPrimitiveDisplayName:(NSString *)value;
 
 - (NSString *)primitiveFirstName;
-
 - (void)setPrimitiveFirstName:(NSString *)value;
 
 - (NSString *)primitiveHometown;
-
 - (void)setPrimitiveHometown:(NSString *)value;
 
 - (NSString *)primitiveLastName;
-
 - (void)setPrimitiveLastName:(NSString *)value;
 
 - (NSString *)primitiveMiddleName;
-
 - (void)setPrimitiveMiddleName:(NSString *)value;
 
 - (NSString *)primitiveName;
-
 - (void)setPrimitiveName:(NSString *)value;
 
 - (NSString *)primitiveNationality;
-
 - (void)setPrimitiveNationality:(NSString *)value;
 
 - (NSString *)primitiveOrderingKey;
-
 - (void)setPrimitiveOrderingKey:(NSString *)value;
 
 - (NSString *)primitiveSlug;
-
 - (void)setPrimitiveSlug:(NSString *)value;
 
 - (NSString *)primitiveStatement;
-
 - (void)setPrimitiveStatement:(NSString *)value;
 
 - (NSString *)primitiveThumbnailBaseURL;
-
 - (void)setPrimitiveThumbnailBaseURL:(NSString *)value;
 
 - (NSDate *)primitiveUpdatedAt;
-
 - (void)setPrimitiveUpdatedAt:(NSDate *)value;
 
 - (NSString *)primitiveYears;
-
 - (void)setPrimitiveYears:(NSString *)value;
 
 - (NSMutableSet *)primitiveAlbumsFeaturingArtist;
-
 - (void)setPrimitiveAlbumsFeaturingArtist:(NSMutableSet *)value;
 
 - (NSMutableSet *)primitiveArtworks;
-
 - (void)setPrimitiveArtworks:(NSMutableSet *)value;
 
 - (Image *)primitiveCover;
-
 - (void)setPrimitiveCover:(Image *)value;
 
 - (NSMutableSet *)primitiveDocuments;
-
 - (void)setPrimitiveDocuments:(NSMutableSet *)value;
 
 - (Image *)primitiveInstallShotsFeaturingArtist;
-
 - (void)setPrimitiveInstallShotsFeaturingArtist:(Image *)value;
 
 - (NSMutableSet *)primitiveShowsFeaturingArtist;
-
 - (void)setPrimitiveShowsFeaturingArtist:(NSMutableSet *)value;
 
 @end

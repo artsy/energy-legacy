@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct SyncErrorAttributes {
     __unsafe_unretained NSString *body;
     __unsafe_unretained NSString *errorType;
@@ -24,11 +23,8 @@ extern const struct SyncErrorRelationships {
 @interface _SyncError : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (SyncErrorID *)objectID;
 
 @property (nonatomic, strong) NSString *body;
@@ -41,15 +37,12 @@ extern const struct SyncErrorRelationships {
 @interface _SyncError (CoreDataGeneratedPrimitiveAccessors)
 
 - (NSString *)primitiveBody;
-
 - (void)setPrimitiveBody:(NSString *)value;
 
 - (NSString *)primitiveErrorType;
-
 - (void)setPrimitiveErrorType:(NSString *)value;
 
 - (SyncLog *)primitiveSyncLog;
-
 - (void)setPrimitiveSyncLog:(SyncLog *)value;
 
 @end

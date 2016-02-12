@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct PartnerOptionAttributes {
     __unsafe_unretained NSString *key;
     __unsafe_unretained NSString *value;
@@ -24,11 +23,8 @@ extern const struct PartnerOptionRelationships {
 @interface _PartnerOption : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (PartnerOptionID *)objectID;
 
 @property (nonatomic, strong) NSString *key;
@@ -41,15 +37,12 @@ extern const struct PartnerOptionRelationships {
 @interface _PartnerOption (CoreDataGeneratedPrimitiveAccessors)
 
 - (NSString *)primitiveKey;
-
 - (void)setPrimitiveKey:(NSString *)value;
 
 - (NSString *)primitiveValue;
-
 - (void)setPrimitiveValue:(NSString *)value;
 
 - (Partner *)primitivePartner;
-
 - (void)setPrimitivePartner:(Partner *)value;
 
 @end

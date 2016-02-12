@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct UserAttributes {
     __unsafe_unretained NSString *email;
     __unsafe_unretained NSString *name;
@@ -26,11 +25,8 @@ extern const struct UserRelationships {
 @interface _User : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (UserID *)objectID;
 
 @property (nonatomic, strong) NSString *email;
@@ -45,19 +41,15 @@ extern const struct UserRelationships {
 @interface _User (CoreDataGeneratedPrimitiveAccessors)
 
 - (NSString *)primitiveEmail;
-
 - (void)setPrimitiveEmail:(NSString *)value;
 
 - (NSString *)primitiveName;
-
 - (void)setPrimitiveName:(NSString *)value;
 
 - (NSString *)primitiveSlug;
-
 - (void)setPrimitiveSlug:(NSString *)value;
 
 - (Partner *)primitiveAdminForPartner;
-
 - (void)setPrimitiveAdminForPartner:(Partner *)value;
 
 @end

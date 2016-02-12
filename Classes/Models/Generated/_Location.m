@@ -60,7 +60,6 @@ const struct LocationRelationships LocationRelationships = {
 @dynamic state;
 
 @dynamic artworks;
-
 - (NSMutableSet *)artworksSet
 {
     [self willAccessValueForKey:@"artworks"];
@@ -70,7 +69,6 @@ const struct LocationRelationships LocationRelationships = {
 }
 
 @dynamic shows;
-
 - (NSMutableSet *)showsSet
 {
     [self willAccessValueForKey:@"shows"];

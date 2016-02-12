@@ -12,7 +12,6 @@ const struct PartnerAttributes PartnerAttributes = {
     .createdAt = @"createdAt",
     .defaultProfileID = @"defaultProfileID",
     .defaultProfilePublic = @"defaultProfilePublic",
-    .directlyContactable = @"directlyContactable",
     .email = @"email",
     .foundingPartner = @"foundingPartner",
     .hasDefaultProfile = @"hasDefaultProfile",
@@ -75,7 +74,6 @@ const struct PartnerRelationships PartnerRelationships = {
 @dynamic createdAt;
 @dynamic defaultProfileID;
 @dynamic defaultProfilePublic;
-@dynamic directlyContactable;
 @dynamic email;
 @dynamic foundingPartner;
 @dynamic hasDefaultProfile;
@@ -95,7 +93,6 @@ const struct PartnerRelationships PartnerRelationships = {
 
 @dynamic admin;
 @dynamic artworks;
-
 - (NSMutableSet *)artworksSet
 {
     [self willAccessValueForKey:@"artworks"];
@@ -105,7 +102,6 @@ const struct PartnerRelationships PartnerRelationships = {
 }
 
 @dynamic flags;
-
 - (NSMutableSet *)flagsSet
 {
     [self willAccessValueForKey:@"flags"];
@@ -115,7 +111,6 @@ const struct PartnerRelationships PartnerRelationships = {
 }
 
 @dynamic subscriptionPlans;
-
 - (NSMutableSet *)subscriptionPlansSet
 {
     [self willAccessValueForKey:@"subscriptionPlans"];
