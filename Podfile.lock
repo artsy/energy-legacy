@@ -68,7 +68,6 @@ PODS:
   - SDWebImage/Core (3.7.5)
   - SFHFKeychainUtils (0.0.1)
   - Specta (1.0.3)
-  - SSDataSources (0.8.2)
   - TPKeyboardAvoiding (1.2.4)
   - UIView+BooleanAnimations (1.0.2)
   - WYPopoverController (0.3.7)
@@ -111,7 +110,6 @@ DEPENDENCIES:
   - Reachability (~> 3.0)
   - SFHFKeychainUtils (~> 0.0.1)
   - Specta
-  - SSDataSources
   - TPKeyboardAvoiding (from `https://github.com/michaeltyson/TPKeyboardAvoiding.git`)
   - UIView+BooleanAnimations
   - WYPopoverController (from `https://github.com/orta/WYPopoverController.git`, branch `artsy`)
@@ -218,13 +216,12 @@ SPEC CHECKSUMS:
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SFHFKeychainUtils: 9576b411a79a058f4d5381ace6f3242b9a62e664
   Specta: cf3e4188cf35375c3ee2cd03f8db8f1f4ef98234
-  SSDataSources: ec4bcbed5d5daed53646b5986085b576165a6472
   TPKeyboardAvoiding: 0a40dfbb0af7c8bdae1dd457496dccfd217d85f6
   UIView+BooleanAnimations: a760be9a066036e55f298b7b7350a6cb14cfcd97
   WYPopoverController: 7596cb99f16ed4dd1b171a6b0d8d73aed5b2c5b5
   XCTest+OHHTTPStubSuiteCleanUp: 4469ec8863c6bc022c5089a9b94233eb3416c5ee
   ZipArchive: c8bd32d0b8f1ada4ac967b72ceca8130d680adc5
 
-PODFILE CHECKSUM: dfcb4bafa3499e3d28117b0bd0737dcf842fd92b
+PODFILE CHECKSUM: 96720fa7f96e6fdab271461b7ff1ef0b286ecaa6
 
 COCOAPODS: 1.0.0.beta.3

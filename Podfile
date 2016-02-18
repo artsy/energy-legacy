@@ -63,7 +63,6 @@ target 'ArtsyFolio' do
 
     # Logging
     pod 'CocoaLumberjack', '~> 1.0'
-    pod 'SSDataSources'
 
     # @weakify / @strongify / @keypath
     pod 'libextobjc/EXTKeyPathCoding', '~> 0.3'
