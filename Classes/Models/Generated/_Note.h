@@ -14,10 +14,13 @@ extern const struct NoteRelationships {
     __unsafe_unretained NSString *artwork;
 } NoteRelationships;
 
+extern const struct NoteUserInfo {
+} NoteUserInfo;
+
 @class Artwork;
 
 
-@interface NoteID : NSManagedObjectID {
+@interface NoteID : ARManagedObjectID {
 }
 @end
 
@@ -25,11 +28,8 @@ extern const struct NoteRelationships {
 @interface _Note : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (NoteID *)objectID;
 
 @property (nonatomic, strong) NSString *body;
@@ -37,25 +37,13 @@ extern const struct NoteRelationships {
 @property (nonatomic, strong) NSDate *updatedAt;
 @property (nonatomic, strong) Artwork *artwork;
 
+
 @end
 
 
 @interface _Note (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveBody;
-
-- (void)setPrimitiveBody:(NSString *)value;
-
-- (NSDate *)primitiveCreatedAt;
-
-- (void)setPrimitiveCreatedAt:(NSDate *)value;
-
-- (NSDate *)primitiveUpdatedAt;
-
-- (void)setPrimitiveUpdatedAt:(NSDate *)value;
-
 - (Artwork *)primitiveArtwork;
-
 - (void)setPrimitiveArtwork:(Artwork *)value;
 
 @end

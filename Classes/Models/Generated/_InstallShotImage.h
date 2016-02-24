@@ -12,6 +12,9 @@ extern const struct InstallShotImageRelationships {
     __unsafe_unretained NSString *showWithImageInInstallation;
 } InstallShotImageRelationships;
 
+extern const struct InstallShotImageUserInfo {
+} InstallShotImageUserInfo;
+
 @class Show;
 
 
@@ -23,27 +26,20 @@ extern const struct InstallShotImageRelationships {
 @interface _InstallShotImage : Image {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (InstallShotImageID *)objectID;
 
 @property (nonatomic, strong) NSString *caption;
 @property (nonatomic, strong) Show *showWithImageInInstallation;
+
 
 @end
 
 
 @interface _InstallShotImage (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveCaption;
-
-- (void)setPrimitiveCaption:(NSString *)value;
-
 - (Show *)primitiveShowWithImageInInstallation;
-
 - (void)setPrimitiveShowWithImageInInstallation:(Show *)value;
 
 @end

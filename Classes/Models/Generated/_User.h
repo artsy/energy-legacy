@@ -15,10 +15,13 @@ extern const struct UserRelationships {
     __unsafe_unretained NSString *adminForPartner;
 } UserRelationships;
 
+extern const struct UserUserInfo {
+} UserUserInfo;
+
 @class Partner;
 
 
-@interface UserID : NSManagedObjectID {
+@interface UserID : ARManagedObjectID {
 }
 @end
 
@@ -26,11 +29,8 @@ extern const struct UserRelationships {
 @interface _User : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (UserID *)objectID;
 
 @property (nonatomic, strong) NSString *email;
@@ -39,25 +39,13 @@ extern const struct UserRelationships {
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) Partner *adminForPartner;
 
+
 @end
 
 
 @interface _User (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveEmail;
-
-- (void)setPrimitiveEmail:(NSString *)value;
-
-- (NSString *)primitiveName;
-
-- (void)setPrimitiveName:(NSString *)value;
-
-- (NSString *)primitiveSlug;
-
-- (void)setPrimitiveSlug:(NSString *)value;
-
 - (Partner *)primitiveAdminForPartner;
-
 - (void)setPrimitiveAdminForPartner:(Partner *)value;
 
 @end

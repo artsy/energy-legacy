@@ -12,10 +12,13 @@ extern const struct SubscriptionPlanRelationships {
     __unsafe_unretained NSString *subscriptionForPartner;
 } SubscriptionPlanRelationships;
 
+extern const struct SubscriptionPlanUserInfo {
+} SubscriptionPlanUserInfo;
+
 @class Partner;
 
 
-@interface SubscriptionPlanID : NSManagedObjectID {
+@interface SubscriptionPlanID : ARManagedObjectID {
 }
 @end
 
@@ -23,27 +26,20 @@ extern const struct SubscriptionPlanRelationships {
 @interface _SubscriptionPlan : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (SubscriptionPlanID *)objectID;
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) Partner *subscriptionForPartner;
+
 
 @end
 
 
 @interface _SubscriptionPlan (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveName;
-
-- (void)setPrimitiveName:(NSString *)value;
-
 - (Partner *)primitiveSubscriptionForPartner;
-
 - (void)setPrimitiveSubscriptionForPartner:(Partner *)value;
 
 @end

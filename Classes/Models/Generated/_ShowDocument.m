@@ -3,6 +3,8 @@
 
 #import "_ShowDocument.h"
 
+const struct ShowDocumentUserInfo ShowDocumentUserInfo = {};
+
 
 @implementation ShowDocumentID
 @end
@@ -31,5 +33,6 @@
 {
     return (ShowDocumentID *)[super objectID];
 }
+
 
 @end

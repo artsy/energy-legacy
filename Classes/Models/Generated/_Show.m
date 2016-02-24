@@ -25,6 +25,8 @@ const struct ShowRelationships ShowRelationships = {
     .location = @"location",
 };
 
+const struct ShowUserInfo ShowUserInfo = {};
+
 
 @implementation ShowID
 @end
@@ -54,6 +56,7 @@ const struct ShowRelationships ShowRelationships = {
     return (ShowID *)[super objectID];
 }
 
+
 @dynamic availabilityPeriod;
 @dynamic createdAt;
 @dynamic endsAt;
@@ -65,8 +68,8 @@ const struct ShowRelationships ShowRelationships = {
 @dynamic status;
 @dynamic updatedAt;
 
-@dynamic artists;
 
+@dynamic artists;
 - (NSMutableSet *)artistsSet
 {
     [self willAccessValueForKey:@"artists"];
@@ -76,7 +79,6 @@ const struct ShowRelationships ShowRelationships = {
 }
 
 @dynamic artworks;
-
 - (NSMutableSet *)artworksSet
 {
     [self willAccessValueForKey:@"artworks"];
@@ -87,7 +89,6 @@ const struct ShowRelationships ShowRelationships = {
 
 @dynamic cover;
 @dynamic documents;
-
 - (NSMutableSet *)documentsSet
 {
     [self willAccessValueForKey:@"documents"];
@@ -97,7 +98,6 @@ const struct ShowRelationships ShowRelationships = {
 }
 
 @dynamic installationImages;
-
 - (NSMutableSet *)installationImagesSet
 {
     [self willAccessValueForKey:@"installationImages"];
@@ -107,5 +107,6 @@ const struct ShowRelationships ShowRelationships = {
 }
 
 @dynamic location;
+
 
 @end
