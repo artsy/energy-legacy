@@ -11,7 +11,8 @@
 
 @interface ARSyncProgress : NSObject
 
-- (void)start;
+/// Start pre the sync, with a note of how long it took last time.
+- (void)startWithLastSyncLog:(NSTimeInterval)log;
 
 - (void)downloadedNumBytes:(unsigned long long)numBytes;
 
