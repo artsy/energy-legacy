@@ -38,7 +38,9 @@
 
     NSArray *plugins = [self createPlugins];
     [self runBeforeSyncPlugins:plugins];
-    [self.progress start];
+
+    SyncLog *log = [self lastSyncLog];
+    [self.progress startWithLastSyncLog:log.timeToCompletion.doubleValue];
 
     __weak typeof(self) weakSelf = self;
 
@@ -307,6 +309,15 @@
     context.persistentStoreCoordinator = [CoreDataManager persistentStoreCoordinator];
     context.undoManager = nil;
     return context;
+}
+
+- (SyncLog *)lastSyncLog
+{
+    NSManagedObjectContext *context = self.config.managedObjectContext;
+    NSFetchRequest *request = [SyncLog requestAllSortedBy:SyncLogAttributes.dateStarted ascending:NO inContext:context];
+    request.fetchLimit = 1;
+
+    return [SyncLog executeFetchRequest:request inContext:context].firstObject;
 }
 
 @end

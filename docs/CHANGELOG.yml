@@ -1,6 +1,13 @@
 upcoming:
-  version: 2.5.0
-  notes:
+  - version 2.5.1
+    notes:
+      - Improved sync timing algorithm by weighing it towards the timing of the last sync [orta]
+      - Partner Size now is a number, not a string [orta]
+
+releases:
+  - version: 2.5.0
+    date: Jan 26 2016
+    notes:
     - (dev) Removed match from makefile [maxim]
     - (dev) Brought back sync recommendations [sarah]
     - (dev) Added tests for menu view model [sarah]
@@ -34,7 +41,6 @@ upcoming:
     - (dev) Added Danger to the CI [orta]
     - (dev) Uses testflight for betas, and ships dsyms to hockey [orta]
 
-releases:
   - version: 2.4.4
     date: Oct 20 2015
     notes:

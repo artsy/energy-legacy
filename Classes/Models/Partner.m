@@ -25,6 +25,7 @@
     self.subscriptionState = [dict onlyStringForKey:ARFeedPartnerSubscriptionStateKey];
     self.region = [dict onlyStringForKey:ARFeedRegionKey];
     self.partnerLimitedAccess = [dict onlyNumberForKey:ARFeedHasLimitedPartnerToolAccessKey];
+    // Had to change this from relativeSize -> size in order to deal with a change in data type from gravity, see #183
     self.size = [dict onlyNumberForKey:ARFeedRelativeSizeKey];
     self.contractType = [dict onlyStringForKey:ARFeedPartnerContractTypeKey];
     self.hasFullProfile = [dict onlyNumberForKey:ARFeedHasFullProfileKey];

@@ -1,7 +1,9 @@
 #import "ARSyncProgress.h"
+#import "SyncLog.h"
 
 
 @interface ARSyncProgress ()
+@property (readonly, nonatomic, assign) NSTimeInterval lastSyncTime;
 @property (readonly, nonatomic, strong) NSMutableArray *samples;
 @property (readwrite, nonatomic, assign) CGFloat movingAverage;
 @property (readwrite, nonatomic, assign) unsigned long long numBytesDownloaded;
@@ -12,10 +14,11 @@ const NSUInteger ARSyncProgressNumSamples = 5;
 
 @implementation ARSyncProgress
 
-- (void)start
+- (void)startWithLastSyncLog:(NSTimeInterval)lastSyncTime
 {
     _startDate = [NSDate date];
     _samples = [NSMutableArray array];
+    _lastSyncTime = lastSyncTime;
 }
 
 - (void)downloadedNumBytes:(unsigned long long)numBytes
@@ -53,7 +56,13 @@ const NSUInteger ARSyncProgressNumSamples = 5;
 - (NSTimeInterval)estimatedTimeRemaining
 {
     unsigned long long numBytesRemaining = self.numEstimatedBytes - self.numBytesDownloaded;
-    return numBytesRemaining / [self bytesPerSecond];
+    NSTimeInterval currentEstimate = numBytesRemaining / [self bytesPerSecond];
+
+    if (self.lastSyncTime != 0) {
+        return (currentEstimate + self.lastSyncTime) / 2;
+    }
+
+    return currentEstimate;
 }
 
 - (CGFloat)percentDone
