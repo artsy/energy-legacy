@@ -20,6 +20,8 @@ const struct DocumentRelationships DocumentRelationships = {
     .show = @"show",
 };
 
+const struct DocumentUserInfo DocumentUserInfo = {};
+
 
 @implementation DocumentID
 @end
@@ -49,6 +51,7 @@ const struct DocumentRelationships DocumentRelationships = {
     return (DocumentID *)[super objectID];
 }
 
+
 @dynamic filename;
 @dynamic hasFile;
 @dynamic humanReadableSize;
@@ -58,8 +61,10 @@ const struct DocumentRelationships DocumentRelationships = {
 @dynamic url;
 @dynamic version;
 
+
 @dynamic album;
 @dynamic artist;
 @dynamic show;
+
 
 @end

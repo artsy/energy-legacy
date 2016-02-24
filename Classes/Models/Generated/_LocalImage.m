@@ -3,6 +3,8 @@
 
 #import "_LocalImage.h"
 
+const struct LocalImageUserInfo LocalImageUserInfo = {};
+
 
 @implementation LocalImageID
 @end
@@ -31,5 +33,6 @@
 {
     return (LocalImageID *)[super objectID];
 }
+
 
 @end

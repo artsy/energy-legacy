@@ -12,6 +12,8 @@ const struct SyncErrorRelationships SyncErrorRelationships = {
     .syncLog = @"syncLog",
 };
 
+const struct SyncErrorUserInfo SyncErrorUserInfo = {};
+
 
 @implementation SyncErrorID
 @end
@@ -41,9 +43,12 @@ const struct SyncErrorRelationships SyncErrorRelationships = {
     return (SyncErrorID *)[super objectID];
 }
 
+
 @dynamic body;
 @dynamic errorType;
 
+
 @dynamic syncLog;
+
 
 @end

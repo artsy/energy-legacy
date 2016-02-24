@@ -21,12 +21,15 @@ extern const struct DocumentRelationships {
     __unsafe_unretained NSString *show;
 } DocumentRelationships;
 
+extern const struct DocumentUserInfo {
+} DocumentUserInfo;
+
 @class Album;
 @class Artist;
 @class Show;
 
 
-@interface DocumentID : NSManagedObjectID {
+@interface DocumentID : ARManagedObjectID {
 }
 @end
 
@@ -34,11 +37,8 @@ extern const struct DocumentRelationships {
 @interface _Document : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (DocumentID *)objectID;
 
 @property (nonatomic, strong) NSString *filename;
@@ -53,53 +53,19 @@ extern const struct DocumentRelationships {
 @property (nonatomic, strong) Artist *artist;
 @property (nonatomic, strong) Show *show;
 
+
 @end
 
 
 @interface _Document (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveFilename;
-
-- (void)setPrimitiveFilename:(NSString *)value;
-
-- (NSNumber *)primitiveHasFile;
-
-- (void)setPrimitiveHasFile:(NSNumber *)value;
-
-- (NSString *)primitiveHumanReadableSize;
-
-- (void)setPrimitiveHumanReadableSize:(NSString *)value;
-
-- (NSNumber *)primitiveSize;
-
-- (void)setPrimitiveSize:(NSNumber *)value;
-
-- (NSString *)primitiveSlug;
-
-- (void)setPrimitiveSlug:(NSString *)value;
-
-- (NSString *)primitiveTitle;
-
-- (void)setPrimitiveTitle:(NSString *)value;
-
-- (NSString *)primitiveUrl;
-
-- (void)setPrimitiveUrl:(NSString *)value;
-
-- (NSNumber *)primitiveVersion;
-
-- (void)setPrimitiveVersion:(NSNumber *)value;
-
 - (Album *)primitiveAlbum;
-
 - (void)setPrimitiveAlbum:(Album *)value;
 
 - (Artist *)primitiveArtist;
-
 - (void)setPrimitiveArtist:(Artist *)value;
 
 - (Show *)primitiveShow;
-
 - (void)setPrimitiveShow:(Show *)value;
 
 @end

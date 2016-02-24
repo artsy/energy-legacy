@@ -12,6 +12,8 @@ const struct PartnerOptionRelationships PartnerOptionRelationships = {
     .partner = @"partner",
 };
 
+const struct PartnerOptionUserInfo PartnerOptionUserInfo = {};
+
 
 @implementation PartnerOptionID
 @end
@@ -41,9 +43,12 @@ const struct PartnerOptionRelationships PartnerOptionRelationships = {
     return (PartnerOptionID *)[super objectID];
 }
 
+
 @dynamic key;
 @dynamic value;
 
+
 @dynamic partner;
+
 
 @end

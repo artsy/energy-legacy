@@ -24,13 +24,16 @@ extern const struct AlbumRelationships {
     __unsafe_unretained NSString *documents;
 } AlbumRelationships;
 
+extern const struct AlbumUserInfo {
+} AlbumUserInfo;
+
 @class Artist;
 @class Artwork;
 @class Image;
 @class Document;
 
 
-@interface AlbumID : NSManagedObjectID {
+@interface AlbumID : ARManagedObjectID {
 }
 @end
 
@@ -38,11 +41,8 @@ extern const struct AlbumRelationships {
 @interface _Album : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (AlbumID *)objectID;
 
 @property (nonatomic, strong) NSDate *createdAt;
@@ -57,107 +57,55 @@ extern const struct AlbumRelationships {
 @property (nonatomic, strong) NSDate *updatedAt;
 
 @property (nonatomic, strong) NSSet *artists;
-
 - (NSMutableSet *)artistsSet;
 
 @property (nonatomic, strong) NSSet *artworks;
-
 - (NSMutableSet *)artworksSet;
-
 @property (nonatomic, strong) Image *cover;
 
 @property (nonatomic, strong) NSSet *documents;
-
 - (NSMutableSet *)documentsSet;
+
 
 @end
 
 
 @interface _Album (ArtistsCoreDataGeneratedAccessors)
 - (void)addArtists:(NSSet *)value_;
-
 - (void)removeArtists:(NSSet *)value_;
-
 - (void)addArtistsObject:(Artist *)value_;
-
 - (void)removeArtistsObject:(Artist *)value_;
 @end
 
 
 @interface _Album (ArtworksCoreDataGeneratedAccessors)
 - (void)addArtworks:(NSSet *)value_;
-
 - (void)removeArtworks:(NSSet *)value_;
-
 - (void)addArtworksObject:(Artwork *)value_;
-
 - (void)removeArtworksObject:(Artwork *)value_;
 @end
 
 
 @interface _Album (DocumentsCoreDataGeneratedAccessors)
 - (void)addDocuments:(NSSet *)value_;
-
 - (void)removeDocuments:(NSSet *)value_;
-
 - (void)addDocumentsObject:(Document *)value_;
-
 - (void)removeDocumentsObject:(Document *)value_;
 @end
 
 
 @interface _Album (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSDate *)primitiveCreatedAt;
-
-- (void)setPrimitiveCreatedAt:(NSDate *)value;
-
-- (NSNumber *)primitiveEditable;
-
-- (void)setPrimitiveEditable:(NSNumber *)value;
-
-- (NSNumber *)primitiveHasBeenEdited;
-
-- (void)setPrimitiveHasBeenEdited:(NSNumber *)value;
-
-- (NSNumber *)primitiveIsPrivate;
-
-- (void)setPrimitiveIsPrivate:(NSNumber *)value;
-
-- (NSString *)primitiveName;
-
-- (void)setPrimitiveName:(NSString *)value;
-
-- (NSString *)primitiveSlug;
-
-- (void)setPrimitiveSlug:(NSString *)value;
-
-- (NSNumber *)primitiveSortKey;
-
-- (void)setPrimitiveSortKey:(NSNumber *)value;
-
-- (NSString *)primitiveSummary;
-
-- (void)setPrimitiveSummary:(NSString *)value;
-
-- (NSDate *)primitiveUpdatedAt;
-
-- (void)setPrimitiveUpdatedAt:(NSDate *)value;
-
 - (NSMutableSet *)primitiveArtists;
-
 - (void)setPrimitiveArtists:(NSMutableSet *)value;
 
 - (NSMutableSet *)primitiveArtworks;
-
 - (void)setPrimitiveArtworks:(NSMutableSet *)value;
 
 - (Image *)primitiveCover;
-
 - (void)setPrimitiveCover:(Image *)value;
 
 - (NSMutableSet *)primitiveDocuments;
-
 - (void)setPrimitiveDocuments:(NSMutableSet *)value;
 
 @end

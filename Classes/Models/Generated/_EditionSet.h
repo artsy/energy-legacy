@@ -29,10 +29,13 @@ extern const struct EditionSetRelationships {
     __unsafe_unretained NSString *artwork;
 } EditionSetRelationships;
 
+extern const struct EditionSetUserInfo {
+} EditionSetUserInfo;
+
 @class Artwork;
 
 
-@interface EditionSetID : NSManagedObjectID {
+@interface EditionSetID : ARManagedObjectID {
 }
 @end
 
@@ -40,11 +43,8 @@ extern const struct EditionSetRelationships {
 @interface _EditionSet : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (EditionSetID *)objectID;
 
 @property (nonatomic, strong) NSString *artistProofs;
@@ -67,64 +67,11 @@ extern const struct EditionSetRelationships {
 @property (nonatomic, strong) NSDecimalNumber *width;
 @property (nonatomic, strong) Artwork *artwork;
 
+
 @end
 
 
 @interface _EditionSet (CoreDataGeneratedPrimitiveAccessors)
-
-- (NSString *)primitiveArtistProofs;
-- (void)setPrimitiveArtistProofs:(NSString *)value;
-
-- (NSString *)primitiveAvailability;
-- (void)setPrimitiveAvailability:(NSString *)value;
-
-- (NSString *)primitiveAvailableEditions;
-- (void)setPrimitiveAvailableEditions:(NSString *)value;
-
-- (NSString *)primitiveBackendPrice;
-- (void)setPrimitiveBackendPrice:(NSString *)value;
-
-- (NSDecimalNumber *)primitiveDepth;
-- (void)setPrimitiveDepth:(NSDecimalNumber *)value;
-
-- (NSDecimalNumber *)primitiveDiameter;
-- (void)setPrimitiveDiameter:(NSDecimalNumber *)value;
-
-- (NSString *)primitiveDimensionsCM;
-- (void)setPrimitiveDimensionsCM:(NSString *)value;
-
-- (NSString *)primitiveDimensionsInches;
-- (void)setPrimitiveDimensionsInches:(NSString *)value;
-
-- (NSString *)primitiveDisplayPrice;
-- (void)setPrimitiveDisplayPrice:(NSString *)value;
-
-- (NSString *)primitiveDuration;
-- (void)setPrimitiveDuration:(NSString *)value;
-
-- (NSString *)primitiveEditionSize;
-- (void)setPrimitiveEditionSize:(NSString *)value;
-
-- (NSString *)primitiveEditions;
-- (void)setPrimitiveEditions:(NSString *)value;
-
-- (NSDecimalNumber *)primitiveHeight;
-- (void)setPrimitiveHeight:(NSDecimalNumber *)value;
-
-- (NSNumber *)primitiveIsAvailableForSale;
-- (void)setPrimitiveIsAvailableForSale:(NSNumber *)value;
-
-- (NSNumber *)primitiveIsPriceHidden;
-- (void)setPrimitiveIsPriceHidden:(NSNumber *)value;
-
-- (NSString *)primitivePrototypes;
-- (void)setPrimitivePrototypes:(NSString *)value;
-
-- (NSString *)primitiveSlug;
-- (void)setPrimitiveSlug:(NSString *)value;
-
-- (NSDecimalNumber *)primitiveWidth;
-- (void)setPrimitiveWidth:(NSDecimalNumber *)value;
 
 - (Artwork *)primitiveArtwork;
 - (void)setPrimitiveArtwork:(Artwork *)value;

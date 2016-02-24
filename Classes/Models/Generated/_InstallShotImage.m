@@ -11,6 +11,8 @@ const struct InstallShotImageRelationships InstallShotImageRelationships = {
     .showWithImageInInstallation = @"showWithImageInInstallation",
 };
 
+const struct InstallShotImageUserInfo InstallShotImageUserInfo = {};
+
 
 @implementation InstallShotImageID
 @end
@@ -40,8 +42,11 @@ const struct InstallShotImageRelationships InstallShotImageRelationships = {
     return (InstallShotImageID *)[super objectID];
 }
 
+
 @dynamic caption;
 
+
 @dynamic showWithImageInInstallation;
+
 
 @end

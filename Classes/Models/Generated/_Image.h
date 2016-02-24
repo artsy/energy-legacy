@@ -31,6 +31,9 @@ extern const struct ImageRelationships {
     __unsafe_unretained NSString *mainImageForArtwork;
 } ImageRelationships;
 
+extern const struct ImageUserInfo {
+} ImageUserInfo;
+
 @class Artist;
 @class Artwork;
 @class Artwork;
@@ -40,7 +43,7 @@ extern const struct ImageRelationships {
 @class Artwork;
 
 
-@interface ImageID : NSManagedObjectID {
+@interface ImageID : ARManagedObjectID {
 }
 @end
 
@@ -48,11 +51,8 @@ extern const struct ImageRelationships {
 @interface _Image : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (ImageID *)objectID;
 
 @property (nonatomic, strong) NSNumber *aspectRatio;
@@ -77,93 +77,31 @@ extern const struct ImageRelationships {
 @property (nonatomic, strong) Show *coverForShow;
 @property (nonatomic, strong) Artwork *mainImageForArtwork;
 
+
 @end
 
 
 @interface _Image (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSNumber *)primitiveAspectRatio;
-
-- (void)setPrimitiveAspectRatio:(NSNumber *)value;
-
-- (NSString *)primitiveBaseURL;
-
-- (void)setPrimitiveBaseURL:(NSString *)value;
-
-- (NSNumber *)primitiveIsMainImage;
-
-- (void)setPrimitiveIsMainImage:(NSNumber *)value;
-
-- (NSNumber *)primitiveMaxTiledHeight;
-
-- (void)setPrimitiveMaxTiledHeight:(NSNumber *)value;
-
-- (NSNumber *)primitiveMaxTiledWidth;
-
-- (void)setPrimitiveMaxTiledWidth:(NSNumber *)value;
-
-- (NSNumber *)primitiveOriginalHeight;
-
-- (void)setPrimitiveOriginalHeight:(NSNumber *)value;
-
-- (NSNumber *)primitiveOriginalWidth;
-
-- (void)setPrimitiveOriginalWidth:(NSNumber *)value;
-
-- (NSNumber *)primitivePosition;
-
-- (void)setPrimitivePosition:(NSNumber *)value;
-
-- (NSNumber *)primitiveProcessing;
-
-- (void)setPrimitiveProcessing:(NSNumber *)value;
-
-- (NSString *)primitiveSlug;
-
-- (void)setPrimitiveSlug:(NSString *)value;
-
-- (NSString *)primitiveTileBaseUrl;
-
-- (void)setPrimitiveTileBaseUrl:(NSString *)value;
-
-- (NSString *)primitiveTileFormat;
-
-- (void)setPrimitiveTileFormat:(NSString *)value;
-
-- (NSNumber *)primitiveTileOverlap;
-
-- (void)setPrimitiveTileOverlap:(NSNumber *)value;
-
-- (NSNumber *)primitiveTileSize;
-
-- (void)setPrimitiveTileSize:(NSNumber *)value;
-
 - (Artist *)primitiveArtistsInImage;
-
 - (void)setPrimitiveArtistsInImage:(Artist *)value;
 
 - (Artwork *)primitiveArtwork;
-
 - (void)setPrimitiveArtwork:(Artwork *)value;
 
 - (Artwork *)primitiveArtworksInImage;
-
 - (void)setPrimitiveArtworksInImage:(Artwork *)value;
 
 - (Album *)primitiveCoverForAlbum;
-
 - (void)setPrimitiveCoverForAlbum:(Album *)value;
 
 - (Artist *)primitiveCoverForArtist;
-
 - (void)setPrimitiveCoverForArtist:(Artist *)value;
 
 - (Show *)primitiveCoverForShow;
-
 - (void)setPrimitiveCoverForShow:(Show *)value;
 
 - (Artwork *)primitiveMainImageForArtwork;
-
 - (void)setPrimitiveMainImageForArtwork:(Artwork *)value;
 
 @end

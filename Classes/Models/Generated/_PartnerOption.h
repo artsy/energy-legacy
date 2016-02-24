@@ -13,10 +13,13 @@ extern const struct PartnerOptionRelationships {
     __unsafe_unretained NSString *partner;
 } PartnerOptionRelationships;
 
+extern const struct PartnerOptionUserInfo {
+} PartnerOptionUserInfo;
+
 @class Partner;
 
 
-@interface PartnerOptionID : NSManagedObjectID {
+@interface PartnerOptionID : ARManagedObjectID {
 }
 @end
 
@@ -24,32 +27,21 @@ extern const struct PartnerOptionRelationships {
 @interface _PartnerOption : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (PartnerOptionID *)objectID;
 
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *value;
 @property (nonatomic, strong) Partner *partner;
 
+
 @end
 
 
 @interface _PartnerOption (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveKey;
-
-- (void)setPrimitiveKey:(NSString *)value;
-
-- (NSString *)primitiveValue;
-
-- (void)setPrimitiveValue:(NSString *)value;
-
 - (Partner *)primitivePartner;
-
 - (void)setPrimitivePartner:(Partner *)value;
 
 @end

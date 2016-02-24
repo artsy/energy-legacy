@@ -22,9 +22,9 @@ const struct PartnerAttributes PartnerAttributes = {
     .partnerLimitedAccess = @"partnerLimitedAccess",
     .partnerType = @"partnerType",
     .region = @"region",
-    .relativeSize = @"relativeSize",
     .representativeEmail = @"representativeEmail",
     .showDocumentsCount = @"showDocumentsCount",
+    .size = @"size",
     .slug = @"slug",
     .subscriptionState = @"subscriptionState",
     .updatedAt = @"updatedAt",
@@ -37,6 +37,8 @@ const struct PartnerRelationships PartnerRelationships = {
     .flags = @"flags",
     .subscriptionPlans = @"subscriptionPlans",
 };
+
+const struct PartnerUserInfo PartnerUserInfo = {};
 
 
 @implementation PartnerID
@@ -67,6 +69,7 @@ const struct PartnerRelationships PartnerRelationships = {
     return (PartnerID *)[super objectID];
 }
 
+
 @dynamic active;
 @dynamic artistDocumentsCount;
 @dynamic artistsCount;
@@ -85,17 +88,17 @@ const struct PartnerRelationships PartnerRelationships = {
 @dynamic partnerLimitedAccess;
 @dynamic partnerType;
 @dynamic region;
-@dynamic relativeSize;
 @dynamic representativeEmail;
 @dynamic showDocumentsCount;
+@dynamic size;
 @dynamic slug;
 @dynamic subscriptionState;
 @dynamic updatedAt;
 @dynamic website;
 
+
 @dynamic admin;
 @dynamic artworks;
-
 - (NSMutableSet *)artworksSet
 {
     [self willAccessValueForKey:@"artworks"];
@@ -105,7 +108,6 @@ const struct PartnerRelationships PartnerRelationships = {
 }
 
 @dynamic flags;
-
 - (NSMutableSet *)flagsSet
 {
     [self willAccessValueForKey:@"flags"];
@@ -115,7 +117,6 @@ const struct PartnerRelationships PartnerRelationships = {
 }
 
 @dynamic subscriptionPlans;
-
 - (NSMutableSet *)subscriptionPlansSet
 {
     [self willAccessValueForKey:@"subscriptionPlans"];
@@ -123,5 +124,6 @@ const struct PartnerRelationships PartnerRelationships = {
     [self didAccessValueForKey:@"subscriptionPlans"];
     return result;
 }
+
 
 @end

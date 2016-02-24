@@ -26,6 +26,9 @@ extern const struct ShowRelationships {
     __unsafe_unretained NSString *location;
 } ShowRelationships;
 
+extern const struct ShowUserInfo {
+} ShowUserInfo;
+
 @class Artist;
 @class Artwork;
 @class Image;
@@ -34,7 +37,7 @@ extern const struct ShowRelationships {
 @class Location;
 
 
-@interface ShowID : NSManagedObjectID {
+@interface ShowID : ARManagedObjectID {
 }
 @end
 
@@ -42,11 +45,8 @@ extern const struct ShowRelationships {
 @interface _Show : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (ShowID *)objectID;
 
 @property (nonatomic, strong) NSString *availabilityPeriod;
@@ -61,136 +61,73 @@ extern const struct ShowRelationships {
 @property (nonatomic, strong) NSDate *updatedAt;
 
 @property (nonatomic, strong) NSSet *artists;
-
 - (NSMutableSet *)artistsSet;
 
 @property (nonatomic, strong) NSSet *artworks;
-
 - (NSMutableSet *)artworksSet;
-
 @property (nonatomic, strong) Image *cover;
 
 @property (nonatomic, strong) NSSet *documents;
-
 - (NSMutableSet *)documentsSet;
 
 @property (nonatomic, strong) NSSet *installationImages;
-
 - (NSMutableSet *)installationImagesSet;
-
 @property (nonatomic, strong) Location *location;
+
 
 @end
 
 
 @interface _Show (ArtistsCoreDataGeneratedAccessors)
 - (void)addArtists:(NSSet *)value_;
-
 - (void)removeArtists:(NSSet *)value_;
-
 - (void)addArtistsObject:(Artist *)value_;
-
 - (void)removeArtistsObject:(Artist *)value_;
 @end
 
 
 @interface _Show (ArtworksCoreDataGeneratedAccessors)
 - (void)addArtworks:(NSSet *)value_;
-
 - (void)removeArtworks:(NSSet *)value_;
-
 - (void)addArtworksObject:(Artwork *)value_;
-
 - (void)removeArtworksObject:(Artwork *)value_;
 @end
 
 
 @interface _Show (DocumentsCoreDataGeneratedAccessors)
 - (void)addDocuments:(NSSet *)value_;
-
 - (void)removeDocuments:(NSSet *)value_;
-
 - (void)addDocumentsObject:(Document *)value_;
-
 - (void)removeDocumentsObject:(Document *)value_;
 @end
 
 
 @interface _Show (InstallationImagesCoreDataGeneratedAccessors)
 - (void)addInstallationImages:(NSSet *)value_;
-
 - (void)removeInstallationImages:(NSSet *)value_;
-
 - (void)addInstallationImagesObject:(InstallShotImage *)value_;
-
 - (void)removeInstallationImagesObject:(InstallShotImage *)value_;
 @end
 
 
 @interface _Show (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveAvailabilityPeriod;
-
-- (void)setPrimitiveAvailabilityPeriod:(NSString *)value;
-
-- (NSString *)primitiveCreatedAt;
-
-- (void)setPrimitiveCreatedAt:(NSString *)value;
-
-- (NSDate *)primitiveEndsAt;
-
-- (void)setPrimitiveEndsAt:(NSDate *)value;
-
-- (NSString *)primitiveName;
-
-- (void)setPrimitiveName:(NSString *)value;
-
-- (NSString *)primitiveShowSlug;
-
-- (void)setPrimitiveShowSlug:(NSString *)value;
-
-- (NSString *)primitiveSlug;
-
-- (void)setPrimitiveSlug:(NSString *)value;
-
-- (NSNumber *)primitiveSortKey;
-
-- (void)setPrimitiveSortKey:(NSNumber *)value;
-
-- (NSDate *)primitiveStartsAt;
-
-- (void)setPrimitiveStartsAt:(NSDate *)value;
-
-- (NSString *)primitiveStatus;
-
-- (void)setPrimitiveStatus:(NSString *)value;
-
-- (NSDate *)primitiveUpdatedAt;
-
-- (void)setPrimitiveUpdatedAt:(NSDate *)value;
-
 - (NSMutableSet *)primitiveArtists;
-
 - (void)setPrimitiveArtists:(NSMutableSet *)value;
 
 - (NSMutableSet *)primitiveArtworks;
-
 - (void)setPrimitiveArtworks:(NSMutableSet *)value;
 
 - (Image *)primitiveCover;
-
 - (void)setPrimitiveCover:(Image *)value;
 
 - (NSMutableSet *)primitiveDocuments;
-
 - (void)setPrimitiveDocuments:(NSMutableSet *)value;
 
 - (NSMutableSet *)primitiveInstallationImages;
-
 - (void)setPrimitiveInstallationImages:(NSMutableSet *)value;
 
 - (Location *)primitiveLocation;
-
 - (void)setPrimitiveLocation:(Location *)value;
 
 @end

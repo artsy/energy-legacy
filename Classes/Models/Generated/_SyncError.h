@@ -13,10 +13,13 @@ extern const struct SyncErrorRelationships {
     __unsafe_unretained NSString *syncLog;
 } SyncErrorRelationships;
 
+extern const struct SyncErrorUserInfo {
+} SyncErrorUserInfo;
+
 @class SyncLog;
 
 
-@interface SyncErrorID : NSManagedObjectID {
+@interface SyncErrorID : ARManagedObjectID {
 }
 @end
 
@@ -24,32 +27,21 @@ extern const struct SyncErrorRelationships {
 @interface _SyncError : ARManagedObject {
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 + (NSString *)entityName;
-
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-
 - (SyncErrorID *)objectID;
 
 @property (nonatomic, strong) NSString *body;
 @property (nonatomic, strong) NSString *errorType;
 @property (nonatomic, strong) SyncLog *syncLog;
 
+
 @end
 
 
 @interface _SyncError (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveBody;
-
-- (void)setPrimitiveBody:(NSString *)value;
-
-- (NSString *)primitiveErrorType;
-
-- (void)setPrimitiveErrorType:(NSString *)value;
-
 - (SyncLog *)primitiveSyncLog;
-
 - (void)setPrimitiveSyncLog:(SyncLog *)value;
 
 @end
