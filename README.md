@@ -11,7 +11,7 @@ The iPhone and iPad app that brings all the Partners to the yard.
 
 ### Docs
 
-Get setup [here](docs/getting_started.md). Further documentation can be found in the [documentation folder](docs#readme).
+Get setup [here](docs/getting_started.md). Further documentation can be found in the [documentation folder](docs#readme) and in [the OSS announcement](http://artsy.github.io/blog/2015/08/06/open-sourcing-energy/).
 
 ### OSS Quick Start
 
