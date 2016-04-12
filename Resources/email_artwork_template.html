@@ -77,9 +77,12 @@
                     {{/artwork.signature}}{{/options.showSupplementaryInformation}}
 
                     {{#options.showInventoryID}}{{#artwork.inventoryID}}
-                        <p style="font-family: Georgia,serif; font-weight:100;margin-bottom:0px;margin-top:0px;">{{{artwork.inventoryID}}}</p>
+                    <p style="font-family: Georgia,serif; font-weight:100;margin-bottom:0px;margin-top:0px;">{{{artwork.inventoryID}}}</p>
                     {{/artwork.inventoryID}}{{/options.showInventoryID}}
 
+                    {{#artwork.isPublished}}
+                    <p style="font-family: Georgia,serif; font-weight:100;margin-bottom:0px;margin-top:0px;">See on <a href="https://www.artsy.net/artwork/{{{artwork.slug}}}?utr=folio&partner={{{partner}}}">Artsy.</a></p>
+                    {{/artwork.isPublished}}
                 </div>
 
                 {{#options.showSupplementaryInformation}}

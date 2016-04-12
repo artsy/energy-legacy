@@ -8,7 +8,13 @@
 
 + (NSString *)currentPartnerID
 {
-    return [[NSUserDefaults standardUserDefaults] stringForKey:ARPartnerID];
+    return [self currentPartnerIDInDefaults:[NSUserDefaults standardUserDefaults]];
+}
+
++ (NSString *)currentPartnerIDInDefaults:(NSUserDefaults *)defaults
+{
+    return [defaults stringForKey:ARPartnerID];
+
 }
 
 - (void)updateWithDictionary:(NSDictionary *)dict

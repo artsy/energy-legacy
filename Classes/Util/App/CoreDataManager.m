@@ -113,7 +113,7 @@ static const NSString *ThreadContextKey = @"ThreadContextKey";
     if (ARIsOSSBuild) {
         storeURL = [[NSBundle mainBundle] URLForResource:@"oss_stubbed_data" withExtension:@"sqlite"];
     }
-    
+
     NSDictionary *options = @{ NSMigratePersistentStoresAutomaticallyOption : @(YES),
                                NSInferMappingModelAutomaticallyOption : @(YES) };
 
@@ -140,7 +140,7 @@ static const NSString *ThreadContextKey = @"ThreadContextKey";
 
     NSError *error = nil;
     NSManagedObjectModel *model = [CoreDataManager managedObjectModel];
-    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+    NSPersistentStoreCoordinator *persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
     if (![persistentStoreCoordinator addPersistentStoreWithType:NSInMemoryStoreType
                                                   configuration:nil
                                                             URL:nil
