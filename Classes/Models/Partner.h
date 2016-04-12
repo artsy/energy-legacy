@@ -18,6 +18,9 @@ typedef NS_ENUM(NSInteger, ARPartnerType) {
 /// Thread-safe current partner ID
 + (NSString *)currentPartnerID;
 
+/// Thread-safe current partner ID with a DI'd user defaults
++ (NSString *)currentPartnerIDInDefaults:(NSUserDefaults *)defaults;
+
 /// Has the partner uploaded any works?
 - (BOOL)hasUploadedWorks;
 

@@ -168,7 +168,8 @@
         AREmailGreeting : greeting ?: @"",
         @"artworks" : artworkDicts,
         @"options" : self.options,
-        @"installation_shots" : installationShowAddresses ?: @[]
+        @"installation_shots" : installationShowAddresses ?: @[],
+        @"partner" : [Partner  currentPartnerIDInDefaults:self.defaults],
     };
 
     GRMustacheConfiguration *configuration = [GRMustacheConfiguration defaultConfiguration];

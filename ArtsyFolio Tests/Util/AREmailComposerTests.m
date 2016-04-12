@@ -28,7 +28,8 @@ beforeEach(^{
     context = [CoreDataManager stubbedManagedObjectContext];
     composer = [[AREmailComposer alloc] init];
     defaults = [[ForgeriesUserDefaults alloc] init];
-    
+    defaults[@"ARPartnerID"] = @"my-partner";
+
     composer.defaults = (id)defaults;
     composer.options = settings;
 });
@@ -408,6 +409,14 @@ describe(@"email html", ^{
 
             NSString *body = composer.body;
             expect(body).to.contain(@"https://www.artsy.net/artwork/ThisShouldBeInHere");
+        });
+
+        it(@"it includes a utr with the partner name", ^{
+            artwork.isPublished = @(YES);
+            defaults[@"ARPartnerID"] = @"my-partner";
+
+            NSString *body = composer.body;
+            expect(body).to.contain(@"utr=folio&partner=my-partner");
         });
 
         it(@"only if the work is public", ^{
