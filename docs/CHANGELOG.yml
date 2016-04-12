@@ -3,6 +3,7 @@ upcoming:
     notes:
       - Improved sync timing algorithm by weighing it towards the timing of the last sync [orta]
       - Partner Size now is a number, not a string [orta]
+      - Show a link to Artsy when a work is published in emails [orta]
 
 releases:
   - version: 2.5.0
