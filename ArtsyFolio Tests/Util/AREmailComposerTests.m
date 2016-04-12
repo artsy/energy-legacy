@@ -385,6 +385,38 @@ describe(@"email html", ^{
         expect(body).to.contain(artwork2.displayPrice);
     });
 
+    describe(@"includes a link to artsy", ^{
+        __block Artwork *artwork;
+
+        beforeEach(^{
+            artwork = [Artwork objectInContext:context];
+            artwork.title = @"Artwork Name 2";
+            artwork.slug = @"ThisShouldBeInHere";
+            artwork.displayPrice = @"456456";
+
+            Image *mainImage = [ARModelFactory imageWithKnownRemoteResourcesInContext:context];
+            mainImage.isMainImage = @(YES);
+            mainImage.baseURL = @"http://static0.artsy.net/additional_images/1/";
+            artwork.mainImage = mainImage;
+
+            composer.artworks = @[ artwork ];
+            composer.options.priceType = AREmailSettingsPriceTypeBackend;
+        });
+
+        it(@"if the work is public", ^{
+            artwork.isPublished = @(YES);
+
+            NSString *body = composer.body;
+            expect(body).to.contain(@"https://www.artsy.net/artwork/ThisShouldBeInHere");
+        });
+
+        it(@"only if the work is public", ^{
+            artwork.isPublished = @(NO);
+
+            NSString *body = composer.body;
+            expect(body).toNot.contain(@"https://www.artsy.net/artwork/ThisShouldBeInHere");
+        });
+    });
 });
 
 SpecEnd

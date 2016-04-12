@@ -117,7 +117,7 @@
     NSDictionary *properties = @{
         @"artworks" : @(self.artworks.count),
         @"price" : @(self.options.priceType > 0),
-        @"using_Exact_pricing" : @(self.options.priceType == AREmailSettingsPriceTypeBackend),
+        @"using_exact_pricing" : @(self.options.priceType == AREmailSettingsPriceTypeBackend),
         @"additional_images" : @(self.options.additionalImages.count),
         @"installation_shots" : @(self.options.installationShots.count),
         @"documents" : @(self.documents.count),
