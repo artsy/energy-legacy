@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct ArtistAttributes {
     __unsafe_unretained NSString *awards;
     __unsafe_unretained NSString *biography;
@@ -34,9 +33,6 @@ extern const struct ArtistRelationships {
     __unsafe_unretained NSString *showsFeaturingArtist;
 } ArtistRelationships;
 
-extern const struct ArtistUserInfo {
-} ArtistUserInfo;
-
 @class Album;
 @class Artwork;
 @class Image;
@@ -45,7 +41,7 @@ extern const struct ArtistUserInfo {
 @class Show;
 
 
-@interface ArtistID : ARManagedObjectID {
+@interface ArtistID : NSManagedObjectID {
 }
 @end
 
@@ -90,7 +86,6 @@ extern const struct ArtistUserInfo {
 @property (nonatomic, strong) NSSet *showsFeaturingArtist;
 - (NSMutableSet *)showsFeaturingArtistSet;
 
-
 @end
 
 
@@ -127,6 +122,60 @@ extern const struct ArtistUserInfo {
 
 
 @interface _Artist (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSString *)primitiveAwards;
+- (void)setPrimitiveAwards:(NSString *)value;
+
+- (NSString *)primitiveBiography;
+- (void)setPrimitiveBiography:(NSString *)value;
+
+- (NSString *)primitiveBlurb;
+- (void)setPrimitiveBlurb:(NSString *)value;
+
+- (NSDate *)primitiveCreatedAt;
+- (void)setPrimitiveCreatedAt:(NSDate *)value;
+
+- (NSDate *)primitiveDeathDate;
+- (void)setPrimitiveDeathDate:(NSDate *)value;
+
+- (NSString *)primitiveDisplayName;
+- (void)setPrimitiveDisplayName:(NSString *)value;
+
+- (NSString *)primitiveFirstName;
+- (void)setPrimitiveFirstName:(NSString *)value;
+
+- (NSString *)primitiveHometown;
+- (void)setPrimitiveHometown:(NSString *)value;
+
+- (NSString *)primitiveLastName;
+- (void)setPrimitiveLastName:(NSString *)value;
+
+- (NSString *)primitiveMiddleName;
+- (void)setPrimitiveMiddleName:(NSString *)value;
+
+- (NSString *)primitiveName;
+- (void)setPrimitiveName:(NSString *)value;
+
+- (NSString *)primitiveNationality;
+- (void)setPrimitiveNationality:(NSString *)value;
+
+- (NSString *)primitiveOrderingKey;
+- (void)setPrimitiveOrderingKey:(NSString *)value;
+
+- (NSString *)primitiveSlug;
+- (void)setPrimitiveSlug:(NSString *)value;
+
+- (NSString *)primitiveStatement;
+- (void)setPrimitiveStatement:(NSString *)value;
+
+- (NSString *)primitiveThumbnailBaseURL;
+- (void)setPrimitiveThumbnailBaseURL:(NSString *)value;
+
+- (NSDate *)primitiveUpdatedAt;
+- (void)setPrimitiveUpdatedAt:(NSDate *)value;
+
+- (NSString *)primitiveYears;
+- (void)setPrimitiveYears:(NSString *)value;
 
 - (NSMutableSet *)primitiveAlbumsFeaturingArtist;
 - (void)setPrimitiveAlbumsFeaturingArtist:(NSMutableSet *)value;

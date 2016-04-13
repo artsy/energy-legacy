@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct NoteAttributes {
     __unsafe_unretained NSString *body;
     __unsafe_unretained NSString *createdAt;
@@ -14,13 +13,10 @@ extern const struct NoteRelationships {
     __unsafe_unretained NSString *artwork;
 } NoteRelationships;
 
-extern const struct NoteUserInfo {
-} NoteUserInfo;
-
 @class Artwork;
 
 
-@interface NoteID : ARManagedObjectID {
+@interface NoteID : NSManagedObjectID {
 }
 @end
 
@@ -37,11 +33,19 @@ extern const struct NoteUserInfo {
 @property (nonatomic, strong) NSDate *updatedAt;
 @property (nonatomic, strong) Artwork *artwork;
 
-
 @end
 
 
 @interface _Note (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSString *)primitiveBody;
+- (void)setPrimitiveBody:(NSString *)value;
+
+- (NSDate *)primitiveCreatedAt;
+- (void)setPrimitiveCreatedAt:(NSDate *)value;
+
+- (NSDate *)primitiveUpdatedAt;
+- (void)setPrimitiveUpdatedAt:(NSDate *)value;
 
 - (Artwork *)primitiveArtwork;
 - (void)setPrimitiveArtwork:(Artwork *)value;

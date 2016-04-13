@@ -3,8 +3,6 @@
 
 #import "_ArtistDocument.h"
 
-const struct ArtistDocumentUserInfo ArtistDocumentUserInfo = {};
-
 
 @implementation ArtistDocumentID
 @end
@@ -33,6 +31,5 @@ const struct ArtistDocumentUserInfo ArtistDocumentUserInfo = {};
 {
     return (ArtistDocumentID *)[super objectID];
 }
-
 
 @end

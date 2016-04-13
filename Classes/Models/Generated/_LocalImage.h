@@ -4,9 +4,6 @@
 #import <CoreData/CoreData.h>
 #import "Image.h"
 
-extern const struct LocalImageUserInfo {
-} LocalImageUserInfo;
-
 
 @interface LocalImageID : ImageID {
 }
@@ -19,7 +16,6 @@ extern const struct LocalImageUserInfo {
 + (NSString *)entityName;
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 - (LocalImageID *)objectID;
-
 
 @end
 

@@ -256,6 +256,7 @@
 		608B01391C4821BD00C6B535 /* ARStubbedDRBOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 608B01381C4821BD00C6B535 /* ARStubbedDRBOperation.m */; };
 		608B6C051833D59B0007E12C /* NSString+StringSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 608B6C041833D59B0007E12C /* NSString+StringSize.m */; };
 		608C703A169B863500C89623 /* ARAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C7039169B863500C89623 /* ARAnalyticsHelper.m */; };
+		608CCC171CBE5E2C00977BFE /* _AlbumUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 608CCC161CBE5E2C00977BFE /* _AlbumUpload.m */; };
 		60928CB71A5E1AF600DDA769 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60928CB31A5E1AF600DDA769 /* Default-568h@2x.png */; };
 		60928CB81A5E1AF600DDA769 /* Default-375w-667h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 60928CB41A5E1AF600DDA769 /* Default-375w-667h@2x~iphone.png */; };
 		60928CB91A5E1AF600DDA769 /* Default-414w-736h@3x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 60928CB51A5E1AF600DDA769 /* Default-414w-736h@3x~iphone.png */; };
@@ -1040,6 +1041,8 @@
 		608B6C041833D59B0007E12C /* NSString+StringSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringSize.m"; sourceTree = "<group>"; };
 		608C7038169B863500C89623 /* ARAnalyticsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARAnalyticsHelper.h; path = Debugging/ARAnalyticsHelper.h; sourceTree = "<group>"; };
 		608C7039169B863500C89623 /* ARAnalyticsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARAnalyticsHelper.m; path = Debugging/ARAnalyticsHelper.m; sourceTree = "<group>"; };
+		608CCC151CBE5E2C00977BFE /* _AlbumUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _AlbumUpload.h; sourceTree = "<group>"; };
+		608CCC161CBE5E2C00977BFE /* _AlbumUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _AlbumUpload.m; sourceTree = "<group>"; };
 		60928CB31A5E1AF600DDA769 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		60928CB41A5E1AF600DDA769 /* Default-375w-667h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-375w-667h@2x~iphone.png"; sourceTree = "<group>"; };
 		60928CB51A5E1AF600DDA769 /* Default-414w-736h@3x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-414w-736h@3x~iphone.png"; sourceTree = "<group>"; };
@@ -1239,8 +1242,8 @@
 		60C777571B0E280D00BEFA97 /* ARInitialViewControllerSetupCoordinatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARInitialViewControllerSetupCoordinatorSpec.m; sourceTree = "<group>"; };
 		60C88856162B64F2003C8A80 /* Artwork+HTMLTexts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Artwork+HTMLTexts.h"; sourceTree = "<group>"; };
 		60C88857162B64F2003C8A80 /* Artwork+HTMLTexts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Artwork+HTMLTexts.m"; sourceTree = "<group>"; };
-		60C939331C7D39DA0010136C /* ArtsyFolio v2.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.5.xcdatamodel"; sourceTree = "<group>"; };
 		60C9392A1C7D2B2E0010136C /* ARSyncProgressTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncProgressTests.m; sourceTree = "<group>"; };
+		60C939331C7D39DA0010136C /* ArtsyFolio v2.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.5.xcdatamodel"; sourceTree = "<group>"; };
 		60D11C0A161C8B290009E68A /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		60D155DB14A3D903006ED291 /* SenTestingKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		60D1A8EB15C29F9C005A9FAB /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
@@ -1789,6 +1792,8 @@
 		60117F651917F6AB0072E500 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				608CCC151CBE5E2C00977BFE /* _AlbumUpload.h */,
+				608CCC161CBE5E2C00977BFE /* _AlbumUpload.m */,
 				839B59761B4DAA3900F24033 /* _EditionSet.h */,
 				839B59771B4DAA3900F24033 /* _EditionSet.m */,
 				60117F661917F6BE0072E500 /* _Album.h */,
@@ -4300,6 +4305,7 @@
 				60A99DA219AF5F91004F82D0 /* AREditAlbumNavigationBar.m in Sources */,
 				607448121BE39E2900E20774 /* ARSyncDefaults.m in Sources */,
 				60124F6F191CFB1F008BE366 /* ARShowCoverShotDownloader.m in Sources */,
+				608CCC171CBE5E2C00977BFE /* _AlbumUpload.m in Sources */,
 				6006C761198EDA8500F955A0 /* ARPartnerSelectViewController.m in Sources */,
 				342F9E7ACEBAD0205BCF4307 /* ARShowArtworksDownloader.m in Sources */,
 				342F9F94B54C6148E6E72C98 /* ARArtworkDownloader.m in Sources */,

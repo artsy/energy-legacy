@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct ShowAttributes {
     __unsafe_unretained NSString *availabilityPeriod;
     __unsafe_unretained NSString *createdAt;
@@ -26,9 +25,6 @@ extern const struct ShowRelationships {
     __unsafe_unretained NSString *location;
 } ShowRelationships;
 
-extern const struct ShowUserInfo {
-} ShowUserInfo;
-
 @class Artist;
 @class Artwork;
 @class Image;
@@ -37,7 +33,7 @@ extern const struct ShowUserInfo {
 @class Location;
 
 
-@interface ShowID : ARManagedObjectID {
+@interface ShowID : NSManagedObjectID {
 }
 @end
 
@@ -73,7 +69,6 @@ extern const struct ShowUserInfo {
 @property (nonatomic, strong) NSSet *installationImages;
 - (NSMutableSet *)installationImagesSet;
 @property (nonatomic, strong) Location *location;
-
 
 @end
 
@@ -111,6 +106,36 @@ extern const struct ShowUserInfo {
 
 
 @interface _Show (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSString *)primitiveAvailabilityPeriod;
+- (void)setPrimitiveAvailabilityPeriod:(NSString *)value;
+
+- (NSString *)primitiveCreatedAt;
+- (void)setPrimitiveCreatedAt:(NSString *)value;
+
+- (NSDate *)primitiveEndsAt;
+- (void)setPrimitiveEndsAt:(NSDate *)value;
+
+- (NSString *)primitiveName;
+- (void)setPrimitiveName:(NSString *)value;
+
+- (NSString *)primitiveShowSlug;
+- (void)setPrimitiveShowSlug:(NSString *)value;
+
+- (NSString *)primitiveSlug;
+- (void)setPrimitiveSlug:(NSString *)value;
+
+- (NSNumber *)primitiveSortKey;
+- (void)setPrimitiveSortKey:(NSNumber *)value;
+
+- (NSDate *)primitiveStartsAt;
+- (void)setPrimitiveStartsAt:(NSDate *)value;
+
+- (NSString *)primitiveStatus;
+- (void)setPrimitiveStatus:(NSString *)value;
+
+- (NSDate *)primitiveUpdatedAt;
+- (void)setPrimitiveUpdatedAt:(NSDate *)value;
 
 - (NSMutableSet *)primitiveArtists;
 - (void)setPrimitiveArtists:(NSMutableSet *)value;

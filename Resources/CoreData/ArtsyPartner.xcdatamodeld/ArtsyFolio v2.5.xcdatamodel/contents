@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
     <entity name="Album" representedClassName="Album" elementID="Collection">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="editable" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
@@ -25,6 +25,12 @@
         </relationship>
         <relationship name="cover" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="coverForAlbum" inverseEntity="Image" syncable="YES"/>
         <relationship name="documents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Document" inverseName="album" inverseEntity="Document" syncable="YES"/>
+        <relationship name="uploadRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AlbumUpload" inverseName="album" inverseEntity="AlbumUpload" syncable="YES"/>
+        <userInfo/>
+    </entity>
+    <entity name="AlbumUpload" representedClassName="AlbumUpload">
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Album" inverseName="uploadRecord" inverseEntity="Album" syncable="YES"/>
         <userInfo/>
     </entity>
     <entity name="Artist" representedClassName="Artist">
@@ -310,7 +316,7 @@
         <relationship name="adminForPartner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Partner" inverseName="admin" inverseEntity="Partner" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Album" positionX="0" positionY="0" width="128" height="255"/>
+        <element name="Album" positionX="0" positionY="0" width="128" height="270"/>
         <element name="Artist" positionX="0" positionY="0" width="128" height="405"/>
         <element name="ArtistDocument" positionX="0" positionY="0" width="128" height="45"/>
         <element name="Artwork" positionX="0" positionY="0" width="128" height="645"/>
@@ -329,5 +335,6 @@
         <element name="SyncError" positionX="9" positionY="153" width="128" height="88"/>
         <element name="SyncLog" positionX="9" positionY="153" width="128" height="163"/>
         <element name="User" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="AlbumUpload" positionX="18" positionY="153" width="128" height="75"/>
     </elements>
 </model>

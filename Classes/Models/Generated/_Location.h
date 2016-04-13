@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct LocationAttributes {
     __unsafe_unretained NSString *address;
     __unsafe_unretained NSString *addressSecond;
@@ -21,14 +20,11 @@ extern const struct LocationRelationships {
     __unsafe_unretained NSString *shows;
 } LocationRelationships;
 
-extern const struct LocationUserInfo {
-} LocationUserInfo;
-
 @class Artwork;
 @class Show;
 
 
-@interface LocationID : ARManagedObjectID {
+@interface LocationID : NSManagedObjectID {
 }
 @end
 
@@ -56,7 +52,6 @@ extern const struct LocationUserInfo {
 @property (nonatomic, strong) NSSet *shows;
 - (NSMutableSet *)showsSet;
 
-
 @end
 
 
@@ -77,6 +72,33 @@ extern const struct LocationUserInfo {
 
 
 @interface _Location (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSString *)primitiveAddress;
+- (void)setPrimitiveAddress:(NSString *)value;
+
+- (NSString *)primitiveAddressSecond;
+- (void)setPrimitiveAddressSecond:(NSString *)value;
+
+- (NSString *)primitiveCity;
+- (void)setPrimitiveCity:(NSString *)value;
+
+- (NSString *)primitiveGeoPoint;
+- (void)setPrimitiveGeoPoint:(NSString *)value;
+
+- (NSString *)primitiveName;
+- (void)setPrimitiveName:(NSString *)value;
+
+- (NSString *)primitivePhone;
+- (void)setPrimitivePhone:(NSString *)value;
+
+- (NSString *)primitivePostalCode;
+- (void)setPrimitivePostalCode:(NSString *)value;
+
+- (NSString *)primitiveSlug;
+- (void)setPrimitiveSlug:(NSString *)value;
+
+- (NSString *)primitiveState;
+- (void)setPrimitiveState:(NSString *)value;
 
 - (NSMutableSet *)primitiveArtworks;
 - (void)setPrimitiveArtworks:(NSMutableSet *)value;

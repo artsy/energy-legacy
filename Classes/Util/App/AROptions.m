@@ -11,8 +11,8 @@ const NSString *AROptionsName = @"ARDefaultName";
 + (NSArray *)labsOptions
 {
     return @[
-        @{ AROptionsKey : @"show_artwork_edit",
-           AROptionsName : @"Show Artwork Edit Button" },
+        @{ AROptionsKey : @"album_sync",
+           AROptionsName : @"Sync Local Albums" },
     ];
 }
 

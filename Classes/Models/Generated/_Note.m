@@ -13,8 +13,6 @@ const struct NoteRelationships NoteRelationships = {
     .artwork = @"artwork",
 };
 
-const struct NoteUserInfo NoteUserInfo = {};
-
 
 @implementation NoteID
 @end
@@ -44,13 +42,10 @@ const struct NoteUserInfo NoteUserInfo = {};
     return (NoteID *)[super objectID];
 }
 
-
 @dynamic body;
 @dynamic createdAt;
 @dynamic updatedAt;
 
-
 @dynamic artwork;
-
 
 @end

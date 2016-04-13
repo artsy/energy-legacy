@@ -49,8 +49,6 @@ const struct ArtworkRelationships ArtworkRelationships = {
     .shows = @"shows",
 };
 
-const struct ArtworkUserInfo ArtworkUserInfo = {};
-
 
 @implementation ArtworkID
 @end
@@ -79,7 +77,6 @@ const struct ArtworkUserInfo ArtworkUserInfo = {};
 {
     return (ArtworkID *)[super objectID];
 }
-
 
 @dynamic availability;
 @dynamic backendPrice;
@@ -111,7 +108,6 @@ const struct ArtworkUserInfo ArtworkUserInfo = {};
 @dynamic title;
 @dynamic updatedAt;
 @dynamic width;
-
 
 @dynamic artist;
 @dynamic collections;
@@ -170,6 +166,5 @@ const struct ArtworkUserInfo ArtworkUserInfo = {};
     [self didAccessValueForKey:@"shows"];
     return result;
 }
-
 
 @end

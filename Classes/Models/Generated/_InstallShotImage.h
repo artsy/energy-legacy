@@ -12,9 +12,6 @@ extern const struct InstallShotImageRelationships {
     __unsafe_unretained NSString *showWithImageInInstallation;
 } InstallShotImageRelationships;
 
-extern const struct InstallShotImageUserInfo {
-} InstallShotImageUserInfo;
-
 @class Show;
 
 
@@ -33,11 +30,13 @@ extern const struct InstallShotImageUserInfo {
 @property (nonatomic, strong) NSString *caption;
 @property (nonatomic, strong) Show *showWithImageInInstallation;
 
-
 @end
 
 
 @interface _InstallShotImage (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSString *)primitiveCaption;
+- (void)setPrimitiveCaption:(NSString *)value;
 
 - (Show *)primitiveShowWithImageInInstallation;
 - (void)setPrimitiveShowWithImageInInstallation:(Show *)value;

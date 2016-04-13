@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct PartnerAttributes {
     __unsafe_unretained NSString *active;
     __unsafe_unretained NSString *artistDocumentsCount;
@@ -39,16 +38,13 @@ extern const struct PartnerRelationships {
     __unsafe_unretained NSString *subscriptionPlans;
 } PartnerRelationships;
 
-extern const struct PartnerUserInfo {
-} PartnerUserInfo;
-
 @class User;
 @class Artwork;
 @class PartnerOption;
 @class SubscriptionPlan;
 
 
-@interface PartnerID : ARManagedObjectID {
+@interface PartnerID : NSManagedObjectID {
 }
 @end
 
@@ -96,7 +92,6 @@ extern const struct PartnerUserInfo {
 @property (nonatomic, strong) NSSet *subscriptionPlans;
 - (NSMutableSet *)subscriptionPlansSet;
 
-
 @end
 
 
@@ -125,6 +120,81 @@ extern const struct PartnerUserInfo {
 
 
 @interface _Partner (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSNumber *)primitiveActive;
+- (void)setPrimitiveActive:(NSNumber *)value;
+
+- (NSNumber *)primitiveArtistDocumentsCount;
+- (void)setPrimitiveArtistDocumentsCount:(NSNumber *)value;
+
+- (NSNumber *)primitiveArtistsCount;
+- (void)setPrimitiveArtistsCount:(NSNumber *)value;
+
+- (NSNumber *)primitiveArtworksCount;
+- (void)setPrimitiveArtworksCount:(NSNumber *)value;
+
+- (NSString *)primitiveContractType;
+- (void)setPrimitiveContractType:(NSString *)value;
+
+- (NSDate *)primitiveCreatedAt;
+- (void)setPrimitiveCreatedAt:(NSDate *)value;
+
+- (NSString *)primitiveDefaultProfileID;
+- (void)setPrimitiveDefaultProfileID:(NSString *)value;
+
+- (NSNumber *)primitiveDefaultProfilePublic;
+- (void)setPrimitiveDefaultProfilePublic:(NSNumber *)value;
+
+- (NSNumber *)primitiveDirectlyContactable;
+- (void)setPrimitiveDirectlyContactable:(NSNumber *)value;
+
+- (NSString *)primitiveEmail;
+- (void)setPrimitiveEmail:(NSString *)value;
+
+- (NSNumber *)primitiveFoundingPartner;
+- (void)setPrimitiveFoundingPartner:(NSNumber *)value;
+
+- (NSNumber *)primitiveHasDefaultProfile;
+- (void)setPrimitiveHasDefaultProfile:(NSNumber *)value;
+
+- (NSNumber *)primitiveHasFullProfile;
+- (void)setPrimitiveHasFullProfile:(NSNumber *)value;
+
+- (NSString *)primitiveName;
+- (void)setPrimitiveName:(NSString *)value;
+
+- (NSString *)primitivePartnerID;
+- (void)setPrimitivePartnerID:(NSString *)value;
+
+- (NSNumber *)primitivePartnerLimitedAccess;
+- (void)setPrimitivePartnerLimitedAccess:(NSNumber *)value;
+
+- (NSString *)primitivePartnerType;
+- (void)setPrimitivePartnerType:(NSString *)value;
+
+- (NSString *)primitiveRegion;
+- (void)setPrimitiveRegion:(NSString *)value;
+
+- (NSString *)primitiveRepresentativeEmail;
+- (void)setPrimitiveRepresentativeEmail:(NSString *)value;
+
+- (NSNumber *)primitiveShowDocumentsCount;
+- (void)setPrimitiveShowDocumentsCount:(NSNumber *)value;
+
+- (NSNumber *)primitiveSize;
+- (void)setPrimitiveSize:(NSNumber *)value;
+
+- (NSString *)primitiveSlug;
+- (void)setPrimitiveSlug:(NSString *)value;
+
+- (NSString *)primitiveSubscriptionState;
+- (void)setPrimitiveSubscriptionState:(NSString *)value;
+
+- (NSDate *)primitiveUpdatedAt;
+- (void)setPrimitiveUpdatedAt:(NSDate *)value;
+
+- (NSString *)primitiveWebsite;
+- (void)setPrimitiveWebsite:(NSString *)value;
 
 - (User *)primitiveAdmin;
 - (void)setPrimitiveAdmin:(User *)value;

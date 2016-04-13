@@ -11,8 +11,6 @@ const struct SubscriptionPlanRelationships SubscriptionPlanRelationships = {
     .subscriptionForPartner = @"subscriptionForPartner",
 };
 
-const struct SubscriptionPlanUserInfo SubscriptionPlanUserInfo = {};
-
 
 @implementation SubscriptionPlanID
 @end
@@ -42,11 +40,8 @@ const struct SubscriptionPlanUserInfo SubscriptionPlanUserInfo = {};
     return (SubscriptionPlanID *)[super objectID];
 }
 
-
 @dynamic name;
 
-
 @dynamic subscriptionForPartner;
-
 
 @end

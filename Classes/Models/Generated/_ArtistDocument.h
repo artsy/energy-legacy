@@ -4,9 +4,6 @@
 #import <CoreData/CoreData.h>
 #import "Document.h"
 
-extern const struct ArtistDocumentUserInfo {
-} ArtistDocumentUserInfo;
-
 
 @interface ArtistDocumentID : DocumentID {
 }
@@ -19,7 +16,6 @@ extern const struct ArtistDocumentUserInfo {
 + (NSString *)entityName;
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 - (ArtistDocumentID *)objectID;
-
 
 @end
 

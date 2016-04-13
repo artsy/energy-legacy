@@ -237,7 +237,7 @@
 
             /// Let's have a less robotic error message for the most
             /// common case.
-            if ([serverError isEqualToString:@"invalid email or password"]) {
+            if (error.code == 401) {
                 serverError = @"Your email or password is incorrect.";
             }
 

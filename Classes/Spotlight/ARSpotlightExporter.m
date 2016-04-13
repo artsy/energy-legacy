@@ -105,8 +105,11 @@
     artistAttributes.title = artist.gridTitle;
     artistAttributes.contentDescription = artist.blurb ?: artist.biography ?: @"";
 
-    NSURL *localThumbnailURL = [NSURL fileURLWithPath:[artist gridThumbnailPath:ARFeedImageSizeMediumKey]];
-    if (localThumbnailURL) artistAttributes.thumbnailURL = localThumbnailURL;
+    NSString *imagePath = [artist gridThumbnailPath:ARFeedImageSizeMediumKey];
+    if (imagePath) {
+        NSURL *localThumbnailURL = [NSURL fileURLWithPath:imagePath];
+        artistAttributes.thumbnailURL = localThumbnailURL;
+    }
 
     return [[CSSearchableItem alloc] initWithUniqueIdentifier:artist.slug domainIdentifier:@"net.artsy.artist" attributeSet:artistAttributes];
 }

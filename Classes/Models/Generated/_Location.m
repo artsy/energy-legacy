@@ -20,8 +20,6 @@ const struct LocationRelationships LocationRelationships = {
     .shows = @"shows",
 };
 
-const struct LocationUserInfo LocationUserInfo = {};
-
 
 @implementation LocationID
 @end
@@ -51,7 +49,6 @@ const struct LocationUserInfo LocationUserInfo = {};
     return (LocationID *)[super objectID];
 }
 
-
 @dynamic address;
 @dynamic addressSecond;
 @dynamic city;
@@ -61,7 +58,6 @@ const struct LocationUserInfo LocationUserInfo = {};
 @dynamic postalCode;
 @dynamic slug;
 @dynamic state;
-
 
 @dynamic artworks;
 - (NSMutableSet *)artworksSet
@@ -80,6 +76,5 @@ const struct LocationUserInfo LocationUserInfo = {};
     [self didAccessValueForKey:@"shows"];
     return result;
 }
-
 
 @end

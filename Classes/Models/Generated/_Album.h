@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct AlbumAttributes {
     __unsafe_unretained NSString *createdAt;
     __unsafe_unretained NSString *editable;
@@ -22,18 +21,17 @@ extern const struct AlbumRelationships {
     __unsafe_unretained NSString *artworks;
     __unsafe_unretained NSString *cover;
     __unsafe_unretained NSString *documents;
+    __unsafe_unretained NSString *uploadRecord;
 } AlbumRelationships;
-
-extern const struct AlbumUserInfo {
-} AlbumUserInfo;
 
 @class Artist;
 @class Artwork;
 @class Image;
 @class Document;
+@class AlbumUpload;
 
 
-@interface AlbumID : ARManagedObjectID {
+@interface AlbumID : NSManagedObjectID {
 }
 @end
 
@@ -65,7 +63,7 @@ extern const struct AlbumUserInfo {
 
 @property (nonatomic, strong) NSSet *documents;
 - (NSMutableSet *)documentsSet;
-
+@property (nonatomic, strong) AlbumUpload *uploadRecord;
 
 @end
 
@@ -96,6 +94,33 @@ extern const struct AlbumUserInfo {
 
 @interface _Album (CoreDataGeneratedPrimitiveAccessors)
 
+- (NSDate *)primitiveCreatedAt;
+- (void)setPrimitiveCreatedAt:(NSDate *)value;
+
+- (NSNumber *)primitiveEditable;
+- (void)setPrimitiveEditable:(NSNumber *)value;
+
+- (NSNumber *)primitiveHasBeenEdited;
+- (void)setPrimitiveHasBeenEdited:(NSNumber *)value;
+
+- (NSNumber *)primitiveIsPrivate;
+- (void)setPrimitiveIsPrivate:(NSNumber *)value;
+
+- (NSString *)primitiveName;
+- (void)setPrimitiveName:(NSString *)value;
+
+- (NSString *)primitiveSlug;
+- (void)setPrimitiveSlug:(NSString *)value;
+
+- (NSNumber *)primitiveSortKey;
+- (void)setPrimitiveSortKey:(NSNumber *)value;
+
+- (NSString *)primitiveSummary;
+- (void)setPrimitiveSummary:(NSString *)value;
+
+- (NSDate *)primitiveUpdatedAt;
+- (void)setPrimitiveUpdatedAt:(NSDate *)value;
+
 - (NSMutableSet *)primitiveArtists;
 - (void)setPrimitiveArtists:(NSMutableSet *)value;
 
@@ -107,5 +132,8 @@ extern const struct AlbumUserInfo {
 
 - (NSMutableSet *)primitiveDocuments;
 - (void)setPrimitiveDocuments:(NSMutableSet *)value;
+
+- (AlbumUpload *)primitiveUploadRecord;
+- (void)setPrimitiveUploadRecord:(AlbumUpload *)value;
 
 @end

@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct UserAttributes {
     __unsafe_unretained NSString *email;
     __unsafe_unretained NSString *name;
@@ -15,13 +14,10 @@ extern const struct UserRelationships {
     __unsafe_unretained NSString *adminForPartner;
 } UserRelationships;
 
-extern const struct UserUserInfo {
-} UserUserInfo;
-
 @class Partner;
 
 
-@interface UserID : ARManagedObjectID {
+@interface UserID : NSManagedObjectID {
 }
 @end
 
@@ -39,11 +35,19 @@ extern const struct UserUserInfo {
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) Partner *adminForPartner;
 
-
 @end
 
 
 @interface _User (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSString *)primitiveEmail;
+- (void)setPrimitiveEmail:(NSString *)value;
+
+- (NSString *)primitiveName;
+- (void)setPrimitiveName:(NSString *)value;
+
+- (NSString *)primitiveSlug;
+- (void)setPrimitiveSlug:(NSString *)value;
 
 - (Partner *)primitiveAdminForPartner;
 - (void)setPrimitiveAdminForPartner:(Partner *)value;
