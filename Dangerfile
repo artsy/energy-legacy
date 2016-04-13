@@ -1,11 +1,11 @@
 warn("PR is classed as Work in Progress") if pr_title.include? "[WIP]"
 
 # For the small PRs that are essentially README fixes etc
-# you don't necessarily need to include a CHANGELOG 
+# you don't necessarily need to include a CHANGELOG
 # Mark your PR as trivial!
 declared_trivial = pr_title.include? "#trivial"
 
-if files_modified.include?("docs/CHANGELOG.yml") == false && !declared_trivial
+if modified_files.include?("docs/CHANGELOG.yml") == false && !declared_trivial
   fail("No CHANGELOG changes made")
 end
 
