@@ -2,15 +2,17 @@
 
 #import "ARAlbumArtworksDownloader.h"
 #import "ARRouter.h"
-#import "AlbumUpload.h"
+#import "AlbumEdit.h"
 #import "ARAlbumEditOperation.h"
-#import "ARAlbumUploader.h"
+#import "ARAlbumChangeUploader.h"
 
-@interface ARAlbumUploader()
+
+@interface ARAlbumChangeUploader ()
 @property (nonatomic, strong, readonly) NSManagedObjectContext *context;
 @end
 
-@implementation ARAlbumUploader
+
+@implementation ARAlbumChangeUploader
 
 - (instancetype)initWithContext:(NSManagedObjectContext *)context
 {
@@ -26,22 +28,19 @@
 
 - (void)operationTree:(DRBOperationTree *)tree objectsForObject:(NSString *)partnerID completion:(void (^)(NSArray *))completion
 {
-    completion([AlbumUpload findAllInContext:self.context]);
+    completion([AlbumEdit findAllInContext:self.context]);
 }
 
 - (NSOperation *)operationTree:(DRBOperationTree *)node
-            operationForObject:(AlbumUpload *)albumUpload
+            operationForObject:(AlbumEdit *)albumUpload
                   continuation:(void (^)(id, void (^)()))continuation
                        failure:(void (^)())failure
 {
-    ARAlbumEditOperation *operation = [[ARAlbumEditOperation alloc] initWithAlbumUpload:albumUpload
-                                                                            createModel:YES
-                                                                                  toAdd:@[]
-                                                                               toRemove:@[]];
-    operation.onCompletion = ^(){
-        continuation(nil, nil);
-        
+    ARAlbumEditOperation *operation = [[ARAlbumEditOperation alloc] initWithAlbum:albumUpload.album createModel:albumUpload.albumWasCreated toAdd:albumUpload.addedArtworks toRemove:albumUpload.removedArtworks];
+
+    operation.onCompletion = ^() {
         [albumUpload deleteInContext:albumUpload.managedObjectContext];
+        continuation(nil, nil);
     };
 
     return operation;

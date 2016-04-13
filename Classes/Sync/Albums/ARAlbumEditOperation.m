@@ -1,25 +1,27 @@
 #import <AFNetworking/AFJSONRequestOperation.h>
 #import "ARAlbumEditOperation.h"
-#import "AlbumUpload.h"
+#import "AlbumEdit.h"
 #import "ARRouter.h"
 
-@interface ARAlbumEditOperation()
+
+@interface ARAlbumEditOperation ()
 @property (nonatomic, strong, readonly) NSOperationQueue *networkQueue;
 @end
+
 
 @implementation ARAlbumEditOperation {
     BOOL _isFinished;
     BOOL _isExecuting;
 }
 
-- (instancetype)initWithAlbumUpload:(AlbumUpload *)uploadModel createModel:(BOOL)create toAdd:(NSArray <Artwork *>*)addedArtworks toRemove:(NSArray <Artwork *>*)removedArtworks
+- (instancetype)initWithAlbum:(Album *)album createModel:(BOOL)create toAdd:(NSSet<Artwork *> *)addedArtworks toRemove:(NSSet<Artwork *> *)removedArtworks
 {
     self = [super init];
     if (!self) {
-        return  nil;
+        return nil;
     }
 
-    _uploadModel = uploadModel;
+    _album = album;
     _createAlbum = create;
     _artworksToUpload = addedArtworks;
     _artworksToRemove = removedArtworks;
@@ -40,22 +42,21 @@
 
     NSInvocationOperation *finisherOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(wrapup) object:nil];
     [self.networkQueue addOperation:finisherOperation];
-
 }
 
 - (NSArray *)operationsToRun
 {
     NSMutableArray *operations = [NSMutableArray array];
     if (self.createAlbum) {
-        [operations addObject:[self createAlbumOperation:self.uploadModel.album]];
+        [operations addObject:[self createAlbumOperation:self.album]];
     }
 
     [operations addObjectsFromArray:[self.artworksToUpload map:^id(Artwork *artwork) {
-        return [self addArtworkOperationForAlbum:self.uploadModel.album artwork:artwork];
+        return [self addArtworkOperationForAlbum:self.album artwork:artwork];
     }]];
 
     [operations addObjectsFromArray:[self.artworksToRemove map:^id(Artwork *artwork) {
-        return [self removeArtworkOperationForAlbum:self.uploadModel.album artwork:artwork];
+        return [self removeArtworkOperationForAlbum:self.album artwork:artwork];
     }]];
 
     return operations;

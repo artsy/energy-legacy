@@ -175,7 +175,7 @@
     artistDocumentsNode.provider = [[ARArtistDocumentDownloader alloc] initWithContext:context deleter:self.config.deleter];
 
     // Albums
-    albumUpdateNode.provider = [[ARAlbumUploader alloc] initWithContext:context];
+    albumUpdateNode.provider = [[ARAlbumChangeUploader alloc] initWithContext:context];
     albumDeletionNode.provider = [[ARAlbumDeleter alloc] initWithContext:context];
     albumNode.provider = [[ARAlbumDownloader alloc] initWithContext:context deleter:self.config.deleter];
     albumArtworksNode.provider = [[ARAlbumArtworksDownloader alloc] init];
@@ -209,7 +209,6 @@
     [showCoversNode addChild:imageNode];
     [showInstallationShotsNode addChild:imageNode];
 
-
     // show documents
     [showDocumentsNode addChild:documentFileNode];
     [documentFileNode addChild:documentThumbnailNode];
@@ -221,9 +220,10 @@
 
     // Album
     [partnerNode addChild:albumDeletionNode];
-    [partnerNode addChild:albumUpdateNode];
+    [albumDeletionNode addChild:albumUpdateNode];
 
-    [partnerNode addChild:albumNode];
+    // Let deletion/updates occur before checking for CMS albums
+    [albumUpdateNode addChild:albumNode];
     [albumNode addChild:albumArtworksNode];
 
     // Locations
@@ -270,6 +270,7 @@
         self.config.deleter,
         [[ARSyncNotification alloc] init],
         [[ARSyncLogger alloc] init],
+
     ] mutableCopy];
 
     if (NSClassFromString(@"CSSearchableIndex")) {

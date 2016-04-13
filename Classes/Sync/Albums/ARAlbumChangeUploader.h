@@ -1,8 +1,8 @@
 #import <DRBOperationTree/DRBOperationTree.h>
 
-@interface ARAlbumUploader : NSObject <DRBOperationProvider>
+
+@interface ARAlbumChangeUploader : NSObject <DRBOperationProvider>
 
 - (instancetype)initWithContext:(NSManagedObjectContext *)context;
 
 @end
-

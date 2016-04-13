@@ -256,13 +256,13 @@
 		608B01391C4821BD00C6B535 /* ARStubbedDRBOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 608B01381C4821BD00C6B535 /* ARStubbedDRBOperation.m */; };
 		608B6C051833D59B0007E12C /* NSString+StringSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 608B6C041833D59B0007E12C /* NSString+StringSize.m */; };
 		608C703A169B863500C89623 /* ARAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 608C7039169B863500C89623 /* ARAnalyticsHelper.m */; };
-		608CCC171CBE5E2C00977BFE /* _AlbumUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 608CCC161CBE5E2C00977BFE /* _AlbumUpload.m */; };
-		608CCC201CBE616500977BFE /* ARAlbumUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 608CCC1F1CBE616500977BFE /* ARAlbumUploader.m */; };
-		608CCC231CBE61D000977BFE /* AlbumUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 608CCC221CBE61D000977BFE /* AlbumUpload.m */; };
+		608CCC201CBE616500977BFE /* ARAlbumChangeUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 608CCC1F1CBE616500977BFE /* ARAlbumChangeUploader.m */; };
+		608CCC231CBE61D000977BFE /* AlbumEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = 608CCC221CBE61D000977BFE /* AlbumEdit.m */; };
 		608CCC271CBE66DB00977BFE /* ARAlbumEditOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 608CCC261CBE66DB00977BFE /* ARAlbumEditOperation.m */; };
 		608CCC2D1CBE7FE100977BFE /* _AlbumDelete.m in Sources */ = {isa = PBXBuildFile; fileRef = 608CCC2C1CBE7FE100977BFE /* _AlbumDelete.m */; };
 		608CCC301CBE802D00977BFE /* ARAlbumDeleter.m in Sources */ = {isa = PBXBuildFile; fileRef = 608CCC2F1CBE802D00977BFE /* ARAlbumDeleter.m */; };
 		608CCC331CBE807100977BFE /* AlbumDelete.m in Sources */ = {isa = PBXBuildFile; fileRef = 608CCC321CBE807100977BFE /* AlbumDelete.m */; };
+		608CCC361CBE952200977BFE /* _AlbumEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = 608CCC351CBE952200977BFE /* _AlbumEdit.m */; };
 		60928CB71A5E1AF600DDA769 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60928CB31A5E1AF600DDA769 /* Default-568h@2x.png */; };
 		60928CB81A5E1AF600DDA769 /* Default-375w-667h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 60928CB41A5E1AF600DDA769 /* Default-375w-667h@2x~iphone.png */; };
 		60928CB91A5E1AF600DDA769 /* Default-414w-736h@3x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 60928CB51A5E1AF600DDA769 /* Default-414w-736h@3x~iphone.png */; };
@@ -1047,12 +1047,10 @@
 		608B6C041833D59B0007E12C /* NSString+StringSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringSize.m"; sourceTree = "<group>"; };
 		608C7038169B863500C89623 /* ARAnalyticsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARAnalyticsHelper.h; path = Debugging/ARAnalyticsHelper.h; sourceTree = "<group>"; };
 		608C7039169B863500C89623 /* ARAnalyticsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARAnalyticsHelper.m; path = Debugging/ARAnalyticsHelper.m; sourceTree = "<group>"; };
-		608CCC151CBE5E2C00977BFE /* _AlbumUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _AlbumUpload.h; sourceTree = "<group>"; };
-		608CCC161CBE5E2C00977BFE /* _AlbumUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _AlbumUpload.m; sourceTree = "<group>"; };
-		608CCC1E1CBE616500977BFE /* ARAlbumUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAlbumUploader.h; sourceTree = "<group>"; };
-		608CCC1F1CBE616500977BFE /* ARAlbumUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAlbumUploader.m; sourceTree = "<group>"; };
-		608CCC211CBE61D000977BFE /* AlbumUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlbumUpload.h; path = Generated/AlbumUpload.h; sourceTree = "<group>"; };
-		608CCC221CBE61D000977BFE /* AlbumUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlbumUpload.m; path = Generated/AlbumUpload.m; sourceTree = "<group>"; };
+		608CCC1E1CBE616500977BFE /* ARAlbumChangeUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAlbumChangeUploader.h; sourceTree = "<group>"; };
+		608CCC1F1CBE616500977BFE /* ARAlbumChangeUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAlbumChangeUploader.m; sourceTree = "<group>"; };
+		608CCC211CBE61D000977BFE /* AlbumEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlbumEdit.h; path = Generated/AlbumEdit.h; sourceTree = "<group>"; };
+		608CCC221CBE61D000977BFE /* AlbumEdit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlbumEdit.m; path = Generated/AlbumEdit.m; sourceTree = "<group>"; };
 		608CCC251CBE66DB00977BFE /* ARAlbumEditOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAlbumEditOperation.h; sourceTree = "<group>"; };
 		608CCC261CBE66DB00977BFE /* ARAlbumEditOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAlbumEditOperation.m; sourceTree = "<group>"; };
 		608CCC2B1CBE7FE100977BFE /* _AlbumDelete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _AlbumDelete.h; sourceTree = "<group>"; };
@@ -1061,6 +1059,8 @@
 		608CCC2F1CBE802D00977BFE /* ARAlbumDeleter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAlbumDeleter.m; sourceTree = "<group>"; };
 		608CCC311CBE807100977BFE /* AlbumDelete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumDelete.h; sourceTree = "<group>"; };
 		608CCC321CBE807100977BFE /* AlbumDelete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumDelete.m; sourceTree = "<group>"; };
+		608CCC341CBE952200977BFE /* _AlbumEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _AlbumEdit.h; sourceTree = "<group>"; };
+		608CCC351CBE952200977BFE /* _AlbumEdit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _AlbumEdit.m; sourceTree = "<group>"; };
 		60928CB31A5E1AF600DDA769 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		60928CB41A5E1AF600DDA769 /* Default-375w-667h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-375w-667h@2x~iphone.png"; sourceTree = "<group>"; };
 		60928CB51A5E1AF600DDA769 /* Default-414w-736h@3x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-414w-736h@3x~iphone.png"; sourceTree = "<group>"; };
@@ -1812,8 +1812,8 @@
 			children = (
 				608CCC2B1CBE7FE100977BFE /* _AlbumDelete.h */,
 				608CCC2C1CBE7FE100977BFE /* _AlbumDelete.m */,
-				608CCC151CBE5E2C00977BFE /* _AlbumUpload.h */,
-				608CCC161CBE5E2C00977BFE /* _AlbumUpload.m */,
+				608CCC341CBE952200977BFE /* _AlbumEdit.h */,
+				608CCC351CBE952200977BFE /* _AlbumEdit.m */,
 				839B59761B4DAA3900F24033 /* _EditionSet.h */,
 				839B59771B4DAA3900F24033 /* _EditionSet.m */,
 				60117F661917F6BE0072E500 /* _Album.h */,
@@ -2409,8 +2409,8 @@
 				60AB5EFC18E31626005FD253 /* ARAlbumDownloader.m */,
 				342F965E4D4A27A5CD807007 /* ARAlbumArtworksDownloader.m */,
 				342F9047BDF19FCE53A2586E /* ARAlbumArtworksDownloader.h */,
-				608CCC1E1CBE616500977BFE /* ARAlbumUploader.h */,
-				608CCC1F1CBE616500977BFE /* ARAlbumUploader.m */,
+				608CCC1E1CBE616500977BFE /* ARAlbumChangeUploader.h */,
+				608CCC1F1CBE616500977BFE /* ARAlbumChangeUploader.m */,
 				608CCC2E1CBE802D00977BFE /* ARAlbumDeleter.h */,
 				608CCC2F1CBE802D00977BFE /* ARAlbumDeleter.m */,
 			);
@@ -3449,8 +3449,8 @@
 				60117F651917F6AB0072E500 /* Generated */,
 				D8FAA8C41442893500AA34BC /* Album.h */,
 				D8FAA8C51442893500AA34BC /* Album.m */,
-				608CCC211CBE61D000977BFE /* AlbumUpload.h */,
-				608CCC221CBE61D000977BFE /* AlbumUpload.m */,
+				608CCC211CBE61D000977BFE /* AlbumEdit.h */,
+				608CCC221CBE61D000977BFE /* AlbumEdit.m */,
 				B3DBEDDD185A721700C345A1 /* ARImageFormat.h */,
 				B3DBEDDC185A721700C345A1 /* ARImageFormat.m */,
 				B337EB06184D246C0071FA29 /* ARImageTile.h */,
@@ -4149,7 +4149,7 @@
 				60138AD1195E21E300E36EC6 /* ARArtworkMetadataStack.m in Sources */,
 				D8FAA9AC1442893600AA34BC /* CoreDataManager.m in Sources */,
 				60C777541B0E163E00BEFA97 /* AROfflineStatusWatcher.m in Sources */,
-				608CCC231CBE61D000977BFE /* AlbumUpload.m in Sources */,
+				608CCC231CBE61D000977BFE /* AlbumEdit.m in Sources */,
 				D89624FD1454E59C006E6558 /* ARSearchViewController.m in Sources */,
 				D8549C23145922DA00BE95D5 /* Image.m in Sources */,
 				83DA76121C18D77E00FC8A37 /* ARBackgroundSettingsViewController.m in Sources */,
@@ -4213,6 +4213,7 @@
 				601156F715456132004D8576 /* ARFlatButton.m in Sources */,
 				49CD60CB154B0F4A00AAC33B /* ARButtonPopoverViewController.m in Sources */,
 				607B09DB154A9F0000C50274 /* ARGroupedTableViewCell.m in Sources */,
+				608CCC361CBE952200977BFE /* _AlbumEdit.m in Sources */,
 				60E7E2F11ABB47D1007EAA8A /* InstallShotImage.m in Sources */,
 				493284661551CD3700EAF959 /* Document.m in Sources */,
 				49C1940D14F969E400DAEB93 /* ARNavigationBar.m in Sources */,
@@ -4332,7 +4333,7 @@
 				609B87E2196BCECD008729A1 /* ARModernArtworkInfoViewController.m in Sources */,
 				E641581318CE1F7900DEA948 /* ARInsetTextField.m in Sources */,
 				342F92BB0BDE0F26366ED40B /* ARShowDocumentDownloader.m in Sources */,
-				608CCC201CBE616500977BFE /* ARAlbumUploader.m in Sources */,
+				608CCC201CBE616500977BFE /* ARAlbumChangeUploader.m in Sources */,
 				342F947C39CE0038E21FD855 /* ARDocumentFileDownloader.m in Sources */,
 				609715E819AD3C8C00970DBE /* ARImageGridViewItem.m in Sources */,
 				60E6321C1B3AD1F200FA5538 /* ARAppTestDelegate.m in Sources */,
@@ -4349,7 +4350,6 @@
 				60A99DA219AF5F91004F82D0 /* AREditAlbumNavigationBar.m in Sources */,
 				607448121BE39E2900E20774 /* ARSyncDefaults.m in Sources */,
 				60124F6F191CFB1F008BE366 /* ARShowCoverShotDownloader.m in Sources */,
-				608CCC171CBE5E2C00977BFE /* _AlbumUpload.m in Sources */,
 				6006C761198EDA8500F955A0 /* ARPartnerSelectViewController.m in Sources */,
 				342F9E7ACEBAD0205BCF4307 /* ARShowArtworksDownloader.m in Sources */,
 				342F9F94B54C6148E6E72C98 /* ARArtworkDownloader.m in Sources */,

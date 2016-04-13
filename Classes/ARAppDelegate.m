@@ -7,7 +7,7 @@
 #import "ARSwitchBoard.h"
 #import "AROptions.h"
 
-#import "AlbumUpload.h"
+#import "AlbumEdit.h"
 #import "AlbumDelete.h"
 
 
@@ -153,14 +153,6 @@ void uncaughtExceptionHandler(NSException *exception);
     }
 
     [self performDeveloperExtras];
-
-    //    Album *album = [Album createOrFindAlbumInContext:context slug:@"hello-slug"];
-    //    album.name = @"Hello Slug";
-
-    //    AlbumDelete  *upload = [AlbumDelete createInContext:context];
-    //    upload.albumID = @"folio-test-partner-hello-slug";
-    //
-    //    [upload saveManagedObjectContextLoggingErrors];
 
     return YES;
 }

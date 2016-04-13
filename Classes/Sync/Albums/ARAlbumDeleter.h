@@ -1,7 +1,7 @@
-#import <Foundation/Foundation.h>
+#import <DRBOperationTree/DRBOperationTree.h>
 
 
-@interface ARAlbumDeleter : NSObject
+@interface ARAlbumDeleter : NSObject <DRBOperationProvider>
 
 - (instancetype)initWithContext:(NSManagedObjectContext *)context;
 

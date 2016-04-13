@@ -28,7 +28,7 @@ extern const struct AlbumRelationships {
 @class Artwork;
 @class Image;
 @class Document;
-@class AlbumUpload;
+@class AlbumEdit;
 
 
 @interface AlbumID : NSManagedObjectID {
@@ -63,7 +63,7 @@ extern const struct AlbumRelationships {
 
 @property (nonatomic, strong) NSSet *documents;
 - (NSMutableSet *)documentsSet;
-@property (nonatomic, strong) AlbumUpload *uploadRecord;
+@property (nonatomic, strong) AlbumEdit *uploadRecord;
 
 @end
 
@@ -133,7 +133,7 @@ extern const struct AlbumRelationships {
 - (NSMutableSet *)primitiveDocuments;
 - (void)setPrimitiveDocuments:(NSMutableSet *)value;
 
-- (AlbumUpload *)primitiveUploadRecord;
-- (void)setPrimitiveUploadRecord:(AlbumUpload *)value;
+- (AlbumEdit *)primitiveUploadRecord;
+- (void)setPrimitiveUploadRecord:(AlbumEdit *)value;
 
 @end
