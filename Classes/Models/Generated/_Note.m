@@ -4,40 +4,42 @@
 #import "_Note.h"
 
 const struct NoteAttributes NoteAttributes = {
-	.body = @"body",
-	.createdAt = @"createdAt",
-	.updatedAt = @"updatedAt",
+    .body = @"body",
+    .createdAt = @"createdAt",
+    .updatedAt = @"updatedAt",
 };
 
 const struct NoteRelationships NoteRelationships = {
-	.artwork = @"artwork",
+    .artwork = @"artwork",
 };
+
 
 @implementation NoteID
 @end
 
+
 @implementation _Note
 
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_ 
++ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
 {
-	NSParameterAssert(moc_);
-	return [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:moc_];
+    NSParameterAssert(moc_);
+    return [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:moc_];
 }
 
-+ (NSString *)entityName 
++ (NSString *)entityName
 {
-	return @"Note";
+    return @"Note";
 }
 
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_ 
++ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_
 {
-	NSParameterAssert(moc_);
-	return [NSEntityDescription entityForName:@"Note" inManagedObjectContext:moc_];
+    NSParameterAssert(moc_);
+    return [NSEntityDescription entityForName:@"Note" inManagedObjectContext:moc_];
 }
 
-- (NoteID *)objectID 
+- (NoteID *)objectID
 {
-	return (NoteID *)[super objectID];
+    return (NoteID *)[super objectID];
 }
 
 @dynamic body;
@@ -47,4 +49,3 @@ const struct NoteRelationships NoteRelationships = {
 @dynamic artwork;
 
 @end
-

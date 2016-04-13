@@ -1,6 +1,7 @@
 #import "ARTopViewController+EditingAlbum.h"
 #import "ARBaseViewController+TransparentModals.h"
 #import "ARSearchViewController.h"
+#import "AlbumDelete.h"
 
 
 @implementation ARTopViewController (EditingAlbum)
@@ -21,8 +22,12 @@
         if (status == ARModalAlertOK) {
             [ARAnalytics event:ARDeleteAlbumEvent];
 
+            AlbumDelete *remoteDelete = [AlbumDelete objectInContext:album.managedObjectContext];
+            remoteDelete.albumID = album.publicSlug;
+
             [album deleteEntity];
-            [CoreDataManager saveMainContext];
+            [remoteDelete saveManagedObjectContextLoggingErrors];
+
             [self reloadCurrentViewController];
             [[ARSearchViewController sharedController] reloadSearchResults];
         }
