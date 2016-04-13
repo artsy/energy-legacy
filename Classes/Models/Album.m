@@ -216,4 +216,13 @@
     return [albums filteredArrayUsingPredicate:predicate];
 }
 
+- (NSString *)publicSlug
+{
+    NSString *partnerID = [Partner currentPartnerID];
+    if ([self.slug hasPrefix:partnerID]) {
+        return self.slug;
+    }
+    return [NSString stringWithFormat:@"%@-%@", partnerID, self.slug];
+}
+
 @end

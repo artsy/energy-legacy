@@ -20,3 +20,4 @@
 #import "ARLocationDownloader.h"
 #import "ARLocationArtworksDownloader.h"
 #import "ARPartnerMetadataUploader.h"
+#import "ARAlbumUploader.h"

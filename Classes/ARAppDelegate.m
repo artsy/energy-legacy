@@ -7,6 +7,8 @@
 #import "ARSwitchBoard.h"
 #import "AROptions.h"
 
+#import "AlbumUpload.h"
+
 #import "ARSync.h"
 #import "ARPartnerMetadataSync.h"
 #import "ARAnalyticsHelper.h"
@@ -150,6 +152,14 @@ void uncaughtExceptionHandler(NSException *exception);
     }
 
     [self performDeveloperExtras];
+
+    Album *album = [Album createOrFindAlbumInContext:context slug:@"hello-slug"];
+    album.name = @"Hello Slug";
+    
+    AlbumUpload *upload = [AlbumUpload createInContext:context];
+    upload.album = album;
+
+    [album saveManagedObjectContextLoggingErrors];
 
     return YES;
 }

@@ -27,7 +27,7 @@ describe(@"has uploaded works on cms", ^{
     });
 
     it(@"also takes into account the amount of artworks in the MOC", ^{
-        Artwork *artwork = [Artwork objectInContext:context];
+        [Artwork objectInContext:context];
         partner.artworksCount = @(0);
 
         expect(partner.hasUploadedWorks).to.beTruthy();

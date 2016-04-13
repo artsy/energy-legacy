@@ -20,4 +20,8 @@
 + (NSArray *)downloadedAlbumsInContext:(NSManagedObjectContext *)context;
 
 - (void)updateArtists;
+
+/// This is a version of the slug that will always have a prefixed partner ID
+- (NSString *)publicSlug;
+
 @end

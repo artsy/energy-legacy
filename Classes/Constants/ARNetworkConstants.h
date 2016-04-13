@@ -24,8 +24,10 @@ extern NSString *const ARPartnerArtistDocumentsURLFormat;
 extern NSString *const ARPartnerArtistDocumentURLFormat;
 
 extern NSString *const ARPartnerAlbumURLFormat;
+extern NSString *const ARPartnerAlbumCreateURLFormat;
 extern NSString *const ARPartnerAlbumsURLFormat;
 extern NSString *const ARPartnerAlbumArtworksURLFormat;
+extern NSString *const ARPartnerAlbumArtworkURLFormat;
 
 extern NSString *const ARPartnerLocationURLFormat;
 extern NSString *const ARPartnerLocationsURLFormat;

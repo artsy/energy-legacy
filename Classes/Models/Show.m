@@ -167,8 +167,8 @@ static NSArray *sorts;
 
     // it turned out the word did exist in German. Thanks Leonard / Jessica ./
 
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSCalendarUnit desiredComponents = (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit);
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSCalendarUnit desiredComponents = (NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear);
     NSDateComponents *startsComponents = [gregorian components:desiredComponents fromDate:self.startsAt];
     NSDateComponents *endsComponents = [gregorian components:desiredComponents fromDate:self.endsAt];
 

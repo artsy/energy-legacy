@@ -131,6 +131,7 @@
     DRBOperationTree *artistNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *artistDocumentsNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
 
+    DRBOperationTree *albumUpdateNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *albumNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *albumArtworksNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
 
@@ -138,6 +139,7 @@
     DRBOperationTree *locationArtworksNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
 
     DRBOperationTree *partnerUpdateNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
+    
 
     // connect nodes to providers
 
@@ -172,6 +174,7 @@
     artistDocumentsNode.provider = [[ARArtistDocumentDownloader alloc] initWithContext:context deleter:self.config.deleter];
 
     // Albums
+    albumUpdateNode.provider = [[ARAlbumUploader alloc] initWithContext:context];
     albumNode.provider = [[ARAlbumDownloader alloc] initWithContext:context deleter:self.config.deleter];
     albumArtworksNode.provider = [[ARAlbumArtworksDownloader alloc] init];
 
@@ -215,6 +218,7 @@
     [artistDocumentsNode addChild:documentFileNode];
 
     // Album
+    [partnerNode addChild:albumUpdateNode];
     [partnerNode addChild:albumNode];
     [albumNode addChild:albumArtworksNode];
 

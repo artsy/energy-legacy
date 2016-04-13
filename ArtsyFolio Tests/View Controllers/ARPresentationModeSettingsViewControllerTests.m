@@ -56,7 +56,7 @@ describe(@"when showing and hiding toggles", ^{
     });
     
     it(@"shows Hide Unpublished Works when there are both published and unpublished works", ^{
-        Artwork *publishedArtwork = genericArtworkInContext(context);
+        genericArtworkInContext(context);
         
         Artwork *unpublishedArtwork = genericArtworkInContext(context);
         unpublishedArtwork.isPublished = @(NO);
@@ -72,7 +72,7 @@ describe(@"when showing and hiding toggles", ^{
     });
     
     it(@"doesn't show Hide Unpublished Works when there are only published works", ^{
-        Artwork *publishedArtwork = genericArtworkInContext(context);
+        genericArtworkInContext(context);
         
         expect(numberOfRowsIn(subject)).to.equal(2);
     });

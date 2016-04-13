@@ -10,7 +10,7 @@ typedef NS_OPTIONS(NSInteger, ARTestContextOptions) {
 @interface ARTestContext : NSObject
 
 /// Runs the block in the specified test context
-+ (void)useContext:(ARTestContextOptions)context:(void (^)(void))block;
++ (void)useContext:(ARTestContextOptions)context :(void (^)(void))block;
 
 /// Creates a test context
 + (void)setContext:(ARTestContextOptions)context;

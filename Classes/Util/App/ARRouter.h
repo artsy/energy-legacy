@@ -65,9 +65,16 @@
 /// Albums
 + (NSURLRequest *)newAlbumIDsRequestWithPartnerSlug:(NSString *)partnerSlug;
 
-+ (NSURLRequest *)newPartnerAlbumInfoRequestWithPartnerID:(NSString *)partnerID albumID:(NSString *)albumID;
++ (NSURLRequest *)newPartnerAlbumInfoRequestWithPartnerID:(NSString *)partnerID albumID:(NSString *)name;
 
 + (NSURLRequest *)newArtworksRequestForPartner:(NSString *)partnerID album:(NSString *)albumID page:(NSInteger)page;
+
++ (NSURLRequest *)newPartnerAlbumCreateAlbumRequestWithPartnerID:(NSString *)partnerID albumName:(NSString *)name;
+
++ (NSURLRequest *)newPartnerAlbumAddArtworkRequestWithPartnerID:(NSString *)partnerID albumID:(NSString *)albumID artworkID:(NSString *)artworkID;
+
++ (NSURLRequest *)newPartnerAlbumRemoveArtworkRequestWithPartnerID:(NSString *)partnerID albumID:(NSString *)albumID artworkID:(NSString *)artworkID;
+
 
 /// Image lookup
 + (NSURL *)fullURLForImage:(NSString *)urlString;

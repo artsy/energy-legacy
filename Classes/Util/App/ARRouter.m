@@ -235,6 +235,24 @@ static NSURL *staticBaseURL = nil;
     return [httpClient requestWithMethod:@"GET" path:url parameters:params];
 }
 
++ (NSURLRequest *)newPartnerAlbumCreateAlbumRequestWithPartnerID:(NSString *)partnerID albumName:(NSString *)name;
+{
+    NSString *url = [NSString stringWithFormat:ARPartnerAlbumCreateURLFormat, partnerID];
+    return [httpClient requestWithMethod:@"POST" path:url parameters:@{ @"name": name }];
+}
+
++ (NSURLRequest *)newPartnerAlbumAddArtworkRequestWithPartnerID:(NSString *)partnerID albumID:(NSString *)albumID artworkID:(NSString *)artworkID
+{
+    NSString *url = [NSString stringWithFormat:ARPartnerAlbumArtworkURLFormat, partnerID, albumID, artworkID];
+    return [httpClient requestWithMethod:@"POST" path:url parameters:nil];
+}
+
++ (NSURLRequest *)newPartnerAlbumRemoveArtworkRequestWithPartnerID:(NSString *)partnerID albumID:(NSString *)albumID artworkID:(NSString *)artworkID
+{
+    NSString *url = [NSString stringWithFormat:ARPartnerAlbumArtworkURLFormat, partnerID, albumID, artworkID];
+    return [httpClient requestWithMethod:@"DELETE" path:url parameters:nil];
+}
+
 #pragma mark -
 #pragma mark Locations
 
