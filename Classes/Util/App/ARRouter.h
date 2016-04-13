@@ -67,6 +67,8 @@
 
 + (NSURLRequest *)newPartnerAlbumInfoRequestWithPartnerID:(NSString *)partnerID albumID:(NSString *)name;
 
++ (NSURLRequest *)newPartnerAlbumDeleteRequestWithPartnerID:(NSString *)partnerID albumID:(NSString *)name;
+
 + (NSURLRequest *)newArtworksRequestForPartner:(NSString *)partnerID album:(NSString *)albumID page:(NSInteger)page;
 
 + (NSURLRequest *)newPartnerAlbumCreateAlbumRequestWithPartnerID:(NSString *)partnerID albumName:(NSString *)name;

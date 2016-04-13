@@ -28,6 +28,10 @@
         <relationship name="uploadRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AlbumUpload" inverseName="album" inverseEntity="AlbumUpload" syncable="YES"/>
         <userInfo/>
     </entity>
+    <entity name="AlbumDelete" representedClassName="AlbumDelete" syncable="YES">
+        <attribute name="albumID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
     <entity name="AlbumUpload" representedClassName="AlbumUpload">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Album" inverseName="uploadRecord" inverseEntity="Album" syncable="YES"/>
@@ -336,5 +340,6 @@
         <element name="SyncLog" positionX="9" positionY="153" width="128" height="163"/>
         <element name="User" positionX="0" positionY="0" width="128" height="120"/>
         <element name="AlbumUpload" positionX="18" positionY="153" width="128" height="75"/>
+        <element name="AlbumDelete" positionX="27" positionY="162" width="128" height="75"/>
     </elements>
 </model>

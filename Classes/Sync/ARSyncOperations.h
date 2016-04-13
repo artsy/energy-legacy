@@ -21,3 +21,4 @@
 #import "ARLocationArtworksDownloader.h"
 #import "ARPartnerMetadataUploader.h"
 #import "ARAlbumUploader.h"
+#import "ARAlbumDeleter.h"

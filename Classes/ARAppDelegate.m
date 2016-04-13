@@ -8,6 +8,8 @@
 #import "AROptions.h"
 
 #import "AlbumUpload.h"
+#import "AlbumDelete.h"
+
 
 #import "ARSync.h"
 #import "ARPartnerMetadataSync.h"
@@ -15,7 +17,6 @@
 #import "ARInitialViewControllerSetupCoordinator.h"
 #import "AROfflineStatusWatcher.h"
 
-#import "ARLogoutManager.h"
 #import "ARTheme.h"
 #import "ARAppDelegate+DevTools.h"
 
@@ -153,13 +154,13 @@ void uncaughtExceptionHandler(NSException *exception);
 
     [self performDeveloperExtras];
 
-    Album *album = [Album createOrFindAlbumInContext:context slug:@"hello-slug"];
-    album.name = @"Hello Slug";
-    
-    AlbumUpload *upload = [AlbumUpload createInContext:context];
-    upload.album = album;
+    //    Album *album = [Album createOrFindAlbumInContext:context slug:@"hello-slug"];
+    //    album.name = @"Hello Slug";
 
-    [album saveManagedObjectContextLoggingErrors];
+    //    AlbumDelete  *upload = [AlbumDelete createInContext:context];
+    //    upload.albumID = @"folio-test-partner-hello-slug";
+    //
+    //    [upload saveManagedObjectContextLoggingErrors];
 
     return YES;
 }
