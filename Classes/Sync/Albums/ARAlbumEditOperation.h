@@ -5,7 +5,7 @@
 
 @interface ARAlbumEditOperation : NSOperation
 
-- (instancetype)initWithAlbum:(Album *)album createModel:(BOOL)create toAdd:(NSArray<Artwork *> *)addedArtworks toRemove:(NSArray<Artwork *> *)removedArtworks;
+- (instancetype)initWithAlbum:(Album *)album createModel:(BOOL)create toAdd:(NSSet<Artwork *> *)addedArtworks toRemove:(NSSet<Artwork *> *)removedArtworks;
 
 /// Use this to get IDs for objects sent back to you
 @property (readwrite, nonatomic, copy) void (^onCompletion)(void);

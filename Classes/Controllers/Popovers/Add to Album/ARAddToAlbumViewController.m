@@ -51,11 +51,9 @@ static const CGFloat ARSyncMessageHeight = 44;
 {
     NSInteger albumCount = [self.albums count];
     BOOL rowHasButton = (indexPath.row == albumCount && !self.showTextField) || indexPath.row > albumCount;
-    BOOL showSyncMessage = [self shouldShowSyncedAlbumsMessage];
 
     if (rowHasButton) {
         CGFloat buttonHeight = ARNewAlbumButtonSize.height + (ARNewAlbumButtonInset.height * 2);
-        if (showSyncMessage) buttonHeight += ARSyncMessageHeight + ARNewAlbumButtonInset.height;
         return buttonHeight;
     } else {
         return ARTableViewCellSize;
@@ -140,34 +138,12 @@ static const CGFloat ARSyncMessageHeight = 44;
 
         _createAlbumButton = [self createNewAlbumButton];
         [cell.contentView addSubview:self.createAlbumButton];
-
-        if ([self shouldShowSyncedAlbumsMessage]) {
-            CGRect syncFrame = cell.frame;
-            syncFrame.size.height = ARSyncMessageHeight;
-            syncFrame.origin.y = CGRectGetMaxY(_createAlbumButton.frame) + ARNewAlbumButtonInset.height;
-
-            UILabel *syncMessageLabel = [[UILabel alloc] initWithFrame:syncFrame];
-            syncMessageLabel.font = [UIFont serifFontWithSize:ARFontSerif];
-            syncMessageLabel.textColor = [UIColor blackColor];
-            syncMessageLabel.numberOfLines = 2;
-            syncMessageLabel.textAlignment = NSTextAlignmentCenter;
-            syncMessageLabel.text = @"Albums not created on this device\ncan be edited from your Artsy CMS";
-            [cell.contentView addSubview:syncMessageLabel];
-        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 
     return cell;
 }
 
-- (BOOL)shouldShowSyncedAlbumsMessage
-{
-    NSFetchRequest *allAlbums = [[NSFetchRequest alloc] init];
-    allAlbums.entity = [NSEntityDescription entityForName:@"Album" inManagedObjectContext:self.context];
-    allAlbums.predicate = [NSPredicate predicateWithFormat:@"editable = NO AND slug != 'all_artworks' AND slug != 'for_sale_works'"];
-
-    return [self.context countForFetchRequest:allAlbums error:nil] > 0;
-}
 
 - (ARFlatButton *)createNewAlbumButton
 {
@@ -188,8 +164,6 @@ static const CGFloat ARSyncMessageHeight = 44;
 
     NSInteger offset = self.showTextField ? 1 : 0;
     CGFloat buttonHeight = ARNewAlbumButtonSize.height + (ARNewAlbumButtonInset.height * 2);
-
-    if ([self shouldShowSyncedAlbumsMessage]) buttonHeight += ARSyncMessageHeight + ARNewAlbumButtonInset.height;
 
     CGFloat height = ((self.albums.count + offset) * ARTableViewCellSize) + buttonHeight;
     return CGSizeMake(320, height);
@@ -233,12 +207,10 @@ static const CGFloat ARSyncMessageHeight = 44;
 {
     if ([textField.text isEqualToString:@""]) return;
 
-    Album *album = [Album object];
+    Album *album = [Album objectInContext:self.context];
+    album.slug = textField.text;
     album.name = textField.text;
-    album.artworks = [NSSet setWithArray:self.artworks];
-    [album updateArtists];
-
-    [album saveManagedObjectContextLoggingErrors];
+    [album commitEditToArtworks:self.artworks];
 
     _albums = [Album editableAlbumsByLastUpdateInContext:album.managedObjectContext];
     _showTextField = NO;
@@ -276,35 +248,31 @@ static const CGFloat ARSyncMessageHeight = 44;
         Album *selectedAlbum = ((Album *)self.albums[indexPath.row]);
         ARTickedTableViewCell *cell = (ARTickedTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
 
-        if ([cell isSelected]) {
-            [ARAnalytics event:ARRemoveFromAlbumEvent withProperties:@{
-                @"artworks" : @(self.artworks.count),
-                @"from" : [ARNavigationController pageID]
-            }];
+        NSString *event = [cell isSelected] ? ARRemoveFromAlbumEvent : ARAddToAlbumEvent;
+        [ARAnalytics event:event withProperties:@{
+            @"artworks" : @(self.artworks.count),
+            @"from" : [ARNavigationController pageID]
+        }];
 
-            [selectedAlbum removeArtworks:[NSSet setWithArray:_artworks]];
-            if (_documents) {
+        NSMutableSet *newArtworks = [NSMutableSet setWithSet:selectedAlbum.artworks];
+        if ([cell isSelected]) {
+            [newArtworks minusSet:[NSSet setWithArray:self.artworks]];
+
+            if (self.documents) {
                 [selectedAlbum removeDocuments:[NSSet setWithArray:_documents]];
             }
 
-            [cell setTickSelected:NO animated:YES];
-
         } else {
-            [ARAnalytics event:ARAddToAlbumEvent withProperties:@{
-                @"artworks" : @(self.artworks.count),
-                @"from" : [ARNavigationController pageID]
-            }];
+            [newArtworks addObjectsFromArray:self.artworks];
 
-            [selectedAlbum addArtworks:[NSSet setWithArray:_artworks]];
-            if (_documents) {
+            if (self.documents) {
                 [selectedAlbum addDocuments:[NSSet setWithArray:_documents]];
             }
-
-            [cell setTickSelected:YES animated:YES];
         }
 
-        [selectedAlbum updateArtists];
-        [selectedAlbum saveManagedObjectContextLoggingErrors];
+        [cell setTickSelected:![cell isSelected] animated:YES];
+
+        [selectedAlbum commitEditToArtworks:newArtworks.allObjects];
 
         NSString *labelString = [NSString stringWithFormat:@"%@ ( %@ )", selectedAlbum.name, @(selectedAlbum.artworks.count)];
         cell.textLabel.text = labelString;

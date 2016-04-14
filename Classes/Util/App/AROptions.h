@@ -1,9 +1,10 @@
 // All the options as consts
 extern NSString *const AROptionsUseWhiteFolio;
 
-extern const NSString *AROptionsKey;
-extern const NSString *AROptionsName;
+extern NSString *const AROptionsKey;
+extern NSString *const AROptionsName;
 
+extern NSString *const ARSyncAlbumsOption;
 
 @interface AROptions : NSObject
 

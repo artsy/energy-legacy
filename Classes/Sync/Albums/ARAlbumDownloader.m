@@ -21,7 +21,8 @@
 
 - (void)performWorkWithDownloadObject:(Album *)album
 {
-    album.editable = @(NO);
+    album.updatedAt = [NSDate date];
+    album.editable = @(YES);
 }
 
 @end

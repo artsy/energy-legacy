@@ -37,19 +37,25 @@
     _networkQueue = [[NSOperationQueue alloc] init];
     self.networkQueue.maxConcurrentOperationCount = 1;
 
-    NSArray *operations = [self operationsToRun];
+    if (self.createAlbum) {
+        // NOTE: This changes the slug for an album, I didn't think it was a good idea
+        // for Folio to try and generate the same ID as CMS. So, this operation
+        // is done synchronously before the other operations are ran.
+
+        // This is done on a BG thread anyway, so it's OK.
+        [self.networkQueue addOperations:@[[self createAlbumOperation:self.album]] waitUntilFinished:YES];
+    }
+
+    NSArray *operations = [self artworkOperationsToRun];
     [self.networkQueue addOperations:operations waitUntilFinished:NO];
 
     NSInvocationOperation *finisherOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(wrapup) object:nil];
     [self.networkQueue addOperation:finisherOperation];
 }
 
-- (NSArray *)operationsToRun
+- (NSArray *)artworkOperationsToRun
 {
     NSMutableArray *operations = [NSMutableArray array];
-    if (self.createAlbum) {
-        [operations addObject:[self createAlbumOperation:self.album]];
-    }
 
     [operations addObjectsFromArray:[self.artworksToUpload map:^id(Artwork *artwork) {
         return [self addArtworkOperationForAlbum:self.album artwork:artwork];
@@ -70,7 +76,17 @@
 - (NSOperation *)createAlbumOperation:(Album *)album
 {
     NSURLRequest *request = [ARRouter newPartnerAlbumCreateAlbumRequestWithPartnerID:self.partnerID albumName:album.name];
-    return [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    AFJSONRequestOperation *createAlbum = [[AFJSONRequestOperation alloc] initWithRequest:request];
+
+    /// Let the website generate a consistent slug for all generated albums
+    [createAlbum setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.album.slug = responseObject[ARFeedIDKey];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+    }];
+
+    return createAlbum;
 }
 
 - (NSOperation *)addArtworkOperationForAlbum:(Album *)album artwork:(Artwork *)artwork

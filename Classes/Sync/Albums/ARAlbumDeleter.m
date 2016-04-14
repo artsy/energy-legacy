@@ -45,6 +45,11 @@
 
         continuation(nil, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        /// If it was already deleted, remove the request
+        if (operation.response.statusCode == 404) {
+            [albumDelete deleteInContext:self.context];
+        }
+
         failure();
     }];
 

@@ -1,18 +1,18 @@
 #import "AROptions.h"
 
 NSString *const AROptionsUseWhiteFolio = @"White Folio";
+NSString *const ARSyncAlbumsOption = @"lab_album_sync";
 
-const NSString *AROptionsKey = @"ARDefaultKey";
-const NSString *AROptionsName = @"ARDefaultName";
-
+NSString *const AROptionsKey = @"ARDefaultKey";
+NSString *const AROptionsName = @"ARDefaultName";
 
 @implementation AROptions
 
 + (NSArray *)labsOptions
 {
     return @[
-        @{ AROptionsKey : @"album_sync",
-           AROptionsName : @"Sync Local Albums" },
+        @{ AROptionsKey : ARSyncAlbumsOption,
+           AROptionsName : @"Sync Local Albums with CMS" },
     ];
 }
 

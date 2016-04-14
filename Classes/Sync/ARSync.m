@@ -219,11 +219,11 @@
     [artistDocumentsNode addChild:documentFileNode];
 
     // Album
+    // This all feels weird, think of a better way to do this?
     [partnerNode addChild:albumDeletionNode];
-    [albumDeletionNode addChild:albumUpdateNode];
+    [partnerNode addChild:albumUpdateNode];
 
-    // Let deletion/updates occur before checking for CMS albums
-    [albumUpdateNode addChild:albumNode];
+    [partnerNode addChild:albumNode];
     [albumNode addChild:albumArtworksNode];
 
     // Locations

@@ -116,19 +116,25 @@
 
 - (void)removeSelectedItems:(id)sender
 {
-    NSSet *oldArtworks = [self.album artworks];
-    NSSet *selected = self.selectionHandler.selectedObjects;
-    NSArray *newArtworks = [oldArtworks select:^BOOL(id object) {
-        return ![selected containsObject:object];
-    }];
+    if (self.currentSelectionIsADeleteAction) {
+        [ARAnalytics event:ARDeleteAlbumEvent withProperties:@{ @"location" : @"album" }];
 
-    self.album.artworks = [NSSet setWithArray:newArtworks];
-    [self.album updateArtists];
-    [self.album saveManagedObjectContextLoggingErrors];
+        [self.album commitAlbumDeletion];
+        [self.navigationController popViewControllerAnimated:YES];
 
-    [self setSelecting:NO animated:NO];
-    [self.currentChildController setResults:self.album.sortedArtworksFetchRequest];
-    [self.currentChildController reloadData];
+    } else {
+        NSSet *oldArtworks = [self.album artworks];
+        NSSet *selected = self.selectionHandler.selectedObjects;
+        NSArray *newArtworks = [oldArtworks select:^BOOL(id object) {
+            return ![selected containsObject:object];
+        }];
+
+        [self.album commitEditToArtworks:newArtworks];
+
+        [self setSelecting:NO animated:NO];
+        [self.currentChildController setResults:self.album.sortedArtworksFetchRequest];
+        [self.currentChildController reloadData];
+    }
 }
 
 - (void)selectionChanged
@@ -138,6 +144,17 @@
 
     BOOL hasSelectedItems = self.selectionHandler.selectedObjects.count > 0;
     [self.removeSelectedItem.representedButton setEnabled:hasSelectedItems];
+
+    BOOL wouldRemoveAllArtworks = [self currentSelectionIsADeleteAction];
+    NSString *actionTitle = wouldRemoveAllArtworks ? @"Delete Album" : @"Remove";
+    [self.removeSelectedItem.representedButton setTitle:actionTitle.uppercaseString forState:UIControlStateNormal];
+}
+
+- (BOOL)currentSelectionIsADeleteAction
+{
+    NSMutableSet *set = [NSMutableSet setWithSet:self.album.artworks];
+    [set minusSet:self.selectionHandler.selectedObjects];
+    return set.count == 0;
 }
 
 - (NSArray *)topToolbarItems

@@ -30,8 +30,23 @@
         }
         [context save:nil];
         [defaults setBool:YES forKey:@"ARHasSwitchedAllImagesProcessing"];
-        [defaults synchronize];
     }
+
+    // We've relied on albums with 0 artworks = deleted for years, now that we have
+    // album sync, I'm going to make the explicit ( because we need to trigger remote deletions)
+
+    BOOL shouldDeleteEmptyAlbums = [defaults boolForKey:@"ARHasDeletedEmptyAlbums"] == NO;
+    if (shouldDeleteEmptyAlbums) {
+        for (Album *album in [Album editableAlbumsByLastUpdateInContext:context]) {
+            if (album.artworks.count == 0) {
+                [album deleteInContext:context];
+            }
+        }
+
+        [defaults setBool:YES forKey:@"ARHasDeletedEmptyAlbums"];
+    }
+
+    [defaults synchronize];
 }
 
 + (void)moveCoreDataStackIfNeeded

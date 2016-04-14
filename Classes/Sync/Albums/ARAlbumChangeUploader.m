@@ -28,7 +28,7 @@
 
 - (void)operationTree:(DRBOperationTree *)tree objectsForObject:(NSString *)partnerID completion:(void (^)(NSArray *))completion
 {
-    completion([AlbumEdit findAllInContext:self.context]);
+    completion([AlbumEdit findAllSortedBy:@"createdAt" ascending:YES inContext:self.context]);
 }
 
 - (NSOperation *)operationTree:(DRBOperationTree *)node

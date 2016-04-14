@@ -105,11 +105,11 @@
     _selectingForAddingToAlbums = NO;
 
     if (save) {
-        self.selectedAlbum.artworks = [self.internalSelectedObjects setWithOnlyObjectsOfClass:Artwork.class];
         self.selectedAlbum.documents = [self.internalSelectedObjects setWithOnlyObjectsOfClass:Document.class];
 
-        [self.selectedAlbum updateArtists];
-        [self.selectedAlbum saveManagedObjectContextLoggingErrors];
+        NSSet *artworks = [self.internalSelectedObjects setWithOnlyObjectsOfClass:Artwork.class];
+        [self.selectedAlbum commitEditToArtworks:artworks.allObjects];
+
         [[NSNotificationCenter defaultCenter] postNotificationName:ARAlbumDataChanged object:nil];
     }
 
