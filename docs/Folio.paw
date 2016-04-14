@@ -1,0 +1,485 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE database SYSTEM "file:///System/Library/DTDs/CoreData.dtd">
+
+<database>
+    <databaseInfo>
+        <version>134481920</version>
+        <UUID>DDD6D918-87B7-48DD-8362-001F9A6CA901</UUID>
+        <nextObjectID>150</nextObjectID>
+        <metadata>
+            <plist version="1.0">
+                <dict>
+                    <key>NSPersistenceFrameworkVersion</key>
+                    <integer>641</integer>
+                    <key>NSStoreModelVersionHashes</key>
+                    <dict>
+                        <key>LMCookieJar</key>
+                        <data>
+		Fttmf2L4PrGvKUF496+nqgVVGek45TjOe7sUMtjNg8I=
+		</data>
+                        <key>LMEnvironment</key>
+                        <data>
+		uzBoVFcO4YvR9/3ej4AJ1UOOsA/u5DKY2aemusoIseU=
+		</data>
+                        <key>LMEnvironmentDomain</key>
+                        <data>
+		yM1GPGHdquS8IWLtuczlNoqKhIhD9FW6IReSfFffJgs=
+		</data>
+                        <key>LMEnvironmentVariable</key>
+                        <data>
+		P8e0lYd5JZKRabS/eXVSOJ4oitilz67xtv+pLqW1Jqg=
+		</data>
+                        <key>LMEnvironmentVariableValue</key>
+                        <data>
+		my5hNPJ51oDCSa8EgdNxWAnRcDLcERUGjtuXnzhSxQ0=
+		</data>
+                        <key>LMKeyValue</key>
+                        <data>
+		bIXXbyYF2xAv2MXg8JTVFsslmMKuvsfnR86QdUcFkdM=
+		</data>
+                        <key>LMRequest</key>
+                        <data>
+		vcehD1+Y0zJEqCmgqlTWLscXXTAat5YQbsUJSVqwTq0=
+		</data>
+                        <key>LMRequestGroup</key>
+                        <data>
+		MnZKiG/nHZ2bvbULv2vfzH+0tXd5w+NuuMPlNJjBAMw=
+		</data>
+                        <key>LMRequestTreeItem</key>
+                        <data>
+		Ae5GlAcsXxZOGKCPQgemYbXQ3+KUtHlsprrqBD+V81o=
+		</data>
+                    </dict>
+                    <key>NSStoreModelVersionHashesVersion</key>
+                    <integer>3</integer>
+                    <key>NSStoreModelVersionIdentifiers</key>
+                    <array>
+                        <string>LMDocumentVersion4</string>
+                    </array>
+                </dict>
+            </plist>
+        </metadata>
+    </databaseInfo>
+    <object type="LMENVIRONMENTDOMAIN" id="z102">
+        <attribute name="uuid" type="string">2055C8C1-55C8-47EF-8317-041F18C91B2D</attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string">Production</attribute>
+        <relationship name="environments" type="0/0" destination="LMENVIRONMENT" idrefs="z103"></relationship>
+        <relationship name="variables" type="0/0" destination="LMENVIRONMENTVARIABLE" idrefs="z105 z129 z118"></relationship>
+    </object>
+    <object type="LMENVIRONMENT" id="z103">
+        <attribute name="uuid" type="string">A2068D19-45CD-4F51-9FAC-0ACE19465289</attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string">Prod</attribute>
+        <relationship name="domain" type="0/1" destination="LMENVIRONMENTDOMAIN" idrefs="z102"></relationship>
+        <relationship name="variablesvalues" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z107 z125 z119"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z104">
+        <attribute name="uuid" type="string">150681E5-5252-42B9-BA04-2F76E3781B8B</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"04A5A029-0407-43D9-B155-0D56CAA0C463"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/oauth2\\/access_token?client_id=",{"data":{"account":["ArtsyAPIClientKey"],"mode":2,"service":["cocoapods-keys-Folio"]},"identifier":"com.luckymarmot.SecureDynamicValue"},"\u2600client_secret=",{"data":{"account":["ArtsyAPIClientSecret"],"mode":2,"service":["cocoapods-keys-Folio"]},"identifier":"com.luckymarmot.SecureDynamicValue"},"\u2600email=",{"data":{"account":["username"],"url":["api.artsy.net"],"mode":2,"service":["PawArtsyAccount"]},"identifier":"com.luckymarmot.SecureDynamicValue"},"\u2600password=",{"data":{"account":["password"],"url":["api.artsy.net"],"mode":2,"service":["PawArtsyAccount"]},"identifier":"com.luckymarmot.SecureDynamicValue"},"\u2600grant_type=credentials\u2600scope=offline_access"]</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">GET</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="order" type="int64">1</attribute>
+        <attribute name="name" type="string">Auth</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z113"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z106"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLE" id="z105">
+        <attribute name="uuid" type="string">04A5A029-0407-43D9-B155-0D56CAA0C463</attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string">ROOT</attribute>
+        <relationship name="domain" type="0/1" destination="LMENVIRONMENTDOMAIN" idrefs="z102"></relationship>
+        <relationship name="values" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z107"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z106">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">1</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z104"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLEVALUE" id="z107">
+        <attribute name="value" type="string">https://api.artsy.net</attribute>
+        <relationship name="environment" type="1/1" destination="LMENVIRONMENT" idrefs="z103"></relationship>
+        <relationship name="variable" type="1/1" destination="LMENVIRONMENTVARIABLE" idrefs="z105"></relationship>
+    </object>
+    <object type="LMCOOKIEJAR" id="z108">
+        <attribute name="uuid" type="string">32A57814-A105-468B-8103-8850F2AA46B9</attribute>
+        <attribute name="order" type="int64">1</attribute>
+        <attribute name="name" type="string">Default Jar</attribute>
+    </object>
+    <object type="LMENVIRONMENTVARIABLE" id="z109">
+        <attribute name="uuid" type="string">22D48727-5ADF-48A3-89F5-5AEB8D7B586D</attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string">ROOT</attribute>
+        <relationship name="domain" type="0/1" destination="LMENVIRONMENTDOMAIN" idrefs="z111"></relationship>
+        <relationship name="values" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z112"></relationship>
+    </object>
+    <object type="LMENVIRONMENT" id="z110">
+        <attribute name="uuid" type="string">90C030C8-C933-4DC0-A797-92FF88363F12</attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string">Staging</attribute>
+        <relationship name="domain" type="0/1" destination="LMENVIRONMENTDOMAIN" idrefs="z111"></relationship>
+        <relationship name="variablesvalues" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z117 z112 z131"></relationship>
+    </object>
+    <object type="LMENVIRONMENTDOMAIN" id="z111">
+        <attribute name="uuid" type="string">11B67022-1140-4428-9191-776272D9CD17</attribute>
+        <attribute name="order" type="int64">1</attribute>
+        <attribute name="name" type="string">Staging</attribute>
+        <relationship name="environments" type="0/0" destination="LMENVIRONMENT" idrefs="z110"></relationship>
+        <relationship name="variables" type="0/0" destination="LMENVIRONMENTVARIABLE" idrefs="z116 z109 z134"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLEVALUE" id="z112">
+        <attribute name="value" type="string">https://stagingapi.artsy.net</attribute>
+        <relationship name="environment" type="1/1" destination="LMENVIRONMENT" idrefs="z110"></relationship>
+        <relationship name="variable" type="1/1" destination="LMENVIRONMENTVARIABLE" idrefs="z109"></relationship>
+    </object>
+    <object type="LMREQUESTGROUP" id="z113">
+        <attribute name="uuid" type="string">5C1BB022-9FD0-4BE6-A945-66E25023B3B9</attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string">Authentication</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM" idrefs="z104 z143"></relationship>
+        <relationship name="bodyparameters" type="0/0" destination="LMKEYVALUE"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE"></relationship>
+        <relationship name="urlparameters" type="0/0" destination="LMKEYVALUE"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z114">
+        <attribute name="body" type="string">[{"data":{"json":"{}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="uuid" type="string">FA7E271F-4EFC-4653-913B-D102A7700E14</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"AE5FE0AD-54E4-4215-95E7-2B3DDCD2DEE7"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/partner\\/",{"data":{"environmentVariable":"EB31D848-B144-4BAE-B4CE-44D436A3FBDA"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/all"]</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">GET</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string">Partner Metadata</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z127"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z123 z121"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLE" id="z116">
+        <attribute name="uuid" type="string">BE9CF28F-32BB-4451-B1E3-68F17CA1BE2A</attribute>
+        <attribute name="order" type="int64">1</attribute>
+        <attribute name="name" type="string">API</attribute>
+        <relationship name="domain" type="0/1" destination="LMENVIRONMENTDOMAIN" idrefs="z111"></relationship>
+        <relationship name="values" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z117"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLEVALUE" id="z117">
+        <attribute name="value" type="string">https://stagingapi.artsy.net/api/v1/</attribute>
+        <relationship name="environment" type="1/1" destination="LMENVIRONMENT" idrefs="z110"></relationship>
+        <relationship name="variable" type="1/1" destination="LMENVIRONMENTVARIABLE" idrefs="z116"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLE" id="z118">
+        <attribute name="uuid" type="string">AE5FE0AD-54E4-4215-95E7-2B3DDCD2DEE7</attribute>
+        <attribute name="order" type="int64">1</attribute>
+        <attribute name="name" type="string">API</attribute>
+        <relationship name="domain" type="0/1" destination="LMENVIRONMENTDOMAIN" idrefs="z102"></relationship>
+        <relationship name="values" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z119"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLEVALUE" id="z119">
+        <attribute name="value" type="string">https://api.artsy.net/api/v1/</attribute>
+        <relationship name="environment" type="1/1" destination="LMENVIRONMENT" idrefs="z103"></relationship>
+        <relationship name="variable" type="1/1" destination="LMENVIRONMENTVARIABLE" idrefs="z118"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z121">
+        <attribute name="value" type="string">[{"data":{"request":"150681E5-5252-42B9-BA04-2F76E3781B8B","keyPath":["access_token"],"format":0},"identifier":"com.luckymarmot.ResponseBodyPathDynamicValue"}]</attribute>
+        <attribute name="order" type="int64">3</attribute>
+        <attribute name="name" type="string">X-Access-Token</attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z114"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z123">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">4</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z114"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z124">
+        <attribute name="value" type="string">[{"data":{"request":"150681E5-5252-42B9-BA04-2F76E3781B8B","keyPath":["access_token"],"format":0},"identifier":"com.luckymarmot.ResponseBodyPathDynamicValue"}]</attribute>
+        <attribute name="order" type="int64">3</attribute>
+        <attribute name="name" type="string">X-Access-Token</attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z126"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLEVALUE" id="z125">
+        <attribute name="value" type="string">folio-test-partner</attribute>
+        <relationship name="environment" type="1/1" destination="LMENVIRONMENT" idrefs="z103"></relationship>
+        <relationship name="variable" type="1/1" destination="LMENVIRONMENTVARIABLE" idrefs="z129"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z126">
+        <attribute name="uuid" type="string">C3376D97-BD39-4835-BFDE-1874629ECC49</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"AE5FE0AD-54E4-4215-95E7-2B3DDCD2DEE7"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/partner\\/",{"data":{"environmentVariable":"EB31D848-B144-4BAE-B4CE-44D436A3FBDA"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/album\\/folio-test-partner-dylans-picks"]</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">GET</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="order" type="int64">2</attribute>
+        <attribute name="name" type="string">An Album</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z128"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z124 z130"></relationship>
+    </object>
+    <object type="LMREQUESTGROUP" id="z127">
+        <attribute name="uuid" type="string">5F8C785D-A8DE-47E8-9545-0DF9CF1D187F</attribute>
+        <attribute name="order" type="int64">1</attribute>
+        <attribute name="name" type="string">Partner</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM" idrefs="z114"></relationship>
+        <relationship name="bodyparameters" type="0/0" destination="LMKEYVALUE"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE"></relationship>
+        <relationship name="urlparameters" type="0/0" destination="LMKEYVALUE"></relationship>
+    </object>
+    <object type="LMREQUESTGROUP" id="z128">
+        <attribute name="uuid" type="string">E099396B-4059-4197-B032-01EF296B57D9</attribute>
+        <attribute name="order" type="int64">2</attribute>
+        <attribute name="name" type="string">Partner Albums</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM" idrefs="z132 z137 z126"></relationship>
+        <relationship name="bodyparameters" type="0/0" destination="LMKEYVALUE"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE"></relationship>
+        <relationship name="urlparameters" type="0/0" destination="LMKEYVALUE"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLE" id="z129">
+        <attribute name="uuid" type="string">EB31D848-B144-4BAE-B4CE-44D436A3FBDA</attribute>
+        <attribute name="order" type="int64">2</attribute>
+        <attribute name="name" type="string">PARTNER</attribute>
+        <relationship name="domain" type="0/1" destination="LMENVIRONMENTDOMAIN" idrefs="z102"></relationship>
+        <relationship name="values" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z125"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z130">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">4</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z126"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLEVALUE" id="z131">
+        <attribute name="value" type="string">folio-test-partner</attribute>
+        <relationship name="environment" type="1/1" destination="LMENVIRONMENT" idrefs="z110"></relationship>
+        <relationship name="variable" type="1/1" destination="LMENVIRONMENTVARIABLE" idrefs="z134"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z132">
+        <attribute name="uuid" type="string">FACE4FA1-C207-4677-8790-DB99236B9E50</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"AE5FE0AD-54E4-4215-95E7-2B3DDCD2DEE7"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/partner\\/",{"data":{"environmentVariable":"EB31D848-B144-4BAE-B4CE-44D436A3FBDA"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/albums"]</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">GET</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string">All Albums</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z128"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z133 z135"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z133">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">4</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z132"></relationship>
+    </object>
+    <object type="LMENVIRONMENTVARIABLE" id="z134">
+        <attribute name="uuid" type="string">41C96A20-B10B-4B53-811F-C75F5A85BD8A</attribute>
+        <attribute name="order" type="int64">2</attribute>
+        <attribute name="name" type="string">PARTNER</attribute>
+        <relationship name="domain" type="0/1" destination="LMENVIRONMENTDOMAIN" idrefs="z111"></relationship>
+        <relationship name="values" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z131"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z135">
+        <attribute name="value" type="string">[{"data":{"request":"150681E5-5252-42B9-BA04-2F76E3781B8B","keyPath":["access_token"],"format":0},"identifier":"com.luckymarmot.ResponseBodyPathDynamicValue"}]</attribute>
+        <attribute name="order" type="int64">3</attribute>
+        <attribute name="name" type="string">X-Access-Token</attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z132"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z136">
+        <attribute name="value" type="string">[{"data":{"request":"150681E5-5252-42B9-BA04-2F76E3781B8B","keyPath":["access_token"],"format":0},"identifier":"com.luckymarmot.ResponseBodyPathDynamicValue"}]</attribute>
+        <attribute name="order" type="int64">3</attribute>
+        <attribute name="name" type="string">X-Access-Token</attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z137"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z137">
+        <attribute name="uuid" type="string">00E5B18A-9E32-4DF5-BF30-04F9910345A5</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"AE5FE0AD-54E4-4215-95E7-2B3DDCD2DEE7"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/partner\\/",{"data":{"environmentVariable":"EB31D848-B144-4BAE-B4CE-44D436A3FBDA"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/album\\/folio-test-partner-dylans-picks-2"]</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">DELETE</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="order" type="int64">1</attribute>
+        <attribute name="name" type="string">Delete An Album</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z128"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z136 z138"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z138">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">4</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z137"></relationship>
+    </object>
+    <object type="LMREQUESTGROUP" id="z139">
+        <attribute name="uuid" type="string">5F0AD3E2-A3BB-4091-A1A3-7D2B10ED9F99</attribute>
+        <attribute name="order" type="int64">3</attribute>
+        <attribute name="name" type="string">Artworks</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM" idrefs="z146 z142"></relationship>
+        <relationship name="bodyparameters" type="0/0" destination="LMKEYVALUE"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE"></relationship>
+        <relationship name="urlparameters" type="0/0" destination="LMKEYVALUE"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z140">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">4</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z142"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z141">
+        <attribute name="value" type="string">[{"data":{"request":"150681E5-5252-42B9-BA04-2F76E3781B8B","keyPath":["access_token"],"format":0},"identifier":"com.luckymarmot.ResponseBodyPathDynamicValue"}]</attribute>
+        <attribute name="order" type="int64">3</attribute>
+        <attribute name="name" type="string">X-Access-Token</attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z142"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z142">
+        <attribute name="uuid" type="string">DD85A299-B73C-4FF9-9C6E-4D1768D00AFA</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"AE5FE0AD-54E4-4215-95E7-2B3DDCD2DEE7"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/partner\\/",{"data":{"environmentVariable":"EB31D848-B144-4BAE-B4CE-44D436A3FBDA"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/artworks"]</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">GET</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="order" type="int64">1</attribute>
+        <attribute name="name" type="string">All Partner Artworks</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z139"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z140 z141"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z143">
+        <attribute name="uuid" type="string">D0069101-0728-4B52-B48B-5E5443CF0450</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"AE5FE0AD-54E4-4215-95E7-2B3DDCD2DEE7"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/me"]</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">GET</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="order" type="int64">2</attribute>
+        <attribute name="name" type="string">User Info</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z113"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z144 z145"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z144">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">4</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z143"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z145">
+        <attribute name="value" type="string">[{"data":{"request":"150681E5-5252-42B9-BA04-2F76E3781B8B","keyPath":["access_token"],"format":0},"identifier":"com.luckymarmot.ResponseBodyPathDynamicValue"}]</attribute>
+        <attribute name="order" type="int64">3</attribute>
+        <attribute name="name" type="string">X-Access-Token</attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z143"></relationship>
+    </object>
+    <object type="LMREQUEST" id="z146">
+        <attribute name="uuid" type="string">438F2761-FF6A-4050-9562-C40B4A34CA11</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"AE5FE0AD-54E4-4215-95E7-2B3DDCD2DEE7"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/artwork\\/\u3c00artwork\u3e00"]</attribute>
+        <attribute name="storecookies" type="bool">1</attribute>
+        <attribute name="sendcookies" type="bool">1</attribute>
+        <attribute name="redirectmethod" type="bool">0</attribute>
+        <attribute name="redirectauthorization" type="bool">0</attribute>
+        <attribute name="method" type="string">GET</attribute>
+        <attribute name="followredirects" type="bool">0</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="order" type="int64">0</attribute>
+        <attribute name="name" type="string">Artwork Info</attribute>
+        <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z139"></relationship>
+        <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z147 z148"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z147">
+        <attribute name="value" type="string">[{"data":{"request":"150681E5-5252-42B9-BA04-2F76E3781B8B","keyPath":["access_token"],"format":0},"identifier":"com.luckymarmot.ResponseBodyPathDynamicValue"}]</attribute>
+        <attribute name="order" type="int64">3</attribute>
+        <attribute name="name" type="string">X-Access-Token</attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z146"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z148">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">4</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z146"></relationship>
+    </object>
+</database>

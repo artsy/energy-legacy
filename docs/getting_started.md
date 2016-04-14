@@ -23,7 +23,7 @@ Finally open `Artsy Folio.xcworkspace` and hit Command-R to build and run in the
 
 Running Tests
 ---------------
-You need to be on an iPad Retina at iOS 8.1 in order to run the tests. Press cmd + u in Xcode.
+You need to be on an iPad Retina at iOS 8.3 in order to run the tests. Press cmd + u in Xcode.
 
 
 Use your `.energy` file
