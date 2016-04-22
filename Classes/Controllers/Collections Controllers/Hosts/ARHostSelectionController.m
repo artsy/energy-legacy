@@ -161,7 +161,6 @@
     }
 
     [selectAllButton setTitle:selectAllText forState:UIControlStateNormal];
-    [selectAllButton sizeToFit];
     [self updateTitleWithCount:selectedObjects.count];
 }
 
