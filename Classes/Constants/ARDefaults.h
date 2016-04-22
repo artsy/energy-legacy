@@ -38,5 +38,5 @@ extern NSString *const ARRecommendSync;
 
 
 @interface ARDefaults : NSObject
-+ (void)registerDefaults;
++ (void)registerDefaults:(NSUserDefaults *)defaults context:(NSManagedObjectContext *)context;
 @end

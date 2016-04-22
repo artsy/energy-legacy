@@ -1,6 +1,7 @@
 // General
 extern NSString *const ARFeedErrorKey;
 extern NSString *const ARHerokuErrorKey;
+extern NSString *const ARPartnerKey;
 
 // Auth
 extern NSString *const AROAuthTokenKey;

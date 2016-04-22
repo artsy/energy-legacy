@@ -60,7 +60,8 @@ void uncaughtExceptionHandler(NSException *exception);
         return YES;
     }
 
-    [ARDefaults registerDefaults];
+    [ARDefaults registerDefaults:[NSUserDefaults standardUserDefaults] context:[CoreDataManager mainManagedObjectContext]];
+
     [ARLogging setup];
     [ARRouter setup];
 

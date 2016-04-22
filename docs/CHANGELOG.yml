@@ -2,6 +2,7 @@ upcoming:
   - version 2.5.1
     notes:
       - Improved sync timing algorithm by weighing it towards the timing of the last sync [orta]
+      - Ensure custom cc emails are not overwritten [orta]
       - Partner Size now is a number, not a string [orta]
       - Show a link to Artsy when a work is published in emails [orta]
       - Minor copy update on the syncVC [orta]
