@@ -1,7 +1,6 @@
 @class Document, ARAlbumEditNavigationController, ARManagedObject, JLRoutes;
 
 
-
 @interface ARSwitchBoard : NSObject
 
 /// A default switchboard that uses the main managed object context, and the ARNavigation rootController
@@ -37,8 +36,8 @@
 /// Sets up the navigation controller stack to be the RootVC then an AlbumVC
 - (void)jumpToAlbumViewController:(Album *)album animated:(BOOL)animates;
 
-/// Adds a DocumentVC to the navigation controller
-- (void)pushDocumentsView:(Document *)document animated:(BOOL)animates;
+/// Adds a set of views for documents to the navigation controller
+- (void)pushDocumentSet:(NSArray<Document *> *)documents index:(NSInteger)index animated:(BOOL)animates;
 
 /// Adds a set of views for paging though Images to the navigation controller
 - (void)pushImageViews:(NSArray *)images index:(NSInteger)index animated:(BOOL)animates;

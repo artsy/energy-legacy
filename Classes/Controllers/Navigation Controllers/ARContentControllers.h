@@ -3,7 +3,7 @@
 #import "ARAlbumViewController.h"
 #import "ARArtworkSetViewController.h"
 #import "ARShowViewController.h"
-#import "ARDocumentPreviewViewController.h"
+#import "ARModernDocumentPreviewViewController.h"
 #import "ARTopViewController.h"
 #import "AREditAlbumViewController.h"
 #import "ARImageSetViewController.h"

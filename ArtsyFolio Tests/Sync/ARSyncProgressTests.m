@@ -14,7 +14,7 @@ describe(@"estimates", ^{
         sut.numEstimatedBytes = 100000;
         [sut downloadedNumBytes:1];
 
-        expect(sut.estimatedTimeRemaining).to.beInTheRangeOf(0, 3);
+        expect(sut.estimatedTimeRemaining).to.beInTheRangeOf(0, 5);
     });
 
     it(@"it weighs the estimate based on a last sync time", ^{
