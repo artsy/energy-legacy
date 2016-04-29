@@ -38,8 +38,6 @@ const struct PartnerRelationships PartnerRelationships = {
     .subscriptionPlans = @"subscriptionPlans",
 };
 
-const struct PartnerUserInfo PartnerUserInfo = {};
-
 
 @implementation PartnerID
 @end
@@ -69,7 +67,6 @@ const struct PartnerUserInfo PartnerUserInfo = {};
     return (PartnerID *)[super objectID];
 }
 
-
 @dynamic active;
 @dynamic artistDocumentsCount;
 @dynamic artistsCount;
@@ -95,7 +92,6 @@ const struct PartnerUserInfo PartnerUserInfo = {};
 @dynamic subscriptionState;
 @dynamic updatedAt;
 @dynamic website;
-
 
 @dynamic admin;
 @dynamic artworks;
@@ -124,6 +120,5 @@ const struct PartnerUserInfo PartnerUserInfo = {};
     [self didAccessValueForKey:@"subscriptionPlans"];
     return result;
 }
-
 
 @end

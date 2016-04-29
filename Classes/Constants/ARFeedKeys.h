@@ -12,6 +12,7 @@ extern NSString *const ARFeedSlugKey;
 extern NSString *const ARFeedTitleKey;
 extern NSString *const ARFeedDisplayTitleKey;
 extern NSString *const ARFeedArtistKey;
+extern NSString *const ARFeedArtistsKey;
 extern NSString *const ARFeedNameKey;
 extern NSString *const ARFeedCategoryKey;
 extern NSString *const ARFeedMediumKey;

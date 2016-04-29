@@ -56,7 +56,7 @@ describe(@"when showing and hiding toggles", ^{
     });
     
     it(@"shows Hide Unpublished Works when there are both published and unpublished works", ^{
-        Artwork *publishedArtwork = genericArtworkInContext(context);
+        genericArtworkInContext(context);
         
         Artwork *unpublishedArtwork = genericArtworkInContext(context);
         unpublishedArtwork.isPublished = @(NO);
@@ -72,8 +72,7 @@ describe(@"when showing and hiding toggles", ^{
     });
     
     it(@"doesn't show Hide Unpublished Works when there are only published works", ^{
-        Artwork *publishedArtwork = genericArtworkInContext(context);
-        
+        genericArtworkInContext(context);
         expect(numberOfRowsIn(subject)).to.equal(2);
     });
 
@@ -141,7 +140,7 @@ describe(@"setting defaults", ^{
 describe(@"selecting an artwork filtering cell", ^{
     
     it(@"posts a notification if presentation mode is on", ^{
-        Artwork *artwork1 = genericArtworkInContext(context);
+        genericArtworkInContext(context);
         Artwork *artwork2 = genericArtworkInContext(context);
         artwork2.isAvailableForSale = @(NO);
         
@@ -156,7 +155,7 @@ describe(@"selecting an artwork filtering cell", ^{
     });
     
     it(@"does not post a notification if presentation mode is off", ^{
-        Artwork *artwork1 = genericArtworkInContext(context);
+        genericArtworkInContext(context);
         Artwork *artwork2 = genericArtworkInContext(context);
         artwork2.isPublished = @(NO);
         

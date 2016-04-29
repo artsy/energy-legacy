@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct EditionSetAttributes {
     __unsafe_unretained NSString *artistProofs;
     __unsafe_unretained NSString *availability;
@@ -29,13 +28,10 @@ extern const struct EditionSetRelationships {
     __unsafe_unretained NSString *artwork;
 } EditionSetRelationships;
 
-extern const struct EditionSetUserInfo {
-} EditionSetUserInfo;
-
 @class Artwork;
 
 
-@interface EditionSetID : ARManagedObjectID {
+@interface EditionSetID : NSManagedObjectID {
 }
 @end
 
@@ -67,11 +63,64 @@ extern const struct EditionSetUserInfo {
 @property (nonatomic, strong) NSDecimalNumber *width;
 @property (nonatomic, strong) Artwork *artwork;
 
-
 @end
 
 
 @interface _EditionSet (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSString *)primitiveArtistProofs;
+- (void)setPrimitiveArtistProofs:(NSString *)value;
+
+- (NSString *)primitiveAvailability;
+- (void)setPrimitiveAvailability:(NSString *)value;
+
+- (NSString *)primitiveAvailableEditions;
+- (void)setPrimitiveAvailableEditions:(NSString *)value;
+
+- (NSString *)primitiveBackendPrice;
+- (void)setPrimitiveBackendPrice:(NSString *)value;
+
+- (NSDecimalNumber *)primitiveDepth;
+- (void)setPrimitiveDepth:(NSDecimalNumber *)value;
+
+- (NSDecimalNumber *)primitiveDiameter;
+- (void)setPrimitiveDiameter:(NSDecimalNumber *)value;
+
+- (NSString *)primitiveDimensionsCM;
+- (void)setPrimitiveDimensionsCM:(NSString *)value;
+
+- (NSString *)primitiveDimensionsInches;
+- (void)setPrimitiveDimensionsInches:(NSString *)value;
+
+- (NSString *)primitiveDisplayPrice;
+- (void)setPrimitiveDisplayPrice:(NSString *)value;
+
+- (NSString *)primitiveDuration;
+- (void)setPrimitiveDuration:(NSString *)value;
+
+- (NSString *)primitiveEditionSize;
+- (void)setPrimitiveEditionSize:(NSString *)value;
+
+- (NSString *)primitiveEditions;
+- (void)setPrimitiveEditions:(NSString *)value;
+
+- (NSDecimalNumber *)primitiveHeight;
+- (void)setPrimitiveHeight:(NSDecimalNumber *)value;
+
+- (NSNumber *)primitiveIsAvailableForSale;
+- (void)setPrimitiveIsAvailableForSale:(NSNumber *)value;
+
+- (NSNumber *)primitiveIsPriceHidden;
+- (void)setPrimitiveIsPriceHidden:(NSNumber *)value;
+
+- (NSString *)primitivePrototypes;
+- (void)setPrimitivePrototypes:(NSString *)value;
+
+- (NSString *)primitiveSlug;
+- (void)setPrimitiveSlug:(NSString *)value;
+
+- (NSDecimalNumber *)primitiveWidth;
+- (void)setPrimitiveWidth:(NSDecimalNumber *)value;
 
 - (Artwork *)primitiveArtwork;
 - (void)setPrimitiveArtwork:(Artwork *)value;

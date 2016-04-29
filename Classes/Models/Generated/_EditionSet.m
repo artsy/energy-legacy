@@ -28,8 +28,6 @@ const struct EditionSetRelationships EditionSetRelationships = {
     .artwork = @"artwork",
 };
 
-const struct EditionSetUserInfo EditionSetUserInfo = {};
-
 
 @implementation EditionSetID
 @end
@@ -59,7 +57,6 @@ const struct EditionSetUserInfo EditionSetUserInfo = {};
     return (EditionSetID *)[super objectID];
 }
 
-
 @dynamic artistProofs;
 @dynamic availability;
 @dynamic availableEditions;
@@ -79,8 +76,6 @@ const struct EditionSetUserInfo EditionSetUserInfo = {};
 @dynamic slug;
 @dynamic width;
 
-
 @dynamic artwork;
-
 
 @end

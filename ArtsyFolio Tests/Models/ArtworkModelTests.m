@@ -46,6 +46,15 @@ describe(@"json parsing", ^{
         expect(artwork2.width).to.equal(convertedWidth);
     });
 
+    it(@"correctly handles multiple artists", ^{
+        Artwork *artwork = [Artwork modelFromJSON:@{
+             @"id" : @"ok",
+             @"artists": @[ @{@"id" : @"one"}, @{@"id" : @"two"} ]
+         } inContext:context];
+        expect(artwork.artistsSet.count).to.equal(2);
+    });
+
+
 });
 
 SpecEnd

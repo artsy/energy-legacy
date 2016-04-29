@@ -25,8 +25,6 @@ const struct ShowRelationships ShowRelationships = {
     .location = @"location",
 };
 
-const struct ShowUserInfo ShowUserInfo = {};
-
 
 @implementation ShowID
 @end
@@ -56,7 +54,6 @@ const struct ShowUserInfo ShowUserInfo = {};
     return (ShowID *)[super objectID];
 }
 
-
 @dynamic availabilityPeriod;
 @dynamic createdAt;
 @dynamic endsAt;
@@ -67,7 +64,6 @@ const struct ShowUserInfo ShowUserInfo = {};
 @dynamic startsAt;
 @dynamic status;
 @dynamic updatedAt;
-
 
 @dynamic artists;
 - (NSMutableSet *)artistsSet
@@ -107,6 +103,5 @@ const struct ShowUserInfo ShowUserInfo = {};
 }
 
 @dynamic location;
-
 
 @end

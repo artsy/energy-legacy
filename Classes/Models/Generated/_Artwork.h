@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct ArtworkAttributes {
     __unsafe_unretained NSString *availability;
     __unsafe_unretained NSString *backendPrice;
@@ -39,6 +38,7 @@ extern const struct ArtworkAttributes {
 
 extern const struct ArtworkRelationships {
     __unsafe_unretained NSString *artist;
+    __unsafe_unretained NSString *artists;
     __unsafe_unretained NSString *collections;
     __unsafe_unretained NSString *editionSets;
     __unsafe_unretained NSString *images;
@@ -50,9 +50,7 @@ extern const struct ArtworkRelationships {
     __unsafe_unretained NSString *shows;
 } ArtworkRelationships;
 
-extern const struct ArtworkUserInfo {
-} ArtworkUserInfo;
-
+@class Artist;
 @class Artist;
 @class Album;
 @class EditionSet;
@@ -65,7 +63,7 @@ extern const struct ArtworkUserInfo {
 @class Show;
 
 
-@interface ArtworkID : ARManagedObjectID {
+@interface ArtworkID : NSManagedObjectID {
 }
 @end
 
@@ -109,6 +107,9 @@ extern const struct ArtworkUserInfo {
 @property (nonatomic, strong) NSDecimalNumber *width;
 @property (nonatomic, strong) Artist *artist;
 
+@property (nonatomic, strong) NSSet *artists;
+- (NSMutableSet *)artistsSet;
+
 @property (nonatomic, strong) NSSet *collections;
 - (NSMutableSet *)collectionsSet;
 
@@ -130,7 +131,14 @@ extern const struct ArtworkUserInfo {
 @property (nonatomic, strong) NSSet *shows;
 - (NSMutableSet *)showsSet;
 
+@end
 
+
+@interface _Artwork (ArtistsCoreDataGeneratedAccessors)
+- (void)addArtists:(NSSet *)value_;
+- (void)removeArtists:(NSSet *)value_;
+- (void)addArtistsObject:(Artist *)value_;
+- (void)removeArtistsObject:(Artist *)value_;
 @end
 
 
@@ -184,8 +192,101 @@ extern const struct ArtworkUserInfo {
 
 @interface _Artwork (CoreDataGeneratedPrimitiveAccessors)
 
+- (NSString *)primitiveAvailability;
+- (void)setPrimitiveAvailability:(NSString *)value;
+
+- (NSString *)primitiveBackendPrice;
+- (void)setPrimitiveBackendPrice:(NSString *)value;
+
+- (NSString *)primitiveCategory;
+- (void)setPrimitiveCategory:(NSString *)value;
+
+- (NSString *)primitiveConfidentialNotes;
+- (void)setPrimitiveConfidentialNotes:(NSString *)value;
+
+- (NSDate *)primitiveCreatedAt;
+- (void)setPrimitiveCreatedAt:(NSDate *)value;
+
+- (NSString *)primitiveDate;
+- (void)setPrimitiveDate:(NSString *)value;
+
+- (NSDecimalNumber *)primitiveDepth;
+- (void)setPrimitiveDepth:(NSDecimalNumber *)value;
+
+- (NSDecimalNumber *)primitiveDiameter;
+- (void)setPrimitiveDiameter:(NSDecimalNumber *)value;
+
+- (NSString *)primitiveDimensionsCM;
+- (void)setPrimitiveDimensionsCM:(NSString *)value;
+
+- (NSString *)primitiveDimensionsInches;
+- (void)setPrimitiveDimensionsInches:(NSString *)value;
+
+- (NSString *)primitiveDisplayPrice;
+- (void)setPrimitiveDisplayPrice:(NSString *)value;
+
+- (NSString *)primitiveDisplayTitle;
+- (void)setPrimitiveDisplayTitle:(NSString *)value;
+
+- (NSString *)primitiveEditions;
+- (void)setPrimitiveEditions:(NSString *)value;
+
+- (NSString *)primitiveExhibitionHistory;
+- (void)setPrimitiveExhibitionHistory:(NSString *)value;
+
+- (NSDecimalNumber *)primitiveHeight;
+- (void)setPrimitiveHeight:(NSDecimalNumber *)value;
+
+- (NSString *)primitiveImageRights;
+- (void)setPrimitiveImageRights:(NSString *)value;
+
+- (NSString *)primitiveInfo;
+- (void)setPrimitiveInfo:(NSString *)value;
+
+- (NSString *)primitiveInventoryID;
+- (void)setPrimitiveInventoryID:(NSString *)value;
+
+- (NSNumber *)primitiveIsAvailableForSale;
+- (void)setPrimitiveIsAvailableForSale:(NSNumber *)value;
+
+- (NSNumber *)primitiveIsPriceHidden;
+- (void)setPrimitiveIsPriceHidden:(NSNumber *)value;
+
+- (NSNumber *)primitiveIsPublished;
+- (void)setPrimitiveIsPublished:(NSNumber *)value;
+
+- (NSString *)primitiveLiterature;
+- (void)setPrimitiveLiterature:(NSString *)value;
+
+- (NSString *)primitiveMedium;
+- (void)setPrimitiveMedium:(NSString *)value;
+
+- (NSString *)primitiveProvenance;
+- (void)setPrimitiveProvenance:(NSString *)value;
+
+- (NSString *)primitiveSeries;
+- (void)setPrimitiveSeries:(NSString *)value;
+
+- (NSString *)primitiveSignature;
+- (void)setPrimitiveSignature:(NSString *)value;
+
+- (NSString *)primitiveSlug;
+- (void)setPrimitiveSlug:(NSString *)value;
+
+- (NSString *)primitiveTitle;
+- (void)setPrimitiveTitle:(NSString *)value;
+
+- (NSDate *)primitiveUpdatedAt;
+- (void)setPrimitiveUpdatedAt:(NSDate *)value;
+
+- (NSDecimalNumber *)primitiveWidth;
+- (void)setPrimitiveWidth:(NSDecimalNumber *)value;
+
 - (Artist *)primitiveArtist;
 - (void)setPrimitiveArtist:(Artist *)value;
+
+- (NSMutableSet *)primitiveArtists;
+- (void)setPrimitiveArtists:(NSMutableSet *)value;
 
 - (NSMutableSet *)primitiveCollections;
 - (void)setPrimitiveCollections:(NSMutableSet *)value;

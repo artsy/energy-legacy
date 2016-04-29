@@ -23,8 +23,6 @@ const struct AlbumRelationships AlbumRelationships = {
     .documents = @"documents",
 };
 
-const struct AlbumUserInfo AlbumUserInfo = {};
-
 
 @implementation AlbumID
 @end
@@ -54,7 +52,6 @@ const struct AlbumUserInfo AlbumUserInfo = {};
     return (AlbumID *)[super objectID];
 }
 
-
 @dynamic createdAt;
 @dynamic editable;
 @dynamic hasBeenEdited;
@@ -65,7 +62,6 @@ const struct AlbumUserInfo AlbumUserInfo = {};
 @dynamic summary;
 @dynamic type;
 @dynamic updatedAt;
-
 
 @dynamic artists;
 - (NSMutableSet *)artistsSet
@@ -94,6 +90,5 @@ const struct AlbumUserInfo AlbumUserInfo = {};
     [self didAccessValueForKey:@"documents"];
     return result;
 }
-
 
 @end

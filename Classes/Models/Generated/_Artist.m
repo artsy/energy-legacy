@@ -33,8 +33,6 @@ const struct ArtistRelationships ArtistRelationships = {
     .showsFeaturingArtist = @"showsFeaturingArtist",
 };
 
-const struct ArtistUserInfo ArtistUserInfo = {};
-
 
 @implementation ArtistID
 @end
@@ -64,7 +62,6 @@ const struct ArtistUserInfo ArtistUserInfo = {};
     return (ArtistID *)[super objectID];
 }
 
-
 @dynamic awards;
 @dynamic biography;
 @dynamic blurb;
@@ -83,7 +80,6 @@ const struct ArtistUserInfo ArtistUserInfo = {};
 @dynamic thumbnailBaseURL;
 @dynamic updatedAt;
 @dynamic years;
-
 
 @dynamic albumsFeaturingArtist;
 - (NSMutableSet *)albumsFeaturingArtistSet
@@ -122,6 +118,5 @@ const struct ArtistUserInfo ArtistUserInfo = {};
     [self didAccessValueForKey:@"showsFeaturingArtist"];
     return result;
 }
-
 
 @end

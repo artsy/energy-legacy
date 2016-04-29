@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="2.5" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="2.5.1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
     <entity name="Album" representedClassName="Album" elementID="Collection">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="editable" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
@@ -127,6 +127,7 @@
         <relationship name="artist" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Artist" inverseName="artworks" inverseEntity="Artist">
             <userInfo/>
         </relationship>
+        <relationship name="artists" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Artist" syncable="YES"/>
         <relationship name="collections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Album" inverseName="artworks" inverseEntity="Album">
             <userInfo/>
         </relationship>
@@ -313,7 +314,7 @@
         <element name="Album" positionX="0" positionY="0" width="128" height="255"/>
         <element name="Artist" positionX="0" positionY="0" width="128" height="405"/>
         <element name="ArtistDocument" positionX="0" positionY="0" width="128" height="45"/>
-        <element name="Artwork" positionX="0" positionY="0" width="128" height="645"/>
+        <element name="Artwork" positionX="0" positionY="0" width="128" height="660"/>
         <element name="Document" positionX="0" positionY="0" width="128" height="210"/>
         <element name="EditionSet" positionX="27" positionY="162" width="128" height="330"/>
         <element name="Image" positionX="0" positionY="0" width="128" height="360"/>

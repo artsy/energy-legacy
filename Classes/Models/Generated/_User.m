@@ -14,8 +14,6 @@ const struct UserRelationships UserRelationships = {
     .adminForPartner = @"adminForPartner",
 };
 
-const struct UserUserInfo UserUserInfo = {};
-
 
 @implementation UserID
 @end
@@ -45,14 +43,11 @@ const struct UserUserInfo UserUserInfo = {};
     return (UserID *)[super objectID];
 }
 
-
 @dynamic email;
 @dynamic name;
 @dynamic slug;
 @dynamic type;
 
-
 @dynamic adminForPartner;
-
 
 @end

@@ -147,8 +147,11 @@ describe(@"tapping a results sends the right message to the delegate", ^{
 
     __block NSIndexPath *zeroPath;
     __block OCMockObject *delegateMock;
+    __block UITableView *tableView;
+
 
     before(^{
+        tableView = [[UITableView alloc] init];
         delegateMock = [OCMockObject mockForProtocol:@protocol(ARSearchViewControllerDelegate)];
         sut.delegate = (id)delegateMock;
         zeroPath= [NSIndexPath indexPathForRow:0 inSection:0];
@@ -163,7 +166,7 @@ describe(@"tapping a results sends the right message to the delegate", ^{
         [[delegateMock expect] searchViewController:sut didSelectArtwork:artwork];
 
         [sut performSearchForText:@"hi"];
-        [sut tableView:nil didSelectRowAtIndexPath:zeroPath];
+        [sut tableView:tableView didSelectRowAtIndexPath:zeroPath];
 
         expect(^{ [delegateMock verify]; }).toNot.raiseAny();
     });
@@ -175,7 +178,7 @@ describe(@"tapping a results sends the right message to the delegate", ^{
         [[delegateMock expect] searchViewController:sut didSelectArtist:artist];
 
         [sut performSearchForText:@"he"];
-        [sut tableView:nil didSelectRowAtIndexPath:zeroPath];
+        [sut tableView:tableView didSelectRowAtIndexPath:zeroPath];
 
         expect(^{ [delegateMock verify]; }).toNot.raiseAny();
     });
@@ -187,7 +190,7 @@ describe(@"tapping a results sends the right message to the delegate", ^{
         [[delegateMock expect] searchViewController:sut didSelectShow:show];
 
         [sut performSearchForText:@"its"];
-        [sut tableView:nil didSelectRowAtIndexPath:zeroPath];
+        [sut tableView:tableView didSelectRowAtIndexPath:zeroPath];
 
         expect(^{ [delegateMock verify]; }).toNot.raiseAny();
     });
@@ -199,7 +202,7 @@ describe(@"tapping a results sends the right message to the delegate", ^{
         [[delegateMock expect] searchViewController:sut didSelectLocation:location];
 
         [sut performSearchForText:@"its"];
-        [sut tableView:nil didSelectRowAtIndexPath:zeroPath];
+        [sut tableView:tableView didSelectRowAtIndexPath:zeroPath];
 
         expect(^{ [delegateMock verify]; }).toNot.raiseAny();
     });
@@ -211,7 +214,7 @@ describe(@"tapping a results sends the right message to the delegate", ^{
         [[delegateMock expect] searchViewController:sut didSelectAlbum:album];
 
         [sut performSearchForText:@"its"];
-        [sut tableView:nil didSelectRowAtIndexPath:zeroPath];
+        [sut tableView:tableView didSelectRowAtIndexPath:zeroPath];
 
         expect(^{ [delegateMock verify]; }).toNot.raiseAny();
     });

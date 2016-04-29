@@ -17,8 +17,6 @@ const struct SyncLogRelationships SyncLogRelationships = {
     .syncErrors = @"syncErrors",
 };
 
-const struct SyncLogUserInfo SyncLogUserInfo = {};
-
 
 @implementation SyncLogID
 @end
@@ -48,7 +46,6 @@ const struct SyncLogUserInfo SyncLogUserInfo = {};
     return (SyncLogID *)[super objectID];
 }
 
-
 @dynamic albumsDelta;
 @dynamic artworkDelta;
 @dynamic dateStarted;
@@ -57,8 +54,6 @@ const struct SyncLogUserInfo SyncLogUserInfo = {};
 @dynamic timeToCompletion;
 @dynamic totalDownloaded;
 
-
 @dynamic syncErrors;
-
 
 @end

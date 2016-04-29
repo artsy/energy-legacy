@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct SubscriptionPlanAttributes {
     __unsafe_unretained NSString *name;
 } SubscriptionPlanAttributes;
@@ -12,13 +11,10 @@ extern const struct SubscriptionPlanRelationships {
     __unsafe_unretained NSString *subscriptionForPartner;
 } SubscriptionPlanRelationships;
 
-extern const struct SubscriptionPlanUserInfo {
-} SubscriptionPlanUserInfo;
-
 @class Partner;
 
 
-@interface SubscriptionPlanID : ARManagedObjectID {
+@interface SubscriptionPlanID : NSManagedObjectID {
 }
 @end
 
@@ -33,11 +29,13 @@ extern const struct SubscriptionPlanUserInfo {
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) Partner *subscriptionForPartner;
 
-
 @end
 
 
 @interface _SubscriptionPlan (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSString *)primitiveName;
+- (void)setPrimitiveName:(NSString *)value;
 
 - (Partner *)primitiveSubscriptionForPartner;
 - (void)setPrimitiveSubscriptionForPartner:(Partner *)value;

@@ -59,7 +59,7 @@ SpecEnd
     // Set the persistent store to be the fixture data
     if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
         NSLog(@"Error creating persistant store: %@", error.localizedDescription);
-        @throw @"Bad store";
+        @throw @"Bad persistant store, e.g. fixture data?";
         return nil;
     }
 

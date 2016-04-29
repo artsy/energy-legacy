@@ -30,8 +30,6 @@ const struct ImageRelationships ImageRelationships = {
     .mainImageForArtwork = @"mainImageForArtwork",
 };
 
-const struct ImageUserInfo ImageUserInfo = {};
-
 
 @implementation ImageID
 @end
@@ -61,7 +59,6 @@ const struct ImageUserInfo ImageUserInfo = {};
     return (ImageID *)[super objectID];
 }
 
-
 @dynamic aspectRatio;
 @dynamic baseURL;
 @dynamic isMainImage;
@@ -77,7 +74,6 @@ const struct ImageUserInfo ImageUserInfo = {};
 @dynamic tileOverlap;
 @dynamic tileSize;
 
-
 @dynamic artistsInImage;
 @dynamic artwork;
 @dynamic artworksInImage;
@@ -85,6 +81,5 @@ const struct ImageUserInfo ImageUserInfo = {};
 @dynamic coverForArtist;
 @dynamic coverForShow;
 @dynamic mainImageForArtwork;
-
 
 @end

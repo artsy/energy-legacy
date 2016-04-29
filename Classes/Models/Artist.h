@@ -26,4 +26,8 @@
 
 - (NSFetchRequest *)albumsFeaturingArtistFetchRequest;
 
+/// Sets up a default artist for ambiguous works with no artists,
+/// in the future this should take into account cultural markers
++ (Artist *)findOrCreateUnknownArtistInContext:(NSManagedObjectContext *)context;
+
 @end

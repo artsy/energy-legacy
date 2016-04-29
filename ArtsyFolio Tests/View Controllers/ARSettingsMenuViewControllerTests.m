@@ -15,9 +15,7 @@ ARSettingsMenuViewModel *viewModelWithDefaultsAndContext(NSDictionary *defaults,
 SpecBegin(ARSettingsMenuViewController);
 
 __block ARSettingsMenuViewController *subject;
-__block ARSettingsMenuViewModel *viewModel;
 __block UIStoryboard *storyboard;
-__block ForgeriesUserDefaults *defaults;
 __block NSManagedObjectContext *context;
 
 beforeAll(^{
@@ -27,7 +25,7 @@ beforeAll(^{
 beforeEach(^{
     subject = [storyboard instantiateViewControllerWithIdentifier:SettingsMasterViewController];
     context = [CoreDataManager stubbedManagedObjectContext];
-    Partner *partner = [Partner createInContext:context];
+    [Partner createInContext:context];
 });
 
 describe(@"visuals", ^{

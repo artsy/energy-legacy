@@ -1239,8 +1239,8 @@
 		60C777571B0E280D00BEFA97 /* ARInitialViewControllerSetupCoordinatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARInitialViewControllerSetupCoordinatorSpec.m; sourceTree = "<group>"; };
 		60C88856162B64F2003C8A80 /* Artwork+HTMLTexts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Artwork+HTMLTexts.h"; sourceTree = "<group>"; };
 		60C88857162B64F2003C8A80 /* Artwork+HTMLTexts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Artwork+HTMLTexts.m"; sourceTree = "<group>"; };
-		60C939331C7D39DA0010136C /* ArtsyFolio v2.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.5.xcdatamodel"; sourceTree = "<group>"; };
 		60C9392A1C7D2B2E0010136C /* ARSyncProgressTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncProgressTests.m; sourceTree = "<group>"; };
+		60C939331C7D39DA0010136C /* ArtsyFolio v2.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.5.xcdatamodel"; sourceTree = "<group>"; };
 		60D11C0A161C8B290009E68A /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		60D155DB14A3D903006ED291 /* SenTestingKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		60D1A8EB15C29F9C005A9FAB /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
@@ -1254,6 +1254,7 @@
 		60D211101AE1721900EA091C /* ARArtworkContainerCoverDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARArtworkContainerCoverDataSource.h; sourceTree = "<group>"; };
 		60D211111AE1721900EA091C /* ARArtworkContainerCoverDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtworkContainerCoverDataSource.m; sourceTree = "<group>"; };
 		60D264A715E78AC1001A192D /* ARArtworkContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARArtworkContainer.h; sourceTree = "<group>"; };
+		60D39AE41CD39AEB00719AEE /* ArtsyFolio v2.5.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.5.1.xcdatamodel"; sourceTree = "<group>"; };
 		60D46F5618E0CC4C00DA225B /* ARSyncDeleterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncDeleterTests.m; sourceTree = "<group>"; };
 		60D4D719198FD558001AB8AF /* ARAppDelegate+DevTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ARAppDelegate+DevTools.h"; path = "../ARAppDelegate+DevTools.h"; sourceTree = "<group>"; };
 		60D4D71A198FD558001AB8AF /* ARAppDelegate+DevTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ARAppDelegate+DevTools.m"; path = "../ARAppDelegate+DevTools.m"; sourceTree = "<group>"; };
@@ -4676,6 +4677,7 @@
 		60118682174D084700B878A1 /* ArtsyPartner.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				60D39AE41CD39AEB00719AEE /* ArtsyFolio v2.5.1.xcdatamodel */,
 				60C939331C7D39DA0010136C /* ArtsyFolio v2.5.xcdatamodel */,
 				839B59751B4D955900F24033 /* ArtsyFolio v2.4.xcdatamodel */,
 				8343B7BC1B4C5667005790A9 /* ArtsyFolio v2.3.xcdatamodel */,
@@ -4691,7 +4693,7 @@
 				60118687174D084700B878A1 /* ArtsyPartner 5.xcdatamodel */,
 				60118688174D084700B878A1 /* ArtsyPartner.xcdatamodel */,
 			);
-			currentVersion = 60C939331C7D39DA0010136C /* ArtsyFolio v2.5.xcdatamodel */;
+			currentVersion = 60D39AE41CD39AEB00719AEE /* ArtsyFolio v2.5.1.xcdatamodel */;
 			path = ArtsyPartner.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

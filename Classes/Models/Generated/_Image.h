@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct ImageAttributes {
     __unsafe_unretained NSString *aspectRatio;
     __unsafe_unretained NSString *baseURL;
@@ -31,9 +30,6 @@ extern const struct ImageRelationships {
     __unsafe_unretained NSString *mainImageForArtwork;
 } ImageRelationships;
 
-extern const struct ImageUserInfo {
-} ImageUserInfo;
-
 @class Artist;
 @class Artwork;
 @class Artwork;
@@ -43,7 +39,7 @@ extern const struct ImageUserInfo {
 @class Artwork;
 
 
-@interface ImageID : ARManagedObjectID {
+@interface ImageID : NSManagedObjectID {
 }
 @end
 
@@ -77,11 +73,52 @@ extern const struct ImageUserInfo {
 @property (nonatomic, strong) Show *coverForShow;
 @property (nonatomic, strong) Artwork *mainImageForArtwork;
 
-
 @end
 
 
 @interface _Image (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSNumber *)primitiveAspectRatio;
+- (void)setPrimitiveAspectRatio:(NSNumber *)value;
+
+- (NSString *)primitiveBaseURL;
+- (void)setPrimitiveBaseURL:(NSString *)value;
+
+- (NSNumber *)primitiveIsMainImage;
+- (void)setPrimitiveIsMainImage:(NSNumber *)value;
+
+- (NSNumber *)primitiveMaxTiledHeight;
+- (void)setPrimitiveMaxTiledHeight:(NSNumber *)value;
+
+- (NSNumber *)primitiveMaxTiledWidth;
+- (void)setPrimitiveMaxTiledWidth:(NSNumber *)value;
+
+- (NSNumber *)primitiveOriginalHeight;
+- (void)setPrimitiveOriginalHeight:(NSNumber *)value;
+
+- (NSNumber *)primitiveOriginalWidth;
+- (void)setPrimitiveOriginalWidth:(NSNumber *)value;
+
+- (NSNumber *)primitivePosition;
+- (void)setPrimitivePosition:(NSNumber *)value;
+
+- (NSNumber *)primitiveProcessing;
+- (void)setPrimitiveProcessing:(NSNumber *)value;
+
+- (NSString *)primitiveSlug;
+- (void)setPrimitiveSlug:(NSString *)value;
+
+- (NSString *)primitiveTileBaseUrl;
+- (void)setPrimitiveTileBaseUrl:(NSString *)value;
+
+- (NSString *)primitiveTileFormat;
+- (void)setPrimitiveTileFormat:(NSString *)value;
+
+- (NSNumber *)primitiveTileOverlap;
+- (void)setPrimitiveTileOverlap:(NSNumber *)value;
+
+- (NSNumber *)primitiveTileSize;
+- (void)setPrimitiveTileSize:(NSNumber *)value;
 
 - (Artist *)primitiveArtistsInImage;
 - (void)setPrimitiveArtistsInImage:(Artist *)value;

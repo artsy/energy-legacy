@@ -38,6 +38,7 @@ const struct ArtworkAttributes ArtworkAttributes = {
 
 const struct ArtworkRelationships ArtworkRelationships = {
     .artist = @"artist",
+    .artists = @"artists",
     .collections = @"collections",
     .editionSets = @"editionSets",
     .images = @"images",
@@ -48,8 +49,6 @@ const struct ArtworkRelationships ArtworkRelationships = {
     .partner = @"partner",
     .shows = @"shows",
 };
-
-const struct ArtworkUserInfo ArtworkUserInfo = {};
 
 
 @implementation ArtworkID
@@ -79,7 +78,6 @@ const struct ArtworkUserInfo ArtworkUserInfo = {};
 {
     return (ArtworkID *)[super objectID];
 }
-
 
 @dynamic availability;
 @dynamic backendPrice;
@@ -112,8 +110,16 @@ const struct ArtworkUserInfo ArtworkUserInfo = {};
 @dynamic updatedAt;
 @dynamic width;
 
-
 @dynamic artist;
+@dynamic artists;
+- (NSMutableSet *)artistsSet
+{
+    [self willAccessValueForKey:@"artists"];
+    NSMutableSet *result = (NSMutableSet *)[self mutableSetValueForKey:@"artists"];
+    [self didAccessValueForKey:@"artists"];
+    return result;
+}
+
 @dynamic collections;
 - (NSMutableSet *)collectionsSet
 {
@@ -170,6 +176,5 @@ const struct ArtworkUserInfo ArtworkUserInfo = {};
     [self didAccessValueForKey:@"shows"];
     return result;
 }
-
 
 @end

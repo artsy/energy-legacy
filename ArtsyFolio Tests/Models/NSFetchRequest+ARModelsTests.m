@@ -111,7 +111,7 @@ describe(@"all artworks from a container", ^{
         artwork3 = [Artwork stubbedArtworkWithImages:YES inContext:context];
         artist1.artworks = [NSSet setWithObjects:artwork1, artwork2, artwork3, nil];
         artist1.slug = @"danger";
-        scopePredicate = [NSPredicate predicateWithFormat:@"artist.slug == %@", artist1.slug];
+        scopePredicate = [NSPredicate predicateWithFormat:@"ANY artists.slug == %@", artist1.slug];
     });
 
     it(@"returns all artworks for an instance", ^{

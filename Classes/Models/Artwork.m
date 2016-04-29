@@ -18,6 +18,11 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
 {
     self.title = [aDictionary onlyStringForKey:ARFeedTitleKey];
 
+    if ([aDictionary onlyArrayForKey:ARFeedArtistsKey]) {
+        NSArray<Artist *> *artists = [ARFeedTranslator addOrUpdateObjects:[aDictionary onlyArrayForKey:ARFeedArtistsKey] withEntityName:@"Artist" inContext:self.managedObjectContext saving:NO];
+        self.artists = [NSSet setWithArray:artists];
+    }
+
     if ([aDictionary objectForKeyNotNull:ARFeedArtistKey]) {
         Artist *artist = (Artist *)[ARFeedTranslator addOrUpdateObject:[aDictionary onlyDictionaryForKey:ARFeedArtistKey]
                                                         withEntityName:@"Artist"
@@ -26,14 +31,7 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
         self.artist = artist;
     } else {
         // Create an unknown artist.
-        Artist *unknownArtist = [Artist findFirstByAttribute:@"slug" withValue:@"unknown-artist" inContext:self.managedObjectContext];
-        if (!unknownArtist) {
-            unknownArtist = [Artist createInContext:self.managedObjectContext];
-            unknownArtist.displayName = @"Unknown Artist";
-            unknownArtist.slug = @"unknown-artist";
-            unknownArtist.orderingKey = @"Unknown Artist";
-            unknownArtist.name = @"Unknown Artist";
-        }
+        Artist *unknownArtist = [Artist findOrCreateUnknownArtistInContext:self.managedObjectContext];
         self.artist = unknownArtist;
     }
 
@@ -285,6 +283,13 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
     }
 
     return title;
+}
+
+- (NSString *)artistDisplayString
+{
+    NSSet *artists = self.artists.count ? self.artists : [NSSet setWithObject:self.artist];
+    return [[artists map:^id(Artist *artist) { return artist.name;
+    }] join:@", "];
 }
 
 + (NSFetchedResultsController *)allArtworksInContext:(NSManagedObjectContext *)context

@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 #import "ARManagedObject.h"
-
 extern const struct DocumentAttributes {
     __unsafe_unretained NSString *filename;
     __unsafe_unretained NSString *hasFile;
@@ -21,15 +20,12 @@ extern const struct DocumentRelationships {
     __unsafe_unretained NSString *show;
 } DocumentRelationships;
 
-extern const struct DocumentUserInfo {
-} DocumentUserInfo;
-
 @class Album;
 @class Artist;
 @class Show;
 
 
-@interface DocumentID : ARManagedObjectID {
+@interface DocumentID : NSManagedObjectID {
 }
 @end
 
@@ -53,11 +49,34 @@ extern const struct DocumentUserInfo {
 @property (nonatomic, strong) Artist *artist;
 @property (nonatomic, strong) Show *show;
 
-
 @end
 
 
 @interface _Document (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSString *)primitiveFilename;
+- (void)setPrimitiveFilename:(NSString *)value;
+
+- (NSNumber *)primitiveHasFile;
+- (void)setPrimitiveHasFile:(NSNumber *)value;
+
+- (NSString *)primitiveHumanReadableSize;
+- (void)setPrimitiveHumanReadableSize:(NSString *)value;
+
+- (NSNumber *)primitiveSize;
+- (void)setPrimitiveSize:(NSNumber *)value;
+
+- (NSString *)primitiveSlug;
+- (void)setPrimitiveSlug:(NSString *)value;
+
+- (NSString *)primitiveTitle;
+- (void)setPrimitiveTitle:(NSString *)value;
+
+- (NSString *)primitiveUrl;
+- (void)setPrimitiveUrl:(NSString *)value;
+
+- (NSNumber *)primitiveVersion;
+- (void)setPrimitiveVersion:(NSNumber *)value;
 
 - (Album *)primitiveAlbum;
 - (void)setPrimitiveAlbum:(Album *)value;
