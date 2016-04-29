@@ -16,8 +16,6 @@ describe(@"resolving albums", ^{
     __block NSManagedObjectContext *context;
     __block NSInteger preAlbumCount;
     __block NSArray *allAlbums;
-
-    __block ARSync *sync;
     
     beforeAll(^{
         context = [CoreDataManager stubbedManagedObjectContext];

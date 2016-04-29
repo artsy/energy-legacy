@@ -46,15 +46,31 @@ describe(@"json parsing", ^{
         expect(artwork2.width).to.equal(convertedWidth);
     });
 
+    describe(@"artist display string", ^{
+        it(@"supports the old style 'artist'", ^{
+            Artwork *artwork = [Artwork modelFromJSON:@{
+                @"id" : @"ok",
+                @"artist": @{ @"name" : @"one" },
+            } inContext:context];
+            expect(artwork.artistDisplayString).to.equal(@"one");
+        });
+
+        it(@"supports multiple artists", ^{
+            Artwork *artwork = [Artwork modelFromJSON:@{
+                @"id" : @"ok",
+                @"artists": @[ @{@"name" : @"one"}, @{@"name" : @"two"} ]
+            } inContext:context];
+            expect(artwork.artistDisplayString).to.equal(@"one, two");
+        });
+    });
+
     it(@"correctly handles multiple artists", ^{
         Artwork *artwork = [Artwork modelFromJSON:@{
              @"id" : @"ok",
              @"artists": @[ @{@"id" : @"one"}, @{@"id" : @"two"} ]
          } inContext:context];
-        expect(artwork.artistsSet.count).to.equal(2);
+        expect(artwork.artists.count).to.equal(2);
     });
-
-
 });
 
 SpecEnd

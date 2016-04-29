@@ -29,7 +29,7 @@ NS_ENUM(NSInteger, ARDeviceType){
     BOOL isRightVersion = version.majorVersion == osVersion && version.minorVersion == minorVersion;
 
     if (!isRightVersion) {
-        @throw NSStringWithFormat(@"The tests should be run on iOS %ld.%ld, not %ld.%ld", @(osVersion), minorVersion, version.majorVersion, version.minorVersion);
+        @throw NSStringWithFormat(@"The tests should be run on iOS %@.%@, not %@.%@", @(osVersion), @(minorVersion), @(version.majorVersion), @(version.minorVersion));
     }
 
     if (![UIDevice isPad]) {
@@ -104,7 +104,7 @@ NS_ENUM(NSInteger, ARDeviceType){
     }
 }
 
-+ (void)useContext:(ARTestContextOptions)context:(void (^)(void))block;
++ (void)useContext:(ARTestContextOptions)context :(void (^)(void))block;
 {
     NSParameterAssert(block);
     [self setContext:context];

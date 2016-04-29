@@ -288,8 +288,7 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
 - (NSString *)artistDisplayString
 {
     NSSet *artists = self.artists.count ? self.artists : [NSSet setWithObject:self.artist];
-    return [[artists map:^id(Artist *artist) { return artist.name;
-    }] join:@", "];
+    return [[artists map:^id(Artist *artist) { return artist.presentableName; }] join:@", "];
 }
 
 + (NSFetchedResultsController *)allArtworksInContext:(NSManagedObjectContext *)context

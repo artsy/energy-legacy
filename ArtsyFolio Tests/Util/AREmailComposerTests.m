@@ -190,14 +190,17 @@ describe(@"with artworks > 1", ^{
 });
 
 describe(@"email html", ^{
-    __block Artist *artist;
+    __block Artist *artist, *artist2;
     __block Artwork *artwork;
     __block Image *additionalImage;
     
     beforeEach(^{
         artist = [Artist objectInContext:context];
         artist.displayName = @"Artist Name";
-        
+
+        artist2 = [Artist objectInContext:context];
+        artist2.displayName = @"Other Artist Name";
+
         artwork = [Artwork objectInContext:context];
         artwork.title = @"Artwork Name";
         artwork.artist = artist;
@@ -223,7 +226,13 @@ describe(@"email html", ^{
         composer.artworks = @[ artwork, artwork ];
         expect(composer.body).to.contain(@"the artworks we discussed");
     });
-    
+
+    it(@"handles showing multiple artist names for an artwork", ^{
+        artwork.artists = [NSSet setWithObjects:artist, artist2, nil];
+        composer.artworks = @[ artwork ];
+        expect(composer.body).to.contain(artist.displayName);
+    });
+
     it(@"converts newlines in signature to <br/>", ^{
         defaults[AREmailSignature] = @"Hello\nWorld";
         composer.artworks = @[ artwork ];
