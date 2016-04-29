@@ -57,9 +57,9 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
     NSArray *editionSetDicts = [aDictionary onlyArrayForKey:ARFeedArtworkEditionSetsKey];
     if (editionSetDicts.count) {
         NSArray *editionSets = [editionSetDicts map:^(NSDictionary *dict) {
-                EditionSet *set = [EditionSet createInContext:self.managedObjectContext];
-                [set updateWithDictionary:dict];
-                return set;
+            EditionSet *set = [EditionSet createInContext:self.managedObjectContext];
+            [set updateWithDictionary:dict];
+            return set;
         }];
 
         self.editionSets = [NSSet setWithArray:editionSets];
@@ -106,7 +106,7 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
     self.confidentialNotes = [aDictionary onlyStringForKey:ARFeedConfidentialNotesKey];
 
     if ([aDictionary[ARFeedArtworkEditionSetsKey] count]) {
-        self.editions = [aDictionary[ARFeedArtworkEditionSetsKey][0] onlyStringForKey:ARFeedArtworkEditionsKey];
+        _self.editions = [aDictionartworkary[ARFeedArtworkEditionSetsKey][0] onlyStringForKey:ARFeedArtworkEditionsKey];
     }
 }
 
@@ -288,7 +288,9 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
 - (NSString *)artistDisplayString
 {
     NSSet *artists = self.artists.count ? self.artists : [NSSet setWithObject:self.artist];
-    return [[artists map:^id(Artist *artist) { return artist.presentableName; }] join:@", "];
+    return [[artists map:^id(Artist *artist) {
+        return artist.presentableName;
+    }] join:@", "];
 }
 
 + (NSFetchedResultsController *)allArtworksInContext:(NSManagedObjectContext *)context

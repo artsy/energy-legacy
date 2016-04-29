@@ -3,17 +3,6 @@
 
 #import "_User.h"
 
-const struct UserAttributes UserAttributes = {
-    .email = @"email",
-    .name = @"name",
-    .slug = @"slug",
-    .type = @"type",
-};
-
-const struct UserRelationships UserRelationships = {
-    .adminForPartner = @"adminForPartner",
-};
-
 
 @implementation UserID
 @end
@@ -21,7 +10,7 @@ const struct UserRelationships UserRelationships = {
 
 @implementation _User
 
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
 {
     NSParameterAssert(moc_);
     return [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:moc_];
@@ -43,11 +32,49 @@ const struct UserRelationships UserRelationships = {
     return (UserID *)[super objectID];
 }
 
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
+
+    return keyPaths;
+}
+
 @dynamic email;
+
 @dynamic name;
+
 @dynamic slug;
+
 @dynamic type;
 
 @dynamic adminForPartner;
 
+@end
+
+
+@implementation UserAttributes
++ (NSString *)email
+{
+    return @"email";
+}
++ (NSString *)name
+{
+    return @"name";
+}
++ (NSString *)slug
+{
+    return @"slug";
+}
++ (NSString *)type
+{
+    return @"type";
+}
+@end
+
+
+@implementation UserRelationships
++ (NSString *)adminForPartner
+{
+    return @"adminForPartner";
+}
 @end

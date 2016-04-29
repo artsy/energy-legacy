@@ -1,35 +1,38 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
 // Make changes to SyncError.h instead.
 
+#if __has_feature(modules)
+@import Foundation;
+@import CoreData;
+#else
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "ARManagedObject.h"
-extern const struct SyncErrorAttributes {
-    __unsafe_unretained NSString *body;
-    __unsafe_unretained NSString *errorType;
-} SyncErrorAttributes;
+#endif
 
-extern const struct SyncErrorRelationships {
-    __unsafe_unretained NSString *syncLog;
-} SyncErrorRelationships;
+#import "ARManagedObject.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @class SyncLog;
 
 
-@interface SyncErrorID : NSManagedObjectID {
+@interface SyncErrorID : NSManagedObjectID
+{
 }
 @end
 
 
-@interface _SyncError : ARManagedObject {
-}
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
+@interface _SyncError : ARManagedObject
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-- (SyncErrorID *)objectID;
+@property (nonatomic, readonly, strong) SyncErrorID *objectID;
 
-@property (nonatomic, strong) NSString *body;
-@property (nonatomic, strong) NSString *errorType;
-@property (nonatomic, strong) SyncLog *syncLog;
+@property (nonatomic, strong, nullable) NSString *body;
+
+@property (nonatomic, strong, nullable) NSString *errorType;
+
+@property (nonatomic, strong, nullable) SyncLog *syncLog;
 
 @end
 
@@ -46,3 +49,16 @@ extern const struct SyncErrorRelationships {
 - (void)setPrimitiveSyncLog:(SyncLog *)value;
 
 @end
+
+
+@interface SyncErrorAttributes : NSObject
++ (NSString *)body;
++ (NSString *)errorType;
+@end
+
+
+@interface SyncErrorRelationships : NSObject
++ (NSString *)syncLog;
+@end
+
+NS_ASSUME_NONNULL_END
