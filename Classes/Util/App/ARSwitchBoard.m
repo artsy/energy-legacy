@@ -162,9 +162,9 @@
     [self.navigationController pushViewController:controller animated:animates];
 }
 
-- (void)pushDocumentsView:(Document *)document animated:(BOOL)animates
+- (void)pushDocumentSet:(NSArray<Document *> *)documents index:(NSInteger)index animated:(BOOL)animates
 {
-    ARDocumentPreviewViewController *previewer = [[ARDocumentPreviewViewController alloc] initWithDocument:document];
+    ARModernDocumentPreviewViewController *previewer = [[ARModernDocumentPreviewViewController alloc] initWithDocumentSet:documents index:index];
     [self.navigationController pushViewController:previewer animated:animates];
 }
 

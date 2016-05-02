@@ -71,13 +71,6 @@
 
 - (void)addSubview:(UIView *)view
 {
-    if (_suppressAddingAppleNavButtons) {
-        if (CGRectGetHeight(view.bounds) == 30) {
-            view.alpha = 0;
-            view.hidden = YES;
-        }
-    }
-
     [super addSubview:view];
 
     // This fixes the custom back button background not showing

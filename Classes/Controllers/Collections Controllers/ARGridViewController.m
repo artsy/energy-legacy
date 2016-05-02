@@ -124,7 +124,8 @@
             break;
 
         case ARDisplayModeDocuments: {
-            [switchboard pushDocumentsView:(Document *)item animated:YES];
+            NSArray *documents = [self.managedObjectContext executeFetchRequest:self.results error:nil];
+            [switchboard pushDocumentSet:documents index:[documents indexOfObject:(Document *)item] animated:YES];
             break;
         }
 
