@@ -2,14 +2,14 @@
 <img src="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/energy.png" align="right">
 
 
-<a href="http://folio.artsy.net"><img src ="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/folio_screenshots.jpg"></a>
+<a href="http://folio.artsy.net"><img src ="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/folio_screenshots.jpg" width="100%"></a>
 
 The iPhone and iPad app that brings all the Partners to the yard.
 
 ### Meta
 
 * __State:__ production
-* __Point People:__ [@alloy](https://github.com/alloy), [@orta](https://github.com/orta)
+* __Point People:__ [@orta](https://github.com/orta)
 * __CI :__  [![Circle CI](https://circleci.com/gh/artsy/energy.svg?style=svg)](https://circleci.com/gh/artsy/energy)
 
 This is a core [Artsy Mobile](https://github.com/artsy/mobile) OSS project, along with [Eigen](https://github.com/artsy/eigen), [Eidolon](https://github.com/artsy/eidolon), [Emission](https://github.com/artsy/emission) and [Emergence](https://github.com/artsy/emergence).
@@ -17,7 +17,6 @@ This is a core [Artsy Mobile](https://github.com/artsy/mobile) OSS project, alon
 Don't know what Artsy is? [Check this](https://github.com/artsy/mobile/blob/master/what_is_artsy.md) overview, or read our objc.io on [team culture](https://www.objc.io/issues/22-scale/artsy/).
 
 Want to know more about Eigen? Read the [mobile](http://artsy.github.io/blog/categories/mobile/) blog posts, or [energy's](http://artsy.github.io/blog/categories/energy/) specifically. There's some great overview videos that cover almost all of the code-base.
-
 
 ### Docs
 
