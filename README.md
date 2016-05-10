@@ -1,12 +1,22 @@
-<img src="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/artsy_logo.png" align="left" hspace="30px" vspace="30px">
-<img src="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/energy.png" align="right" hspace="30px" vspace="30px">
+<img src="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/artsy_logo.png" align="left">
+<img src="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/energy.png" align="right">
 
 
 <a href="http://folio.artsy.net"><img src ="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/folio_screenshots.jpg"></a>
 
 The iPhone and iPad app that brings all the Partners to the yard.
 
-[![Coverage Status](https://coveralls.io/repos/artsy/energy/badge.svg?branch=master&service=github)](https://coveralls.io/github/artsy/energy?branch=master)
+### Meta
+
+* __State:__ production
+* __Point People:__ [@alloy](https://github.com/alloy), [@orta](https://github.com/orta)
+* __CI :__  [![Circle CI](https://circleci.com/gh/artsy/energy.svg?style=svg)](https://circleci.com/gh/artsy/energy)
+
+This is a core [Artsy Mobile](https://github.com/artsy/mobile) OSS project, along with [Eigen](https://github.com/artsy/eigen), [Eidolon](https://github.com/artsy/eidolon), [Emission](https://github.com/artsy/emission) and [Emergence](https://github.com/artsy/emergence).
+
+Don't know what Artsy is? [Check this](https://github.com/artsy/mobile/blob/master/what_is_artsy.md) overview, or read our objc.io on [team culture](https://www.objc.io/issues/22-scale/artsy/).
+
+Want to know more about Eigen? Read the [mobile](http://artsy.github.io/blog/categories/mobile/) blog posts, or [energy's](http://artsy.github.io/blog/categories/energy/) specifically. There's some great overview videos that cover almost all of the code-base.
 
 
 ### Docs
@@ -38,4 +48,4 @@ If you are seeing `bundle: command not found` when running the OSS Quick Start c
 
 ### Thanks
 
-**Copyright**: 2012-2015, Artsy. Thanks to all [our contributors](/docs/THANKS.md).
+**Copyright**: 2012-2016, Artsy. Thanks to all [our contributors](/docs/THANKS.md).
