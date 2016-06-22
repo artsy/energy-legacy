@@ -4,7 +4,7 @@ NSString *const ARBaseURL = @"https://api.artsy.net";
 
 NSString *const ARStaticBaseURL = @"http://static.artsy.net";
 
-NSString *const ARSiteUpURL = @"/api/v1/system/up";
+NSString *const ARSiteUpURL = @"/api/v1/system/ping";
 
 
 NSString *const ARArtworkURLFormat = @"/api/v1/artwork/%@";
