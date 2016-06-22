@@ -1,6 +1,7 @@
 // General
 NSString *const ARFeedErrorKey = @"error";
 NSString *const ARHerokuErrorKey = @"backtrace";
+NSString *const ARPartnerKey = @"partner";
 
 // Auth
 NSString *const AROAuthTokenKey = @"access_token";
