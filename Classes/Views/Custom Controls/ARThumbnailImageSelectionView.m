@@ -67,6 +67,17 @@ static NSString *SelectedImageString = @"Tick";
     [self setNeedsLayout];
 }
 
+- (void)selectImages:(NSArray *)images
+{
+    for (Image *image in images) {
+        NSInteger index = [self.images indexOfObject:image];
+        if (index != NSNotFound) {
+            [self.selectedIndexValues addObject:@(index)];
+        }
+    }
+    [self setNeedsLayout];
+}
+
 static NSInteger SelectedButtonTag = 2323;
 
 - (void)imageTapped:(UITapGestureRecognizer *)sender
