@@ -22,6 +22,8 @@ Want to know more about Eigen? Read the [mobile](http://artsy.github.io/blog/cat
 
 Get setup [here](docs/getting_started.md). Further documentation can be found in the [documentation folder](docs#readme) and in [the OSS announcement](http://artsy.github.io/blog/2015/08/06/open-sourcing-energy/).
 
+Folio specific [Trello board](https://trello.com/b/95qNlO03/partner-success-revenue-near-term-roadmap) - you can use "Filter Cards" to just show Folio.
+
 ### OSS Quick Start
 
 Want to get the app running as an OSS project? Run this in your shell:
