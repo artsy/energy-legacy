@@ -128,8 +128,9 @@ static NSString *currentUserEmail;
     [Intercom registerUserWithUserId:user.slug email:user.email ?: @""];
 
     [ARAnalytics addEventSuperProperties:@{
-        @"user_email" : user.email ?: @"",
+        @"email" : user.email ?: @"",
         @"user_type" : user.type ?: @"",
+        @"user_id" : user.slug ?: @""
     }];
 
     [Intercom updateUserWithAttributes:@{
