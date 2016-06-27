@@ -53,7 +53,7 @@ lane :beta do
   build_version = 0
   begin
     Spaceship::Tunes.login(ENV["FASTLANE_USERNAME"], ENV["FASTLANE_PASSWORD"])
-    app = Spaceship::Tunes::Application.find("net.artsy.artsy")
+    app = Spaceship::Tunes::Application.find("sy.art.folio")
     train = app.build_trains[latest_version]
     build_version = train.builds.count + 1
   rescue
