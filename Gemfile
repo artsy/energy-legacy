@@ -10,8 +10,3 @@ gem "cocoapods-keys"
 gem "cocoapods-open"
 gem 'cocoapods-deintegrate'
 gem 'danger'
-
-group :deployment do
-  gem "fastlane"
-  gem "match"
-end
