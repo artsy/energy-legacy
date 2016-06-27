@@ -254,7 +254,7 @@
 
         NSArray *artworks = @[ self.currentArtwork ];
 
-        ARModernEmailArtworksViewController *emailController = [[ARModernEmailArtworksViewController alloc] initWithArtworks:artworks documents:nil context:self.representedObject];
+        ARModernEmailArtworksViewController *emailController = [[ARModernEmailArtworksViewController alloc] initWithArtworks:artworks documents:@[] installShots:@[] context:self.representedObject];
         emailController.hostViewController = self;
 
         self.emailPopoverController = [[ARPopoverController alloc] initWithContentViewController:emailController];

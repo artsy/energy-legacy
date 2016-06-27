@@ -48,19 +48,19 @@ it(@"email popovers", ^{
 
     [ARTestContext useContext:ARTestContextDeviceTypePhone5 :^{
 
-        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:artworks documents:documents context:artist];
+        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:artworks documents:documents installShots:@[] context:artist];
         expect(subject).to.haveValidSnapshotNamed(@"with artworks + show");
 
         InstallShotImage *image = [InstallShotImage objectInContext:context];
         show.installationImages = [NSSet setWithObject:image];
 
-        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:artworks documents:documents context:show];
+        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:artworks documents:documents installShots:@[] context:show];
         expect(subject).to.haveValidSnapshotNamed(@"show context with install shots");
 
         show.documents = [NSSet setWithObject:document];
         documents = @[document];
 
-        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:artworks documents:documents context:artist];
+        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:artworks documents:documents installShots:@[] context:artist];
         expect(subject).to.haveValidSnapshotNamed(@"with documents");
 
         artwork.series = @"Series";
@@ -68,18 +68,18 @@ it(@"email popovers", ^{
         artwork.inventoryID = @"Inventory";
         artwork.displayPrice = @"$$$";
 
-        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:artworks documents:documents context:artist];
+        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:artworks documents:documents installShots:@[] context:artist];
         expect(subject).to.haveValidSnapshotNamed(@"with artwork metadata");
 
         NSArray *images = @[[LocalImage objectInContext:context], [LocalImage objectInContext:context]];
         artwork.images = [NSSet setWithArray:images];
-        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:artworks documents:documents context:artist];
+        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:artworks documents:documents installShots:@[] context:artist];
         expect(subject).to.haveValidSnapshotNamed(@"additional images");
 
         Artwork *artwork2 = [Artwork objectInContext:context];
         images = @[[LocalImage objectInContext:context], [LocalImage objectInContext:context]];
         artwork2.images = [NSSet setWithArray:images];
-        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:@[artwork2] documents:nil context:artist];
+        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:@[artwork2] documents:nil installShots:@[] context: artist];
         expect(subject).to.haveValidSnapshotNamed(@"additional images with no artwork metadata");
 
         Artwork *artwork3 = [Artwork objectInContext:context];
@@ -87,7 +87,7 @@ it(@"email popovers", ^{
         artwork3.backendPrice = @"backend price";
         images = @[[LocalImage objectInContext:context], [LocalImage objectInContext:context]];
         artwork2.images = [NSSet setWithArray:images];
-        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:@[artwork3] documents:nil context:artist];
+        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:@[artwork3] documents:nil installShots:@[] context:artist];
         expect(subject).to.haveValidSnapshotNamed(@"shows exact prices when available");
 
     }];
@@ -97,7 +97,7 @@ describe(@"email settings object", ^{
     __block ForgeriesUserDefaults *defaults;
 
     before(^{
-        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:nil documents:nil context:nil];
+        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:nil documents:nil installShots:@[] context:nil];
         subject.userDefaults = (id)[[ForgeriesUserDefaults alloc] init];
         defaults = (id)subject.userDefaults;
     });
@@ -139,7 +139,7 @@ describe(@"email settings object", ^{
             Artwork *artwork = [Artwork objectInContext:context];
             artwork.displayPrice = @"111";
 
-            subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:@[artwork] documents:nil context:nil];
+            subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:@[artwork] documents:nil installShots:@[] context:nil];
             subject.userDefaults = (id)[[ForgeriesUserDefaults alloc] init];
             defaults = (id)subject.userDefaults;
         });
@@ -191,7 +191,7 @@ describe(@"passing objects", ^{
         artworks = @[artwork, artwork2];
         documents = @[document];
 
-        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:artworks documents:documents context:nil];
+        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:artworks documents:documents installShots:@[] context:nil];
         subject.userDefaults = (id)[[ForgeriesUserDefaults alloc] init];
         defaults = (id)subject.userDefaults;
     });
@@ -226,7 +226,7 @@ describe(@"passing objects", ^{
         });
 
         it(@"selected additional images", ^{
-            subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:@[artwork2] documents:nil context:nil];
+            subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:@[artwork2] documents:nil installShots:@[] context:nil];
             subject.additionalImagesSelectionView = selection;
 
             expect(subject.emailSettings.additionalImages).to.contain(additionalImage);
@@ -234,6 +234,43 @@ describe(@"passing objects", ^{
         });
 
     });
+});
+
+describe(@"incoming selection state", ^{
+    __block ForgeriesUserDefaults *defaults;
+
+    it(@"ensures doc selection state is retained", ^{
+
+        Document *document = [Document objectInContext:context];
+        document.slug = @"ExampleDocument";
+        document.hasFile = @YES;
+
+        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:@[] documents:@[document] installShots:@[] context:nil];
+        subject.userDefaults = (id)[[ForgeriesUserDefaults alloc] init];
+        defaults = (id)subject.userDefaults;
+
+        expect(defaults[@"ARMailIncludeFileExampleDocumentDefault"]).to.beFalsy();
+
+        [subject beginAppearanceTransition:YES animated:NO];
+
+        expect(defaults[@"ARMailIncludeFileExampleDocumentDefault"]).to.beTruthy();
+    });
+
+    it(@"ensures install selection state is retained", ^{
+
+        InstallShotImage *image = [InstallShotImage objectInContext:context];
+        image.slug = @"InstallImageSlug";
+        subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:@[] documents:@[] installShots:@[image] context:nil];
+        subject.userDefaults = (id)[[ForgeriesUserDefaults alloc] init];
+        defaults = (id)subject.userDefaults;
+
+        expect(defaults[@"ARMailShowInstallImageSlugDefault"]).to.beFalsy();
+
+        [subject beginAppearanceTransition:YES animated:NO];
+
+        expect(defaults[@"ARMailShowInstallImageSlugDefault"]).to.beTruthy();
+    });
+
 });
 
 

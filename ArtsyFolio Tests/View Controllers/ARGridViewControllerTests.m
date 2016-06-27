@@ -51,12 +51,9 @@ describe(@"allowing selection", ^{
 
         subject = [[ARGridViewController alloc] initWithDisplayMode:ARDisplayModeArtistAlbums];
         expect([subject gridView:nil canSelectItem:nil atIndex:0]).to.beFalsy();
-
-        subject = [[ARGridViewController alloc] initWithDisplayMode:ARDisplayModeInstallationShots];
-        expect([subject gridView:nil canSelectItem:nil atIndex:0]).to.beFalsy();
     });
 
-    it(@"supports selecting a artworks / documents", ^{
+    it(@"supports selecting a artworks / documents / install shots", ^{
         ARGridViewController *subject = [[ARGridViewController alloc] initWithDisplayMode:ARDisplayModeAlbum];
         expect([subject gridView:nil canSelectItem:nil atIndex:0]).to.beTruthy();
 
@@ -67,6 +64,9 @@ describe(@"allowing selection", ^{
         expect([subject gridView:nil canSelectItem:nil atIndex:0]).to.beTruthy();
 
         subject = [[ARGridViewController alloc] initWithDisplayMode:ARDisplayModeDocuments];
+        expect([subject gridView:nil canSelectItem:nil atIndex:0]).to.beTruthy();
+
+        subject = [[ARGridViewController alloc] initWithDisplayMode:ARDisplayModeInstallationShots];
         expect([subject gridView:nil canSelectItem:nil atIndex:0]).to.beTruthy();
     });
 
