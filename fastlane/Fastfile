@@ -17,6 +17,7 @@ lane :build_for_beta do
 end
 
 lane :beta do
+  setup_for_app_store
   verify_pod_keys
 
   # Increment build number to current date
