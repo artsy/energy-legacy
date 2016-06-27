@@ -39,6 +39,8 @@
 	<string>4cc1be144e0c2789f4619b51856500be1a438da9</string>
 	<key>GITRemoteOriginURL</key>
 	<string>https://github.com/orta/energy.git</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>artsy</string>
