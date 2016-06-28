@@ -9,6 +9,7 @@ upcoming:
       - Documents selected in the grid, pass through to the email popover [orta]
       - Minor copy update on the syncVC [orta]
       - Use a different API route for pinging Artsy, and ensure the timer stops when sync settings is not active [orta]
+      - Minor analytics updates [orta]
 
 releases:
   - version: 2.5.0
