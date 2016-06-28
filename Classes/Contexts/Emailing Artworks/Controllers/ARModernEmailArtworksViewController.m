@@ -49,9 +49,23 @@ static NSString *ARPricesRowIdentifier = @"ARPricesRowIdentifier";
 
     return self;
 }
+
+- (void)setupDefaults
+{
+    // As NSUserDefaults are used for storing state inside here ( this is useful for persistence )
+    // we need to ensure any selected items are already selected.
+
+    for (Document *document in self.documents) {
+        NSString *defaultKey = [self defaultKeyForDocumentIdentifier:document.slug];
+        [self.userDefaults setBool:YES forKey:defaultKey];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    [self setupDefaults];
 
     self.tableView.backgroundView = [[UIView alloc] initWithFrame:self.view.bounds];
     self.tableView.backgroundColor = [UIColor whiteColor];
@@ -183,7 +197,8 @@ static NSString *ARPricesRowIdentifier = @"ARPricesRowIdentifier";
 
     for (Document *document in [container sortedDocuments]) {
         NSString *defaultKey = [self defaultKeyForDocumentIdentifier:document.slug];
-        [sectionData addCellData:[self cellDataForTappableRowTitled:document.title defaultKey:defaultKey]];
+        ARCellData *data = [self cellDataForTappableRowTitled:document.title defaultKey:defaultKey];
+        [sectionData addCellData:data];
     }
 
     return sectionData;

@@ -237,4 +237,22 @@ describe(@"passing objects", ^{
 });
 
 
+it(@"ensures doc selection state is retained", ^{
+    __block ForgeriesUserDefaults *defaults;
+
+    Document *document = [Document objectInContext:context];
+    document.slug = @"ExampleDocument";
+    document.hasFile = @YES;
+
+    subject = [[ARModernEmailArtworksViewController alloc] initWithArtworks:@[] documents:@[document] context:nil];
+    subject.userDefaults = (id)[[ForgeriesUserDefaults alloc] init];
+    defaults = (id)subject.userDefaults;
+
+    expect(defaults[@"ARMailIncludeFileExampleDocumentDefault"]).to.beFalsy();
+
+    [subject beginAppearanceTransition:YES animated:NO];
+
+    expect(defaults[@"ARMailIncludeFileExampleDocumentDefault"]).to.beTruthy();
+});
+
 SpecEnd

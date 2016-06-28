@@ -6,6 +6,7 @@ upcoming:
       - Partner Size now is a number, not a string [orta]
       - Show a link to Artsy when a work is published in emails [orta]
       - Improvements to the Document preview [orta]
+      - Documents selected in the grid, pass through to the email popover [orta]
       - Minor copy update on the syncVC [orta]
       - Use a different API route for pinging Artsy, and ensure the timer stops when sync settings is not active [orta]
 
