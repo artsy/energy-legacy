@@ -167,10 +167,10 @@
         case ARDisplayModeAllArtists:
         case ARDisplayModeArtistShows:
         case ARDisplayModeArtistAlbums:
-        case ARDisplayModeInstallationShots:
         default:
             return NO;
 
+        case ARDisplayModeInstallationShots:
         case ARDisplayModeAlbum:
         case ARDisplayModeShow:
         case ARDisplayModeArtist:

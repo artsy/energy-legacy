@@ -22,6 +22,8 @@
 
 @property (readonly, copy, nonatomic) NSArray *artworks;
 @property (readonly, copy, nonatomic) NSArray *documents;
+@property (readonly, copy, nonatomic) NSArray *installShots;
+
 @property (readonly, strong, nonatomic) ARManagedObject *context;
 
 @property (nonatomic, strong) NSUserDefaults *userDefaults;
@@ -36,13 +38,14 @@ static NSString *ARPricesRowIdentifier = @"ARPricesRowIdentifier";
 
 @implementation ARModernEmailArtworksViewController
 
-- (instancetype)initWithArtworks:(NSArray *)artworks documents:(NSArray *)documents context:(ARManagedObject *)context;
+- (instancetype)initWithArtworks:(NSArray *)artworks documents:(NSArray *)documents installShots:(NSArray *)installShots context:(ARManagedObject *)context
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (!self) return nil;
 
     _artworks = artworks.copy;
     _documents = documents.copy;
+    _installShots = installShots.copy;
     _context = context;
 
     _artworkDataSource = [[ARModernEmailArtworksViewControllerDataSource alloc] init];
@@ -57,6 +60,11 @@ static NSString *ARPricesRowIdentifier = @"ARPricesRowIdentifier";
 
     for (Document *document in self.documents) {
         NSString *defaultKey = [self defaultKeyForDocumentIdentifier:document.slug];
+        [self.userDefaults setBool:YES forKey:defaultKey];
+    }
+
+    for (Image *image in self.installShots) {
+        NSString *defaultKey = [self defaultKeyForIdentifier:image.slug];
         [self.userDefaults setBool:YES forKey:defaultKey];
     }
 }
@@ -260,6 +268,8 @@ static NSString *ARPricesRowIdentifier = @"ARPricesRowIdentifier";
             NSArray *images = [self.artworkDataSource installationShotsForArtworks:artworks context:self.context];
 
             ARThumbnailImageSelectionView *selectionView = [self selectionViewForImages:images cell:cell];
+            [selectionView selectImages:self.installShots];
+            
             [cell.contentView addSubview:selectionView];
             [selectionView alignTop:@"4" leading:@"4" bottom:@"-4" trailing:@"-4" toView:cell.contentView];
             _installationShotsSelectionView = selectionView;
