@@ -17,7 +17,7 @@ end
 # CHANGELOG should lint
 begin
   require 'yaml'
-  readme_yaml = File.read "CHANGELOG.yml"
+  readme_yaml = File.read "docs/CHANGELOG.yml"
   readme_data = YAML.load readme_yaml
 rescue StandardError
   fail("CHANGELOG isn't legit YAML")
