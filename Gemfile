@@ -2,16 +2,10 @@ source 'https://rubygems.org'
 
 gem 'xcpretty'
 gem 'second_curtain'
-gem "chairs"
-gem "sbconstants"
 
-gem "cocoapods"
-gem "cocoapods-keys"
-gem "cocoapods-open"
-gem 'cocoapods-deintegrate'
+gem 'sbconstants'
 gem 'danger'
 
-group :deployment do
-  gem "fastlane"
-  gem "match"
-end
+gem 'cocoapods'
+gem 'cocoapods-keys'
+gem 'cocoapods-deintegrate'

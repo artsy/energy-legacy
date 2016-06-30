@@ -14,4 +14,11 @@ if lines_of_code > 50 && pr_title.include?("📱") == false
    warn("Needs testing on a Phone if change is non-trivial")
 end
 
-# Open for ideas on more
+# CHANGELOG should lint
+begin
+  require 'yaml'
+  readme_yaml = File.read "docs/CHANGELOG.yml"
+  readme_data = YAML.load readme_yaml
+rescue StandardError
+  fail("CHANGELOG isn't legit YAML")
+end

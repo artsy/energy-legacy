@@ -92,8 +92,8 @@
 		6006C76A198EDF9300F955A0 /* ARAppTestDelegate+Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AC10C519479D5000274EBB /* ARAppTestDelegate+Tests.m */; };
 		600856FD19353CED005741CF /* ARTiledImageDataSourceWithImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 600856FC19353CED005741CF /* ARTiledImageDataSourceWithImage.m */; };
 		600AD6151C3E9CC700E027A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 600AD6141C3E9CC700E027A7 /* Images.xcassets */; };
-		600E64A81CCA2DBE00182B88 /* ARDefaultsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 600E64A71CCA2DBE00182B88 /* ARDefaultsTests.m */; };
 		600E64A51CCA1EA000182B88 /* ARModernDocumentPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600E64A41CCA1EA000182B88 /* ARModernDocumentPreviewViewController.m */; };
+		600E64A81CCA2DBE00182B88 /* ARDefaultsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 600E64A71CCA2DBE00182B88 /* ARDefaultsTests.m */; };
 		600F1A9F187A17C40006288F /* AREditAlbumArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600F1A9E187A17C40006288F /* AREditAlbumArtistViewController.m */; };
 		600F1AA3187AB9280006288F /* ARSelectionHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 600F1AA2187AB9280006288F /* ARSelectionHandlerTests.m */; };
 		601073FF19A3E3C300237DC6 /* ARViewInRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601073FE19A3E3C300237DC6 /* ARViewInRoomViewController.m */; };
@@ -779,9 +779,9 @@
 		600856FB19353CED005741CF /* ARTiledImageDataSourceWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTiledImageDataSourceWithImage.h; sourceTree = "<group>"; };
 		600856FC19353CED005741CF /* ARTiledImageDataSourceWithImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTiledImageDataSourceWithImage.m; sourceTree = "<group>"; };
 		600AD6141C3E9CC700E027A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ArtsyFolio/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		600E64A71CCA2DBE00182B88 /* ARDefaultsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDefaultsTests.m; sourceTree = "<group>"; };
 		600E64A31CCA1EA000182B88 /* ARModernDocumentPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARModernDocumentPreviewViewController.h; sourceTree = "<group>"; };
 		600E64A41CCA1EA000182B88 /* ARModernDocumentPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARModernDocumentPreviewViewController.m; sourceTree = "<group>"; };
+		600E64A71CCA2DBE00182B88 /* ARDefaultsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDefaultsTests.m; sourceTree = "<group>"; };
 		600F1A9D187A17C40006288F /* AREditAlbumArtistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREditAlbumArtistViewController.h; sourceTree = "<group>"; };
 		600F1A9E187A17C40006288F /* AREditAlbumArtistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREditAlbumArtistViewController.m; sourceTree = "<group>"; };
 		600F1AA2187AB9280006288F /* ARSelectionHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSelectionHandlerTests.m; sourceTree = "<group>"; };
@@ -4386,6 +4386,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
@@ -4402,7 +4403,6 @@
 				MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -4418,7 +4418,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
@@ -4552,6 +4551,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
@@ -4566,7 +4566,6 @@
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "572d2be5-e180-41a8-b9f3-844de8341b18";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -4582,7 +4581,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
-				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
