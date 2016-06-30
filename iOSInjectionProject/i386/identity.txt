@@ -1,0 +1,2 @@
+/Users/orta/Library/Developer/Xcode/DerivedData/Artsy_Folio-fthseskkcvycngbzrqhduvzngqjr/Build/Products/Debug-iphonesimulator/FolioDev.app
+iPhone Developer

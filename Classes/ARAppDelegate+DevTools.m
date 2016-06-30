@@ -10,6 +10,13 @@
 
 @implementation ARAppDelegate (DevTools)
 
+- (void)appHasBeenInjected:(NSNotification *)notification
+{
+    UINavigationController *navigationController = (id)self.window.rootViewController;
+    [navigationController popViewControllerAnimated:NO];
+    [self performDeveloperExtras];
+}
+
 - (void)performDeveloperExtras
 {
     //    [ARSwitchBoard pushEditAlbumViewController:album];
