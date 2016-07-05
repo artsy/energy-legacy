@@ -3,8 +3,6 @@
 
 #import "_LocalImage.h"
 
-const struct LocalImageUserInfo LocalImageUserInfo = {};
-
 
 @implementation LocalImageID
 @end
@@ -12,7 +10,7 @@ const struct LocalImageUserInfo LocalImageUserInfo = {};
 
 @implementation _LocalImage
 
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
 {
     NSParameterAssert(moc_);
     return [NSEntityDescription insertNewObjectForEntityForName:@"LocalImage" inManagedObjectContext:moc_];
@@ -34,5 +32,11 @@ const struct LocalImageUserInfo LocalImageUserInfo = {};
     return (LocalImageID *)[super objectID];
 }
 
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
+
+    return keyPaths;
+}
 
 @end

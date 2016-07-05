@@ -3,38 +3,6 @@
 
 #import "_Artist.h"
 
-const struct ArtistAttributes ArtistAttributes = {
-    .awards = @"awards",
-    .biography = @"biography",
-    .blurb = @"blurb",
-    .createdAt = @"createdAt",
-    .deathDate = @"deathDate",
-    .displayName = @"displayName",
-    .firstName = @"firstName",
-    .hometown = @"hometown",
-    .lastName = @"lastName",
-    .middleName = @"middleName",
-    .name = @"name",
-    .nationality = @"nationality",
-    .orderingKey = @"orderingKey",
-    .slug = @"slug",
-    .statement = @"statement",
-    .thumbnailBaseURL = @"thumbnailBaseURL",
-    .updatedAt = @"updatedAt",
-    .years = @"years",
-};
-
-const struct ArtistRelationships ArtistRelationships = {
-    .albumsFeaturingArtist = @"albumsFeaturingArtist",
-    .artworks = @"artworks",
-    .cover = @"cover",
-    .documents = @"documents",
-    .installShotsFeaturingArtist = @"installShotsFeaturingArtist",
-    .showsFeaturingArtist = @"showsFeaturingArtist",
-};
-
-const struct ArtistUserInfo ArtistUserInfo = {};
-
 
 @implementation ArtistID
 @end
@@ -42,7 +10,7 @@ const struct ArtistUserInfo ArtistUserInfo = {};
 
 @implementation _Artist
 
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
 {
     NSParameterAssert(moc_);
     return [NSEntityDescription insertNewObjectForEntityForName:@"Artist" inManagedObjectContext:moc_];
@@ -64,64 +32,203 @@ const struct ArtistUserInfo ArtistUserInfo = {};
     return (ArtistID *)[super objectID];
 }
 
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
+
+    return keyPaths;
+}
 
 @dynamic awards;
+
 @dynamic biography;
+
 @dynamic blurb;
+
 @dynamic createdAt;
+
 @dynamic deathDate;
+
 @dynamic displayName;
+
 @dynamic firstName;
+
 @dynamic hometown;
+
 @dynamic lastName;
+
 @dynamic middleName;
+
 @dynamic name;
+
 @dynamic nationality;
+
 @dynamic orderingKey;
+
 @dynamic slug;
+
 @dynamic statement;
+
 @dynamic thumbnailBaseURL;
+
 @dynamic updatedAt;
+
 @dynamic years;
 
-
 @dynamic albumsFeaturingArtist;
-- (NSMutableSet *)albumsFeaturingArtistSet
+
+- (NSMutableSet<Album *> *)albumsFeaturingArtistSet
 {
     [self willAccessValueForKey:@"albumsFeaturingArtist"];
-    NSMutableSet *result = (NSMutableSet *)[self mutableSetValueForKey:@"albumsFeaturingArtist"];
+
+    NSMutableSet<Album *> *result = (NSMutableSet<Album *> *)[self mutableSetValueForKey:@"albumsFeaturingArtist"];
+
     [self didAccessValueForKey:@"albumsFeaturingArtist"];
     return result;
 }
 
 @dynamic artworks;
-- (NSMutableSet *)artworksSet
+
+- (NSMutableSet<Artwork *> *)artworksSet
 {
     [self willAccessValueForKey:@"artworks"];
-    NSMutableSet *result = (NSMutableSet *)[self mutableSetValueForKey:@"artworks"];
+
+    NSMutableSet<Artwork *> *result = (NSMutableSet<Artwork *> *)[self mutableSetValueForKey:@"artworks"];
+
     [self didAccessValueForKey:@"artworks"];
     return result;
 }
 
 @dynamic cover;
+
 @dynamic documents;
-- (NSMutableSet *)documentsSet
+
+- (NSMutableSet<Document *> *)documentsSet
 {
     [self willAccessValueForKey:@"documents"];
-    NSMutableSet *result = (NSMutableSet *)[self mutableSetValueForKey:@"documents"];
+
+    NSMutableSet<Document *> *result = (NSMutableSet<Document *> *)[self mutableSetValueForKey:@"documents"];
+
     [self didAccessValueForKey:@"documents"];
     return result;
 }
 
 @dynamic installShotsFeaturingArtist;
+
 @dynamic showsFeaturingArtist;
-- (NSMutableSet *)showsFeaturingArtistSet
+
+- (NSMutableSet<Show *> *)showsFeaturingArtistSet
 {
     [self willAccessValueForKey:@"showsFeaturingArtist"];
-    NSMutableSet *result = (NSMutableSet *)[self mutableSetValueForKey:@"showsFeaturingArtist"];
+
+    NSMutableSet<Show *> *result = (NSMutableSet<Show *> *)[self mutableSetValueForKey:@"showsFeaturingArtist"];
+
     [self didAccessValueForKey:@"showsFeaturingArtist"];
     return result;
 }
 
+@end
 
+
+@implementation ArtistAttributes
++ (NSString *)awards
+{
+    return @"awards";
+}
++ (NSString *)biography
+{
+    return @"biography";
+}
++ (NSString *)blurb
+{
+    return @"blurb";
+}
++ (NSString *)createdAt
+{
+    return @"createdAt";
+}
++ (NSString *)deathDate
+{
+    return @"deathDate";
+}
++ (NSString *)displayName
+{
+    return @"displayName";
+}
++ (NSString *)firstName
+{
+    return @"firstName";
+}
++ (NSString *)hometown
+{
+    return @"hometown";
+}
++ (NSString *)lastName
+{
+    return @"lastName";
+}
++ (NSString *)middleName
+{
+    return @"middleName";
+}
++ (NSString *)name
+{
+    return @"name";
+}
++ (NSString *)nationality
+{
+    return @"nationality";
+}
++ (NSString *)orderingKey
+{
+    return @"orderingKey";
+}
++ (NSString *)slug
+{
+    return @"slug";
+}
++ (NSString *)statement
+{
+    return @"statement";
+}
++ (NSString *)thumbnailBaseURL
+{
+    return @"thumbnailBaseURL";
+}
++ (NSString *)updatedAt
+{
+    return @"updatedAt";
+}
++ (NSString *)years
+{
+    return @"years";
+}
+@end
+
+
+@implementation ArtistRelationships
++ (NSString *)albumsFeaturingArtist
+{
+    return @"albumsFeaturingArtist";
+}
++ (NSString *)artworks
+{
+    return @"artworks";
+}
++ (NSString *)cover
+{
+    return @"cover";
+}
++ (NSString *)documents
+{
+    return @"documents";
+}
++ (NSString *)installShotsFeaturingArtist
+{
+    return @"installShotsFeaturingArtist";
+}
++ (NSString *)showsFeaturingArtist
+{
+    return @"showsFeaturingArtist";
+}
 @end

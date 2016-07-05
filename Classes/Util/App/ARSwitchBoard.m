@@ -195,7 +195,7 @@
         [ARTopViewController sharedInstance].displayMode = mode;
         [navController pushViewController:controller animated:NO];
 
-        [UIView animateIf:animates duration:ARAnimationQuickDuration :^{
+        [UIView animateIf:animates duration:ARAnimationQuickDuration:^{
             [navController view].alpha = 1;
         }];
     }];
@@ -231,7 +231,7 @@
     // then put a ArtistVC with the artwork's artist in it
     // then put in the ArtworkdetailVC for the artwork at the right index
 
-    ARArtistViewController *artistController = [[ARArtistViewController alloc] initWithArtist:artwork.artist];
+    ARArtistViewController *artistController = [[ARArtistViewController alloc] initWithArtist:artwork.artists.anyObject];
 
     NSFetchRequest *fetchRequest = [artwork.artist artworksFetchRequestSortedBy:ARArtworksSortOrderDefault];
     NSFetchedResultsController *controller = [self fetchedResultsControllerForArtworksRequest:fetchRequest];

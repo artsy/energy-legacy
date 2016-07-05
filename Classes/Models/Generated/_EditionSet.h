@@ -1,79 +1,174 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
 // Make changes to EditionSet.h instead.
 
+#if __has_feature(modules)
+@import Foundation;
+@import CoreData;
+#else
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#endif
+
 #import "ARManagedObject.h"
 
-extern const struct EditionSetAttributes {
-    __unsafe_unretained NSString *artistProofs;
-    __unsafe_unretained NSString *availability;
-    __unsafe_unretained NSString *availableEditions;
-    __unsafe_unretained NSString *backendPrice;
-    __unsafe_unretained NSString *depth;
-    __unsafe_unretained NSString *diameter;
-    __unsafe_unretained NSString *dimensionsCM;
-    __unsafe_unretained NSString *dimensionsInches;
-    __unsafe_unretained NSString *displayPrice;
-    __unsafe_unretained NSString *duration;
-    __unsafe_unretained NSString *editionSize;
-    __unsafe_unretained NSString *editions;
-    __unsafe_unretained NSString *height;
-    __unsafe_unretained NSString *isAvailableForSale;
-    __unsafe_unretained NSString *isPriceHidden;
-    __unsafe_unretained NSString *prototypes;
-    __unsafe_unretained NSString *slug;
-    __unsafe_unretained NSString *width;
-} EditionSetAttributes;
-
-extern const struct EditionSetRelationships {
-    __unsafe_unretained NSString *artwork;
-} EditionSetRelationships;
-
-extern const struct EditionSetUserInfo {
-} EditionSetUserInfo;
+NS_ASSUME_NONNULL_BEGIN
 
 @class Artwork;
 
 
-@interface EditionSetID : ARManagedObjectID {
+@interface EditionSetID : NSManagedObjectID
+{
 }
 @end
 
 
-@interface _EditionSet : ARManagedObject {
-}
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
+@interface _EditionSet : ARManagedObject
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-- (EditionSetID *)objectID;
+@property (nonatomic, readonly, strong) EditionSetID *objectID;
 
-@property (nonatomic, strong) NSString *artistProofs;
-@property (nonatomic, strong) NSString *availability;
-@property (nonatomic, strong) NSString *availableEditions;
-@property (nonatomic, strong) NSString *backendPrice;
-@property (nonatomic, strong) NSDecimalNumber *depth;
-@property (nonatomic, strong) NSDecimalNumber *diameter;
-@property (nonatomic, strong) NSString *dimensionsCM;
-@property (nonatomic, strong) NSString *dimensionsInches;
-@property (nonatomic, strong) NSString *displayPrice;
-@property (nonatomic, strong) NSString *duration;
-@property (nonatomic, strong) NSString *editionSize;
-@property (nonatomic, strong) NSString *editions;
-@property (nonatomic, strong) NSDecimalNumber *height;
-@property (nonatomic, strong) NSNumber *isAvailableForSale;
-@property (nonatomic, strong) NSNumber *isPriceHidden;
-@property (nonatomic, strong) NSString *prototypes;
-@property (nonatomic, strong) NSString *slug;
-@property (nonatomic, strong) NSDecimalNumber *width;
-@property (nonatomic, strong) Artwork *artwork;
+@property (nonatomic, strong, nullable) NSString *artistProofs;
 
+@property (nonatomic, strong, nullable) NSString *availability;
+
+@property (nonatomic, strong, nullable) NSString *availableEditions;
+
+@property (nonatomic, strong, nullable) NSString *backendPrice;
+
+@property (nonatomic, strong, nullable) NSDecimalNumber *depth;
+
+@property (nonatomic, strong, nullable) NSDecimalNumber *diameter;
+
+@property (nonatomic, strong, nullable) NSString *dimensionsCM;
+
+@property (nonatomic, strong, nullable) NSString *dimensionsInches;
+
+@property (nonatomic, strong, nullable) NSString *displayPrice;
+
+@property (nonatomic, strong, nullable) NSString *duration;
+
+@property (nonatomic, strong, nullable) NSString *editionSize;
+
+@property (nonatomic, strong, nullable) NSString *editions;
+
+@property (nonatomic, strong, nullable) NSDecimalNumber *height;
+
+@property (nonatomic, strong, nullable) NSNumber *isAvailableForSale;
+
+@property (atomic) BOOL isAvailableForSaleValue;
+- (BOOL)isAvailableForSaleValue;
+- (void)setIsAvailableForSaleValue:(BOOL)value_;
+
+@property (nonatomic, strong, nullable) NSNumber *isPriceHidden;
+
+@property (atomic) BOOL isPriceHiddenValue;
+- (BOOL)isPriceHiddenValue;
+- (void)setIsPriceHiddenValue:(BOOL)value_;
+
+@property (nonatomic, strong, nullable) NSString *prototypes;
+
+@property (nonatomic, strong, nullable) NSString *slug;
+
+@property (nonatomic, strong, nullable) NSDecimalNumber *width;
+
+@property (nonatomic, strong, nullable) Artwork *artwork;
 
 @end
 
 
 @interface _EditionSet (CoreDataGeneratedPrimitiveAccessors)
 
+- (NSString *)primitiveArtistProofs;
+- (void)setPrimitiveArtistProofs:(NSString *)value;
+
+- (NSString *)primitiveAvailability;
+- (void)setPrimitiveAvailability:(NSString *)value;
+
+- (NSString *)primitiveAvailableEditions;
+- (void)setPrimitiveAvailableEditions:(NSString *)value;
+
+- (NSString *)primitiveBackendPrice;
+- (void)setPrimitiveBackendPrice:(NSString *)value;
+
+- (NSDecimalNumber *)primitiveDepth;
+- (void)setPrimitiveDepth:(NSDecimalNumber *)value;
+
+- (NSDecimalNumber *)primitiveDiameter;
+- (void)setPrimitiveDiameter:(NSDecimalNumber *)value;
+
+- (NSString *)primitiveDimensionsCM;
+- (void)setPrimitiveDimensionsCM:(NSString *)value;
+
+- (NSString *)primitiveDimensionsInches;
+- (void)setPrimitiveDimensionsInches:(NSString *)value;
+
+- (NSString *)primitiveDisplayPrice;
+- (void)setPrimitiveDisplayPrice:(NSString *)value;
+
+- (NSString *)primitiveDuration;
+- (void)setPrimitiveDuration:(NSString *)value;
+
+- (NSString *)primitiveEditionSize;
+- (void)setPrimitiveEditionSize:(NSString *)value;
+
+- (NSString *)primitiveEditions;
+- (void)setPrimitiveEditions:(NSString *)value;
+
+- (NSDecimalNumber *)primitiveHeight;
+- (void)setPrimitiveHeight:(NSDecimalNumber *)value;
+
+- (NSNumber *)primitiveIsAvailableForSale;
+- (void)setPrimitiveIsAvailableForSale:(NSNumber *)value;
+
+- (BOOL)primitiveIsAvailableForSaleValue;
+- (void)setPrimitiveIsAvailableForSaleValue:(BOOL)value_;
+
+- (NSNumber *)primitiveIsPriceHidden;
+- (void)setPrimitiveIsPriceHidden:(NSNumber *)value;
+
+- (BOOL)primitiveIsPriceHiddenValue;
+- (void)setPrimitiveIsPriceHiddenValue:(BOOL)value_;
+
+- (NSString *)primitivePrototypes;
+- (void)setPrimitivePrototypes:(NSString *)value;
+
+- (NSString *)primitiveSlug;
+- (void)setPrimitiveSlug:(NSString *)value;
+
+- (NSDecimalNumber *)primitiveWidth;
+- (void)setPrimitiveWidth:(NSDecimalNumber *)value;
+
 - (Artwork *)primitiveArtwork;
 - (void)setPrimitiveArtwork:(Artwork *)value;
 
 @end
+
+
+@interface EditionSetAttributes : NSObject
++ (NSString *)artistProofs;
++ (NSString *)availability;
++ (NSString *)availableEditions;
++ (NSString *)backendPrice;
++ (NSString *)depth;
++ (NSString *)diameter;
++ (NSString *)dimensionsCM;
++ (NSString *)dimensionsInches;
++ (NSString *)displayPrice;
++ (NSString *)duration;
++ (NSString *)editionSize;
++ (NSString *)editions;
++ (NSString *)height;
++ (NSString *)isAvailableForSale;
++ (NSString *)isPriceHidden;
++ (NSString *)prototypes;
++ (NSString *)slug;
++ (NSString *)width;
+@end
+
+
+@interface EditionSetRelationships : NSObject
++ (NSString *)artwork;
+@end
+
+NS_ASSUME_NONNULL_END

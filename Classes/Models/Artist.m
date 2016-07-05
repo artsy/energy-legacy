@@ -66,7 +66,7 @@
                                                   withEntityName:@"Artwork"
                                                        inContext:self.managedObjectContext
                                                           saving:NO];
-        NSSet *artworksSet = [[NSSet alloc] initWithArray:artworks];
+        NSSet *artworksSet = [NSSet setWithArray:artworks];
         [self addArtworks:artworksSet];
     }
 }
@@ -231,6 +231,19 @@
     request.predicate = [NSPredicate predicateWithFormat:@"ANY artists == %@", self];
     request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES] ];
     return request;
+}
+
++ (Artist *)findOrCreateUnknownArtistInContext:(NSManagedObjectContext *)context
+{
+    Artist *unknownArtist = [Artist findFirstByAttribute:@"slug" withValue:@"unknown-artist" inContext:context];
+    if (!unknownArtist) {
+        unknownArtist = [Artist createInContext:context];
+        unknownArtist.displayName = @"Unknown Artist";
+        unknownArtist.slug = @"unknown-artist";
+        unknownArtist.orderingKey = @"Unknown Artist";
+        unknownArtist.name = @"Unknown Artist";
+    }
+    return unknownArtist;
 }
 
 @end

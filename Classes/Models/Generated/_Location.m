@@ -3,25 +3,6 @@
 
 #import "_Location.h"
 
-const struct LocationAttributes LocationAttributes = {
-    .address = @"address",
-    .addressSecond = @"addressSecond",
-    .city = @"city",
-    .geoPoint = @"geoPoint",
-    .name = @"name",
-    .phone = @"phone",
-    .postalCode = @"postalCode",
-    .slug = @"slug",
-    .state = @"state",
-};
-
-const struct LocationRelationships LocationRelationships = {
-    .artworks = @"artworks",
-    .shows = @"shows",
-};
-
-const struct LocationUserInfo LocationUserInfo = {};
-
 
 @implementation LocationID
 @end
@@ -29,7 +10,7 @@ const struct LocationUserInfo LocationUserInfo = {};
 
 @implementation _Location
 
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
 {
     NSParameterAssert(moc_);
     return [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:moc_];
@@ -51,35 +32,105 @@ const struct LocationUserInfo LocationUserInfo = {};
     return (LocationID *)[super objectID];
 }
 
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
+
+    return keyPaths;
+}
 
 @dynamic address;
+
 @dynamic addressSecond;
+
 @dynamic city;
+
 @dynamic geoPoint;
+
 @dynamic name;
+
 @dynamic phone;
+
 @dynamic postalCode;
+
 @dynamic slug;
+
 @dynamic state;
 
-
 @dynamic artworks;
-- (NSMutableSet *)artworksSet
+
+- (NSMutableSet<Artwork *> *)artworksSet
 {
     [self willAccessValueForKey:@"artworks"];
-    NSMutableSet *result = (NSMutableSet *)[self mutableSetValueForKey:@"artworks"];
+
+    NSMutableSet<Artwork *> *result = (NSMutableSet<Artwork *> *)[self mutableSetValueForKey:@"artworks"];
+
     [self didAccessValueForKey:@"artworks"];
     return result;
 }
 
 @dynamic shows;
-- (NSMutableSet *)showsSet
+
+- (NSMutableSet<Show *> *)showsSet
 {
     [self willAccessValueForKey:@"shows"];
-    NSMutableSet *result = (NSMutableSet *)[self mutableSetValueForKey:@"shows"];
+
+    NSMutableSet<Show *> *result = (NSMutableSet<Show *> *)[self mutableSetValueForKey:@"shows"];
+
     [self didAccessValueForKey:@"shows"];
     return result;
 }
 
+@end
 
+
+@implementation LocationAttributes
++ (NSString *)address
+{
+    return @"address";
+}
++ (NSString *)addressSecond
+{
+    return @"addressSecond";
+}
++ (NSString *)city
+{
+    return @"city";
+}
++ (NSString *)geoPoint
+{
+    return @"geoPoint";
+}
++ (NSString *)name
+{
+    return @"name";
+}
++ (NSString *)phone
+{
+    return @"phone";
+}
++ (NSString *)postalCode
+{
+    return @"postalCode";
+}
++ (NSString *)slug
+{
+    return @"slug";
+}
++ (NSString *)state
+{
+    return @"state";
+}
+@end
+
+
+@implementation LocationRelationships
++ (NSString *)artworks
+{
+    return @"artworks";
+}
++ (NSString *)shows
+{
+    return @"shows";
+}
 @end

@@ -17,12 +17,10 @@ describe(@"resolving albums", ^{
     __block NSInteger preAlbumCount;
     __block NSArray *allAlbums;
 
-    __block ARSync *sync;
-    
     beforeAll(^{
         context = [CoreDataManager stubbedManagedObjectContext];
         artist = [Artist objectInContext:context];
-        NSArray *slugs = @[@"slug1", @"slug2"];
+        NSArray *slugs = @[ @"slug1", @"slug2" ];
         partner = [Partner createInContext:context];
 
         artwork1 = [Artwork stubbedArtworkWithImages:YES inContext:context];
@@ -45,18 +43,18 @@ describe(@"resolving albums", ^{
         localAlbum.editable = @(YES);
 
         localFilledAlbum = [Album objectInContext:context];
-        localFilledAlbum.artworks = [NSSet setWithArray:@[artwork1]];
+        localFilledAlbum.artworks = [NSSet setWithArray:@[ artwork1 ]];
         localFilledAlbum.editable = @(YES);
 
         preAlbumCount = [Album countInContext:context error:nil];
-        
+
         ARSlugResolver *resolver = [[ARSlugResolver alloc] init];
 
         ARSync *sync = [ARSync syncForTesting:context];
         [resolver syncDidFinish:sync];
-        
+
         allAlbums = [Album findAllInContext:context];
-        
+
     });
 
     it(@"sets artworks from slugs", ^{
@@ -68,22 +66,22 @@ describe(@"resolving albums", ^{
     it(@"does not set the artworks for local albums", ^{
         expect(localAlbum.artworks.count).to.equal(0);
     });
-    
+
     it(@"creates an all artworks album", ^{
         NSInteger postAlbumCount = [Album countInContext:context error:nil];
         expect(preAlbumCount).to.beLessThan(postAlbumCount);
     });
-    
+
     it(@"contains an all artworks album", ^{
         Album *allArtworksAlbum = [Album findFirstByAttribute:@"slug" withValue:@"all_artworks" inContext:context];
         expect(allArtworksAlbum).to.beTruthy();
     });
-    
+
     it(@"does not create a for sale album if there are no for sale artworks", ^{
         Album *forSaleAlbum = [Album findFirstByAttribute:@"slug" withValue:@"for_sale_works" inContext:context];
         expect(forSaleAlbum).to.beFalsy();
     });
-    
+
     it(@"contains a for sale album with only for sale artworks", ^{
         artwork2.isAvailableForSale = @YES;
 
@@ -114,7 +112,7 @@ describe(@"resolving albums", ^{
 describe(@"resolving shows", ^{
     it(@"sets artworks from slugs", ^{
         NSManagedObjectContext *context = [CoreDataManager stubbedManagedObjectContext];
-        NSArray *slugs = @[@"slug1", @"slug2"];
+        NSArray *slugs = @[ @"slug1", @"slug2" ];
         Artist *artist = [Artist objectInContext:context];
 
         Artwork *artwork = [Artwork stubbedArtworkWithImages:YES inContext:context];
@@ -146,7 +144,7 @@ describe(@"resolving shows", ^{
 describe(@"resolving locations", ^{
     it(@"sets artworks from slugs", ^{
         NSManagedObjectContext *context = [CoreDataManager stubbedManagedObjectContext];
-        NSArray *slugs = @[@"slug1", @"slug2"];
+        NSArray *slugs = @[ @"slug1", @"slug2" ];
 
         Artwork *artwork = [Artwork stubbedArtworkWithImages:YES inContext:context];
         artwork.slug = slugs[0];
