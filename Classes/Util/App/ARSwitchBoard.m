@@ -233,7 +233,7 @@
 
     ARArtistViewController *artistController = [[ARArtistViewController alloc] initWithArtist:artwork.artists.anyObject];
 
-    NSFetchRequest *fetchRequest = [artwork.artist artworksFetchRequestSortedBy:ARArtworksSortOrderDefault];
+    NSFetchRequest *fetchRequest = [artistController.representedObject artworksFetchRequestSortedBy:ARArtworksSortOrderDefault];
     NSFetchedResultsController *controller = [self fetchedResultsControllerForArtworksRequest:fetchRequest];
 
     NSInteger index = [controller indexPathForObject:artwork].row;

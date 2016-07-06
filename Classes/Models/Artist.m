@@ -24,6 +24,8 @@
 
 - (void)updateWithDictionary:(NSDictionary *)aDictionary
 {
+    [super updateWithDictionary:aDictionary];
+
     self.name = [aDictionary onlyStringForKey:ARFeedNameKey];
     self.years = [aDictionary onlyStringForKey:ARFeedYearsKey];
 
@@ -73,8 +75,7 @@
 
 - (NSFetchRequest *)artworksFetchRequestSortedBy:(ARArtworkSortOrder)order
 {
-    //    NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SUBQUERY(artists, $artist, $artist.slug == %@) .@count > 0", self.slug];
-    NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"ANY artists.slug == %@", self.slug];
+    NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"ANY artists == %@", self];
     NSFetchRequest *allArtworksRequest = [NSFetchRequest ar_allArtworksOfArtworkContainerWithSelfPredicate:scopePredicate inContext:self.managedObjectContext defaults:NSUserDefaults.standardUserDefaults];
 
     allArtworksRequest.sortDescriptors = [ARSortOrderHost sortDescriptorsWithoutArtistWithOrder:order];

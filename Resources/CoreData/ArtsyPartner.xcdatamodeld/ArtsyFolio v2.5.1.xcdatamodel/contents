@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="2.5.1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="2.5.1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G24b" minimumToolsVersion="Automatic">
     <entity name="Album" representedClassName="Album" elementID="Collection">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="editable" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
@@ -55,7 +55,7 @@
             <userInfo/>
         </attribute>
         <relationship name="albumsFeaturingArtist" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Album" inverseName="artists" inverseEntity="Album" syncable="YES"/>
-        <relationship name="artworks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Artwork" inverseName="artist" inverseEntity="Artwork">
+        <relationship name="artworks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Artwork" inverseName="artists" inverseEntity="Artwork">
             <userInfo/>
         </relationship>
         <relationship name="cover" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="coverForArtist" inverseEntity="Image" syncable="YES"/>
@@ -124,10 +124,10 @@
         <attribute name="width" optional="YES" attributeType="Decimal" defaultValueString="0.0">
             <userInfo/>
         </attribute>
-        <relationship name="artist" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Artist" inverseName="artworks" inverseEntity="Artist">
+        <relationship name="artist" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Artist">
             <userInfo/>
         </relationship>
-        <relationship name="artists" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Artist" syncable="YES"/>
+        <relationship name="artists" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Artist" inverseName="artworks" inverseEntity="Artist" syncable="YES"/>
         <relationship name="collections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Album" inverseName="artworks" inverseEntity="Album">
             <userInfo/>
         </relationship>
