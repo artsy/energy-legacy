@@ -73,7 +73,8 @@
 
 - (NSFetchRequest *)artworksFetchRequestSortedBy:(ARArtworkSortOrder)order
 {
-    NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"artist.slug == %@", self.slug];
+    //    NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"SUBQUERY(artists, $artist, $artist.slug == %@) .@count > 0", self.slug];
+    NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"ANY artists.slug == %@", self.slug];
     NSFetchRequest *allArtworksRequest = [NSFetchRequest ar_allArtworksOfArtworkContainerWithSelfPredicate:scopePredicate inContext:self.managedObjectContext defaults:NSUserDefaults.standardUserDefaults];
 
     allArtworksRequest.sortDescriptors = [ARSortOrderHost sortDescriptorsWithoutArtistWithOrder:order];

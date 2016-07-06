@@ -18,21 +18,20 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
 {
     self.title = [aDictionary onlyStringForKey:ARFeedTitleKey];
 
-    if ([aDictionary onlyArrayForKey:ARFeedArtistsKey]) {
+    if ([aDictionary onlyArrayForKey:ARFeedArtistsKey].count) {
         NSArray<Artist *> *artists = [ARFeedTranslator addOrUpdateObjects:[aDictionary onlyArrayForKey:ARFeedArtistsKey] withEntityName:@"Artist" inContext:self.managedObjectContext saving:NO];
         self.artists = [NSSet setWithArray:artists];
-    }
-
-    if ([aDictionary objectForKeyNotNull:ARFeedArtistKey]) {
-        Artist *artist = (Artist *)[ARFeedTranslator addOrUpdateObject:[aDictionary onlyDictionaryForKey:ARFeedArtistKey]
-                                                        withEntityName:@"Artist"
-                                                             inContext:self.managedObjectContext
-                                                                saving:NO];
-        self.artist = artist;
+        //
+        //    if ([aDictionary objectForKeyNotNull:ARFeedArtistKey]) {
+        //        Artist *artist = (Artist *)[ARFeedTranslator addOrUpdateObject:[aDictionary onlyDictionaryForKey:ARFeedArtistKey]
+        //                                                        withEntityName:@"Artist"
+        //                                                             inContext:self.managedObjectContext
+        //                                                                saving:NO];
+        //        self.artist = artist;
     } else {
         // Create an unknown artist.
         Artist *unknownArtist = [Artist findOrCreateUnknownArtistInContext:self.managedObjectContext];
-        self.artist = unknownArtist;
+        self.artists = [NSSet setWithObject:unknownArtist];
     }
 
     if ([aDictionary onlyArrayForKey:ARFeedImagesKey]) {
