@@ -1,6 +1,12 @@
 upcoming:
-  version: 2.5.1
-  notes:
+    version: 2.5.2
+    notes:
+    - Supports Artworks with multiple Artists - orta
+
+releases:
+   - version: 2.5.1
+    date: Jun 30, 2016
+    notes:
     - Improved sync timing algorithm by weighing it towards the timing of the last sync - orta
     - Ensure custom cc emails are not overwritten - orta
     - Partner Size now is a number, not a string - orta
@@ -11,7 +17,6 @@ upcoming:
     - Use a different API route for pinging Artsy, and ensure the timer stops when sync settings is not active - orta
     - Minor analytics updates - orta
 
-releases:
   - version: 2.5.0
     date: Jan 26 2016
     notes:
