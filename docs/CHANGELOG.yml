@@ -1,10 +1,10 @@
 upcoming:
-    version: 2.5.2
-    notes:
+  version: 2.5.2
+  notes:
     - Supports Artworks with multiple Artists - orta
 
 releases:
-   - version: 2.5.1
+  - version: 2.5.1
     date: Jun 30, 2016
     notes:
     - Improved sync timing algorithm by weighing it towards the timing of the last sync - orta
