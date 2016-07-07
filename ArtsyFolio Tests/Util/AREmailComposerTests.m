@@ -230,7 +230,7 @@ describe(@"email html", ^{
     it(@"handles showing multiple artist names for an artwork", ^{
         artwork.artists = [NSSet setWithObjects:artist, artist2, nil];
         composer.artworks = @[ artwork ];
-        expect(composer.body).to.contain(artwork.artistDisplayString);
+        expect(composer.body).to.contain(artwork.artistDisplayString.uppercaseString);
     });
 
     it(@"converts newlines in signature to <br/>", ^{
