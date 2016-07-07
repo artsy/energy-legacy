@@ -11,7 +11,7 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"Artwork : %@ ( by %@ )", self.title, self.artist.gridTitle];
+    return [NSString stringWithFormat:@"Artwork : %@ ( by %@ )", self.title, self.artistDisplayString];
 }
 
 - (void)updateWithDictionary:(NSDictionary *)aDictionary
@@ -37,7 +37,7 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
                 [images addObject:imageDictWithID];
             } else {
                 [ARAnalytics event:@"Error - no ID for images on Artwork" withProperties:@{ @"artwork" : self.title,
-                                                                                            @"artist" : self.artist.searchDisplayName }];
+                                                                                            @"artist" : self.artistDisplayString }];
             }
         }
 
@@ -209,7 +209,7 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
 
 - (NSString *)gridTitle
 {
-    return self.artist.gridTitle;
+    return self.artistDisplayString;
 }
 
 - (NSUInteger)collectionSize
@@ -278,9 +278,15 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
     return title;
 }
 
+static NSSortDescriptor *ARSortDisplayDescriptor;
+
 - (NSString *)artistDisplayString
 {
-    return [[self.artists map:^id(Artist *artist) {
+    if (!ARSortDisplayDescriptor) {
+        ARSortDisplayDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"orderingKey" ascending:YES];
+    }
+
+    return [[[self.artists sortedArrayUsingDescriptors:@[ ARSortDisplayDescriptor ]] map:^id(Artist *artist) {
         return artist.presentableName;
     }] join:@", "];
 }
@@ -289,6 +295,11 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
 {
     NSFetchRequest *request = [self.class requestAllSortedBy:@keypath(Artwork.new, title) ascending:YES inContext:context];
     return [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+}
+
+- (Artist *)artist
+{
+    return [super artist];
 }
 
 @end

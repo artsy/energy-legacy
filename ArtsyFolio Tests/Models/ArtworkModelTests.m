@@ -50,7 +50,7 @@ describe(@"json parsing", ^{
         it(@"supports the old style 'artist'", ^{
             Artwork *artwork = [Artwork modelFromJSON:@{
                 @"id" : @"ok",
-                @"artist" : @{@"name" : @"one"},
+                @"artists" : @[ @{@"id" : @"id1", @"name" : @"one"} ],
             } inContext:context];
             expect(artwork.artistDisplayString).to.equal(@"one");
         });
@@ -58,9 +58,10 @@ describe(@"json parsing", ^{
         it(@"supports multiple artists", ^{
             Artwork *artwork = [Artwork modelFromJSON:@{
                 @"id" : @"ok",
-                @"artists" : @[ @{@"name" : @"one"}, @{@"name" : @"two"} ]
+                @"artists" : @[ @{@"id" : @"id1", @"name" : @"anna", @"sortable_id" : @"anna"}, @{@"id" : @"id2", @"name" : @"brianna", @"sortable_id" : @"brianna"} ]
             } inContext:context];
-            expect(artwork.artistDisplayString).to.equal(@"one, two");
+            // It's alphabetically ordered
+            expect(artwork.artistDisplayString).to.contain(@"anna, brianna");
         });
     });
 

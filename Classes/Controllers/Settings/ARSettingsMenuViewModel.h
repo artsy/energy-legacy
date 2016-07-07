@@ -26,7 +26,4 @@
 /// Logs out via ARAppDelegate
 - (void)logout;
 
-/// Deprecated once old settings are removed
-- (void)switchToOriginalSettings;
-
 @end

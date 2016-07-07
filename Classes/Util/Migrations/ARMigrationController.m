@@ -9,8 +9,8 @@
     [self moveCoreDataStackIfNeeded];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *oldMigrationVersion = [defaults stringForKey:ARAppSyncVersion];
-    CGFloat pastVersion = [oldMigrationVersion floatValue];
+    //    NSString *oldMigrationVersion = [defaults stringForKey:ARAppSyncVersion];
+    //    CGFloat pastVersion = [oldMigrationVersion floatValue];
 
     /// Converts pre 2.5.1 versions of Folio to support multiple artists
     BOOL shouldSwitchArtistToArtists = [defaults boolForKey:@"ARHasSwitchedArtistToArtists"] == NO;

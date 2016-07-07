@@ -1,5 +1,6 @@
 
 
+
 @interface NSArray (ORAnyExtends)
 
 - (BOOL)anyObjectsMatch:(BOOL (^)(id object))block;
@@ -47,8 +48,10 @@
                 return show.sortedDocuments.count > 0;
             }]];
 
-            if (artwork.artist.sortedDocuments.count) {
-                [allContainers addObject:artwork.artist];
+            for (Artist *artist in artwork.artists) {
+                if (artist.sortedDocuments.count) {
+                    [allContainers addObject:artist];
+                }
             }
 
             return allContainers;
@@ -93,9 +96,9 @@
 - (BOOL)artworksShouldShowBackendPrice:(NSArray *)artworks
 {
     return [artworks anyObjectsMatch:^BOOL(Artwork *artwork) {
-        return  artwork.backendPrice &&
-                artwork.backendPrice.length > 1 &&
-               ![artwork.backendPrice isEqualToString:artwork.displayPrice];
+        return artwork.backendPrice &&
+            artwork.backendPrice.length > 1 &&
+            ![artwork.backendPrice isEqualToString:artwork.displayPrice];
     }];
 }
 

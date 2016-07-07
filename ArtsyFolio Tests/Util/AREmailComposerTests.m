@@ -55,7 +55,7 @@ describe(@"with 1 artwork", ^{
 
         artwork = [Artwork objectInContext:context];
         artwork.title = @"Artwork Name";
-        artwork.artist = artist;
+        artwork.artists = [NSSet setWithObject:artist];
         composer.artworks = @[ artwork ];
     });
 
@@ -81,7 +81,7 @@ describe(@"with 1 artwork", ^{
         NSString *subject = @"Check out %@ by %@";
         defaults[AREmailSubject] = subject;
         expect([composer subject]).to.contain(artwork.title);
-        expect([composer subject]).to.contain(artwork.artist.presentableName);
+        expect([composer subject]).to.contain(artwork.artists.anyObject.presentableName);
     });
 });
 
@@ -96,14 +96,14 @@ describe(@"with artworks > 1", ^{
 
             artwork = [Artwork objectInContext:context];
             artwork.title = @"Artwork Name";
-            artwork.artist = artist;
+            artwork.artists = [NSSet setWithObject:artist];
 
             artwork2 = [Artwork objectInContext:context];
             artwork2.title = @"Artwork2 Name";
-            artwork2.artist = artist;
+            artwork2.artists = [NSSet setWithObject:artist];
 
             untitledArtwork = [Artwork objectInContext:context];
-            untitledArtwork.artist = artist;
+            untitledArtwork.artists = [NSSet setWithObject:artist];
 
             composer.artworks = @[ artwork, artwork2 ];
         });
@@ -123,14 +123,14 @@ describe(@"with artworks > 1", ^{
         it(@"replaces one %@ with artist name", ^{
             NSString *subject = @"Check out %@";
             defaults[ARMultipleSameArtistEmailSubject] = subject;
-            expect([composer subject]).to.contain(artwork.artist.presentableName);
+            expect([composer subject]).to.contain(artwork.artistDisplayString);
         });
 
         it(@"replaces two %@s with nothing", ^{
             NSString *subject = @"Check out %@ by %@";
             defaults[ARMultipleSameArtistEmailSubject] = subject;
             expect([composer subject]).toNot.contain(artwork.title);
-            expect([composer subject]).toNot.contain(artwork.artist.presentableName);
+            expect([composer subject]).toNot.contain(artwork.artistDisplayString);
         });
 
         it(@"handles untitled artworks correctly ", ^{
@@ -154,11 +154,11 @@ describe(@"with artworks > 1", ^{
 
             artwork = [Artwork objectInContext:context];
             artwork.title = @"Artwork Name";
-            artwork.artist = artist;
+            artwork.artists = [NSSet setWithObject:artist];
 
             artwork2 = [Artwork objectInContext:context];
             artwork2.title = @"Artwork2 Name";
-            artwork2.artist = artist2;
+            artwork2.artists = [NSSet setWithObject:artist2];
 
             composer.artworks = @[ artwork, artwork2 ];
         });
@@ -230,7 +230,7 @@ describe(@"email html", ^{
     it(@"handles showing multiple artist names for an artwork", ^{
         artwork.artists = [NSSet setWithObjects:artist, artist2, nil];
         composer.artworks = @[ artwork ];
-        expect(composer.body).to.contain(artist.displayName);
+        expect(composer.body).to.contain(artwork.artistDisplayString);
     });
 
     it(@"converts newlines in signature to <br/>", ^{

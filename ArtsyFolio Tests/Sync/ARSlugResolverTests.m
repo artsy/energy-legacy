@@ -25,14 +25,14 @@ describe(@"resolving albums", ^{
 
         artwork1 = [Artwork stubbedArtworkWithImages:YES inContext:context];
         artwork1.slug = slugs[0];
-        artwork1.artist = artist;
+        artwork1.artists = [NSSet setWithObject:artist];
 
         artwork2 = [Artwork stubbedArtworkWithImages:YES inContext:context];
         artwork2.slug = slugs[1];
-        artwork2.artist = artist;
+        artwork2.artists = [NSSet setWithObject:artist];
 
         artwork3 = [Artwork stubbedArtworkWithImages:YES inContext:context];
-        artwork3.artist = artist;
+        artwork3.artists = [NSSet setWithObject:artist];
 
         downloadedAlbum = [Album objectInContext:context];
         downloadedAlbum.artworkSlugs = [NSSet setWithArray:slugs];
@@ -117,14 +117,14 @@ describe(@"resolving shows", ^{
 
         Artwork *artwork = [Artwork stubbedArtworkWithImages:YES inContext:context];
         artwork.slug = slugs[0];
-        artwork.artist = artist;
+        artwork.artists = [NSSet setWithObject:artist];
 
         Artwork *artwork2 = [Artwork stubbedArtworkWithImages:YES inContext:context];
         artwork2.slug = slugs[1];
-        artwork2.artist = artist;
+        artwork2.artists = [NSSet setWithObject:artist];
 
         Artwork *artwork3 = [Artwork stubbedArtworkWithImages:YES inContext:context];
-        artwork3.artist = artist;
+        artwork3.artists = [NSSet setWithObject:artist];
 
         Show *show = [Show objectInContext:context];
         show.artworkSlugs = [NSSet setWithArray:slugs];

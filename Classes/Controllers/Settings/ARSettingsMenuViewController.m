@@ -190,12 +190,6 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
     [(ARSettingsSplitViewController *)self.splitViewController exitSettingsPanel];
 }
 
-- (IBAction)ogSettingsButtonPressed:(id)sender
-{
-    [self.viewModel switchToOriginalSettings];
-    [self exitSettingsPanel];
-}
-
 - (BOOL)prefersStatusBarHidden
 {
     return YES;

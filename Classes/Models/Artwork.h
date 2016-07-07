@@ -7,6 +7,9 @@
 
 @interface Artwork : _Artwork <ARGridViewItem, ARMultipleSelectionItem>
 
+/// Use `artists` instead, keeping around to ensure backwards compatability.
+- (Artist *)artist DEPRECATED_ATTRIBUTE;
+
 - (NSArray *)sortedImages;
 
 - (BOOL)hasAdditionalInfo;
