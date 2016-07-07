@@ -12,12 +12,16 @@
     NSString *oldMigrationVersion = [defaults stringForKey:ARAppSyncVersion];
     CGFloat pastVersion = [oldMigrationVersion floatValue];
 
-    if (pastVersion && pastVersion < 1.39) {
-        ARSyncLog(@"Migrating!");
+    /// Converts pre 2.5.1 versions of Folio to support multiple artists
+    BOOL shouldSwitchArtistToArtists = [defaults boolForKey:@"ARHasSwitchedArtistToArtists"] == NO;
+    if (shouldSwitchArtistToArtists) {
+        // Migrate any singular artist into artists
+        for (Artwork *artwork in [Artwork findAllInContext:context]) {
+            artwork.artists = [NSSet setWithObject:artwork.artist];
+        }
 
-        // perform migration steps (or just have users re-install now the sync is faster
+        [defaults setBool:YES forKey:@"ARHasSwitchedArtistToArtists"];
     }
-
 
     // I changed a BOOL which was incorrectly being set to YES all the time, now
     // we have a migration to switch them all to NO, and the next sync will deal with
