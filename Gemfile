@@ -8,4 +8,3 @@ gem 'danger'
 
 gem 'cocoapods'
 gem 'cocoapods-keys'
-gem 'cocoapods-deintegrate'

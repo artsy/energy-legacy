@@ -10,11 +10,10 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.3.8)
+    addressable (2.4.0)
     aws-sdk-v1 (1.66.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
-    chairs (1.1.0)
     claide (0.9.1)
     cocoapods (0.39.0)
       activesupport (>= 4.0.2)
@@ -35,13 +34,10 @@ GEM
       activesupport (>= 4.0.2)
       fuzzy_match (~> 2.0.4)
       nap (~> 1.0)
-    cocoapods-deintegrate (0.2.1)
-      cocoapods (~> 0.34)
     cocoapods-downloader (0.9.3)
     cocoapods-keys (1.6.0)
       dotenv
       osx_keychain
-    cocoapods-open (0.0.8)
     cocoapods-plugins (0.4.2)
       nap
     cocoapods-search (0.1.0)
@@ -51,7 +47,7 @@ GEM
       netrc (= 0.7.8)
     cocoapods-try (0.5.1)
     colored (1.2)
-    danger (0.7.2)
+    danger (0.8.2)
       claide
       colored (~> 1.2)
       faraday
@@ -89,7 +85,7 @@ GEM
     second_curtain (0.3.0)
       aws-sdk-v1 (~> 1.52)
       mustache (~> 0.99)
-    terminal-table (1.4.5)
+    terminal-table (1.6.0)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -104,11 +100,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  chairs
   cocoapods
-  cocoapods-deintegrate
   cocoapods-keys
-  cocoapods-open
   danger
   sbconstants
   second_curtain
