@@ -22,7 +22,7 @@ describe(@"estimates", ^{
         sut.numEstimatedBytes = 1000000000;
         [sut downloadedNumBytes:10000];
 
-        expect(sut.estimatedTimeRemaining).to.beInTheRangeOf(9, 11);
+        expect(sut.estimatedTimeRemaining).to.beLessThan(12);
     });
 
 });
