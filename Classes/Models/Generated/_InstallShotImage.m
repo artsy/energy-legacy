@@ -3,16 +3,6 @@
 
 #import "_InstallShotImage.h"
 
-const struct InstallShotImageAttributes InstallShotImageAttributes = {
-    .caption = @"caption",
-};
-
-const struct InstallShotImageRelationships InstallShotImageRelationships = {
-    .showWithImageInInstallation = @"showWithImageInInstallation",
-};
-
-const struct InstallShotImageUserInfo InstallShotImageUserInfo = {};
-
 
 @implementation InstallShotImageID
 @end
@@ -20,7 +10,7 @@ const struct InstallShotImageUserInfo InstallShotImageUserInfo = {};
 
 @implementation _InstallShotImage
 
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
 {
     NSParameterAssert(moc_);
     return [NSEntityDescription insertNewObjectForEntityForName:@"InstallShotImage" inManagedObjectContext:moc_];
@@ -42,11 +32,31 @@ const struct InstallShotImageUserInfo InstallShotImageUserInfo = {};
     return (InstallShotImageID *)[super objectID];
 }
 
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
+
+    return keyPaths;
+}
 
 @dynamic caption;
 
-
 @dynamic showWithImageInInstallation;
 
+@end
 
+
+@implementation InstallShotImageAttributes
++ (NSString *)caption
+{
+    return @"caption";
+}
+@end
+
+
+@implementation InstallShotImageRelationships
++ (NSString *)showWithImageInInstallation
+{
+    return @"showWithImageInInstallation";
+}
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6738" systemVersion="14C81f" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="2.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
     <entity name="Album" representedClassName="Album" elementID="Collection">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="editable" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
@@ -291,12 +291,12 @@
         <element name="Location" positionX="0" positionY="0" width="128" height="195"/>
         <element name="Note" positionX="0" positionY="0" width="128" height="105"/>
         <element name="Partner" positionX="0" positionY="0" width="128" height="478"/>
+        <element name="PartnerOption" positionX="18" positionY="153" width="128" height="88"/>
         <element name="Show" positionX="0" positionY="0" width="128" height="285"/>
         <element name="ShowDocument" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="SubscriptionPlan" positionX="27" positionY="162" width="128" height="73"/>
         <element name="SyncError" positionX="9" positionY="153" width="128" height="88"/>
         <element name="SyncLog" positionX="9" positionY="153" width="128" height="163"/>
         <element name="User" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="PartnerOption" positionX="18" positionY="153" width="128" height="88"/>
-        <element name="SubscriptionPlan" positionX="27" positionY="162" width="128" height="73"/>
     </elements>
 </model>

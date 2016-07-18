@@ -3,16 +3,6 @@
 
 #import "_SubscriptionPlan.h"
 
-const struct SubscriptionPlanAttributes SubscriptionPlanAttributes = {
-    .name = @"name",
-};
-
-const struct SubscriptionPlanRelationships SubscriptionPlanRelationships = {
-    .subscriptionForPartner = @"subscriptionForPartner",
-};
-
-const struct SubscriptionPlanUserInfo SubscriptionPlanUserInfo = {};
-
 
 @implementation SubscriptionPlanID
 @end
@@ -20,7 +10,7 @@ const struct SubscriptionPlanUserInfo SubscriptionPlanUserInfo = {};
 
 @implementation _SubscriptionPlan
 
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
 {
     NSParameterAssert(moc_);
     return [NSEntityDescription insertNewObjectForEntityForName:@"SubscriptionPlan" inManagedObjectContext:moc_];
@@ -42,11 +32,31 @@ const struct SubscriptionPlanUserInfo SubscriptionPlanUserInfo = {};
     return (SubscriptionPlanID *)[super objectID];
 }
 
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
+
+    return keyPaths;
+}
 
 @dynamic name;
 
-
 @dynamic subscriptionForPartner;
 
+@end
 
+
+@implementation SubscriptionPlanAttributes
++ (NSString *)name
+{
+    return @"name";
+}
+@end
+
+
+@implementation SubscriptionPlanRelationships
++ (NSString *)subscriptionForPartner
+{
+    return @"subscriptionForPartner";
+}
 @end

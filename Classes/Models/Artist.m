@@ -24,6 +24,8 @@
 
 - (void)updateWithDictionary:(NSDictionary *)aDictionary
 {
+    [super updateWithDictionary:aDictionary];
+
     self.name = [aDictionary onlyStringForKey:ARFeedNameKey];
     self.years = [aDictionary onlyStringForKey:ARFeedYearsKey];
 
@@ -66,14 +68,14 @@
                                                   withEntityName:@"Artwork"
                                                        inContext:self.managedObjectContext
                                                           saving:NO];
-        NSSet *artworksSet = [[NSSet alloc] initWithArray:artworks];
+        NSSet *artworksSet = [NSSet setWithArray:artworks];
         [self addArtworks:artworksSet];
     }
 }
 
 - (NSFetchRequest *)artworksFetchRequestSortedBy:(ARArtworkSortOrder)order
 {
-    NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"artist.slug == %@", self.slug];
+    NSPredicate *scopePredicate = [NSPredicate predicateWithFormat:@"ANY artists == %@", self];
     NSFetchRequest *allArtworksRequest = [NSFetchRequest ar_allArtworksOfArtworkContainerWithSelfPredicate:scopePredicate inContext:self.managedObjectContext defaults:NSUserDefaults.standardUserDefaults];
 
     allArtworksRequest.sortDescriptors = [ARSortOrderHost sortDescriptorsWithoutArtistWithOrder:order];
@@ -231,6 +233,19 @@
     request.predicate = [NSPredicate predicateWithFormat:@"ANY artists == %@", self];
     request.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES] ];
     return request;
+}
+
++ (Artist *)findOrCreateUnknownArtistInContext:(NSManagedObjectContext *)context
+{
+    Artist *unknownArtist = [Artist findFirstByAttribute:@"slug" withValue:@"unknown-artist" inContext:context];
+    if (!unknownArtist) {
+        unknownArtist = [Artist createInContext:context];
+        unknownArtist.displayName = @"Unknown Artist";
+        unknownArtist.slug = @"unknown-artist";
+        unknownArtist.orderingKey = @"Unknown Artist";
+        unknownArtist.name = @"Unknown Artist";
+    }
+    return unknownArtist;
 }
 
 @end

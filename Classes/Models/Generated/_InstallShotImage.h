@@ -1,45 +1,58 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
 // Make changes to InstallShotImage.h instead.
 
+#if __has_feature(modules)
+@import Foundation;
+@import CoreData;
+#else
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#endif
+
 #import "Image.h"
 
-extern const struct InstallShotImageAttributes {
-    __unsafe_unretained NSString *caption;
-} InstallShotImageAttributes;
-
-extern const struct InstallShotImageRelationships {
-    __unsafe_unretained NSString *showWithImageInInstallation;
-} InstallShotImageRelationships;
-
-extern const struct InstallShotImageUserInfo {
-} InstallShotImageUserInfo;
+NS_ASSUME_NONNULL_BEGIN
 
 @class Show;
 
 
-@interface InstallShotImageID : ImageID {
+@interface InstallShotImageID : ImageID
+{
 }
 @end
 
 
-@interface _InstallShotImage : Image {
-}
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
+@interface _InstallShotImage : Image
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-- (InstallShotImageID *)objectID;
+@property (nonatomic, readonly, strong) InstallShotImageID *objectID;
 
-@property (nonatomic, strong) NSString *caption;
-@property (nonatomic, strong) Show *showWithImageInInstallation;
+@property (nonatomic, strong, nullable) NSString *caption;
 
+@property (nonatomic, strong, nullable) Show *showWithImageInInstallation;
 
 @end
 
 
 @interface _InstallShotImage (CoreDataGeneratedPrimitiveAccessors)
 
+- (NSString *)primitiveCaption;
+- (void)setPrimitiveCaption:(NSString *)value;
+
 - (Show *)primitiveShowWithImageInInstallation;
 - (void)setPrimitiveShowWithImageInInstallation:(Show *)value;
 
 @end
+
+
+@interface InstallShotImageAttributes : NSObject
++ (NSString *)caption;
+@end
+
+
+@interface InstallShotImageRelationships : NSObject
++ (NSString *)showWithImageInInstallation;
+@end
+
+NS_ASSUME_NONNULL_END

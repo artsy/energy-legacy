@@ -11,30 +11,21 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"Artwork : %@ ( by %@ )", self.title, self.artist.gridTitle];
+    return [NSString stringWithFormat:@"Artwork : %@ ( by %@ )", self.title, self.artistDisplayString];
 }
 
 - (void)updateWithDictionary:(NSDictionary *)aDictionary
 {
     self.title = [aDictionary onlyStringForKey:ARFeedTitleKey];
 
-    if ([aDictionary objectForKeyNotNull:ARFeedArtistKey]) {
-        Artist *artist = (Artist *)[ARFeedTranslator addOrUpdateObject:[aDictionary onlyDictionaryForKey:ARFeedArtistKey]
-                                                        withEntityName:@"Artist"
-                                                             inContext:self.managedObjectContext
-                                                                saving:NO];
-        self.artist = artist;
+    if ([aDictionary onlyArrayForKey:ARFeedArtistsKey].count > 0) {
+        NSArray<Artist *> *artists = [ARFeedTranslator addOrUpdateObjects:[aDictionary onlyArrayForKey:ARFeedArtistsKey] withEntityName:@"Artist" inContext:self.managedObjectContext saving:NO];
+        self.artists = [NSSet setWithArray:artists];
+
     } else {
         // Create an unknown artist.
-        Artist *unknownArtist = [Artist findFirstByAttribute:@"slug" withValue:@"unknown-artist" inContext:self.managedObjectContext];
-        if (!unknownArtist) {
-            unknownArtist = [Artist createInContext:self.managedObjectContext];
-            unknownArtist.displayName = @"Unknown Artist";
-            unknownArtist.slug = @"unknown-artist";
-            unknownArtist.orderingKey = @"Unknown Artist";
-            unknownArtist.name = @"Unknown Artist";
-        }
-        self.artist = unknownArtist;
+        Artist *unknownArtist = [Artist findOrCreateUnknownArtistInContext:self.managedObjectContext];
+        self.artists = [NSSet setWithObject:unknownArtist];
     }
 
     if ([aDictionary onlyArrayForKey:ARFeedImagesKey]) {
@@ -46,7 +37,7 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
                 [images addObject:imageDictWithID];
             } else {
                 [ARAnalytics event:@"Error - no ID for images on Artwork" withProperties:@{ @"artwork" : self.title,
-                                                                                            @"artist" : self.artist.searchDisplayName }];
+                                                                                            @"artist" : self.artistDisplayString }];
             }
         }
 
@@ -59,9 +50,9 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
     NSArray *editionSetDicts = [aDictionary onlyArrayForKey:ARFeedArtworkEditionSetsKey];
     if (editionSetDicts.count) {
         NSArray *editionSets = [editionSetDicts map:^(NSDictionary *dict) {
-                EditionSet *set = [EditionSet createInContext:self.managedObjectContext];
-                [set updateWithDictionary:dict];
-                return set;
+            EditionSet *set = [EditionSet createInContext:self.managedObjectContext];
+            [set updateWithDictionary:dict];
+            return set;
         }];
 
         self.editionSets = [NSSet setWithArray:editionSets];
@@ -106,10 +97,6 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
     self.series = [aDictionary onlyStringForKey:ARFeedSeriesKey];
     self.inventoryID = [aDictionary onlyStringForKey:ARFeedInventoryIDKey];
     self.confidentialNotes = [aDictionary onlyStringForKey:ARFeedConfidentialNotesKey];
-
-    if ([aDictionary[ARFeedArtworkEditionSetsKey] count]) {
-        self.editions = [aDictionary[ARFeedArtworkEditionSetsKey][0] onlyStringForKey:ARFeedArtworkEditionsKey];
-    }
 }
 
 - (void)convertDimensionsToAmericanSystemOfMeasurement
@@ -218,7 +205,7 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
 
 - (NSString *)gridTitle
 {
-    return self.artist.gridTitle;
+    return self.artistDisplayString;
 }
 
 - (NSUInteger)collectionSize
@@ -287,10 +274,36 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
     return title;
 }
 
+static NSSortDescriptor *ARSortDisplayDescriptor;
+
+- (NSString *)artistDisplayString
+{
+    if (!ARSortDisplayDescriptor) {
+        ARSortDisplayDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"orderingKey" ascending:YES];
+    }
+
+    return [[[self.artists sortedArrayUsingDescriptors:@[ ARSortDisplayDescriptor ]] map:^id(Artist *artist) {
+        return artist.presentableName;
+    }] join:@", "] ?: @"";
+}
+
 + (NSFetchedResultsController *)allArtworksInContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *request = [self.class requestAllSortedBy:@keypath(Artwork.new, title) ascending:YES inContext:context];
     return [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+}
+
+/// To deprecate a method you need to have an implementation
+
+- (Artist *)artist
+{
+    return [super artist];
+}
+
+
+- (NSString *)editions
+{
+    return [super editions];
 }
 
 @end

@@ -82,12 +82,11 @@
 
     ARSyncLog(@"Removing %@ objects", @(objects.count));
 
-    @synchronized(self)
-    {
+    [self.context performBlock:^{
         for (NSManagedObject *object in objects) {
             [context deleteObject:object];
         }
-    }
+    }];
 }
 
 - (NSSet *)markedObjects

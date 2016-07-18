@@ -63,7 +63,9 @@ describe(@"Removing objects", ^{
         [sut markObjectForDeletion:artwork];
         [sut deleteObjects];
 
-        [mock verify];
+        /// So, the delay is because the deletion is now happening
+        /// on whatever thread the NSManagedObjectContext wants.
+        [mock verifyWithDelay:0.1];
     });
 
 });

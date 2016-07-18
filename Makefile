@@ -44,7 +44,10 @@ test:
 mogenerate:
 	@printf 'What is the new Core Data version? '; \
 		read CORE_DATA_VERSION; \
-		mogenerator -m "Resources/CoreData/ArtsyPartner.xcdatamodeld/ArtsyFolio v$$CORE_DATA_VERSION.xcdatamodel" --base-class ARManagedObject --template-path config/mogenerator/artsy --machine-dir Classes/Models/Generated --human-dir /tmp --template-var arc=true
+		mogenerator -m "Resources/CoreData/ArtsyPartner.xcdatamodeld/ArtsyFolio v$$CORE_DATA_VERSION.xcdatamodel" --base-class ARManagedObject --machine-dir Classes/Models/Generated --human-dir /tmp --template-var arc=true
+		for file in Classes/Models/Generated/*; do  \
+			./config/spacecommander/format-objc-file.sh $$file; \
+		done
 
 storyboard_ids:
 	bundle exec sbconstants Classes/Util/App/ARStoryboardIdentifiers.h
@@ -54,7 +57,7 @@ storyboard_ids:
 deploy_if_beta_branch:
 	if [ "$(LOCAL_BRANCH)" == "beta" ]; then make install_fastlane; fastlane beta; fi
 
-setup_fastlane:
+install_fastlane:
 	gem install cocoapods fastlane pilot gym deliver
 
 deploy:

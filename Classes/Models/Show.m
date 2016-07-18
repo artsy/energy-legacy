@@ -48,7 +48,9 @@ static NSArray *sorts;
 {
     self.artists = nil;
     for (Artwork *artwork in self.artworks) {
-        [self addArtistsObject:artwork.artist];
+        for (Artist *artist in artwork.artists) {
+            [self addArtistsObject:artist];
+        }
     }
     [self updateName];
 }

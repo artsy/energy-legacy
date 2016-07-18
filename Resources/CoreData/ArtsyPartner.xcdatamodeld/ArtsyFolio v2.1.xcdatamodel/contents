@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14D105g" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="2.1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
     <entity name="Album" representedClassName="Album" elementID="Collection">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="editable" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
@@ -292,6 +292,7 @@
         <element name="Artwork" positionX="0" positionY="0" width="128" height="598"/>
         <element name="Document" positionX="0" positionY="0" width="128" height="210"/>
         <element name="Image" positionX="0" positionY="0" width="128" height="360"/>
+        <element name="InstallShotImage" positionX="18" positionY="153" width="128" height="73"/>
         <element name="LocalImage" positionX="18" positionY="162" width="128" height="45"/>
         <element name="Location" positionX="0" positionY="0" width="128" height="208"/>
         <element name="Note" positionX="0" positionY="0" width="128" height="105"/>
@@ -303,6 +304,5 @@
         <element name="SyncError" positionX="9" positionY="153" width="128" height="88"/>
         <element name="SyncLog" positionX="9" positionY="153" width="128" height="163"/>
         <element name="User" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="InstallShotImage" positionX="18" positionY="153" width="128" height="73"/>
     </elements>
 </model>

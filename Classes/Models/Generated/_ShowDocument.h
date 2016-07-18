@@ -1,25 +1,30 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
 // Make changes to ShowDocument.h instead.
 
+#if __has_feature(modules)
+@import Foundation;
+@import CoreData;
+#else
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#endif
+
 #import "Document.h"
 
-extern const struct ShowDocumentUserInfo {
-} ShowDocumentUserInfo;
+NS_ASSUME_NONNULL_BEGIN
 
 
-@interface ShowDocumentID : DocumentID {
+@interface ShowDocumentID : DocumentID
+{
 }
 @end
 
 
-@interface _ShowDocument : Document {
-}
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
+@interface _ShowDocument : Document
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-- (ShowDocumentID *)objectID;
-
+@property (nonatomic, readonly, strong) ShowDocumentID *objectID;
 
 @end
 
@@ -27,3 +32,5 @@ extern const struct ShowDocumentUserInfo {
 @interface _ShowDocument (CoreDataGeneratedPrimitiveAccessors)
 
 @end
+
+NS_ASSUME_NONNULL_END

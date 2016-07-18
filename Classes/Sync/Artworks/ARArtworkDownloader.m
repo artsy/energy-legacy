@@ -57,7 +57,9 @@
             Artwork *artwork = objects.firstObject;
 
             [self.deleter unmarkObjectForDeletion:artwork];
-            [self.deleter unmarkObjectForDeletion:artwork.artist];
+            for (id artist in artwork.artists) {
+                [self.deleter unmarkObjectForDeletion:artist];
+            }
 
             for (id image in artwork.images) {
                 [self.deleter unmarkObjectForDeletion:image];
@@ -69,7 +71,7 @@
             if ([object isEqual:self.artworkIDs.lastObject]) {
                 [[NSNotificationCenter defaultCenter] postNotificationName:ARAllArtworksDownloadedNotification object:nil userInfo:nil];
             }
-            
+
             continuation(artwork, nil);
         }];
 

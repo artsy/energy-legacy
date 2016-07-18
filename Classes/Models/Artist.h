@@ -8,7 +8,8 @@
 @class Image, Document, Show, Album, Artwork;
 
 
-@interface Artist : _Artist <ARGridViewItem, ARDocumentContainer, ARArtworkContainer> {
+@interface Artist : _Artist <ARGridViewItem, ARDocumentContainer, ARArtworkContainer>
+{
     NSDateFormatter *dateFormatter;
 }
 
@@ -25,5 +26,9 @@
 - (NSFetchRequest *)showsFeaturingArtistFetchRequest;
 
 - (NSFetchRequest *)albumsFeaturingArtistFetchRequest;
+
+/// Sets up a default artist for ambiguous works with no artists,
+/// in the future this should take into account cultural markers
++ (Artist *)findOrCreateUnknownArtistInContext:(NSManagedObjectContext *)context;
 
 @end

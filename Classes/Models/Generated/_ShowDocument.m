@@ -3,8 +3,6 @@
 
 #import "_ShowDocument.h"
 
-const struct ShowDocumentUserInfo ShowDocumentUserInfo = {};
-
 
 @implementation ShowDocumentID
 @end
@@ -12,7 +10,7 @@ const struct ShowDocumentUserInfo ShowDocumentUserInfo = {};
 
 @implementation _ShowDocument
 
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
 {
     NSParameterAssert(moc_);
     return [NSEntityDescription insertNewObjectForEntityForName:@"ShowDocument" inManagedObjectContext:moc_];
@@ -34,5 +32,11 @@ const struct ShowDocumentUserInfo ShowDocumentUserInfo = {};
     return (ShowDocumentID *)[super objectID];
 }
 
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
+
+    return keyPaths;
+}
 
 @end

@@ -1,25 +1,30 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
 // Make changes to ArtistDocument.h instead.
 
+#if __has_feature(modules)
+@import Foundation;
+@import CoreData;
+#else
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#endif
+
 #import "Document.h"
 
-extern const struct ArtistDocumentUserInfo {
-} ArtistDocumentUserInfo;
+NS_ASSUME_NONNULL_BEGIN
 
 
-@interface ArtistDocumentID : DocumentID {
+@interface ArtistDocumentID : DocumentID
+{
 }
 @end
 
 
-@interface _ArtistDocument : Document {
-}
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
+@interface _ArtistDocument : Document
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-- (ArtistDocumentID *)objectID;
-
+@property (nonatomic, readonly, strong) ArtistDocumentID *objectID;
 
 @end
 
@@ -27,3 +32,5 @@ extern const struct ArtistDocumentUserInfo {
 @interface _ArtistDocument (CoreDataGeneratedPrimitiveAccessors)
 
 @end
+
+NS_ASSUME_NONNULL_END

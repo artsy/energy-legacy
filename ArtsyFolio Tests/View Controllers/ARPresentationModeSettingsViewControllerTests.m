@@ -23,18 +23,18 @@ beforeAll(^{
 beforeEach(^{
     context = [CoreDataManager stubbedManagedObjectContext];
     [Partner objectInContext:context];
-    
+
     subject = [storyboard instantiateViewControllerWithIdentifier:PresentationModeViewController];
     subject.context = context;
 });
 
 describe(@"when showing and hiding toggles", ^{
-    
+
     /// The 'Hide Confidential Notes' & 'Hide Artwork Edit Button' are always visible
     it(@"shows all prices toggle when artworks exist with prices", ^{
         Artwork *priceArtwork = genericArtworkInContext(context);
         priceArtwork.displayPrice = @"200";
-        
+
         expect(numberOfRowsIn(subject)).to.equal(3);
     });
 
@@ -45,35 +45,34 @@ describe(@"when showing and hiding toggles", ^{
 
         expect(numberOfRowsIn(subject)).to.equal(2);
     });
-    
+
     it(@"shows Hide Prices For Sold Works and Hide Not For Sale Works toggles when there are sold works with prices", ^{
         Artwork *soldArtwork = genericArtworkInContext(context);
         soldArtwork.availability = @"sold";
         soldArtwork.backendPrice = @"10";
         soldArtwork.isAvailableForSale = @(NO);
-        
+
         expect(numberOfRowsIn(subject)).to.equal(4);
     });
-    
+
     it(@"shows Hide Unpublished Works when there are both published and unpublished works", ^{
-        Artwork *publishedArtwork = genericArtworkInContext(context);
-        
+        genericArtworkInContext(context);
+
         Artwork *unpublishedArtwork = genericArtworkInContext(context);
         unpublishedArtwork.isPublished = @(NO);
-        
+
         expect(numberOfRowsIn(subject)).to.equal(3);
     });
-    
+
     it(@"doesn't show Hide Unpublished Works when there are only unpublished works", ^{
         Artwork *unpublishedArtwork = genericArtworkInContext(context);
         unpublishedArtwork.isPublished = @(NO);
-        
+
         expect(numberOfRowsIn(subject)).to.equal(2);
     });
-    
+
     it(@"doesn't show Hide Unpublished Works when there are only published works", ^{
-        Artwork *publishedArtwork = genericArtworkInContext(context);
-        
+        genericArtworkInContext(context);
         expect(numberOfRowsIn(subject)).to.equal(2);
     });
 
@@ -88,7 +87,7 @@ describe(@"setting defaults", ^{
         Artwork *publishedArtwork = genericArtworkInContext(context);
         publishedArtwork.backendPrice = @"32";
         publishedArtwork.availability = @"sold";
-        
+
         Artwork *unpublishedArtwork = genericArtworkInContext(context);
         unpublishedArtwork.isPublished = @(NO);
         unpublishedArtwork.isAvailableForSale = @(NO);
@@ -96,9 +95,9 @@ describe(@"setting defaults", ^{
 
         subject.defaults = (id)offDefaults();
         [subject.defaults setBool:YES forKey:ARHasInitializedPresentationMode];
-        
+
         [navController pushViewController:subject animated:NO];
-        
+
         expect(navController).to.haveValidSnapshot();
     });
 
@@ -106,16 +105,16 @@ describe(@"setting defaults", ^{
         Artwork *publishedArtwork = genericArtworkInContext(context);
         publishedArtwork.backendPrice = @"32";
         publishedArtwork.availability = @"sold";
-        
+
         Artwork *unpublishedArtwork = genericArtworkInContext(context);
         unpublishedArtwork.isPublished = @(NO);
         unpublishedArtwork.isAvailableForSale = @(NO);
         unpublishedArtwork.confidentialNotes = @"fjdkalfjdks";
-        
+
         subject.defaults = (id)onDefaults();
-        
+
         [navController pushViewController:subject animated:NO];
-        
+
         expect(navController).to.haveValidSnapshot();
     });
 
@@ -125,12 +124,12 @@ describe(@"setting defaults", ^{
     it(@"sets the right default when tapped", ^{
         Artwork *artwork = genericArtworkInContext(context);
         artwork.displayPrice = @"2";
-        
+
         subject.defaults = (id)offDefaults();
-        
+
         NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
         [subject tableView:subject.tableView didSelectRowAtIndexPath:path];
-        
+
         ForgeriesUserDefaults *defaults = (id)subject.defaults;
         expect(defaults.hasSyncronised).to.beTruthy();
         expect(defaults.lastRequestedKey).to.equal(ARHideAllPrices);
@@ -139,32 +138,32 @@ describe(@"setting defaults", ^{
 });
 
 describe(@"selecting an artwork filtering cell", ^{
-    
+
     it(@"posts a notification if presentation mode is on", ^{
-        Artwork *artwork1 = genericArtworkInContext(context);
+        genericArtworkInContext(context);
         Artwork *artwork2 = genericArtworkInContext(context);
         artwork2.isAvailableForSale = @(NO);
-        
+
         NSIndexPath *hideNotForSaleWorksIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 
         subject.defaults = (id)onDefaults();
         [subject.defaults setBool:YES forKey:ARPresentationModeOn];
-        
+
         expect(^{
             [subject tableView:subject.tableView didSelectRowAtIndexPath:hideNotForSaleWorksIndexPath];
         }).to.notify(ARUserDidChangeGridFilteringSettingsNotification);
     });
-    
+
     it(@"does not post a notification if presentation mode is off", ^{
-        Artwork *artwork1 = genericArtworkInContext(context);
+        genericArtworkInContext(context);
         Artwork *artwork2 = genericArtworkInContext(context);
         artwork2.isPublished = @(NO);
-        
+
         NSIndexPath *hideUnpublishedWorksIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        
+
         subject.defaults = (id)onDefaults();
         [subject.defaults setBool:NO forKey:ARPresentationModeOn];
-        
+
         expect(^{
             [subject tableView:subject.tableView didSelectRowAtIndexPath:hideUnpublishedWorksIndexPath];
         }).toNot.notify(ARUserDidChangeGridFilteringSettingsNotification);

@@ -1,45 +1,58 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
 // Make changes to SubscriptionPlan.h instead.
 
+#if __has_feature(modules)
+@import Foundation;
+@import CoreData;
+#else
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#endif
+
 #import "ARManagedObject.h"
 
-extern const struct SubscriptionPlanAttributes {
-    __unsafe_unretained NSString *name;
-} SubscriptionPlanAttributes;
-
-extern const struct SubscriptionPlanRelationships {
-    __unsafe_unretained NSString *subscriptionForPartner;
-} SubscriptionPlanRelationships;
-
-extern const struct SubscriptionPlanUserInfo {
-} SubscriptionPlanUserInfo;
+NS_ASSUME_NONNULL_BEGIN
 
 @class Partner;
 
 
-@interface SubscriptionPlanID : ARManagedObjectID {
+@interface SubscriptionPlanID : NSManagedObjectID
+{
 }
 @end
 
 
-@interface _SubscriptionPlan : ARManagedObject {
-}
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
+@interface _SubscriptionPlan : ARManagedObject
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-- (SubscriptionPlanID *)objectID;
+@property (nonatomic, readonly, strong) SubscriptionPlanID *objectID;
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) Partner *subscriptionForPartner;
+@property (nonatomic, strong, nullable) NSString *name;
 
+@property (nonatomic, strong, nullable) Partner *subscriptionForPartner;
 
 @end
 
 
 @interface _SubscriptionPlan (CoreDataGeneratedPrimitiveAccessors)
 
+- (NSString *)primitiveName;
+- (void)setPrimitiveName:(NSString *)value;
+
 - (Partner *)primitiveSubscriptionForPartner;
 - (void)setPrimitiveSubscriptionForPartner:(Partner *)value;
 
 @end
+
+
+@interface SubscriptionPlanAttributes : NSObject
++ (NSString *)name;
+@end
+
+
+@interface SubscriptionPlanRelationships : NSObject
++ (NSString *)subscriptionForPartner;
+@end
+
+NS_ASSUME_NONNULL_END

@@ -3,18 +3,6 @@
 
 #import "_Note.h"
 
-const struct NoteAttributes NoteAttributes = {
-    .body = @"body",
-    .createdAt = @"createdAt",
-    .updatedAt = @"updatedAt",
-};
-
-const struct NoteRelationships NoteRelationships = {
-    .artwork = @"artwork",
-};
-
-const struct NoteUserInfo NoteUserInfo = {};
-
 
 @implementation NoteID
 @end
@@ -22,7 +10,7 @@ const struct NoteUserInfo NoteUserInfo = {};
 
 @implementation _Note
 
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
 {
     NSParameterAssert(moc_);
     return [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:moc_];
@@ -44,13 +32,43 @@ const struct NoteUserInfo NoteUserInfo = {};
     return (NoteID *)[super objectID];
 }
 
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
+
+    return keyPaths;
+}
 
 @dynamic body;
-@dynamic createdAt;
-@dynamic updatedAt;
 
+@dynamic createdAt;
+
+@dynamic updatedAt;
 
 @dynamic artwork;
 
+@end
 
+
+@implementation NoteAttributes
++ (NSString *)body
+{
+    return @"body";
+}
++ (NSString *)createdAt
+{
+    return @"createdAt";
+}
++ (NSString *)updatedAt
+{
+    return @"updatedAt";
+}
+@end
+
+
+@implementation NoteRelationships
++ (NSString *)artwork
+{
+    return @"artwork";
+}
 @end

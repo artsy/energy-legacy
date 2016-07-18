@@ -137,7 +137,6 @@ static ARNavigationController *sharedInstance = nil;
 {
     [_searchViewController reset];
     [_searchPopoverController dismissPopoverAnimated:NO];
-
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
@@ -204,7 +203,7 @@ static ARNavigationController *sharedInstance = nil;
 
 - (void)searchViewController:(ARSearchViewController *)aController didSelectArtwork:(Artwork *)artwork
 {
-    [ARAnalytics event:ARSearchSelectArtworkEvent withProperties:@{ @"artist" : artwork.artist.name }];
+    [ARAnalytics event:ARSearchSelectArtworkEvent withProperties:@{ @"artist" : artwork.artistDisplayString }];
     [[ARSwitchBoard sharedSwitchboard] jumpToArtworkViewController:artwork context:[CoreDataManager mainManagedObjectContext]];
 }
 

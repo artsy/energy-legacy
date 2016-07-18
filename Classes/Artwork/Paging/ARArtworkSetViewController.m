@@ -106,7 +106,7 @@
     [super viewWillAppear:animated];
     [self setupArtworkToolbar];
     [(ARNavigationController *)self.navigationController setBarTransparency:YES];
-    [ARAnalytics event:ARArtworkViewEvent withProperties:@{ @"artist" : self.currentArtwork.artist.name ?: @"" }];
+    [ARAnalytics event:ARArtworkViewEvent withProperties:@{ @"artist" : self.currentArtwork.artistDisplayString ?: @"" }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -189,7 +189,7 @@
 
 - (void)viewInRoom:(id)sender
 {
-    [ARAnalytics event:ARArtworkViewInRoomEvent withProperties:@{ @"artist" : self.currentArtwork.artist.name ?: @"" }];
+    [ARAnalytics event:ARArtworkViewInRoomEvent withProperties:@{ @"artist" : self.currentArtwork.artistDisplayString ?: @"" }];
 
     [self dismissPopoversAnimated:YES];
     Artwork *artwork = [self currentArtwork];
@@ -349,8 +349,7 @@
         case MFMailComposeResultCancelled:
             [ARAnalytics event:AREmailCancelledEvent];
             break;
-        default:
-            ;
+        default:;
     }
 
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -1,3 +1,4 @@
+
 #import "ARTestContext.h"
 #import "UIDevice+DeviceInfo.h"
 #import "ARDispatchManager.h"
@@ -27,10 +28,13 @@ NS_ENUM(NSInteger, ARDeviceType){
     NSOperatingSystemVersion version = [NSProcessInfo processInfo].operatingSystemVersion;
     BOOL isRightVersion = version.majorVersion == osVersion && version.minorVersion == minorVersion;
 
-    NSAssert(isRightVersion, @"The tests should be run on iOS %ld.%ld, not %ld.%ld", osVersion, minorVersion, version.majorVersion, version.minorVersion);
+    if (!isRightVersion) {
+        @throw NSStringWithFormat(@"The tests should be run on iOS %@.%@, not %@.%@", @(osVersion), @(minorVersion), @(version.majorVersion), @(version.minorVersion));
+    }
 
-    CGSize nativeResolution = [UIScreen mainScreen].nativeBounds.size;
-    NSAssert([UIDevice isPad], @"The tests should be run on an iPad Retina");
+    if (![UIDevice isPad]) {
+        @throw @"The tests should be run on an iPad Retina";
+    }
 }
 
 

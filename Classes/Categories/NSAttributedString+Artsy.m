@@ -28,9 +28,7 @@
 
 + (NSAttributedString *)artistStringForArtwork:(Artwork *)artwork
 {
-    if (artwork.artist.name == nil) return nil;
-
-    return [[NSAttributedString alloc] initWithString:artwork.artist.name.uppercaseString attributes:@{
+    return [[NSAttributedString alloc] initWithString:artwork.artistDisplayString.uppercaseString attributes:@{
         NSFontAttributeName : [UIFont sansSerifFontWithSize:16]
     }];
 }

@@ -63,8 +63,7 @@
 
         } else {
             if ([self artworksHaveSameArtist]) {
-                Artist *artist = [self.artworks.firstObject artist];
-                formatValue = artist.presentableName;
+                formatValue = [self.artworks.firstObject artistDisplayString];
 
             } else {
                 // This is likely the partner added it by accident
@@ -80,7 +79,7 @@
         if (self.artworks.count == 1) {
             Artwork *artwork = self.artworks.firstObject;
             formatValue = [artwork titleForEmail];
-            formatValue2 = artwork.artist.presentableName;
+            formatValue2 = artwork.artistDisplayString;
 
         } else {
             // This is likely the partner added it by accident
@@ -169,7 +168,7 @@
         @"artworks" : artworkDicts,
         @"options" : self.options,
         @"installation_shots" : installationShowAddresses ?: @[],
-        @"partner" : [Partner  currentPartnerIDInDefaults:self.defaults],
+        @"partner" : [Partner currentPartnerIDInDefaults:self.defaults],
     };
 
     GRMustacheConfiguration *configuration = [GRMustacheConfiguration defaultConfiguration];
@@ -191,18 +190,27 @@
 
 - (void)setArtworks:(NSArray *)artworks
 {
-    NSSortDescriptor *byArtist = [[NSSortDescriptor alloc] initWithKey:@"artist.orderingKey" ascending:YES selector:@selector(caseInsensitiveCompare:)];
-    _artworks = [artworks sortedArrayUsingDescriptors:@[ byArtist ]];
+    NSComparisonResult (^comparator)(id, id) = ^(Artwork *left, Artwork *right) {
+        return ([left.artistDisplayString compare:right.artistDisplayString]);
+    };
+
+    _artworks = [artworks sortedArrayUsingComparator:comparator];
 }
 
 - (BOOL)artworksHaveSameArtist
 {
     if (self.artworks.count == 0) return NO;
 
-    Artist *artist = [self.artworks.firstObject artist];
-    for (Artwork *anotherArtist in self.artworks) {
-        if (anotherArtist.artist.slug != artist.slug) {
-            return NO;
+    // Any random artist is fine
+    Artist *firstArtist = [self.artworks.firstObject artists].anyObject;
+
+    // Look through all artworks comparing their artists to
+    // the first one, if it's different, then return NO.
+    for (Artwork *anotherArtistArtwork in self.artworks) {
+        for (Artist *artist in anotherArtistArtwork.artists) {
+            if (artist.slug != firstArtist.slug) {
+                return NO;
+            }
         }
     }
     return YES;
