@@ -83,7 +83,7 @@
 
 - (void)showAdminSyncVC:(UITapGestureRecognizer *)tapGesture
 {
-    if (self.navigationController.topViewController != self) {
+    if (tapGesture.state != UIGestureRecognizerStateRecognized) {
         return;
     }
 

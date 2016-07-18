@@ -10,6 +10,9 @@
 /// Use `artists` instead, keeping around to ensure backwards compatability.
 - (Artist *)artist DEPRECATED_ATTRIBUTE;
 
+/// Use `editionSets` instead
+- (NSString *)editions DEPRECATED_ATTRIBUTE;
+
 - (NSArray *)sortedImages;
 
 - (BOOL)hasAdditionalInfo;

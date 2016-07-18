@@ -97,10 +97,6 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
     self.series = [aDictionary onlyStringForKey:ARFeedSeriesKey];
     self.inventoryID = [aDictionary onlyStringForKey:ARFeedInventoryIDKey];
     self.confidentialNotes = [aDictionary onlyStringForKey:ARFeedConfidentialNotesKey];
-
-    if ([aDictionary[ARFeedArtworkEditionSetsKey] count]) {
-        //        self.editions = [aDictionartworkary[ARFeedArtworkEditionSetsKey][0] onlyStringForKey:ARFeedArtworkEditionsKey];
-    }
 }
 
 - (void)convertDimensionsToAmericanSystemOfMeasurement
@@ -288,7 +284,7 @@ static NSSortDescriptor *ARSortDisplayDescriptor;
 
     return [[[self.artists sortedArrayUsingDescriptors:@[ ARSortDisplayDescriptor ]] map:^id(Artist *artist) {
         return artist.presentableName;
-    }] join:@", "];
+    }] join:@", "] ?: @"";
 }
 
 + (NSFetchedResultsController *)allArtworksInContext:(NSManagedObjectContext *)context
@@ -297,9 +293,17 @@ static NSSortDescriptor *ARSortDisplayDescriptor;
     return [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
 }
 
+/// To deprecate a method you need to have an implementation
+
 - (Artist *)artist
 {
     return [super artist];
+}
+
+
+- (NSString *)editions
+{
+    return [super editions];
 }
 
 @end

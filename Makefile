@@ -57,7 +57,7 @@ storyboard_ids:
 deploy_if_beta_branch:
 	if [ "$(LOCAL_BRANCH)" == "beta" ]; then make install_fastlane; fastlane beta; fi
 
-setup_fastlane:
+install_fastlane:
 	gem install cocoapods fastlane pilot gym deliver
 
 deploy:
