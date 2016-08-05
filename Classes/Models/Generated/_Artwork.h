@@ -38,6 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) ArtworkID *objectID;
 
+@property (nonatomic, strong, nullable) NSString *artistOrderingKey;
+
 @property (nonatomic, strong, nullable) NSString *availability;
 
 @property (nonatomic, strong, nullable) NSString *backendPrice;
@@ -207,6 +209,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _Artwork (CoreDataGeneratedPrimitiveAccessors)
 
+- (NSString *)primitiveArtistOrderingKey;
+- (void)setPrimitiveArtistOrderingKey:(NSString *)value;
+
 - (NSString *)primitiveAvailability;
 - (void)setPrimitiveAvailability:(NSString *)value;
 
@@ -343,6 +348,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface ArtworkAttributes : NSObject
++ (NSString *)artistOrderingKey;
 + (NSString *)availability;
 + (NSString *)backendPrice;
 + (NSString *)category;

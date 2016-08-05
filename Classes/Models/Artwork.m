@@ -97,6 +97,7 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
     self.series = [aDictionary onlyStringForKey:ARFeedSeriesKey];
     self.inventoryID = [aDictionary onlyStringForKey:ARFeedInventoryIDKey];
     self.confidentialNotes = [aDictionary onlyStringForKey:ARFeedConfidentialNotesKey];
+    self.artistOrderingKey = [self artistOrderingString];
 }
 
 - (void)convertDimensionsToAmericanSystemOfMeasurement
@@ -284,8 +285,19 @@ static NSSortDescriptor *ARSortDisplayDescriptor;
 
     return [[[self.artists sortedArrayUsingDescriptors:@[ ARSortDisplayDescriptor ]] map:^id(Artist *artist) {
         return artist.presentableName;
-    }] join:@", "] ?: @"";
+    }] join:@", "] ?:@"";
 }
+
+- (NSString *)artistOrderingString
+{
+    if (!ARSortDisplayDescriptor) {
+        ARSortDisplayDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"orderingKey" ascending:YES];
+    }
+
+    Artist *artist = [[self.artists sortedArrayUsingDescriptors:@[ ARSortDisplayDescriptor ]] firstObject];
+    return [artist orderingKey] ?: @"1";
+}
+
 
 + (NSFetchedResultsController *)allArtworksInContext:(NSManagedObjectContext *)context
 {
