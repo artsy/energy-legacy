@@ -80,8 +80,11 @@
 
     artistAttributes.keywords = @[ artwork.medium ?: @"", artwork.inventoryID ?: @"" ];
 
-    NSURL *localThumbnailURL = [NSURL fileURLWithPath:[artwork gridThumbnailPath:ARFeedImageSizeMediumKey]];
-    if (localThumbnailURL) artistAttributes.thumbnailURL = localThumbnailURL;
+    NSString *imagePath = [artwork gridThumbnailPath:ARFeedImageSizeMediumKey];
+    if (imagePath && [[NSFileManager defaultManager] fileExistsAtPath:imagePath]) {
+        NSURL *localThumbnailURL = [NSURL fileURLWithPath:imagePath];
+        if (localThumbnailURL) artistAttributes.thumbnailURL = localThumbnailURL;
+    }
 
     return [[CSSearchableItem alloc] initWithUniqueIdentifier:artwork.slug domainIdentifier:@"net.artsy.arwork" attributeSet:artistAttributes];
 }
