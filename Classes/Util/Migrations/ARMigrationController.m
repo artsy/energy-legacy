@@ -23,6 +23,18 @@
         [defaults setBool:YES forKey:@"ARHasSwitchedArtistToArtists"];
     }
 
+    /// Sets an artistOrderingKey to handle multiple Artists
+    BOOL shouldSetTheArtistOrderingKey = [defaults boolForKey:@"ARHasAddedArtistOrderingKey"] == NO;
+    if (shouldSwitchArtistToArtists) {
+        // Migrate any singular artist into artists
+        for (Artwork *artwork in [Artwork findAllInContext:context]) {
+            artwork.artistOrderingKey = [artwork artistOrderingKey];
+        }
+
+        [defaults setBool:YES forKey:@"ARHasAddedArtistOrderingKey"];
+    }
+
+
     // I changed a BOOL which was incorrectly being set to YES all the time, now
     // we have a migration to switch them all to NO, and the next sync will deal with
     // the correct setup

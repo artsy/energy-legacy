@@ -55,6 +55,8 @@
     return keyPaths;
 }
 
+@dynamic artistOrderingKey;
+
 @dynamic availability;
 
 @dynamic backendPrice;
@@ -277,6 +279,10 @@
 
 
 @implementation ArtworkAttributes
++ (NSString *)artistOrderingKey
+{
+    return @"artistOrderingKey";
+}
 + (NSString *)availability
 {
     return @"availability";

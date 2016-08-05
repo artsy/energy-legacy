@@ -749,6 +749,7 @@
 		60034F321875A0AA0053FB7E /* ARToolbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARToolbarButton.h; sourceTree = "<group>"; };
 		60034F331875A0AA0053FB7E /* ARToolbarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARToolbarButton.m; sourceTree = "<group>"; };
 		60051B3316F77A6600467AEA /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		600543981D55342400BE1284 /* ArtsyFolio v2.5.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.5.3.xcdatamodel"; sourceTree = "<group>"; };
 		6005637316145AA800FE25D0 /* UIDevice+SpaceStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+SpaceStats.h"; sourceTree = "<group>"; };
 		6005637416145AA800FE25D0 /* UIDevice+SpaceStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+SpaceStats.m"; sourceTree = "<group>"; };
 		6005A6B91520A2E900754DFF /* ARUnderLinedSwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARUnderLinedSwitchView.h; sourceTree = "<group>"; };
@@ -4679,6 +4680,7 @@
 		60118682174D084700B878A1 /* ArtsyPartner.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				600543981D55342400BE1284 /* ArtsyFolio v2.5.3.xcdatamodel */,
 				60D39AE41CD39AEB00719AEE /* ArtsyFolio v2.5.1.xcdatamodel */,
 				60C939331C7D39DA0010136C /* ArtsyFolio v2.5.xcdatamodel */,
 				839B59751B4D955900F24033 /* ArtsyFolio v2.4.xcdatamodel */,
@@ -4695,7 +4697,7 @@
 				60118687174D084700B878A1 /* ArtsyPartner 5.xcdatamodel */,
 				60118688174D084700B878A1 /* ArtsyPartner.xcdatamodel */,
 			);
-			currentVersion = 60D39AE41CD39AEB00719AEE /* ArtsyFolio v2.5.1.xcdatamodel */;
+			currentVersion = 600543981D55342400BE1284 /* ArtsyFolio v2.5.3.xcdatamodel */;
 			path = ArtsyPartner.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

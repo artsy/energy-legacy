@@ -30,6 +30,9 @@
 /// Display string for the titles of an Artwork, can handle multiple artists
 - (NSString *)artistDisplayString;
 
+/// A string for ordering a set of artworks based on their their artists' ordering key
+- (NSString *)artistOrderingString;
+
 /// Price used by Partner (may or may not be available to the public)
 - (NSString *)internalPrice;
 
