@@ -285,7 +285,7 @@ static NSSortDescriptor *ARSortDisplayDescriptor;
 
     return [[[self.artists sortedArrayUsingDescriptors:@[ ARSortDisplayDescriptor ]] map:^id(Artist *artist) {
         return artist.presentableName;
-    }] join:@", "] ?:@"";
+    }] join:@", "] ?: @"";
 }
 
 - (NSString *)artistOrderingString
