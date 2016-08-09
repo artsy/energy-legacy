@@ -11,7 +11,6 @@ machine:
     DANGER_GITHUB_API_TOKEN : from_admin
     FASTLANE_PASSWORD : from_admin
     FASTLANE_USERNAME : from_admin
-    GITHUB_API_KEY : from_admin
     MATCH_PASSWORD : from_admin
     ArtsyAPIClientSecret : from_admin
     ArtsyAPIClientKey : from_admin
@@ -23,10 +22,6 @@ machine:
     SegmentBeta	: from_admin
     HOCKEY_API_TOKEN : from_admin
     SLACK_URL : from_admin
-
-  post:
-    - echo "machine github.com login $GITHUB_API_KEY" > ~/.netrc
-    - chmod 600 ~/.netrc
 
 dependencies:
   override:
