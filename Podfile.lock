@@ -11,7 +11,7 @@ PODS:
   - ARAnalytics/Segmentio (3.7.1):
     - Analytics/Segmentio
     - ARAnalytics/CoreIOS
-  - ARCollectionViewMasonryLayout (2.0.0)
+  - ARCollectionViewMasonryLayout (2.2.0)
   - ARGenericTableViewController (1.0.2)
   - ARTiledImageView (1.2):
     - SDWebImage/Core
@@ -182,7 +182,7 @@ SPEC CHECKSUMS:
   AFNetworking: 69a63df8da859f98951c0ea8a5d6272fc50776b3
   Analytics: a927e695c29b9b06b38137bb6608e9924ccc94cb
   ARAnalytics: 04809209c74c3f88aebb6486fac57ce211b478c5
-  ARCollectionViewMasonryLayout: 164b82010cf8ec99bc7a38cffe59a179d7e5a116
+  ARCollectionViewMasonryLayout: 9e87541c1d59cd9e6f538c19bbed3f52ceeef421
   ARGenericTableViewController: 61a0897ba66c35111b5d1cc3b44884282bd3c1a5
   ARTiledImageView: 000af4093f9bdcd0f754e6ebd964c90641389f90
   Artsy+Authentication: 8ecf6729902827c49c9bc54155ac9495929fcbcb
