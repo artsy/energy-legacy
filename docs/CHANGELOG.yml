@@ -2,6 +2,7 @@ upcoming:
   version: 2.5.2
   notes:
     - Supports Artworks with multiple Artists - orta
+    - Crash fixes - orta
 
 releases:
   - version: 2.5.1

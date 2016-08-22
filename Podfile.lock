@@ -30,7 +30,7 @@ PODS:
     - CocoaLumberjack/Core
   - DRBOperationTree (0.0.1)
   - EDColor (0.4.0)
-  - Expecta (1.0.2)
+  - Expecta (1.0.5)
   - Expecta+Comparison (0.1.0):
     - Expecta
   - Expecta+ContainerClasses (1.0.2):
@@ -70,7 +70,7 @@ PODS:
   - Reachability (3.2)
   - SDWebImage/Core (3.8.1)
   - SFHFKeychainUtils (0.0.1)
-  - Specta (1.0.3)
+  - Specta (1.0.5)
   - SSDataSources (0.8.2)
   - TPKeyboardAvoiding (1.2.4)
   - TRVSDictionaryWithCaseInsensitivity (0.0.2)
@@ -191,7 +191,7 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 628fca2e88ef06f7cf6817309aa405f325d9a6fa
   DRBOperationTree: 9fa8d41cf6f616b93944c8a7e370f0739aa82b60
   EDColor: 89d19a013279a5604d61650721c15f20fefaaf00
-  Expecta: 54e8a3530add08f4f0208c111355eda7cde74a53
+  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   Expecta+Comparison: e3f3bca3a867fecec2b1cfbd5e03230cd6066634
   Expecta+ContainerClasses: 4ded3d82cae1d1e54ef4177f50e7bc2d616013da
   Expecta+Snapshots: 29b38dd695bc72a0ed2bea833937d78df41943ba
@@ -216,7 +216,7 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SFHFKeychainUtils: 9576b411a79a058f4d5381ace6f3242b9a62e664
-  Specta: cf3e4188cf35375c3ee2cd03f8db8f1f4ef98234
+  Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
   SSDataSources: ec4bcbed5d5daed53646b5986085b576165a6472
   TPKeyboardAvoiding: 0a40dfbb0af7c8bdae1dd457496dccfd217d85f6
   TRVSDictionaryWithCaseInsensitivity: 51d2ccf52c6d645d27b63467a98fa02c556e01b0

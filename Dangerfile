@@ -1,4 +1,4 @@
-warn("PR is classed as Work in Progress") if git.pr_title.include? "[WIP]"
+warn("PR is classed as Work in Progress") if github.pr_title.include? "[WIP]"
 
 # For the small PRs that are essentially README fixes etc
 # you don't necessarily need to include a CHANGELOG
