@@ -75,21 +75,25 @@ target 'ArtsyFolio' do
 
     # This is not an Artsy project
     pod 'ARGenericTableViewController', :git => 'https://github.com/orta/ARGenericTableViewController.git'
+
+    target 'ArtsyFolio Tests' do
+        inherit! :search_paths
+
+        pod 'Specta'
+        pod 'Expecta'
+        pod 'OHHTTPStubs', '~> 3.0'
+
+        pod 'Expecta+Snapshots', "2.0.0"
+        pod 'Expecta+ContainerClasses', '~> 1.0'
+        pod 'Expecta+Comparison', '~> 0.1'
+
+        pod 'XCTest+OHHTTPStubSuiteCleanUp'
+        pod 'OCMock'
+        pod 'Forgeries/Mocks', :git => "https://github.com/ashfurrow/Forgeries.git", :branch => "remove"
+    end
+
 end
 
-target 'ArtsyFolio Tests' do
-    pod 'Specta'
-    pod 'Expecta'
-    pod 'OHHTTPStubs', '~> 3.0'
-
-    pod 'Expecta+Snapshots', "2.0.0"
-    pod 'Expecta+ContainerClasses', '~> 1.0'
-    pod 'Expecta+Comparison', '~> 0.1'
-
-    pod 'XCTest+OHHTTPStubSuiteCleanUp'
-    pod 'OCMock'
-    pod 'Forgeries/Mocks', :git => "https://github.com/ashfurrow/Forgeries.git", :branch => "remove"
-end
 
 post_install do |installer|
   # Disable bitcode for now. Specifically needed for HockeySDK and ARAnalytics.
