@@ -58,7 +58,8 @@ deploy_if_beta_branch:
 	if [ "$(LOCAL_BRANCH)" == "beta" ]; then make install_fastlane; bundle exec fastlane beta; fi
 
 install_fastlane:
-	bundle update cocoapods fastlane pilot gym deliver --with=deployment
+	bundle update fastlane pilot gym deliver
+	bundle install --with deployment
 
 deploy:
 	git push origin "$(LOCAL_BRANCH):beta"
