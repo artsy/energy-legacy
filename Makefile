@@ -55,10 +55,10 @@ storyboard_ids:
 ### Git Faffing
 
 deploy_if_beta_branch:
-	if [ "$(LOCAL_BRANCH)" == "beta" ]; then make install_fastlane; fastlane beta; fi
+	if [ "$(LOCAL_BRANCH)" == "beta" ]; then make install_fastlane; bundle exec fastlane beta; fi
 
 install_fastlane:
-	gem install cocoapods fastlane pilot gym deliver
+	bundle update cocoapods fastlane pilot gym deliver
 
 deploy:
 	git push origin "$(LOCAL_BRANCH):beta"
