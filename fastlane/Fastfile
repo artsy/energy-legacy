@@ -18,7 +18,7 @@ end
 
 lane :beta do
   setup_for_app_store
-  verify_pod_keys
+  # verify_pod_keys
 
   # Increment build number to current date
   build_number = Time.new.strftime("%Y.%m.%d.%H")
