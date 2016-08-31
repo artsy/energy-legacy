@@ -27,6 +27,8 @@ typedef NS_ENUM(NSInteger, UIDeviceType) {
 
 + (BOOL)isPhone;
 
++ (BOOL)isPadPro;
+
 + (BOOL)isIOS8Plus;
 
 @end
