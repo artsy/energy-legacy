@@ -30,6 +30,13 @@
     closeButton.titleEdgeInsets = UIEdgeInsetsMake(9, 0, 8, 0);
     _roomView.artwork = _artwork;
     _roomView.roomOrientation = self.interfaceOrientation;
+
+    if ([UIDevice isPadPro]) {
+        _roomView.frame = CGRectOffset(_roomView.frame, 0, -200);
+        CGAffineTransform transform = _roomView.transform;
+        _roomView.transform = CGAffineTransformScale(transform, 1.5, 1.5);
+    }
+
     [super viewDidLoad];
 }
 
