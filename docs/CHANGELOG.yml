@@ -2,6 +2,7 @@ upcoming:
   version: 2.5.3
   notes:
     - Crash fixes around spolight exporting - orta
+    - Fixed iPad Pro View in Room - orta
 
 releases:
 
