@@ -42,7 +42,7 @@
             NSArray *allArtworks = [self artworkResults];
             NSArray *allSpotlightData = [[self artistResults] arrayByAddingObjectsFromArray:allArtworks];
 
-            [self addResultsToCache:allSpotlightData completion:^(NSError * __nullable error) {
+            [self addResultsToCache:allSpotlightData completion:^(NSError *__nullable error) {
                 ARAppLifecycleLog(@"Updated Spotlight Store");
             }];
         });
@@ -73,20 +73,20 @@
 
 - (CSSearchableItem *)itemForArtwork:(Artwork *)artwork
 {
-    CSSearchableItemAttributeSet *artistAttributes = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:(NSString *)kUTTypeImage];
+    CSSearchableItemAttributeSet *artworkAttributes = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:(NSString *)kUTTypeImage];
 
-    artistAttributes.title = artwork.gridTitle;
-    artistAttributes.contentDescription = artwork.medium ?: artwork.dimensions ?: @"";
+    artworkAttributes.title = artwork.gridTitle;
+    artworkAttributes.contentDescription = artwork.medium ?: artwork.dimensions ?: @"";
 
-    artistAttributes.keywords = @[ artwork.medium ?: @"", artwork.inventoryID ?: @"" ];
+    artworkAttributes.keywords = @[ artwork.medium ?: @"", artwork.inventoryID ?: @"" ];
 
     NSString *imagePath = [artwork gridThumbnailPath:ARFeedImageSizeMediumKey];
     if (imagePath && [[NSFileManager defaultManager] fileExistsAtPath:imagePath]) {
         NSURL *localThumbnailURL = [NSURL fileURLWithPath:imagePath];
-        if (localThumbnailURL) artistAttributes.thumbnailURL = localThumbnailURL;
+        if (localThumbnailURL) artworkAttributes.thumbnailURL = localThumbnailURL;
     }
 
-    return [[CSSearchableItem alloc] initWithUniqueIdentifier:artwork.slug domainIdentifier:@"net.artsy.arwork" attributeSet:artistAttributes];
+    return [[CSSearchableItem alloc] initWithUniqueIdentifier:artwork.slug domainIdentifier:@"net.artsy.arwork" attributeSet:artworkAttributes];
 }
 
 - (NSArray<CSSearchableItem *> *)artistResults
@@ -108,8 +108,11 @@
     artistAttributes.title = artist.gridTitle;
     artistAttributes.contentDescription = artist.blurb ?: artist.biography ?: @"";
 
-    NSURL *localThumbnailURL = [NSURL fileURLWithPath:[artist gridThumbnailPath:ARFeedImageSizeMediumKey]];
-    if (localThumbnailURL) artistAttributes.thumbnailURL = localThumbnailURL;
+    NSString *imagePath = [artist gridThumbnailPath:ARFeedImageSizeMediumKey];
+    if (imagePath && [[NSFileManager defaultManager] fileExistsAtPath:imagePath]) {
+        NSURL *localThumbnailURL = [NSURL fileURLWithPath:imagePath];
+        if (localThumbnailURL) artistAttributes.thumbnailURL = localThumbnailURL;
+    }
 
     return [[CSSearchableItem alloc] initWithUniqueIdentifier:artist.slug domainIdentifier:@"net.artsy.artist" attributeSet:artistAttributes];
 }
