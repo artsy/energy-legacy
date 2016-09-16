@@ -31,6 +31,7 @@
 {
     ARSyncLog(@"Sync started");
     self.syncing = YES;
+    self.progress.numEstimatedBytes = [self estimatedNumBytesToDownload];
 
     self.operationQueues = [NSMutableArray array];
     self.rootOperation = self.rootOperation ?: [self createSyncOperationTree];
