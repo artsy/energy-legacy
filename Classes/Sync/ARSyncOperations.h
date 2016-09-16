@@ -8,7 +8,6 @@
 #import "ARShowDocumentDownloader.h"
 #import "ARDocumentFileDownloader.h"
 #import "ARDocumentThumbnailCreator.h"
-#import "AREstimateDownloader.h"
 #import "ARArtistDownloader.h"
 #import "ARArtistDocumentDownloader.h"
 #import "ARAlbumDownloader.h"

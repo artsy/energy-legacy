@@ -112,7 +112,7 @@
     // nodes
     DRBOperationTree *partnerNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *userNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
-    DRBOperationTree *estimateNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
+
     DRBOperationTree *artworkNode = [[DRBOperationTree alloc] initWithOperationQueue:artworksOperationQueue];
     DRBOperationTree *imageNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *imageThumbnailNode = [[DRBOperationTree alloc] initWithOperationQueue:imageOperationQueue];
@@ -144,7 +144,6 @@
     // top level
     partnerNode.provider = [[ARPartnerFullMetadataDownloader alloc] initWithContext:context];
 
-    estimateNode.provider = [[AREstimateDownloader alloc] initWithProgress:self.progress];
     artworkNode.provider = [[ARArtworkDownloader alloc] initWithContext:context deleter:self.config.deleter];
     userNode.provider = [[ARUserMetadataDownloader alloc] initWithContext:context];
 
@@ -185,7 +184,7 @@
     // connect nodes to nodes
 
     // artworks and images
-    [partnerNode addChild:estimateNode];
+
     [partnerNode addChild:artworkNode];
     [partnerNode addChild:userNode];
     [artworkNode addChild:imageNode];
@@ -288,10 +287,9 @@
 {
     Partner *partner = [Partner currentPartnerInContext:self.config.managedObjectContext];
 
-    // Whilst never being perfect, this came reasonably above
-    // on energy test partner. real 151MB estimated 195MB
-
-    const CGFloat SizePerArtworkMB = 2.5;
+    // As we only download the medium + square, and make our own
+    // thumbnail, each artwork does not take up too much space
+    const CGFloat SizePerArtworkMB = 0.26;
     const CGFloat SizePerDocumentMB = 2.5;
 
     unsigned long long totalBytesToDownload = SizePerArtworkMB * partner.artworksCount.integerValue;

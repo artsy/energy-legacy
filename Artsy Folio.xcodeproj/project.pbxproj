@@ -18,7 +18,6 @@
 		342F95E45FABD6D003E4BEB9 /* ARTileArchiveDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F95B4118196234A1066F0 /* ARTileArchiveDownloader.m */; };
 		342F96129A9C641805C06B05 /* ArtistModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F90072C09B05DEBBAD849 /* ArtistModelTests.m */; };
 		342F96F4AEF27F7C5D048C83 /* ARIDMapperDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F991E9148D10E9046AB06 /* ARIDMapperDownloader.m */; };
-		342F978B1865D89B2457B810 /* AREstimateDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F92134BC1C020671979F2 /* AREstimateDownloader.m */; };
 		342F992FC828FF2FB968D8C7 /* ARDocumentThumbnailCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9550D26DDB2A76BC84DC /* ARDocumentThumbnailCreator.m */; };
 		342F9950321ADEA77C8F12FD /* ARImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9B00C08EAC9C4A7954B1 /* ARImageDownloader.m */; };
 		342F99689EFEA687EF113A71 /* ARAddToAlbumViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9C056ADCCBEE2C65DFD9 /* ARAddToAlbumViewControllerTests.m */; };
@@ -642,7 +641,6 @@
 		342F90EBA08A0060AF6C0767 /* ARGridViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARGridViewControllerTests.m; sourceTree = "<group>"; };
 		342F91298C81F0169C0145C6 /* ARShowDocumentDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARShowDocumentDownloader.m; sourceTree = "<group>"; };
 		342F91AB28E2E6E97051C157 /* ModelStubs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelStubs.m; sourceTree = "<group>"; };
-		342F92134BC1C020671979F2 /* AREstimateDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREstimateDownloader.m; sourceTree = "<group>"; };
 		342F92209AB1CD1D3F9BB3C9 /* ARTileUnzipper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTileUnzipper.h; sourceTree = "<group>"; };
 		342F9222E69E0A9C41EEA1C9 /* NSFetchRequest+ARModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFetchRequest+ARModels.m"; sourceTree = "<group>"; };
 		342F9229AB74B10489CD4BB2 /* ARArtworkDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtworkDownloader.m; sourceTree = "<group>"; };
@@ -665,7 +663,6 @@
 		342F97FDA50F8AA807940722 /* ARShowArtworksDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARShowArtworksDownloader.h; sourceTree = "<group>"; };
 		342F987E3A4B0C40F7E6FEB9 /* ARArtistDocumentDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtistDocumentDownloader.m; sourceTree = "<group>"; };
 		342F991E9148D10E9046AB06 /* ARIDMapperDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARIDMapperDownloader.m; sourceTree = "<group>"; };
-		342F995D3B7A58079A328559 /* AREstimateDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREstimateDownloader.h; sourceTree = "<group>"; };
 		342F99997CA6BDB4673FF8BB /* NSFetchRequest+ARModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchRequest+ARModels.h"; sourceTree = "<group>"; };
 		342F99E401FCC5A5E683544A /* ARImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARImageDownloader.h; sourceTree = "<group>"; };
 		342F9A347897541E4520C63B /* ARSlugResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSlugResolver.m; sourceTree = "<group>"; };
@@ -1626,8 +1623,6 @@
 		342F948029E112C50A87A94E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				342F995D3B7A58079A328559 /* AREstimateDownloader.h */,
-				342F92134BC1C020671979F2 /* AREstimateDownloader.m */,
 				342F96556938AD30427A2A63 /* ARIDMapperDownloader.h */,
 				342F991E9148D10E9046AB06 /* ARIDMapperDownloader.m */,
 				342F94F0C0639F8C5184127B /* ARPagingDownloaderOperation.h */,
@@ -4317,7 +4312,6 @@
 				6074481E1BE3B45E00E20774 /* ARSyncRemoveiCloudAttributes.m in Sources */,
 				342F99B7CBE4A15B420A55D1 /* ARPagingDownloaderOperation.m in Sources */,
 				342F96F4AEF27F7C5D048C83 /* ARIDMapperDownloader.m in Sources */,
-				342F978B1865D89B2457B810 /* AREstimateDownloader.m in Sources */,
 				342F9334FD3CCD087D0AB434 /* ARAlbumArtworksDownloader.m in Sources */,
 				342F9C52E610EF888B4ED646 /* ARSlugResolver.m in Sources */,
 				342F9C42D7586A4D2121A080 /* NSFetchRequest+ARModels.m in Sources */,
