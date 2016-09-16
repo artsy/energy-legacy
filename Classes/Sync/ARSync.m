@@ -13,7 +13,6 @@
 @property (readwrite, nonatomic, strong) DRBOperationTree *rootOperation;
 
 @property (readwrite, nonatomic, getter=isSyncing) BOOL syncing;
-@property (readwrite, nonatomic, strong) ARTileArchiveDownloader *tileDownloader;
 
 @end
 
@@ -48,8 +47,6 @@
     [self.rootOperation enqueueOperationsForObject:partnerSlug completion:^{
 
         weakSelf.syncing = NO;
-        [weakSelf.tileDownloader writeSlugs];
-
         [weakSelf runAfterSyncPlugins:plugins];
         [weakSelf save];
 
@@ -150,10 +147,6 @@
     // images
     imageNode.provider = [[ARImageDownloader alloc] initWithProgress:self.progress];
     imageThumbnailNode.provider = [[ARImageThumbnailCreator alloc] init];
-
-    self.tileDownloader = [[ARTileArchiveDownloader alloc] initWithProgress:self.progress];
-    tileDownloaderNode.provider = self.tileDownloader;
-    tileUnzipperNode.provider = [[ARTileUnzipper alloc] init];
 
     // shows
     showNode.provider = [[ARShowDownloader alloc] initWithContext:context deleter:self.config.deleter];

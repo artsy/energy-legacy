@@ -1,8 +1,6 @@
 #import "ARArtworkDownloader.h"
 #import "ARImageDownloader.h"
 #import "ARImageThumbnailCreator.h"
-#import "ARTileArchiveDownloader.h"
-#import "ARTileUnzipper.h"
 #import "ARShowDownloader.h"
 #import "ARShowArtworksDownloader.h"
 #import "ARShowDocumentDownloader.h"
