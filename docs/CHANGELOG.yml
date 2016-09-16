@@ -1,10 +1,16 @@
 upcoming:
-  version: 2.5.3
+  version: 2.5.4
   notes:
-    - Crash fixes around spolight exporting - orta
-    - Fixed iPad Pro View in Room - orta
+    - Improved sync estimates - orta
 
 releases:
+
+  - version: 2.5.3
+    date: Aug 31, 2016
+    notes:
+      - Crash fixes around spolight exporting - orta
+      - Fixed iPad Pro View in Room - orta
+
 
   - version: 2.5.2
     date: Jul 7, 2016
