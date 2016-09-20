@@ -10,7 +10,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.3.8)
+    addressable (2.4.0)
     aws-sdk-v1 (1.66.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
@@ -67,7 +67,7 @@ GEM
       commander (>= 4.3.5)
       highline (>= 1.7.1)
       security
-    danger (3.0.3)
+    danger (3.3.2)
       claide (~> 1.0)
       claide-plugins (> 0.9.0)
       colored (~> 1.2)
@@ -342,4 +342,4 @@ DEPENDENCIES
   xcpretty
 
 BUNDLED WITH
-   1.12.5
+   1.13.1
