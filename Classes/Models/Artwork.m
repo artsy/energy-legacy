@@ -220,9 +220,10 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
     // if we can't get that we crop name to ~20 chars then add date
 
     NSString *subtitle = nil;
-    BOOL needsCrop = self.title.length > NumberOfCharactersInArtworkTitleBeforeCrop;
-    NSInteger cropCount = MIN(self.title.length, NumberOfCharactersInArtworkTitleBeforeCrop);
-    subtitle = [self.title substringToIndex:cropCount];
+    NSString *title = self.title.length ? self.title : @"Untitled";
+    BOOL needsCrop = title.length > NumberOfCharactersInArtworkTitleBeforeCrop;
+    NSInteger cropCount = MIN(title.length, NumberOfCharactersInArtworkTitleBeforeCrop);
+    subtitle = [title substringToIndex:cropCount];
 
     if (subtitle) {
         // if it's got a date append it
@@ -263,16 +264,7 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
 
 - (NSString *)titleForEmail
 {
-    NSString *untitled = @"Untitled";
-    NSString *title = ((id)self.title == [NSNull null]) ? untitled : self.title;
-    if (!title) {
-        title = untitled;
-    }
-    if (self.date.length > 1) {
-        title = [NSString stringWithFormat:@"\"%@\" (%@)", self.title, self.date];
-    }
-
-    return title;
+   return [self gridSubtitle];
 }
 
 static NSSortDescriptor *ARSortDisplayDescriptor;

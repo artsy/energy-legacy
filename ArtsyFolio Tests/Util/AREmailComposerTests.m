@@ -83,6 +83,16 @@ describe(@"with 1 artwork", ^{
         expect([composer subject]).to.contain(artwork.title);
         expect([composer subject]).to.contain(artwork.artists.anyObject.presentableName);
     });
+
+
+    it(@"handles an untitled artwork with two %@s with for artwork & artist", ^{
+        NSString *subject = @"Check out %@ by %@";
+        artwork.title = nil;
+        defaults[AREmailSubject] = subject;
+        expect([composer subject]).to.contain(@"Untitled");
+        expect([composer subject]).to.contain(artwork.artists.anyObject.presentableName);
+    });
+
 });
 
 
