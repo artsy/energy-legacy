@@ -114,8 +114,8 @@
     DRBOperationTree *artworkNode = [[DRBOperationTree alloc] initWithOperationQueue:artworksOperationQueue];
     DRBOperationTree *imageNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *imageThumbnailNode = [[DRBOperationTree alloc] initWithOperationQueue:imageOperationQueue];
-    DRBOperationTree *tileDownloaderNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
-    DRBOperationTree *tileUnzipperNode = [[DRBOperationTree alloc] initWithOperationQueue:imageOperationQueue];
+
+
 
     DRBOperationTree *showNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *showDocumentsNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
@@ -185,9 +185,6 @@
 
     [imageNode addChild:imageThumbnailNode];
 
-    [artworkNode addChild:tileDownloaderNode];
-    [tileDownloaderNode addChild:tileUnzipperNode];
-
     // shows
     [partnerNode addChild:showNode];
     [showNode addChild:showArtworksNode];
@@ -196,7 +193,6 @@
     [showNode addChild:showCoversNode];
     [showCoversNode addChild:imageNode];
     [showInstallationShotsNode addChild:imageNode];
-
 
     // show documents
     [showDocumentsNode addChild:documentFileNode];
