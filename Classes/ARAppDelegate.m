@@ -130,7 +130,7 @@ void uncaughtExceptionHandler(NSException *exception);
                 /// If they've had access revoked since last sync and they aren't currently locked out, lockout
                 [self lockout];
 
-            } else if (lockedOut) {
+            } else if (!self.shouldLockout && lockedOut) {
                 /// If their access was restored since last sync and they're currently locked out, remove the modal
                 [self.viewCoordinator dismissCurrentModal];
 

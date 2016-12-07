@@ -85,7 +85,7 @@ lane :beta do
   pilot changelog: release_notes
 
   slack message: "There is a new Folio beta available. Grab it from Testflight on your iOS device.",
-        channel: "Folio",
+        channel: "partner-success",
         payload: {
           'Version' => latest_version,
           'What\'s new' => upcoming_release_notes,
