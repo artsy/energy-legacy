@@ -228,7 +228,9 @@
 
 - (void)handleNetworkError:(NSError *)error
 {
-    [self startLoading:NO];
+    ar_dispatch_main_queue(^{
+        [self startLoading:NO];
+    });
 
     [self.networkModel pingArtsy:^(BOOL connected, NSTimeInterval timeToConnect) {
         if (connected) {
@@ -237,25 +239,29 @@
 
             /// Let's have a less robotic error message for the most
             /// common case.
-            if ([serverError isEqualToString:@"invalid email or password"]) {
+            if ([serverError isEqualToString:@"invalid email or password"] || error.code == 401) {
                 serverError = @"Your email or password is incorrect.";
             }
 
             if (serverError) {
-                [self resetWithErrorMessage:serverError];
+                ar_dispatch_main_queue(^{
+                    [self resetWithErrorMessage:serverError];
+                });
             }
             return;
         }
 
         // Artsy is offline?
         [self.networkModel pingApple:^(BOOL connected, NSTimeInterval timeToConnect) {
-            if (connected) {
-                /// If Apple is up, and we are down, then we are down for sure.
-                [self resetWithErrorMessage:@"Our servers are experiencing temporary technical difficulties. We have been notified of the problem and are working to fix it. Please contact partnersupport@artsy.net with any questions."];
-            } else {
-                /// OK, they are definitely offline.
-                [self resetWithErrorMessage:@"Folio is having trouble connecting to Artsy, and the internet in general, you may be having WIFI or networking issues."];
-            }
+            ar_dispatch_main_queue(^{
+                if (connected) {
+                    /// If Apple is up, and we are down, then we are down for sure.
+                    [self resetWithErrorMessage:@"Our servers are experiencing temporary technical difficulties. We have been notified of the problem and are working to fix it. Please contact partnersupport@artsy.net with any questions."];
+                } else {
+                    /// OK, they are definitely offline.
+                    [self resetWithErrorMessage:@"Folio is having trouble connecting to Artsy, and the internet in general, you may be having WIFI or networking issues."];
+                }
+            });
         }];
     }];
 }
@@ -265,7 +271,7 @@
     // We need User info for analytics, and for testing if they're an admin
     [self.networkModel getUserInformation:^(id userInfo) {
         User *user = [User addOrUpdateWithDictionary:userInfo inContext:self.managedObjectContext saving:YES];
-        
+
         if ([user isAdmin]) {
             [self presentAdminPartnerSelectionTool];
         } else {
@@ -336,14 +342,13 @@
     ARPartnerSelectViewController *partnerSelect = [[ARPartnerSelectViewController alloc] init];
     partnerSelect.partners = JSON;
     partnerSelect.callback = ^(NSDictionary *partnerDictionary) {
-        
+
         [self.networkModel getFullMetadataForPartnerWithID:partnerDictionary[ARFeedIDKey] success:^(id fullPartnerMetadata) {
             [self parseJSONIntoPartner:fullPartnerMetadata];
             [self dismissViewControllerAnimated:YES completion:^{
                 [self checkForEnoughFreeSpace];
             }];
-            } failure:nil
-         ];
+        } failure:nil];
     };
 
     [self presentViewController:partnerSelect animated:NO completion:nil];
