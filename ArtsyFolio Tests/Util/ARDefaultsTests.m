@@ -16,7 +16,7 @@ it(@"registers defaults", ^{
     [ARDefaults registerDefaults:defaults context:context];
 
     expect([defaults objectForKey:ARPresentationModeOn]).to.equal(@NO);
-    expect([defaults objectForKey:AREmailSubject]).to.equal(@"More information about %@ by %@");
+    expect([defaults objectForKey:AREmailSubject]).to.equal(@"More information about “%@“ by %@");
 });
 
 it(@"handles a partner being updated", ^{
@@ -25,11 +25,11 @@ it(@"handles a partner being updated", ^{
     expect([defaults objectForKey:ARPartnerID]).to.beNil();
 
     Partner *partner = [Partner modelFromJSON:@{
-        ARFeedIDKey: @"testing_partner_id",
-        ARFeedHasLimitedPartnerToolAccessKey: @YES,
-        ARFeedEmailKey: @"new@email.com",
+        ARFeedIDKey : @"testing_partner_id",
+        ARFeedHasLimitedPartnerToolAccessKey : @YES,
+        ARFeedEmailKey : @"new@email.com",
     } inContext:context];
-    
+
     sendUpdateNotification(partner);
 
     expect([defaults stringForKey:ARPartnerID]).to.equal(@"testing_partner_id");
@@ -41,18 +41,18 @@ it(@"handles a partner details being updated", ^{
     expect([defaults objectForKey:ARPartnerID]).to.beNil();
 
     Partner *partner = [Partner modelFromJSON:@{
-        ARFeedIDKey: @"testing_partner_id",
-        ARFeedHasLimitedPartnerToolAccessKey: @YES,
-        ARFeedEmailKey: @"new@email.com",
+        ARFeedIDKey : @"testing_partner_id",
+        ARFeedHasLimitedPartnerToolAccessKey : @YES,
+        ARFeedEmailKey : @"new@email.com",
     } inContext:context];
 
     sendUpdateNotification(partner);
     expect([defaults objectForKey:ARPartnerID]).to.equal(@"testing_partner_id");
 
     Partner *partner2 = [Partner modelFromJSON:@{
-        ARFeedIDKey: @"new_testing_partner_id",
-        ARFeedHasLimitedPartnerToolAccessKey: @NO,
-        ARFeedEmailKey: @"new@email.com",
+        ARFeedIDKey : @"new_testing_partner_id",
+        ARFeedHasLimitedPartnerToolAccessKey : @NO,
+        ARFeedEmailKey : @"new@email.com",
     } inContext:context];
 
     sendUpdateNotification(partner2);
@@ -63,9 +63,9 @@ it(@"does not overwrite a partner's email if it was set", ^{
     [ARDefaults registerDefaults:defaults context:context];
 
     Partner *partner = [Partner modelFromJSON:@{
-        ARFeedIDKey: @"testing_partner_id",
-        ARFeedHasLimitedPartnerToolAccessKey: @YES,
-        ARFeedEmailKey: @"hello@email.com",
+        ARFeedIDKey : @"testing_partner_id",
+        ARFeedHasLimitedPartnerToolAccessKey : @YES,
+        ARFeedEmailKey : @"hello@email.com",
     } inContext:context];
 
     sendUpdateNotification(partner);
@@ -74,9 +74,9 @@ it(@"does not overwrite a partner's email if it was set", ^{
     [defaults setObject:@"this_email_shouldnt_change@email.com" forKey:AREmailCCEmail];
 
     Partner *partner2 = [Partner modelFromJSON:@{
-        ARFeedIDKey: @"new_testing_partner_id",
-        ARFeedHasLimitedPartnerToolAccessKey: @YES,
-        ARFeedEmailKey: @"new@email.com",
+        ARFeedIDKey : @"new_testing_partner_id",
+        ARFeedHasLimitedPartnerToolAccessKey : @YES,
+        ARFeedEmailKey : @"new@email.com",
     } inContext:context];
 
     sendUpdateNotification(partner2);
