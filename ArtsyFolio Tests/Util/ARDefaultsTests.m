@@ -16,7 +16,7 @@ it(@"registers defaults", ^{
     [ARDefaults registerDefaults:defaults context:context];
 
     expect([defaults objectForKey:ARPresentationModeOn]).to.equal(@NO);
-    expect([defaults objectForKey:AREmailSubject]).to.equal(@"More information about “%@“ by %@");
+    expect([defaults objectForKey:AREmailSubject]).to.equal(@"More information about %@ by %@");
 });
 
 it(@"handles a partner being updated", ^{

@@ -50,7 +50,7 @@ NSString *const ARRecommendSync = @"ARRecommendSync";
         ARShowConfidentialNotes : @NO,
         ARStartedFirstSync : @NO,
         ARFinishedFirstSync : @NO,
-        AREmailSubject : @"More information about “%@“ by %@",
+        AREmailSubject : @"More information about %@ by %@",
         ARMultipleEmailSubject : @"More information about the artworks we discussed",
         ARMultipleSameArtistEmailSubject : @"More information about %@'s artworks",
         AREmailGreeting : @"Here is more information about the artwork we discussed."
