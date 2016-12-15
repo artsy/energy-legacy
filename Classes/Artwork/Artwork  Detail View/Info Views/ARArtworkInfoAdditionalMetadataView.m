@@ -134,8 +134,10 @@
 {
     ORStackView *editionsView = [[ORStackView alloc] init];
 
-    [editionSets eachWithIndex:^(EditionSet *set, NSUInteger editionIndex) {
-        
+    NSSortDescriptor *priceSort = [NSSortDescriptor sortDescriptorWithKey:@"internalPrice" ascending:NO];
+    NSArray *editions = [editionSets sortedArrayUsingDescriptors:@[priceSort]];
+
+    [editions eachWithIndex:^(EditionSet *set, NSUInteger editionIndex) {
         NSArray *editionAttributes = [set editionAttributes];
         
         if ([self showPriceOfEditionSet:set] && set.internalPrice.length) {

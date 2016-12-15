@@ -67,7 +67,7 @@ NSString *const ARRecommendSync = @"ARRecommendSync";
         [defaults synchronize];
 
         /// Set a registered fallback for the email, allowing any custom setting to override it
-        [defaults registerDefaults:@{ AREmailCCEmail: partner.email ?: @"" }];
+        [defaults registerDefaults:@{ AREmailCCEmail : partner.email ?: @"" }];
     };
 
     /// When we get a notification, so map it out to the partner

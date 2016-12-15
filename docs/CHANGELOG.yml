@@ -1,11 +1,13 @@
 upcoming:
   version: 2.5.4
   notes:
+    - Incorrect passwords will reset state in the login page correctly - orta
     - Improved sync estimates - orta
     - Crash fixes around spolight exporting - orta
     - Fixed iPad Pro View in Room - orta
     - Update to Danger - orta
-    - We show Unitiled instead of (null) in more places - orta
+    - We show Unititled instead of (null) in more places - orta
+    - Order Editions in the artwork info popover - orta
 
 releases:
 
