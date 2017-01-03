@@ -36,13 +36,13 @@ beforeEach(^{
 
 describe(@"standard email settings", ^{
     it(@"generates one cc email address when only one is entered", ^{
-       defaults[AREmailCCEmail] = @"email@aol.com";
-        expect([composer generateCCEmails:defaults[AREmailCCEmail]]).to.equalArray(@[@"email@aol.com"]);
+        defaults[AREmailCCEmail] = @"email@aol.com";
+        expect([composer generateCCEmails:defaults[AREmailCCEmail]]).to.equalArray(@[ @"email@aol.com" ]);
     });
-    
+
     it(@"generates an array of cc email addresses when there are more than one", ^{
         defaults[AREmailCCEmail] = @"email1@aol.com,email2@aol.com";
-        expect([composer generateCCEmails:defaults[AREmailCCEmail]]).to.equalArray(@[@"email1@aol.com", @"email2@aol.com"]);
+        expect([composer generateCCEmails:defaults[AREmailCCEmail]]).to.equalArray(@[ @"email1@aol.com", @"email2@aol.com" ]);
     });
 });
 
@@ -55,7 +55,7 @@ describe(@"with 1 artwork", ^{
 
         artwork = [Artwork objectInContext:context];
         artwork.title = @"Artwork Name";
-        artwork.artist = artist;
+        artwork.artists = [NSSet setWithObject:artist];
         composer.artworks = @[ artwork ];
     });
 
@@ -81,8 +81,18 @@ describe(@"with 1 artwork", ^{
         NSString *subject = @"Check out %@ by %@";
         defaults[AREmailSubject] = subject;
         expect([composer subject]).to.contain(artwork.title);
-        expect([composer subject]).to.contain(artwork.artist.presentableName);
+        expect([composer subject]).to.contain(artwork.artists.anyObject.presentableName);
     });
+
+
+    it(@"handles an untitled artwork with two %@s with for artwork & artist", ^{
+        NSString *subject = @"Check out %@ by %@";
+        artwork.title = nil;
+        defaults[AREmailSubject] = subject;
+        expect([composer subject]).to.contain(@"Untitled");
+        expect([composer subject]).to.contain(artwork.artists.anyObject.presentableName);
+    });
+
 });
 
 
@@ -96,15 +106,15 @@ describe(@"with artworks > 1", ^{
 
             artwork = [Artwork objectInContext:context];
             artwork.title = @"Artwork Name";
-            artwork.artist = artist;
+            artwork.artists = [NSSet setWithObject:artist];
 
             artwork2 = [Artwork objectInContext:context];
             artwork2.title = @"Artwork2 Name";
-            artwork2.artist = artist;
-            
+            artwork2.artists = [NSSet setWithObject:artist];
+
             untitledArtwork = [Artwork objectInContext:context];
-            untitledArtwork.artist = artist;
-            
+            untitledArtwork.artists = [NSSet setWithObject:artist];
+
             composer.artworks = @[ artwork, artwork2 ];
         });
 
@@ -123,19 +133,19 @@ describe(@"with artworks > 1", ^{
         it(@"replaces one %@ with artist name", ^{
             NSString *subject = @"Check out %@";
             defaults[ARMultipleSameArtistEmailSubject] = subject;
-            expect([composer subject]).to.contain(artwork.artist.presentableName);
+            expect([composer subject]).to.contain(artwork.artistDisplayString);
         });
 
         it(@"replaces two %@s with nothing", ^{
             NSString *subject = @"Check out %@ by %@";
             defaults[ARMultipleSameArtistEmailSubject] = subject;
             expect([composer subject]).toNot.contain(artwork.title);
-            expect([composer subject]).toNot.contain(artwork.artist.presentableName);
+            expect([composer subject]).toNot.contain(artwork.artistDisplayString);
         });
-        
+
         it(@"handles untitled artworks correctly ", ^{
             defaults[AREmailSubject] = @"Check out %@ by %@";
-            
+
             composer.artworks = @[ untitledArtwork ];
             expect([composer subject]).toNot.contain(@"(null)");
         });
@@ -154,11 +164,11 @@ describe(@"with artworks > 1", ^{
 
             artwork = [Artwork objectInContext:context];
             artwork.title = @"Artwork Name";
-            artwork.artist = artist;
+            artwork.artists = [NSSet setWithObject:artist];
 
             artwork2 = [Artwork objectInContext:context];
             artwork2.title = @"Artwork2 Name";
-            artwork2.artist = artist2;
+            artwork2.artists = [NSSet setWithObject:artist2];
 
             composer.artworks = @[ artwork, artwork2 ];
         });
@@ -190,14 +200,17 @@ describe(@"with artworks > 1", ^{
 });
 
 describe(@"email html", ^{
-    __block Artist *artist;
+    __block Artist *artist, *artist2;
     __block Artwork *artwork;
     __block Image *additionalImage;
-    
+
     beforeEach(^{
         artist = [Artist objectInContext:context];
         artist.displayName = @"Artist Name";
-        
+
+        artist2 = [Artist objectInContext:context];
+        artist2.displayName = @"Other Artist Name";
+
         artwork = [Artwork objectInContext:context];
         artwork.title = @"Artwork Name";
         artwork.artist = artist;
@@ -206,49 +219,55 @@ describe(@"email html", ^{
         Image *mainImage = [ARModelFactory imageWithKnownRemoteResourcesInContext:context];
         mainImage.isMainImage = @(YES);
         mainImage.baseURL = @"http://static0.artsy.net/additional_images/1/";
-        
+
         additionalImage = [ARModelFactory imageWithKnownRemoteResourcesInContext:context];
         additionalImage.isMainImage = @(NO);
         additionalImage.baseURL = @"http://static0.artsy.net/additional_images/2/";
-        
+
         artwork.mainImage = mainImage;
-        artwork.images = [NSSet setWithArray:@[mainImage, additionalImage]];
-        
+        artwork.images = [NSSet setWithArray:@[ mainImage, additionalImage ]];
+
         composer.options = [[AREmailSettings alloc] init];
     });
 
-    
+
     it(@"switches 'artwork' to 'artworks' in greeting when sending multiple artworks", ^{
         defaults[AREmailGreeting] = @"information about the artwork we discussed";
         composer.artworks = @[ artwork, artwork ];
         expect(composer.body).to.contain(@"the artworks we discussed");
     });
-    
+
+    it(@"handles showing multiple artist names for an artwork", ^{
+        artwork.artists = [NSSet setWithObjects:artist, artist2, nil];
+        composer.artworks = @[ artwork ];
+        expect(composer.body).to.contain(artwork.artistDisplayString.uppercaseString);
+    });
+
     it(@"converts newlines in signature to <br/>", ^{
         defaults[AREmailSignature] = @"Hello\nWorld";
         composer.artworks = @[ artwork ];
         expect(composer.body).to.contain(@"Hello<br/>World");
     });
-    
+
     it(@"converts newlines in greetings to <br/>", ^{
         defaults[AREmailGreeting] = @"Hello\nWorld";
         composer.artworks = @[ artwork ];
         expect(composer.body).to.contain(@"Hello<br/>World");
     });
-    
+
     it(@"inlines the images", ^{
         composer.artworks = @[ artwork ];
         expect(composer.body).to.contain([[artwork.mainImage imageURLWithFormatName:ARFeedImageSizeLargeKey] absoluteString]);
     });
-    
+
     it(@"inlines additional images", ^{
         composer.artworks = @[ artwork ];
-        composer.options.additionalImages = @[additionalImage];
+        composer.options.additionalImages = @[ additionalImage ];
         expect(composer.body).to.contain([[additionalImage imageURLWithFormatName:ARFeedImageSizeLargeKey] absoluteString]);
     });
 
     it(@"inlines installation images images", ^{
-        composer.options.installationShots = @[additionalImage];
+        composer.options.installationShots = @[ additionalImage ];
         expect(composer.body).to.contain([[additionalImage imageURLWithFormatName:ARFeedImageSizeLargeKey] absoluteString]);
     });
 
@@ -260,7 +279,7 @@ describe(@"email html", ^{
         expect(composer.body).to.contain(artwork.displayPrice);
     });
 
-    describe(@"with an edition sets" , ^{
+    describe(@"with an edition sets", ^{
 
         it(@"with one edition set", ^{
             composer.artworks = @[ artwork ];
@@ -268,16 +287,16 @@ describe(@"email html", ^{
             EditionSet *set = [EditionSet modelFromJSON:@{
                 ARFeedIDKey : @"123123",
                 ARFeedDimensionsKey : @{
-                    ARFeedDimensionsInchesKey: @"11 inches",
-                    ARFeedDimensionsCMKey: @"23cm"
+                    ARFeedDimensionsInchesKey : @"11 inches",
+                    ARFeedDimensionsCMKey : @"23cm"
                 },
-                ARFeedArtworkEditionsKey: @"Editions Info",
-                ARFeedAvailabilityKey: @"Available Info",
-                ARFeedInternalPriceKey: @"price_internal_123",
-                ARFeedPriceKey: @"price_external_123"
+                ARFeedArtworkEditionsKey : @"Editions Info",
+                ARFeedAvailabilityKey : @"Available Info",
+                ARFeedInternalPriceKey : @"price_internal_123",
+                ARFeedPriceKey : @"price_external_123"
             } inContext:context];
             artwork.editionSets = [NSSet setWithObject:set];
-            
+
             NSString *body = composer.body;
             expect(body).to.contain(set.editions);
             expect(body).to.contain(set.dimensionsCM);
@@ -292,7 +311,7 @@ describe(@"email html", ^{
             composer.options.priceType = AREmailSettingsPriceTypeBackend;
             EditionSet *set = [EditionSet modelFromJSON:@{
                 ARFeedIDKey : @"123123",
-                ARFeedPriceKey: @"price_external_123"
+                ARFeedPriceKey : @"price_external_123"
             } inContext:context];
             artwork.editionSets = [NSSet setWithObject:set];
 
@@ -312,8 +331,8 @@ describe(@"email html", ^{
 
             EditionSet *set = [EditionSet modelFromJSON:@{
                 ARFeedIDKey : @"123123",
-                ARFeedInternalPriceKey: @"price_internal_123",
-                ARFeedPriceKey: @"price_external_123"
+                ARFeedInternalPriceKey : @"price_internal_123",
+                ARFeedPriceKey : @"price_external_123"
             } inContext:context];
             artwork.editionSets = [NSSet setWithObject:set];
 
@@ -327,11 +346,11 @@ describe(@"email html", ^{
 
             EditionSet *set = [EditionSet modelFromJSON:@{
                 ARFeedIDKey : @"123123",
-                ARFeedInternalPriceKey: @"price_internal_123",
-                ARFeedPriceKey: @"price_external_123"
+                ARFeedInternalPriceKey : @"price_internal_123",
+                ARFeedPriceKey : @"price_external_123"
             } inContext:context];
             artwork.editionSets = [NSSet setWithObject:set];
-            
+
             expect(composer.body).to.contain(set.backendPrice);
             expect(composer.body).toNot.contain(set.displayPrice);
         });

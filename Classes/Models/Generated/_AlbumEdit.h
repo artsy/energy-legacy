@@ -19,12 +19,14 @@ extern const struct AlbumEditRelationships {
 @class Artwork;
 
 
-@interface AlbumEditID : NSManagedObjectID {
+@interface AlbumEditID : NSManagedObjectID
+{
 }
 @end
 
 
-@interface _AlbumEdit : ARManagedObject {
+@interface _AlbumEdit : ARManagedObject
+{
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;

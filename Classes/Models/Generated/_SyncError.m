@@ -3,15 +3,6 @@
 
 #import "_SyncError.h"
 
-const struct SyncErrorAttributes SyncErrorAttributes = {
-    .body = @"body",
-    .errorType = @"errorType",
-};
-
-const struct SyncErrorRelationships SyncErrorRelationships = {
-    .syncLog = @"syncLog",
-};
-
 
 @implementation SyncErrorID
 @end
@@ -19,7 +10,7 @@ const struct SyncErrorRelationships SyncErrorRelationships = {
 
 @implementation _SyncError
 
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
 {
     NSParameterAssert(moc_);
     return [NSEntityDescription insertNewObjectForEntityForName:@"SyncError" inManagedObjectContext:moc_];
@@ -41,9 +32,37 @@ const struct SyncErrorRelationships SyncErrorRelationships = {
     return (SyncErrorID *)[super objectID];
 }
 
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
+
+    return keyPaths;
+}
+
 @dynamic body;
+
 @dynamic errorType;
 
 @dynamic syncLog;
 
+@end
+
+
+@implementation SyncErrorAttributes
++ (NSString *)body
+{
+    return @"body";
+}
++ (NSString *)errorType
+{
+    return @"errorType";
+}
+@end
+
+
+@implementation SyncErrorRelationships
++ (NSString *)syncLog
+{
+    return @"syncLog";
+}
 @end

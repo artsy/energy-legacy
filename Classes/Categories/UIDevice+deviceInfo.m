@@ -1,5 +1,6 @@
 
 
+
 @implementation UIDevice (DeviceInfo)
 
 + (NSString *)deviceString
@@ -14,6 +15,13 @@
 {
     return UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPhone;
 }
+
++ (BOOL)isPadPro
+{
+    CGFloat longestEdge = MAX(CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds));
+    return [self isPad] && longestEdge == 1366;
+}
+
 
 + (BOOL)isPhone
 {

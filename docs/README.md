@@ -1,17 +1,12 @@
 ## Artsy Energy
 
-Quick Links
------------
-
-* [Hockey App](http://hockeyapp.net)
-* [Beta Link](http://artsy.net/foliobeta)
-* [Dealing with Certificates](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/Introduction/Introduction.html)
-
 Getting Started
 ---------------------
 
 * [Getting Started](getting_started.md)
 * [Getting Confident](getting_confident.md)
+
+You can use the [Energy Paw file](http://artsy.github.io/blog/2016/04/14/net-working-with-paw/) to keep track of networking calls.
 
 Meandering Around
 ---------------------
@@ -21,3 +16,4 @@ Specific Problems
 ---------------------
 
 * [Deployment](deployment.md)
+* [Dealing with Certificates](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/Introduction/Introduction.html)

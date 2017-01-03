@@ -47,37 +47,37 @@ describe(@"on init", ^{
 describe(@"visuals", ^{
     __block Artwork *artwork;
     __block Album *album;
-    
+
     dispatch_block_t before = ^{
-        context  = [CoreDataManager stubbedManagedObjectContext];
+        context = [CoreDataManager stubbedManagedObjectContext];
         artwork = [ARModelFactory partiallyFilledArtworkInContext:context];
         Image *image = [Image objectInContext:context];
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:AROptionsUseWhiteFolio];
 
         album = [Album objectInContext:context];
         album.name = @"Test";
-        
+
         Artist *artist = [ARModelFactory filledArtistInContext:context];
-        artist.artworks = [NSSet setWithObject:artwork];
+        artwork.artists = [NSSet setWithObject:artist];
         artwork.mainImage = image;
-        
+
         ARAlbumEditNavigationController *navController = [[ARAlbumEditNavigationController alloc] initWithAlbum:album];
         editVC = [[AREditAlbumViewController alloc] initWithAlbum:album];
-        [navController setViewControllers:@[editVC] animated:NO];
+        [navController setViewControllers:@[ editVC ] animated:NO];
     };
-    
+
     itHasSnapshotsForDevices(@"default", ^{
         before();
         return editVC.navigationController;
     });
-    
-    
+
+
     itHasSnapshotsForDevices(@"with existing album", ^{
         before();
         album.artworks = [NSSet setWithObject:artwork];
         return editVC.navigationController;
     });
-    
+
     itHasSnapshotsForDevices(@"with existing items selected", ^{
         before();
 
@@ -89,7 +89,7 @@ describe(@"visuals", ^{
         [editVC endAppearanceTransition];
 
         [handler selectObject:artwork];
-        
+
         return editVC.navigationController;
     });
 
@@ -149,39 +149,39 @@ pending(@"subtitle", ^{
         [editVC beginAppearanceTransition:YES animated:NO];
         [editVC endAppearanceTransition];
     });
-    
+
     it(@"says item when only one item is selected", ^{
-        [[[editVC.selectionHandler stub] andReturn:@[@1]] selectedObjects];
+        [[[editVC.selectionHandler stub] andReturn:@[ @1 ]] selectedObjects];
         [editVC updateSubtitleAnimated:NO];
-        
+
         NSString *subtitle = editVC.phoneTitleLabel.label.text;
         expect(subtitle).toNot.contain(@"ITEMS");
         expect(subtitle).to.contain(@"ITEM");
     });
-    
+
     it(@"says items when more than one item is selected", ^{
-        [[[editVC.selectionHandler stub] andReturn:@[@1, @2]] selectedObjects];
+        [[[editVC.selectionHandler stub] andReturn:@[ @1, @2 ]] selectedObjects];
         [editVC updateTitle];
-        
+
         NSString *subtitle = editVC.phoneTitleLabel.label.text;
         expect(subtitle).to.contain(@"ITEMS");
     });
-    
+
     it(@"says remove when there are items being removed", ^{
-        [[[editVC.selectionHandler stub] andReturn:@[@1, @2]] selectedObjects];
+        [[[editVC.selectionHandler stub] andReturn:@[ @1, @2 ]] selectedObjects];
         editVC.initialArtworksCount = 3;
-        
+
         [editVC updateSubtitleAnimated:NO];
-        
+
         NSString *subtitle = editVC.phoneTitleLabel.label.text;
         expect(subtitle).to.contain(@"REMOVE");
     });
-    
+
     it(@"says add when there are items being added", ^{
-        [[[editVC.selectionHandler stub] andReturn:@[@1, @2]] selectedObjects];
-        
+        [[[editVC.selectionHandler stub] andReturn:@[ @1, @2 ]] selectedObjects];
+
         [editVC updateSubtitleAnimated:NO];
-        
+
         NSString *subtitle = editVC.phoneTitleLabel.label.text;
         expect(subtitle).to.contain(@"ADD");
     });

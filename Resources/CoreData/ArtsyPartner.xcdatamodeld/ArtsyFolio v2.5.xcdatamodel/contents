@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="2.5" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
     <entity name="Album" representedClassName="Album" elementID="Collection">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="editable" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
@@ -25,19 +25,6 @@
         </relationship>
         <relationship name="cover" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="coverForAlbum" inverseEntity="Image" syncable="YES"/>
         <relationship name="documents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Document" inverseName="album" inverseEntity="Document" syncable="YES"/>
-        <relationship name="uploadRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AlbumEdit" inverseName="album" inverseEntity="AlbumEdit" syncable="YES"/>
-        <userInfo/>
-    </entity>
-    <entity name="AlbumDelete" representedClassName="AlbumDelete" syncable="YES">
-        <attribute name="albumID" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
-    </entity>
-    <entity name="AlbumEdit" representedClassName="AlbumEdit">
-        <attribute name="albumWasCreated" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="addedArtworks" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Artwork" syncable="YES"/>
-        <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Album" inverseName="uploadRecord" inverseEntity="Album" syncable="YES"/>
-        <relationship name="removedArtworks" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Artwork" syncable="YES"/>
         <userInfo/>
     </entity>
     <entity name="Artist" representedClassName="Artist">
@@ -323,26 +310,24 @@
         <relationship name="adminForPartner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Partner" inverseName="admin" inverseEntity="Partner" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Album" positionX="0" positionY="0" width="128" height="270"/>
-        <element name="AlbumDelete" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="AlbumEdit" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="Album" positionX="0" positionY="0" width="128" height="255"/>
         <element name="Artist" positionX="0" positionY="0" width="128" height="405"/>
         <element name="ArtistDocument" positionX="0" positionY="0" width="128" height="45"/>
         <element name="Artwork" positionX="0" positionY="0" width="128" height="645"/>
         <element name="Document" positionX="0" positionY="0" width="128" height="210"/>
-        <element name="EditionSet" positionX="0" positionY="0" width="128" height="330"/>
+        <element name="EditionSet" positionX="27" positionY="162" width="128" height="330"/>
         <element name="Image" positionX="0" positionY="0" width="128" height="360"/>
-        <element name="InstallShotImage" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="LocalImage" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="InstallShotImage" positionX="18" positionY="153" width="128" height="73"/>
+        <element name="LocalImage" positionX="18" positionY="162" width="128" height="45"/>
         <element name="Location" positionX="0" positionY="0" width="128" height="210"/>
         <element name="Note" positionX="0" positionY="0" width="128" height="105"/>
         <element name="Partner" positionX="0" positionY="0" width="128" height="480"/>
-        <element name="PartnerOption" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="Show" positionX="0" positionY="0" width="128" height="285"/>
+        <element name="PartnerOption" positionX="18" positionY="153" width="128" height="88"/>
+        <element name="Show" positionX="0" positionY="0" width="128" height="283"/>
         <element name="ShowDocument" positionX="0" positionY="0" width="128" height="45"/>
-        <element name="SubscriptionPlan" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="SyncError" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="SyncLog" positionX="0" positionY="0" width="128" height="165"/>
+        <element name="SubscriptionPlan" positionX="27" positionY="162" width="128" height="73"/>
+        <element name="SyncError" positionX="9" positionY="153" width="128" height="88"/>
+        <element name="SyncLog" positionX="9" positionY="153" width="128" height="163"/>
         <element name="User" positionX="0" positionY="0" width="128" height="120"/>
     </elements>
 </model>

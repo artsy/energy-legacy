@@ -4,7 +4,7 @@
 #import "ARArtworkContainer.h"
 #import "ARDocumentContainer.h"
 
-@class Artwork, Artist, AlbumDelete;
+@class Artwork, Artist, AlbumDelete, AlbumEdit;
 
 
 @interface Album : _Album <ARGridViewItem, ARDocumentContainer, ARArtworkContainer>

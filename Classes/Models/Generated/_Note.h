@@ -1,36 +1,39 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
 // Make changes to Note.h instead.
 
+#if __has_feature(modules)
+@import Foundation;
+@import CoreData;
+#else
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "ARManagedObject.h"
-extern const struct NoteAttributes {
-    __unsafe_unretained NSString *body;
-    __unsafe_unretained NSString *createdAt;
-    __unsafe_unretained NSString *updatedAt;
-} NoteAttributes;
+#endif
 
-extern const struct NoteRelationships {
-    __unsafe_unretained NSString *artwork;
-} NoteRelationships;
+#import "ARManagedObject.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @class Artwork;
 
 
-@interface NoteID : NSManagedObjectID {
+@interface NoteID : NSManagedObjectID
+{
 }
 @end
 
 
-@interface _Note : ARManagedObject {
-}
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
+@interface _Note : ARManagedObject
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-- (NoteID *)objectID;
+@property (nonatomic, readonly, strong) NoteID *objectID;
 
 @property (nonatomic, strong) NSString *body;
-@property (nonatomic, strong) NSDate *createdAt;
-@property (nonatomic, strong) NSDate *updatedAt;
+
+@property (nonatomic, strong, nullable) NSDate *createdAt;
+
+@property (nonatomic, strong, nullable) NSDate *updatedAt;
+
 @property (nonatomic, strong) Artwork *artwork;
 
 @end
@@ -51,3 +54,17 @@ extern const struct NoteRelationships {
 - (void)setPrimitiveArtwork:(Artwork *)value;
 
 @end
+
+
+@interface NoteAttributes : NSObject
++ (NSString *)body;
++ (NSString *)createdAt;
++ (NSString *)updatedAt;
+@end
+
+
+@interface NoteRelationships : NSObject
++ (NSString *)artwork;
+@end
+
+NS_ASSUME_NONNULL_END

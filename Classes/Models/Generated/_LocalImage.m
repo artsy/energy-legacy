@@ -10,7 +10,7 @@
 
 @implementation _LocalImage
 
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
 {
     NSParameterAssert(moc_);
     return [NSEntityDescription insertNewObjectForEntityForName:@"LocalImage" inManagedObjectContext:moc_];
@@ -30,6 +30,13 @@
 - (LocalImageID *)objectID
 {
     return (LocalImageID *)[super objectID];
+}
+
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
+
+    return keyPaths;
 }
 
 @end

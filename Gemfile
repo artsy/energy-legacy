@@ -1,17 +1,17 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'xcpretty'
-gem 'second_curtain'
-gem "chairs"
+gem "xcpretty"
+gem "second_curtain"
+
 gem "sbconstants"
+gem "danger"
 
 gem "cocoapods"
 gem "cocoapods-keys"
-gem "cocoapods-open"
-gem 'cocoapods-deintegrate'
-gem 'danger'
 
 group :deployment do
   gem "fastlane"
-  gem "match"
+  gem "gym"
+  gem "deliver"
+  gem "pilot"
 end

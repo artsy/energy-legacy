@@ -50,7 +50,7 @@ describe(@"when selecting", ^{
 
         Artwork *artwork = [Artwork objectInContext:context];
         Artist *artist = [Artist objectInContext:context];
-        artwork.artist = artist;
+        artwork.artists = [NSSet setWithObject:artist];
 
         [handler selectObject:artwork];
         [handler commitSelection];

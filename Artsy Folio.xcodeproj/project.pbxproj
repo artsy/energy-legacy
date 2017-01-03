@@ -15,10 +15,8 @@
 		342F944AF8A1F892E1B3405B /* ARImageThumbnailCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9EBCD72F7CC0D2258556 /* ARImageThumbnailCreator.m */; };
 		342F947C39CE0038E21FD855 /* ARDocumentFileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9CE422C2D8F8589CFDC2 /* ARDocumentFileDownloader.m */; };
 		342F948BFEED0A6CD3718F93 /* ARSlugResolverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F92AB9FEEF15B485CB6D1 /* ARSlugResolverTests.m */; };
-		342F95E45FABD6D003E4BEB9 /* ARTileArchiveDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F95B4118196234A1066F0 /* ARTileArchiveDownloader.m */; };
 		342F96129A9C641805C06B05 /* ArtistModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F90072C09B05DEBBAD849 /* ArtistModelTests.m */; };
 		342F96F4AEF27F7C5D048C83 /* ARIDMapperDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F991E9148D10E9046AB06 /* ARIDMapperDownloader.m */; };
-		342F978B1865D89B2457B810 /* AREstimateDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F92134BC1C020671979F2 /* AREstimateDownloader.m */; };
 		342F992FC828FF2FB968D8C7 /* ARDocumentThumbnailCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9550D26DDB2A76BC84DC /* ARDocumentThumbnailCreator.m */; };
 		342F9950321ADEA77C8F12FD /* ARImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9B00C08EAC9C4A7954B1 /* ARImageDownloader.m */; };
 		342F99689EFEA687EF113A71 /* ARAddToAlbumViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9C056ADCCBEE2C65DFD9 /* ARAddToAlbumViewControllerTests.m */; };
@@ -31,7 +29,6 @@
 		342F9DE96C8A544A9CB068D0 /* ARShowDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F944C479544741A75A27F /* ARShowDownloader.m */; };
 		342F9E7ACEBAD0205BCF4307 /* ARShowArtworksDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9E1816CD6852B0A66A56 /* ARShowArtworksDownloader.m */; };
 		342F9F94B54C6148E6E72C98 /* ARArtworkDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9229AB74B10489CD4BB2 /* ARArtworkDownloader.m */; };
-		342F9FA8447F930BC170A52B /* ARTileUnzipper.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F94D660D0CDB383E725FC /* ARTileUnzipper.m */; };
 		411D96DA1731528B00598854 /* ARLogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411D96D81731528B00598854 /* ARLogoutViewController.m */; };
 		4137E7B817304ED000D85A93 /* ARLogoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4137E7B717304ED000D85A93 /* ARLogoutManager.m */; };
 		4148D66D17410F0B00169FD2 /* ARMultipleButtonsPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148D66C17410F0B00169FD2 /* ARMultipleButtonsPopoverViewController.m */; };
@@ -66,7 +63,6 @@
 		49EC7BE715A613D600053A38 /* ARManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EC7BE615A613D500053A38 /* ARManagedObject.m */; };
 		49ED901615B49F2A00E95583 /* UIDevice+UserAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ED901515B49F2A00E95583 /* UIDevice+UserAgent.m */; };
 		49F150CB174DB3920017230E /* ARPromptAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F150CA174DB3920017230E /* ARPromptAlertViewController.m */; };
-		5D477E540356F0614271B58C /* libPods-ArtsyFolio Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D86083F6C65A439C21A174 /* libPods-ArtsyFolio Tests.a */; };
 		60034F341875A0AA0053FB7E /* ARToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 60034F331875A0AA0053FB7E /* ARToolbarButton.m */; };
 		60051B3416F77A6600467AEA /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60051B3316F77A6600467AEA /* libicucore.dylib */; };
 		6005637516145AA800FE25D0 /* UIDevice+SpaceStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 6005637416145AA800FE25D0 /* UIDevice+SpaceStats.m */; };
@@ -92,6 +88,8 @@
 		6006C76A198EDF9300F955A0 /* ARAppTestDelegate+Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AC10C519479D5000274EBB /* ARAppTestDelegate+Tests.m */; };
 		600856FD19353CED005741CF /* ARTiledImageDataSourceWithImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 600856FC19353CED005741CF /* ARTiledImageDataSourceWithImage.m */; };
 		600AD6151C3E9CC700E027A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 600AD6141C3E9CC700E027A7 /* Images.xcassets */; };
+		600E64A51CCA1EA000182B88 /* ARModernDocumentPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600E64A41CCA1EA000182B88 /* ARModernDocumentPreviewViewController.m */; };
+		600E64A81CCA2DBE00182B88 /* ARDefaultsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 600E64A71CCA2DBE00182B88 /* ARDefaultsTests.m */; };
 		600F1A9F187A17C40006288F /* AREditAlbumArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600F1A9E187A17C40006288F /* AREditAlbumArtistViewController.m */; };
 		600F1AA3187AB9280006288F /* ARSelectionHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 600F1AA2187AB9280006288F /* ARSelectionHandlerTests.m */; };
 		601073FF19A3E3C300237DC6 /* ARViewInRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601073FE19A3E3C300237DC6 /* ARViewInRoomViewController.m */; };
@@ -241,7 +239,6 @@
 		608446C11637DB8300065EF0 /* ARSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 608446C01637DB8300065EF0 /* ARSwitchView.m */; };
 		6084B63B14FD248B00EBB62C /* ARTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6084B63A14FD248B00EBB62C /* ARTableViewCell.m */; };
 		6085133715B442C90062236F /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085133415B440E70062236F /* QuickLook.framework */; };
-		6085133A15B4435A0062236F /* ARDocumentPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085133915B4435A0062236F /* ARDocumentPreviewViewController.m */; };
 		608518E91624487D00FC2AD0 /* NSArray+ObjectsOfClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 608518E81624487D00FC2AD0 /* NSArray+ObjectsOfClass.m */; };
 		6085ACEF1949F76700D853A1 /* ArtsyMobileIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085ACEE1949F76700D853A1 /* ArtsyMobileIcon@2x.png */; };
 		6086648C1A31C8FB0030226D /* ARRootNavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6086648B1A31C8FB0030226D /* ARRootNavigationControllerDelegate.m */; };
@@ -482,6 +479,7 @@
 		60FDF6DD1AEAA21800173E81 /* ARSearchViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FDF6DC1AEAA21800173E81 /* ARSearchViewControllerTests.m */; };
 		60FFE3BA156FAE5000A138D3 /* RecentlyUploadedPlaceholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60FFE3B8156FAE5000A138D3 /* RecentlyUploadedPlaceholder.jpg */; };
 		60FFE3BC156FAE5000A138D3 /* RecentlyUploadedPlaceholder@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60FFE3B9156FAE5000A138D3 /* RecentlyUploadedPlaceholder@2x.jpg */; };
+		7A48483519FAA9AF4714F6EB /* libPods-ArtsyFolio Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 018BDB4A28E732D67C46275D /* libPods-ArtsyFolio Tests.a */; };
 		8305D6801AE05168004A270E /* ARThumbnailImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8305D67F1AE05168004A270E /* ARThumbnailImageScrollView.m */; };
 		8312011E1B73C3F600E1A988 /* ARViewInRoomViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8312011D1B73C3F600E1A988 /* ARViewInRoomViewTests.m */; };
 		832075B81C3F274000C0A114 /* wifi-off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 832075B51C3F274000C0A114 /* wifi-off@2x.png */; };
@@ -542,13 +540,11 @@
 		83E995E81C079C7C00A8885F /* AREmailSettingsViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E995E71C079C7C00A8885F /* AREmailSettingsViewModelTests.m */; };
 		83EEDB3B1C5150EB00B203DB /* ARSettingsMenuViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EEDB3A1C5150EB00B203DB /* ARSettingsMenuViewModelTests.m */; };
 		83FFE5A01C07A58E0005FBE2 /* AREmailSubjectLineSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FFE59F1C07A58E0005FBE2 /* AREmailSubjectLineSettingsViewController.m */; };
-		A3768ADC8FFB99B5F994991D /* libPods-ArtsyFolio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB630FFD18893E8C01B082A /* libPods-ArtsyFolio.a */; };
 		B337EB08184D246C0071FA29 /* ARImageTile.m in Sources */ = {isa = PBXBuildFile; fileRef = B337EB07184D246C0071FA29 /* ARImageTile.m */; };
 		B37F1653183EB211007A7023 /* AFHTTPRequestOperation+ARFileDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = B37F1652183EB211007A7023 /* AFHTTPRequestOperation+ARFileDownload.m */; };
 		B37F1668183EEA71007A7023 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B37F1666183EEA71007A7023 /* InfoPlist.strings */; };
 		B3CC1F8F1860B60800B146B5 /* ARSyncProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CC1F8E1860B60800B146B5 /* ARSyncProgress.m */; };
 		B3DA7ADF185BA9EE00CDD11A /* ARTileArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DA7ADE185BA9EE00CDD11A /* ARTileArchive.m */; };
-		B3DA7AE4185BAEAA00CDD11A /* ARTileArchiveDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DA7AE3185BAEAA00CDD11A /* ARTileArchiveDownloaderTests.m */; };
 		B3DBEDAB185A66E800C345A1 /* ARSync.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DBEDA9185A66E800C345A1 /* ARSync.m */; };
 		B3DBEDDE185A721700C345A1 /* ARImageFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DBEDDC185A721700C345A1 /* ARImageFormat.m */; };
 		B3DBEDE0185A74A700C345A1 /* ARImageDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DBEDDF185A74A700C345A1 /* ARImageDownloaderTests.m */; };
@@ -563,6 +559,7 @@
 		B56F941E14F6A13A006AF1A6 /* GridPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B56F941D14F6A13A006AF1A6 /* GridPlaceholder.png */; };
 		B58785411479BCB500A5C772 /* ForwardButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B58785401479BCB500A5C772 /* ForwardButtonBackground.png */; };
 		B5FC6BE814EEE06000EB7AB9 /* ARGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FC6BE714EEE06000EB7AB9 /* ARGridView.m */; };
+		C69D0DD721D70A61154598E7 /* libPods-ArtsyFolio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D43853158586C942F40720 /* libPods-ArtsyFolio.a */; };
 		CBA1998B185A46E000573048 /* ARBrowseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA1998A185A46E000573048 /* ARBrowseProvider.m */; };
 		D835C99C1415C72700320C25 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D835C99B1415C72700320C25 /* QuartzCore.framework */; };
 		D84AA9E3146B8635005557EA /* NSDictionary+ObjectForKey.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AA9E2146B8635005557EA /* NSDictionary+ObjectForKey.m */; };
@@ -641,36 +638,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03D86083F6C65A439C21A174 /* libPods-ArtsyFolio Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtsyFolio Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		018BDB4A28E732D67C46275D /* libPods-ArtsyFolio Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtsyFolio Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		18D43853158586C942F40720 /* libPods-ArtsyFolio.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtsyFolio.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		342F90072C09B05DEBBAD849 /* ArtistModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistModelTests.m; sourceTree = "<group>"; };
 		342F9047BDF19FCE53A2586E /* ARAlbumArtworksDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAlbumArtworksDownloader.h; sourceTree = "<group>"; };
 		342F90EBA08A0060AF6C0767 /* ARGridViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARGridViewControllerTests.m; sourceTree = "<group>"; };
 		342F91298C81F0169C0145C6 /* ARShowDocumentDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARShowDocumentDownloader.m; sourceTree = "<group>"; };
 		342F91AB28E2E6E97051C157 /* ModelStubs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelStubs.m; sourceTree = "<group>"; };
-		342F92134BC1C020671979F2 /* AREstimateDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREstimateDownloader.m; sourceTree = "<group>"; };
-		342F92209AB1CD1D3F9BB3C9 /* ARTileUnzipper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTileUnzipper.h; sourceTree = "<group>"; };
 		342F9222E69E0A9C41EEA1C9 /* NSFetchRequest+ARModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFetchRequest+ARModels.m"; sourceTree = "<group>"; };
 		342F9229AB74B10489CD4BB2 /* ARArtworkDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtworkDownloader.m; sourceTree = "<group>"; };
 		342F92AB9FEEF15B485CB6D1 /* ARSlugResolverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSlugResolverTests.m; sourceTree = "<group>"; };
 		342F938AC39CB9AF45C2178F /* ARImageThumbnailCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARImageThumbnailCreator.h; sourceTree = "<group>"; };
 		342F9447E87F6CCB48ED82AC /* ARArtistDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtistDownloader.m; sourceTree = "<group>"; };
 		342F944C479544741A75A27F /* ARShowDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARShowDownloader.m; sourceTree = "<group>"; };
-		342F94D660D0CDB383E725FC /* ARTileUnzipper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTileUnzipper.m; sourceTree = "<group>"; };
 		342F94F0C0639F8C5184127B /* ARPagingDownloaderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARPagingDownloaderOperation.h; sourceTree = "<group>"; };
 		342F9550D26DDB2A76BC84DC /* ARDocumentThumbnailCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDocumentThumbnailCreator.m; sourceTree = "<group>"; };
-		342F95B4118196234A1066F0 /* ARTileArchiveDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTileArchiveDownloader.m; sourceTree = "<group>"; };
 		342F95B6A87C7DA744495F39 /* ARArtworkDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARArtworkDownloader.h; sourceTree = "<group>"; };
 		342F95E1D10AC2A0C34A2DFF /* ARShowDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARShowDownloader.h; sourceTree = "<group>"; };
 		342F964028EFDB4783053CB7 /* ARModernArtworkMetadataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARModernArtworkMetadataViewController.m; sourceTree = "<group>"; };
 		342F9654A6BB991BC347C449 /* ModelStubs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelStubs.h; sourceTree = "<group>"; };
 		342F96556938AD30427A2A63 /* ARIDMapperDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARIDMapperDownloader.h; sourceTree = "<group>"; };
 		342F965E4D4A27A5CD807007 /* ARAlbumArtworksDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAlbumArtworksDownloader.m; sourceTree = "<group>"; };
-		342F97484012AC795C68C5CF /* ARTileArchiveDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTileArchiveDownloader.h; sourceTree = "<group>"; };
 		342F978990555C98CB10AB8C /* ARModernArtworkMetadataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARModernArtworkMetadataViewController.h; sourceTree = "<group>"; };
 		342F97FDA50F8AA807940722 /* ARShowArtworksDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARShowArtworksDownloader.h; sourceTree = "<group>"; };
 		342F987E3A4B0C40F7E6FEB9 /* ARArtistDocumentDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtistDocumentDownloader.m; sourceTree = "<group>"; };
 		342F991E9148D10E9046AB06 /* ARIDMapperDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARIDMapperDownloader.m; sourceTree = "<group>"; };
-		342F995D3B7A58079A328559 /* AREstimateDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREstimateDownloader.h; sourceTree = "<group>"; };
 		342F99997CA6BDB4673FF8BB /* NSFetchRequest+ARModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchRequest+ARModels.h"; sourceTree = "<group>"; };
 		342F99E401FCC5A5E683544A /* ARImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARImageDownloader.h; sourceTree = "<group>"; };
 		342F9A347897541E4520C63B /* ARSlugResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSlugResolver.m; sourceTree = "<group>"; };
@@ -689,7 +681,6 @@
 		342F9EBCD72F7CC0D2258556 /* ARImageThumbnailCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARImageThumbnailCreator.m; sourceTree = "<group>"; };
 		342F9EC9FA53B592D5B7409E /* ARGridViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARGridViewDataSource.m; sourceTree = "<group>"; };
 		342F9F9659313511F3E8B570 /* ARGridViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARGridViewDataSource.h; sourceTree = "<group>"; };
-		3A2F27DFF71EEFE35B94965C /* Pods-ArtsyFolio Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests.release.xcconfig"; sourceTree = "<group>"; };
 		411D96D71731528B00598854 /* ARLogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLogoutViewController.h; sourceTree = "<group>"; };
 		411D96D81731528B00598854 /* ARLogoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLogoutViewController.m; sourceTree = "<group>"; };
 		4137E7B617304ED000D85A93 /* ARLogoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLogoutManager.h; sourceTree = "<group>"; };
@@ -752,9 +743,11 @@
 		49ED901515B49F2A00E95583 /* UIDevice+UserAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+UserAgent.m"; sourceTree = "<group>"; };
 		49F150C9174DB3920017230E /* ARPromptAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARPromptAlertViewController.h; sourceTree = "<group>"; };
 		49F150CA174DB3920017230E /* ARPromptAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPromptAlertViewController.m; sourceTree = "<group>"; };
+		575D3373F8188F64671307DF /* Pods-ArtsyFolio Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		60034F321875A0AA0053FB7E /* ARToolbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARToolbarButton.h; sourceTree = "<group>"; };
 		60034F331875A0AA0053FB7E /* ARToolbarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARToolbarButton.m; sourceTree = "<group>"; };
 		60051B3316F77A6600467AEA /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		600543981D55342400BE1284 /* ArtsyFolio v2.5.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.5.3.xcdatamodel"; sourceTree = "<group>"; };
 		6005637316145AA800FE25D0 /* UIDevice+SpaceStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+SpaceStats.h"; sourceTree = "<group>"; };
 		6005637416145AA800FE25D0 /* UIDevice+SpaceStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+SpaceStats.m"; sourceTree = "<group>"; };
 		6005A6B91520A2E900754DFF /* ARUnderLinedSwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARUnderLinedSwitchView.h; sourceTree = "<group>"; };
@@ -785,6 +778,9 @@
 		600856FB19353CED005741CF /* ARTiledImageDataSourceWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTiledImageDataSourceWithImage.h; sourceTree = "<group>"; };
 		600856FC19353CED005741CF /* ARTiledImageDataSourceWithImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTiledImageDataSourceWithImage.m; sourceTree = "<group>"; };
 		600AD6141C3E9CC700E027A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ArtsyFolio/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		600E64A31CCA1EA000182B88 /* ARModernDocumentPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARModernDocumentPreviewViewController.h; sourceTree = "<group>"; };
+		600E64A41CCA1EA000182B88 /* ARModernDocumentPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARModernDocumentPreviewViewController.m; sourceTree = "<group>"; };
+		600E64A71CCA2DBE00182B88 /* ARDefaultsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDefaultsTests.m; sourceTree = "<group>"; };
 		600F1A9D187A17C40006288F /* AREditAlbumArtistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREditAlbumArtistViewController.h; sourceTree = "<group>"; };
 		600F1A9E187A17C40006288F /* AREditAlbumArtistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREditAlbumArtistViewController.m; sourceTree = "<group>"; };
 		600F1AA2187AB9280006288F /* ARSelectionHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSelectionHandlerTests.m; sourceTree = "<group>"; };
@@ -922,6 +918,7 @@
 		6058DB1115DA621C00D35A13 /* ARShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARShowViewController.m; sourceTree = "<group>"; };
 		605DC40319B67C62004AE616 /* ARPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARPopoverController.h; sourceTree = "<group>"; };
 		605DC40419B67C62004AE616 /* ARPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPopoverController.m; sourceTree = "<group>"; };
+		605E97AB1E1C575A0005D09B /* ArtsyFolio v2.6.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.6.0.xcdatamodel"; sourceTree = "<group>"; };
 		605EAF3515D3D36700128C25 /* NSObject+Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Notifications.h"; sourceTree = "<group>"; };
 		605EAF3615D3D36700128C25 /* NSObject+Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Notifications.m"; sourceTree = "<group>"; };
 		605F113918EB18190029A473 /* ARToolbarButtonsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARToolbarButtonsTests.m; sourceTree = "<group>"; };
@@ -1020,8 +1017,6 @@
 		6084B63914FD248B00EBB62C /* ARTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTableViewCell.h; sourceTree = "<group>"; };
 		6084B63A14FD248B00EBB62C /* ARTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTableViewCell.m; sourceTree = "<group>"; };
 		6085133415B440E70062236F /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
-		6085133815B4435A0062236F /* ARDocumentPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDocumentPreviewViewController.h; sourceTree = "<group>"; };
-		6085133915B4435A0062236F /* ARDocumentPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARDocumentPreviewViewController.m; sourceTree = "<group>"; };
 		608518E71624487D00FC2AD0 /* NSArray+ObjectsOfClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ObjectsOfClass.h"; sourceTree = "<group>"; };
 		608518E81624487D00FC2AD0 /* NSArray+ObjectsOfClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ObjectsOfClass.m"; sourceTree = "<group>"; };
 		6085ACEE1949F76700D853A1 /* ArtsyMobileIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ArtsyMobileIcon@2x.png"; sourceTree = "<group>"; };
@@ -1275,6 +1270,7 @@
 		60D211101AE1721900EA091C /* ARArtworkContainerCoverDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARArtworkContainerCoverDataSource.h; sourceTree = "<group>"; };
 		60D211111AE1721900EA091C /* ARArtworkContainerCoverDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtworkContainerCoverDataSource.m; sourceTree = "<group>"; };
 		60D264A715E78AC1001A192D /* ARArtworkContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARArtworkContainer.h; sourceTree = "<group>"; };
+		60D39AE41CD39AEB00719AEE /* ArtsyFolio v2.5.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.5.1.xcdatamodel"; sourceTree = "<group>"; };
 		60D46F5618E0CC4C00DA225B /* ARSyncDeleterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncDeleterTests.m; sourceTree = "<group>"; };
 		60D4D719198FD558001AB8AF /* ARAppDelegate+DevTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ARAppDelegate+DevTools.h"; path = "../ARAppDelegate+DevTools.h"; sourceTree = "<group>"; };
 		60D4D71A198FD558001AB8AF /* ARAppDelegate+DevTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ARAppDelegate+DevTools.m"; path = "../ARAppDelegate+DevTools.m"; sourceTree = "<group>"; };
@@ -1384,7 +1380,7 @@
 		60FDF6DC1AEAA21800173E81 /* ARSearchViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSearchViewControllerTests.m; sourceTree = "<group>"; };
 		60FFE3B8156FAE5000A138D3 /* RecentlyUploadedPlaceholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RecentlyUploadedPlaceholder.jpg; sourceTree = "<group>"; };
 		60FFE3B9156FAE5000A138D3 /* RecentlyUploadedPlaceholder@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "RecentlyUploadedPlaceholder@2x.jpg"; sourceTree = "<group>"; };
-		695C1194C1AE236DEFACD5A1 /* Pods-ArtsyFolio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio.debug.xcconfig"; sourceTree = "<group>"; };
+		8135FFD842393CF29BFBD177 /* Pods-ArtsyFolio Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests.release.xcconfig"; sourceTree = "<group>"; };
 		8305D67E1AE05168004A270E /* ARThumbnailImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARThumbnailImageScrollView.h; sourceTree = "<group>"; };
 		8305D67F1AE05168004A270E /* ARThumbnailImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARThumbnailImageScrollView.m; sourceTree = "<group>"; };
 		8312011D1B73C3F600E1A988 /* ARViewInRoomViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARViewInRoomViewTests.m; sourceTree = "<group>"; };
@@ -1478,7 +1474,6 @@
 		83FFE59E1C07A58E0005FBE2 /* AREmailSubjectLineSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREmailSubjectLineSettingsViewController.h; sourceTree = "<group>"; };
 		83FFE59F1C07A58E0005FBE2 /* AREmailSubjectLineSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREmailSubjectLineSettingsViewController.m; sourceTree = "<group>"; };
 		8F2DD602C6024E018FAA7223 /* Pods-ArtsyFolio Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArtsyFolio Tests.xcconfig"; sourceTree = "<group>"; };
-		9699F68046898F823D1C2E61 /* Pods-ArtsyFolio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio.release.xcconfig"; sourceTree = "<group>"; };
 		B337EB06184D246C0071FA29 /* ARImageTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARImageTile.h; sourceTree = "<group>"; };
 		B337EB07184D246C0071FA29 /* ARImageTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARImageTile.m; sourceTree = "<group>"; };
 		B37F1651183EB211007A7023 /* AFHTTPRequestOperation+ARFileDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFHTTPRequestOperation+ARFileDownload.h"; sourceTree = "<group>"; };
@@ -1492,7 +1487,6 @@
 		B3CC1F8E1860B60800B146B5 /* ARSyncProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncProgress.m; sourceTree = "<group>"; };
 		B3DA7ADD185BA9EE00CDD11A /* ARTileArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTileArchive.h; sourceTree = "<group>"; };
 		B3DA7ADE185BA9EE00CDD11A /* ARTileArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTileArchive.m; sourceTree = "<group>"; };
-		B3DA7AE3185BAEAA00CDD11A /* ARTileArchiveDownloaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTileArchiveDownloaderTests.m; sourceTree = "<group>"; };
 		B3DBEDA9185A66E800C345A1 /* ARSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSync.m; sourceTree = "<group>"; };
 		B3DBEDAA185A66E800C345A1 /* ARSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSync.h; sourceTree = "<group>"; };
 		B3DBEDDC185A721700C345A1 /* ARImageFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARImageFormat.m; sourceTree = "<group>"; };
@@ -1580,10 +1574,10 @@
 		D8FD62D814141B6C00E77EE6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D8FD62DA14141BAE00E77EE6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D8FD62DC14141C6E00E77EE6 /* CoreGraphics.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		DBBF44968E34DD9891FA32FA /* Pods-ArtsyFolio Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		E09C1FB44810462E13FD733E /* Pods-ArtsyFolio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio.debug.xcconfig"; sourceTree = "<group>"; };
 		E641580B18CE1F7900DEA948 /* ARInsetTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARInsetTextField.h; sourceTree = "<group>"; };
 		E641580C18CE1F7900DEA948 /* ARInsetTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARInsetTextField.m; sourceTree = "<group>"; };
-		EAB630FFD18893E8C01B082A /* libPods-ArtsyFolio.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtsyFolio.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDAB8FF3043CA58F0EEE2406 /* Pods-ArtsyFolio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1591,7 +1585,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D477E540356F0614271B58C /* libPods-ArtsyFolio Tests.a in Frameworks */,
+				7A48483519FAA9AF4714F6EB /* libPods-ArtsyFolio Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1618,7 +1612,7 @@
 				D8D208B1141405A500A823E3 /* UIKit.framework in Frameworks */,
 				D8D208B3141405A500A823E3 /* Foundation.framework in Frameworks */,
 				342F93C321708E2EEEDAB067 /* AssetsLibrary.framework in Frameworks */,
-				A3768ADC8FFB99B5F994991D /* libPods-ArtsyFolio.a in Frameworks */,
+				C69D0DD721D70A61154598E7 /* libPods-ArtsyFolio.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1632,10 +1626,6 @@
 				342F9EBCD72F7CC0D2258556 /* ARImageThumbnailCreator.m */,
 				342F938AC39CB9AF45C2178F /* ARImageThumbnailCreator.h */,
 				342F9B00C08EAC9C4A7954B1 /* ARImageDownloader.m */,
-				342F92209AB1CD1D3F9BB3C9 /* ARTileUnzipper.h */,
-				342F94D660D0CDB383E725FC /* ARTileUnzipper.m */,
-				342F97484012AC795C68C5CF /* ARTileArchiveDownloader.h */,
-				342F95B4118196234A1066F0 /* ARTileArchiveDownloader.m */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1643,8 +1633,6 @@
 		342F948029E112C50A87A94E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				342F995D3B7A58079A328559 /* AREstimateDownloader.h */,
-				342F92134BC1C020671979F2 /* AREstimateDownloader.m */,
 				342F96556938AD30427A2A63 /* ARIDMapperDownloader.h */,
 				342F991E9148D10E9046AB06 /* ARIDMapperDownloader.m */,
 				342F94F0C0639F8C5184127B /* ARPagingDownloaderOperation.h */,
@@ -1776,6 +1764,7 @@
 				60D4D71C198FD853001AB8AF /* ARSwitchboardTests.m */,
 				6086648D1A31D5D60030226D /* ARRootNavigationControllerDelegateSpec.m */,
 				60ADD68F1ACB4EB200A847B5 /* ARAppDelegateTests.m */,
+				600E64A71CCA2DBE00182B88 /* ARDefaultsTests.m */,
 				606C84751C16009400C6D15F /* ARStubbedNetworkQualityIndicator.h */,
 				606C84761C16009400C6D15F /* ARStubbedNetworkQualityIndicator.m */,
 			);
@@ -2041,7 +2030,6 @@
 				6032E3441BE22123001C3494 /* Plugins */,
 				60F1F0FE1B0391A4004B6C7F /* Sync Steps */,
 				B3DBEDE7185AB4D400C345A1 /* ARImageThumbnailCreatorTests.m */,
-				B3DA7AE3185BAEAA00CDD11A /* ARTileArchiveDownloaderTests.m */,
 				608B012E1C4811F300C6B535 /* ARSyncSpec.m */,
 				60C9392A1C7D2B2E0010136C /* ARSyncProgressTests.m */,
 			);
@@ -2123,8 +2111,8 @@
 		60579D34163CEC4800EE1939 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
-				6085133815B4435A0062236F /* ARDocumentPreviewViewController.h */,
-				6085133915B4435A0062236F /* ARDocumentPreviewViewController.m */,
+				600E64A31CCA1EA000182B88 /* ARModernDocumentPreviewViewController.h */,
+				600E64A41CCA1EA000182B88 /* ARModernDocumentPreviewViewController.m */,
 			);
 			path = Documents;
 			sourceTree = "<group>";
@@ -3247,7 +3235,7 @@
 				B37F1664183EEA71007A7023 /* Supporting Files */,
 				D8D208AF141405A500A823E3 /* Frameworks */,
 				D8D208AD141405A500A823E3 /* Products */,
-				EF18A04457490CDCB7F6B1B0 /* Pods */,
+				FA8A2A1DF714C15A87EBB5C1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3288,8 +3276,8 @@
 				D8FD62D414141AF400E77EE6 /* libz.dylib */,
 				D8FD62CA14141A4200E77EE6 /* libxml2.dylib */,
 				B37F165F183EEA71007A7023 /* XCTest.framework */,
-				EAB630FFD18893E8C01B082A /* libPods-ArtsyFolio.a */,
-				03D86083F6C65A439C21A174 /* libPods-ArtsyFolio Tests.a */,
+				18D43853158586C942F40720 /* libPods-ArtsyFolio.a */,
+				018BDB4A28E732D67C46275D /* libPods-ArtsyFolio Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3561,13 +3549,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		EF18A04457490CDCB7F6B1B0 /* Pods */ = {
+		FA8A2A1DF714C15A87EBB5C1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9699F68046898F823D1C2E61 /* Pods-ArtsyFolio.release.xcconfig */,
-				695C1194C1AE236DEFACD5A1 /* Pods-ArtsyFolio.debug.xcconfig */,
-				3A2F27DFF71EEFE35B94965C /* Pods-ArtsyFolio Tests.release.xcconfig */,
-				DBBF44968E34DD9891FA32FA /* Pods-ArtsyFolio Tests.debug.xcconfig */,
+				EDAB8FF3043CA58F0EEE2406 /* Pods-ArtsyFolio.release.xcconfig */,
+				E09C1FB44810462E13FD733E /* Pods-ArtsyFolio.debug.xcconfig */,
+				8135FFD842393CF29BFBD177 /* Pods-ArtsyFolio Tests.release.xcconfig */,
+				575D3373F8188F64671307DF /* Pods-ArtsyFolio Tests.debug.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -3579,12 +3567,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B37F166E183EEA71007A7023 /* Build configuration list for PBXNativeTarget "ArtsyFolio Tests" */;
 			buildPhases = (
-				617F1AA3CF0982EE719A8AA2 /* Check Pods Manifest.lock */,
+				AA6C9C4B11B7C70E01B56DA2 /* [CP] Check Pods Manifest.lock */,
 				B37F165A183EEA71007A7023 /* Sources */,
 				B37F165B183EEA71007A7023 /* Frameworks */,
 				B37F165C183EEA71007A7023 /* Resources */,
-				1C098823EE218FF7C8F21A96 /* Embed Pods Frameworks */,
-				CA2116B207AEF5F4C0201B07 /* Copy Pods Resources */,
+				BA39522F6C4E2AC99D3F9D02 /* [CP] Embed Pods Frameworks */,
+				0A867048860B5EC451EFEAF2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3604,13 +3592,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8D208D6141405A600A823E3 /* Build configuration list for PBXNativeTarget "ArtsyFolio" */;
 			buildPhases = (
-				DD179F089BDC0674FAF93E96 /* Check Pods Manifest.lock */,
+				96793FFE5C8F82060EDF290C /* [CP] Check Pods Manifest.lock */,
 				D8D208A8141405A500A823E3 /* Sources */,
 				D8D208A9141405A500A823E3 /* Frameworks */,
 				D8D208AA141405A500A823E3 /* Resources */,
 				D83378FE143BEBBC00605380 /* Run Script */,
-				A7BFD2837D8990A9F4F85053 /* Embed Pods Frameworks */,
-				62C52885C4C120F4F2DAF1F6 /* Copy Pods Resources */,
+				92184F4043F0D0D8C61F2AA8 /* [CP] Embed Pods Frameworks */,
+				DDCBC4A0E7CBCCCDC2CA8299 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3853,59 +3841,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1C098823EE218FF7C8F21A96 /* Embed Pods Frameworks */ = {
+		0A867048860B5EC451EFEAF2 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		617F1AA3CF0982EE719A8AA2 /* Check Pods Manifest.lock */ = {
+		92184F4043F0D0D8C61F2AA8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		62C52885C4C120F4F2DAF1F6 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A7BFD2837D8990A9F4F85053 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3913,19 +3871,49 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CA2116B207AEF5F4C0201B07 /* Copy Pods Resources */ = {
+		96793FFE5C8F82060EDF290C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AA6C9C4B11B7C70E01B56DA2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BA39522F6C4E2AC99D3F9D02 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D83378FE143BEBBC00605380 /* Run Script */ = {
@@ -3942,19 +3930,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio-frameworks.sh\"";
 		};
-		DD179F089BDC0674FAF93E96 /* Check Pods Manifest.lock */ = {
+		DDCBC4A0E7CBCCCDC2CA8299 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3986,7 +3974,6 @@
 				609715DB19ACC1A700970DBE /* ARSelectionToolbarViewTests.m in Sources */,
 				606C84771C16009400C6D15F /* ARStubbedNetworkQualityIndicator.m in Sources */,
 				6038C47E19867BF300626DD6 /* ARTabbedViewControllerTests.m in Sources */,
-				B3DA7AE4185BAEAA00CDD11A /* ARTileArchiveDownloaderTests.m in Sources */,
 				608B01321C4817D100C6B535 /* ARStubbedSyncProvider.m in Sources */,
 				60FDF6DD1AEAA21800173E81 /* ARSearchViewControllerTests.m in Sources */,
 				6038C47B19867A5600626DD6 /* ARExpectaExtensions.m in Sources */,
@@ -4022,6 +4009,7 @@
 				607448231BE3BD8000E20774 /* ARSync+TestsExtension.m in Sources */,
 				607448201BE3BB2200E20774 /* ARSyncDefaultsSpec.m in Sources */,
 				8340E4661BFA8F9D0016648A /* ORStackView+TestingHelpers.m in Sources */,
+				600E64A81CCA2DBE00182B88 /* ARDefaultsTests.m in Sources */,
 				8371DB021B6824A200285A8E /* ARStubbedLoginNetworkModel.m in Sources */,
 				600F1AA3187AB9280006288F /* ARSelectionHandlerTests.m in Sources */,
 				60EC79F91A9E75B3009196A1 /* ARModernEmailArtworksViewControllerTests.m in Sources */,
@@ -4222,7 +4210,6 @@
 				B3DBEDE6185AB48A00C345A1 /* ARThumbnail.m in Sources */,
 				603FA9881598698200BDCC9F /* Reachability+ConnectionExists.m in Sources */,
 				49EC7BE715A613D600053A38 /* ARManagedObject.m in Sources */,
-				6085133A15B4435A0062236F /* ARDocumentPreviewViewController.m in Sources */,
 				49ED901615B49F2A00E95583 /* UIDevice+UserAgent.m in Sources */,
 				494D390515BE06B70088B619 /* ARAnalyticsConstants.m in Sources */,
 				60EF315A186DBF6A0093F6F1 /* ARTopViewToolbarController.m in Sources */,
@@ -4342,12 +4329,11 @@
 				60327DEF198A427A0075B399 /* ARBottomAlignedToolbar.m in Sources */,
 				342F944AF8A1F892E1B3405B /* ARImageThumbnailCreator.m in Sources */,
 				342F9950321ADEA77C8F12FD /* ARImageDownloader.m in Sources */,
-				342F9FA8447F930BC170A52B /* ARTileUnzipper.m in Sources */,
 				60062C2E1919271300448EFB /* ARShowInstallationShotsDownloader.m in Sources */,
-				342F95E45FABD6D003E4BEB9 /* ARTileArchiveDownloader.m in Sources */,
 				608CCC331CBE807100977BFE /* AlbumDelete.m in Sources */,
 				342F9DE96C8A544A9CB068D0 /* ARShowDownloader.m in Sources */,
 				60A99DA219AF5F91004F82D0 /* AREditAlbumNavigationBar.m in Sources */,
+				600E64A51CCA1EA000182B88 /* ARModernDocumentPreviewViewController.m in Sources */,
 				607448121BE39E2900E20774 /* ARSyncDefaults.m in Sources */,
 				60124F6F191CFB1F008BE366 /* ARShowCoverShotDownloader.m in Sources */,
 				6006C761198EDA8500F955A0 /* ARPartnerSelectViewController.m in Sources */,
@@ -4361,7 +4347,6 @@
 				6074481E1BE3B45E00E20774 /* ARSyncRemoveiCloudAttributes.m in Sources */,
 				342F99B7CBE4A15B420A55D1 /* ARPagingDownloaderOperation.m in Sources */,
 				342F96F4AEF27F7C5D048C83 /* ARIDMapperDownloader.m in Sources */,
-				342F978B1865D89B2457B810 /* AREstimateDownloader.m in Sources */,
 				342F9334FD3CCD087D0AB434 /* ARAlbumArtworksDownloader.m in Sources */,
 				342F9C52E610EF888B4ED646 /* ARSlugResolver.m in Sources */,
 				342F9C42D7586A4D2121A080 /* NSFetchRequest+ARModels.m in Sources */,
@@ -4432,6 +4417,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
@@ -4448,7 +4434,6 @@
 				MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -4457,14 +4442,13 @@
 		};
 		60CA310A182D9DEB0022C7C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 695C1194C1AE236DEFACD5A1 /* Pods-ArtsyFolio.debug.xcconfig */;
+			baseConfigurationReference = E09C1FB44810462E13FD733E /* Pods-ArtsyFolio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
@@ -4530,7 +4514,7 @@
 		};
 		B37F166F183EEA71007A7023 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A2F27DFF71EEFE35B94965C /* Pods-ArtsyFolio Tests.release.xcconfig */;
+			baseConfigurationReference = 8135FFD842393CF29BFBD177 /* Pods-ArtsyFolio Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FolioDev.app/FolioDev";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -4556,7 +4540,7 @@
 		};
 		B37F1671183EEA71007A7023 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DBBF44968E34DD9891FA32FA /* Pods-ArtsyFolio Tests.debug.xcconfig */;
+			baseConfigurationReference = 575D3373F8188F64671307DF /* Pods-ArtsyFolio Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FolioDev.app/FolioDev";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -4598,6 +4582,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
@@ -4612,7 +4597,6 @@
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "572d2be5-e180-41a8-b9f3-844de8341b18";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -4621,14 +4605,13 @@
 		};
 		D8D208D8141405A600A823E3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9699F68046898F823D1C2E61 /* Pods-ArtsyFolio.release.xcconfig */;
+			baseConfigurationReference = EDAB8FF3043CA58F0EEE2406 /* Pods-ArtsyFolio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
-				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
@@ -4726,6 +4709,9 @@
 		60118682174D084700B878A1 /* ArtsyPartner.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				605E97AB1E1C575A0005D09B /* ArtsyFolio v2.6.0.xcdatamodel */,
+				600543981D55342400BE1284 /* ArtsyFolio v2.5.3.xcdatamodel */,
+				60D39AE41CD39AEB00719AEE /* ArtsyFolio v2.5.1.xcdatamodel */,
 				60C939331C7D39DA0010136C /* ArtsyFolio v2.5.xcdatamodel */,
 				839B59751B4D955900F24033 /* ArtsyFolio v2.4.xcdatamodel */,
 				8343B7BC1B4C5667005790A9 /* ArtsyFolio v2.3.xcdatamodel */,
@@ -4741,7 +4727,7 @@
 				60118687174D084700B878A1 /* ArtsyPartner 5.xcdatamodel */,
 				60118688174D084700B878A1 /* ArtsyPartner.xcdatamodel */,
 			);
-			currentVersion = 60C939331C7D39DA0010136C /* ArtsyFolio v2.5.xcdatamodel */;
+			currentVersion = 605E97AB1E1C575A0005D09B /* ArtsyFolio v2.6.0.xcdatamodel */;
 			path = ArtsyPartner.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

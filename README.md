@@ -1,17 +1,28 @@
-<img src="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/artsy_logo.png" align="left" hspace="30px" vspace="30px">
-<img src="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/energy.png" align="right" hspace="30px" vspace="30px">
+<img src="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/artsy_logo.png" align="left">
+<img src="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/energy.png" align="right">
 
 
-<a href="http://folio.artsy.net"><img src ="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/folio_screenshots.jpg"></a>
+<a href="http://folio.artsy.net"><img src ="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/folio_screenshots.jpg" width="100%"></a>
 
 The iPhone and iPad app that brings all the Partners to the yard.
 
-[![Coverage Status](https://coveralls.io/repos/artsy/energy/badge.svg?branch=master&service=github)](https://coveralls.io/github/artsy/energy?branch=master)
+### Meta
 
+* __State:__ production
+* __Point People:__ [@orta](https://github.com/orta)
+* __CI :__  [![Circle CI](https://circleci.com/gh/artsy/energy.svg?style=svg)](https://circleci.com/gh/artsy/energy)
+
+This is a core [Artsy Mobile](https://github.com/artsy/mobile) OSS project, along with [Eigen](https://github.com/artsy/eigen), [Eidolon](https://github.com/artsy/eidolon), [Emission](https://github.com/artsy/emission) and [Emergence](https://github.com/artsy/emergence).
+
+Don't know what Artsy is? [Check this](https://github.com/artsy/mobile/blob/master/what_is_artsy.md) overview, or read our objc.io on [team culture](https://www.objc.io/issues/22-scale/artsy/).
+
+Want to know more about Eigen? Read the [mobile](http://artsy.github.io/blog/categories/mobile/) blog posts, or [energy's](http://artsy.github.io/blog/categories/energy/) specifically. There's some great overview videos that cover almost all of the code-base.
 
 ### Docs
 
 Get setup [here](docs/getting_started.md). Further documentation can be found in the [documentation folder](docs#readme) and in [the OSS announcement](http://artsy.github.io/blog/2015/08/06/open-sourcing-energy/).
+
+Folio specific [Trello board](https://trello.com/b/95qNlO03/partner-success-revenue-near-term-roadmap) - you can use "Filter Cards" to just show Folio.
 
 ### OSS Quick Start
 
@@ -38,4 +49,4 @@ If you are seeing `bundle: command not found` when running the OSS Quick Start c
 
 ### Thanks
 
-**Copyright**: 2012-2015, Artsy. Thanks to all [our contributors](/docs/THANKS.md).
+**Copyright**: 2012-2016, Artsy. Thanks to all [our contributors](/docs/THANKS.md).

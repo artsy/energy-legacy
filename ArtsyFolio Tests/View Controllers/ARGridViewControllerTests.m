@@ -27,7 +27,9 @@ it(@"does not crash when setting the request manually", ^{
     sut.managedObjectContext = context;
     sut.results = [artist showsFeaturingArtistFetchRequest];
 
-    expect(^{ [sut reloadContent]; }).toNot.raise(nil);
+    expect(^{
+        [sut reloadContent];
+    }).toNot.raise(nil);
 });
 
 describe(@"content", ^{
@@ -40,7 +42,9 @@ describe(@"content", ^{
 
         [subject reloadContent];
 
-        expect(^{ [mock verify]; }).toNot.raise(nil);
+        expect(^{
+            [mock verify];
+        }).toNot.raise(nil);
     });
 });
 
@@ -51,12 +55,9 @@ describe(@"allowing selection", ^{
 
         subject = [[ARGridViewController alloc] initWithDisplayMode:ARDisplayModeArtistAlbums];
         expect([subject gridView:nil canSelectItem:nil atIndex:0]).to.beFalsy();
-
-        subject = [[ARGridViewController alloc] initWithDisplayMode:ARDisplayModeInstallationShots];
-        expect([subject gridView:nil canSelectItem:nil atIndex:0]).to.beFalsy();
     });
 
-    it(@"supports selecting a artworks / documents", ^{
+    it(@"supports selecting a artworks / documents / install shots", ^{
         ARGridViewController *subject = [[ARGridViewController alloc] initWithDisplayMode:ARDisplayModeAlbum];
         expect([subject gridView:nil canSelectItem:nil atIndex:0]).to.beTruthy();
 
@@ -68,6 +69,9 @@ describe(@"allowing selection", ^{
 
         subject = [[ARGridViewController alloc] initWithDisplayMode:ARDisplayModeDocuments];
         expect([subject gridView:nil canSelectItem:nil atIndex:0]).to.beTruthy();
+
+        subject = [[ARGridViewController alloc] initWithDisplayMode:ARDisplayModeInstallationShots];
+        expect([subject gridView:nil canSelectItem:nil atIndex:0]).to.beTruthy();
     });
 
     it(@"does not support selecting a work when in editing mode", ^{
@@ -75,7 +79,7 @@ describe(@"allowing selection", ^{
         [subject setIsEditing:YES animated:NO];
 
         NSManagedObjectContext *context = [CoreDataManager stubbedManagedObjectContext];
-        Artwork * artwork = [Artwork objectInContext:context];
+        Artwork *artwork = [Artwork objectInContext:context];
         expect([subject gridView:nil canSelectItem:artwork atIndex:0]).to.beFalsy();
     });
 

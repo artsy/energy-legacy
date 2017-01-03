@@ -13,6 +13,7 @@
 #import "ARSelectionToolbarView.h"
 #import "ARPopoverController.h"
 #import "ARModernEmailArtworksViewController.h"
+#import "InstallShotImage.h"
 
 
 @interface ARHostViewController () <ARModalAlertViewControllerDelegate>
@@ -214,10 +215,11 @@
     sender.selected = YES;
 
     NSArray *selectedObjects = [self.selectionHandler.selectedObjects allObjects];
-    NSArray *artworks = [selectedObjects arrayWithOnlyObjectsOfClass:[Artwork class]];
-    NSArray *documents = [selectedObjects arrayWithOnlyObjectsOfClass:[Document class]];
+    NSArray *artworks = [selectedObjects arrayWithOnlyObjectsOfClass:Artwork.class];
+    NSArray *documents = [selectedObjects arrayWithOnlyObjectsOfClass:Document.class];
+    NSArray *images = [selectedObjects arrayWithOnlyObjectsOfClass:InstallShotImage.class];
 
-    ARModernEmailArtworksViewController *emailController = [[ARModernEmailArtworksViewController alloc] initWithArtworks:artworks documents:documents context:self.representedObject];
+    ARModernEmailArtworksViewController *emailController = [[ARModernEmailArtworksViewController alloc] initWithArtworks:artworks documents:documents installShots:images context:self.representedObject];
     emailController.hostViewController = self;
 
     self.actionsPopoverController = [[ARPopoverController alloc] initWithContentViewController:emailController];
@@ -244,8 +246,7 @@
         case MFMailComposeResultCancelled:
             [ARAnalytics event:AREmailCancelledEvent];
             break;
-        default:
-            ;
+        default:;
     }
 
     [self dismissPopoversAnimated:YES];

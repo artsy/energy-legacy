@@ -25,9 +25,10 @@ static const NSString *ThreadContextKey = @"ThreadContextKey";
     }
 
     if (mainManagedObjectContext == nil) {
+        NSLog(@"Storing data at %@", [ARFileUtils coreDataStorePath]);
+
         mainManagedObjectContext = [self newManagedObjectContext];
         [mainManagedObjectContext setStalenessInterval:60.0];
-
         [[NSNotificationCenter defaultCenter] addObserver:[CoreDataManager class]
                                                  selector:@selector(mergeChangesIntoMainContextForDidSaveNotification:)
                                                      name:NSManagedObjectContextDidSaveNotification

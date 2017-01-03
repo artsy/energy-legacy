@@ -17,15 +17,21 @@ lane :build_for_beta do
 end
 
 lane :beta do
+  setup_for_app_store
   verify_pod_keys
 
   # Increment build number to current date
-  build_number = Time.new.strftime("%Y.%m.%d")
-  increment_build_number build_number: build_number, xcodeproj: './Artsy Folio.xcodeproj'
+  build_number = Time.new.strftime("%Y.%m.%d.%H")
+  `/usr/libexec/PlistBuddy -c "Set CFBundleVersion #{build_number}" "../Supporting Files/info.plist"`
 
   # Set version number to the one at the top of the CHANGELOG
   readme_yaml = File.read("../docs/CHANGELOG.yml")
-  readme_data = YAML.load(readme_yaml)
+  begin
+    readme_data = YAML.load(readme_yaml)
+  rescue StandardError
+    fail("CHANGELOG isn't legit YAML")
+  end
+  commit = `git log -n1 --format='%h'`.strip
 
   latest_version = readme_data["upcoming"]["version"]
 
@@ -47,13 +53,39 @@ lane :beta do
   # Build
   gym configuration: "Release", scheme: "ArtsyFolio"
 
+  # Find out how many builds we've sent for this version
+  # if it's zero, it will raise an exception
+  build_version = 0
+  begin
+    Spaceship::Tunes.login(ENV["FASTLANE_USERNAME"], ENV["FASTLANE_PASSWORD"])
+    app = Spaceship::Tunes::Application.find("sy.art.folio")
+    train = app.build_trains[latest_version]
+    build_version = train.builds.count + 1
+  rescue
+  end
+
+  # Do a tag, we use a http git remote so we can have push access
+  # as the default remote for circle is read-only
+  tag = "#{latest_version}-#{build_version}"
+  `git tag -d "#{tag}"`
+
+  add_git_tag tag: tag
+  `git remote add http https://github.com/artsy/energy.git`
+  `git push http #{tag}`
+
   # Ship to hockey first, testflight has to wait: "processing"
-  hockey notes: release_notes, api_token: ENV['HOCKEY_API_TOKEN'], public_identifier: ENV['HockeyAppLiveID']
+  hockey notes: release_notes, api_token: ENV['HOCKEY_API_TOKEN'],
+         public_identifier: ENV['HockeyAppLiveID'],
+        repository_url: "https://github.com/artsy/energy.git", commit_sha: commit
+
+  hockey notes: release_notes, api_token: ENV['HOCKEY_API_TOKEN'],
+         public_identifier: ENV['HockeyAppBetaID'],
+         repository_url: "https://github.com/artsy/energy.git", commit_sha: commit
 
   pilot changelog: release_notes
 
   slack message: "There is a new Folio beta available. Grab it from Testflight on your iOS device.",
-        channel: "Folio",
+        channel: "partner-success",
         payload: {
           'Version' => latest_version,
           'What\'s new' => upcoming_release_notes,
@@ -64,4 +96,45 @@ lane :beta do
   sh "git checkout ../Resources/"
   `rm ../*.dSYM.zip`
   `rm ../*.ipa`
+end
+
+
+## We want to have a simpler version of Fastlane's match
+## this does it in a pretty reasonable amount of code.
+
+lane :setup_for_app_store do
+  app_name = "energy"
+  signing_root = "signing"
+
+  `git clone https://github.com/artsy/mobile_code_signing.git #{signing_root}`
+
+  # prints out the codesigning identities
+  system "security find-identity -v -p codesigning"
+
+  # Install the iOS distribution certificate, -A
+  system "security import #{signing_root}/ios_distribution.cer  -k ~/Library/Keychains/login.keychain -A"
+
+  # Move our provisioning profile in
+  profile_path = File.expand_path("~") + "/Library/MobileDevice/Provisioning Profiles/"
+  destination = profile_path + "/" + app_name + ".mobileprovision"
+  profile = Dir.glob(signing_root + "/profiles/" + app_name + "/*").first
+
+  # Ensure folder exists
+  unless File.directory?(profile_path)
+    FileUtils.mkdir_p(profile_path)
+  end
+
+  # Migrate it in
+  FileUtils.copy profile, destination
+  puts "Installed Profile"
+
+  # Install the key
+  key = Dir.glob(signing_root + "/keys/" + app_name + "/*").first
+  system "security import #{key} -k ~/Library/Keychains/login.keychain -P #{ENV['MATCH_PASSWORD']}  -A "
+
+  # prints out the codesigning identities
+  system "security find-identity -v -p codesigning"
+
+  # Clean-up
+  `rm -rf #{signing_root}`
 end

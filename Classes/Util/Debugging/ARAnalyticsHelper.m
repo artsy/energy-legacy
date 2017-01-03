@@ -3,6 +3,7 @@
 #import <ARAnalytics/ARAnalytics.h>
 #import <Keys/FolioKeys.h>
 #import <Analytics/SEGAnalytics.h>
+#import <HockeySDK-Source/HockeySDK.h>
 
 #import "ARAnalyticsHelper.h"
 #import "ARIntercomProvider.h"
@@ -32,6 +33,12 @@ static NSString *currentUserEmail;
     BOOL isBeta = [bundleIdentifier hasPrefix:@".beta"];
 
     NSString *segment = isAppStore ? [keys segmentProduction] : isBeta ? [keys segmentBeta] : [keys segmentDev];
+
+#if DEBUG
+    BITHockeyManager *hockey = [BITHockeyManager sharedHockeyManager];
+    hockey.disableUpdateManager = YES;
+    hockey.disableCrashManager = YES;
+#endif
 
     [ARAnalytics setupWithAnalytics:@{
         ARHockeyAppBetaID : [keys hockeyAppBetaID],
@@ -128,8 +135,9 @@ static NSString *currentUserEmail;
     [Intercom registerUserWithUserId:user.slug email:user.email ?: @""];
 
     [ARAnalytics addEventSuperProperties:@{
-        @"user_email" : user.email ?: @"",
+        @"email" : user.email ?: @"",
         @"user_type" : user.type ?: @"",
+        @"user_id" : user.slug ?: @""
     }];
 
     [Intercom updateUserWithAttributes:@{

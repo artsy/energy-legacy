@@ -1,6 +1,7 @@
 // General
 NSString *const ARFeedErrorKey = @"error";
 NSString *const ARHerokuErrorKey = @"backtrace";
+NSString *const ARPartnerKey = @"partner";
 
 // Auth
 NSString *const AROAuthTokenKey = @"access_token";
@@ -12,6 +13,7 @@ NSString *const ARFeedSlugKey = @"slug";
 NSString *const ARFeedTitleKey = @"title";
 NSString *const ARFeedDisplayTitleKey = @"display";
 NSString *const ARFeedArtistKey = @"artist";
+NSString *const ARFeedArtistsKey = @"artists";
 
 NSString *const ARFeedNameKey = @"name";
 NSString *const ARFeedCategoryKey = @"category";

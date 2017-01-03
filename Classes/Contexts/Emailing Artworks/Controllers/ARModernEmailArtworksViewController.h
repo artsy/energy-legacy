@@ -10,7 +10,7 @@
 /// Create an email artworks view controller with artworks, documents and an object that represents the current
 /// context from which the controller is invoked from.
 
-- (instancetype)initWithArtworks:(NSArray *)artworks documents:(NSArray *)documents context:(ARManagedObject *)context;
+- (instancetype)initWithArtworks:(NSArray *)artworks documents:(NSArray *)documents installShots:(NSArray *)installShots context:(ARManagedObject *)context;
 
 /// A view controller that can host the Mail Composer
 @property UIViewController<MFMailComposeViewControllerDelegate> *hostViewController;

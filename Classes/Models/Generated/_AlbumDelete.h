@@ -9,12 +9,14 @@ extern const struct AlbumDeleteAttributes {
 } AlbumDeleteAttributes;
 
 
-@interface AlbumDeleteID : NSManagedObjectID {
+@interface AlbumDeleteID : NSManagedObjectID
+{
 }
 @end
 
 
-@interface _AlbumDelete : ARManagedObject {
+@interface _AlbumDelete : ARManagedObject
+{
 }
 + (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;

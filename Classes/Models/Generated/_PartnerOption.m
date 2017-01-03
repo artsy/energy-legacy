@@ -3,15 +3,6 @@
 
 #import "_PartnerOption.h"
 
-const struct PartnerOptionAttributes PartnerOptionAttributes = {
-    .key = @"key",
-    .value = @"value",
-};
-
-const struct PartnerOptionRelationships PartnerOptionRelationships = {
-    .partner = @"partner",
-};
-
 
 @implementation PartnerOptionID
 @end
@@ -19,7 +10,7 @@ const struct PartnerOptionRelationships PartnerOptionRelationships = {
 
 @implementation _PartnerOption
 
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
 {
     NSParameterAssert(moc_);
     return [NSEntityDescription insertNewObjectForEntityForName:@"PartnerOption" inManagedObjectContext:moc_];
@@ -41,9 +32,37 @@ const struct PartnerOptionRelationships PartnerOptionRelationships = {
     return (PartnerOptionID *)[super objectID];
 }
 
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
+
+    return keyPaths;
+}
+
 @dynamic key;
+
 @dynamic value;
 
 @dynamic partner;
 
+@end
+
+
+@implementation PartnerOptionAttributes
++ (NSString *)key
+{
+    return @"key";
+}
++ (NSString *)value
+{
+    return @"value";
+}
+@end
+
+
+@implementation PartnerOptionRelationships
++ (NSString *)partner
+{
+    return @"partner";
+}
 @end

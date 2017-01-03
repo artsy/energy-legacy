@@ -162,9 +162,9 @@
     [self.navigationController pushViewController:controller animated:animates];
 }
 
-- (void)pushDocumentsView:(Document *)document animated:(BOOL)animates
+- (void)pushDocumentSet:(NSArray<Document *> *)documents index:(NSInteger)index animated:(BOOL)animates
 {
-    ARDocumentPreviewViewController *previewer = [[ARDocumentPreviewViewController alloc] initWithDocument:document];
+    ARModernDocumentPreviewViewController *previewer = [[ARModernDocumentPreviewViewController alloc] initWithDocumentSet:documents index:index];
     [self.navigationController pushViewController:previewer animated:animates];
 }
 
@@ -195,7 +195,7 @@
         [ARTopViewController sharedInstance].displayMode = mode;
         [navController pushViewController:controller animated:NO];
 
-        [UIView animateIf:animates duration:ARAnimationQuickDuration :^{
+        [UIView animateIf:animates duration:ARAnimationQuickDuration:^{
             [navController view].alpha = 1;
         }];
     }];
@@ -231,13 +231,13 @@
     // then put a ArtistVC with the artwork's artist in it
     // then put in the ArtworkdetailVC for the artwork at the right index
 
-    ARArtistViewController *artistController = [[ARArtistViewController alloc] initWithArtist:artwork.artist];
+    ARArtistViewController *artistController = [[ARArtistViewController alloc] initWithArtist:artwork.artists.anyObject];
 
-    NSFetchRequest *fetchRequest = [artwork.artist artworksFetchRequestSortedBy:ARArtworksSortOrderDefault];
+    NSFetchRequest *fetchRequest = [artistController.representedObject artworksFetchRequestSortedBy:ARArtworksSortOrderDefault];
     NSFetchedResultsController *controller = [self fetchedResultsControllerForArtworksRequest:fetchRequest];
 
     NSInteger index = [controller indexPathForObject:artwork].row;
-    ARArtworkSetViewController *artworkController = [[ARArtworkSetViewController alloc] initWithArtworks:controller atIndex:index representedObject:artwork.artist defaults:[NSUserDefaults standardUserDefaults]];
+    ARArtworkSetViewController *artworkController = [[ARArtworkSetViewController alloc] initWithArtworks:controller atIndex:index representedObject:artwork.artists.anyObject defaults:[NSUserDefaults standardUserDefaults]];
 
     UINavigationController *navController = [self navigationController];
     [UIView animateWithDuration:ARAnimationQuickDuration animations:^{

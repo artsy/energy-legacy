@@ -71,7 +71,7 @@
     _appearedDate = [NSDate date];
 
     if ([user isAdmin]) {
-        UILongPressGestureRecognizer *adminTapGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showAdminSyncVC)];
+        UILongPressGestureRecognizer *adminTapGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showAdminSyncVC:)];
         [self.view addGestureRecognizer:adminTapGesture];
     }
 }
@@ -81,8 +81,12 @@
     _partnerName = [name uppercaseString];
 }
 
-- (void)showAdminSyncVC
+- (void)showAdminSyncVC:(UITapGestureRecognizer *)tapGesture
 {
+    if (tapGesture.state != UIGestureRecognizerStateRecognized) {
+        return;
+    }
+
     id syncVC = [[ARSyncAdminViewController alloc] init];
     [self.navigationController pushViewController:syncVC animated:YES];
 }

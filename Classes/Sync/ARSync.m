@@ -12,7 +12,6 @@
 @property (readwrite, nonatomic, strong) DRBOperationTree *rootOperation;
 
 @property (readwrite, nonatomic, getter=isSyncing) BOOL syncing;
-@property (readwrite, nonatomic, strong) ARTileArchiveDownloader *tileDownloader;
 
 @end
 
@@ -31,6 +30,7 @@
 {
     ARSyncLog(@"Sync started");
     self.syncing = YES;
+    self.progress.numEstimatedBytes = [self estimatedNumBytesToDownload];
 
     self.operationQueues = [NSMutableArray array];
     self.rootOperation = self.rootOperation ?: [self createSyncOperationTree];
@@ -47,8 +47,6 @@
     [self.rootOperation enqueueOperationsForObject:partnerSlug completion:^{
 
         weakSelf.syncing = NO;
-        [weakSelf.tileDownloader writeSlugs];
-
         [weakSelf runAfterSyncPlugins:plugins];
         [weakSelf save];
 
@@ -111,12 +109,11 @@
     // nodes
     DRBOperationTree *partnerNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *userNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
-    DRBOperationTree *estimateNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
+
     DRBOperationTree *artworkNode = [[DRBOperationTree alloc] initWithOperationQueue:artworksOperationQueue];
     DRBOperationTree *imageNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *imageThumbnailNode = [[DRBOperationTree alloc] initWithOperationQueue:imageOperationQueue];
-    DRBOperationTree *tileDownloaderNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
-    DRBOperationTree *tileUnzipperNode = [[DRBOperationTree alloc] initWithOperationQueue:imageOperationQueue];
+
 
     DRBOperationTree *showNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *showDocumentsNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
@@ -147,17 +144,12 @@
     // top level
     partnerNode.provider = [[ARPartnerFullMetadataDownloader alloc] initWithContext:context];
 
-    estimateNode.provider = [[AREstimateDownloader alloc] initWithProgress:self.progress];
     artworkNode.provider = [[ARArtworkDownloader alloc] initWithContext:context deleter:self.config.deleter];
     userNode.provider = [[ARUserMetadataDownloader alloc] initWithContext:context];
 
     // images
     imageNode.provider = [[ARImageDownloader alloc] initWithProgress:self.progress];
     imageThumbnailNode.provider = [[ARImageThumbnailCreator alloc] init];
-
-    self.tileDownloader = [[ARTileArchiveDownloader alloc] initWithProgress:self.progress];
-    tileDownloaderNode.provider = self.tileDownloader;
-    tileUnzipperNode.provider = [[ARTileUnzipper alloc] init];
 
     // shows
     showNode.provider = [[ARShowDownloader alloc] initWithContext:context deleter:self.config.deleter];
@@ -190,15 +182,12 @@
     // connect nodes to nodes
 
     // artworks and images
-    [partnerNode addChild:estimateNode];
+
     [partnerNode addChild:artworkNode];
     [partnerNode addChild:userNode];
     [artworkNode addChild:imageNode];
 
     [imageNode addChild:imageThumbnailNode];
-
-    [artworkNode addChild:tileDownloaderNode];
-    [tileDownloaderNode addChild:tileUnzipperNode];
 
     // shows
     [partnerNode addChild:showNode];
@@ -297,10 +286,9 @@
 {
     Partner *partner = [Partner currentPartnerInContext:self.config.managedObjectContext];
 
-    // Whilst never being perfect, this came reasonably above
-    // on energy test partner. real 151MB estimated 195MB
-
-    const CGFloat SizePerArtworkMB = 2.5;
+    // As we only download the medium + square, and make our own
+    // thumbnail, each artwork does not take up too much space
+    const CGFloat SizePerArtworkMB = 0.26;
     const CGFloat SizePerDocumentMB = 2.5;
 
     unsigned long long totalBytesToDownload = SizePerArtworkMB * partner.artworksCount.integerValue;

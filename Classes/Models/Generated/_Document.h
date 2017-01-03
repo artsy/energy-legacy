@@ -1,53 +1,68 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
 // Make changes to Document.h instead.
 
+#if __has_feature(modules)
+@import Foundation;
+@import CoreData;
+#else
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "ARManagedObject.h"
-extern const struct DocumentAttributes {
-    __unsafe_unretained NSString *filename;
-    __unsafe_unretained NSString *hasFile;
-    __unsafe_unretained NSString *humanReadableSize;
-    __unsafe_unretained NSString *size;
-    __unsafe_unretained NSString *slug;
-    __unsafe_unretained NSString *title;
-    __unsafe_unretained NSString *url;
-    __unsafe_unretained NSString *version;
-} DocumentAttributes;
+#endif
 
-extern const struct DocumentRelationships {
-    __unsafe_unretained NSString *album;
-    __unsafe_unretained NSString *artist;
-    __unsafe_unretained NSString *show;
-} DocumentRelationships;
+#import "ARManagedObject.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @class Album;
 @class Artist;
 @class Show;
 
 
-@interface DocumentID : NSManagedObjectID {
+@interface DocumentID : NSManagedObjectID
+{
 }
 @end
 
 
-@interface _Document : ARManagedObject {
-}
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
+@interface _Document : ARManagedObject
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-- (DocumentID *)objectID;
+@property (nonatomic, readonly, strong) DocumentID *objectID;
 
-@property (nonatomic, strong) NSString *filename;
-@property (nonatomic, strong) NSNumber *hasFile;
-@property (nonatomic, strong) NSString *humanReadableSize;
-@property (nonatomic, strong) NSNumber *size;
+@property (nonatomic, strong, nullable) NSString *filename;
+
+@property (nonatomic, strong, nullable) NSNumber *hasFile;
+
+@property (atomic) BOOL hasFileValue;
+- (BOOL)hasFileValue;
+- (void)setHasFileValue:(BOOL)value_;
+
+@property (nonatomic, strong, nullable) NSString *humanReadableSize;
+
+@property (nonatomic, strong, nullable) NSNumber *size;
+
+@property (atomic) int32_t sizeValue;
+- (int32_t)sizeValue;
+- (void)setSizeValue:(int32_t)value_;
+
 @property (nonatomic, strong) NSString *slug;
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *url;
-@property (nonatomic, strong) NSNumber *version;
-@property (nonatomic, strong) Album *album;
-@property (nonatomic, strong) Artist *artist;
-@property (nonatomic, strong) Show *show;
+
+@property (nonatomic, strong, nullable) NSString *title;
+
+@property (nonatomic, strong, nullable) NSString *url;
+
+@property (nonatomic, strong, nullable) NSNumber *version;
+
+@property (atomic) int16_t versionValue;
+- (int16_t)versionValue;
+- (void)setVersionValue:(int16_t)value_;
+
+@property (nonatomic, strong, nullable) Album *album;
+
+@property (nonatomic, strong, nullable) Artist *artist;
+
+@property (nonatomic, strong, nullable) Show *show;
 
 @end
 
@@ -60,11 +75,17 @@ extern const struct DocumentRelationships {
 - (NSNumber *)primitiveHasFile;
 - (void)setPrimitiveHasFile:(NSNumber *)value;
 
+- (BOOL)primitiveHasFileValue;
+- (void)setPrimitiveHasFileValue:(BOOL)value_;
+
 - (NSString *)primitiveHumanReadableSize;
 - (void)setPrimitiveHumanReadableSize:(NSString *)value;
 
 - (NSNumber *)primitiveSize;
 - (void)setPrimitiveSize:(NSNumber *)value;
+
+- (int32_t)primitiveSizeValue;
+- (void)setPrimitiveSizeValue:(int32_t)value_;
 
 - (NSString *)primitiveSlug;
 - (void)setPrimitiveSlug:(NSString *)value;
@@ -78,6 +99,9 @@ extern const struct DocumentRelationships {
 - (NSNumber *)primitiveVersion;
 - (void)setPrimitiveVersion:(NSNumber *)value;
 
+- (int16_t)primitiveVersionValue;
+- (void)setPrimitiveVersionValue:(int16_t)value_;
+
 - (Album *)primitiveAlbum;
 - (void)setPrimitiveAlbum:(Album *)value;
 
@@ -88,3 +112,24 @@ extern const struct DocumentRelationships {
 - (void)setPrimitiveShow:(Show *)value;
 
 @end
+
+
+@interface DocumentAttributes : NSObject
++ (NSString *)filename;
++ (NSString *)hasFile;
++ (NSString *)humanReadableSize;
++ (NSString *)size;
++ (NSString *)slug;
++ (NSString *)title;
++ (NSString *)url;
++ (NSString *)version;
+@end
+
+
+@interface DocumentRelationships : NSObject
++ (NSString *)album;
++ (NSString *)artist;
++ (NSString *)show;
+@end
+
+NS_ASSUME_NONNULL_END

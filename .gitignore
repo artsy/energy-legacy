@@ -16,5 +16,6 @@ Pods
 fastlane/report.xml
 .clang-format
 config/screenshots/
+.vscode/
 Resources/CoreData/oss_stubbed_data.sqlite-shm
 Resources/CoreData/oss_stubbed_data.sqlite-wal

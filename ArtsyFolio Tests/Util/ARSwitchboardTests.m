@@ -47,7 +47,7 @@ it(@"doesnt route an artist that doesn't exist", ^{
 });
 
 it(@"pushes a show vc", ^{
-    Show *show = [Show modelFromJSON:@{ @"id" : @"a_show"} inContext:context];
+    Show *show = [Show modelFromJSON:@{ @"id" : @"a_show" } inContext:context];
     [subject pushShowViewController:show animated:NO];
     expect(navController.topViewController).to.beAKindOf(ARShowViewController.class);
 });
@@ -65,7 +65,7 @@ it(@"routes an Show URL via slug", ^{
 });
 
 it(@"routes an Show URL via show slug", ^{
-    Show *show = [Show modelFromJSON:@{ } inContext:context];
+    Show *show = [Show modelFromJSON:@{} inContext:context];
     show.showSlug = @"hello";
     NSURL *url = [NSURL URLWithString:@"https://artsy.net/show/hello"];
 
@@ -78,15 +78,15 @@ it(@"routes an Show URL via show slug", ^{
 
 it(@"expects an AlbumVC on a push", ^{
     Album *album = [Album modelFromJSON:@{} inContext:context];
-    [subject pushAlbumViewController:album animated:YES];
+    [subject pushAlbumViewController:album animated:NO];
     expect(navController.topViewController).to.beAKindOf(ARAlbumViewController.class);
 });
 
 pending(@"expects an DocumentsVC on a push", ^{
     Document *document = [Document modelFromJSON:@{} inContext:context];
-    [subject pushDocumentsView:document animated:NO];
+    [subject pushDocumentSet:@[ document ] index:0 animated:NO];
 
-    expect(navController.topViewController).to.beAKindOf(ARDocumentPreviewViewController.class);
+    expect(navController.topViewController).to.beAKindOf(ARModernDocumentPreviewViewController.class);
 });
 
 it(@"expects an ArtworkVC on a push", ^{

@@ -1,54 +1,19 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
 // Make changes to Artwork.h instead.
 
+#if __has_feature(modules)
+@import Foundation;
+@import CoreData;
+#else
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#endif
+
 #import "ARManagedObject.h"
-extern const struct ArtworkAttributes {
-    __unsafe_unretained NSString *availability;
-    __unsafe_unretained NSString *backendPrice;
-    __unsafe_unretained NSString *category;
-    __unsafe_unretained NSString *confidentialNotes;
-    __unsafe_unretained NSString *createdAt;
-    __unsafe_unretained NSString *date;
-    __unsafe_unretained NSString *depth;
-    __unsafe_unretained NSString *diameter;
-    __unsafe_unretained NSString *dimensionsCM;
-    __unsafe_unretained NSString *dimensionsInches;
-    __unsafe_unretained NSString *displayPrice;
-    __unsafe_unretained NSString *displayTitle;
-    __unsafe_unretained NSString *editions;
-    __unsafe_unretained NSString *exhibitionHistory;
-    __unsafe_unretained NSString *height;
-    __unsafe_unretained NSString *imageRights;
-    __unsafe_unretained NSString *info;
-    __unsafe_unretained NSString *inventoryID;
-    __unsafe_unretained NSString *isAvailableForSale;
-    __unsafe_unretained NSString *isPriceHidden;
-    __unsafe_unretained NSString *isPublished;
-    __unsafe_unretained NSString *literature;
-    __unsafe_unretained NSString *medium;
-    __unsafe_unretained NSString *provenance;
-    __unsafe_unretained NSString *series;
-    __unsafe_unretained NSString *signature;
-    __unsafe_unretained NSString *slug;
-    __unsafe_unretained NSString *title;
-    __unsafe_unretained NSString *updatedAt;
-    __unsafe_unretained NSString *width;
-} ArtworkAttributes;
 
-extern const struct ArtworkRelationships {
-    __unsafe_unretained NSString *artist;
-    __unsafe_unretained NSString *collections;
-    __unsafe_unretained NSString *editionSets;
-    __unsafe_unretained NSString *images;
-    __unsafe_unretained NSString *installShotsFeaturingArtwork;
-    __unsafe_unretained NSString *locations;
-    __unsafe_unretained NSString *mainImage;
-    __unsafe_unretained NSString *notes;
-    __unsafe_unretained NSString *partner;
-    __unsafe_unretained NSString *shows;
-} ArtworkRelationships;
+NS_ASSUME_NONNULL_BEGIN
 
+@class Artist;
 @class Artist;
 @class Album;
 @class EditionSet;
@@ -61,123 +26,191 @@ extern const struct ArtworkRelationships {
 @class Show;
 
 
-@interface ArtworkID : NSManagedObjectID {
+@interface ArtworkID : NSManagedObjectID
+{
 }
 @end
 
 
-@interface _Artwork : ARManagedObject {
-}
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
+@interface _Artwork : ARManagedObject
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-- (ArtworkID *)objectID;
+@property (nonatomic, readonly, strong) ArtworkID *objectID;
 
-@property (nonatomic, strong) NSString *availability;
-@property (nonatomic, strong) NSString *backendPrice;
-@property (nonatomic, strong) NSString *category;
-@property (nonatomic, strong) NSString *confidentialNotes;
-@property (nonatomic, strong) NSDate *createdAt;
-@property (nonatomic, strong) NSString *date;
-@property (nonatomic, strong) NSDecimalNumber *depth;
-@property (nonatomic, strong) NSDecimalNumber *diameter;
-@property (nonatomic, strong) NSString *dimensionsCM;
-@property (nonatomic, strong) NSString *dimensionsInches;
-@property (nonatomic, strong) NSString *displayPrice;
-@property (nonatomic, strong) NSString *displayTitle;
-@property (nonatomic, strong) NSString *editions;
-@property (nonatomic, strong) NSString *exhibitionHistory;
-@property (nonatomic, strong) NSDecimalNumber *height;
-@property (nonatomic, strong) NSString *imageRights;
-@property (nonatomic, strong) NSString *info;
-@property (nonatomic, strong) NSString *inventoryID;
-@property (nonatomic, strong) NSNumber *isAvailableForSale;
-@property (nonatomic, strong) NSNumber *isPriceHidden;
-@property (nonatomic, strong) NSNumber *isPublished;
-@property (nonatomic, strong) NSString *literature;
-@property (nonatomic, strong) NSString *medium;
-@property (nonatomic, strong) NSString *provenance;
-@property (nonatomic, strong) NSString *series;
-@property (nonatomic, strong) NSString *signature;
+@property (nonatomic, strong, nullable) NSString *artistOrderingKey;
+
+@property (nonatomic, strong, nullable) NSString *availability;
+
+@property (nonatomic, strong, nullable) NSString *backendPrice;
+
+@property (nonatomic, strong, nullable) NSString *category;
+
+@property (nonatomic, strong, nullable) NSString *confidentialNotes;
+
+@property (nonatomic, strong, nullable) NSDate *createdAt;
+
+@property (nonatomic, strong, nullable) NSString *date;
+
+@property (nonatomic, strong, nullable) NSDecimalNumber *depth;
+
+@property (nonatomic, strong, nullable) NSDecimalNumber *diameter;
+
+@property (nonatomic, strong, nullable) NSString *dimensionsCM;
+
+@property (nonatomic, strong, nullable) NSString *dimensionsInches;
+
+@property (nonatomic, strong, nullable) NSString *displayPrice;
+
+@property (nonatomic, strong, nullable) NSString *displayTitle;
+
+@property (nonatomic, strong, nullable) NSString *editions;
+
+@property (nonatomic, strong, nullable) NSString *exhibitionHistory;
+
+@property (nonatomic, strong, nullable) NSDecimalNumber *height;
+
+@property (nonatomic, strong, nullable) NSString *imageRights;
+
+@property (nonatomic, strong, nullable) NSString *info;
+
+@property (nonatomic, strong, nullable) NSString *inventoryID;
+
+@property (nonatomic, strong, nullable) NSNumber *isAvailableForSale;
+
+@property (atomic) BOOL isAvailableForSaleValue;
+- (BOOL)isAvailableForSaleValue;
+- (void)setIsAvailableForSaleValue:(BOOL)value_;
+
+@property (nonatomic, strong, nullable) NSNumber *isPriceHidden;
+
+@property (atomic) BOOL isPriceHiddenValue;
+- (BOOL)isPriceHiddenValue;
+- (void)setIsPriceHiddenValue:(BOOL)value_;
+
+@property (nonatomic, strong, nullable) NSNumber *isPublished;
+
+@property (atomic) BOOL isPublishedValue;
+- (BOOL)isPublishedValue;
+- (void)setIsPublishedValue:(BOOL)value_;
+
+@property (nonatomic, strong, nullable) NSString *literature;
+
+@property (nonatomic, strong, nullable) NSString *medium;
+
+@property (nonatomic, strong, nullable) NSString *provenance;
+
+@property (nonatomic, strong, nullable) NSString *series;
+
+@property (nonatomic, strong, nullable) NSString *signature;
+
 @property (nonatomic, strong) NSString *slug;
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSDate *updatedAt;
-@property (nonatomic, strong) NSDecimalNumber *width;
-@property (nonatomic, strong) Artist *artist;
 
-@property (nonatomic, strong) NSSet *collections;
-- (NSMutableSet *)collectionsSet;
+@property (nonatomic, strong, nullable) NSString *title;
 
-@property (nonatomic, strong) NSSet *editionSets;
-- (NSMutableSet *)editionSetsSet;
+@property (nonatomic, strong, nullable) NSDate *updatedAt;
 
-@property (nonatomic, strong) NSSet *images;
-- (NSMutableSet *)imagesSet;
+@property (nonatomic, strong, nullable) NSDecimalNumber *width;
 
-@property (nonatomic, strong) NSSet *installShotsFeaturingArtwork;
-- (NSMutableSet *)installShotsFeaturingArtworkSet;
+@property (nonatomic, strong, nullable) Artist *artist;
 
-@property (nonatomic, strong) NSSet *locations;
-- (NSMutableSet *)locationsSet;
-@property (nonatomic, strong) Image *mainImage;
-@property (nonatomic, strong) Note *notes;
-@property (nonatomic, strong) Partner *partner;
+@property (nonatomic, strong, nullable) NSSet<Artist *> *artists;
+- (nullable NSMutableSet<Artist *> *)artistsSet;
 
-@property (nonatomic, strong) NSSet *shows;
-- (NSMutableSet *)showsSet;
+@property (nonatomic, strong, nullable) NSSet<Album *> *collections;
+- (nullable NSMutableSet<Album *> *)collectionsSet;
+
+@property (nonatomic, strong, nullable) NSSet<EditionSet *> *editionSets;
+- (nullable NSMutableSet<EditionSet *> *)editionSetsSet;
+
+@property (nonatomic, strong, nullable) NSSet<Image *> *images;
+- (nullable NSMutableSet<Image *> *)imagesSet;
+
+@property (nonatomic, strong, nullable) NSSet<Image *> *installShotsFeaturingArtwork;
+- (nullable NSMutableSet<Image *> *)installShotsFeaturingArtworkSet;
+
+@property (nonatomic, strong, nullable) NSSet<Location *> *locations;
+- (nullable NSMutableSet<Location *> *)locationsSet;
+
+@property (nonatomic, strong, nullable) Image *mainImage;
+
+@property (nonatomic, strong, nullable) Note *notes;
+
+@property (nonatomic, strong, nullable) Partner *partner;
+
+@property (nonatomic, strong, nullable) NSSet<Show *> *shows;
+- (nullable NSMutableSet<Show *> *)showsSet;
+
+@end
+
+
+@interface _Artwork (ArtistsCoreDataGeneratedAccessors)
+- (void)addArtists:(NSSet<Artist *> *)value_;
+- (void)removeArtists:(NSSet<Artist *> *)value_;
+- (void)addArtistsObject:(Artist *)value_;
+- (void)removeArtistsObject:(Artist *)value_;
 
 @end
 
 
 @interface _Artwork (CollectionsCoreDataGeneratedAccessors)
-- (void)addCollections:(NSSet *)value_;
-- (void)removeCollections:(NSSet *)value_;
+- (void)addCollections:(NSSet<Album *> *)value_;
+- (void)removeCollections:(NSSet<Album *> *)value_;
 - (void)addCollectionsObject:(Album *)value_;
 - (void)removeCollectionsObject:(Album *)value_;
+
 @end
 
 
 @interface _Artwork (EditionSetsCoreDataGeneratedAccessors)
-- (void)addEditionSets:(NSSet *)value_;
-- (void)removeEditionSets:(NSSet *)value_;
+- (void)addEditionSets:(NSSet<EditionSet *> *)value_;
+- (void)removeEditionSets:(NSSet<EditionSet *> *)value_;
 - (void)addEditionSetsObject:(EditionSet *)value_;
 - (void)removeEditionSetsObject:(EditionSet *)value_;
+
 @end
 
 
 @interface _Artwork (ImagesCoreDataGeneratedAccessors)
-- (void)addImages:(NSSet *)value_;
-- (void)removeImages:(NSSet *)value_;
+- (void)addImages:(NSSet<Image *> *)value_;
+- (void)removeImages:(NSSet<Image *> *)value_;
 - (void)addImagesObject:(Image *)value_;
 - (void)removeImagesObject:(Image *)value_;
+
 @end
 
 
 @interface _Artwork (InstallShotsFeaturingArtworkCoreDataGeneratedAccessors)
-- (void)addInstallShotsFeaturingArtwork:(NSSet *)value_;
-- (void)removeInstallShotsFeaturingArtwork:(NSSet *)value_;
+- (void)addInstallShotsFeaturingArtwork:(NSSet<Image *> *)value_;
+- (void)removeInstallShotsFeaturingArtwork:(NSSet<Image *> *)value_;
 - (void)addInstallShotsFeaturingArtworkObject:(Image *)value_;
 - (void)removeInstallShotsFeaturingArtworkObject:(Image *)value_;
+
 @end
 
 
 @interface _Artwork (LocationsCoreDataGeneratedAccessors)
-- (void)addLocations:(NSSet *)value_;
-- (void)removeLocations:(NSSet *)value_;
+- (void)addLocations:(NSSet<Location *> *)value_;
+- (void)removeLocations:(NSSet<Location *> *)value_;
 - (void)addLocationsObject:(Location *)value_;
 - (void)removeLocationsObject:(Location *)value_;
+
 @end
 
 
 @interface _Artwork (ShowsCoreDataGeneratedAccessors)
-- (void)addShows:(NSSet *)value_;
-- (void)removeShows:(NSSet *)value_;
+- (void)addShows:(NSSet<Show *> *)value_;
+- (void)removeShows:(NSSet<Show *> *)value_;
 - (void)addShowsObject:(Show *)value_;
 - (void)removeShowsObject:(Show *)value_;
+
 @end
 
 
 @interface _Artwork (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSString *)primitiveArtistOrderingKey;
+- (void)setPrimitiveArtistOrderingKey:(NSString *)value;
 
 - (NSString *)primitiveAvailability;
 - (void)setPrimitiveAvailability:(NSString *)value;
@@ -236,11 +269,20 @@ extern const struct ArtworkRelationships {
 - (NSNumber *)primitiveIsAvailableForSale;
 - (void)setPrimitiveIsAvailableForSale:(NSNumber *)value;
 
+- (BOOL)primitiveIsAvailableForSaleValue;
+- (void)setPrimitiveIsAvailableForSaleValue:(BOOL)value_;
+
 - (NSNumber *)primitiveIsPriceHidden;
 - (void)setPrimitiveIsPriceHidden:(NSNumber *)value;
 
+- (BOOL)primitiveIsPriceHiddenValue;
+- (void)setPrimitiveIsPriceHiddenValue:(BOOL)value_;
+
 - (NSNumber *)primitiveIsPublished;
 - (void)setPrimitiveIsPublished:(NSNumber *)value;
+
+- (BOOL)primitiveIsPublishedValue;
+- (void)setPrimitiveIsPublishedValue:(BOOL)value_;
 
 - (NSString *)primitiveLiterature;
 - (void)setPrimitiveLiterature:(NSString *)value;
@@ -272,20 +314,23 @@ extern const struct ArtworkRelationships {
 - (Artist *)primitiveArtist;
 - (void)setPrimitiveArtist:(Artist *)value;
 
-- (NSMutableSet *)primitiveCollections;
-- (void)setPrimitiveCollections:(NSMutableSet *)value;
+- (NSMutableSet<Artist *> *)primitiveArtists;
+- (void)setPrimitiveArtists:(NSMutableSet<Artist *> *)value;
 
-- (NSMutableSet *)primitiveEditionSets;
-- (void)setPrimitiveEditionSets:(NSMutableSet *)value;
+- (NSMutableSet<Album *> *)primitiveCollections;
+- (void)setPrimitiveCollections:(NSMutableSet<Album *> *)value;
 
-- (NSMutableSet *)primitiveImages;
-- (void)setPrimitiveImages:(NSMutableSet *)value;
+- (NSMutableSet<EditionSet *> *)primitiveEditionSets;
+- (void)setPrimitiveEditionSets:(NSMutableSet<EditionSet *> *)value;
 
-- (NSMutableSet *)primitiveInstallShotsFeaturingArtwork;
-- (void)setPrimitiveInstallShotsFeaturingArtwork:(NSMutableSet *)value;
+- (NSMutableSet<Image *> *)primitiveImages;
+- (void)setPrimitiveImages:(NSMutableSet<Image *> *)value;
 
-- (NSMutableSet *)primitiveLocations;
-- (void)setPrimitiveLocations:(NSMutableSet *)value;
+- (NSMutableSet<Image *> *)primitiveInstallShotsFeaturingArtwork;
+- (void)setPrimitiveInstallShotsFeaturingArtwork:(NSMutableSet<Image *> *)value;
+
+- (NSMutableSet<Location *> *)primitiveLocations;
+- (void)setPrimitiveLocations:(NSMutableSet<Location *> *)value;
 
 - (Image *)primitiveMainImage;
 - (void)setPrimitiveMainImage:(Image *)value;
@@ -296,7 +341,59 @@ extern const struct ArtworkRelationships {
 - (Partner *)primitivePartner;
 - (void)setPrimitivePartner:(Partner *)value;
 
-- (NSMutableSet *)primitiveShows;
-- (void)setPrimitiveShows:(NSMutableSet *)value;
+- (NSMutableSet<Show *> *)primitiveShows;
+- (void)setPrimitiveShows:(NSMutableSet<Show *> *)value;
 
 @end
+
+
+@interface ArtworkAttributes : NSObject
++ (NSString *)artistOrderingKey;
++ (NSString *)availability;
++ (NSString *)backendPrice;
++ (NSString *)category;
++ (NSString *)confidentialNotes;
++ (NSString *)createdAt;
++ (NSString *)date;
++ (NSString *)depth;
++ (NSString *)diameter;
++ (NSString *)dimensionsCM;
++ (NSString *)dimensionsInches;
++ (NSString *)displayPrice;
++ (NSString *)displayTitle;
++ (NSString *)editions;
++ (NSString *)exhibitionHistory;
++ (NSString *)height;
++ (NSString *)imageRights;
++ (NSString *)info;
++ (NSString *)inventoryID;
++ (NSString *)isAvailableForSale;
++ (NSString *)isPriceHidden;
++ (NSString *)isPublished;
++ (NSString *)literature;
++ (NSString *)medium;
++ (NSString *)provenance;
++ (NSString *)series;
++ (NSString *)signature;
++ (NSString *)slug;
++ (NSString *)title;
++ (NSString *)updatedAt;
++ (NSString *)width;
+@end
+
+
+@interface ArtworkRelationships : NSObject
++ (NSString *)artist;
++ (NSString *)artists;
++ (NSString *)collections;
++ (NSString *)editionSets;
++ (NSString *)images;
++ (NSString *)installShotsFeaturingArtwork;
++ (NSString *)locations;
++ (NSString *)mainImage;
++ (NSString *)notes;
++ (NSString *)partner;
++ (NSString *)shows;
+@end
+
+NS_ASSUME_NONNULL_END

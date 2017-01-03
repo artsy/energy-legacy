@@ -124,7 +124,8 @@
             break;
 
         case ARDisplayModeDocuments: {
-            [switchboard pushDocumentsView:(Document *)item animated:YES];
+            NSArray *documents = [self.managedObjectContext executeFetchRequest:self.results error:nil];
+            [switchboard pushDocumentSet:documents index:[documents indexOfObject:(Document *)item] animated:YES];
             break;
         }
 
@@ -166,10 +167,10 @@
         case ARDisplayModeAllArtists:
         case ARDisplayModeArtistShows:
         case ARDisplayModeArtistAlbums:
-        case ARDisplayModeInstallationShots:
         default:
             return NO;
 
+        case ARDisplayModeInstallationShots:
         case ARDisplayModeAlbum:
         case ARDisplayModeShow:
         case ARDisplayModeArtist:
@@ -254,8 +255,7 @@
         case ARDisplayModeAllShows:
             return @{ @"Root" : @"All Shows" };
 
-        default:
-            ;
+        default:;
     }
     return @{ @"Key" : @"Unknown" };
 }

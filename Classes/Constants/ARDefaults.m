@@ -39,9 +39,8 @@ NSString *const ARRecommendSync = @"ARRecommendSync";
 
 @implementation ARDefaults
 
-+ (void)registerDefaults
++ (void)registerDefaults:(NSUserDefaults *)defaults context:(NSManagedObjectContext *)context
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *defaultDefaults = @{
         ARPresentationModeOn : @NO,
         ARHasInitializedPresentationMode : @NO,
@@ -59,25 +58,34 @@ NSString *const ARRecommendSync = @"ARRecommendSync";
 
     [defaults registerDefaults:defaultDefaults];
 
-    void (^setPartnerSettingsBlock)(NSNotification *);
-    setPartnerSettingsBlock = ^(NSNotification *notification) {
+    /// When a partner has been updated we'll need new details
+    void (^setPartnerSettingsBlock)(Partner *);
+    setPartnerSettingsBlock = ^(Partner *partner) {
 
-        Partner *partner = [Partner currentPartner];
         [defaults setObject:partner.slug forKey:ARPartnerID];
-        [defaults setObject:partner.email forKey:AREmailCCEmail];
         [defaults setObject:partner.partnerLimitedAccess forKey:ARLimitedAccess];
         [defaults synchronize];
 
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:ARPartnerUpdatedNotification object:nil];
+        /// Set a registered fallback for the email, allowing any custom setting to override it
+        [defaults registerDefaults:@{ AREmailCCEmail : partner.email ?: @"" }];
     };
 
-    if ([Partner currentPartner]) {
-        setPartnerSettingsBlock(nil);
+    /// When we get a notification, so map it out to the partner
+    void (^gotPartnerNotificationsBlock)(NSNotification *);
+    gotPartnerNotificationsBlock = ^(NSNotification *notification) {
+
+        Partner *partner = [notification userInfo][ARPartnerKey];
+        setPartnerSettingsBlock(partner);
+    };
+
+    Partner *partner = [Partner currentPartnerInContext:context];
+    if (partner) {
+        setPartnerSettingsBlock(partner);
 
     } else {
         [[NSNotificationCenter defaultCenter] addObserverForName:ARPartnerUpdatedNotification object:nil
                                                            queue:[NSOperationQueue mainQueue]
-                                                      usingBlock:setPartnerSettingsBlock];
+                                                      usingBlock:gotPartnerNotificationsBlock];
     }
 }
 

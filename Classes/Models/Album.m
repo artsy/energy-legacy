@@ -51,9 +51,7 @@
 {
     NSMutableSet *artists = [NSMutableSet set];
     [self.artworks each:^(Artwork *artwork) {
-        if (!artwork.artist) return;
-
-        [artists addObject:artwork.artist];
+        [artists addObjectsFromArray:artwork.artists.allObjects];
     }];
     self.artists = artists;
 }

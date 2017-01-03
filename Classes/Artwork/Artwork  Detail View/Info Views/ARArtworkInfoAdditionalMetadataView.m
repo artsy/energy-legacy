@@ -92,7 +92,7 @@
         UILabel *titleLabel = [self titleLabelWithText:title];
         BOOL isATopTitle = [self isATopTitleAtIndex:index editions:artwork.editionSets.count];
         [self addSubview:titleLabel withTopMargin:isATopTitle ? @"0" : @"28" sideMargin:@"0"];
-        
+
         UILabel *bodyLabel = [self bodyLabelWithText:artworkTexts[index]];
         [self addSubview:bodyLabel withTopMargin:@"6" sideMargin:@"0"];
     }];
@@ -134,14 +134,16 @@
 {
     ORStackView *editionsView = [[ORStackView alloc] init];
 
-    [editionSets eachWithIndex:^(EditionSet *set, NSUInteger editionIndex) {
-        
+    NSSortDescriptor *priceSort = [NSSortDescriptor sortDescriptorWithKey:@"internalPrice" ascending:NO];
+    NSArray *editions = [editionSets sortedArrayUsingDescriptors:@[ priceSort ]];
+
+    [editions eachWithIndex:^(EditionSet *set, NSUInteger editionIndex) {
         NSArray *editionAttributes = [set editionAttributes];
-        
+
         if ([self showPriceOfEditionSet:set] && set.internalPrice.length) {
             editionAttributes = [editionAttributes arrayByAddingObject:set.internalPrice];
         }
-        
+
         [editionAttributes eachWithIndex:^(NSString *attribute, NSUInteger attrIndex) {
             UILabel *label = [self bodyLabelWithText:attribute];
             [editionsView addSubview:label withTopMargin:(attrIndex == 0 && !(editionIndex == 0)) ? @"25" : @"2" sideMargin:@"0"];

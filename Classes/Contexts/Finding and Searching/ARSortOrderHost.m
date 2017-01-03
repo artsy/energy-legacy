@@ -55,7 +55,7 @@
 
 + (NSArray *)sortDescriptorstWithOrder:(ARArtworkSortOrder)order;
 {
-    NSSortDescriptor *byArtist = [[NSSortDescriptor alloc] initWithKey:@"artist.orderingKey" ascending:YES selector:@selector(caseInsensitiveCompare:)];
+    NSSortDescriptor *byArtist = [[NSSortDescriptor alloc] initWithKey:@"artistOrderingKey" ascending:YES selector:@selector(caseInsensitiveCompare:)];
     NSSortDescriptor *byTitle = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES selector:@selector(caseInsensitiveCompare:)];
     NSSortDescriptor *byYear = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
     NSSortDescriptor *byMedium = [[NSSortDescriptor alloc] initWithKey:@"category" ascending:YES selector:@selector(caseInsensitiveCompare:)];

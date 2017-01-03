@@ -9,13 +9,29 @@
     [self moveCoreDataStackIfNeeded];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *oldMigrationVersion = [defaults stringForKey:ARAppSyncVersion];
-    CGFloat pastVersion = [oldMigrationVersion floatValue];
+    //    NSString *oldMigrationVersion = [defaults stringForKey:ARAppSyncVersion];
+    //    CGFloat pastVersion = [oldMigrationVersion floatValue];
 
-    if (pastVersion && pastVersion < 1.39) {
-        ARSyncLog(@"Migrating!");
+    /// Converts pre 2.5.1 versions of Folio to support multiple artists
+    BOOL shouldSwitchArtistToArtists = [defaults boolForKey:@"ARHasSwitchedArtistToArtists"] == NO;
+    if (shouldSwitchArtistToArtists) {
+        // Migrate any singular artist into artists
+        for (Artwork *artwork in [Artwork findAllInContext:context]) {
+            artwork.artists = [NSSet setWithObject:artwork.artist];
+        }
 
-        // perform migration steps (or just have users re-install now the sync is faster
+        [defaults setBool:YES forKey:@"ARHasSwitchedArtistToArtists"];
+    }
+
+    /// Sets an artistOrderingKey to handle multiple Artists
+    BOOL shouldSetTheArtistOrderingKey = [defaults boolForKey:@"ARHasAddedArtistOrderingKey"] == NO;
+    if (shouldSwitchArtistToArtists) {
+        // Migrate any singular artist into artists
+        for (Artwork *artwork in [Artwork findAllInContext:context]) {
+            artwork.artistOrderingKey = [artwork artistOrderingKey];
+        }
+
+        [defaults setBool:YES forKey:@"ARHasAddedArtistOrderingKey"];
     }
 
 

@@ -10,7 +10,7 @@
 
 @implementation _ArtistDocument
 
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
 {
     NSParameterAssert(moc_);
     return [NSEntityDescription insertNewObjectForEntityForName:@"ArtistDocument" inManagedObjectContext:moc_];
@@ -30,6 +30,13 @@
 - (ArtistDocumentID *)objectID
 {
     return (ArtistDocumentID *)[super objectID];
+}
+
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
+
+    return keyPaths;
 }
 
 @end

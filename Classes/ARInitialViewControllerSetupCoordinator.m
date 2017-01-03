@@ -9,6 +9,7 @@
 #import "AROptions.h"
 #import "ARZeroStateMessageViewController.h"
 
+
 @interface ARInitialViewControllerSetupCoordinator ()
 @property (nonatomic, readonly, strong) ARSync *sync;
 @end
@@ -107,9 +108,8 @@
                 if ([Partner currentPartner].partnerLimitedAccess.boolValue) {
                     [ARAnalytics event:ARLockoutEvent];
                     [self presentLockoutScreenContext:context];
-                    
+
                 } else if (![Partner currentPartner].hasUploadedWorks) {
-                    
                     [ARAnalytics event:ARZeroStateEvent];
                     [self presentZeroStateScreen];
                 }
@@ -153,6 +153,10 @@
 
 - (void)presentLockoutScreenContext:(NSManagedObjectContext *)context
 {
+    if (self.window.rootViewController.transparentModalViewController) {
+        return;
+    }
+
     CGFloat alpha = [AROptions boolForOption:AROptionsUseWhiteFolio] ? 0.8 : 0.65;
 
     Partner *partner = [Partner currentPartnerInContext:context];
@@ -167,7 +171,7 @@
 
     if ([user isAdmin]) {
         lockoutViewController.secondaryButtonText = @"ADMIN SKIP";
-        lockoutViewController.secondaryAction = ^(){
+        lockoutViewController.secondaryAction = ^() {
             [self.window.rootViewController dismissTransparentModalViewControllerAnimated:YES];
         };
     }

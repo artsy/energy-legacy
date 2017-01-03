@@ -228,4 +228,10 @@
     return _viewModel;
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self.viewModel.qualityIndicator stopObservingNetworkQuality];
+    [super viewDidDisappear:animated];
+}
+
 @end
