@@ -1,18 +1,17 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
 // Make changes to AlbumEdit.h instead.
 
+#if __has_feature(modules)
+@import Foundation;
+@import CoreData;
+#else
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "ARManagedObject.h"
-extern const struct AlbumEditAttributes {
-    __unsafe_unretained NSString *albumWasCreated;
-    __unsafe_unretained NSString *createdAt;
-} AlbumEditAttributes;
+#endif
 
-extern const struct AlbumEditRelationships {
-    __unsafe_unretained NSString *addedArtworks;
-    __unsafe_unretained NSString *album;
-    __unsafe_unretained NSString *removedArtworks;
-} AlbumEditRelationships;
+#import "ARManagedObject.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @class Artwork;
 @class Album;
@@ -26,39 +25,45 @@ extern const struct AlbumEditRelationships {
 
 
 @interface _AlbumEdit : ARManagedObject
-{
-}
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-- (AlbumEditID *)objectID;
+@property (nonatomic, readonly, strong) AlbumEditID *objectID;
 
-@property (nonatomic, strong) NSNumber *albumWasCreated;
-@property (nonatomic, strong) NSDate *createdAt;
+@property (nonatomic, strong, nullable) NSNumber *albumWasCreated;
 
-@property (nonatomic, strong) NSSet *addedArtworks;
-- (NSMutableSet *)addedArtworksSet;
-@property (nonatomic, strong) Album *album;
+@property (atomic) BOOL albumWasCreatedValue;
+- (BOOL)albumWasCreatedValue;
+- (void)setAlbumWasCreatedValue:(BOOL)value_;
 
-@property (nonatomic, strong) NSSet *removedArtworks;
-- (NSMutableSet *)removedArtworksSet;
+@property (nonatomic, strong, nullable) NSDate *createdAt;
+
+@property (nonatomic, strong, nullable) NSSet<Artwork *> *addedArtworks;
+- (nullable NSMutableSet<Artwork *> *)addedArtworksSet;
+
+@property (nonatomic, strong, nullable) Album *album;
+
+@property (nonatomic, strong, nullable) NSSet<Artwork *> *removedArtworks;
+- (nullable NSMutableSet<Artwork *> *)removedArtworksSet;
 
 @end
 
 
 @interface _AlbumEdit (AddedArtworksCoreDataGeneratedAccessors)
-- (void)addAddedArtworks:(NSSet *)value_;
-- (void)removeAddedArtworks:(NSSet *)value_;
+- (void)addAddedArtworks:(NSSet<Artwork *> *)value_;
+- (void)removeAddedArtworks:(NSSet<Artwork *> *)value_;
 - (void)addAddedArtworksObject:(Artwork *)value_;
 - (void)removeAddedArtworksObject:(Artwork *)value_;
+
 @end
 
 
 @interface _AlbumEdit (RemovedArtworksCoreDataGeneratedAccessors)
-- (void)addRemovedArtworks:(NSSet *)value_;
-- (void)removeRemovedArtworks:(NSSet *)value_;
+- (void)addRemovedArtworks:(NSSet<Artwork *> *)value_;
+- (void)removeRemovedArtworks:(NSSet<Artwork *> *)value_;
 - (void)addRemovedArtworksObject:(Artwork *)value_;
 - (void)removeRemovedArtworksObject:(Artwork *)value_;
+
 @end
 
 
@@ -67,16 +72,34 @@ extern const struct AlbumEditRelationships {
 - (NSNumber *)primitiveAlbumWasCreated;
 - (void)setPrimitiveAlbumWasCreated:(NSNumber *)value;
 
+- (BOOL)primitiveAlbumWasCreatedValue;
+- (void)setPrimitiveAlbumWasCreatedValue:(BOOL)value_;
+
 - (NSDate *)primitiveCreatedAt;
 - (void)setPrimitiveCreatedAt:(NSDate *)value;
 
-- (NSMutableSet *)primitiveAddedArtworks;
-- (void)setPrimitiveAddedArtworks:(NSMutableSet *)value;
+- (NSMutableSet<Artwork *> *)primitiveAddedArtworks;
+- (void)setPrimitiveAddedArtworks:(NSMutableSet<Artwork *> *)value;
 
 - (Album *)primitiveAlbum;
 - (void)setPrimitiveAlbum:(Album *)value;
 
-- (NSMutableSet *)primitiveRemovedArtworks;
-- (void)setPrimitiveRemovedArtworks:(NSMutableSet *)value;
+- (NSMutableSet<Artwork *> *)primitiveRemovedArtworks;
+- (void)setPrimitiveRemovedArtworks:(NSMutableSet<Artwork *> *)value;
 
 @end
+
+
+@interface AlbumEditAttributes : NSObject
++ (NSString *)albumWasCreated;
++ (NSString *)createdAt;
+@end
+
+
+@interface AlbumEditRelationships : NSObject
++ (NSString *)addedArtworks;
++ (NSString *)album;
++ (NSString *)removedArtworks;
+@end
+
+NS_ASSUME_NONNULL_END

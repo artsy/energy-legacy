@@ -1,12 +1,17 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
 // Make changes to AlbumDelete.h instead.
 
+#if __has_feature(modules)
+@import Foundation;
+@import CoreData;
+#else
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#endif
+
 #import "ARManagedObject.h"
-extern const struct AlbumDeleteAttributes {
-    __unsafe_unretained NSString *albumID;
-    __unsafe_unretained NSString *createdAt;
-} AlbumDeleteAttributes;
+
+NS_ASSUME_NONNULL_BEGIN
 
 
 @interface AlbumDeleteID : NSManagedObjectID
@@ -16,15 +21,14 @@ extern const struct AlbumDeleteAttributes {
 
 
 @interface _AlbumDelete : ARManagedObject
-{
-}
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
 + (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
-- (AlbumDeleteID *)objectID;
+@property (nonatomic, readonly, strong) AlbumDeleteID *objectID;
 
-@property (nonatomic, strong) NSString *albumID;
-@property (nonatomic, strong) NSDate *createdAt;
+@property (nonatomic, strong, nullable) NSString *albumID;
+
+@property (nonatomic, strong, nullable) NSDate *createdAt;
 
 @end
 
@@ -38,3 +42,11 @@ extern const struct AlbumDeleteAttributes {
 - (void)setPrimitiveCreatedAt:(NSDate *)value;
 
 @end
+
+
+@interface AlbumDeleteAttributes : NSObject
++ (NSString *)albumID;
++ (NSString *)createdAt;
+@end
+
+NS_ASSUME_NONNULL_END

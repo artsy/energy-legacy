@@ -206,6 +206,8 @@
     return result;
 }
 
+@dynamic uploadRecord;
+
 @end
 
 
@@ -269,5 +271,9 @@
 + (NSString *)documents
 {
     return @"documents";
+}
++ (NSString *)uploadRecord
+{
+    return @"uploadRecord";
 }
 @end

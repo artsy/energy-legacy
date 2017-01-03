@@ -3,11 +3,6 @@
 
 #import "_AlbumDelete.h"
 
-const struct AlbumDeleteAttributes AlbumDeleteAttributes = {
-    .albumID = @"albumID",
-    .createdAt = @"createdAt",
-};
-
 
 @implementation AlbumDeleteID
 @end
@@ -15,7 +10,7 @@ const struct AlbumDeleteAttributes AlbumDeleteAttributes = {
 
 @implementation _AlbumDelete
 
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
 {
     NSParameterAssert(moc_);
     return [NSEntityDescription insertNewObjectForEntityForName:@"AlbumDelete" inManagedObjectContext:moc_];
@@ -37,7 +32,27 @@ const struct AlbumDeleteAttributes AlbumDeleteAttributes = {
     return (AlbumDeleteID *)[super objectID];
 }
 
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
+
+    return keyPaths;
+}
+
 @dynamic albumID;
+
 @dynamic createdAt;
 
+@end
+
+
+@implementation AlbumDeleteAttributes
++ (NSString *)albumID
+{
+    return @"albumID";
+}
++ (NSString *)createdAt
+{
+    return @"createdAt";
+}
 @end

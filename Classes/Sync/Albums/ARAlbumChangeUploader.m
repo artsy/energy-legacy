@@ -36,7 +36,7 @@
                   continuation:(void (^)(id, void (^)()))continuation
                        failure:(void (^)())failure
 {
-    ARAlbumEditOperation *operation = [[ARAlbumEditOperation alloc] initWithAlbum:albumUpload.album createModel:albumUpload.albumWasCreated toAdd:albumUpload.addedArtworks toRemove:albumUpload.removedArtworks];
+    ARAlbumEditOperation *operation = [[ARAlbumEditOperation alloc] initWithAlbum:albumUpload.album createModel:albumUpload.albumWasCreated.boolValue toAdd:albumUpload.addedArtworks toRemove:albumUpload.removedArtworks];
 
     operation.onCompletion = ^() {
         [albumUpload deleteInContext:albumUpload.managedObjectContext];

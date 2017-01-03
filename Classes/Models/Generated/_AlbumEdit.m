@@ -3,17 +3,6 @@
 
 #import "_AlbumEdit.h"
 
-const struct AlbumEditAttributes AlbumEditAttributes = {
-    .albumWasCreated = @"albumWasCreated",
-    .createdAt = @"createdAt",
-};
-
-const struct AlbumEditRelationships AlbumEditRelationships = {
-    .addedArtworks = @"addedArtworks",
-    .album = @"album",
-    .removedArtworks = @"removedArtworks",
-};
-
 
 @implementation AlbumEditID
 @end
@@ -21,7 +10,7 @@ const struct AlbumEditRelationships AlbumEditRelationships = {
 
 @implementation _AlbumEdit
 
-+ (id)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
++ (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_
 {
     NSParameterAssert(moc_);
     return [NSEntityDescription insertNewObjectForEntityForName:@"AlbumEdit" inManagedObjectContext:moc_];
@@ -43,26 +32,97 @@ const struct AlbumEditRelationships AlbumEditRelationships = {
     return (AlbumEditID *)[super objectID];
 }
 
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+    NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
+
+    if ([key isEqualToString:@"albumWasCreatedValue"]) {
+        NSSet *affectingKey = [NSSet setWithObject:@"albumWasCreated"];
+        keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+        return keyPaths;
+    }
+
+    return keyPaths;
+}
+
 @dynamic albumWasCreated;
+
+- (BOOL)albumWasCreatedValue
+{
+    NSNumber *result = [self albumWasCreated];
+    return [result boolValue];
+}
+
+- (void)setAlbumWasCreatedValue:(BOOL)value_
+{
+    [self setAlbumWasCreated:@(value_)];
+}
+
+- (BOOL)primitiveAlbumWasCreatedValue
+{
+    NSNumber *result = [self primitiveAlbumWasCreated];
+    return [result boolValue];
+}
+
+- (void)setPrimitiveAlbumWasCreatedValue:(BOOL)value_
+{
+    [self setPrimitiveAlbumWasCreated:@(value_)];
+}
+
 @dynamic createdAt;
 
 @dynamic addedArtworks;
-- (NSMutableSet *)addedArtworksSet
+
+- (NSMutableSet<Artwork *> *)addedArtworksSet
 {
     [self willAccessValueForKey:@"addedArtworks"];
-    NSMutableSet *result = (NSMutableSet *)[self mutableSetValueForKey:@"addedArtworks"];
+
+    NSMutableSet<Artwork *> *result = (NSMutableSet<Artwork *> *)[self mutableSetValueForKey:@"addedArtworks"];
+
     [self didAccessValueForKey:@"addedArtworks"];
     return result;
 }
 
 @dynamic album;
+
 @dynamic removedArtworks;
-- (NSMutableSet *)removedArtworksSet
+
+- (NSMutableSet<Artwork *> *)removedArtworksSet
 {
     [self willAccessValueForKey:@"removedArtworks"];
-    NSMutableSet *result = (NSMutableSet *)[self mutableSetValueForKey:@"removedArtworks"];
+
+    NSMutableSet<Artwork *> *result = (NSMutableSet<Artwork *> *)[self mutableSetValueForKey:@"removedArtworks"];
+
     [self didAccessValueForKey:@"removedArtworks"];
     return result;
 }
 
+@end
+
+
+@implementation AlbumEditAttributes
++ (NSString *)albumWasCreated
+{
+    return @"albumWasCreated";
+}
++ (NSString *)createdAt
+{
+    return @"createdAt";
+}
+@end
+
+
+@implementation AlbumEditRelationships
++ (NSString *)addedArtworks
+{
+    return @"addedArtworks";
+}
++ (NSString *)album
+{
+    return @"album";
+}
++ (NSString *)removedArtworks
+{
+    return @"removedArtworks";
+}
 @end
