@@ -4,6 +4,8 @@
 .clang-format
 .idea/
 .pt
+.ruby-gemset
+.ruby-version
 .vscode/
 Artsy Folio.xcodeproj/xcuserdata/
 ArtsyFolio.app.dSYM.zip
