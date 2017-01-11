@@ -23,7 +23,18 @@ Then run
 $ gem install bundler # you might already have it
 $ bundle install
 $ bundle exec pod install
-$ make setup
+```
+
+If you are setting up as an employee, run this:
+
+```
+$ make artsy
+```
+
+And if you're setting up as an Open Source contributor, run this:
+
+```
+$ make oss
 ```
 
 Finally open `Artsy Folio.xcworkspace` and hit Command-R to build and run in the
