@@ -31,13 +31,13 @@ If you are setting up as an employee, run this:
 $ make artsy
 ```
 
-And if you're setting up as an Open Source contributor, run this:
+And be sure to set an environment variable of `ARTSY_STAFF_MEMBER` to `true`.
+
+If you're setting up as an Open Source contributor, run this:
 
 ```
 $ make oss
 ```
-
-Set an environment variable of `ARTSY_STAFF_MEMBER` to `true`.
 
 Finally open `Artsy Folio.xcworkspace` and hit Command-R to build and run in the
 simulator.
