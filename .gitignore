@@ -1,21 +1,21 @@
-xcuserdata
-.pt
-.DS_Store
 *.jsoneditor
-build/
-chairs/
-kif_screenshots/
-.idea/
 *.xccheckout
-xcodebuild_error.log
+.DS_Store
+.clang-format
+.idea/
+.pt
+.vscode/
+Artsy Folio.xcodeproj/xcuserdata/
 ArtsyFolio.app.dSYM.zip
 ArtsyFolio.ipa
 CHANGELOG_SHORT.md
-Artsy Folio.xcodeproj/xcuserdata/
 Pods
-fastlane/report.xml
-.clang-format
-config/screenshots/
-.vscode/
 Resources/CoreData/oss_stubbed_data.sqlite-shm
 Resources/CoreData/oss_stubbed_data.sqlite-wal
+build/
+chairs/
+config/screenshots/
+fastlane/report.xml
+kif_screenshots/
+xcodebuild_error.log
+xcuserdata
