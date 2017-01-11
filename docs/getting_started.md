@@ -14,7 +14,7 @@ You need Xcode 7 with the latest iOS simulator installed.
 We don't run off forks, as this is an OSS project
 
 ```
-$ git clone https://github.com:artsy/energy.git
+$ git clone https://github.com/artsy/energy.git
 ```
 
 Then run
