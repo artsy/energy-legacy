@@ -20,6 +20,7 @@ $ git clone https://github.com/artsy/energy.git
 Then run
 
 ```
+$ gem install bundler # you might already have it
 $ bundle install
 $ bundle exec pod install
 $ make setup
