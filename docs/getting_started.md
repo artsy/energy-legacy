@@ -37,6 +37,8 @@ And if you're setting up as an Open Source contributor, run this:
 $ make oss
 ```
 
+Set an environment variable of `ARTSY_STAFF_MEMBER` to `true`.
+
 Finally open `Artsy Folio.xcworkspace` and hit Command-R to build and run in the
 simulator.
 
