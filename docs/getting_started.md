@@ -44,7 +44,7 @@ simulator.
 
 ## Running Tests
 
-The tests require the iOS 8.3 iPad Retina simulator. Once you've picked that
+The tests require the iOS 8.4 iPad Retina simulator. Once you've picked that
 combination, run the tests with `cmd + u`.
 
 ## Use your `.energy` file
