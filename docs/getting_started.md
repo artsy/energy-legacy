@@ -9,6 +9,12 @@ run the installer.
 
 You need Xcode 7 with the latest iOS simulator installed.
 
+## Set Staff Flag
+
+If you're installing as an open source contributor, skip this step. If you work
+for Artsy, set an environment variable of `ARTSY_STAFF_MEMBER` to `true`. Make
+sure you do this before you install pods.
+
 ## Energy
 
 We don't run off forks, as this is an OSS project
@@ -31,9 +37,7 @@ If you are setting up as an employee, run this:
 $ make artsy
 ```
 
-And be sure to set an environment variable of `ARTSY_STAFF_MEMBER` to `true`.
-
-If you're setting up as an Open Source contributor, run this:
+And if you're setting up as an Open Source contributor, run this:
 
 ```
 $ make oss
