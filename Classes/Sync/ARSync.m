@@ -91,6 +91,7 @@
     }
 }
 
+// Visually documented in `docs/sync_tree.png`
 - (DRBOperationTree *)createSyncOperationTree
 {
     NSManagedObjectContext *context = self.config.managedObjectContext;
@@ -114,7 +115,6 @@
     DRBOperationTree *artworkNode = [[DRBOperationTree alloc] initWithOperationQueue:artworksOperationQueue];
     DRBOperationTree *imageNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *imageThumbnailNode = [[DRBOperationTree alloc] initWithOperationQueue:imageOperationQueue];
-
 
 
     DRBOperationTree *showNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];

@@ -29,6 +29,8 @@ Features that aren't ready for alpha/beta users should be hidden behind an `AROp
 
 See [this video for a comprehensive overview](http://artsy.github.io/blog/2016/02/12/Code-Review-Energy-Sync/)
 
+See [this graph](sync_tree.png) for a visual of the tree.
+
 Sync correlates to a very large chunk of the Energy code-base. It works via an operation tree metaphor. You start a sync that triggers one operation, that operation outputs an object that goes into it's child operation trees. It continues this way until there are no more child trees. At the time of writing ( mid-2015 ) an `ARSync` object starts with a partner string. The root operation then takes that string, makes a network request to update the current partner, and then passes the partner into the following trees:
 
 * Estimating the amount data to download, for progress indication
