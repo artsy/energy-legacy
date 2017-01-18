@@ -64,6 +64,8 @@
         continuation(imageFormat, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Failed to download image - %@", operation.request.URL);
+        [[NSFileManager defaultManager] removeItemAtPath:imageFormat.path error:nil];
+
         failure();
     }];
     return operation;
