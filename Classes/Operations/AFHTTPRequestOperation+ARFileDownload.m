@@ -19,9 +19,9 @@
 
 + (instancetype)fileDownloadFromURLRequest:(NSURLRequest *)request toLocalPath:(NSString *)localPath
 {
-    AFHTTPRequestOperation *this = [[self alloc] initWithRequest:request];
-    this.outputStream = [NSOutputStream outputStreamToFileAtPath:localPath append:NO];
-    return this;
+    AFHTTPRequestOperation *operation = [[self alloc] initWithRequest:request];
+    operation.outputStream = [NSOutputStream outputStreamToFileAtPath:localPath append:NO];
+    return operation;
 }
 
 @end
