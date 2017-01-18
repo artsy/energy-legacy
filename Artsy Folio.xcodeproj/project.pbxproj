@@ -231,6 +231,7 @@
 		607905C215E78A3D0012672B /* ARArtworkContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 607905C115E78A3D0012672B /* ARArtworkContainerViewController.m */; };
 		60795639199AC9D200D73E6C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FD62D414141AF400E77EE6 /* libz.dylib */; };
 		607B09DB154A9F0000C50274 /* ARGroupedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 607B09DA154A9F0000C50274 /* ARGroupedTableViewCell.m */; };
+		607C50031E300604000378CF /* ImageModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 607C50021E300604000378CF /* ImageModelTests.m */; };
 		607FAC981AFB7887008FA782 /* ARPopoverSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 607FAC971AFB7887008FA782 /* ARPopoverSegmentControl.m */; };
 		6080025514FE5D450018B464 /* DeleteButtonActive.png in Resources */ = {isa = PBXBuildFile; fileRef = 6080025314FE5D450018B464 /* DeleteButtonActive.png */; };
 		6080025714FE5D450018B464 /* DeleteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6080025414FE5D450018B464 /* DeleteButton.png */; };
@@ -383,8 +384,8 @@
 		60C1495B1500EFB100D6715D /* ARBaseViewController+TransparentModals.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C1495A1500EFB100D6715D /* ARBaseViewController+TransparentModals.m */; };
 		60C20F051836B20D00846A60 /* ARGroupedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C20F041836B20D00846A60 /* ARGroupedView.m */; };
 		60C21E3B198B9DEF005CA461 /* ARHostSelectionControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C21E3A198B9DEF005CA461 /* ARHostSelectionControllerTests.m */; };
-		60C279BC1BE2310300229C8C /* BuildFile in Resources */ = {isa = PBXBuildFile; };
-		60C279BD1BE2310300229C8C /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		60C279BC1BE2310300229C8C /* (null) in Resources */ = {isa = PBXBuildFile; };
+		60C279BD1BE2310300229C8C /* (null) in Resources */ = {isa = PBXBuildFile; };
 		60C563CC160B196A000E800E /* switch_seperator.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C563CA160B196A000E800E /* switch_seperator.png */; };
 		60C563CE160B196A000E800E /* switch_seperator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C563CB160B196A000E800E /* switch_seperator@2x.png */; };
 		60C563D3160B40EB000E800E /* ARTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C563D2160B40EB000E800E /* ARTitleLabel.m */; };
@@ -996,6 +997,7 @@
 		607905C115E78A3D0012672B /* ARArtworkContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtworkContainerViewController.m; sourceTree = "<group>"; };
 		607B09D9154A9F0000C50274 /* ARGroupedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARGroupedTableViewCell.h; sourceTree = "<group>"; };
 		607B09DA154A9F0000C50274 /* ARGroupedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARGroupedTableViewCell.m; sourceTree = "<group>"; };
+		607C50021E300604000378CF /* ImageModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModelTests.m; sourceTree = "<group>"; };
 		607FAC961AFB7887008FA782 /* ARPopoverSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARPopoverSegmentControl.h; sourceTree = "<group>"; };
 		607FAC971AFB7887008FA782 /* ARPopoverSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPopoverSegmentControl.m; sourceTree = "<group>"; };
 		6080025314FE5D450018B464 /* DeleteButtonActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeleteButtonActive.png; sourceTree = "<group>"; };
@@ -1849,6 +1851,7 @@
 				60E7E2DE1ABB2392007EAA8A /* ShowModelTests.m */,
 				609C27511AE81FAD00E40D1F /* ARArtworkContainerCoverDataSourceTests.m */,
 				83272D111B99365E0083D9C4 /* ArtworkModelTests.m */,
+				607C50021E300604000378CF /* ImageModelTests.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -3716,12 +3719,12 @@
 				60B3408D1609C25B002A5926 /* action_btn_whiteborder@2x.png in Resources */,
 				606B1EDD184681FF00CC3DBD /* Black.png in Resources */,
 				60B340B71609C28D002A5926 /* garbage_btn_solidwhite.png in Resources */,
-				60C279BD1BE2310300229C8C /* BuildFile in Resources */,
+				60C279BD1BE2310300229C8C /* (null) in Resources */,
 				60B340B91609C28D002A5926 /* garbage_btn_solidwhite@2x.png in Resources */,
 				60B340BB1609C28D002A5926 /* garbage_btn_whiteborder.png in Resources */,
 				60B340BD1609C28D002A5926 /* garbage_btn_whiteborder@2x.png in Resources */,
 				606B1EDB1846805E00CC3DBD /* Transparent.png in Resources */,
-				60C279BC1BE2310300229C8C /* BuildFile in Resources */,
+				60C279BC1BE2310300229C8C /* (null) in Resources */,
 				60B340CF1609C2C1002A5926 /* plus_btn_solidwhite.png in Resources */,
 				60B6085A1A41847300C2BBE5 /* PhoneAddArtworksButton@2x.png in Resources */,
 				60B340D11609C2C1002A5926 /* plus_btn_solidwhite@2x.png in Resources */,
@@ -3919,6 +3922,7 @@
 				60F6CA1A19903E6800628D72 /* ARArtworkSetViewControllerTests.m in Sources */,
 				60F63804199E966E008D2360 /* ARSyncMessageViewControllerTests.m in Sources */,
 				60692E17196C06F700455332 /* ARArtworkInfoAdditionalMetadataViewTests.m in Sources */,
+				607C50031E300604000378CF /* ImageModelTests.m in Sources */,
 				608B01391C4821BD00C6B535 /* ARStubbedDRBOperation.m in Sources */,
 				60ADD6931ACB555100A847B5 /* ARSynchronousOperationTree.m in Sources */,
 				60B2866A19AA925A0014857F /* ARDocumentPreviewViewControllerTests.m in Sources */,
