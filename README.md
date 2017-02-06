@@ -49,4 +49,10 @@ If you are seeing `bundle: command not found` when running the OSS Quick Start c
 
 ### Thanks
 
-**Copyright**: 2012-2017, Artsy. Thanks to all [our contributors](/docs/THANKS.md).
+Thanks to all [our contributors](/docs/THANKS.md).
+
+## License
+
+Copyright (c) 2012-2017 Art.sy, Inc.
+
+MIT License. See [LICENSE](LICENSE).
