@@ -58,7 +58,7 @@ deploy_if_beta_branch:
 	if [ "$(LOCAL_BRANCH)" == "beta" ]; then make install_fastlane; bundle exec fastlane beta; fi
 
 install_fastlane:
-	bundle update fastlane pilot gym deliver
+	bundle update fastlane
 	bundle install --with deployment
 
 deploy:
