@@ -21,3 +21,4 @@ fastlane/report.xml
 kif_screenshots/
 xcodebuild_error.log
 xcuserdata
+fastlane/README.md
