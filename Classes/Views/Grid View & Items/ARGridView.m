@@ -193,8 +193,6 @@ const NSInteger ArtworkGridBottomMargin = 17;
 
 - (CGSize)gridViewCellSize
 {
-    BOOL isPortrait = UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation);
-
     BOOL extended = self.displayMode == ARDisplayModeAllShows || self.displayMode == ARDisplayModeArtistShows;
     CGFloat height;
     if ([UIDevice isPad]) {
@@ -284,7 +282,8 @@ const NSInteger ArtworkGridBottomMargin = 17;
         [cell setVisuallySelected:YES animated:YES];
 
         if (self.selectionHandler.isSelecting) {
-            [self.selectionHandler selectObject:item];
+            // We know item must be an ARManagedObject subclass
+            [self.selectionHandler selectObject:(ARManagedObject *)item];
         }
     }
 }
@@ -339,7 +338,9 @@ const NSInteger ArtworkGridBottomMargin = 17;
     [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 
     id<ARGridViewItem> item = [self.dataSource objectAtIndexPath:_indexPathForPopover];
-    [_delegate setCover:item];
+    if([item isKindOfClass:Image.class]) {
+        [_delegate setCover:(Image *)item];
+    }
     [self performSelector:@selector(dismissCoverPopover) withObject:nil afterDelay:0.25];
 }
 

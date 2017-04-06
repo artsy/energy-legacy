@@ -22,7 +22,7 @@
  *	The NSEntityDescription for the Subclass
  *	defaults to the subclass className, may be overridden
  */
-+ (NSEntityDescription *)entity;
++ (NSEntityDescription *)ar_entity;
 
 /**
  *	Returns an initialized NSFetchRequest for the entity, with no predicate
