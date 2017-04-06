@@ -2,7 +2,7 @@
 #import "Artwork.h"
 #import "Image.h"
 
-NS_ENUM(NSInteger, ARViewInRoomRoomSize){
+typedef NS_ENUM(NSInteger, ARViewInRoomRoomSize){
     ARViewInRoomRoomSizeSmall,
     ARViewInRoomRoomSizeLarge,
     ARViewInRoomRoomSizeXLarge,
@@ -12,7 +12,6 @@ NS_ENUM(NSInteger, ARViewInRoomRoomSize){
 
 @interface ARViewInRoomView : UIView {
     UIImageView *backgroundImageView;
-    ;
     Artwork *artwork;
     enum ARViewInRoomRoomSize roomSize;
 }

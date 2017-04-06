@@ -2,6 +2,7 @@
 
 #import "ARArtworkSetViewController.h"
 #import "ARPadViewInRoomViewController.h"
+#import "ARViewInRoomViewController.h"
 #import "ARViewInRoomView.h"
 #import "ARAddToAlbumViewController.h"
 #import "NSFetchedResultsController+Count.h"
@@ -9,7 +10,6 @@
 #import "ARModernArtworkMetadataViewController.h"
 #import "ARPagingArtworkViewController.h"
 #import "UIViewController+SimpleChildren.h"
-#import "ARViewInRoomViewController.h"
 #import "ARPopoverController.h"
 #import "ARImageViewController.h"
 #import "ARModernEmailArtworksViewController.h"

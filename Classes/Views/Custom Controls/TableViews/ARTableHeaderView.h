@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-NS_ENUM(NSInteger, ARTableHeaderViewStyle){
+typedef NS_ENUM(NSInteger, ARTableHeaderViewStyle){
     ARTableHeaderViewStyleDark,
     ARTableHeaderViewStyleLight};
 
