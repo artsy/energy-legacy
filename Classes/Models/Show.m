@@ -169,14 +169,13 @@ static NSArray *sorts;
 
     // it turned out the word did exist in German. Thanks Leonard / Jessica ./
 
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSCalendarUnit desiredComponents = (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit);
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSInteger desiredComponents = (NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear);
     NSDateComponents *startsComponents = [gregorian components:desiredComponents fromDate:self.startsAt];
     NSDateComponents *endsComponents = [gregorian components:desiredComponents fromDate:self.endsAt];
 
     NSDateFormatter *monthFormatter = [[NSDateFormatter alloc] init];
     [monthFormatter setDateFormat:@"MMM"];
-
 
     // Same month - "July 2 - 12, 2011"
     if (endsComponents.month == startsComponents.month) {
