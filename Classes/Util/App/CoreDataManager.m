@@ -212,39 +212,31 @@ static const NSString *ThreadContextKey = @"ThreadContextKey";
 {
     NSManagedObjectContext *mainManagedObjectContext = [self mainManagedObjectContext];
     NSPersistentStoreCoordinator *persistentStoreCoordinator = [mainManagedObjectContext persistentStoreCoordinator];
-    NSPersistentStore *persistentStore = [[persistentStoreCoordinator persistentStores] lastObject];
-    NSError *error = nil;
+
+    __block NSError *error = nil;
 
     // Clear managed objects from the main managed object context
-    [mainManagedObjectContext lock];
-    [mainManagedObjectContext reset];
+    [mainManagedObjectContext performBlockAndWait:^{
+        [mainManagedObjectContext reset];
 
-    // Remove persistent store from coordinator
-    NSURL *storeURL = [NSURL fileURLWithPath:[ARFileUtils coreDataStorePath]];
-    [persistentStoreCoordinator removePersistentStore:persistentStore error:&error];
-    if (error) {
-        [mainManagedObjectContext unlock];
-
-        if (failure) {
+        // Unhook the current store, should only be one
+        NSPersistentStore *persistentStore = [[persistentStoreCoordinator persistentStores] lastObject];
+        [persistentStoreCoordinator removePersistentStore:persistentStore error:&error];
+        if (error && failure) {
             failure(error);
+            return;
         }
-        return;
-    }
 
-    // Delete current persistent store from disk
-    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:&error];
-    if (error) {
-        [mainManagedObjectContext unlock];
-
-        if (failure) {
+        // Delete current persistent store from disk
+        NSURL *storeURL = [NSURL fileURLWithPath:[ARFileUtils coreDataStorePath]];
+        [[NSFileManager defaultManager] removeItemAtURL:storeURL error:&error];
+        if (error && failure) {
             failure(error);
+            return;
         }
-        return;
-    }
+    }];
 
-    [mainManagedObjectContext unlock];
-
-    if (success) {
+    if (!error && success) {
         success();
     }
 }
