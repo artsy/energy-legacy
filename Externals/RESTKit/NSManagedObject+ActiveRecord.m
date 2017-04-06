@@ -51,7 +51,7 @@ static NSNumber *defaultBatchSize = nil;
     return fetchRequest;
 }
 
-+ (NSFetchRequest *)fetchRequest
++ (NSFetchRequest *)ar_fetchRequest
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [self ar_entity];
@@ -92,14 +92,14 @@ static NSNumber *defaultBatchSize = nil;
 
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
 {
-    NSFetchRequest *fetchRequest = [self fetchRequest];
+    NSFetchRequest *fetchRequest = [self ar_fetchRequest];
     [fetchRequest setPredicate:predicate];
     return [self objectsWithFetchRequest:fetchRequest];
 }
 
 + (id)objectWithPredicate:(NSPredicate *)predicate
 {
-    NSFetchRequest *fetchRequest = [self fetchRequest];
+    NSFetchRequest *fetchRequest = [self ar_fetchRequest];
     [fetchRequest setPredicate:predicate];
     return [self objectWithFetchRequest:fetchRequest];
 }

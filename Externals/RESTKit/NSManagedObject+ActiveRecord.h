@@ -27,7 +27,7 @@
 /**
  *	Returns an initialized NSFetchRequest for the entity, with no predicate
  */
-+ (NSFetchRequest *)fetchRequest;
++ (NSFetchRequest *)ar_fetchRequest;
 
 /**
  * Fetches all objects from the persistent store identified by the fetchRequest
