@@ -31,7 +31,7 @@ ci_keys:
 WORKSPACE = "Artsy Folio.xcworkspace"
 SCHEME = ArtsyFolio
 CONFIGURATION = Debug
-DEVICE_HOST = platform='iOS Simulator',OS='8.4',name='iPad Retina'
+DEVICE_HOST = platform='iOS Simulator',OS='10.3',name='iPad Air 2'
 
 build:
 	set -o pipefail && xcodebuild -workspace $(WORKSPACE) -scheme $(SCHEME) -configuration '$(CONFIGURATION)' -sdk iphonesimulator build | tee $(CIRCLE_ARTIFACTS)/xcode_build_raw.log | bundle exec xcpretty -c

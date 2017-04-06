@@ -60,8 +60,11 @@
         printf("You should use: [OHHTTPStubs stubJSONResponseAtPath:@\"%s\" withResponse:@{}];\n", request.URL.path.UTF8String);
         printf("   Stack trace: %s\n\n\n\n", [stackTrace componentsJoinedByString:@"\n                "].UTF8String);
     }
-
-    _XCTPrimitiveFail(spectaExample, @"Failed due to unstubbed networking.");
+    if (spectaExample) {
+        _XCTPrimitiveFail(spectaExample, @"Failed due to unstubbed networking.");
+    } else {
+//        NSAssert(@"Failed due to unstubbed networking.", nil);
+    }
     return nil;
 }
 
