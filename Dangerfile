@@ -11,7 +11,7 @@ end
 
 # Stop skipping some manual testing
 if git.lines_of_code > 50 && github.pr_title.include?("📱") == false
-   warn("Needs testing on a Phone if change is non-trivial")
+  warn("Needs testing on a Phone if change is non-trivial")
 end
 
 # CHANGELOG should lint

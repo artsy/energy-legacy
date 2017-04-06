@@ -24,14 +24,6 @@ machine:
     HOCKEY_API_TOKEN : from_admin
     SLACK_URL : from_admin
 
-dependencies:
-  override:
-    - bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3 --without development
-    - bundle exec pod install
-  cache_directories:
-    - vendor/bundle
-    - Pods
-
 test:
   pre:
     - make build
