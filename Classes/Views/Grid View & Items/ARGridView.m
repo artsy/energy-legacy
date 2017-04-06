@@ -207,15 +207,7 @@ const NSInteger ArtworkGridBottomMargin = 17;
 
     NSInteger cellsPerLine = [self numberOfCellsPerLine];
 
-    CGFloat screenWidth;
-
-    // It's much simpler on iOS8
-    if ([UIDevice isIOS8Plus]) {
-        screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
-    } else {
-        screenWidth = isPortrait ? CGRectGetWidth([UIScreen mainScreen].bounds) : CGRectGetHeight([UIScreen mainScreen].bounds);
-    }
-
+    CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
     CGFloat width = (screenWidth / cellsPerLine) - (40 / cellsPerLine);
     return CGSizeMake(roundf(width), height);
 }
