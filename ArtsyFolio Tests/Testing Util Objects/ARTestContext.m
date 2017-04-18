@@ -33,7 +33,7 @@ NS_ENUM(NSInteger, ARDeviceType){
     }
 
     if (![UIDevice isPad]) {
-        @throw @"The tests should be run on an iPad Retina";
+        @throw @"The tests should be run on an iPad Air 2";
     }
 }
 
