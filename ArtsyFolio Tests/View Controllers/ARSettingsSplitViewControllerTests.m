@@ -5,7 +5,6 @@
 SpecBegin(ARSettingsSplitViewController);
 
 __block ARSettingsSplitViewController *subject;
-__block NSManagedObjectContext *context;
 __block UIStoryboard *storyboard;
 
 beforeAll(^{
