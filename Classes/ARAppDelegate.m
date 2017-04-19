@@ -200,9 +200,9 @@ void uncaughtExceptionHandler(NSException *exception);
     [GRMustache preventNSUndefinedKeyExceptionAttack];
 #endif
 
-    NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
-    BOOL devBuild = [bundleIdentifier hasSuffix:@".dev"];
-    [[BITHockeyManager sharedHockeyManager] setDisableUpdateManager:devBuild];
+    #if TARGET_IPHONE_SIMULATOR
+    [[BITHockeyManager sharedHockeyManager] setDisableUpdateManager:YES];
+    #endif
 }
 
 - (void)updateExpiredAuthToken

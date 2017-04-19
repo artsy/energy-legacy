@@ -6,7 +6,7 @@
 - (NSString *)formattedString
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     [dateFormatter setCalendar:calendar];
 
     NSTimeZone *timeZone = [NSTimeZone defaultTimeZone];

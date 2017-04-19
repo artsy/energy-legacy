@@ -27,12 +27,23 @@
     self.secondaryAction = ^(){
         weakSelf.secondaryCallToActionButton.enabled = NO;
 
-        weakSelf.sync = weakSelf.sync ?: [[ARSync alloc] init];
+        weakSelf.sync = weakSelf.sync ?: [weakSelf setupNewSync];
         weakSelf.sync.delegate = weakSelf;
         [weakSelf.sync sync];
     };
 
     return self;
+}
+
+- (ARSync *)setupNewSync
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSManagedObjectContext *context = [CoreDataManager mainManagedObjectContext];
+
+    ARSync *sync = [[ARSync alloc] init];
+    sync.progress = [[ARSyncProgress alloc] init];
+    sync.config = [[ARSyncConfig alloc] initWithManagedObjectContext:context defaults:defaults deleter:[[ARSyncDeleter alloc] init]];
+    return sync;
 }
 
 - (void)syncDidFinish:(ARSync *)sync

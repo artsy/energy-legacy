@@ -193,8 +193,6 @@ const NSInteger ArtworkGridBottomMargin = 17;
 
 - (CGSize)gridViewCellSize
 {
-    BOOL isPortrait = UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation);
-
     BOOL extended = self.displayMode == ARDisplayModeAllShows || self.displayMode == ARDisplayModeArtistShows;
     CGFloat height;
     if ([UIDevice isPad]) {
@@ -207,15 +205,7 @@ const NSInteger ArtworkGridBottomMargin = 17;
 
     NSInteger cellsPerLine = [self numberOfCellsPerLine];
 
-    CGFloat screenWidth;
-
-    // It's much simpler on iOS8
-    if ([UIDevice isIOS8Plus]) {
-        screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
-    } else {
-        screenWidth = isPortrait ? CGRectGetWidth([UIScreen mainScreen].bounds) : CGRectGetHeight([UIScreen mainScreen].bounds);
-    }
-
+    CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
     CGFloat width = (screenWidth / cellsPerLine) - (40 / cellsPerLine);
     return CGSizeMake(roundf(width), height);
 }
@@ -292,7 +282,8 @@ const NSInteger ArtworkGridBottomMargin = 17;
         [cell setVisuallySelected:YES animated:YES];
 
         if (self.selectionHandler.isSelecting) {
-            [self.selectionHandler selectObject:item];
+            // We know item must be an ARManagedObject subclass
+            [self.selectionHandler selectObject:(ARManagedObject *)item];
         }
     }
 }
@@ -347,7 +338,9 @@ const NSInteger ArtworkGridBottomMargin = 17;
     [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 
     id<ARGridViewItem> item = [self.dataSource objectAtIndexPath:_indexPathForPopover];
-    [_delegate setCover:item];
+    if([item isKindOfClass:Image.class]) {
+        [_delegate setCover:(Image *)item];
+    }
     [self performSelector:@selector(dismissCoverPopover) withObject:nil afterDelay:0.25];
 }
 

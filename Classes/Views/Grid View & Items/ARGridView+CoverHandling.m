@@ -203,12 +203,8 @@
     Artwork<ARGridViewItem> *artwork = (id)[self.dataSource objectAtIndexPath:_indexPathForPopover];
     [self.delegate setCover:artwork.mainImage];
 
-    [self performSelector:@selector(dismissCoverPopover) withObject:nil afterDelay:0.25];
-}
-
-- (void)dismissCoverPopover
-{
-    [_coverPopoverController dismissPopoverAnimated:YES];
+    SEL dismiss = NSSelectorFromString(@"dismissCoverPopover");
+    [self performSelector:dismiss withObject:nil afterDelay:0.25];
 }
 
 @end

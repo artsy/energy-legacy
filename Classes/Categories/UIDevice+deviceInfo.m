@@ -69,10 +69,8 @@
 
 + (BOOL)isIOS8Plus
 {
-    if (&UIApplicationOpenSettingsURLString != NULL) {
-        return YES;
-    }
-    return NO;
+    // iOS8 is minimum
+    return YES;
 }
 
 @end

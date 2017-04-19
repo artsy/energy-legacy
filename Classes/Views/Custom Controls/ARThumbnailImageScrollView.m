@@ -10,6 +10,7 @@ static CGFloat yOffset = 15;
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     CGRect newFrame = self.frame;
     newFrame.size.height = ThumbnailSize + ThumbnailMargin * 2;
     self.frame = newFrame;

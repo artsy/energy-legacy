@@ -20,7 +20,8 @@ __block ARNavigationController *navController;
 
 beforeEach(^{
     [SDWebImageManager cacheImageNamed:@"example-image" toCacheWithAddress:@"(null)/13/-2147483648_-2147483648.jpg"];
-    
+    [SDWebImageManager cacheImageNamed:@"example-image" toCacheWithAddress:@"(null)/13/-9223372036854775808_-9223372036854775808.jpg"];
+
     context = [CoreDataManager stubbedManagedObjectContext];
     [ARModelFactory partiallyFilledArtworkInContext:context];
     [ARModelFactory partiallyFilledArtworkInContext:context];

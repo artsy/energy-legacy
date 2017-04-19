@@ -31,7 +31,7 @@ static NSNumber *defaultBatchSize = nil;
     return context;
 }
 
-+ (NSEntityDescription *)entity
++ (NSEntityDescription *)ar_entity
 {
     NSString *className = @(class_getName([self class]));
     return [NSEntityDescription entityForName:className inManagedObjectContext:[self managedObjectContext]];
@@ -51,10 +51,10 @@ static NSNumber *defaultBatchSize = nil;
     return fetchRequest;
 }
 
-+ (NSFetchRequest *)fetchRequest
++ (NSFetchRequest *)ar_fetchRequest
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [self entity];
+    NSEntityDescription *entity = [self ar_entity];
     [fetchRequest setEntity:entity];
     return fetchRequest;
 }
@@ -92,14 +92,14 @@ static NSNumber *defaultBatchSize = nil;
 
 + (NSArray *)objectsWithPredicate:(NSPredicate *)predicate
 {
-    NSFetchRequest *fetchRequest = [self fetchRequest];
+    NSFetchRequest *fetchRequest = [self ar_fetchRequest];
     [fetchRequest setPredicate:predicate];
     return [self objectsWithFetchRequest:fetchRequest];
 }
 
 + (id)objectWithPredicate:(NSPredicate *)predicate
 {
-    NSFetchRequest *fetchRequest = [self fetchRequest];
+    NSFetchRequest *fetchRequest = [self ar_fetchRequest];
     [fetchRequest setPredicate:predicate];
     return [self objectWithFetchRequest:fetchRequest];
 }
@@ -129,7 +129,7 @@ static NSNumber *defaultBatchSize = nil;
 
 + (id)object
 {
-    id object = [[self alloc] initWithEntity:[self entity] insertIntoManagedObjectContext:[self managedObjectContext]];
+    id object = [[self alloc] initWithEntity:[self ar_entity] insertIntoManagedObjectContext:[self managedObjectContext]];
     return object;
 }
 
