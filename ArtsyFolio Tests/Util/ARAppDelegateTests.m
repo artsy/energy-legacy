@@ -10,7 +10,7 @@ before(^{
 
 it(@"sends an ARApplicationDidGoIntoBackground notification on applicationWillResignActive", ^{
     expect(^{
-        [sut applicationWillResignActive:(id)sut];
+        [sut applicationWillResignActive:[UIApplication sharedApplication]];
     }).to.postNotification(ARApplicationDidGoIntoBackground);
 });
 
