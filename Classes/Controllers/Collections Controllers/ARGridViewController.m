@@ -96,8 +96,8 @@
     // want to toggle selection, not go to ArtworkDetailVC
 
     BOOL isInSelectionMode = self.selectionHandler.isSelecting;
-    if (isInSelectionMode && [self isShowingSelectableItems]) {
-        [self.selectionHandler selectObject:item];
+    if (isInSelectionMode && [self isShowingSelectableItems] && [item isKindOfClass:ARManagedObject.class]) {
+        [self.selectionHandler selectObject:(ARManagedObject *)item];
         return;
     }
     ARSwitchBoard *switchboard = [ARSwitchBoard sharedSwitchboard];
@@ -144,8 +144,8 @@
 
 - (void)gridView:(ARGridView *)gridView didDeselectItem:(id<ARGridViewItem>)item atIndex:(NSInteger)index
 {
-    if ([item conformsToProtocol:@protocol(ARMultipleSelectionItem)]) {
-        [self.selectionHandler deselectObject:item];
+    if ([item conformsToProtocol:@protocol(ARMultipleSelectionItem)] && [item isKindOfClass:ARManagedObject.class]) {
+        [self.selectionHandler deselectObject:(ARManagedObject *)item];
     }
 }
 

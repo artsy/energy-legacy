@@ -90,6 +90,7 @@
     }
 }
 
+// Visually documented in `docs/sync_tree.png`
 - (DRBOperationTree *)createSyncOperationTree
 {
     NSManagedObjectContext *context = self.config.managedObjectContext;

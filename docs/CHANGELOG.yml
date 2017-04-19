@@ -1,6 +1,14 @@
 upcoming:
-  version: 2.5.4
+  version: 2.5.5
   notes:
+    - Sync stability improvement - orta/jonallured
+    - Failed images will be removed from local cache  - orta/jonallured
+
+releases:
+
+  - version: 2.5.4
+    date: Aug 31, 2016
+    notes:
     - Incorrect passwords will reset state in the login page correctly - orta
     - Improved sync estimates - orta
     - Crash fixes around spolight exporting - orta
@@ -9,7 +17,6 @@ upcoming:
     - We show Unititled instead of (null) in more places - orta
     - Order Editions in the artwork info popover - orta
 
-releases:
 
   - version: 2.5.3
     date: Aug 31, 2016

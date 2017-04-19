@@ -96,7 +96,10 @@
 
 - (NSLayoutConstraint *)aspectRatioConstraintForImageView:(UIImageView *)imageView image:(Image *)image
 {
-    CGFloat ratio = (image.maxTiledHeight.floatValue / image.maxTiledWidth.floatValue);
+    CGFloat width = image.maxTiledWidthValue ?: image.originalWidthValue;
+    CGFloat height = image.maxTiledHeightValue ?: image.originalHeightValue;
+    CGFloat ratio = height / width;
+
     return [NSLayoutConstraint constraintWithItem:imageView
                                         attribute:NSLayoutAttributeHeight
                                         relatedBy:NSLayoutRelationEqual

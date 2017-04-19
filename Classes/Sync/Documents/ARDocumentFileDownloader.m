@@ -49,11 +49,13 @@
         [document.managedObjectContext performBlockAndWait:^{
             [document setHasFile:@(YES)];
         }];
-        
+
         continuation(document, nil);
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         ARSyncLog(@"Download of Document file failed - %@", operation.request.URL.absoluteString);
+        [[NSFileManager defaultManager] removeItemAtPath:document.filePath error:nil];
+
         failure();
     }];
     return downloadOperation;

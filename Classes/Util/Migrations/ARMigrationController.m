@@ -12,6 +12,10 @@
     //    NSString *oldMigrationVersion = [defaults stringForKey:ARAppSyncVersion];
     //    CGFloat pastVersion = [oldMigrationVersion floatValue];
 
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
+
     /// Converts pre 2.5.1 versions of Folio to support multiple artists
     BOOL shouldSwitchArtistToArtists = [defaults boolForKey:@"ARHasSwitchedArtistToArtists"] == NO;
     if (shouldSwitchArtistToArtists) {
@@ -23,9 +27,12 @@
         [defaults setBool:YES forKey:@"ARHasSwitchedArtistToArtists"];
     }
 
+    #pragma clang diagnostic pop
+
+
     /// Sets an artistOrderingKey to handle multiple Artists
     BOOL shouldSetTheArtistOrderingKey = [defaults boolForKey:@"ARHasAddedArtistOrderingKey"] == NO;
-    if (shouldSwitchArtistToArtists) {
+    if (shouldSetTheArtistOrderingKey) {
         // Migrate any singular artist into artists
         for (Artwork *artwork in [Artwork findAllInContext:context]) {
             artwork.artistOrderingKey = [artwork artistOrderingKey];

@@ -7,7 +7,8 @@ NSString *const ImageFileExtension = @"jpg";
 static NSArray *_imageFormatsToDownload;
 
 
-@implementation Image {
+@implementation Image
+{
     NSMutableDictionary *images;
     NSString *slug;
     int maxLevel;
@@ -54,16 +55,27 @@ static NSArray *_imageFormatsToDownload;
         self.artwork.mainImage = self;
     }
 
-    self.maxTiledHeight = [json objectForKeyNotNull:ARFeedMaxTiledHeightKey];
-    self.maxTiledWidth = [json objectForKeyNotNull:ARFeedMaxTiledWidthKey];
     self.tileSize = [json objectForKeyNotNull:ARFeedTileSizeKey];
     self.tileFormat = [json objectForKeyNotNull:ARFeedTileFormatKey];
     self.tileBaseUrl = [json objectForKeyNotNull:ARFeedTileBaseUrlKey];
     self.tileOverlap = [json objectForKeyNotNull:ARFeedTileOverlapKey];
-    self.aspectRatio = [json objectForKeyNotNull:ARFeedImageAspectRatioKey];
     self.position = [json onlyNumberForKey:ARFeedImagePositionKey];
+
+    self.aspectRatio = [json objectForKeyNotNull:ARFeedImageAspectRatioKey];
     self.originalWidth = [json objectForKeyNotNull:ARFeedImageOriginalWidthKey];
     self.originalHeight = [json objectForKeyNotNull:ARFeedImageOriginalHeightKey];
+    self.maxTiledHeight = [json objectForKeyNotNull:ARFeedMaxTiledHeightKey];
+    self.maxTiledWidth = [json objectForKeyNotNull:ARFeedMaxTiledWidthKey];
+
+    // Do not trust the aspectRatio returned by Gravity, see #258
+    if (!self.aspectRatio) {
+        CGFloat width = self.maxTiledWidthValue ?: self.originalWidthValue;
+        CGFloat height = self.maxTiledHeightValue ?: self.originalHeightValue;
+
+        if (width && height) {
+            self.aspectRatio = @(height / width);
+        }
+    }
 
     NSString *imageSource = [json objectForKeyNotNull:ARFeedImageSourceKey];
     if (imageSource) {

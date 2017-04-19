@@ -11,7 +11,4 @@ gem "cocoapods-keys"
 
 group :deployment do
   gem "fastlane"
-  gem "gym"
-  gem "deliver"
-  gem "pilot"
 end

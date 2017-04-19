@@ -171,12 +171,12 @@ static NSArray *sorts;
 
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSCalendarUnit desiredComponents = (NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear);
+
     NSDateComponents *startsComponents = [gregorian components:desiredComponents fromDate:self.startsAt];
     NSDateComponents *endsComponents = [gregorian components:desiredComponents fromDate:self.endsAt];
 
     NSDateFormatter *monthFormatter = [[NSDateFormatter alloc] init];
     [monthFormatter setDateFormat:@"MMM"];
-
 
     // Same month - "July 2 - 12, 2011"
     if (endsComponents.month == startsComponents.month) {
@@ -215,6 +215,5 @@ static NSArray *sorts;
     req.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"position" ascending:YES] ];
     return req;
 }
-
 
 @end

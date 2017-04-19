@@ -68,6 +68,8 @@ static const CGFloat PhoneDistanceToTopOfBenchLandscape[] = {200, 192, 178};
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+
     backgroundImageView = [[UIImageView alloc] initWithFrame:self.frame];
     backgroundImageView.contentMode = UIViewContentModeBottom;
     backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;

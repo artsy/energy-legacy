@@ -1,6 +1,7 @@
 #import "ARTopViewController.h"
 #import "ARTopViewToolbarController.h"
 
+#import "ARSync.h"
 #import "Album.h"
 #import "Artwork.h"
 #import "ARSwitchBoard.h"
@@ -13,6 +14,10 @@
 #import "ARNavigationController.h"
 #import "UIColor+FolioColours.h"
 #import "ARCMSStatusMonitor.h"
+
+@interface ARSync (Priv)
+@property (readwrite, nonatomic, getter=isSyncing) BOOL syncing;
+@end
 
 
 @interface ARTopViewController ()
@@ -120,21 +125,6 @@ describe(@"toolbar", ^{
 
         [toolbarControllerMock verify];
     });
-
-
-    it(@"should react to sync change notifications", ^{
-        ARTopViewToolbarController *controller = [[ARTopViewToolbarController alloc] initWithTopVC:topVC];
-        [controller setupDefaultToolbarItems];
-        UIImage *initialImage = controller.settingsBarButtonItem.representedButton.currentImage;
-
-        [[NSNotificationCenter defaultCenter] postNotificationName:ARSyncStartedNotification object:nil];
-        expect(initialImage).toNot.equal(controller.settingsBarButtonItem.representedButton.currentImage);
-
-        UIImage *changedImage = controller.settingsBarButtonItem.representedButton.currentImage;
-        [[NSNotificationCenter defaultCenter] postNotificationName:ARSyncFinishedNotification object:nil];
-        expect(initialImage).toNot.equal(changedImage);
-    });
-
 
     describe(@"when in albums", ^{
         before(^{
