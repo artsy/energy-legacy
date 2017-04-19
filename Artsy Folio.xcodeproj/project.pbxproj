@@ -391,8 +391,8 @@
 		60C1495B1500EFB100D6715D /* ARBaseViewController+TransparentModals.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C1495A1500EFB100D6715D /* ARBaseViewController+TransparentModals.m */; };
 		60C20F051836B20D00846A60 /* ARGroupedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C20F041836B20D00846A60 /* ARGroupedView.m */; };
 		60C21E3B198B9DEF005CA461 /* ARHostSelectionControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C21E3A198B9DEF005CA461 /* ARHostSelectionControllerTests.m */; };
-		60C279BC1BE2310300229C8C /* (null) in Resources */ = {isa = PBXBuildFile; };
-		60C279BD1BE2310300229C8C /* (null) in Resources */ = {isa = PBXBuildFile; };
+		60C279BC1BE2310300229C8C /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		60C279BD1BE2310300229C8C /* BuildFile in Resources */ = {isa = PBXBuildFile; };
 		60C563CC160B196A000E800E /* switch_seperator.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C563CA160B196A000E800E /* switch_seperator.png */; };
 		60C563CE160B196A000E800E /* switch_seperator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C563CB160B196A000E800E /* switch_seperator@2x.png */; };
 		60C563D3160B40EB000E800E /* ARTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C563D2160B40EB000E800E /* ARTitleLabel.m */; };
@@ -3764,12 +3764,12 @@
 				60B3408D1609C25B002A5926 /* action_btn_whiteborder@2x.png in Resources */,
 				606B1EDD184681FF00CC3DBD /* Black.png in Resources */,
 				60B340B71609C28D002A5926 /* garbage_btn_solidwhite.png in Resources */,
-				60C279BD1BE2310300229C8C /* (null) in Resources */,
+				60C279BD1BE2310300229C8C /* BuildFile in Resources */,
 				60B340B91609C28D002A5926 /* garbage_btn_solidwhite@2x.png in Resources */,
 				60B340BB1609C28D002A5926 /* garbage_btn_whiteborder.png in Resources */,
 				60B340BD1609C28D002A5926 /* garbage_btn_whiteborder@2x.png in Resources */,
 				606B1EDB1846805E00CC3DBD /* Transparent.png in Resources */,
-				60C279BC1BE2310300229C8C /* (null) in Resources */,
+				60C279BC1BE2310300229C8C /* BuildFile in Resources */,
 				60B340CF1609C2C1002A5926 /* plus_btn_solidwhite.png in Resources */,
 				60B6085A1A41847300C2BBE5 /* PhoneAddArtworksButton@2x.png in Resources */,
 				60B340D11609C2C1002A5926 /* plus_btn_solidwhite@2x.png in Resources */,
@@ -3887,7 +3887,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		AA6C9C4B11B7C70E01B56DA2 /* [CP] Check Pods Manifest.lock */ = {
@@ -3902,7 +3902,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		BA39522F6C4E2AC99D3F9D02 /* [CP] Embed Pods Frameworks */ = {

@@ -3,6 +3,7 @@ upcoming:
   notes:
     - Sync stability improvement - orta/jonallured
     - Failed images will be removed from local cache  - orta/jonallured
+    - (dev) Update Fonts, Xcode version - orta
 
 releases:
 
