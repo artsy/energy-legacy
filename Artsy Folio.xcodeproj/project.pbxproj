@@ -4479,7 +4479,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8135FFD842393CF29BFBD177 /* Pods-ArtsyFolio Tests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FolioDev.app/FolioDev";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -4496,7 +4496,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.artsy.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ArtsyFolio Tests/Util/ArtsyFolio Tests-Bridging-Header.h";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FolioDev.app/FolioDev";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -4505,7 +4505,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 575D3373F8188F64671307DF /* Pods-ArtsyFolio Tests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FolioDev.app/FolioDev";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -4530,7 +4530,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ArtsyFolio Tests/Util/ArtsyFolio Tests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FolioDev.app/FolioDev";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
