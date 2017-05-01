@@ -14,6 +14,7 @@
 #import "ARImageViewController.h"
 #import "ARModernEmailArtworksViewController.h"
 #import "AROptions.h"
+#import "ARTheme.h"
 
 #if __has_include(<SafariServices/SafariServices.h>)
 @import SafariServices;
@@ -352,6 +353,8 @@
         default:;
     }
 
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    [ARTheme setupWindowTintOnWindow:window];
     [self dismissViewControllerAnimated:YES completion:nil];
     self.emailButton.representedButton.selected = NO;
     [self.emailPopoverController dismissPopoverAnimated:YES];

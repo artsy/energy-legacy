@@ -108,6 +108,8 @@
     self.mailController.mailComposeDelegate = self.parentViewController;
     [self.mailController.navigationBar setTintColor:[UIColor blackColor]];
 
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    window.tintColor = [UIColor blackColor];
     [self.parentViewController presentViewController:self.mailController animated:YES completion:nil];
 }
 
