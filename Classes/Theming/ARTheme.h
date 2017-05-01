@@ -13,4 +13,6 @@
 
 + (void)resetWindowTint;
 
++ (void)setWindowTint:(UIColor *)tintColor;
+
 @end

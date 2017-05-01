@@ -1,6 +1,6 @@
 #import <GRMustache/GRMustache.h>
 #import "AREmailComposer.h"
-
+#import "ARTheme.h"
 
 @interface AREmailComposer ()
 @property (nonatomic, strong) UIViewController<MFMailComposeViewControllerDelegate> *parentViewController;
@@ -108,8 +108,7 @@
     self.mailController.mailComposeDelegate = self.parentViewController;
     [self.mailController.navigationBar setTintColor:[UIColor blackColor]];
 
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    window.tintColor = [UIColor blackColor];
+    [ARTheme setWindowTint:[UIColor blackColor]];
     [self.parentViewController presentViewController:self.mailController animated:YES completion:nil];
 }
 
