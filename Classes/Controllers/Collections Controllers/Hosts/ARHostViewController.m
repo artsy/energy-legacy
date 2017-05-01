@@ -251,8 +251,7 @@
             ;
     }
 
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    [ARTheme setupWindowTintOnWindow:window];
+    [ARTheme resetWindowTint];
     [self dismissPopoversAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
     [self endSelecting];

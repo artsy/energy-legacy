@@ -30,6 +30,12 @@
     window.backgroundColor = [UIColor artsyBackgroundColor];
 }
 
++ (void)resetWindowTintOnWindow
+{
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    [self setupWindowTintOnWindow:window];
+}
+
 + (void)setupMailViewControllerButtons
 {
     [[UIBarButtonItem appearanceWhenContainedIn:MFMailComposeViewController.class, nil] setTitleTextAttributes:@{

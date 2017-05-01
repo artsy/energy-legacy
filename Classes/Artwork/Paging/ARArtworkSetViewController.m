@@ -353,8 +353,7 @@
         default:;
     }
 
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    [ARTheme setupWindowTintOnWindow:window];
+    [ARTheme resetWindowTint];
     [self dismissViewControllerAnimated:YES completion:nil];
     self.emailButton.representedButton.selected = NO;
     [self.emailPopoverController dismissPopoverAnimated:YES];

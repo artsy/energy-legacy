@@ -11,4 +11,6 @@
 /// by changing it on the window.
 + (void)setupWindowTintOnWindow:(UIWindow *)window;
 
++ (void)resetWindowTint;
+
 @end
