@@ -108,6 +108,9 @@
     self.mailController.mailComposeDelegate = self.parentViewController;
     [self.mailController.navigationBar setTintColor:[UIColor blackColor]];
 
+    // White window tint causes the fields in the mailController to
+    // behave strangely - this forces the tint to black and is reversed
+    // in the delegate.
     [ARTheme setWindowTint:[UIColor blackColor]];
     [self.parentViewController presentViewController:self.mailController animated:YES completion:nil];
 }
