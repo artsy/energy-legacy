@@ -1,11 +1,12 @@
 upcoming:
-  version: 2.5.5
-  notes:
-    - Sync stability improvement - orta/jonallured
-    - Failed images will be removed from local cache  - orta/jonallured
-    - (dev) Update Fonts, Xcode version - orta
 
 releases:
+  - version: 2.5.5
+    date: Apr 5, 2017
+    notes:
+      - Sync stability improvement - orta/jonallured
+      - Failed images will be removed from local cache  - orta/jonallured
+      - (dev) Update Fonts, Xcode version - orta
 
   - version: 2.5.4
     date: Aug 31, 2016
