@@ -14,6 +14,7 @@
 #import "ARPopoverController.h"
 #import "ARModernEmailArtworksViewController.h"
 #import "InstallShotImage.h"
+#import "ARTheme.h"
 
 
 @interface ARHostViewController () <ARModalAlertViewControllerDelegate>
@@ -250,6 +251,7 @@
             ;
     }
 
+    [ARTheme resetWindowTint];
     [self dismissPopoversAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
     [self endSelecting];
