@@ -4,6 +4,7 @@
 #import "AREmailComposer.h"
 #import "ARDefaults.h"
 #import "AREmailSettings.h"
+#import <Forgeries/ForgeriesUserDefaults+Mocks.h>
 
 
 @interface AREmailComposer ()

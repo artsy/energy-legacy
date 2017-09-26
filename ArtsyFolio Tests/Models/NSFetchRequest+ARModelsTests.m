@@ -1,6 +1,7 @@
 #import "ARDefaults.h"
 #import "AROptions.h"
 #import "NSFetchRequest+ARModels.h"
+#import <Forgeries/ForgeriesUserDefaults+Mocks.h>
 
 SpecBegin(NSFetchRequestARModels);
 

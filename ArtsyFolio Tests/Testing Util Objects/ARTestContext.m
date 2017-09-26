@@ -23,13 +23,13 @@ NS_ENUM(NSInteger, ARDeviceType){
 
 + (void)load;
 {
-    NSInteger osVersion = 10;
-    NSInteger minorVersion = 3;
+    NSInteger osVersion = 11;
+    NSInteger minorVersion = 0;
     NSOperatingSystemVersion version = [NSProcessInfo processInfo].operatingSystemVersion;
     BOOL isRightVersion = version.majorVersion == osVersion && version.minorVersion == minorVersion;
 
     if (!isRightVersion) {
-        @throw [NSException exceptionWithName:@"Wrong iOS version" reason:NSStringWithFormat(@"The tests should be run on iOS %@.%@, not %@.%@", @(osVersion), @(minorVersion), @(version.majorVersion), @(version.minorVersion)) userInfo:@{}] ;
+        @throw [NSException exceptionWithName:@"Wrong iOS version" reason:NSStringWithFormat(@"The tests should be run on iOS %@.%@, not %@.%@", @(osVersion), @(minorVersion), @(version.majorVersion), @(version.minorVersion)) userInfo:@{}];
     }
 
     if (![UIDevice isPad]) {

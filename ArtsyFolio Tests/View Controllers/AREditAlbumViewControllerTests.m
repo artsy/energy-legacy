@@ -5,9 +5,10 @@
 #import "ARSelectionHandler.h"
 #import "NSFetchRequest+ARModels.h"
 #import "ARBorderedSerifLabel.h"
-#import <Artsy+UILabels/ARLabelSubclasses.h>
+#import <Artsy+UILabels/Artsy+UILabels.h>
 #import "ARAlbumEditNavigationController.h"
 #import "AROptions.h"
+#import <Forgeries/ForgeriesUserDefaults+Mocks.h>
 
 id ARAlbumViewControllerWithStubbedNavItem(void);
 id ARAlbumViewControllerWithStubbedParent(void);

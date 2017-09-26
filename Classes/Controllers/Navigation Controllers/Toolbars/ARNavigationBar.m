@@ -1,5 +1,5 @@
 
-
+#import <FLKAutoLayout/UIView+FLKAutoLayout.h>
 #import "ARNavigationBar.h"
 
 
@@ -13,6 +13,7 @@
     [self removeNavigationBarShadow];
     [self tintColorDidChange];
 
+    _extendedHeight = [UIDevice isPad];
     return self;
 }
 
@@ -29,23 +30,94 @@
     }
 }
 
-- (CGSize)sizeThatFits:(CGSize)size
-{
-    size.height = self.extendedHeight ? ARToolbarSizeHeight : ARToolbarSizeHeightPhone;
-    size.width = self.superview.bounds.size.width;
-    return size;
+//- (void)updateConstraints
+//{
+//    for (NSLayoutConstraint *constraint in self.constraints) {
+//        if (constraint.constant == 44) {
+//            constraint.constant =  200;//self.extendedHeight ? ARToolbarSizeHeight : ARToolbarSizeHeightPhone;
+////            [self removeConstraint:constraint];
+////            [self constrainHeight:@"72@1000"];
+//        }
+//    }
+//    [super updateConstraints];
+//}
+//
+//- (CGSize)sizeThatFits:(CGSize)size
+//{
+//    // TODO: Check for iOS 11
+//
+//    size.height = self.extendedHeight ? ARToolbarSizeHeight : ARToolbarSizeHeightPhone;
+//    size.width = self.superview.bounds.size.width;
+//    return size;
+//}
+
+- (CGSize)sizeThatFits:(CGSize)size {
+    CGSize sizeThatFit = [super sizeThatFits:size];
+//    if ([UIApplication sharedApplication].isStatusBarHidden) {
+        if (sizeThatFit.height < 84.f) {
+            sizeThatFit.height = 120.f;
+        }
+//    }
+    return sizeThatFit;
+}
+
+- (void)setFrame:(CGRect)frame {
+//    if ([UIApplication sharedApplication].isStatusBarHidden) {
+        frame.size.height = 80;
+//    }
+    [super setFrame:frame];
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
 
-    if (self.topItem) {
-        [self verticallyCenterView:self.topItem.titleView];
-        [self verticallyCenterView:self.topItem.leftBarButtonItems];
-        [self verticallyCenterView:self.topItem.rightBarButtonItems];
+    for (UIView *subview in self.subviews) {
+        if ([NSStringFromClass([subview class]) containsString:@"BarBackground"]) {
+            CGRect subViewFrame = subview.frame;
+            subViewFrame.origin.y = 0;
+            subViewFrame.size.height = self.extendedHeight ? ARToolbarSizeHeight : ARToolbarSizeHeightPhone;
+            [subview setFrame: subViewFrame];
+        }
+        if ([NSStringFromClass([subview class]) containsString:@"BarContentView"]) {
+            CGRect subViewFrame = subview.frame;
+            subViewFrame.origin.y = 0;
+            subViewFrame.size.height = self.extendedHeight ? ARToolbarSizeHeight : ARToolbarSizeHeightPhone;
+            [subview setFrame: subViewFrame];
+        }
     }
+        if (self.topItem) {
+            [self verticallyCenterView:self.topItem.titleView];
+            [self verticallyCenterView:self.topItem.leftBarButtonItems];
+            [self verticallyCenterView:self.topItem.rightBarButtonItems];
+        }
 }
+//
+//- (void)setFrame:(CGRect)frame
+//{
+//    CGSize size = [self sizeThatFits:CGSizeZero];
+//    [super setFrame: CGRectMake(0, 0, size.width, size.height)];
+//}
+
+//- (void)layoutSubviews
+//{
+//    [super layoutSubviews];
+//
+//    for (UIView *subview in self.subviews) {
+//        if ([NSStringFromClass([subview class]) containsString:@"BarBackground"]) {
+//            CGRect subViewFrame = subview.frame;
+//            subViewFrame.origin.y = -20;
+//            subViewFrame.size.height = CUSTOM_FIXED_HEIGHT+20;
+//            [subview setFrame: subViewFrame];
+//        }
+//    }
+//
+//    if (self.topItem) {
+//        [self verticallyCenterView:self.topItem.titleView];
+//        [self verticallyCenterView:self.topItem.leftBarButtonItems];
+//        [self verticallyCenterView:self.topItem.rightBarButtonItems];
+//    }
+//}
 
 - (void)verticallyCenterView:(id)viewOrArray
 {
@@ -61,7 +133,8 @@
 
 - (void)center:(UIView *)viewToCenter
 {
-    CGFloat barMidpoint = roundf(self.frame.size.height / 2);
+     CGFloat height = self.extendedHeight ? ARToolbarSizeHeight : ARToolbarSizeHeightPhone;
+    CGFloat barMidpoint = roundf(height / 2);
     CGFloat viewMidpoint = roundf(viewToCenter.frame.size.height / 2);
 
     CGRect newFrame = viewToCenter.frame;
@@ -103,7 +176,7 @@
     }
 
     UIView *background = [self.subviews firstObject];
-    background.backgroundColor = background.backgroundColor;
+    background.backgroundColor = [UIColor debugColourPurple]; //background.backgroundColor;
 }
 
 

@@ -1,6 +1,7 @@
 #import "ARLoginViewController.h"
 #import "ARStubbedLoginNetworkModel.h"
 #import "ARUserManager.h"
+#import <Forgeries/ForgeriesUserDefaults+Mocks.h>
 
 /// Without this, the tests are dependant on if Eigen is installed
 @interface FakeApplication : NSObject
@@ -39,14 +40,14 @@ dispatch_block_t before = ^{
 };
 
 it(@"look right on ipad", ^{
-    [ARTestContext useContext:ARTestContextDeviceTypePad :^{
+    [ARTestContext useContext:ARTestContextDeviceTypePad:^{
         before();
         expect(controller).to.haveValidSnapshot();
     }];
 });
 
 it(@"look right on phone", ^{
-    [ARTestContext useContext:ARTestContextDeviceTypePhone4 :^{
+    [ARTestContext useContext:ARTestContextDeviceTypePhone4:^{
         before();
         expect(controller).to.haveValidSnapshot();
     }];
@@ -92,7 +93,7 @@ describe(@"error handling", ^{
 
     it(@"handles artsy errors ", ^{
         NSError *error = [NSError errorWithDomain:@"hi" code:1 userInfo:@{
-            @"error_description": @"Random server error"
+            @"error_description" : @"Random server error"
         }];
 
         network.isArtsyUp = true;
@@ -102,7 +103,7 @@ describe(@"error handling", ^{
 
     it(@"tweaks invalid login errors ", ^{
         NSError *error = [NSError errorWithDomain:@"hi" code:1 userInfo:@{
-            @"error_description": @"invalid email or password"
+            @"error_description" : @"invalid email or password"
         }];
 
         network.isArtsyUp = true;
@@ -112,7 +113,7 @@ describe(@"error handling", ^{
 
     it(@"shows an error saying artsy is down when artsy is down and apple is up ", ^{
         NSError *error = [NSError errorWithDomain:@"hi" code:1 userInfo:@{
-            @"error_description": @"invalid email or password"
+            @"error_description" : @"invalid email or password"
         }];
 
         network.isArtsyUp = false;
@@ -123,7 +124,7 @@ describe(@"error handling", ^{
 
     it(@"shows a different message if apple is down ", ^{
         NSError *error = [NSError errorWithDomain:@"hi" code:1 userInfo:@{
-            @"error_description": @"invalid email or password"
+            @"error_description" : @"invalid email or password"
         }];
 
         network.isArtsyUp = false;

@@ -18,7 +18,7 @@ before(^{
     view5 = [[ARDebugPlaceholderView alloc] initWithSize:(CGSize) { 25, 100 } color:UIColor.redColor];
 
     [wrapper addSubview:sut];
-    [sut alignTop:@"0" leading:@"0" bottom:nil trailing:@"0" toView:wrapper];
+    [sut alignTop:0 leading:0 bottom:nil trailing:0 toView:wrapper];
 });
 
 describe(@"single stack", ^{
@@ -27,20 +27,20 @@ describe(@"single stack", ^{
     });
 
     it(@"with one view", ^{
-        [sut addSubview:view1 withPrecedingMargin:@"0"];
+        [sut addSubview:view1 withPrecedingMargin:0];
         expect(wrapper).to.haveValidSnapshot();
     });
 
     it(@"with two views", ^{
-        [sut addSubview:view1 withPrecedingMargin:@"0"];
-        [sut addSubview:view2 withPrecedingMargin:@"0"];
+        [sut addSubview:view1 withPrecedingMargin:0];
+        [sut addSubview:view2 withPrecedingMargin:0];
         expect(wrapper).to.haveValidSnapshot();
     });
 
     it(@"with three views", ^{
-        [sut addSubview:view1 withPrecedingMargin:@"0"];
-        [sut addSubview:view2 withPrecedingMargin:@"0"];
-        [sut addSubview:view3 withPrecedingMargin:@"0"];
+        [sut addSubview:view1 withPrecedingMargin:0];
+        [sut addSubview:view2 withPrecedingMargin:0];
+        [sut addSubview:view3 withPrecedingMargin:0];
         expect(wrapper).to.haveValidSnapshot();
     });
 });
@@ -52,17 +52,17 @@ describe(@"margins", ^{
 
     it(@"small with three views", ^{
         sut.centerMargin = 20;
-        [sut addSubview:view1 withPrecedingMargin:@"0"];
-        [sut addSubview:view2 withPrecedingMargin:@"0"];
-        [sut addSubview:view3 withPrecedingMargin:@"0"];
+        [sut addSubview:view1 withPrecedingMargin:0];
+        [sut addSubview:view2 withPrecedingMargin:0];
+        [sut addSubview:view3 withPrecedingMargin:0];
         expect(wrapper).to.haveValidSnapshot();
     });
 
     it(@"medium with three views", ^{
         sut.centerMargin = 50;
-        [sut addSubview:view1 withPrecedingMargin:@"0"];
-        [sut addSubview:view2 withPrecedingMargin:@"0"];
-        [sut addSubview:view3 withPrecedingMargin:@"0"];
+        [sut addSubview:view1 withPrecedingMargin:0];
+        [sut addSubview:view2 withPrecedingMargin:0];
+        [sut addSubview:view3 withPrecedingMargin:0];
         expect(wrapper).to.haveValidSnapshot();
     });
 
@@ -70,15 +70,15 @@ describe(@"margins", ^{
 
 describe(@"bg color", ^{
     it(@"works right on single", ^{
-        [sut addSubview:view1 withPrecedingMargin:@"20"];
+        [sut addSubview:view1 withPrecedingMargin:20];
         sut.backgroundColor = UIColor.blackColor;
         expect(wrapper).to.haveValidSnapshot();
     });
 
     it(@"works right in split", ^{
         sut.isSplit = YES;
-        [sut addSubview:view1 withPrecedingMargin:@"20"];
-        [sut addSubview:view2 withPrecedingMargin:@"20"];
+        [sut addSubview:view1 withPrecedingMargin:20];
+        [sut addSubview:view2 withPrecedingMargin:20];
         sut.backgroundColor = UIColor.blackColor;
         expect(wrapper).to.haveValidSnapshot();
     });
@@ -90,37 +90,37 @@ describe(@"double stack", ^{
     });
 
     it(@"with one view", ^{
-        [sut addSubview:view1 withPrecedingMargin:@"0"];
+        [sut addSubview:view1 withPrecedingMargin:0];
         expect(wrapper).to.haveValidSnapshot();
     });
 
     it(@"with two views", ^{
-        [sut addSubview:view1 withPrecedingMargin:@"0"];
-        [sut addSubview:view2 withPrecedingMargin:@"0"];
+        [sut addSubview:view1 withPrecedingMargin:0];
+        [sut addSubview:view2 withPrecedingMargin:0];
         expect(wrapper).to.haveValidSnapshot();
     });
 
     it(@"with three views", ^{
-        [sut addSubview:view1 withPrecedingMargin:@"0"];
-        [sut addSubview:view2 withPrecedingMargin:@"0"];
-        [sut addSubview:view3 withPrecedingMargin:@"0"];
+        [sut addSubview:view1 withPrecedingMargin:0];
+        [sut addSubview:view2 withPrecedingMargin:0];
+        [sut addSubview:view3 withPrecedingMargin:0];
         expect(wrapper).to.haveValidSnapshot();
     });
 
     it(@"with four views", ^{
-        [sut addSubview:view1 withPrecedingMargin:@"0"];
-        [sut addSubview:view2 withPrecedingMargin:@"0"];
-        [sut addSubview:view3 withPrecedingMargin:@"0"];
-        [sut addSubview:view4 withPrecedingMargin:@"0"];
+        [sut addSubview:view1 withPrecedingMargin:0];
+        [sut addSubview:view2 withPrecedingMargin:0];
+        [sut addSubview:view3 withPrecedingMargin:0];
+        [sut addSubview:view4 withPrecedingMargin:0];
         expect(wrapper).to.haveValidSnapshot();
     });
 
     it(@"with five views", ^{
-        [sut addSubview:view1 withPrecedingMargin:@"0"];
-        [sut addSubview:view2 withPrecedingMargin:@"0"];
-        [sut addSubview:view3 withPrecedingMargin:@"0"];
-        [sut addSubview:view4 withPrecedingMargin:@"0"];
-        [sut addSubview:view5 withPrecedingMargin:@"0"];
+        [sut addSubview:view1 withPrecedingMargin:0];
+        [sut addSubview:view2 withPrecedingMargin:0];
+        [sut addSubview:view3 withPrecedingMargin:0];
+        [sut addSubview:view4 withPrecedingMargin:0];
+        [sut addSubview:view5 withPrecedingMargin:0];
         expect(wrapper).to.haveValidSnapshot();
     });
 });
