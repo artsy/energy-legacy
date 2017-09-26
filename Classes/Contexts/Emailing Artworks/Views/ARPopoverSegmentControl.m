@@ -10,10 +10,10 @@
 {
     self = [super initWithItems:items];
 
-    [self setBackgroundImage:[UIImage imageFromColor:UIColor.artsyPurple] forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-    [self setBackgroundImage:[UIImage imageFromColor:UIColor.artsyPurple] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+    [self setBackgroundImage:[UIImage imageFromColor:UIColor.artsyPurpleRegular] forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+    [self setBackgroundImage:[UIImage imageFromColor:UIColor.artsyPurpleRegular] forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
 
-    [self setDividerImage:[UIImage imageFromColor:[UIColor artsyMediumGrey]] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self setDividerImage:[UIImage imageFromColor:[UIColor artsyGrayMedium]] forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 
     [self setTitleTextAttributes:@{
         NSFontAttributeName : [UIFont serifFontWithSize:14],
@@ -26,7 +26,7 @@
     } forState:UIControlStateSelected];
 
     // Sets the selected BG colour
-    self.tintColor = [UIColor artsyPurple];
+    self.tintColor = [UIColor artsyPurpleRegular];
 
     return self;
 }

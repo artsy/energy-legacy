@@ -16,9 +16,9 @@
 
 // Emulates a subset of the ORStackView API
 
-- (void)addSubview:(UIView *)view withTopMargin:(NSString *)margin;
+- (void)addSubview:(UIView *)view withPrecedingMargin:(CGFloat)margin;
 
-- (void)addSubview:(UIView *)view withTopMargin:(NSString *)topMargin sideMargin:(NSString *)sideMargin;
+- (void)addSubview:(UIView *)view withPrecedingMargin:(CGFloat)topMargin sideMargin:(CGFloat)sideMargin;
 
 // Ensure people don't make mistakes
 

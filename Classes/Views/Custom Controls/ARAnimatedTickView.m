@@ -12,7 +12,8 @@
 @end
 
 
-@interface ARAnimatedTickView () {
+@interface ARAnimatedTickView ()
+{
     ARTickViewBackLayer *_backLayer;
 }
 @end
@@ -30,7 +31,7 @@
 {
     self = [super initWithFrame:CGRectMake(0, 0, TICK_DIMENSION, TICK_DIMENSION)];
     if (self) {
-        self.backgroundColor = [[UIColor artsyLightGrey] colorWithAlphaComponent:0.2];
+        self.backgroundColor = [[UIColor artsyGrayLight] colorWithAlphaComponent:0.2];
 
         _backLayer = [ARTickViewBackLayer layer];
         _backLayer.completion = 1;
@@ -167,7 +168,7 @@
     CGContextClosePath(ctx);
 
     // Color it
-    CGContextSetFillColorWithColor(ctx, [UIColor artsyPurple].CGColor);
+    CGContextSetFillColorWithColor(ctx, [UIColor artsyPurpleRegular].CGColor);
     CGContextSetLineWidth(ctx, 0);
 
     CGContextDrawPath(ctx, kCGPathFill);

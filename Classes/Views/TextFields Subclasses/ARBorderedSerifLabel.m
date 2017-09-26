@@ -24,7 +24,7 @@
     _label.backgroundColor = [UIColor artsyBackgroundColor];
 
     BOOL whiteFolio = [AROptions boolForOption:AROptionsUseWhiteFolio];
-    _label.textColor = whiteFolio ? [UIColor artsyHeavyGrey] : [UIColor artsyMediumGrey];
+    _label.textColor = whiteFolio ? [UIColor artsyGrayBold] : [UIColor artsyGrayMedium];
     _label.textAlignment = NSTextAlignmentCenter;
     [self addSubview:_label];
 

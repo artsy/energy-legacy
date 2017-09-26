@@ -3,7 +3,8 @@
 static int ButtonMargin = 5;
 
 
-@interface ARButtonPopoverViewController () {
+@interface ARButtonPopoverViewController ()
+{
     ARFlatButton *button;
     NSInteger style;
 }
@@ -41,8 +42,8 @@ static int ButtonMargin = 5;
             break;
 
         default:
-            [button setBackgroundColor:[UIColor artsyMediumGrey]];
-            [button setBackgroundColor:[UIColor artsyPurple] forState:UIControlStateHighlighted];
+            [button setBackgroundColor:[UIColor artsyGrayMedium]];
+            [button setBackgroundColor:[UIColor artsyPurpleRegular] forState:UIControlStateHighlighted];
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
             break;
     }

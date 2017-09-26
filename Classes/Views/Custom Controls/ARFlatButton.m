@@ -76,15 +76,15 @@
 
     self.backgroundColors = [NSMutableDictionary dictionary];
     self.borderColors = [NSMutableDictionary dictionary];
-    self.borderColor = UIColor.artsyMediumGrey;
+    self.borderColor = UIColor.artsyGrayMedium;
 
-    self.backgroundColor = UIColor.artsyMediumGrey;
+    self.backgroundColor = UIColor.artsyGrayMedium;
     self.titleLabel.font = [UIFont sansSerifFontWithSize:ARFontSansRegular];
 
-    [self setBackgroundColor:UIColor.artsyMediumGrey forState:UIControlStateNormal];
-    [self setBackgroundColor:UIColor.artsyPurple forState:UIControlStateHighlighted];
+    [self setBackgroundColor:UIColor.artsyGrayMedium forState:UIControlStateNormal];
+    [self setBackgroundColor:UIColor.artsyPurpleRegular forState:UIControlStateHighlighted];
 
-    [self setBorderColor:UIColor.artsyMediumGrey forState:UIControlStateNormal];
+    [self setBorderColor:UIColor.artsyGrayMedium forState:UIControlStateNormal];
     [self setBorderColor:UIColor.whiteColor forState:UIControlStateHighlighted];
 
     [self setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
@@ -184,11 +184,11 @@
     [super setup];
 
     [self setBackgroundColor:UIColor.blackColor forState:UIControlStateNormal];
-    [self setBackgroundColor:UIColor.artsyHeavyGrey forState:UIControlStateHighlighted];
+    [self setBackgroundColor:UIColor.artsyGrayBold forState:UIControlStateHighlighted];
     [self setBackgroundColor:UIColor.blackColor forState:UIControlStateDisabled];
 
     [self setBorderColor:UIColor.whiteColor forState:UIControlStateNormal];
-    [self setBorderColor:UIColor.artsyLightGrey forState:UIControlStateDisabled];
+    [self setBorderColor:UIColor.artsyGrayLight forState:UIControlStateDisabled];
 
     [self setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
 
@@ -204,11 +204,11 @@
 {
     [super setup];
 
-    [self setBackgroundColor:UIColor.artsyHeavyGrey forState:UIControlStateNormal];
-    [self setBackgroundColor:UIColor.artsyLightGrey forState:UIControlStateHighlighted];
+    [self setBackgroundColor:UIColor.artsyGrayBold forState:UIControlStateNormal];
+    [self setBackgroundColor:UIColor.artsyGrayLight forState:UIControlStateHighlighted];
 
-    [self setBorderColor:UIColor.artsyHeavyGrey forState:UIControlStateNormal];
-    [self setBorderColor:UIColor.artsyLightGrey forState:UIControlStateDisabled];
+    [self setBorderColor:UIColor.artsyGrayBold forState:UIControlStateNormal];
+    [self setBorderColor:UIColor.artsyGrayLight forState:UIControlStateDisabled];
 
     [self setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
 
@@ -225,10 +225,10 @@
     [super setup];
 
     [self setBackgroundColor:UIColor.blackColor forState:UIControlStateNormal];
-    [self setBackgroundColor:UIColor.artsyPurple forState:UIControlStateHighlighted];
+    [self setBackgroundColor:UIColor.artsyPurpleRegular forState:UIControlStateHighlighted];
 
     [self setBorderColor:UIColor.blackColor forState:UIControlStateNormal];
-    [self setBorderColor:UIColor.artsyLightGrey forState:UIControlStateDisabled];
+    [self setBorderColor:UIColor.artsyGrayLight forState:UIControlStateDisabled];
 
     [self setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
 
@@ -249,8 +249,8 @@
     [self setBackgroundColor:UIColor.whiteColor forState:UIControlStateNormal];
 
     [self setBorderColor:UIColor.blackColor forState:UIControlStateNormal];
-    [self setBorderColor:UIColor.artsyMediumGrey forState:UIControlStateDisabled];
-    [self setBorderColor:UIColor.artsyMediumGrey forState:UIControlStateHighlighted];
+    [self setBorderColor:UIColor.artsyGrayMedium forState:UIControlStateDisabled];
+    [self setBorderColor:UIColor.artsyGrayMedium forState:UIControlStateHighlighted];
 
     [self setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
 
@@ -269,7 +269,7 @@
     self.layer.borderWidth = 0;
 
     [self setBackgroundColor:UIColor.blackColor forState:UIControlStateNormal];
-    [self setBackgroundColor:UIColor.artsyMediumGrey forState:UIControlStateDisabled];
+    [self setBackgroundColor:UIColor.artsyGrayMedium forState:UIControlStateDisabled];
 
     [self setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
 

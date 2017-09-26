@@ -1,4 +1,4 @@
-#import <Artsy+UILabels/ARLabelSubclasses.h>
+#import <Artsy+UILabels/Artsy+UILabels.h>
 
 
 @interface ARDateLabel : ARSerifLabel

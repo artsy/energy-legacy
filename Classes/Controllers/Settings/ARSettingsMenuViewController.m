@@ -7,8 +7,6 @@
 #import <Intercom/Intercom.h>
 
 #import "UIViewController+SettingsNavigationItemHelpers.h"
-#import <EDColor/EDColor.h>
-
 
 typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
     ARSettingsAlertViewButtonIndexCancel,
@@ -110,7 +108,7 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 - (void)enablePresentationModeToggle:(BOOL)enable
 {
     self.presentationModeToggle.enabled = enable;
-    [self.presentationModeButton setTitleTextColor:enable ? UIColor.blackColor : UIColor.artsyHeavyGrey];
+    [self.presentationModeButton setTitleTextColor:enable ? UIColor.blackColor : UIColor.artsyGrayBold];
 
     if (self.presentationModeToggle.on && !enable) {
         self.presentationModeToggle.on = NO;

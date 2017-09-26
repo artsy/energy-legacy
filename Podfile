@@ -61,6 +61,7 @@ target 'ArtsyFolio' do
     # @weakify / @strongify / @keypath
     pod 'libextobjc/EXTKeyPathCoding', '~> 0.3'
     pod 'libextobjc/EXTScope', '~> 0.3'
+    pod 'SDWebImage', '~> 3.0'
 
     pod 'TPKeyboardAvoiding', :git => 'https://github.com/michaeltyson/TPKeyboardAvoiding.git'
     pod 'ARTiledImageView', :git => 'https://github.com/dblock/ARTiledImageView.git'
@@ -83,7 +84,7 @@ target 'ArtsyFolio' do
 
         pod 'XCTest+OHHTTPStubSuiteCleanUp'
         pod 'OCMock'
-        pod 'Forgeries/Mocks', :git => "https://github.com/ashfurrow/Forgeries.git", :branch => "remove"
+        pod 'Forgeries/Mocks', :git => "https://github.com/ashfurrow/Forgeries.git"
     end
 
 end

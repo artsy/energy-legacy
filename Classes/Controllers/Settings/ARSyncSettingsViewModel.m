@@ -103,7 +103,7 @@
 
 - (UIColor *)syncButtonColor
 {
-    if ((self.networkQuality != ARNetworkQualityOffline) && [self.defaults boolForKey:ARRecommendSync]) return [UIColor artsyPurple];
+    if ((self.networkQuality != ARNetworkQualityOffline) && [self.defaults boolForKey:ARRecommendSync]) return [UIColor artsyPurpleRegular];
 
     return UIColor.blackColor;
 }

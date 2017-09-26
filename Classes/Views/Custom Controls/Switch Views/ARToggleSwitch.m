@@ -2,7 +2,8 @@
 #import "ARToggleSwitch.h"
 
 
-@implementation ARToggleSwitch {
+@implementation ARToggleSwitch
+{
     CALayer *_slidingToggleLayer;
     CAShapeLayer *_nubLayer;
     CAShapeLayer *_backgroundLayer;
@@ -40,8 +41,8 @@
     _on = on;
 
     CGPoint slidePosition = (on) ? CGPointMake(0, 0) : CGPointMake(-42, 0);
-    UIColor *backgroundColor = (on) ? [UIColor artsyPurple] : [UIColor whiteColor];
-    UIColor *borderColor = (on) ? [UIColor artsyPurple] : [UIColor artsyLightGrey];
+    UIColor *backgroundColor = (on) ? [UIColor artsyPurpleRegular] : [UIColor whiteColor];
+    UIColor *borderColor = (on) ? [UIColor artsyPurpleRegular] : [UIColor artsyGrayLight];
 
     _slidingToggleLayer.position = slidePosition;
 
@@ -104,13 +105,13 @@
     [offTextLayer setContentsScale:[[UIScreen mainScreen] scale]];
     [offTextLayer setFontSize:ARFontSerifSmall];
     [offTextLayer setFrame:CGRectMake(77, 5, 35, 22)];
-    [offTextLayer setForegroundColor:[UIColor artsyLightGrey].CGColor];
+    [offTextLayer setForegroundColor:[UIColor artsyGrayLight].CGColor];
 
     [_slidingToggleLayer addSublayer:offTextLayer];
 
     _nubLayer = [CAShapeLayer layer];
     _nubLayer.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(50.5, 6.5, 16, 16)].CGPath;
-    _nubLayer.fillColor = [UIColor artsyLightGrey].CGColor;
+    _nubLayer.fillColor = [UIColor artsyGrayLight].CGColor;
     [_slidingToggleLayer addSublayer:_nubLayer];
 
     [self.layer setBackgroundColor:[UIColor debugColourGreen].CGColor];

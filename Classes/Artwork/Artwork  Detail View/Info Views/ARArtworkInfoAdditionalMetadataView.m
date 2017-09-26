@@ -1,7 +1,7 @@
 #import "ARArtworkInfoAdditionalMetadataView.h"
 #import "Artwork+HTMLTexts.h"
 #import "NSString+StripHTML.h"
-#import <Artsy+UILabels/ARLabelSubclasses.h>
+#import <Artsy+UILabels/Artsy+UILabels.h>
 #import "EditionSet.h"
 #import <ORStackView/ORStackView.h>
 #import "NSString+NiceAttributedStrings.h"
@@ -82,19 +82,19 @@
 
     if (artwork.editionSets.count) {
         UILabel *editionsTitle = [self titleLabelWithText:@"Editions"];
-        [self addSubview:editionsTitle withTopMargin:@"0" sideMargin:@"0"];
+        [self addSubview:editionsTitle withPrecedingMargin:0 sideMargin:0];
 
         UIView *editionStack = [self stackViewForEditionSets:artwork.editionSets];
-        [self addSubview:editionStack withTopMargin:@"6" sideMargin:@"0"];
+        [self addSubview:editionStack withPrecedingMargin:6 sideMargin:0];
     }
 
     [artworkTitles eachWithIndex:^(NSString *title, NSUInteger index) {
         UILabel *titleLabel = [self titleLabelWithText:title];
         BOOL isATopTitle = [self isATopTitleAtIndex:index editions:artwork.editionSets.count];
-        [self addSubview:titleLabel withTopMargin:isATopTitle ? @"0" : @"28" sideMargin:@"0"];
-        
+        [self addSubview:titleLabel withPrecedingMargin:isATopTitle ? 0 : 28 sideMargin:0];
+
         UILabel *bodyLabel = [self bodyLabelWithText:artworkTexts[index]];
-        [self addSubview:bodyLabel withTopMargin:@"6" sideMargin:@"0"];
+        [self addSubview:bodyLabel withPrecedingMargin:6 sideMargin:0];
     }];
 
     self.backgroundColor = [UIColor artsyBackgroundColor];
@@ -135,18 +135,18 @@
     ORStackView *editionsView = [[ORStackView alloc] init];
 
     NSSortDescriptor *priceSort = [NSSortDescriptor sortDescriptorWithKey:@"internalPrice" ascending:NO];
-    NSArray *editions = [editionSets sortedArrayUsingDescriptors:@[priceSort]];
+    NSArray *editions = [editionSets sortedArrayUsingDescriptors:@[ priceSort ]];
 
     [editions eachWithIndex:^(EditionSet *set, NSUInteger editionIndex) {
         NSArray *editionAttributes = [set editionAttributes];
-        
+
         if ([self showPriceOfEditionSet:set] && set.internalPrice.length) {
             editionAttributes = [editionAttributes arrayByAddingObject:set.internalPrice];
         }
-        
+
         [editionAttributes eachWithIndex:^(NSString *attribute, NSUInteger attrIndex) {
             UILabel *label = [self bodyLabelWithText:attribute];
-            [editionsView addSubview:label withTopMargin:(attrIndex == 0 && !(editionIndex == 0)) ? @"25" : @"2" sideMargin:@"0"];
+            [editionsView addSubview:label withPrecedingMargin:(attrIndex == 0 && !(editionIndex == 0)) ? 25 : 2 sideMargin:0];
         }];
     }];
 

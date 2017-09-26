@@ -234,7 +234,7 @@ static NSString *ARPricesRowIdentifier = @"ARPricesRowIdentifier";
         if (!self.additionalImagesSelectionView) {
             Artwork *artwork = self.artworks.firstObject;
 
-            NSArray *images =  [artwork.images select:^BOOL(Image *image) {
+            NSArray *images = [artwork.images select:^BOOL(Image *image) {
                 return artwork.mainImage != image;
             }];
 
@@ -264,12 +264,11 @@ static NSString *ARPricesRowIdentifier = @"ARPricesRowIdentifier";
     cellData.cellConfigurationBlock = ^(ARGroupedTableViewCell *cell) {
         @strongify(self);
         if (!self.installationShotsSelectionView) {
-
             NSArray *images = [self.artworkDataSource installationShotsForArtworks:artworks context:self.context];
 
             ARThumbnailImageSelectionView *selectionView = [self selectionViewForImages:images cell:cell];
             [selectionView selectImages:self.installShots];
-            
+
             [cell.contentView addSubview:selectionView];
             [selectionView alignTop:@"4" leading:@"4" bottom:@"-4" trailing:@"-4" toView:cell.contentView];
             _installationShotsSelectionView = selectionView;
@@ -310,7 +309,7 @@ static NSString *ARPricesRowIdentifier = @"ARPricesRowIdentifier";
     cellData.cellSelectionBlock = ^(UITableView *tableView, NSIndexPath *indexPath) {
         @strongify(self);
         ARTickedTableViewCell *cell = (id)[tableView cellForRowAtIndexPath:indexPath];
-        
+
         BOOL selected = [self.userDefaults boolForKey:defaultKey];
         [self.userDefaults setBool:!selected forKey:defaultKey];
         [cell setTickSelected:!selected animated:YES];
@@ -347,8 +346,8 @@ static NSString *ARPricesRowIdentifier = @"ARPricesRowIdentifier";
 {
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitle:@"Working…" forState:UIControlStateNormal];
-    [button setBackgroundColor:[UIColor artsyPurple] forState:UIControlStateNormal];
-    [button setBorderColor:[UIColor artsyPurple] forState:UIControlStateNormal];
+    [button setBackgroundColor:[UIColor artsyPurpleRegular] forState:UIControlStateNormal];
+    [button setBorderColor:[UIColor artsyPurpleRegular] forState:UIControlStateNormal];
 
     [self emailArtworks];
 }

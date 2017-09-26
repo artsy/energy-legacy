@@ -39,7 +39,8 @@
 @end
 
 
-@implementation ARTabbedViewController {
+@implementation ARTabbedViewController
+{
     ARPopoverController *_sortPopoverVC;
     UIButton *_sortButton;
     enum ARArtworkSortOrder _sortIndex;
@@ -54,7 +55,7 @@
     [super viewDidLoad];
 
     _stackView = [[ORStackView alloc] initWithFrame:self.parentViewController.view.bounds];
-    _stackView.bottomMarginHeight = 0;
+    _stackView.lastMarginHeight = 0;
     [self.view addSubview:self.stackView];
     [_stackView alignToView:self.view];
 
@@ -63,12 +64,12 @@
     _topToolbar.attatchedToTop = YES;
 
     _topToolbarHeightConstraint = [[_topToolbar constrainHeight:@"0"] firstObject];
-    [_stackView addSubview:_topToolbar withTopMargin:@"0" sideMargin:@"0"];
+    [_stackView addSubview:_topToolbar withPrecedingMargin:0 sideMargin:0];
 
     ORStackView *header = [[ORStackView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 1)];
-    header.bottomMarginHeight = 0;
+    header.lastMarginHeight = 0;
     _headerStackView = header;
-    [_stackView addSubview:header withTopMargin:@"0" sideMargin:@"0"];
+    [_stackView addSubview:header withPrecedingMargin:0 sideMargin:0];
 
     if (![UIDevice isPad]) {
         ARFolioSansSerifLabel *label = [[ARFolioSansSerifLabel alloc] init];
@@ -79,20 +80,20 @@
         label.textAlignment = NSTextAlignmentCenter;
         _titleLabel = label;
 
-        [self.headerStackView addSubview:label withTopMargin:@"6" sideMargin:@"0"];
+        [self.headerStackView addSubview:label withPrecedingMargin:6 sideMargin:0];
     } else {
         [self setPadTitle:self.title];
     }
 
     // Add switch view at the top
     _switchView = [self createSwitchView];
-    [_headerStackView addSubview:self.switchView withTopMargin:@"0" sideMargin:@"0"];
+    [_headerStackView addSubview:self.switchView withPrecedingMargin:0 sideMargin:0];
 
     // Add an TabView underneath, that takes up available space
     _tabView = [self createTabView];
     [self.tabView setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
 
-    [_stackView addSubview:self.tabView withTopMargin:@"10" sideMargin:@"0"];
+    [_stackView addSubview:self.tabView withPrecedingMargin:10 sideMargin:0];
 
     [self.headerStackView layoutIfNeeded];
     _maxHeaderHeight = CGRectGetHeight(self.headerStackView.frame);
@@ -101,8 +102,8 @@
 
     _bottomToolbar = [self createToolbar];
     _bottomToolbar.attatchedToBottom = YES;
-    _bottomToolbarHeightConstraint = [[_bottomToolbar constrainHeight:@"0"] firstObject];
-    [_stackView addSubview:_bottomToolbar withTopMargin:@"0" sideMargin:@"0"];
+    _bottomToolbarHeightConstraint = [[_bottomToolbar constrainHeight:0] firstObject];
+    [_stackView addSubview:_bottomToolbar withPrecedingMargin:0 sideMargin:0];
 
     [self.tabView setCurrentViewIndex:0 animated:NO];
 }

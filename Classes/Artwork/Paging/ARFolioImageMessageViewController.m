@@ -47,7 +47,7 @@
 
     SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:self.url entersReaderIfAvailable:NO];
     safariVC.delegate = self;
-    safariVC.view.tintColor = [UIColor artsyPurple];
+    safariVC.view.tintColor = [UIColor artsyPurpleRegular];
     [self presentViewController:safariVC animated:YES completion:nil];
 #else
     [[UIApplication sharedApplication] openURL:self.url];

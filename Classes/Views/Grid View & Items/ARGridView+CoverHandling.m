@@ -13,7 +13,8 @@
 @end
 
 
-@interface ARGridView () {
+@interface ARGridView ()
+{
     ARPopoverController *_coverPopoverController;
     UICollectionView *_gridView;
 
@@ -195,7 +196,7 @@
 
 - (void)setCoverAndDismissPopover:(ARFlatButton *)sender
 {
-    [sender setBackgroundColor:[UIColor artsyPurple] forState:UIControlStateNormal];
+    [sender setBackgroundColor:[UIColor artsyPurpleRegular] forState:UIControlStateNormal];
     [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 
     // Pass the message back up to the Grid View Controller
