@@ -1,5 +1,7 @@
 #import "ARNavigationController.h"
 #import "ARNavigationBar.h"
+#import "ARNavigationBarOS11.h"
+
 #import "ARAppDelegate.h"
 
 #import "ARGridViewController.h"
@@ -36,7 +38,7 @@ static ARNavigationController *sharedInstance = nil;
 
 - (instancetype)init
 {
-    self = [super initWithNavigationBarClass:ARNavigationBar.class toolbarClass:nil];
+    self = [super initWithNavigationBarClass:ARNavigationBarOS11.class toolbarClass:nil];
     if (!self) return nil;
 
     _navDelegate = [[ARRootNavigationControllerDelegate alloc] init];
