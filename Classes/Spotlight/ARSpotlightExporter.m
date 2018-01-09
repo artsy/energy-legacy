@@ -24,7 +24,6 @@
 
 - (void)syncDidFinish:(ARSync *)sync
 {
-    // TODO: Move to DI
     self.context = sync.config.managedObjectContext;
     [self updateCache];
 }

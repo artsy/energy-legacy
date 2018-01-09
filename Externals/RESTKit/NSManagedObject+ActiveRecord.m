@@ -19,7 +19,6 @@ static NSNumber *defaultBatchSize = nil;
 
 #pragma mark - RKManagedObject methods
 
-// TODO: Not sure that we even need the objectStore...
 + (NSManagedObjectContext *)managedObjectContext
 {
     NSManagedObjectContext *context = nil;
