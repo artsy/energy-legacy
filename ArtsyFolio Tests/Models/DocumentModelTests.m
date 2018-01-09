@@ -41,9 +41,6 @@ describe(@"thumbnailing", ^{
         expect(document.thumbnailFilePath).to.equal(document.genericTextDocumentFilePath);
     });
 
-    // The stub isn't letting methods go into parent classes, so the test fail.
-    // TODO: Figure how to work around.
-    
     pending(@"subclasses", ^{
         it(@"returns the right filepath if the file exists", ^{
             ShowDocument *document = [ShowDocument modelFromJSON:@{
