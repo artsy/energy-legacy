@@ -38,7 +38,7 @@ static ARNavigationController *sharedInstance = nil;
 
 - (instancetype)init
 {
-    self = [super initWithNavigationBarClass:ARNavigationBarOS11.class toolbarClass:nil];
+    self = [super initWithNavigationBarClass:ARNavigationBar.class toolbarClass:nil];
     if (!self) return nil;
 
     _navDelegate = [[ARRootNavigationControllerDelegate alloc] init];
@@ -221,5 +221,14 @@ static ARNavigationController *sharedInstance = nil;
     [[ARSwitchBoard sharedSwitchboard] jumpToLocationViewController:location animated:YES];
 }
 
+//- (void)viewSafeAreaInsetsDidChange
+//{
+//    [super viewSafeAreaInsetsDidChange];
+//
+//    CGFloat height = [UIDevice isPad] ? ARToolbarSizeHeight : ARToolbarSizeHeightPhone;
+////    if (self.view.safeAreaInsets.top < height) {
+//    self.additionalSafeAreaInsets = UIEdgeInsetsMake(height, 0, 0, 0);
+////    }
+//}
 
 @end

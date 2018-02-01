@@ -2,6 +2,15 @@
 
 @implementation ARNavigationBarOS11
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self){
+        self.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return self;
+}
+
 - (CGSize)sizeThatFits:(CGSize)size
 {
     return CGSizeMake([UIScreen mainScreen].bounds.size.width , ARToolbarSizeHeight);
@@ -9,13 +18,24 @@
 
 - (void)layoutSubviews
 {
-    CGRect newFrame =CGRectMake(self.frame.origin.x, 0, self.frame.size.width, ARToolbarSizeHeight);
-    //
+    CGRect newFrame = CGRectMake(self.frame.origin.x, 0, self.frame.size.width, ARToolbarSizeHeight);
+
     if(!CGRectEqualToRect(newFrame, self.frame)) {
         self.frame = newFrame;
     }
+
+    [self setTitleVerticalPositionAdjustment:20 forBarMetrics:UIBarMetricsDefault];
+
+    for (UIView *childView in self.subviews ) {
+        NSString *classString = NSStringFromClass(childView.class);
+        if([classString containsString:@"BarBackground"]) {
+            [childView setBackgroundColor:[UIColor redColor]];
+        }
+    }
+
+
 //     CGRectMake(self.frame.origin.x, 0, self.frame.size.width, ARToolbarSizeHeight);
-//    setTitleVerticalPositionAdjustment(-10, for: UIBarMetrics.default)
+//
 
 //    for subview in self.subviews {
 //        var stringFromClass = NSStringFromClass(subview.classForCoder)
@@ -44,9 +64,9 @@
     self.barTintColor = [[self.class appearance] barTintColor];
 
     [self setTitleTextAttributes:@{
-                                   NSForegroundColorAttributeName : [UIColor artsyForegroundColor],
-                                   NSFontAttributeName : [UIFont sansSerifFontWithSize:20]
-                                   }];
+        NSForegroundColorAttributeName : [UIColor artsyForegroundColor],
+        NSFontAttributeName : [UIFont sansSerifFontWithSize:20]
+    }];
 
     [self.topItem.titleView tintColorDidChange];
 
@@ -62,6 +82,7 @@
 
     UIView *background = [self.subviews firstObject];
     background.backgroundColor = background.backgroundColor;
+    self.backgroundColor = background.backgroundColor;
 }
 
 
