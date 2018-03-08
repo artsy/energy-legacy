@@ -37,17 +37,18 @@
 - (NSString *)stringByStrippingHTML
 {
     // take this string obj and wrap it in a root element to ensure only a single root element exists
-    NSString *string = [NSString stringWithFormat:@"<root>%@</root>", self];
+    NSData *stringData = [self dataUsingEncoding:NSUTF8StringEncoding];
 
-    // not only do we want to avoid unwittingly stripping typography, but this process mangles
-    // text surrounding these entities, i.e. "orta&rsquo;s house" becomes "orta"
-    string = [string stringByReplacingOccurrencesOfString:@"&lsquo;" withString:@"’"];
-    string = [string stringByReplacingOccurrencesOfString:@"&rsquo;" withString:@"‘"];
-    string = [string stringByReplacingOccurrencesOfString:@"&ldquo;" withString:@"“"];
-    string = [string stringByReplacingOccurrencesOfString:@"&rdquo;" withString:@"”"];
-    string = [string stringByReplacingOccurrencesOfString:@"&mdash;" withString:@"—"];
-    string = [string stringByReplacingOccurrencesOfString:@"&ndash;" withString:@"–"];
-    string = [string stringByReplacingOccurrencesOfString:@"&hellip;" withString:@"…"];
+    // Pipe it though NSAttributedString to convert HTML encoded content into human readable text
+    // e.g. %amp; -> &
+    NSDictionary *options = @{NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType};
+
+    NSString *encoded = [[[NSAttributedString alloc] initWithData:stringData
+                                                      options:options
+                                           documentAttributes:NULL
+                                                        error:NULL] string];
+
+    NSString *string = [NSString stringWithFormat:@"<root>%@</root>", encoded];
 
 
     // add the string to the xml parser

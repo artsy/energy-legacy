@@ -24,7 +24,7 @@ NS_ENUM(NSInteger, ARDeviceType){
 + (void)load;
 {
     NSInteger osVersion = 11;
-    NSInteger minorVersion = 0;
+    NSInteger minorVersion = 3;
     NSOperatingSystemVersion version = [NSProcessInfo processInfo].operatingSystemVersion;
     BOOL isRightVersion = version.majorVersion == osVersion && version.minorVersion == minorVersion;
 

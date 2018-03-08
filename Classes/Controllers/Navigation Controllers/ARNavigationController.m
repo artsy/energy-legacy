@@ -1,6 +1,5 @@
 #import "ARNavigationController.h"
 #import "ARNavigationBar.h"
-#import "ARNavigationBarOS11.h"
 
 #import "ARAppDelegate.h"
 

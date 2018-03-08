@@ -54,8 +54,6 @@
 
 + (void)setupBackButton
 {
-    BOOL whiteFolio = [AROptions boolForOption:AROptionsUseWhiteFolio];
-
     [[UIBarButtonItem appearanceWhenContainedIn:ARNavigationBar.class, nil] setBackgroundVerticalPositionAdjustment:-15 forBarMetrics:UIBarMetricsDefault];
 
     [[UIBarButtonItem appearanceWhenContainedIn:ARNavigationBar.class, nil] setTitleTextAttributes:@{
@@ -63,31 +61,14 @@
         NSFontAttributeName : [UIFont sansSerifFontWithSize:16]
 
     } forState:UIControlStateNormal & UIControlStateHighlighted & UIControlStateDisabled];
-//
-//    if ([UIDevice isPad]) {
-//        UIImage *base = whiteFolio ? [[UIImage imageNamed:@"BackButtonBackground"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] : [[UIImage imageNamed:@"BackButtonBackgroundWhite"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-//
-//        UIImage *backgroundImage = [base resizableImageWithCapInsets:UIEdgeInsetsMake(22, 22, 22, 26)];
-//
-//        [[UIBarButtonItem appearanceWhenContainedIn:ARNavigationBar.class, nil] setBackButtonBackgroundImage:backgroundImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-//
-//        [[UIBarButtonItem appearanceWhenContainedIn:ARNavigationBar.class, nil] setBackButtonTitlePositionAdjustment:UIOffsetMake(5, -15) forBarMetrics:UIBarMetricsDefault];
-//
-//        [[UIBarButtonItem appearanceWhenContainedIn:ARNavigationBar.class, nil] setBackButtonBackgroundVerticalPositionAdjustment:-14 forBarMetrics:UIBarMetricsDefault];
-//    }
 
-
-    [[UINavigationBar appearance] setTintColor:[UIColor artsyForegroundColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor artsyBackgroundColor]];
     [ARNavigationController rootController].navigationBar.tintColor = [UIColor artsyForegroundColor];
     [[ARNavigationController rootController].navigationBar tintColorDidChange];
 }
 
 + (void)setupNavTitle
 {
-//    if ([UIDevice isPad]) {
-//        [[ARNavigationBar appearance] setTitleVerticalPositionAdjustment:-15 forBarMetrics:UIBarMetricsDefault];
-//    }
-
     [[ARNavigationBar appearance] setBarTintColor:[UIColor artsyBackgroundColor]];
     [[ARNavigationBar appearance] setTintColor:[UIColor artsyForegroundColor]];
 

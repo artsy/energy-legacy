@@ -13,7 +13,7 @@
     [self removeNavigationBarShadow];
     [self tintColorDidChange];
 
-    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+//    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
 
     return self;
 }
@@ -22,15 +22,15 @@
 {
     // Removes a single line from the nav bar.
 
-    for (UIView *view in self.subviews) {
-        [view setTranslatesAutoresizingMaskIntoConstraints:NO];
-
-        for (UIView *view2 in view.subviews) {
-            if ([view2 isKindOfClass:[UIImageView class]] && view2.frame.size.height < 2) {
-                [view2 removeFromSuperview];
-            }
-        }
-    }
+//    for (UIView *view in self.subviews) {
+//        [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+//
+//        for (UIView *view2 in view.subviews) {
+//            if ([view2 isKindOfClass:[UIImageView class]] && view2.frame.size.height < 2) {
+//                [view2 removeFromSuperview];
+//            }
+//        }
+//    }
 }
 //
 //- (CGSize)sizeThatFits:(CGSize)size
@@ -40,25 +40,25 @@
 //    return size;
 //}
 
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-
-//    CGRect newFrame = CGRectMake(self.frame.origin.x, 0, self.frame.size.width, ARToolbarSizeHeight);
-
-//    for (UIView *view in self.subviews) {
-//        [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+//- (void)layoutSubviews
+//{
+//    [super layoutSubviews];
 //
-//        if(!CGRectEqualToRect(newFrame, self.frame)) {
-//            self.frame = newFrame;
-//        }
+////    CGRect newFrame = CGRectMake(self.frame.origin.x, 0, self.frame.size.width, ARToolbarSizeHeight);
+//
+////    for (UIView *view in self.subviews) {
+////        [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+////
+////        if(!CGRectEqualToRect(newFrame, self.frame)) {
+////            self.frame = newFrame;
+////        }
+////    }
+//    if (self.topItem) {
+//        [self verticallyCenterView:self.topItem.titleView];
+////        [self verticallyCenterView:self.topItem.leftBarButtonItems];
+////        [self verticallyCenterView:self.topItem.rightBarButtonItems];
 //    }
-    if (self.topItem) {
-        [self verticallyCenterView:self.topItem.titleView];
-        [self verticallyCenterView:self.topItem.leftBarButtonItems];
-        [self verticallyCenterView:self.topItem.rightBarButtonItems];
-    }
-}
+//}
 
 - (void)verticallyCenterView:(id)viewOrArray
 {

@@ -93,7 +93,7 @@
     _tabView = [self createTabView];
     [self.tabView setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
 
-    [_stackView addSubview:self.tabView withPrecedingMargin:10 sideMargin:0];
+    [_stackView addSubview:self.tabView withPrecedingMargin:0 sideMargin:0];
 
     [self.headerStackView layoutIfNeeded];
     _maxHeaderHeight = CGRectGetHeight(self.headerStackView.frame);
@@ -207,11 +207,12 @@
 {
     ARSecondarySwitchView *switchView = [[ARSecondarySwitchView alloc] initWithFrame:CGRectZero];
     switchView.titles = self.tabsDataSource.potentialTitles;
+    switchView.leftAlign = ![UIDevice isPad];
 
     if ([self.representedObject conformsToProtocol:@protocol(ARArtworkContainer)]) {
         id<ARArtworkContainer> container = (id<ARArtworkContainer>)self.representedObject;
 
-        if ([UIDevice isPad] && [container collectionSize] > 1 && !self.selectionHandler.isSelecting) {
+        if ([container collectionSize] > 1 && !self.selectionHandler.isSelecting) {
             _sorts = [container availableSorts];
             switchView.rightSupplementaryView = [self sortButton];
         }
@@ -231,20 +232,19 @@
         _sortIndex = [_sorts[0] order];
     }
 
-    UILabel *arrow = [[UILabel alloc] initWithFrame:CGRectMake(SORT_BUTTON_WIDTH - SORT_BUTTON_ARROW_WIDTH,
-                                                               SORT_BUTTON_ARROW_TOP_INSET,
-                                                               SORT_BUTTON_ARROW_WIDTH,
-                                                               SORT_BUTTON_OUTERHEIGHT - SORT_BUTTON_ARROW_TOP_INSET)];
-
+    UILabel *arrow = [[UILabel alloc] init];
     arrow.font = [UIFont serifFontWithSize:SORT_BUTTON_ARROW_FONT_SIZE];
     arrow.text = @"▼";
     arrow.backgroundColor = [UIColor artsyBackgroundColor];
     arrow.textColor = [UIColor artsyForegroundColor];
 
     [_sortButton insertSubview:arrow belowSubview:_sortButton.titleLabel];
+    [arrow alignTrailingEdgeWithView:_sortButton predicate:@"0"];
+    [arrow alignCenterYWithView:_sortButton predicate:@"0"];
+
     _sortButton.backgroundColor = [UIColor artsyBackgroundColor];
     _sortButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    _sortButton.titleLabel.font = [UIFont serifFontWithSize:ARFontSerifSmall];
+    _sortButton.titleLabel.font = [UIFont serifFontWithSize:ARPhoneFontSerif];
     _sortButton.contentEdgeInsets = UIEdgeInsetsMake(SORT_BUTTON_ARROW_TOP_INSET, 0, 0, SORT_BUTTON_ARROW_WIDTH + 3);
 
     ARSortDefinition *definition = [_sorts find:^BOOL(ARSortDefinition *sort) {
@@ -257,7 +257,7 @@
         _sortIndex = [_sorts.firstObject order];
     }
 
-    NSString *localizedSortFormat = NSLocalizedString(@"By %@ ", @"Sorted by button text");
+    NSString *localizedSortFormat = NSLocalizedString(@"By %@", @"Sorted by button text");
     NSString *title = [[NSString stringWithFormat:localizedSortFormat, name] uppercaseString];
     [_sortButton setTitle:title forState:UIControlStateNormal];
     [_sortButton setTitleColor:[UIColor artsyForegroundColor] forState:UIControlStateNormal];
