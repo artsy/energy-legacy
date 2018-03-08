@@ -16,7 +16,7 @@ PODS:
     - ISO8601DateFormatter
     - NSURL+QueryDictionary
   - Artsy+UIColors (3.1.0)
-  - Artsy+UIFonts (3.1.1)
+  - Artsy+UIFonts (3.2.0)
   - Artsy+UILabels (2.2.0):
     - Artsy+UIColors (~> 3.0)
     - Artsy+UIFonts
@@ -177,7 +177,7 @@ SPEC CHECKSUMS:
   ARTiledImageView: 2db7735f5d3fcb4c859c912834a6a1bf20716377
   Artsy+Authentication: 8ecf6729902827c49c9bc54155ac9495929fcbcb
   Artsy+UIColors: 31c03c4146f5e6618a9b950f37dfe02dd9ac09a6
-  Artsy+UIFonts: e66afb5c40100e2fc5bba28feb7487e252f2d06f
+  Artsy+UIFonts: d29579aa105e3709032651fb3145d24f8339e905
   Artsy+UILabels: 7cb6e290a4f70dddba037b7dbeb21e90b49d7275
   CocoaLumberjack: 628fca2e88ef06f7cf6817309aa405f325d9a6fa
   DRBOperationTree: 9fa8d41cf6f616b93944c8a7e370f0739aa82b60

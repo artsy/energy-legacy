@@ -59,7 +59,6 @@
     [[UIBarButtonItem appearanceWhenContainedIn:ARNavigationBar.class, nil] setTitleTextAttributes:@{
         NSForegroundColorAttributeName : [UIColor artsyForegroundColor],
         NSFontAttributeName : [UIFont sansSerifFontWithSize:16]
-
     } forState:UIControlStateNormal & UIControlStateHighlighted & UIControlStateDisabled];
 
     [[UINavigationBar appearance] setTintColor:[UIColor artsyBackgroundColor]];

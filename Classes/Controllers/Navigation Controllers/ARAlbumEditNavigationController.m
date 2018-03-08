@@ -2,13 +2,11 @@
 #import "ARSelectionToolbarView.h"
 #import "ARSelectionHandler.h"
 #import "AREditAlbumNavigationBar.h"
-#import "ARRootNavigationControllerDelegate.h"
 #import "ARAlbumViewController.h"
 
 
 @interface ARAlbumEditNavigationController ()
 @property (nonatomic, strong) ARSelectionHandler *selectionHandler;
-@property (nonatomic, strong) ARRootNavigationControllerDelegate *navDelegate;
 @end
 
 
@@ -22,9 +20,6 @@
     if (!self) return nil;
 
     _album = album;
-
-    _navDelegate = [[ARRootNavigationControllerDelegate alloc] init];
-    self.delegate = _navDelegate;
 
     return self;
 }

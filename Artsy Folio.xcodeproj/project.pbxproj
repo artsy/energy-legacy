@@ -243,8 +243,6 @@
 		6085133715B442C90062236F /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6085133415B440E70062236F /* QuickLook.framework */; };
 		608518E91624487D00FC2AD0 /* NSArray+ObjectsOfClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 608518E81624487D00FC2AD0 /* NSArray+ObjectsOfClass.m */; };
 		6085ACEF1949F76700D853A1 /* ArtsyMobileIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085ACEE1949F76700D853A1 /* ArtsyMobileIcon@2x.png */; };
-		6086648C1A31C8FB0030226D /* ARRootNavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6086648B1A31C8FB0030226D /* ARRootNavigationControllerDelegate.m */; };
-		6086648E1A31D5D60030226D /* ARRootNavigationControllerDelegateSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6086648D1A31D5D60030226D /* ARRootNavigationControllerDelegateSpec.m */; };
 		608664981A3226430030226D /* _SyncError.m in Sources */ = {isa = PBXBuildFile; fileRef = 608664971A3226430030226D /* _SyncError.m */; };
 		6086649B1A32271F0030226D /* SyncError.m in Sources */ = {isa = PBXBuildFile; fileRef = 6086649A1A32271F0030226D /* SyncError.m */; };
 		6089CF6B14EBE4F300F17636 /* SearchCancelBGSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 6089CF6914EBE4F300F17636 /* SearchCancelBGSelected.png */; };
@@ -385,8 +383,8 @@
 		60C1495B1500EFB100D6715D /* ARBaseViewController+TransparentModals.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C1495A1500EFB100D6715D /* ARBaseViewController+TransparentModals.m */; };
 		60C20F051836B20D00846A60 /* ARGroupedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C20F041836B20D00846A60 /* ARGroupedView.m */; };
 		60C21E3B198B9DEF005CA461 /* ARHostSelectionControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C21E3A198B9DEF005CA461 /* ARHostSelectionControllerTests.m */; };
-		60C279BC1BE2310300229C8C /* (null) in Resources */ = {isa = PBXBuildFile; };
-		60C279BD1BE2310300229C8C /* (null) in Resources */ = {isa = PBXBuildFile; };
+		60C279BC1BE2310300229C8C /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		60C279BD1BE2310300229C8C /* BuildFile in Resources */ = {isa = PBXBuildFile; };
 		60C563CC160B196A000E800E /* switch_seperator.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C563CA160B196A000E800E /* switch_seperator.png */; };
 		60C563CE160B196A000E800E /* switch_seperator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C563CB160B196A000E800E /* switch_seperator@2x.png */; };
 		60C563D3160B40EB000E800E /* ARTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C563D2160B40EB000E800E /* ARTitleLabel.m */; };
@@ -1015,9 +1013,6 @@
 		608518E71624487D00FC2AD0 /* NSArray+ObjectsOfClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ObjectsOfClass.h"; sourceTree = "<group>"; };
 		608518E81624487D00FC2AD0 /* NSArray+ObjectsOfClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ObjectsOfClass.m"; sourceTree = "<group>"; };
 		6085ACEE1949F76700D853A1 /* ArtsyMobileIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ArtsyMobileIcon@2x.png"; sourceTree = "<group>"; };
-		6086648A1A31C8FB0030226D /* ARRootNavigationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARRootNavigationControllerDelegate.h; sourceTree = "<group>"; };
-		6086648B1A31C8FB0030226D /* ARRootNavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARRootNavigationControllerDelegate.m; sourceTree = "<group>"; };
-		6086648D1A31D5D60030226D /* ARRootNavigationControllerDelegateSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARRootNavigationControllerDelegateSpec.m; sourceTree = "<group>"; };
 		608664961A3226430030226D /* _SyncError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SyncError.h; sourceTree = "<group>"; };
 		608664971A3226430030226D /* _SyncError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SyncError.m; sourceTree = "<group>"; };
 		608664991A32271F0030226D /* SyncError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncError.h; sourceTree = "<group>"; };
@@ -1737,7 +1732,6 @@
 				60AB08C91982CBE000290C99 /* ARNavigationController+Testing.h */,
 				60AB08CA1982CBE000290C99 /* ARNavigationController+Testing.m */,
 				60D4D71C198FD853001AB8AF /* ARSwitchboardTests.m */,
-				6086648D1A31D5D60030226D /* ARRootNavigationControllerDelegateSpec.m */,
 				60ADD68F1ACB4EB200A847B5 /* ARAppDelegateTests.m */,
 				600E64A71CCA2DBE00182B88 /* ARDefaultsTests.m */,
 				606C84751C16009400C6D15F /* ARStubbedNetworkQualityIndicator.h */,
@@ -2144,8 +2138,6 @@
 				605F1D46183EC298007EFE74 /* ARContentControllers.h */,
 				60AC3E4E19AE623700E48C37 /* ARAlbumEditNavigationController.h */,
 				60AC3E4F19AE623700E48C37 /* ARAlbumEditNavigationController.m */,
-				6086648A1A31C8FB0030226D /* ARRootNavigationControllerDelegate.h */,
-				6086648B1A31C8FB0030226D /* ARRootNavigationControllerDelegate.m */,
 			);
 			path = "Navigation Controllers";
 			sourceTree = "<group>";
@@ -3707,12 +3699,12 @@
 				60B3408D1609C25B002A5926 /* action_btn_whiteborder@2x.png in Resources */,
 				606B1EDD184681FF00CC3DBD /* Black.png in Resources */,
 				60B340B71609C28D002A5926 /* garbage_btn_solidwhite.png in Resources */,
-				60C279BD1BE2310300229C8C /* (null) in Resources */,
+				60C279BD1BE2310300229C8C /* BuildFile in Resources */,
 				60B340B91609C28D002A5926 /* garbage_btn_solidwhite@2x.png in Resources */,
 				60B340BB1609C28D002A5926 /* garbage_btn_whiteborder.png in Resources */,
 				60B340BD1609C28D002A5926 /* garbage_btn_whiteborder@2x.png in Resources */,
 				606B1EDB1846805E00CC3DBD /* Transparent.png in Resources */,
-				60C279BC1BE2310300229C8C /* (null) in Resources */,
+				60C279BC1BE2310300229C8C /* BuildFile in Resources */,
 				60B340CF1609C2C1002A5926 /* plus_btn_solidwhite.png in Resources */,
 				60B6085A1A41847300C2BBE5 /* PhoneAddArtworksButton@2x.png in Resources */,
 				60B340D11609C2C1002A5926 /* plus_btn_solidwhite@2x.png in Resources */,
@@ -3895,7 +3887,11 @@
 				"${PODS_ROOT}/Artsy+UIFonts/Pod/Assets/AGaramondPro-Italic.otf",
 				"${PODS_ROOT}/Artsy+UIFonts/Pod/Assets/AGaramondPro-Regular.otf",
 				"${PODS_ROOT}/Artsy+UIFonts/Pod/Assets/AGaramondPro-Semibold.otf",
-				"${PODS_ROOT}/Artsy+UIFonts/Pod/Assets/ITCAvantGardeDemi_Track03.ttf",
+				"${PODS_ROOT}/Artsy+UIFonts/Pod/Assets/AVG65lig.otf",
+				"${PODS_ROOT}/Artsy+UIFonts/Pod/Assets/Unica77LL-Italic.otf",
+				"${PODS_ROOT}/Artsy+UIFonts/Pod/Assets/Unica77LL-Medium.otf",
+				"${PODS_ROOT}/Artsy+UIFonts/Pod/Assets/Unica77LL-MediumItalic.otf",
+				"${PODS_ROOT}/Artsy+UIFonts/Pod/Assets/Unica77LL-Regular.otf",
 				"${PODS_ROOT}/Artsy+UILabels/Pod/Assets/Chevron_Black.png",
 				"${PODS_ROOT}/Artsy+UILabels/Pod/Assets/Chevron_Black@2x.png",
 				"${PODS_ROOT}/GHMarkdownParser/discount/blocktags",
@@ -4033,7 +4029,6 @@
 				6032E3491BE22203001C3494 /* ARStubbedAnalytics.m in Sources */,
 				60D7A1A01A66F1F00036F11F /* PartnerOptionModelTestsTests.m in Sources */,
 				60C9392B1C7D2B2E0010136C /* ARSyncProgressTests.m in Sources */,
-				6086648E1A31D5D60030226D /* ARRootNavigationControllerDelegateSpec.m in Sources */,
 				6074927B19701C4A004F3C83 /* ARModelFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4068,7 +4063,6 @@
 				D8FAA9951442893600AA34BC /* ARNetworkConstants.m in Sources */,
 				D8FAA9961442893600AA34BC /* ARNotifications.m in Sources */,
 				D8FAA9971442893600AA34BC /* ARAddToAlbumViewController.m in Sources */,
-				6086648C1A31C8FB0030226D /* ARRootNavigationControllerDelegate.m in Sources */,
 				D8FAA9981442893600AA34BC /* ARArtworkSetViewController.m in Sources */,
 				D8FAA9991442893600AA34BC /* ARGridViewController.m in Sources */,
 				B3DA7ADF185BA9EE00CDD11A /* ARTileArchive.m in Sources */,

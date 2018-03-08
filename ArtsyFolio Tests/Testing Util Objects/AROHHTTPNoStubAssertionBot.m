@@ -34,6 +34,10 @@
         return nil;
     }
 
+    if ([request.URL.absoluteString hasSuffix:@"about:blank"]) {
+        return nil;
+    }
+
     id spectaExample = [[NSThread mainThread] threadDictionary][@"SPTCurrentSpec"];
     id expectaMatcher = [[NSThread mainThread] threadDictionary][@"EXP_currentMatcher"];
 
