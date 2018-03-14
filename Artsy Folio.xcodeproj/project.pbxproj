@@ -383,8 +383,8 @@
 		60C1495B1500EFB100D6715D /* ARBaseViewController+TransparentModals.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C1495A1500EFB100D6715D /* ARBaseViewController+TransparentModals.m */; };
 		60C20F051836B20D00846A60 /* ARGroupedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C20F041836B20D00846A60 /* ARGroupedView.m */; };
 		60C21E3B198B9DEF005CA461 /* ARHostSelectionControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C21E3A198B9DEF005CA461 /* ARHostSelectionControllerTests.m */; };
-		60C279BC1BE2310300229C8C /* BuildFile in Resources */ = {isa = PBXBuildFile; };
-		60C279BD1BE2310300229C8C /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		60C279BC1BE2310300229C8C /* (null) in Resources */ = {isa = PBXBuildFile; };
+		60C279BD1BE2310300229C8C /* (null) in Resources */ = {isa = PBXBuildFile; };
 		60C563CC160B196A000E800E /* switch_seperator.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C563CA160B196A000E800E /* switch_seperator.png */; };
 		60C563CE160B196A000E800E /* switch_seperator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C563CB160B196A000E800E /* switch_seperator@2x.png */; };
 		60C563D3160B40EB000E800E /* ARTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C563D2160B40EB000E800E /* ARTitleLabel.m */; };
@@ -1210,6 +1210,7 @@
 		60BA589B153C21D7005E0576 /* ARAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAlertViewController.h; sourceTree = "<group>"; };
 		60BA589C153C21D7005E0576 /* ARAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAlertViewController.m; sourceTree = "<group>"; };
 		60BA589D153C21D8005E0576 /* ARAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARAlertViewController.xib; sourceTree = "<group>"; };
+		60BB6979205167FD00FCF06A /* ARTopViewControllerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTopViewControllerTests.h; sourceTree = "<group>"; };
 		60BDA97814DC06E500852753 /* DoneButtonBackgroundTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneButtonBackgroundTransparent.png; sourceTree = "<group>"; };
 		60BF8F5A199A8F390031200B /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		60BF8F5C199A8F410031200B /* libPods-ArtsyFolio Tests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ArtsyFolio Tests.a"; path = "Pods/build/Debug-iphoneos/libPods-ArtsyFolio Tests.a"; sourceTree = "<group>"; };
@@ -1985,6 +1986,7 @@
 				839E42601B052DE800C4BF49 /* ARFolioMessageViewControllerTests.m */,
 				834BA69C1B4AE74F009D18F7 /* ARFolioImageMessageViewControllerTests.m */,
 				60B813931B8280370046A52C /* ARZeroStateMessageViewControllerTests.m */,
+				60BB6979205167FD00FCF06A /* ARTopViewControllerTests.h */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -3699,12 +3701,12 @@
 				60B3408D1609C25B002A5926 /* action_btn_whiteborder@2x.png in Resources */,
 				606B1EDD184681FF00CC3DBD /* Black.png in Resources */,
 				60B340B71609C28D002A5926 /* garbage_btn_solidwhite.png in Resources */,
-				60C279BD1BE2310300229C8C /* BuildFile in Resources */,
+				60C279BD1BE2310300229C8C /* (null) in Resources */,
 				60B340B91609C28D002A5926 /* garbage_btn_solidwhite@2x.png in Resources */,
 				60B340BB1609C28D002A5926 /* garbage_btn_whiteborder.png in Resources */,
 				60B340BD1609C28D002A5926 /* garbage_btn_whiteborder@2x.png in Resources */,
 				606B1EDB1846805E00CC3DBD /* Transparent.png in Resources */,
-				60C279BC1BE2310300229C8C /* BuildFile in Resources */,
+				60C279BC1BE2310300229C8C /* (null) in Resources */,
 				60B340CF1609C2C1002A5926 /* plus_btn_solidwhite.png in Resources */,
 				60B6085A1A41847300C2BBE5 /* PhoneAddArtworksButton@2x.png in Resources */,
 				60B340D11609C2C1002A5926 /* plus_btn_solidwhite@2x.png in Resources */,
@@ -3895,13 +3897,28 @@
 				"${PODS_ROOT}/Artsy+UILabels/Pod/Assets/Chevron_Black.png",
 				"${PODS_ROOT}/Artsy+UILabels/Pod/Assets/Chevron_Black@2x.png",
 				"${PODS_ROOT}/GHMarkdownParser/discount/blocktags",
-				"$PODS_CONFIGURATION_BUILD_DIR/HockeySDK-Source/HockeySDKResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/HockeySDK-Source/HockeySDKResources.bundle",
 				"${PODS_ROOT}/Intercom/Intercom/Intercom.framework/Versions/A/Resources/Intercom.bundle",
 				"${PODS_ROOT}/Intercom/Intercom/Intercom.framework/Versions/A/Resources/IntercomTranslations.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AGaramondPro-Bold.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AGaramondPro-BoldItalic.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AGaramondPro-Italic.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AGaramondPro-Regular.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AGaramondPro-Semibold.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AVG65lig.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Unica77LL-Italic.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Unica77LL-Medium.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Unica77LL-MediumItalic.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Unica77LL-Regular.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Chevron_Black.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Chevron_Black@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/blocktags",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/HockeySDKResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Intercom.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IntercomTranslations.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

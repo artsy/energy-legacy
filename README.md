@@ -41,7 +41,7 @@ You will have a running version of the Artsy app by hitting `Build > Run`.
 
 - Instead of `make oss` in the above, run `make artsy` to set up [spacecommander](https://github.com/square/spacecommander).
 - Run `bundle exec pod install`. More info [here](https://guides.cocoapods.org/using/a-gemfile.html), if you're curious.
-- Run tests on an `iPad Air 2` running `10.3`.
+- Run tests on an `iPad Air 2` running `11.2`.
 
 ### Troubleshooting
 

@@ -72,8 +72,6 @@ static NSString *CellIdentifier = @"Search Result List Cell";
     // (and pretty awkward to have to pass the TV in)
     // but it's gotta go somewhere right?
 
-    // TODO: make this cleaner
-
     [tableView registerClass:[ARTableViewCell class] forCellReuseIdentifier:CellIdentifier];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

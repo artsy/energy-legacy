@@ -39,7 +39,6 @@
         [predicates addObject:[NSPredicate predicateWithFormat:@"isAvailableForSale == %@", @(YES)]];
     }
 
-    // TODO: https://github.com/artsy/energy/issues/643
     [predicates addObject:[NSPredicate predicateWithFormat:@"images.@count > 0"]];
     [predicates addObject:[NSPredicate predicateWithFormat:@"ANY images.processing == %@ ", @(NO)]];
 
@@ -58,7 +57,6 @@
         [predicates addObject:[NSPredicate predicateWithFormat:@"ANY artworks.isAvailableForSale == %@", @(YES)]];
     }
 
-    // TODO: https://github.com/artsy/energy/issues/641
     [predicates addObject:[NSPredicate predicateWithFormat:@"artworks.@count > 0"]];
 
     return [NSCompoundPredicate andPredicateWithSubpredicates:predicates];

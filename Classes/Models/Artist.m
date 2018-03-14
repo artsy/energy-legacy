@@ -96,8 +96,6 @@
     return [self artworksFetchRequestSortedBy:order];
 }
 
-// TODO: Why are these methods so similar? #644
-
 - (NSString *)searchDisplayName
 {
     if (self.displayName) {

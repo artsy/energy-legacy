@@ -22,8 +22,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // TODO: Why does this exist?
     self.view.clipsToBounds = YES;
 }
 
