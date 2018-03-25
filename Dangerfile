@@ -27,7 +27,7 @@ end
 # Use Circle's build artifacts feature to let Danger read the build, and test logs.
 # There's nothing fancy here, just a unix command chain with `tee` sending the output to a known file.
 #
-test_file = File.join(ENV["CIRCLE_ARTIFACTS"], "xcode_test_raw.log")
+test_file = File.join(".", "xcode_test_raw.log")
 
 # If there's snapshot fails, we should also fail danger, but we can make the thing clickable in a comment instead of hidden in the log
 # Note: this _may_ break in a future build of Danger, I am debating sandboxing the runner from ENV vars.
