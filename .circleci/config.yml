@@ -93,9 +93,9 @@ jobs:
           name: Pre-Build App
           command: make ci
 
-    #   - run:
-    #       name: Run tests
-    #       command: make test
+      - run:
+          name: Run tests
+          command: make test
 
       - store_artifacts:
           path: xcode_build_raw.log
@@ -108,9 +108,9 @@ jobs:
       - store_test_results:
           path: test-results.xml
   
-    #   - run:
-    #       name: Danger
-    #       command: bundle exec danger --danger_id=circle --dangerfile=Dangerfile.circle.rb --verbose
+      - run:
+          name: Danger
+          command: bundle exec danger
       
       - run:
           name: Deploy if beta
