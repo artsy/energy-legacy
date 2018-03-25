@@ -33,6 +33,7 @@ it(@"does not crash when setting the request manually", ^{
 });
 
 describe(@"content", ^{
+    // TODO: Figure out why OCMock infinite loops in this test
     xit(@"Gets all locations when display mode is ARDisplayModeAllLocations", ^{
         ARGridViewController *subject = [[ARGridViewController alloc] initWithDisplayMode:ARDisplayModeAllLocations];
         subject.managedObjectContext = [CoreDataManager stubbedManagedObjectContext];

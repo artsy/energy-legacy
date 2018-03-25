@@ -65,9 +65,9 @@
         printf("   Stack trace: %s\n\n\n\n", [stackTrace componentsJoinedByString:@"\n                "].UTF8String);
     }
     if (spectaExample) {
-//        _XCTPrimitiveFail(spectaExample, @"Failed due to unstubbed networking.");
+        _XCTPrimitiveFail(spectaExample, @"Failed due to unstubbed networking.");
     } else {
-//        NSAssert(@"Failed due to unstubbed networking.", nil);
+        NSAssert(@"Failed due to unstubbed networking.", nil);
     }
     return nil;
 }

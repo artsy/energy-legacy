@@ -18,7 +18,8 @@ before(^{
     view5 = [[ARDebugPlaceholderView alloc] initWithSize:(CGSize) { 25, 100 } color:UIColor.redColor];
 
     [wrapper addSubview:sut];
-    [sut alignTop:0 leading:0 bottom:nil trailing:0 toView:wrapper];
+    [sut alignTop:@"0" leading:@"0" toView:wrapper];
+    [sut alignTrailingEdgeWithView:wrapper predicate:@"0"];
 });
 
 describe(@"single stack", ^{

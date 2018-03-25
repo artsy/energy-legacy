@@ -173,6 +173,7 @@ describe(@"toolbar", ^{
             [mockNavItem verify];
         });
 
+        // TODO: OCMock infinite loop on the mock for class
         xit(@"shows edit button", ^{
             id mockAlbum = [OCMockObject mockForClass:Album.class];
             [[[[mockAlbum stub] classMethod] andReturnValue:OCMOCK_VALUE(2U)] count:nil];
