@@ -77,10 +77,10 @@
         [artworkTexts addObject:[artwork.confidentialNotes stringByStrippingHTML]];
     }
 
-    self.isSplit = split && (artworkTexts.count != 1 || (artwork.editionSets.count && artworkTexts.count));
+    self.isSplit = split && (artworkTexts.count != 1 || (artwork.editionSets.count > 1 && artworkTexts.count));
     self.columnWidth = self.isSplit ? (preferredWidth / 2) - self.centerMargin : preferredWidth;
 
-    if (artwork.editionSets.count) {
+    if (artwork.editionSets.count > 1) {
         UILabel *editionsTitle = [self titleLabelWithText:@"Editions"];
         [self addSubview:editionsTitle withPrecedingMargin:0 sideMargin:0];
 
