@@ -7,7 +7,7 @@
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Expecta setUsesDrawViewHierarchyInRect:YES];
+//    [Expecta setUsesDrawViewHierarchyInRect:YES];
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen.mainScreen bounds]];
     [self.window makeKeyWindow];
