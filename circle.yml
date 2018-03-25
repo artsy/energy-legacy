@@ -26,7 +26,7 @@ machine:
 
 test:
   pre:
-    - make build
+    # - make build
   override:
     # - make test
     # - bundle exec danger
