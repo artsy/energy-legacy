@@ -4,6 +4,10 @@ unless ENV['HOCKEY_API_TOKEN'] && ENV['SLACK_URL']
   raise "You need to set HOCKEY_API_TOKEN (#{ENV['HOCKEY_API_TOKEN']}) and SLACK_URL (#{ENV['SLACK_URL']}) in your environment."
 end
 
+before_all do
+  setup_circle_ci
+end
+
 lane :build_for_test do
   xcodebuild scheme: 'ArtsyFolio', destination: "OS=8.4,name=iPad Retina"
 end
@@ -19,7 +23,13 @@ end
 lane :beta do
   verify_pod_keys
 
-  match(type: "appstore", readonly: true)
+  sync_code_signing(type: "appstore", readonly: true)
+  disable_automatic_code_signing(
+    path: 'Artsy Folio.xcodeproj',
+    team_id: '23KMWZ572J',
+    targets: ["ArtsyFolio"],
+    profile_name: "match AppStore sy.art.folio"
+  )
 
   # Increment build number to current date
   build_number = Time.new.strftime("%Y.%m.%d.%H")
