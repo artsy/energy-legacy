@@ -211,7 +211,10 @@
     if ([self.representedObject conformsToProtocol:@protocol(ARArtworkContainer)]) {
         id<ARArtworkContainer> container = (id<ARArtworkContainer>)self.representedObject;
 
-        if ([container collectionSize] > 1 && !self.selectionHandler.isSelecting) {
+        BOOL shouldShow = [container collectionSize] > 1;
+        BOOL isPhoneAndHasFewTitles = [UIDevice isPad] || switchView.titles.count < 3; // Three is too many
+
+        if (shouldShow && isPhoneAndHasFewTitles && !self.selectionHandler.isSelecting) {
             _sorts = [container availableSorts];
 
             switchView.leftAlign = ![UIDevice isPad];
