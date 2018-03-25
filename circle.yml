@@ -28,7 +28,7 @@ test:
   pre:
     - make build
   override:
-    - make test
-    - bundle exec danger
+    # - make test
+    # - bundle exec danger
   post:
     - make deploy_if_beta_branch
