@@ -8,18 +8,6 @@ before_all do
   setup_circle_ci
 end
 
-lane :build_for_test do
-  xcodebuild scheme: 'ArtsyFolio', destination: "OS=8.4,name=iPad Retina"
-end
-
-lane :test do
-  xctest destination: "OS=8.4,name=iPad Retina"
-end
-
-lane :build_for_beta do
-  xcodebuild sdk: "iphoneos", configuration: "Debug"
-end
-
 lane :beta do
   verify_pod_keys
 
@@ -94,7 +82,7 @@ lane :beta do
          public_identifier: ENV['HockeyAppBetaID'],
          repository_url: "https://github.com/artsy/energy.git", commit_sha: commit
 
-  pilot changelog: release_notes, distribute_external: true, demo_account_required: true
+  pilot changelog: release_notes, distribute_external: true, demo_account_required: true, groups: ["Liasons"]
 
   slack message: "There is a new Folio beta available. Grab it from Testflight on your iOS device.",
         channel: "partner-success",
