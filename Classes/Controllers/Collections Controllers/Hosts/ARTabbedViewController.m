@@ -61,7 +61,7 @@
 
 
     _topToolbar = [self createToolbar];
-    _topToolbar.attatchedToTop = YES;
+    _topToolbar.attachedToTop = YES;
 
     _topToolbarHeightConstraint = [[_topToolbar constrainHeight:@"0"] firstObject];
     [_stackView addSubview:_topToolbar withPrecedingMargin:0 sideMargin:0];
@@ -207,13 +207,14 @@
 {
     ARSecondarySwitchView *switchView = [[ARSecondarySwitchView alloc] initWithFrame:CGRectZero];
     switchView.titles = self.tabsDataSource.potentialTitles;
-    switchView.leftAlign = ![UIDevice isPad];
 
     if ([self.representedObject conformsToProtocol:@protocol(ARArtworkContainer)]) {
         id<ARArtworkContainer> container = (id<ARArtworkContainer>)self.representedObject;
 
         if ([container collectionSize] > 1 && !self.selectionHandler.isSelecting) {
             _sorts = [container availableSorts];
+
+            switchView.leftAlign = ![UIDevice isPad];
             switchView.rightSupplementaryView = [self sortButton];
         }
     }
@@ -336,10 +337,20 @@
 
 - (void)showTopButtonToolbar:(BOOL)show animated:(BOOL)animated
 {
+    NSInteger top = 0;
+
+    // iPhone X support
+    if (@available(iOS 11, *)) {
+        // Yeah, I know, a bit backwards, but we don't get notified about the top inset because this VC lives inside
+        // a UINavController - so we detect iPhone X via the custom bottom and just chance it on future devices for the
+        // top inset.
+        top = self.view.superview.safeAreaInsets.bottom != 0 ? 40 : 0;
+    }
+
     [self.navigationController setNavigationBarHidden:show animated:YES];
     [UIView animateIf:animated duration:ARAnimationDuration:^{
         self.topToolbar.alpha = show ? 1 : 0;
-        self.topToolbarHeightConstraint.constant = show ? self.topToolbar.intrinsicContentSize.height : 0;
+        self.topToolbarHeightConstraint.constant = show ? self.topToolbar.intrinsicContentSize.height + top : 0;
         [self.view setNeedsLayout];
         [self.view layoutIfNeeded];
     }];
@@ -347,9 +358,16 @@
 
 - (void)showBottomButtonToolbar:(BOOL)show animated:(BOOL)animated
 {
+    NSInteger bottom = 0;
+
+    // iPhone X support
+    if (@available(iOS 11, *)) {
+        bottom = self.view.safeAreaInsets.bottom;
+    }
+
     [UIView animateIf:animated duration:ARAnimationDuration:^{
         self.topToolbar.alpha = show;
-        self.bottomToolbarHeightConstraint.constant = show ? self.bottomToolbar.intrinsicContentSize.height : 0;
+        self.bottomToolbarHeightConstraint.constant = show ? self.bottomToolbar.intrinsicContentSize.height + bottom : 0;
         [self.view setNeedsLayout];
         [self.view layoutIfNeeded];
     }];

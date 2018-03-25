@@ -84,4 +84,11 @@
     [[ARTextToolbarButton appearance] setTitleColor:[UIColor artsyBackgroundColor] forState:UIControlStateSelected];
 }
 
++ (void)resetWindowTint
+{
+    // NOOP right now
+}
+
+
+
 @end

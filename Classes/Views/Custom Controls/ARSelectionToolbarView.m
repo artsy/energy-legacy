@@ -50,8 +50,8 @@
 
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 
-    if (self.isAttatchedToTop) [self addBottomBorder];
-    if (self.isAttatchedToBottom) [self addTopBorder];
+    if (self.isAttachedToTop) [self addBottomBorder];
+    if (self.isAttachedToBottom) [self addTopBorder];
 
     _buttons = [barButtonItems map:^(UIBarButtonItem *item) {
         UIButton *button = [self buttonForItem:item];
@@ -105,8 +105,13 @@
             [self addLeadingBorderToButton:button];
             [button constrainLeadingSpaceToView:self.buttons[index - 1] predicate:nil];
         }
-        
-        [button alignTopEdgeWithView:self predicate:@"0"];
+
+        if (self.isAttachedToTop) {
+            [button alignBottomEdgeWithView:self predicate:@"0"];
+        } else if(self.isAttachedToBottom) {
+            [button alignTopEdgeWithView:self predicate:@"0"];
+        }
+
         [button constrainHeight:@"58"];
     }];
 }

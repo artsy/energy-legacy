@@ -62,7 +62,7 @@
     if (self.editions)
         return self.editions;
     else
-        return NSLocalizedString(@"Editon Size Unspecified", @"Edition size not provided by partner");
+        return NSLocalizedString(@"Edition Size Unspecified", @"Edition size not provided by partner");
 }
 
 - (NSString *)renderForMustacheTag:(GRMustacheTag *)tag

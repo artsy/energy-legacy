@@ -1,4 +1,6 @@
 #import "ARInitialViewControllerSetupCoordinator.h"
+#import "UIViewController+SimpleChildren.h"
+#import "ARSafeAreaAwareViewController.h"
 #import "ARFileUtils+FolioAdditions.h"
 #import "ARNavigationController.h"
 #import "ARTopViewController.h"
@@ -122,10 +124,16 @@
 
 - (void)wrapInNavigationAndPresent:(UIViewController *)controller animated:(BOOL)animated
 {
+    ARSafeAreaAwareViewController *safeAreaController = [[ARSafeAreaAwareViewController alloc] init];
+    [safeAreaController loadViewIfNeeded];
+
     ARNavigationController *navigationController = [[ARNavigationController alloc] initWithRootViewController:controller];
     navigationController.navigationBarHidden = YES;
 
-    [self.window.rootViewController presentViewController:navigationController animated:animated completion:nil];
+    [safeAreaController ar_addModernChildViewController:navigationController intoView:safeAreaController.safeView];
+    [navigationController.view alignToView:safeAreaController.safeView];
+
+    [self.window.rootViewController presentViewController:safeAreaController animated:animated completion:nil];
 }
 
 - (void)presentLogoutScreen:(BOOL)animated

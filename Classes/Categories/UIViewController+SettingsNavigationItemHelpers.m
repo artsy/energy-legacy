@@ -37,13 +37,14 @@
     } else {
         UIImage *phoneExitIcon = [[UIImage imageNamed:@"close_window"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [button setImage:phoneExitIcon forState:UIControlStateNormal];
+        button.contentMode = UIViewContentModeCenter;
+        button.imageEdgeInsets = UIEdgeInsetsMake(14, 14, 14, 14);
 
         button.frame = CGRectMake(0, 0, 12, 12);
     }
 
     [button setTintColor:UIColor.blackColor];
     [button setBackgroundColor:UIColor.whiteColor];
-
 
     button.accessibilityLabel = @"SettingsExitButton";
     return [[UIBarButtonItem alloc] initWithCustomView:button];

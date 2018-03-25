@@ -67,11 +67,14 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
     /// Sync settings
     [self.syncContentButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARSettingsSectionSync]];
     [self.syncContentButton showAlertBadge:self.viewModel.shouldShowSyncNotification];
+    [self.syncContentButton.titleLabel setFont:[UIFont sansSerifFontWithSize:14]];
 
     /// Presentation mode settings
     [self setupPresentationModeButton];
     [self.editPresentationModeButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARSettingsSectionEditPresentationMode]];
     [self.editPresentationModeButton hideTopBorder];
+    [self.editPresentationModeButton.titleLabel setFont:[UIFont sansSerifFontWithSize:16]];
+
 
     /// Miscellaneous settings
     [self.backgroundButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARSettingsSectionBackground]];

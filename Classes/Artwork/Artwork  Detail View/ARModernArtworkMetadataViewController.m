@@ -91,7 +91,7 @@
     }
 
     /// If there are multiple editions, don't show dimensions
-    if (artwork.editionSets.count) {
+    if (artwork.editionSets.count > 1) {
         [labelArray addObject:@"Multiple Editions"];
     } else if (artwork.dimensions.length) {
         [labelArray addObject:artwork.dimensions];
@@ -110,7 +110,7 @@
 - (BOOL)showPrice
 {
     /// If there are multiple editions, show prices with full metadata instead
-    if (self.artwork.editionSets.count) return NO;
+    if (self.artwork.editionSets.count > 1) return NO;
 
     if ([self.defaults boolForKey:ARPresentationModeOn] && [self.defaults boolForKey:ARHideAllPrices]) return NO;
 
@@ -122,7 +122,7 @@
 
 - (BOOL)showMultipageIndicator
 {
-    BOOL hasMultipleEditions = self.artwork.editionSets.count;
+    BOOL hasMultipleEditions = self.artwork.editionSets.count > 1;
     BOOL showConfidentialNotes = self.shouldShowConfidentialNotes && self.artwork.confidentialNotes.length;
     return self.artwork.hasAdditionalInfo || self.artwork.hasAdditionalImages || hasMultipleEditions || showConfidentialNotes;
 }

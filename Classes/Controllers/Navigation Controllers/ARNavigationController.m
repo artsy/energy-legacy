@@ -210,14 +210,14 @@ static ARNavigationController *sharedInstance = nil;
     [[ARSwitchBoard sharedSwitchboard] jumpToLocationViewController:location animated:YES];
 }
 
-//- (void)viewSafeAreaInsetsDidChange
-//{
-//    [super viewSafeAreaInsetsDidChange];
-//
-//    CGFloat height = [UIDevice isPad] ? ARToolbarSizeHeight : ARToolbarSizeHeightPhone;
-////    if (self.view.safeAreaInsets.top < height) {
-//    self.additionalSafeAreaInsets = UIEdgeInsetsMake(height, 0, 0, 0);
-////    }
-//}
+- (void)viewSafeAreaInsetsDidChange
+{
+    [super viewSafeAreaInsetsDidChange];
+
+    CGFloat height = [UIDevice isPad] ? ARToolbarSizeHeight : ARToolbarSizeHeightPhone;
+//    if (self.view.safeAreaInsets.top < height) {
+    self.additionalSafeAreaInsets = UIEdgeInsetsMake(height, 0, 0, 0);
+//    }
+}
 
 @end

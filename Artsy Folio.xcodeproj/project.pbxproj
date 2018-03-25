@@ -393,6 +393,9 @@
 		60C777581B0E280D00BEFA97 /* ARInitialViewControllerSetupCoordinatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C777571B0E280D00BEFA97 /* ARInitialViewControllerSetupCoordinatorSpec.m */; };
 		60C88858162B64F2003C8A80 /* Artwork+HTMLTexts.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C88857162B64F2003C8A80 /* Artwork+HTMLTexts.m */; };
 		60C9392B1C7D2B2E0010136C /* ARSyncProgressTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C9392A1C7D2B2E0010136C /* ARSyncProgressTests.m */; };
+		60CBDEFB206702E500275BC8 /* ARSafeAreaAwareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CBDEFA206702E500275BC8 /* ARSafeAreaAwareViewController.m */; };
+		60CBDEFE2067478500275BC8 /* Chevron_Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CBDEFC2067478400275BC8 /* Chevron_Gray.png */; };
+		60CBDEFF2067478500275BC8 /* Chevron_Gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CBDEFD2067478500275BC8 /* Chevron_Gray@2x.png */; };
 		60D210D51ADEC58B00EA091C /* NSManagedObject+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D210D41ADEC58B00EA091C /* NSManagedObject+ActiveRecord.m */; };
 		60D210DA1AE0538900EA091C /* ARLocationDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D210D91AE0538900EA091C /* ARLocationDownloader.m */; };
 		60D210DD1AE12D9200EA091C /* ARLocationArtworksDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D210DC1AE12D9200EA091C /* ARLocationArtworksDownloader.m */; };
@@ -1234,6 +1237,10 @@
 		60C88857162B64F2003C8A80 /* Artwork+HTMLTexts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Artwork+HTMLTexts.m"; sourceTree = "<group>"; };
 		60C9392A1C7D2B2E0010136C /* ARSyncProgressTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSyncProgressTests.m; sourceTree = "<group>"; };
 		60C939331C7D39DA0010136C /* ArtsyFolio v2.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.5.xcdatamodel"; sourceTree = "<group>"; };
+		60CBDEF9206702E500275BC8 /* ARSafeAreaAwareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARSafeAreaAwareViewController.h; sourceTree = "<group>"; };
+		60CBDEFA206702E500275BC8 /* ARSafeAreaAwareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARSafeAreaAwareViewController.m; sourceTree = "<group>"; };
+		60CBDEFC2067478400275BC8 /* Chevron_Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chevron_Gray.png; sourceTree = "<group>"; };
+		60CBDEFD2067478500275BC8 /* Chevron_Gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chevron_Gray@2x.png"; sourceTree = "<group>"; };
 		60D11C0A161C8B290009E68A /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		60D155DB14A3D903006ED291 /* SenTestingKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		60D1A8EB15C29F9C005A9FAB /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
@@ -1814,6 +1821,8 @@
 		601DBE4D152C7838002DC5BC /* In-App symbols */ = {
 			isa = PBXGroup;
 			children = (
+				60CBDEFC2067478400275BC8 /* Chevron_Gray.png */,
+				60CBDEFD2067478500275BC8 /* Chevron_Gray@2x.png */,
 				832075B51C3F274000C0A114 /* wifi-off@2x.png */,
 				832075B61C3F274000C0A114 /* wifi-strong@2x.png */,
 				832075B71C3F274000C0A114 /* wifi-weak@2x.png */,
@@ -2578,6 +2587,15 @@
 				60C777551B0E213C00BEFA97 /* Application Loadup */,
 			);
 			name = Contexts;
+			sourceTree = "<group>";
+		};
+		60CBDEF8206702D000275BC8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				60CBDEF9206702E500275BC8 /* ARSafeAreaAwareViewController.h */,
+				60CBDEFA206702E500275BC8 /* ARSafeAreaAwareViewController.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		60D210D71AE0535100EA091C /* Locations */ = {
@@ -3360,6 +3378,7 @@
 		D8FAA8B11442893500AA34BC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				60CBDEF8206702D000275BC8 /* Utils */,
 				60EF3157186DBF3A0093F6F1 /* Top View Controller */,
 				411D96D117314C4400598854 /* Logout */,
 				60579D33163CEC1C00EE1939 /* Login & Setup */,
@@ -3566,7 +3585,7 @@
 					};
 					D8D208AB141405A500A823E3 = {
 						DevelopmentTeam = 23KMWZ572J;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -3677,6 +3696,7 @@
 				6010740B19A3E7BD00237DC6 /* ViewInRoom_Man_3@2x.png in Resources */,
 				609E4C3A15625272004F9E58 /* RoomWoodPortrait2x.jpg in Resources */,
 				609E4C3C15625272004F9E58 /* RoomWoodPortrait3x.jpg in Resources */,
+				60CBDEFF2067478500275BC8 /* Chevron_Gray@2x.png in Resources */,
 				609E4C3E15625272004F9E58 /* RoomWoodLandscape3x.jpg in Resources */,
 				60B608591A41847300C2BBE5 /* PadCreateAlbumButton@2x.png in Resources */,
 				609E4C4015625272004F9E58 /* RoomWoodLandscape2x.jpg in Resources */,
@@ -3699,6 +3719,7 @@
 				60B3408B1609C25B002A5926 /* action_btn_whiteborder.png in Resources */,
 				6041E3DA1887F8A000FADB67 /* BackButtonBackgroundWhite@2x.png in Resources */,
 				60B3408D1609C25B002A5926 /* action_btn_whiteborder@2x.png in Resources */,
+				60CBDEFE2067478500275BC8 /* Chevron_Gray.png in Resources */,
 				606B1EDD184681FF00CC3DBD /* Black.png in Resources */,
 				60B340B71609C28D002A5926 /* garbage_btn_solidwhite.png in Resources */,
 				60C279BD1BE2310300229C8C /* (null) in Resources */,
@@ -4074,6 +4095,7 @@
 				D8FAA9911442893600AA34BC /* NSDictionary+QueryString.m in Sources */,
 				D8FAA9931442893600AA34BC /* ARDefaults.m in Sources */,
 				60EB6780195A1E3C00C9FA72 /* ARArtworkMetadataView.m in Sources */,
+				60CBDEFB206702E500275BC8 /* ARSafeAreaAwareViewController.m in Sources */,
 				839B59781B4DAA3900F24033 /* _EditionSet.m in Sources */,
 				60E3926719085EFB0091AC9E /* ARTextFieldWithPlaceholder.m in Sources */,
 				D8FAA9941442893600AA34BC /* ARFeedKeys.m in Sources */,
@@ -4427,10 +4449,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 23KMWZ572J;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -4484,8 +4507,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APPLICATION_BUNDLE_IDENTIFIER)";
 				PRODUCT_MODULE_NAME = Folio;
 				PRODUCT_NAME = FolioDev;
-				PROVISIONING_PROFILE = "4ab10c6d-4036-477b-a505-26a56707b98f";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development sy.art.folio";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/Util/ArtsyFolio-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -4599,10 +4621,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 23KMWZ572J;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -4655,8 +4678,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APPLICATION_BUNDLE_IDENTIFIER)";
 				PRODUCT_MODULE_NAME = Folio;
 				PRODUCT_NAME = "Artsy Folio";
-				PROVISIONING_PROFILE = "b045df0f-a691-4b7a-ac34-8349a3684030";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore sy.art.folio";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/Util/ArtsyFolio-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
