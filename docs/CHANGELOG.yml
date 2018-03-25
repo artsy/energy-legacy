@@ -1,7 +1,12 @@
 upcoming:
-  version: 2.5.6
+  version: 2.6.0
   notes:
     - Fix email tint bug - jonallured
+    - Fix typo in editions - orta
+    - Consolidate navigation style between iPhone and iPad - orta
+    - Handle edition sets of 1 as not being multiple editions - orta
+    - iPhone artwork grids gets the ability to sort - orta
+    - Update to Xcode 9 - orta
 
 releases:
   - version: 2.5.5
@@ -19,7 +24,7 @@ releases:
     - Crash fixes around spolight exporting - orta
     - Fixed iPad Pro View in Room - orta
     - Update to Danger - orta
-    - We show Unititled instead of (null) in more places - orta
+    - We show Untitled instead of (null) in more places - orta
     - Order Editions in the artwork info popover - orta
 
 
