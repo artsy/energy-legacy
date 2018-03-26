@@ -1,6 +1,7 @@
 #import "ARBackgroundSettingsViewController.h"
 #import "ARStoryboardIdentifiers.h"
 #import "AROptions.h"
+#import <Forgeries/ForgeriesUserDefaults+Mocks.h>
 
 SpecBegin(ARBackgroundSettingsViewController);
 
@@ -14,7 +15,7 @@ beforeAll(^{
 
 beforeEach(^{
     subject = [storyboard instantiateViewControllerWithIdentifier:BackgroundSettingsViewController];
-    subject.defaults = (id)[ForgeriesUserDefaults defaults:@{ AROptionsUseWhiteFolio : @NO}];
+    subject.defaults = (id)[ForgeriesUserDefaults defaults:@{ AROptionsUseWhiteFolio : @NO }];
 });
 
 describe(@"visuals", ^{
@@ -26,7 +27,7 @@ describe(@"visuals", ^{
         [navController pushViewController:subject animated:NO];
         expect(navController).to.haveValidSnapshot();
     });
-    
+
     it(@"looks right when white Folio is on", ^{
         [subject.defaults setBool:YES forKey:AROptionsUseWhiteFolio];
         [navController pushViewController:subject animated:NO];
@@ -38,11 +39,11 @@ describe(@"toggling", ^{
     it(@"sets the white folio default when tapped", ^{
         NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
         [subject tableView:subject.tableView didSelectRowAtIndexPath:path];
-        
+
         expect([subject.defaults boolForKey:AROptionsUseWhiteFolio]).to.beTruthy();
-        
+
         [subject tableView:subject.tableView didSelectRowAtIndexPath:path];
-        
+
         expect([subject.defaults boolForKey:AROptionsUseWhiteFolio]).to.beFalsy();
     });
 });

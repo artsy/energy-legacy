@@ -25,7 +25,7 @@
     self.inputTextField.contentInset = UIEdgeInsetsMake(1, 6, 1, 1);
     self.inputTextField.font = [UIFont serifFontWithSize:ARFontSerif];
     self.inputTextField.delegate = self;
-    self.inputTextField.superview.backgroundColor = [UIColor artsyMediumGrey];
+    self.inputTextField.superview.backgroundColor = [UIColor artsyGrayMedium];
 
     self.actionButton.enabled = NO;
     self.actionButton.alpha = 0.3;

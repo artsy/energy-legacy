@@ -25,19 +25,21 @@ ci_keys:
 	bundle exec pod keys set "IntercomAppID" "-"
 	bundle exec pod keys set "IntercomAPIKey" "-"
 
-
 ### Xcode tooling
 
 WORKSPACE = "Artsy Folio.xcworkspace"
 SCHEME = ArtsyFolio
 CONFIGURATION = Debug
-DEVICE_HOST = platform='iOS Simulator',OS='10.3',name='iPad Air 2'
+DEVICE_HOST = platform='iOS Simulator',OS='11.2',name='iPad Air 2'
+
+ci: CONFIGURATION = Debug
+ci: build
 
 build:
-	set -o pipefail && xcodebuild -workspace $(WORKSPACE) -scheme $(SCHEME) -configuration '$(CONFIGURATION)' -sdk iphonesimulator build | tee $(CIRCLE_ARTIFACTS)/xcode_build_raw.log | bundle exec xcpretty -c
+	set -o pipefail && xcodebuild -workspace $(WORKSPACE) -scheme $(SCHEME) -configuration '$(CONFIGURATION)' -sdk iphonesimulator build | tee ./xcode_build_raw.log | bundle exec xcpretty -c
 
 test:
-	set -o pipefail && xcodebuild -workspace $(WORKSPACE) -scheme $(SCHEME) -configuration Debug build test -sdk iphonesimulator -destination $(DEVICE_HOST) | bundle exec second_curtain | tee $(CIRCLE_ARTIFACTS)/xcode_test_raw.log  | bundle exec xcpretty -c --test --report junit --output $(CIRCLE_TEST_REPORTS)/xcode/results.xml
+	set -o pipefail && xcodebuild -workspace $(WORKSPACE) -scheme $(SCHEME) -configuration Debug build test -sdk iphonesimulator -destination $(DEVICE_HOST) | bundle exec second_curtain | tee ./xcode_test_raw.log  | bundle exec xcpretty -c --test --report junit --output ./results.xml
 
 ### Useful commands
 

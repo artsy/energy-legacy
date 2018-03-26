@@ -2,6 +2,7 @@
 #import "AREmailSettingsViewModel.h"
 #import "ARStoryboardIdentifiers.h"
 #import "ARDefaults.h"
+#import <Forgeries/ForgeriesUserDefaults+Mocks.h>
 
 UITextView *textViewInSubject(AREmailSubjectLineSettingsViewController *subject);
 
@@ -20,10 +21,10 @@ beforeAll(^{
 beforeEach(^{
     subject = [storyboard instantiateViewControllerWithIdentifier:EmailSubjectSettingsViewController];
     mockDefaults = [ForgeriesUserDefaults defaults:@{
-                                            AREmailSubject : @"More information about %@ by %@",
-                                            ARMultipleEmailSubject : @"More information about the artworks we discussed",
-                                            ARMultipleSameArtistEmailSubject : @"More information about %@'s artworks"
-                                          }];
+        AREmailSubject : @"More information about %@ by %@",
+        ARMultipleEmailSubject : @"More information about the artworks we discussed",
+        ARMultipleSameArtistEmailSubject : @"More information about %@'s artworks"
+    }];
     viewModel = [[AREmailSettingsViewModel alloc] initWithDefaults:(id)mockDefaults];
 });
 
@@ -42,10 +43,10 @@ describe(@"visuals", ^{
     });
     it(@"looks right when editing text", ^{
         [subject setupWithSubjectType:AREmailSubjectTypeMultipleArtworksSameArtist viewModel:viewModel];
-        
+
         textView = textViewInSubject(subject);
         [subject textViewDidBeginEditing:textView];
-        
+
         expect(subject).to.haveValidSnapshot();
     });
 });
@@ -53,31 +54,31 @@ describe(@"visuals", ^{
 describe(@"saving email defaults", ^{
     it(@"saves new one artwork subjects", ^{
         [subject setupWithSubjectType:AREmailSubjectTypeOneArtwork viewModel:viewModel];
-        
+
         textView = textViewInSubject(subject);
         textView.text = @"More info about one artwork by one person";
         [subject textViewDidEndEditing:textView];
-        
+
         expect([mockDefaults objectForKey:AREmailSubject]).to.equal(textView.text);
     });
-    
+
     it(@"saves new multiple artist subjects", ^{
         [subject setupWithSubjectType:AREmailSubjectTypeMultipleArtworksMultipleArtists viewModel:viewModel];
-        
+
         textView = textViewInSubject(subject);
         textView.text = @"More info about artworks by several people";
         [subject textViewDidEndEditing:textView];
-        
+
         expect([mockDefaults objectForKey:ARMultipleEmailSubject]).to.equal(textView.text);
     });
-    
+
     it(@"saves new multiple artworks by same artist subjects", ^{
         [subject setupWithSubjectType:AREmailSubjectTypeMultipleArtworksSameArtist viewModel:viewModel];
-        
+
         textView = textViewInSubject(subject);
         textView.text = @"More info about several artworks by one person";
         [subject textViewDidEndEditing:textView];
-        
+
         expect([mockDefaults objectForKey:ARMultipleSameArtistEmailSubject]).to.equal(textView.text);
     });
 });

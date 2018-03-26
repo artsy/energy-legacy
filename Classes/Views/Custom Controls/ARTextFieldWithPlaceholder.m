@@ -35,7 +35,7 @@
 - (void)setPlaceholder:(NSString *)placeholder
 {
     self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:placeholder attributes:@{
-        NSForegroundColorAttributeName : UIColor.artsyMediumGrey
+        NSForegroundColorAttributeName : UIColor.artsyGrayMedium
     }];
 }
 

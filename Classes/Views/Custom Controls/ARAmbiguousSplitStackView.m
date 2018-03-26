@@ -20,12 +20,12 @@
     return self;
 }
 
-- (void)addSubview:(UIView *)view withTopMargin:(NSString *)margin
+- (void)addSubview:(UIView *)view withPrecedingMargin:(CGFloat)margin
 {
-    [self addSubview:view withTopMargin:margin sideMargin:nil];
+    [self addSubview:view withPrecedingMargin:margin sideMargin:0];
 }
 
-- (void)addSubview:(UIView *)view withTopMargin:(NSString *)topMargin sideMargin:(NSString *)sideMargin
+- (void)addSubview:(UIView *)view withPrecedingMargin:(CGFloat)topMargin sideMargin:(CGFloat)sideMargin
 {
     if (!self.stackView && !self.splitStackView) {
         [self addStack];
@@ -43,7 +43,7 @@
         }
     }
 
-    [stack addSubview:view withTopMargin:topMargin sideMargin:sideMargin];
+    [stack addSubview:view withPrecedingMargin:topMargin sideMargin:sideMargin];
 }
 
 - (void)addStack
@@ -61,7 +61,7 @@
 
     } else {
         ORStackView *stackView = [[ORStackView alloc] init];
-        stackView.bottomMarginHeight = 0;
+        stackView.lastMarginHeight = 0;
 
         [super addSubview:stackView];
 

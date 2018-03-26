@@ -10,7 +10,7 @@
     CGContextFillRect(context, rect);
 
     CGContextSetLineWidth(context, [[UIScreen mainScreen] scale] * 4);
-    CGContextSetStrokeColorWithColor(context, [UIColor artsyLightGrey].CGColor);
+    CGContextSetStrokeColorWithColor(context, [UIColor artsyGrayLight].CGColor);
 
     // left
     CGContextMoveToPoint(context, 0, 0);

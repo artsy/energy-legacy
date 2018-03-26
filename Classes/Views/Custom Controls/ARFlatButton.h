@@ -1,6 +1,3 @@
-
-
-
 @interface ARButton : UIButton
 - (void)setup;
 

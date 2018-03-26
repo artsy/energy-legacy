@@ -1,4 +1,4 @@
-#import <EDColor/EDColor.h>
+
 
 
 @implementation UIColor (ArtsyColours)
@@ -31,12 +31,12 @@ static BOOL ARUseWhiteFolio;
 
 + (UIColor *)artsyHighlightGreen
 {
-    return [UIColor colorWithHex:0x5ADB7B];
+    return [UIColor colorWithRed:0.93 green:0.80 blue:0.80 alpha:1.0];
 }
 
 + (UIColor *)artsyHeavyGreen
 {
-    return [UIColor colorWithHex:0x4d8008];
+    return [UIColor colorWithRed:0.93 green:0.80 blue:0.80 alpha:1.0];
 }
 
 @end

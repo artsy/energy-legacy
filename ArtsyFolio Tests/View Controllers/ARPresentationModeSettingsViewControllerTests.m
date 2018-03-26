@@ -2,6 +2,7 @@
 #import "ARStoryboardIdentifiers.h"
 #import "AROptions.h"
 #import "ARDefaults.h"
+#import <Forgeries/ForgeriesUserDefaults+Mocks.h>
 
 
 Artwork *genericArtworkInContext(NSManagedObjectContext *context);

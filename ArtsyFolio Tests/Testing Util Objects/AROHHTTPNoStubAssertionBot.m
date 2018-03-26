@@ -34,6 +34,10 @@
         return nil;
     }
 
+    if ([request.URL.absoluteString hasSuffix:@"about:blank"]) {
+        return nil;
+    }
+
     id spectaExample = [[NSThread mainThread] threadDictionary][@"SPTCurrentSpec"];
     id expectaMatcher = [[NSThread mainThread] threadDictionary][@"EXP_currentMatcher"];
 
@@ -63,7 +67,7 @@
     if (spectaExample) {
         _XCTPrimitiveFail(spectaExample, @"Failed due to unstubbed networking.");
     } else {
-//        NSAssert(@"Failed due to unstubbed networking.", nil);
+        NSAssert(@"Failed due to unstubbed networking.", nil);
     }
     return nil;
 }

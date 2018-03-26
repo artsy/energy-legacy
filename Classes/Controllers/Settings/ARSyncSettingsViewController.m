@@ -61,8 +61,8 @@
 
 - (void)setupObservers
 {
-    [self.KVOController observe:self.viewModel keyPath:@"networkQuality" options:NSKeyValueObservingOptionNew action:@selector(updateSubviews)];
-    [self.KVOController observe:self.viewModel keyPath:@"currentSyncPercentDone" options:NSKeyValueObservingOptionNew action:@selector(updateProgressView)];
+    [self.kvoController observe:self.viewModel keyPath:@"networkQuality" options:NSKeyValueObservingOptionNew action:@selector(updateSubviews)];
+    [self.kvoController observe:self.viewModel keyPath:@"currentSyncPercentDone" options:NSKeyValueObservingOptionNew action:@selector(updateProgressView)];
 }
 
 
@@ -84,7 +84,7 @@
     if (self.viewModel.previousSyncDateStrings) {
         cell.textLabel.text = self.viewModel.previousSyncDateStrings[indexPath.row];
         cell.textLabel.font = [UIFont serifFontWithSize:15];
-        cell.textLabel.textColor = UIColor.artsyHeavyGrey;
+        cell.textLabel.textColor = UIColor.artsyGrayBold;
     }
 }
 
@@ -118,7 +118,7 @@
     [self.syncButton setBorderColor:self.viewModel.syncButtonColor];
 
     [self.syncButton setTitle:self.viewModel.syncButtonDisabledTitle forState:UIControlStateDisabled];
-    [self.syncButton setBackgroundColor:UIColor.artsyHeavyGrey forState:UIControlStateDisabled];
+    [self.syncButton setBackgroundColor:UIColor.artsyGrayBold forState:UIControlStateDisabled];
 }
 
 - (void)updateSyncButton

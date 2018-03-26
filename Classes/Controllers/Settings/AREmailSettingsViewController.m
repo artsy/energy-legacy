@@ -54,9 +54,9 @@
 - (void)setupTextViews
 {
     [@[ self.ccEmailTextView, self.greetingTextView, self.signatureTextView ] each:^(UITextView *textView) {
-        textView.layer.borderColor = [UIColor artsyLightGrey].CGColor;
+        textView.layer.borderColor = [UIColor artsyGrayLight].CGColor;
         textView.layer.borderWidth = 2.0;
-        
+
         textView.contentInset = UIEdgeInsetsMake(5, 0, 0, 0);
         textView.textContainer.lineFragmentPadding = 10;
     }];
@@ -94,12 +94,12 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    textView.layer.borderColor = [UIColor artsyPurple].CGColor;
+    textView.layer.borderColor = [UIColor artsyPurpleRegular].CGColor;
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
-    textView.layer.borderColor = [UIColor artsyLightGrey].CGColor;
+    textView.layer.borderColor = [UIColor artsyGrayLight].CGColor;
 
     if (textView == self.ccEmailTextView) {
         [self.viewModel setEmailDefault:self.ccEmailTextView.text WithKey:AREmailCCEmail];

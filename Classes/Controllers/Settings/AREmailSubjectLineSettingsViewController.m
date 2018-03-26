@@ -58,7 +58,7 @@
 {
     self.textView.text = [self.viewModel savedStringForSubjectType:self.subjectType];
 
-    self.textView.layer.borderColor = [UIColor artsyLightGrey].CGColor;
+    self.textView.layer.borderColor = [UIColor artsyGrayLight].CGColor;
     self.textView.layer.borderWidth = 2.0;
 
     self.textView.contentInset = UIEdgeInsetsMake(5, 0, 5, 0);
@@ -67,12 +67,12 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    textView.layer.borderColor = [UIColor artsyPurple].CGColor;
+    textView.layer.borderColor = [UIColor artsyPurpleRegular].CGColor;
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
-    textView.layer.borderColor = [UIColor artsyLightGrey].CGColor;
+    textView.layer.borderColor = [UIColor artsyGrayLight].CGColor;
 
     [self.viewModel saveSubjectLine:textView.text ForType:self.subjectType];
 }

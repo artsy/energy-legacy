@@ -53,14 +53,16 @@ describe(@"setting up the login screen", ^{
     });
 
     it(@"sets up a nav hosting a ARLoginViewController on the window", ^{
-        UINavigationController *controller = (id)window.rootViewController.presentedViewController;
+        UIViewController *safeAwareVC = (id)window.rootViewController.presentedViewController;
+        UINavigationController *controller = (id)safeAwareVC.childViewControllers.firstObject;
 
         expect(controller.class).to.equal(ARNavigationController.class);
         expect(controller.topViewController.class).to.equal(ARLoginViewController.class);
     });
 
     it(@"passes the sync to the ARLoginViewController", ^{
-        UINavigationController *controller = (id)window.rootViewController.presentedViewController;
+        UIViewController *safeAwareVC = (id)window.rootViewController.presentedViewController;
+        UINavigationController *controller = (id)safeAwareVC.childViewControllers.firstObject;
         ARLoginViewController *topViewController = (id)[controller topViewController];
         expect([topViewController sync]).to.equal(sync);
     });
@@ -77,13 +79,16 @@ describe(@"setting up the sync screen", ^{
     });
 
     it(@"sets up a nav hosting a ARSyncViewController on the window", ^{
-        UINavigationController *controller = (id)window.rootViewController.presentedViewController;
+        UIViewController *safeAwareVC = (id)window.rootViewController.presentedViewController;
+        UINavigationController *controller = (id)safeAwareVC.childViewControllers.firstObject;
+
         expect(controller.class).to.equal(ARNavigationController.class);
         expect(controller.topViewController.class).to.equal(ARSyncViewController.class);
     });
 
     it(@"passes the sync to the ARSyncViewController", ^{
-        UINavigationController *controller = (id)window.rootViewController.presentedViewController;
+        UIViewController *safeAwareVC = (id)window.rootViewController.presentedViewController;
+        UINavigationController *controller = (id)safeAwareVC.childViewControllers.firstObject;
         ARSyncViewController *topViewController = (id)[controller topViewController];
 
         expect(sync.delegate).to.equal(topViewController);

@@ -1,5 +1,5 @@
 #import "ARArtworkMetadataStack.h"
-#import <Artsy+UILabels/ARLabelSubclasses.h>
+#import <Artsy+UILabels/Artsy+UILabels.h>
 
 
 @implementation ARArtworkMetadataStack
@@ -16,7 +16,7 @@
 
 - (void)setStrings:(NSArray *)strings
 {
-    self.bottomMarginHeight = 6;
+    self.lastMarginHeight = 6;
     [self removeAllSubviews];
 
     // Use a compression view to ensure bottom vertical alignment
@@ -24,7 +24,7 @@
     UIView *whitespaceGobbler = [[UIView alloc] init];
     whitespaceGobbler.backgroundColor = [UIColor clearColor];
     [whitespaceGobbler setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
-    [self addSubview:whitespaceGobbler withTopMargin:nil sideMargin:nil];
+    [self addSubview:whitespaceGobbler withPrecedingMargin:0 sideMargin:0];
 
     [self performBatchUpdates:^{
 
@@ -34,11 +34,10 @@
                 label.text = string;
 
             } else if ([string isKindOfClass:NSAttributedString.class]) {
-
                 label.attributedText = [self alignedAttributedString:string];
             }
 
-            [self addSubview:label withTopMargin:@"10" sideMargin:@"0"];
+            [self addSubview:label withPrecedingMargin:10 sideMargin:0];
         }
     }];
 }

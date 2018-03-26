@@ -4,6 +4,7 @@
 #import "ARStoryboardIdentifiers.h"
 #import "ARDefaults.h"
 #import <Artsy+UIColors/UIColor+ArtsyColors.h>
+#import <Forgeries/ForgeriesUserDefaults+Mocks.h>
 
 
 @interface AREmailSettingsViewController ()
@@ -32,28 +33,28 @@ beforeEach(^{
 });
 
 describe(@"visuals", ^{
-    
+
     beforeEach(^{
         navController = [storyboard instantiateViewControllerWithIdentifier:SettingsNavigationController];
     });
-    
+
     it(@"looks right by default", ^{
         mockDefaults = [ForgeriesUserDefaults defaults:@{ AREmailCCEmail : @"email@gallery.com",
                                                           AREmailGreeting : @"Here is a nice email about sculpture.",
                                                           AREmailSignature : @"Signature"
-                                                    }];
-        
+        }];
+
         subject.viewModel = [[AREmailSettingsViewModel alloc] initWithDefaults:(id)mockDefaults];
-        
+
         [navController pushViewController:subject animated:NO];
         expect(navController).to.haveValidSnapshot();
     });
-    
+
     it(@"looks right during text editing", ^{
         [subject beginAppearanceTransition:YES animated:NO];
-        
+
         [subject textViewDidBeginEditing:subject.ccEmailTextView];
-        
+
         [navController pushViewController:subject animated:NO];
         expect(navController).to.haveValidSnapshot();
     });
@@ -71,10 +72,10 @@ describe(@"saving defaults", ^{
         mockDefaults = [ForgeriesUserDefaults defaults:@{ AREmailCCEmail : @"email@gallery.com" }];
         subject.viewModel = [[AREmailSettingsViewModel alloc] initWithDefaults:(id)mockDefaults];
         [subject beginAppearanceTransition:YES animated:NO];
-        
+
         subject.ccEmailTextView.text = @"newEmail@gallery.com";
         [subject textViewDidEndEditing:subject.ccEmailTextView];
-        
+
         expect([mockDefaults stringForKey:AREmailCCEmail]).to.equal(@"newEmail@gallery.com");
     });
 });

@@ -4,6 +4,7 @@
 #import "ARSettingsSectionButton.h"
 #import "ARSettingsMenuViewModel.h"
 #import "ARDefaults.h"
+#import <Forgeries/ForgeriesUserDefaults+Mocks.h>
 
 
 @interface ARSettingsMenuViewController ()

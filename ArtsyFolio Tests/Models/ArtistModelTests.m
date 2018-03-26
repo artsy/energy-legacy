@@ -6,6 +6,7 @@
 
 #import "NSManagedObject+ActiveRecord.h"
 #import "ARDefaults.h"
+#import <Forgeries/ForgeriesUserDefaults+Mocks.h>
 
 SpecBegin(Artist);
 

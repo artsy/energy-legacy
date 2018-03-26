@@ -12,7 +12,7 @@
 
 + (UIBarButtonItem *)toolbarButtonWithTitle:(NSString *)title target:(id)target action:(SEL)action
 {
-    UIButton *contentButton = [UIButton folioToolbarButtonWithTitle:title];
+    UIButton *contentButton = [UIButton folioUnborderedToolbarButtonWithTitle:title];
     [contentButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     return [[UIBarButtonItem alloc] initWithCustomView:contentButton];
 }
