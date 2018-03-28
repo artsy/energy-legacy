@@ -6,6 +6,7 @@ upcoming:
     - Consolidate navigation style between iPhone and iPad - orta
     - Handle edition sets of 1 as not being multiple editions - orta
     - iPhone artwork grids gets the ability to sort - orta
+    - Default artwork sort order changed from oldest first to newest first - orta
     - Update to Xcode 9 - orta
 
 releases:
