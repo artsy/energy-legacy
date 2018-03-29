@@ -28,10 +28,8 @@
     [button addTarget:self action:target forControlEvents:UIControlEventTouchUpInside];
 
     if ([UIDevice isPad]) {
-        UIImage *settingsIconNormal = [[UIImage imageNamed:@"settings_btn_whiteborder"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        UIImage *settingsIconHighlighted = [[UIImage imageNamed:@"settings_btn_solidwhite"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        UIImage *settingsIconNormal = [[UIImage imageNamed:@"settings_btn"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [button setImage:settingsIconNormal forState:UIControlStateNormal];
-        [button setImage:settingsIconHighlighted forState:UIControlStateHighlighted];
 
         button.frame = CGRectMake(0, 0, 50, 50);
     } else {
