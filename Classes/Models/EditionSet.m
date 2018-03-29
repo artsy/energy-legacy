@@ -41,7 +41,7 @@
     NSMutableArray *attributes = [NSMutableArray array];
     if (self.dimensionsInches.length) [attributes addObject:self.dimensionsInches];
     if (self.dimensionsCM.length) [attributes addObject:self.dimensionsCM];
-    if (self.editionSize.length) [attributes addObject:self.editionSize];
+    if (self.editionSize.length > 1) [attributes addObject:self.editionSize];
     if (self.availability.length) [attributes addObject:[self.availability capitalizedString]];
     return [NSArray arrayWithArray:attributes];
 }
