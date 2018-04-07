@@ -41,7 +41,7 @@
     NSMutableArray *attributes = [NSMutableArray array];
     if (self.dimensionsInches.length) [attributes addObject:self.dimensionsInches];
     if (self.dimensionsCM.length) [attributes addObject:self.dimensionsCM];
-    if (self.editionSize.length > 1) [attributes addObject:self.editionSize];
+    if (self.editionSize.length) [attributes addObject:self.editionSize];
     if (self.availability.length) [attributes addObject:[self.availability capitalizedString]];
     return [NSArray arrayWithArray:attributes];
 }
@@ -59,10 +59,12 @@
 
 - (NSString *)editionSize
 {
-    if (self.editions)
+    if (self.editions) {
         return self.editions;
-    else
-        return NSLocalizedString(@"Edition Size Unspecified", @"Edition size not provided by partner");
+    } else {
+        // It's reasonable for limited editions to not include a size
+        return @"";
+    }
 }
 
 - (NSString *)renderForMustacheTag:(GRMustacheTag *)tag

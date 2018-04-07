@@ -5,8 +5,8 @@
 @implementation Artwork (HTMLTexts)
 
 static NSString *paragraphInlineStyle = @"<p style='font-family: Georgia, serif; font-weight:100;margin-bottom:0px;margin-top:0px;'>";
-static NSString *supplementaryInlineStyle = @"<span style='font-size: 10px;vertical-align: middle;text-transform: uppercase;'>";
-static NSString *supplementaryInlineTerminator = @"</span>";
+static NSString *supplementaryInlineStyle = @"<span style='font-size: 14px;vertical-align: middle;text-transform: uppercase;'>";
+static NSString *supplementaryInlineTerminator = @"</span><br/>";
 
 - (NSString *)htmlerize:(NSString *)input
 {
