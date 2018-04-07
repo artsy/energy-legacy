@@ -30,7 +30,7 @@ ci_keys:
 WORKSPACE = "Artsy Folio.xcworkspace"
 SCHEME = ArtsyFolio
 CONFIGURATION = Debug
-DEVICE_HOST = platform='iOS Simulator',OS='11.2',name='iPad Air 2'
+DEVICE_HOST = platform='iOS Simulator',OS='11.3',name='iPad Air 2'
 
 ci: CONFIGURATION = Debug
 ci: build
