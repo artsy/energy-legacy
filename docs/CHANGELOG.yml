@@ -1,14 +1,18 @@
 upcoming:
-  version: 2.6.0
   notes:
-    - Fix email tint bug - jonallured
-    - Fix typo in editions - orta
-    - Consolidate navigation style between iPhone and iPad - orta
-    - Handle edition sets of 1 as not being multiple editions - orta
-    - iPhone artwork grids gets the ability to sort - orta
-    - Update to Xcode 9 - orta
+    - Crash fix on login - orta
 
 releases:
+  - version: 2.6.0
+    date: Apr 7, 2018
+    notes:
+      - Fix email tint bug - jonallured
+      - Fix typo in editions - orta
+      - Consolidate navigation style between iPhone and iPad - orta
+      - Handle edition sets of 1 as not being multiple editions - orta
+      - iPhone artwork grids gets the ability to sort - orta
+      - Update to Xcode 9 - orta
+
   - version: 2.5.5
     date: Apr 5, 2017
     notes:
