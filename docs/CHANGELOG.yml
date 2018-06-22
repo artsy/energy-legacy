@@ -1,4 +1,5 @@
 upcoming:
+  version: 2.6.1
   notes:
     - Crash fix on login - orta
 
