@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _Location : ARManagedObject
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) LocationID *objectID;
 
 @property (nonatomic, strong, nullable) NSString *address;
@@ -76,32 +76,32 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _Location (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveAddress;
-- (void)setPrimitiveAddress:(NSString *)value;
+- (nullable NSString *)primitiveAddress;
+- (void)setPrimitiveAddress:(nullable NSString *)value;
 
-- (NSString *)primitiveAddressSecond;
-- (void)setPrimitiveAddressSecond:(NSString *)value;
+- (nullable NSString *)primitiveAddressSecond;
+- (void)setPrimitiveAddressSecond:(nullable NSString *)value;
 
-- (NSString *)primitiveCity;
-- (void)setPrimitiveCity:(NSString *)value;
+- (nullable NSString *)primitiveCity;
+- (void)setPrimitiveCity:(nullable NSString *)value;
 
-- (NSString *)primitiveGeoPoint;
-- (void)setPrimitiveGeoPoint:(NSString *)value;
+- (nullable NSString *)primitiveGeoPoint;
+- (void)setPrimitiveGeoPoint:(nullable NSString *)value;
 
-- (NSString *)primitiveName;
-- (void)setPrimitiveName:(NSString *)value;
+- (nullable NSString *)primitiveName;
+- (void)setPrimitiveName:(nullable NSString *)value;
 
-- (NSString *)primitivePhone;
-- (void)setPrimitivePhone:(NSString *)value;
+- (nullable NSString *)primitivePhone;
+- (void)setPrimitivePhone:(nullable NSString *)value;
 
-- (NSString *)primitivePostalCode;
-- (void)setPrimitivePostalCode:(NSString *)value;
+- (nullable NSString *)primitivePostalCode;
+- (void)setPrimitivePostalCode:(nullable NSString *)value;
 
 - (NSString *)primitiveSlug;
 - (void)setPrimitiveSlug:(NSString *)value;
 
-- (NSString *)primitiveState;
-- (void)setPrimitiveState:(NSString *)value;
+- (nullable NSString *)primitiveState;
+- (void)setPrimitiveState:(nullable NSString *)value;
 
 - (NSMutableSet<Artwork *> *)primitiveArtworks;
 - (void)setPrimitiveArtworks:(NSMutableSet<Artwork *> *)value;

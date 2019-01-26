@@ -73,7 +73,6 @@
     loginViewController.sync = self.sync;
     loginViewController.completionBlock = ^{
         [self.window.rootViewController dismissViewControllerAnimated:YES completion:^{
-
             [self presentSyncScreen:YES];
         }];
     };
@@ -171,11 +170,22 @@
     User *user = [User currentUserInContext:context];
     ARFolioMessageViewController *lockoutViewController = [[ARFolioMessageViewController alloc] init];
 
-    lockoutViewController.messageText = NSLocalizedString(@"We Hope You Enjoyed Your Free Trial of Folio", @"Folio lockout title");
-    lockoutViewController.callToActionText = NSLocalizedString(@"To regain access to your Folio, apply for an Artsy Gallery Partnership", @"Folio lockout subtitle");
-    NSString *urlFormat = @"https://www.artsy.net/gallery-partnerships/tools?partner_id=%@&user_id=%@&utm_medium=mobile&utm_source=folio&utm_campaign=fair_access";
-    lockoutViewController.callToActionAddress = [NSString stringWithFormat:urlFormat, partner.slug, user.slug];
-    lockoutViewController.buttonText = @"Apply";
+    if (partner.limitedFolioAccess) {
+        // E.g. their subscription does not include Folio
+        lockoutViewController.messageText = NSLocalizedString(@"You no longer have access to Artsy Folio", @"Folio limited access title");
+        lockoutViewController.callToActionText = NSLocalizedString(@"Interested in Folio access, contact your dedicated liason or support", @"Folio limited access subtitle");
+        NSString *urlFormat = @"mailto:partnersupport@artsy.net";
+        lockoutViewController.callToActionAddress = [NSString stringWithFormat:urlFormat, partner.slug, user.slug];
+        lockoutViewController.buttonText = @"Contact Support";
+
+    } else {
+        // This is the case when a partner has expired from CMS access
+        lockoutViewController.messageText = NSLocalizedString(@"We Hope You Enjoyed Your Free Trial of Folio", @"Folio lockout title");
+        lockoutViewController.callToActionText = NSLocalizedString(@"To regain access to your Folio, apply for an Artsy Gallery Partnership", @"Folio lockout subtitle");
+        NSString *urlFormat = @"https://www.artsy.net/gallery-partnerships?partner_id=%@&user_id=%@&utm_medium=mobile&utm_source=folio&utm_campaign=fair_access";
+        lockoutViewController.callToActionAddress = [NSString stringWithFormat:urlFormat, partner.slug, user.slug];
+        lockoutViewController.buttonText = @"Apply";
+    }
 
     if ([user isAdmin]) {
         lockoutViewController.secondaryButtonText = @"ADMIN SKIP";

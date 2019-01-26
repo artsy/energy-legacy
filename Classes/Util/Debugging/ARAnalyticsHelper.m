@@ -102,6 +102,7 @@ static NSString *currentUserEmail;
         @"partner_contract_type" : partner.contractType ?: @"",
         @"partner_relative_size" : partner.size ?: @"",
         @"partner_limited_access" : partner.partnerLimitedAccess ?: @0,
+        @"partner_limited_folio" : partner.limitedFolioAccess ?: @0,
         @"partner_region" : partner.region ?: @"",
         @"partner_founding_partner" : partner.foundingPartner ?: @0,
         @"partner_admin_id" : partner.admin.slug ?: @"",

@@ -3,6 +3,7 @@
 artsy:
 	git submodule init
 	git submodule update
+	brew install mogenerator
 	config/spacecommander/setup-repo.sh
 	git update-index --assume-unchanged Classes/ARAppDelegate+DevTools.m
 

@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _InstallShotImage : Image
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) InstallShotImageID *objectID;
 
 @property (nonatomic, strong, nullable) NSString *caption;
@@ -37,8 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _InstallShotImage (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveCaption;
-- (void)setPrimitiveCaption:(NSString *)value;
+- (nullable NSString *)primitiveCaption;
+- (void)setPrimitiveCaption:(nullable NSString *)value;
 
 - (Show *)primitiveShowWithImageInInstallation;
 - (void)setPrimitiveShowWithImageInInstallation:(Show *)value;

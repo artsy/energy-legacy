@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _EditionSet : ARManagedObject
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) EditionSetID *objectID;
 
 @property (nonatomic, strong, nullable) NSString *artistProofs;
@@ -79,65 +79,65 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _EditionSet (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveArtistProofs;
-- (void)setPrimitiveArtistProofs:(NSString *)value;
+- (nullable NSString *)primitiveArtistProofs;
+- (void)setPrimitiveArtistProofs:(nullable NSString *)value;
 
-- (NSString *)primitiveAvailability;
-- (void)setPrimitiveAvailability:(NSString *)value;
+- (nullable NSString *)primitiveAvailability;
+- (void)setPrimitiveAvailability:(nullable NSString *)value;
 
-- (NSString *)primitiveAvailableEditions;
-- (void)setPrimitiveAvailableEditions:(NSString *)value;
+- (nullable NSString *)primitiveAvailableEditions;
+- (void)setPrimitiveAvailableEditions:(nullable NSString *)value;
 
-- (NSString *)primitiveBackendPrice;
-- (void)setPrimitiveBackendPrice:(NSString *)value;
+- (nullable NSString *)primitiveBackendPrice;
+- (void)setPrimitiveBackendPrice:(nullable NSString *)value;
 
-- (NSDecimalNumber *)primitiveDepth;
-- (void)setPrimitiveDepth:(NSDecimalNumber *)value;
+- (nullable NSDecimalNumber *)primitiveDepth;
+- (void)setPrimitiveDepth:(nullable NSDecimalNumber *)value;
 
-- (NSDecimalNumber *)primitiveDiameter;
-- (void)setPrimitiveDiameter:(NSDecimalNumber *)value;
+- (nullable NSDecimalNumber *)primitiveDiameter;
+- (void)setPrimitiveDiameter:(nullable NSDecimalNumber *)value;
 
-- (NSString *)primitiveDimensionsCM;
-- (void)setPrimitiveDimensionsCM:(NSString *)value;
+- (nullable NSString *)primitiveDimensionsCM;
+- (void)setPrimitiveDimensionsCM:(nullable NSString *)value;
 
-- (NSString *)primitiveDimensionsInches;
-- (void)setPrimitiveDimensionsInches:(NSString *)value;
+- (nullable NSString *)primitiveDimensionsInches;
+- (void)setPrimitiveDimensionsInches:(nullable NSString *)value;
 
-- (NSString *)primitiveDisplayPrice;
-- (void)setPrimitiveDisplayPrice:(NSString *)value;
+- (nullable NSString *)primitiveDisplayPrice;
+- (void)setPrimitiveDisplayPrice:(nullable NSString *)value;
 
-- (NSString *)primitiveDuration;
-- (void)setPrimitiveDuration:(NSString *)value;
+- (nullable NSString *)primitiveDuration;
+- (void)setPrimitiveDuration:(nullable NSString *)value;
 
-- (NSString *)primitiveEditionSize;
-- (void)setPrimitiveEditionSize:(NSString *)value;
+- (nullable NSString *)primitiveEditionSize;
+- (void)setPrimitiveEditionSize:(nullable NSString *)value;
 
-- (NSString *)primitiveEditions;
-- (void)setPrimitiveEditions:(NSString *)value;
+- (nullable NSString *)primitiveEditions;
+- (void)setPrimitiveEditions:(nullable NSString *)value;
 
-- (NSDecimalNumber *)primitiveHeight;
-- (void)setPrimitiveHeight:(NSDecimalNumber *)value;
+- (nullable NSDecimalNumber *)primitiveHeight;
+- (void)setPrimitiveHeight:(nullable NSDecimalNumber *)value;
 
-- (NSNumber *)primitiveIsAvailableForSale;
-- (void)setPrimitiveIsAvailableForSale:(NSNumber *)value;
+- (nullable NSNumber *)primitiveIsAvailableForSale;
+- (void)setPrimitiveIsAvailableForSale:(nullable NSNumber *)value;
 
 - (BOOL)primitiveIsAvailableForSaleValue;
 - (void)setPrimitiveIsAvailableForSaleValue:(BOOL)value_;
 
-- (NSNumber *)primitiveIsPriceHidden;
-- (void)setPrimitiveIsPriceHidden:(NSNumber *)value;
+- (nullable NSNumber *)primitiveIsPriceHidden;
+- (void)setPrimitiveIsPriceHidden:(nullable NSNumber *)value;
 
 - (BOOL)primitiveIsPriceHiddenValue;
 - (void)setPrimitiveIsPriceHiddenValue:(BOOL)value_;
 
-- (NSString *)primitivePrototypes;
-- (void)setPrimitivePrototypes:(NSString *)value;
+- (nullable NSString *)primitivePrototypes;
+- (void)setPrimitivePrototypes:(nullable NSString *)value;
 
-- (NSString *)primitiveSlug;
-- (void)setPrimitiveSlug:(NSString *)value;
+- (nullable NSString *)primitiveSlug;
+- (void)setPrimitiveSlug:(nullable NSString *)value;
 
-- (NSDecimalNumber *)primitiveWidth;
-- (void)setPrimitiveWidth:(NSDecimalNumber *)value;
+- (nullable NSDecimalNumber *)primitiveWidth;
+- (void)setPrimitiveWidth:(nullable NSDecimalNumber *)value;
 
 - (Artwork *)primitiveArtwork;
 - (void)setPrimitiveArtwork:(Artwork *)value;

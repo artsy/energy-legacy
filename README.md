@@ -24,14 +24,17 @@ Get setup [here](docs/getting_started.md). Further documentation can be found in
 
 Folio specific [Trello board](https://trello.com/b/95qNlO03/partner-success-revenue-near-term-roadmap) - you can use "Filter Cards" to just show Folio.
 
-### OSS Quick Start
+### Quick Start
 
 Want to get the app running as an OSS project? Run this in your shell:
 
 ```sh
 git clone https://github.com/artsy/energy.git
 cd energy
+# For OSS folks
 make oss
+# For Artsy folks
+make artsy
 open "Artsy Folio.xcworkspace"
 ```
 
@@ -39,8 +42,6 @@ You will have a running version of the Artsy app by hitting `Build > Run`.
 
 ### Work at Artsy?
 
-- Instead of `make oss` in the above, run `make artsy` to set up [spacecommander](https://github.com/square/spacecommander).
-- Run `bundle exec pod install`. More info [here](https://guides.cocoapods.org/using/a-gemfile.html), if you're curious.
 - Run tests on an `iPad Air 2` running `11.2`.
 
 ### Troubleshooting

@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _User : ARManagedObject
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) UserID *objectID;
 
 @property (nonatomic, strong, nullable) NSString *email;
@@ -43,14 +43,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _User (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveEmail;
-- (void)setPrimitiveEmail:(NSString *)value;
+- (nullable NSString *)primitiveEmail;
+- (void)setPrimitiveEmail:(nullable NSString *)value;
 
-- (NSString *)primitiveName;
-- (void)setPrimitiveName:(NSString *)value;
+- (nullable NSString *)primitiveName;
+- (void)setPrimitiveName:(nullable NSString *)value;
 
-- (NSString *)primitiveSlug;
-- (void)setPrimitiveSlug:(NSString *)value;
+- (nullable NSString *)primitiveSlug;
+- (void)setPrimitiveSlug:(nullable NSString *)value;
 
 - (Partner *)primitiveAdminForPartner;
 - (void)setPrimitiveAdminForPartner:(Partner *)value;

@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _Artist : ARManagedObject
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) ArtistID *objectID;
 
 @property (nonatomic, strong, nullable) NSString *awards;
@@ -126,59 +126,59 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _Artist (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveAwards;
-- (void)setPrimitiveAwards:(NSString *)value;
+- (nullable NSString *)primitiveAwards;
+- (void)setPrimitiveAwards:(nullable NSString *)value;
 
-- (NSString *)primitiveBiography;
-- (void)setPrimitiveBiography:(NSString *)value;
+- (nullable NSString *)primitiveBiography;
+- (void)setPrimitiveBiography:(nullable NSString *)value;
 
-- (NSString *)primitiveBlurb;
-- (void)setPrimitiveBlurb:(NSString *)value;
+- (nullable NSString *)primitiveBlurb;
+- (void)setPrimitiveBlurb:(nullable NSString *)value;
 
-- (NSDate *)primitiveCreatedAt;
-- (void)setPrimitiveCreatedAt:(NSDate *)value;
+- (nullable NSDate *)primitiveCreatedAt;
+- (void)setPrimitiveCreatedAt:(nullable NSDate *)value;
 
-- (NSDate *)primitiveDeathDate;
-- (void)setPrimitiveDeathDate:(NSDate *)value;
+- (nullable NSDate *)primitiveDeathDate;
+- (void)setPrimitiveDeathDate:(nullable NSDate *)value;
 
-- (NSString *)primitiveDisplayName;
-- (void)setPrimitiveDisplayName:(NSString *)value;
+- (nullable NSString *)primitiveDisplayName;
+- (void)setPrimitiveDisplayName:(nullable NSString *)value;
 
-- (NSString *)primitiveFirstName;
-- (void)setPrimitiveFirstName:(NSString *)value;
+- (nullable NSString *)primitiveFirstName;
+- (void)setPrimitiveFirstName:(nullable NSString *)value;
 
-- (NSString *)primitiveHometown;
-- (void)setPrimitiveHometown:(NSString *)value;
+- (nullable NSString *)primitiveHometown;
+- (void)setPrimitiveHometown:(nullable NSString *)value;
 
-- (NSString *)primitiveLastName;
-- (void)setPrimitiveLastName:(NSString *)value;
+- (nullable NSString *)primitiveLastName;
+- (void)setPrimitiveLastName:(nullable NSString *)value;
 
-- (NSString *)primitiveMiddleName;
-- (void)setPrimitiveMiddleName:(NSString *)value;
+- (nullable NSString *)primitiveMiddleName;
+- (void)setPrimitiveMiddleName:(nullable NSString *)value;
 
-- (NSString *)primitiveName;
-- (void)setPrimitiveName:(NSString *)value;
+- (nullable NSString *)primitiveName;
+- (void)setPrimitiveName:(nullable NSString *)value;
 
-- (NSString *)primitiveNationality;
-- (void)setPrimitiveNationality:(NSString *)value;
+- (nullable NSString *)primitiveNationality;
+- (void)setPrimitiveNationality:(nullable NSString *)value;
 
-- (NSString *)primitiveOrderingKey;
-- (void)setPrimitiveOrderingKey:(NSString *)value;
+- (nullable NSString *)primitiveOrderingKey;
+- (void)setPrimitiveOrderingKey:(nullable NSString *)value;
 
 - (NSString *)primitiveSlug;
 - (void)setPrimitiveSlug:(NSString *)value;
 
-- (NSString *)primitiveStatement;
-- (void)setPrimitiveStatement:(NSString *)value;
+- (nullable NSString *)primitiveStatement;
+- (void)setPrimitiveStatement:(nullable NSString *)value;
 
-- (NSString *)primitiveThumbnailBaseURL;
-- (void)setPrimitiveThumbnailBaseURL:(NSString *)value;
+- (nullable NSString *)primitiveThumbnailBaseURL;
+- (void)setPrimitiveThumbnailBaseURL:(nullable NSString *)value;
 
-- (NSDate *)primitiveUpdatedAt;
-- (void)setPrimitiveUpdatedAt:(NSDate *)value;
+- (nullable NSDate *)primitiveUpdatedAt;
+- (void)setPrimitiveUpdatedAt:(nullable NSDate *)value;
 
-- (NSString *)primitiveYears;
-- (void)setPrimitiveYears:(NSString *)value;
+- (nullable NSString *)primitiveYears;
+- (void)setPrimitiveYears:(nullable NSString *)value;
 
 - (NSMutableSet<Album *> *)primitiveAlbumsFeaturingArtist;
 - (void)setPrimitiveAlbumsFeaturingArtist:(NSMutableSet<Album *> *)value;

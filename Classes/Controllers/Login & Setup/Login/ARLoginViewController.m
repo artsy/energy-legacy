@@ -1,5 +1,3 @@
-
-
 #import "ARLoginViewController.h"
 #import "ARSync.h"
 #import "ARRouter.h"
@@ -14,6 +12,7 @@
 #import "ARTextFieldWithPlaceholder.h"
 #import "UIDevice+Testing.h"
 #import "ARLoginNetworkModel.h"
+#import <MessageUI/MFMailComposeViewController.h>
 
 
 @interface ARLoginViewController ()
@@ -307,7 +306,7 @@
             case ARLoginPartnerCountOne: {
                 [self.networkModel getFullMetadataForPartnerWithID:JSON[0][ARFeedIDKey] success:^(id partnerMetadata) {
                     [self parseJSONIntoPartner:partnerMetadata];
-                    [self checkForEnoughFreeSpace];
+                    [self validateAndExitLoginScreen];
                 } failure:nil];
                 break;
             }
@@ -330,7 +329,7 @@
 
         [self parseJSONIntoPartner:partnerDictionary];
         [self dismissViewControllerAnimated:YES completion:^{
-            [self checkForEnoughFreeSpace];
+            [self validateAndExitLoginScreen];
         }];
     };
 
@@ -346,7 +345,7 @@
         [self.networkModel getFullMetadataForPartnerWithID:partnerDictionary[ARFeedIDKey] success:^(id fullPartnerMetadata) {
             [self parseJSONIntoPartner:fullPartnerMetadata];
             [self dismissViewControllerAnimated:YES completion:^{
-                [self checkForEnoughFreeSpace];
+                [self validateAndExitLoginScreen];
             }];
         } failure:nil];
     };
@@ -354,7 +353,23 @@
     [self presentViewController:partnerSelect animated:NO completion:nil];
 }
 
-- (void)checkForEnoughFreeSpace
+- (void)validateAndExitLoginScreen
+{
+    if ([self checkForAllowingAccess] && [self checkForEnoughFreeSpace]) {
+        // Remove any potential modals from the above
+        if (self.transparentModalViewController) {
+            [self dismissTransparentModalViewControllerAnimated:YES];
+        }
+
+        // This kills the login screen and moves on.
+        if (_completionBlock) {
+            _completionBlock();
+        }
+    }
+}
+
+/// Passes true when it's fine to move out of the login screen
+- (BOOL)checkForEnoughFreeSpace
 {
     NSUserDefaults *defaults = self.userDefaults;
     [defaults setBool:YES forKey:ARStartedFirstSync];
@@ -363,42 +378,58 @@
     unsigned long long spaceNeeded = [self.sync estimatedNumBytesToDownload];
     double spaceOnDisk = [UIDevice bytesOfDeviceFreeSpace];
 
-    if (spaceNeeded > spaceOnDisk) {
-        [ARAnalytics event:ARSyncHaltedDueToSpaceEvent];
-        NSString *spaceNeededString = [UIDevice humanReadableStringFromBytes:(spaceNeeded - spaceOnDisk)];
-        NSString *diskSpaceWarning = [NSString stringWithFormat:@"You need %@ more disk space, please go to Settings and free space.", spaceNeededString];
-
-        if (self.transparentModalViewController) {
-            ARAlertViewController *alertVC = (ARAlertViewController *)self.transparentModalViewController;
-            alertVC.alertText = diskSpaceWarning;
-        }
-
-        else {
-            // a shame, Apple removed the ability to send people to settings... :(
-
-            [self presentTransparentAlertWithText:diskSpaceWarning withOKAs:@"OK" andCancelAs:@"CANCEL" completion:^(enum ARModalAlertViewControllerStatus status) {
-
-                if (status == ARModalAlertOK) {
-                    [self checkForEnoughFreeSpace];
-                } else {
-                    Partner *partner = [Partner currentPartner];
-                    [partner deleteEntity];
-
-                    [self dismissTransparentModalViewControllerAnimated:YES];
-                    [self resetWithErrorMessage:@"Cancelled due to space constraints."];
-                }
-
-            }];
-        }
-    } else {
-        if (self.transparentModalViewController) {
-            [self dismissTransparentModalViewControllerAnimated:YES];
-        }
-
-        if (_completionBlock) {
-            _completionBlock();
-        }
+    // Enough space we think
+    if (spaceNeeded < spaceOnDisk) {
+        return YES;
     }
+
+    [ARAnalytics event:ARSyncHaltedDueToSpaceEvent];
+    NSString *spaceNeededString = [UIDevice humanReadableStringFromBytes:(spaceNeeded - spaceOnDisk)];
+    NSString *diskSpaceWarning = [NSString stringWithFormat:@"You need %@ more disk space, please go to Settings and free space.", spaceNeededString];
+
+    if (self.transparentModalViewController) {
+        ARAlertViewController *alertVC = (ARAlertViewController *)self.transparentModalViewController;
+        alertVC.alertText = diskSpaceWarning;
+    }
+
+    else {
+        // a shame, Apple removed the ability to send people to settings... :(
+        [self presentTransparentAlertWithText:diskSpaceWarning withOKAs:@"OK" andCancelAs:@"CANCEL" completion:^(enum ARModalAlertViewControllerStatus status) {
+            if (status == ARModalAlertOK) {
+                [self validateAndExitLoginScreen];
+            } else {
+                Partner *partner = [Partner currentPartner];
+                [partner deleteEntity];
+
+                [self dismissTransparentModalViewControllerAnimated:YES];
+                [self resetWithErrorMessage:@"Cancelled due to space constraints."];
+            }
+        }];
+    }
+    return NO;
+}
+
+- (BOOL)checkForAllowingAccess
+{
+    if ([Partner currentPartner].limitedFolioAccessValue || [Partner currentPartner].partnerLimitedAccessValue) {
+        [self presentTransparentAlertWithText:@"You don't have access to Folio" withOKAs:@"CONTACT SUPPORT" andCancelAs:@"CANCEL" completion:^(enum ARModalAlertViewControllerStatus status) {
+            if (status == ARModalAlertOK) {
+                MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
+                mailVC.subject = @"I would like to upgrade my account to include Folio";
+                [self presentViewController:mailVC animated:YES completion:NULL];
+                [self dismissTransparentModalViewControllerAnimated:YES];
+
+            } else {
+                Partner *partner = [Partner currentPartner];
+                [partner deleteEntity];
+
+                [self dismissTransparentModalViewControllerAnimated:YES];
+                [self resetWithErrorMessage:@"Logged back out."];
+            }
+        }];
+        return NO;
+    }
+    return YES;
 }
 
 - (void)loginProcessesFailedWithError:(NSString *)error

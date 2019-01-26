@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _Image : ARManagedObject
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) ImageID *objectID;
 
 @property (nonatomic, strong, nullable) NSNumber *aspectRatio;
@@ -121,53 +121,53 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _Image (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSNumber *)primitiveAspectRatio;
-- (void)setPrimitiveAspectRatio:(NSNumber *)value;
+- (nullable NSNumber *)primitiveAspectRatio;
+- (void)setPrimitiveAspectRatio:(nullable NSNumber *)value;
 
 - (float)primitiveAspectRatioValue;
 - (void)setPrimitiveAspectRatioValue:(float)value_;
 
-- (NSString *)primitiveBaseURL;
-- (void)setPrimitiveBaseURL:(NSString *)value;
+- (nullable NSString *)primitiveBaseURL;
+- (void)setPrimitiveBaseURL:(nullable NSString *)value;
 
-- (NSNumber *)primitiveIsMainImage;
-- (void)setPrimitiveIsMainImage:(NSNumber *)value;
+- (nullable NSNumber *)primitiveIsMainImage;
+- (void)setPrimitiveIsMainImage:(nullable NSNumber *)value;
 
 - (BOOL)primitiveIsMainImageValue;
 - (void)setPrimitiveIsMainImageValue:(BOOL)value_;
 
-- (NSNumber *)primitiveMaxTiledHeight;
-- (void)setPrimitiveMaxTiledHeight:(NSNumber *)value;
+- (nullable NSNumber *)primitiveMaxTiledHeight;
+- (void)setPrimitiveMaxTiledHeight:(nullable NSNumber *)value;
 
 - (int16_t)primitiveMaxTiledHeightValue;
 - (void)setPrimitiveMaxTiledHeightValue:(int16_t)value_;
 
-- (NSNumber *)primitiveMaxTiledWidth;
-- (void)setPrimitiveMaxTiledWidth:(NSNumber *)value;
+- (nullable NSNumber *)primitiveMaxTiledWidth;
+- (void)setPrimitiveMaxTiledWidth:(nullable NSNumber *)value;
 
 - (int16_t)primitiveMaxTiledWidthValue;
 - (void)setPrimitiveMaxTiledWidthValue:(int16_t)value_;
 
-- (NSNumber *)primitiveOriginalHeight;
-- (void)setPrimitiveOriginalHeight:(NSNumber *)value;
+- (nullable NSNumber *)primitiveOriginalHeight;
+- (void)setPrimitiveOriginalHeight:(nullable NSNumber *)value;
 
 - (float)primitiveOriginalHeightValue;
 - (void)setPrimitiveOriginalHeightValue:(float)value_;
 
-- (NSNumber *)primitiveOriginalWidth;
-- (void)setPrimitiveOriginalWidth:(NSNumber *)value;
+- (nullable NSNumber *)primitiveOriginalWidth;
+- (void)setPrimitiveOriginalWidth:(nullable NSNumber *)value;
 
 - (float)primitiveOriginalWidthValue;
 - (void)setPrimitiveOriginalWidthValue:(float)value_;
 
-- (NSNumber *)primitivePosition;
-- (void)setPrimitivePosition:(NSNumber *)value;
+- (nullable NSNumber *)primitivePosition;
+- (void)setPrimitivePosition:(nullable NSNumber *)value;
 
 - (int16_t)primitivePositionValue;
 - (void)setPrimitivePositionValue:(int16_t)value_;
 
-- (NSNumber *)primitiveProcessing;
-- (void)setPrimitiveProcessing:(NSNumber *)value;
+- (nullable NSNumber *)primitiveProcessing;
+- (void)setPrimitiveProcessing:(nullable NSNumber *)value;
 
 - (BOOL)primitiveProcessingValue;
 - (void)setPrimitiveProcessingValue:(BOOL)value_;
@@ -175,20 +175,20 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)primitiveSlug;
 - (void)setPrimitiveSlug:(NSString *)value;
 
-- (NSString *)primitiveTileBaseUrl;
-- (void)setPrimitiveTileBaseUrl:(NSString *)value;
+- (nullable NSString *)primitiveTileBaseUrl;
+- (void)setPrimitiveTileBaseUrl:(nullable NSString *)value;
 
-- (NSString *)primitiveTileFormat;
-- (void)setPrimitiveTileFormat:(NSString *)value;
+- (nullable NSString *)primitiveTileFormat;
+- (void)setPrimitiveTileFormat:(nullable NSString *)value;
 
-- (NSNumber *)primitiveTileOverlap;
-- (void)setPrimitiveTileOverlap:(NSNumber *)value;
+- (nullable NSNumber *)primitiveTileOverlap;
+- (void)setPrimitiveTileOverlap:(nullable NSNumber *)value;
 
 - (int16_t)primitiveTileOverlapValue;
 - (void)setPrimitiveTileOverlapValue:(int16_t)value_;
 
-- (NSNumber *)primitiveTileSize;
-- (void)setPrimitiveTileSize:(NSNumber *)value;
+- (nullable NSNumber *)primitiveTileSize;
+- (void)setPrimitiveTileSize:(nullable NSNumber *)value;
 
 - (int16_t)primitiveTileSizeValue;
 - (void)setPrimitiveTileSizeValue:(int16_t)value_;

@@ -118,6 +118,7 @@ NSString *const ARFeedHasFullProfileKey = @"has_full_profile";
 NSString *const ARFeedHasDefaultProfileIDKey = @"default_profile_id";
 NSString *const ARFeedDefaultProfilePublicKey = @"default_profile_public";
 NSString *const ARFeedHasLimitedPartnerToolAccessKey = @"has_limited_partner_tools_access";
+NSString *const ARFeedHasLimitedFolioAccessKey = @"has_limited_folio_access";
 NSString *const ARFeedPartnerFlagsKey = @"partner_flags";
 NSString *const ARFeedRelativeSizeKey = @"relative_size";
 NSString *const ARFeedPartnerAdminKey = @"admin";
