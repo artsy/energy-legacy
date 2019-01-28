@@ -9,7 +9,7 @@ We [OSSed Energy](http://artsy.github.io/blog/2015/08/06/open-sourcing-energy/) 
 
 #### Switchboard
 
-The switchboard is an abstraction for converting model objects into  view controllers, it can deal with paths like the artsy website or be given an object and a class and it will push the corrosponding view controller on to the nav stack it was init'd with.
+The switchboard is an abstraction for converting model objects into  view controllers, it can deal with paths like the artsy website or be given an object and a class and it will push the corresponding view controller on to the nav stack it was init'd with.
 
 see the [blog for more](http://artsy.github.io/blog/2015/08/19/Cocoa-Architecture-Switchboard-Pattern/)
 
@@ -69,7 +69,7 @@ The majority of this codebase's tests are based around using dependency injectio
 
 ### The Syncronicity of our City
 
-* Use the `ar_dispatch_xxx` methods, they will always go syncronous in tests.
-* Any time you use animations, make sure they are `UIView animateIf::`. If you cannot think of a good way to DI in a bool to make it syncronous in tests, expose `ARDispatchManager`'s is synchronous bool.
+* Use the `ar_dispatch_xxx` methods, they will always go synchronous in tests.
+* Any time you use animations, make sure they are `UIView animateIf::`. If you cannot think of a good way to DI in a bool to make it synchronous in tests, expose `ARDispatchManager`'s is synchronous bool.
 * Sync Steps can be tested by introspecting the NSOperation, and by directly running the completion block - see `ARPartnerMetadataUploaderSpec` for an example.
 

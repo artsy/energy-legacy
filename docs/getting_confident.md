@@ -25,7 +25,6 @@ Use Dash
 ---------------
 Documentation is essential. Having quick access is even more useful. With Dash I partially type the class then guess the method name after pressing space. [Dash](http://kapeli.com) makes this very very fast.
 
-If you insist on using Xcode
 ---------------
 I understand, it's worth checking out though. Anyway.
 
