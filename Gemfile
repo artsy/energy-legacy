@@ -4,7 +4,6 @@ gem "xcpretty" # Readable CI
 gem "second_curtain" # Snapshot uploads
 
 gem "sbconstants" # Storyboards
-gem "danger" # PR Linting
 
 gem "cocoapods" # Deps
 gem "cocoapods-keys" # Keys

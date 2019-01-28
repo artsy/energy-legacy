@@ -24,3 +24,4 @@ xcuserdata
 fastlane/README.md
 .bundle
 Artsy Folio.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+.build

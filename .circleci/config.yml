@@ -108,10 +108,21 @@ jobs:
       - store_test_results:
           path: test-results.xml
   
-      - run:
-          name: Danger
-          command: bundle exec danger
-      
+
+      - restore_cache:
+          keys:
+          - v1-spm-{{ checksum "Package.resolved" }}
+          # Fall back to using the latest cache if no exact match is found.
+          - v1-spm-
+
+      - run: "npm install -g danger"
+      - run: "swift run danger-swift ci"
+
+      - save_cache:
+          key: v1-spm-{{ checksum "Package.resolved" }}
+          paths:
+            - .build
+
       - run:
           name: Deploy if beta
           command: make deploy_if_beta_branch
