@@ -4,13 +4,15 @@
 
 @implementation ARStubbedLoginNetworkModel
 
-- (instancetype)initWithPartnerCount:(ARLoginPartnerCount)count isAdmin:(BOOL)admin
+- (instancetype)initWithPartnerCount:(ARLoginPartnerCount)count isAdmin:(BOOL)admin lockedOutCMS:(BOOL)lockedOutCMS lockedOutFolio:(BOOL)lockedOutFolio
 {
     self = [super init];
     if (!self) return nil;
 
     self.stubbedPartnerCount = count;
     self.isAdmin = admin;
+    self.lockedOutCMS = lockedOutCMS;
+    self.lockedOutFolio = lockedOutFolio;
 
     return self;
 }
@@ -40,30 +42,38 @@
 
 - (void)getCurrentUserPartnersWithSuccess:(void (^)(id partners, ARLoginPartnerCount partnerCount))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure
 {
-    if (self.stubbedPartnerCount == ARLoginPartnerCountNone)
-        success(@{}, ARLoginPartnerCountNone);
+    switch (self.stubbedPartnerCount) {
+        case ARLoginPartnerCountNone:
+            success(@{}, ARLoginPartnerCountNone);
+            break;
 
-    else if (self.stubbedPartnerCount == ARLoginPartnerCountOne) {
-        NSArray *partnerJSON = @[
-            @{ ARFeedNameKey : @"Test Partner" },
-        ];
-        success(partnerJSON, ARLoginPartnerCountOne);
-
-    } else {
-        NSArray *partnersJSON = @[
-            @{ ARFeedNameKey : @"Test Partner 1" },
-            @{ ARFeedNameKey : @"Test Partner 2" },
-            @{ ARFeedNameKey : @"Test Partner 3" },
-        ];
-        success(partnersJSON, ARLoginPartnerCountMany);
+        case ARLoginPartnerCountOne: {
+            NSDictionary *partnerJSON = @{
+                ARFeedNameKey : @"Test Partner",
+                ARFeedHasLimitedFolioAccessKey : @(self.lockedOutFolio),
+                ARFeedHasLimitedPartnerToolAccessKey : @(self.lockedOutCMS)
+            };
+            success(@[ partnerJSON ], ARLoginPartnerCountOne);
+            break;
+        }
+        case ARLoginPartnerCountMany: {
+            NSArray *partnersJSON = @[
+                @{ ARFeedNameKey : @"Test Partner 1" },
+                @{ ARFeedNameKey : @"Test Partner 2" },
+                @{ ARFeedNameKey : @"Test Partner 3" },
+            ];
+            success(partnersJSON, ARLoginPartnerCountMany);
+            break;
+        }
     }
 }
 
 - (void)getFullMetadataForPartnerWithID:(NSString *)partnerID success:(void (^)(id partnerDictionary))success failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure
 {
-    NSDictionary *partnerMetadata = @{ ARFeedNameKey : @"Test Partner",
-                                       ARFeedTypeKey : @"Gallery",
-                                       ARFeedIDKey : @"stub_partner_id",
+    NSDictionary *partnerMetadata = @{
+        ARFeedNameKey : @"Test Partner",
+        ARFeedTypeKey : @"Gallery",
+        ARFeedIDKey : @"stub_partner_id",
     };
 
     success(partnerMetadata);

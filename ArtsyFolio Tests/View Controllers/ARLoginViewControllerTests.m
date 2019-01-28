@@ -2,6 +2,7 @@
 #import "ARStubbedLoginNetworkModel.h"
 #import "ARUserManager.h"
 #import <Forgeries/ForgeriesUserDefaults+Mocks.h>
+#import "ARBaseViewController+TransparentModals.h"
 
 /// Without this, the tests are dependant on if Eigen is installed
 @interface FakeApplication : NSObject
@@ -55,7 +56,7 @@ it(@"look right on phone", ^{
 
 it(@"presents partner selection tool for users with multiple partners", ^{
     before();
-    controller.networkModel = [[ARStubbedLoginNetworkModel alloc] initWithPartnerCount:ARLoginPartnerCountMany isAdmin:NO];
+    controller.networkModel = [[ARStubbedLoginNetworkModel alloc] initWithPartnerCount:ARLoginPartnerCountMany isAdmin:NO lockedOutCMS:NO lockedOutFolio:NO];
 
     id controllerMock = [OCMockObject partialMockForObject:controller];
     [[controllerMock expect] presentPartnerSelectionToolWithJSON:[OCMArg any]];
@@ -65,7 +66,7 @@ it(@"presents partner selection tool for users with multiple partners", ^{
 
 it(@"presents admin tool when user is an admin", ^{
     before();
-    controller.networkModel = [[ARStubbedLoginNetworkModel alloc] initWithPartnerCount:ARLoginPartnerCountOne isAdmin:YES];
+    controller.networkModel = [[ARStubbedLoginNetworkModel alloc] initWithPartnerCount:ARLoginPartnerCountOne isAdmin:YES lockedOutCMS:NO lockedOutFolio:NO];
 
     id controllerMock = [OCMockObject partialMockForObject:controller];
     [[controllerMock expect] presentAdminPartnerSelectionTool];
@@ -75,11 +76,33 @@ it(@"presents admin tool when user is an admin", ^{
 
 it(@"correctly parses in a partner", ^{
     before();
-    controller.networkModel = [[ARStubbedLoginNetworkModel alloc] initWithPartnerCount:ARLoginPartnerCountOne isAdmin:NO];
+    controller.networkModel = [[ARStubbedLoginNetworkModel alloc] initWithPartnerCount:ARLoginPartnerCountOne isAdmin:NO lockedOutCMS:NO lockedOutFolio:NO];
 
     [controller loginCompleted];
 
     expect([[Partner currentPartnerInContext:controller.managedObjectContext] name]).to.equal(@"Test Partner");
+});
+
+it(@"Presents an error warning when locked out of CMS", ^{
+    before();
+    controller.networkModel = [[ARStubbedLoginNetworkModel alloc] initWithPartnerCount:ARLoginPartnerCountOne isAdmin:NO lockedOutCMS:YES lockedOutFolio:NO];
+
+    id controllerMock = [OCMockObject partialMockForObject:controller];
+    [[controllerMock expect] presentTransparentAlertWithText:@"You don't have access to Folio" withOKAs:@"CONTACT SUPPORT" andCancelAs:@"CANCEL" completion:[OCMArg any]];
+
+    [controller loginCompleted];
+    [controllerMock verify];
+});
+
+it(@"Presents an error warning when locked out of Folio", ^{
+    before();
+    controller.networkModel = [[ARStubbedLoginNetworkModel alloc] initWithPartnerCount:ARLoginPartnerCountOne isAdmin:NO lockedOutCMS:YES lockedOutFolio:NO];
+
+    id controllerMock = [OCMockObject partialMockForObject:controller];
+    [[controllerMock expect] presentTransparentAlertWithText:@"You don't have access to Folio" withOKAs:@"CONTACT SUPPORT" andCancelAs:@"CANCEL" completion:[OCMArg any]];
+
+    [controller loginCompleted];
+    [controllerMock verify];
 });
 
 describe(@"error handling", ^{
@@ -87,7 +110,7 @@ describe(@"error handling", ^{
 
     beforeEach(^{
         before();
-        network = [[ARStubbedLoginNetworkModel alloc] initWithPartnerCount:ARLoginPartnerCountMany isAdmin:NO];
+        network = [[ARStubbedLoginNetworkModel alloc] initWithPartnerCount:ARLoginPartnerCountMany isAdmin:NO lockedOutCMS:NO lockedOutFolio:NO];
         controller.networkModel = network;
     });
 
