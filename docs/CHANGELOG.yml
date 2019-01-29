@@ -1,5 +1,6 @@
 upcoming:
   notes:
+    - Shows un-processed artworks but provides a note to edit them in CMS - orta
     - Crash fix on login - orta
 
 releases:
