@@ -6,7 +6,7 @@ gem "second_curtain" # Snapshot uploads
 gem "sbconstants" # Storyboards
 gem "danger" # PR Linting
 
-gem "cocoapods" # Deps
+gem "cocoapods", "1.6.0.rc.2" # Deps
 gem "cocoapods-keys" # Keys
 gem 'cocoapods-check',  git: 'https://github.com/square/cocoapods-check.git' # Don't use CP if cached
 
