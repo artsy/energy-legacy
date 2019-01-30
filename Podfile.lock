@@ -1,10 +1,7 @@
 PODS:
   - AFNetworking (1.3.4)
-  - Analytics (3.6.7)
+  - Analytics (3.6.10)
   - ARAnalytics/CoreIOS (5.0.1)
-  - ARAnalytics/HockeyApp (5.0.1):
-    - ARAnalytics/CoreIOS
-    - HockeySDK-Source
   - ARAnalytics/Segmentio (5.0.1):
     - Analytics (>= 3)
     - ARAnalytics/CoreIOS
@@ -43,12 +40,11 @@ PODS:
   - GHMarkdownParser (0.1.2)
   - GRMustache (7.3.2):
     - JRSwizzle (~> 1.0)
-  - HockeySDK-Source (5.0.0)
-  - Intercom (4.0.3)
+  - Intercom (5.2)
   - ISO8601DateFormatter (0.8)
   - JLRoutes (2.0.5)
   - JRSwizzle (1.0)
-  - Keys (1.0.0)
+  - Keys (1.0.1)
   - KVOController (1.2.0)
   - libextobjc/EXTKeyPathCoding (0.4.1):
     - libextobjc/RuntimeExtensions
@@ -67,6 +63,9 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - Sentry (4.1.0):
+    - Sentry/Core (= 4.1.0)
+  - Sentry/Core (4.1.0)
   - SFHFKeychainUtils (0.0.1)
   - Specta (1.0.6)
   - SSDataSources (0.8.6)
@@ -79,7 +78,6 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (from `https://github.com/orta/AFNetworking`, branch `no_ifdefs`)
-  - ARAnalytics/HockeyApp (from `https://github.com/orta/ARAnalytics.git`)
   - ARAnalytics/Segmentio (from `https://github.com/orta/ARAnalytics.git`)
   - ARCollectionViewMasonryLayout
   - ARGenericTableViewController (from `https://github.com/orta/ARGenericTableViewController.git`)
@@ -111,6 +109,7 @@ DEPENDENCIES:
   - ORStackView
   - Reachability (~> 3.0)
   - SDWebImage (~> 3.0)
+  - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.1.0`)
   - SFHFKeychainUtils (~> 0.0.1)
   - Specta
   - SSDataSources
@@ -136,6 +135,9 @@ EXTERNAL SOURCES:
     :path: Pods/CocoaPodsKeys
   ObjectiveSugar:
     :git: https://github.com/supermarin/ObjectiveSugar.git
+  Sentry:
+    :git: https://github.com/getsentry/sentry-cocoa.git
+    :tag: 4.1.0
   TPKeyboardAvoiding:
     :git: https://github.com/michaeltyson/TPKeyboardAvoiding.git
   WYPopoverController:
@@ -161,6 +163,9 @@ CHECKOUT OPTIONS:
   ObjectiveSugar:
     :commit: 3d1c39adb701938ce2e19f8e5a789c72450f18ed
     :git: https://github.com/supermarin/ObjectiveSugar.git
+  Sentry:
+    :git: https://github.com/getsentry/sentry-cocoa.git
+    :tag: 4.1.0
   TPKeyboardAvoiding:
     :commit: 487627d73882ffa7533182ebb73451e058593b44
     :git: https://github.com/michaeltyson/TPKeyboardAvoiding.git
@@ -170,7 +175,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: 69a63df8da859f98951c0ea8a5d6272fc50776b3
-  Analytics: 2c09a50e3478a3a7ced08a22d00c43ba6f7011e6
+  Analytics: 63744ad4afa65c3bcdcdb7a94b62515bde5b3900
   ARAnalytics: 896e530551168721fbb8852e044b8afb9baffdde
   ARCollectionViewMasonryLayout: 9e87541c1d59cd9e6f538c19bbed3f52ceeef421
   ARGenericTableViewController: 61a0897ba66c35111b5d1cc3b44884282bd3c1a5
@@ -190,12 +195,11 @@ SPEC CHECKSUMS:
   Forgeries: 64ced144ea8341d89a7eec9d1d7986f0f1366250
   GHMarkdownParser: 14cbf59d0ab9450017d843dffd4a3ef691e5bd77
   GRMustache: ebe6104fd30a6d22c1f36af131e19e2dbf7cd292
-  HockeySDK-Source: af564c43b410bb1100757b55f9ab6b58478ddaef
-  Intercom: ae00cdfc0cd0a12d38f73f6a93c55907add04606
+  Intercom: fd0c7377d49cc2f1a94e7fc0bcc9ccfcdab0a7dc
   ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
   JLRoutes: 2a5ee61d739b51a98c9d8112bee5149a19de8854
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
-  Keys: af65e23feef2a047b3277b1ef0399f1209ef9d46
+  Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   NSURL+QueryDictionary: bae616404e2adf6409d3d5c02a093cbf44c8a236
@@ -205,6 +209,7 @@ SPEC CHECKSUMS:
   ORStackView: 5836e207304ed62db4177b707f19245454943705
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  Sentry: 44b85e768f435ede4d12ea279af588ff275c3939
   SFHFKeychainUtils: 9576b411a79a058f4d5381ace6f3242b9a62e664
   Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
   SSDataSources: ebcf6e435a090f1a940c5d2042cfb3f369f98a1d
@@ -214,6 +219,6 @@ SPEC CHECKSUMS:
   XCTest+OHHTTPStubSuiteCleanUp: 4469ec8863c6bc022c5089a9b94233eb3416c5ee
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
-PODFILE CHECKSUM: 916881676d4e05430d6c6f781ec4dcba0dafbb7f
+PODFILE CHECKSUM: 35a98566e4b358150384fd984198f8895b267bab
 
 COCOAPODS: 1.4.0

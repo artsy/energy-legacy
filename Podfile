@@ -12,13 +12,12 @@ plugin 'cocoapods-keys', {
     :keys => [
     "ArtsyAPIClientSecret",
     "ArtsyAPIClientKey",
-    "HockeyAppBetaID",
-    "HockeyAppLiveID",
     "IntercomAppID",
     "IntercomAPIKey",
     "SegmentProduction",
     "SegmentBeta",
-    "SegmentDev"
+    "SegmentDev",
+    "SentryDSN"
 ]}
 
 target 'ArtsyFolio' do
@@ -51,7 +50,7 @@ target 'ArtsyFolio' do
     pod 'GRMustache', '~> 7.0'
 
     # Analytics
-    pod 'ARAnalytics', :subspecs => ['Segmentio', 'HockeyApp'], :git => 'https://github.com/orta/ARAnalytics.git'
+    pod 'ARAnalytics', :subspecs => ['Segmentio'], :git => 'https://github.com/orta/ARAnalytics.git'
     pod 'Intercom'
 
     # Logging
@@ -71,6 +70,9 @@ target 'ArtsyFolio' do
     # This is not an Artsy project
     pod 'ARGenericTableViewController', :git => 'https://github.com/orta/ARGenericTableViewController.git'
 
+    # For crash reporting
+    pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.1.0'
+
     target 'ArtsyFolio Tests' do
         inherit! :search_paths
 
@@ -86,15 +88,4 @@ target 'ArtsyFolio' do
         pod 'OCMock'
         pod 'Forgeries/Mocks', :git => "https://github.com/ashfurrow/Forgeries.git"
     end
-
-end
-
-
-post_install do |installer|
-  # Disable bitcode for now. Specifically needed for HockeySDK and ARAnalytics.
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['ENABLE_BITCODE'] = 'NO'
-    end
-  end
 end

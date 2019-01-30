@@ -30,6 +30,7 @@
 		342F9E7ACEBAD0205BCF4307 /* ARShowArtworksDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9E1816CD6852B0A66A56 /* ARShowArtworksDownloader.m */; };
 		342F9F94B54C6148E6E72C98 /* ARArtworkDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9229AB74B10489CD4BB2 /* ARArtworkDownloader.m */; };
 		3A91D4D42200E2BF00AFAFCD /* ARImageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A91D4D32200E2BF00AFAFCD /* ARImageViewControllerTests.m */; };
+		3A91D4D7220130A000AFAFCD /* ARSentryAnalyticsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A91D4D6220130A000AFAFCD /* ARSentryAnalyticsProvider.m */; };
 		411D96DA1731528B00598854 /* ARLogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411D96D81731528B00598854 /* ARLogoutViewController.m */; };
 		4137E7B817304ED000D85A93 /* ARLogoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4137E7B717304ED000D85A93 /* ARLogoutManager.m */; };
 		4148D66D17410F0B00169FD2 /* ARMultipleButtonsPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148D66C17410F0B00169FD2 /* ARMultipleButtonsPopoverViewController.m */; };
@@ -680,6 +681,8 @@
 		342F9F9659313511F3E8B570 /* ARGridViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARGridViewDataSource.h; sourceTree = "<group>"; };
 		3A447EA021FBD70E0003FB5A /* ArtsyFolio v2.6.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.6.1.xcdatamodel"; sourceTree = "<group>"; };
 		3A91D4D32200E2BF00AFAFCD /* ARImageViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARImageViewControllerTests.m; sourceTree = "<group>"; };
+		3A91D4D52201309F00AFAFCD /* ARSentryAnalyticsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSentryAnalyticsProvider.h; sourceTree = "<group>"; };
+		3A91D4D6220130A000AFAFCD /* ARSentryAnalyticsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSentryAnalyticsProvider.m; sourceTree = "<group>"; };
 		411D96D71731528B00598854 /* ARLogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLogoutViewController.h; sourceTree = "<group>"; };
 		411D96D81731528B00598854 /* ARLogoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLogoutViewController.m; sourceTree = "<group>"; };
 		4137E7B617304ED000D85A93 /* ARLogoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLogoutManager.h; sourceTree = "<group>"; };
@@ -2557,6 +2560,8 @@
 		60BAAB0B1BA8689500CE042B /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
+				3A91D4D52201309F00AFAFCD /* ARSentryAnalyticsProvider.h */,
+				3A91D4D6220130A000AFAFCD /* ARSentryAnalyticsProvider.m */,
 				608C7038169B863500C89623 /* ARAnalyticsHelper.h */,
 				608C7039169B863500C89623 /* ARAnalyticsHelper.m */,
 				6036A2371BCE99620090D5FC /* ARIntercomProvider.h */,
@@ -3922,7 +3927,6 @@
 				"${PODS_ROOT}/Artsy+UILabels/Pod/Assets/Chevron_Black.png",
 				"${PODS_ROOT}/Artsy+UILabels/Pod/Assets/Chevron_Black@2x.png",
 				"${PODS_ROOT}/GHMarkdownParser/discount/blocktags",
-				"${PODS_CONFIGURATION_BUILD_DIR}/HockeySDK-Source/HockeySDKResources.bundle",
 				"${PODS_ROOT}/Intercom/Intercom/Intercom.framework/Versions/A/Resources/Intercom.bundle",
 				"${PODS_ROOT}/Intercom/Intercom/Intercom.framework/Versions/A/Resources/IntercomTranslations.bundle",
 			);
@@ -3941,7 +3945,6 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Chevron_Black.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Chevron_Black@2x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/blocktags",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/HockeySDKResources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Intercom.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IntercomTranslations.bundle",
 			);
@@ -4104,6 +4107,7 @@
 				839B59781B4DAA3900F24033 /* _EditionSet.m in Sources */,
 				60E3926719085EFB0091AC9E /* ARTextFieldWithPlaceholder.m in Sources */,
 				D8FAA9941442893600AA34BC /* ARFeedKeys.m in Sources */,
+				3A91D4D7220130A000AFAFCD /* ARSentryAnalyticsProvider.m in Sources */,
 				D8FAA9951442893600AA34BC /* ARNetworkConstants.m in Sources */,
 				D8FAA9961442893600AA34BC /* ARNotifications.m in Sources */,
 				D8FAA9971442893600AA34BC /* ARAddToAlbumViewController.m in Sources */,
@@ -4459,7 +4463,6 @@
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -4631,7 +4634,6 @@
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ArtsyPartner-Prefix.pch";

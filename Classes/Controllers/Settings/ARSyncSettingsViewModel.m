@@ -69,7 +69,7 @@
 {
     self.timeRemainingInSync = progress.estimatedTimeRemaining;
     self.currentSyncPercentDone = progress.percentDone;
-    NSLog(@"%@%", @(progress.percentDone));
+    NSLog(@"%@\%", @(progress.percentDone));
 }
 
 - (void)syncDidFinish:(ARSync *)sync

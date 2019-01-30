@@ -73,19 +73,10 @@ lane :beta do
   `git remote add http https://github.com/artsy/energy.git`
   `git push http #{tag}`
 
-  # Ship to hockey first, testflight has to wait: "processing"
-  hockey notes: release_notes, api_token: ENV['HOCKEY_API_TOKEN'],
-         public_identifier: ENV['HockeyAppLiveID'],
-        repository_url: "https://github.com/artsy/energy.git", commit_sha: commit
-
-  hockey notes: release_notes, api_token: ENV['HOCKEY_API_TOKEN'],
-         public_identifier: ENV['HockeyAppBetaID'],
-         repository_url: "https://github.com/artsy/energy.git", commit_sha: commit
-
   pilot changelog: release_notes, distribute_external: true, demo_account_required: true, groups: ["Liasons"]
 
   slack message: "There is a new Folio beta available. Grab it from Testflight on your iOS device.",
-        channel: "partner-success",
+        channel: "front-end-ios",
         payload: {
           'Version' => latest_version,
           'What\'s new' => upcoming_release_notes,
@@ -96,4 +87,26 @@ lane :beta do
   sh "git checkout ../Resources/"
   `rm ../*.dSYM.zip`
   `rm ../*.ipa`
+end
+
+
+lane :upload_symbols do
+
+  latest_version = readme_data["upcoming"]["version"]
+
+  sentry_create_release(
+    auth_token: env["SentryUploadAuthKey"],
+    org_slug: 'artsynet',
+    project_slug: 'Folio',
+    version: latest_version,
+    app_identifier: 'sy.art.folio', 
+    finalize: true
+  )
+  
+  download_dsyms
+  upload_symbols_to_sentry(
+    auth_token: env["SentryUploadAuthKey"],
+    org_slug: 'artsynet',
+    project_slug: 'Folio',
+  )
 end
