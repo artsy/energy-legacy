@@ -172,10 +172,10 @@
 
     if (partner.limitedFolioAccess) {
         // E.g. their subscription does not include Folio
-        lockoutViewController.messageText = NSLocalizedString(@"You no longer have access to Artsy Folio", @"Folio limited access title");
-        lockoutViewController.callToActionText = NSLocalizedString(@"Interested in Folio access, contact your dedicated liason or support", @"Folio limited access subtitle");
-        NSString *urlFormat = @"mailto:partnersupport@artsy.net";
-        lockoutViewController.callToActionAddress = [NSString stringWithFormat:urlFormat, partner.slug, user.slug];
+        lockoutViewController.messageText = NSLocalizedString(@"You do not have access to Artsy Folio", @"Folio limited access title");
+        lockoutViewController.callToActionText = NSLocalizedString(@"Interested in Folio access? Contact your dedicated liaison for support", @"Folio limited access subtitle");
+        NSString *email = partner.admin.email ?: @"partnersupport@artsy.net";
+        lockoutViewController.callToActionAddress = [NSString stringWithFormat:@"mailto:%@", email];
         lockoutViewController.buttonText = @"Contact Support";
 
     } else {
