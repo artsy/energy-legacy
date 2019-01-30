@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _Partner : ARManagedObject
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) PartnerID *objectID;
 
 @property (nonatomic, strong, nullable) NSNumber *active;
@@ -92,6 +92,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (atomic) BOOL hasFullProfileValue;
 - (BOOL)hasFullProfileValue;
 - (void)setHasFullProfileValue:(BOOL)value_;
+
+@property (nonatomic, strong, nullable) NSNumber *limitedFolioAccess;
+
+@property (atomic) BOOL limitedFolioAccessValue;
+- (BOOL)limitedFolioAccessValue;
+- (void)setLimitedFolioAccessValue:(BOOL)value_;
 
 @property (nonatomic, strong, nullable) NSString *name;
 
@@ -172,116 +178,122 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _Partner (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSNumber *)primitiveActive;
-- (void)setPrimitiveActive:(NSNumber *)value;
+- (nullable NSNumber *)primitiveActive;
+- (void)setPrimitiveActive:(nullable NSNumber *)value;
 
 - (BOOL)primitiveActiveValue;
 - (void)setPrimitiveActiveValue:(BOOL)value_;
 
-- (NSNumber *)primitiveArtistDocumentsCount;
-- (void)setPrimitiveArtistDocumentsCount:(NSNumber *)value;
+- (nullable NSNumber *)primitiveArtistDocumentsCount;
+- (void)setPrimitiveArtistDocumentsCount:(nullable NSNumber *)value;
 
 - (int32_t)primitiveArtistDocumentsCountValue;
 - (void)setPrimitiveArtistDocumentsCountValue:(int32_t)value_;
 
-- (NSNumber *)primitiveArtistsCount;
-- (void)setPrimitiveArtistsCount:(NSNumber *)value;
+- (nullable NSNumber *)primitiveArtistsCount;
+- (void)setPrimitiveArtistsCount:(nullable NSNumber *)value;
 
 - (int32_t)primitiveArtistsCountValue;
 - (void)setPrimitiveArtistsCountValue:(int32_t)value_;
 
-- (NSNumber *)primitiveArtworksCount;
-- (void)setPrimitiveArtworksCount:(NSNumber *)value;
+- (nullable NSNumber *)primitiveArtworksCount;
+- (void)setPrimitiveArtworksCount:(nullable NSNumber *)value;
 
 - (int32_t)primitiveArtworksCountValue;
 - (void)setPrimitiveArtworksCountValue:(int32_t)value_;
 
-- (NSString *)primitiveContractType;
-- (void)setPrimitiveContractType:(NSString *)value;
+- (nullable NSString *)primitiveContractType;
+- (void)setPrimitiveContractType:(nullable NSString *)value;
 
-- (NSDate *)primitiveCreatedAt;
-- (void)setPrimitiveCreatedAt:(NSDate *)value;
+- (nullable NSDate *)primitiveCreatedAt;
+- (void)setPrimitiveCreatedAt:(nullable NSDate *)value;
 
-- (NSString *)primitiveDefaultProfileID;
-- (void)setPrimitiveDefaultProfileID:(NSString *)value;
+- (nullable NSString *)primitiveDefaultProfileID;
+- (void)setPrimitiveDefaultProfileID:(nullable NSString *)value;
 
-- (NSNumber *)primitiveDefaultProfilePublic;
-- (void)setPrimitiveDefaultProfilePublic:(NSNumber *)value;
+- (nullable NSNumber *)primitiveDefaultProfilePublic;
+- (void)setPrimitiveDefaultProfilePublic:(nullable NSNumber *)value;
 
 - (BOOL)primitiveDefaultProfilePublicValue;
 - (void)setPrimitiveDefaultProfilePublicValue:(BOOL)value_;
 
-- (NSNumber *)primitiveDirectlyContactable;
-- (void)setPrimitiveDirectlyContactable:(NSNumber *)value;
+- (nullable NSNumber *)primitiveDirectlyContactable;
+- (void)setPrimitiveDirectlyContactable:(nullable NSNumber *)value;
 
 - (BOOL)primitiveDirectlyContactableValue;
 - (void)setPrimitiveDirectlyContactableValue:(BOOL)value_;
 
-- (NSString *)primitiveEmail;
-- (void)setPrimitiveEmail:(NSString *)value;
+- (nullable NSString *)primitiveEmail;
+- (void)setPrimitiveEmail:(nullable NSString *)value;
 
-- (NSNumber *)primitiveFoundingPartner;
-- (void)setPrimitiveFoundingPartner:(NSNumber *)value;
+- (nullable NSNumber *)primitiveFoundingPartner;
+- (void)setPrimitiveFoundingPartner:(nullable NSNumber *)value;
 
 - (BOOL)primitiveFoundingPartnerValue;
 - (void)setPrimitiveFoundingPartnerValue:(BOOL)value_;
 
-- (NSNumber *)primitiveHasDefaultProfile;
-- (void)setPrimitiveHasDefaultProfile:(NSNumber *)value;
+- (nullable NSNumber *)primitiveHasDefaultProfile;
+- (void)setPrimitiveHasDefaultProfile:(nullable NSNumber *)value;
 
 - (BOOL)primitiveHasDefaultProfileValue;
 - (void)setPrimitiveHasDefaultProfileValue:(BOOL)value_;
 
-- (NSNumber *)primitiveHasFullProfile;
-- (void)setPrimitiveHasFullProfile:(NSNumber *)value;
+- (nullable NSNumber *)primitiveHasFullProfile;
+- (void)setPrimitiveHasFullProfile:(nullable NSNumber *)value;
 
 - (BOOL)primitiveHasFullProfileValue;
 - (void)setPrimitiveHasFullProfileValue:(BOOL)value_;
 
-- (NSString *)primitiveName;
-- (void)setPrimitiveName:(NSString *)value;
+- (nullable NSNumber *)primitiveLimitedFolioAccess;
+- (void)setPrimitiveLimitedFolioAccess:(nullable NSNumber *)value;
 
-- (NSString *)primitivePartnerID;
-- (void)setPrimitivePartnerID:(NSString *)value;
+- (BOOL)primitiveLimitedFolioAccessValue;
+- (void)setPrimitiveLimitedFolioAccessValue:(BOOL)value_;
 
-- (NSNumber *)primitivePartnerLimitedAccess;
-- (void)setPrimitivePartnerLimitedAccess:(NSNumber *)value;
+- (nullable NSString *)primitiveName;
+- (void)setPrimitiveName:(nullable NSString *)value;
+
+- (nullable NSString *)primitivePartnerID;
+- (void)setPrimitivePartnerID:(nullable NSString *)value;
+
+- (nullable NSNumber *)primitivePartnerLimitedAccess;
+- (void)setPrimitivePartnerLimitedAccess:(nullable NSNumber *)value;
 
 - (BOOL)primitivePartnerLimitedAccessValue;
 - (void)setPrimitivePartnerLimitedAccessValue:(BOOL)value_;
 
-- (NSString *)primitivePartnerType;
-- (void)setPrimitivePartnerType:(NSString *)value;
+- (nullable NSString *)primitivePartnerType;
+- (void)setPrimitivePartnerType:(nullable NSString *)value;
 
-- (NSString *)primitiveRegion;
-- (void)setPrimitiveRegion:(NSString *)value;
+- (nullable NSString *)primitiveRegion;
+- (void)setPrimitiveRegion:(nullable NSString *)value;
 
-- (NSString *)primitiveRepresentativeEmail;
-- (void)setPrimitiveRepresentativeEmail:(NSString *)value;
+- (nullable NSString *)primitiveRepresentativeEmail;
+- (void)setPrimitiveRepresentativeEmail:(nullable NSString *)value;
 
-- (NSNumber *)primitiveShowDocumentsCount;
-- (void)setPrimitiveShowDocumentsCount:(NSNumber *)value;
+- (nullable NSNumber *)primitiveShowDocumentsCount;
+- (void)setPrimitiveShowDocumentsCount:(nullable NSNumber *)value;
 
 - (int32_t)primitiveShowDocumentsCountValue;
 - (void)setPrimitiveShowDocumentsCountValue:(int32_t)value_;
 
-- (NSNumber *)primitiveSize;
-- (void)setPrimitiveSize:(NSNumber *)value;
+- (nullable NSNumber *)primitiveSize;
+- (void)setPrimitiveSize:(nullable NSNumber *)value;
 
 - (int16_t)primitiveSizeValue;
 - (void)setPrimitiveSizeValue:(int16_t)value_;
 
-- (NSString *)primitiveSlug;
-- (void)setPrimitiveSlug:(NSString *)value;
+- (nullable NSString *)primitiveSlug;
+- (void)setPrimitiveSlug:(nullable NSString *)value;
 
-- (NSString *)primitiveSubscriptionState;
-- (void)setPrimitiveSubscriptionState:(NSString *)value;
+- (nullable NSString *)primitiveSubscriptionState;
+- (void)setPrimitiveSubscriptionState:(nullable NSString *)value;
 
-- (NSDate *)primitiveUpdatedAt;
-- (void)setPrimitiveUpdatedAt:(NSDate *)value;
+- (nullable NSDate *)primitiveUpdatedAt;
+- (void)setPrimitiveUpdatedAt:(nullable NSDate *)value;
 
-- (NSString *)primitiveWebsite;
-- (void)setPrimitiveWebsite:(NSString *)value;
+- (nullable NSString *)primitiveWebsite;
+- (void)setPrimitiveWebsite:(nullable NSString *)value;
 
 - (User *)primitiveAdmin;
 - (void)setPrimitiveAdmin:(User *)value;
@@ -312,6 +324,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)foundingPartner;
 + (NSString *)hasDefaultProfile;
 + (NSString *)hasFullProfile;
++ (NSString *)limitedFolioAccess;
 + (NSString *)name;
 + (NSString *)partnerID;
 + (NSString *)partnerLimitedAccess;

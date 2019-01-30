@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _Album : ARManagedObject
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) AlbumID *objectID;
 
 @property (nonatomic, strong, nullable) NSDate *createdAt;
@@ -110,44 +110,44 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _Album (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSDate *)primitiveCreatedAt;
-- (void)setPrimitiveCreatedAt:(NSDate *)value;
+- (nullable NSDate *)primitiveCreatedAt;
+- (void)setPrimitiveCreatedAt:(nullable NSDate *)value;
 
-- (NSNumber *)primitiveEditable;
-- (void)setPrimitiveEditable:(NSNumber *)value;
+- (nullable NSNumber *)primitiveEditable;
+- (void)setPrimitiveEditable:(nullable NSNumber *)value;
 
 - (BOOL)primitiveEditableValue;
 - (void)setPrimitiveEditableValue:(BOOL)value_;
 
-- (NSNumber *)primitiveHasBeenEdited;
-- (void)setPrimitiveHasBeenEdited:(NSNumber *)value;
+- (nullable NSNumber *)primitiveHasBeenEdited;
+- (void)setPrimitiveHasBeenEdited:(nullable NSNumber *)value;
 
 - (BOOL)primitiveHasBeenEditedValue;
 - (void)setPrimitiveHasBeenEditedValue:(BOOL)value_;
 
-- (NSNumber *)primitiveIsPrivate;
-- (void)setPrimitiveIsPrivate:(NSNumber *)value;
+- (nullable NSNumber *)primitiveIsPrivate;
+- (void)setPrimitiveIsPrivate:(nullable NSNumber *)value;
 
 - (BOOL)primitiveIsPrivateValue;
 - (void)setPrimitiveIsPrivateValue:(BOOL)value_;
 
-- (NSString *)primitiveName;
-- (void)setPrimitiveName:(NSString *)value;
+- (nullable NSString *)primitiveName;
+- (void)setPrimitiveName:(nullable NSString *)value;
 
 - (NSString *)primitiveSlug;
 - (void)setPrimitiveSlug:(NSString *)value;
 
-- (NSNumber *)primitiveSortKey;
-- (void)setPrimitiveSortKey:(NSNumber *)value;
+- (nullable NSNumber *)primitiveSortKey;
+- (void)setPrimitiveSortKey:(nullable NSNumber *)value;
 
 - (int16_t)primitiveSortKeyValue;
 - (void)setPrimitiveSortKeyValue:(int16_t)value_;
 
-- (NSString *)primitiveSummary;
-- (void)setPrimitiveSummary:(NSString *)value;
+- (nullable NSString *)primitiveSummary;
+- (void)setPrimitiveSummary:(nullable NSString *)value;
 
-- (NSDate *)primitiveUpdatedAt;
-- (void)setPrimitiveUpdatedAt:(NSDate *)value;
+- (nullable NSDate *)primitiveUpdatedAt;
+- (void)setPrimitiveUpdatedAt:(nullable NSDate *)value;
 
 - (NSMutableSet<Artist *> *)primitiveArtists;
 - (void)setPrimitiveArtists:(NSMutableSet<Artist *> *)value;

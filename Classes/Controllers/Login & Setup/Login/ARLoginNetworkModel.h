@@ -1,7 +1,7 @@
 typedef NS_ENUM(NSInteger, ARLoginPartnerCount) {
     ARLoginPartnerCountNone,
     ARLoginPartnerCountOne,
-    ARLoginPartnerCountMany
+    ARLoginPartnerCountMany,
 };
 
 

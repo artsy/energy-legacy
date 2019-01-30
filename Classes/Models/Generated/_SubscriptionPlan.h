@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _SubscriptionPlan : ARManagedObject
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) SubscriptionPlanID *objectID;
 
 @property (nonatomic, strong, nullable) NSString *name;
@@ -37,8 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _SubscriptionPlan (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveName;
-- (void)setPrimitiveName:(NSString *)value;
+- (nullable NSString *)primitiveName;
+- (void)setPrimitiveName:(nullable NSString *)value;
 
 - (Partner *)primitiveSubscriptionForPartner;
 - (void)setPrimitiveSubscriptionForPartner:(Partner *)value;

@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _SyncError : ARManagedObject
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) SyncErrorID *objectID;
 
 @property (nonatomic, strong, nullable) NSString *body;
@@ -39,11 +39,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _SyncError (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveBody;
-- (void)setPrimitiveBody:(NSString *)value;
+- (nullable NSString *)primitiveBody;
+- (void)setPrimitiveBody:(nullable NSString *)value;
 
-- (NSString *)primitiveErrorType;
-- (void)setPrimitiveErrorType:(NSString *)value;
+- (nullable NSString *)primitiveErrorType;
+- (void)setPrimitiveErrorType:(nullable NSString *)value;
 
 - (SyncLog *)primitiveSyncLog;
 - (void)setPrimitiveSyncLog:(SyncLog *)value;

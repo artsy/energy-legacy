@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _Document : ARManagedObject
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) DocumentID *objectID;
 
 @property (nonatomic, strong, nullable) NSString *filename;
@@ -69,20 +69,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _Document (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveFilename;
-- (void)setPrimitiveFilename:(NSString *)value;
+- (nullable NSString *)primitiveFilename;
+- (void)setPrimitiveFilename:(nullable NSString *)value;
 
-- (NSNumber *)primitiveHasFile;
-- (void)setPrimitiveHasFile:(NSNumber *)value;
+- (nullable NSNumber *)primitiveHasFile;
+- (void)setPrimitiveHasFile:(nullable NSNumber *)value;
 
 - (BOOL)primitiveHasFileValue;
 - (void)setPrimitiveHasFileValue:(BOOL)value_;
 
-- (NSString *)primitiveHumanReadableSize;
-- (void)setPrimitiveHumanReadableSize:(NSString *)value;
+- (nullable NSString *)primitiveHumanReadableSize;
+- (void)setPrimitiveHumanReadableSize:(nullable NSString *)value;
 
-- (NSNumber *)primitiveSize;
-- (void)setPrimitiveSize:(NSNumber *)value;
+- (nullable NSNumber *)primitiveSize;
+- (void)setPrimitiveSize:(nullable NSNumber *)value;
 
 - (int32_t)primitiveSizeValue;
 - (void)setPrimitiveSizeValue:(int32_t)value_;
@@ -90,14 +90,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)primitiveSlug;
 - (void)setPrimitiveSlug:(NSString *)value;
 
-- (NSString *)primitiveTitle;
-- (void)setPrimitiveTitle:(NSString *)value;
+- (nullable NSString *)primitiveTitle;
+- (void)setPrimitiveTitle:(nullable NSString *)value;
 
-- (NSString *)primitiveUrl;
-- (void)setPrimitiveUrl:(NSString *)value;
+- (nullable NSString *)primitiveUrl;
+- (void)setPrimitiveUrl:(nullable NSString *)value;
 
-- (NSNumber *)primitiveVersion;
-- (void)setPrimitiveVersion:(NSNumber *)value;
+- (nullable NSNumber *)primitiveVersion;
+- (void)setPrimitiveVersion:(nullable NSNumber *)value;
 
 - (int16_t)primitiveVersionValue;
 - (void)setPrimitiveVersionValue:(int16_t)value_;

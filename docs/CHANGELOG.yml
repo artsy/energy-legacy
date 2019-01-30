@@ -2,6 +2,7 @@ upcoming:
   notes:
     - Shows un-processed artworks but provides a note to edit them in CMS - orta
     - Crash fix on login - orta
+    - Adds ability to enable/disable Folio for a particular subscriber  - orta
 
 releases:
   - version: 2.6.0

@@ -678,6 +678,7 @@
 		342F9EBCD72F7CC0D2258556 /* ARImageThumbnailCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARImageThumbnailCreator.m; sourceTree = "<group>"; };
 		342F9EC9FA53B592D5B7409E /* ARGridViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARGridViewDataSource.m; sourceTree = "<group>"; };
 		342F9F9659313511F3E8B570 /* ARGridViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARGridViewDataSource.h; sourceTree = "<group>"; };
+		3A447EA021FBD70E0003FB5A /* ArtsyFolio v2.6.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.6.1.xcdatamodel"; sourceTree = "<group>"; };
 		3A91D4D32200E2BF00AFAFCD /* ARImageViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARImageViewControllerTests.m; sourceTree = "<group>"; };
 		411D96D71731528B00598854 /* ARLogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLogoutViewController.h; sourceTree = "<group>"; };
 		411D96D81731528B00598854 /* ARLogoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLogoutViewController.m; sourceTree = "<group>"; };
@@ -4726,6 +4727,7 @@
 		60118682174D084700B878A1 /* ArtsyPartner.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				3A447EA021FBD70E0003FB5A /* ArtsyFolio v2.6.1.xcdatamodel */,
 				600543981D55342400BE1284 /* ArtsyFolio v2.5.3.xcdatamodel */,
 				60D39AE41CD39AEB00719AEE /* ArtsyFolio v2.5.1.xcdatamodel */,
 				60C939331C7D39DA0010136C /* ArtsyFolio v2.5.xcdatamodel */,
@@ -4743,7 +4745,7 @@
 				60118687174D084700B878A1 /* ArtsyPartner 5.xcdatamodel */,
 				60118688174D084700B878A1 /* ArtsyPartner.xcdatamodel */,
 			);
-			currentVersion = 600543981D55342400BE1284 /* ArtsyFolio v2.5.3.xcdatamodel */;
+			currentVersion = 3A447EA021FBD70E0003FB5A /* ArtsyFolio v2.6.1.xcdatamodel */;
 			path = ArtsyPartner.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _Note : ARManagedObject
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) NoteID *objectID;
 
 @property (nonatomic, strong) NSString *body;
@@ -44,11 +44,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)primitiveBody;
 - (void)setPrimitiveBody:(NSString *)value;
 
-- (NSDate *)primitiveCreatedAt;
-- (void)setPrimitiveCreatedAt:(NSDate *)value;
+- (nullable NSDate *)primitiveCreatedAt;
+- (void)setPrimitiveCreatedAt:(nullable NSDate *)value;
 
-- (NSDate *)primitiveUpdatedAt;
-- (void)setPrimitiveUpdatedAt:(NSDate *)value;
+- (nullable NSDate *)primitiveUpdatedAt;
+- (void)setPrimitiveUpdatedAt:(nullable NSDate *)value;
 
 - (Artwork *)primitiveArtwork;
 - (void)setPrimitiveArtwork:(Artwork *)value;

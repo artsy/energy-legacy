@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _SyncLog : ARManagedObject
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) SyncLogID *objectID;
 
 @property (nonatomic, strong, nullable) NSNumber *albumsDelta;
@@ -73,41 +73,41 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _SyncLog (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSNumber *)primitiveAlbumsDelta;
-- (void)setPrimitiveAlbumsDelta:(NSNumber *)value;
+- (nullable NSNumber *)primitiveAlbumsDelta;
+- (void)setPrimitiveAlbumsDelta:(nullable NSNumber *)value;
 
 - (int32_t)primitiveAlbumsDeltaValue;
 - (void)setPrimitiveAlbumsDeltaValue:(int32_t)value_;
 
-- (NSNumber *)primitiveArtworkDelta;
-- (void)setPrimitiveArtworkDelta:(NSNumber *)value;
+- (nullable NSNumber *)primitiveArtworkDelta;
+- (void)setPrimitiveArtworkDelta:(nullable NSNumber *)value;
 
 - (int32_t)primitiveArtworkDeltaValue;
 - (void)setPrimitiveArtworkDeltaValue:(int32_t)value_;
 
-- (NSDate *)primitiveDateStarted;
-- (void)setPrimitiveDateStarted:(NSDate *)value;
+- (nullable NSDate *)primitiveDateStarted;
+- (void)setPrimitiveDateStarted:(nullable NSDate *)value;
 
-- (NSNumber *)primitiveEstimatedDownload;
-- (void)setPrimitiveEstimatedDownload:(NSNumber *)value;
+- (nullable NSNumber *)primitiveEstimatedDownload;
+- (void)setPrimitiveEstimatedDownload:(nullable NSNumber *)value;
 
 - (int64_t)primitiveEstimatedDownloadValue;
 - (void)setPrimitiveEstimatedDownloadValue:(int64_t)value_;
 
-- (NSNumber *)primitiveShowDelta;
-- (void)setPrimitiveShowDelta:(NSNumber *)value;
+- (nullable NSNumber *)primitiveShowDelta;
+- (void)setPrimitiveShowDelta:(nullable NSNumber *)value;
 
 - (int32_t)primitiveShowDeltaValue;
 - (void)setPrimitiveShowDeltaValue:(int32_t)value_;
 
-- (NSNumber *)primitiveTimeToCompletion;
-- (void)setPrimitiveTimeToCompletion:(NSNumber *)value;
+- (nullable NSNumber *)primitiveTimeToCompletion;
+- (void)setPrimitiveTimeToCompletion:(nullable NSNumber *)value;
 
 - (int64_t)primitiveTimeToCompletionValue;
 - (void)setPrimitiveTimeToCompletionValue:(int64_t)value_;
 
-- (NSNumber *)primitiveTotalDownloaded;
-- (void)setPrimitiveTotalDownloaded:(NSNumber *)value;
+- (nullable NSNumber *)primitiveTotalDownloaded;
+- (void)setPrimitiveTotalDownloaded:(nullable NSNumber *)value;
 
 - (int64_t)primitiveTotalDownloadedValue;
 - (void)setPrimitiveTotalDownloadedValue:(int64_t)value_;

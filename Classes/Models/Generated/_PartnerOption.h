@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _PartnerOption : ARManagedObject
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) PartnerOptionID *objectID;
 
 @property (nonatomic, strong, nullable) NSString *key;
@@ -39,11 +39,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _PartnerOption (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveKey;
-- (void)setPrimitiveKey:(NSString *)value;
+- (nullable NSString *)primitiveKey;
+- (void)setPrimitiveKey:(nullable NSString *)value;
 
-- (NSString *)primitiveValue;
-- (void)setPrimitiveValue:(NSString *)value;
+- (nullable NSString *)primitiveValue;
+- (void)setPrimitiveValue:(nullable NSString *)value;
 
 - (Partner *)primitivePartner;
 - (void)setPrimitivePartner:(Partner *)value;

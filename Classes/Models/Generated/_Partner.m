@@ -81,6 +81,11 @@
         keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
         return keyPaths;
     }
+    if ([key isEqualToString:@"limitedFolioAccessValue"]) {
+        NSSet *affectingKey = [NSSet setWithObject:@"limitedFolioAccess"];
+        keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+        return keyPaths;
+    }
     if ([key isEqualToString:@"partnerLimitedAccessValue"]) {
         NSSet *affectingKey = [NSSet setWithObject:@"partnerLimitedAccess"];
         keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -324,6 +329,30 @@
     [self setPrimitiveHasFullProfile:@(value_)];
 }
 
+@dynamic limitedFolioAccess;
+
+- (BOOL)limitedFolioAccessValue
+{
+    NSNumber *result = [self limitedFolioAccess];
+    return [result boolValue];
+}
+
+- (void)setLimitedFolioAccessValue:(BOOL)value_
+{
+    [self setLimitedFolioAccess:@(value_)];
+}
+
+- (BOOL)primitiveLimitedFolioAccessValue
+{
+    NSNumber *result = [self primitiveLimitedFolioAccess];
+    return [result boolValue];
+}
+
+- (void)setPrimitiveLimitedFolioAccessValue:(BOOL)value_
+{
+    [self setPrimitiveLimitedFolioAccess:@(value_)];
+}
+
 @dynamic name;
 
 @dynamic partnerID;
@@ -507,6 +536,10 @@
 + (NSString *)hasFullProfile
 {
     return @"hasFullProfile";
+}
++ (NSString *)limitedFolioAccess
+{
+    return @"limitedFolioAccess";
 }
 + (NSString *)name
 {
