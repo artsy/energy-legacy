@@ -325,6 +325,8 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 17;
     return subtitle;
 }
 
+// This is only used in the Grid, thus the name
+// if you are interested in how it works for an artwork see titleAndDateStringForArtwork
 - (NSAttributedString *)attributedGridSubtitle
 {
     NSString *original = self.gridSubtitle;
@@ -344,8 +346,12 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 17;
 
     // Color and size that dot
     UIColor *color = [self.class colorForAvailabilityState:self.availabilityState];
-    [string addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(original.length + 1, 1)];
-    [string addAttribute:NSFontAttributeName value:[UIFont serifItalicFontWithSize:22] range:NSMakeRange(original.length + 1, 1)];
+    [string addAttributes:@{
+        NSFontAttributeName : [UIFont serifItalicFontWithSize:22],
+        NSForegroundColorAttributeName : color,
+        NSBaselineOffsetAttributeName : @(-2)
+
+    } range:NSMakeRange(original.length + 1, 1)];
 
     return string;
 }

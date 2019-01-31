@@ -12,6 +12,7 @@
 /// Max amount of lines each string cna has, defaults to 2
 @property (readwrite, nonatomic, assign) CGFloat maximumAmountOfLines;
 
+/// Supports both NSAttributedStrings and NSStrings
 - (void)setStrings:(NSArray *)strings;
 
 @end
