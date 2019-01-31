@@ -6,6 +6,7 @@
 #import "ARArtworkContainerViewController.h"
 #import "ARGridViewDataSource.h"
 #import "ARPopoverController.h"
+#import "ARArtworkAvailabilityEditViewController.h"
 
 
 @interface ARGridViewCell (Private)
@@ -34,11 +35,8 @@
 - (void)longPressed:(UILongPressGestureRecognizer *)recognizer
 {
     BOOL isSelectingArtworks = self.selectionHandler.isSelecting;
-    BOOL canHaveCover = [self.delegate isKindOfClass:[ARArtworkContainerViewController class]];
-    BOOL isShow = [self.delegate isHostingShow];
-    BOOL isLocation = [self.delegate isHostingLocation];
 
-    if (!canHaveCover || isShow || isLocation || isSelectingArtworks) return;
+    if (isSelectingArtworks) return;
 
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         CGPoint touchLocation = [recognizer locationInView:_gridView];
@@ -108,9 +106,14 @@
     NSArray *buttons = [self popoverButtonsForDelegate:delegate];
     UIViewController *popoverViewController = [self contentViewControllerWithButtons:buttons delegate:delegate];
 
-    ARPopoverController *popoverController = [[ARPopoverController alloc] initWithContentViewController:popoverViewController];
+    UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:popoverViewController];
+    controller.navigationBarHidden = YES;
+
+    ARPopoverController *popoverController = [[ARPopoverController alloc] initWithContentViewController:controller];
     popoverController.delegate = self;
     popoverController.passthroughViews = buttons;
+
+    popoverController.theme.viewContentInsets = UIEdgeInsetsMake(10, 10, 10, 10);
 
     return popoverController;
 }
@@ -119,7 +122,13 @@
 {
     NSMutableArray *buttons = [[NSMutableArray alloc] init];
 
-    CGFloat buttonWidth = [UIDevice isPad] ? 220 : 120;
+    CGFloat buttonWidth = [UIDevice isPad] ? 240 : 140;
+
+    ARFlatButton *editAvailability = [[ARFlatButton alloc] initWithFrame:CGRectMake(0, 0, buttonWidth, 44)];
+    [editAvailability setTitle:NSLocalizedString(@"Edit Availability", @"Edit available button title") forState:UIControlStateNormal];
+    [editAvailability addTarget:self action:@selector(startEditingArtworkAvailability:) forControlEvents:UIControlEventTouchUpInside];
+    [buttons addObject:editAvailability];
+
     ARFlatButton *setAsACoverButton = [[ARFlatButton alloc] initWithFrame:CGRectMake(0, 0, buttonWidth, 44)];
     [setAsACoverButton setTitle:NSLocalizedString(@"Set as cover", @"Set as cover button title") forState:UIControlStateNormal];
     [setAsACoverButton addTarget:self action:@selector(setCoverAndDismissPopover:) forControlEvents:UIControlEventTouchUpInside];
@@ -132,6 +141,7 @@
         [buttons addObject:setAsACoverButton];
         [buttons addObject:removeFromAlbumButton];
     } else if ([self.delegate isHostingShow] || [self.delegate isHostingLocation]) {
+        // This logic is weird, but when I tried to refactor it, things didn't work as I expected, so I left it
     } else {
         [buttons addObject:setAsACoverButton];
     }
@@ -192,6 +202,22 @@
             _gridView.alpha = 1;
         }];
     }];
+}
+
+- (void)startEditingArtworkAvailability:(ARFlatButton *)sender
+{
+    // Register the tap
+    [sender setBackgroundColor:[UIColor artsyPurpleRegular] forState:UIControlStateNormal];
+    [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
+    // Make an edit availability VC and push it on the nav
+    Artwork<ARGridViewItem> *artwork = (id)[self.dataSource objectAtIndexPath:_indexPathForPopover];
+    ARArtworkAvailabilityEditViewController *vc = [[ARArtworkAvailabilityEditViewController alloc] initWithArtwork:artwork popover:_coverPopoverController];
+    UINavigationController *popoverNav = (id)[_coverPopoverController contentViewController];
+    [popoverNav pushViewController:vc animated:YES];
+
+    // Resize the popover to fit
+    [_coverPopoverController setPopoverContentSize:vc.preferredContentSize animated:YES];
 }
 
 - (void)setCoverAndDismissPopover:(ARFlatButton *)sender

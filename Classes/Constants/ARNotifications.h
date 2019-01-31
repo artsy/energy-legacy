@@ -19,6 +19,7 @@ extern NSString *const ARUserDidChangeHidePricesNotification;
 
 extern NSString *const ARPartnerUpdatedNotification;
 extern NSString *const ARUserUpdatedNotification;
+extern NSString *const ARArtworkAvailabilityUpdated;
 
 extern NSString *const ARGridSelectionChangedNotification;
 

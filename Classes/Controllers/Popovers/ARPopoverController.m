@@ -10,9 +10,10 @@
     WYPopoverTheme *theme = [WYPopoverTheme themeForIOS7];
 
     theme.fillBottomColor = [UIColor whiteColor];
-    theme.fillBottomColor = [UIColor whiteColor];
+    theme.fillTopColor = [UIColor whiteColor];
     theme.outerCornerRadius = 0;
     theme.viewContentInsets = UIEdgeInsetsZero;
+    theme.tintColor = [UIColor whiteColor];
     theme.arrowBase = 32;
     theme.arrowHeight = 16;
 

@@ -88,4 +88,17 @@
     }];
 }
 
+- (NSString *)displayDescription
+{
+    if (self.dimensionsInches.length) return self.dimensionsInches;
+    if (self.dimensionsCM.length) return self.dimensionsCM;
+    if (self.editions.length) return self.editions;
+    return @"Edition";
+}
+
+- (ARArtworkAvailability)availabilityState
+{
+    return [Artwork availabilityStateForString:self.availability];
+}
+
 @end

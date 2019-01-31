@@ -100,9 +100,8 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 17;
     self.artistOrderingKey = [self artistOrderingString];
 }
 
-- (ARArtworkAvailability)availabilityState
++ (ARArtworkAvailability)availabilityStateForString:(NSString *)availability
 {
-    NSString *availability = self.availability;
     if ([availability isEqualToString:@"not for sale"]) {
         return ARArtworkAvailabilityNotForSale;
     } else if ([availability isEqualToString:@"for sale"]) {
@@ -118,23 +117,54 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 17;
     }
 }
 
-- (ARArtworkAvailability)looseAvailabilityState
++ (NSString *)stringForAvailabilityState:(ARArtworkAvailability)availability
 {
-    // If there's no editions just use the main artwork response
-    if (!self.editionSets.count) {
-        return [self availabilityState];
+    switch (availability) {
+        case ARArtworkAvailabilityForSale:
+            return @"for sale";
+        case ARArtworkAvailabilityOnHold:
+            return @"on hold";
+        case ARArtworkAvailabilitySold:
+            return @"sold";
+        case ARArtworkAvailabilityNotForSale:
+            return @"not for sale";
+        case ARArtworkAvailabilityOnLoan:
+            return @"on loan";
+        case ARArtworkAvailabilityPermenentCollection:
+            return @"permanent collection";
     }
-    // Prioritise anything being available
-    for (EditionSet *set in self.editionSets) {
-        if (set.isAvailableForSale) {
-            return ARArtworkAvailabilityForSale;
-        }
-    }
-    // Allow it to fall back to the main artwork
-    return [self availabilityState];
 }
 
-- (UIColor *)colorForAvailabilityState:(ARArtworkAvailability)availablity
+- (ARArtworkAvailability)availabilityState
+{
+    if (self.editionSets.count) {
+        return [self editionSetAvailabilityState];
+    } else {
+        return [self.class availabilityStateForString:self.availability];
+    }
+}
+
+- (ARArtworkAvailability)editionSetAvailabilityState
+{
+    // Assume that the lower the number the more interested we
+    // are in giving that value on the indicator
+    NSInteger lowestAvailability = ARArtworkAvailabilityPermenentCollection;
+
+    for (EditionSet *set in self.editionSets) {
+        // Return it right away if lowest possible
+        if (set.availabilityState == ARArtworkAvailabilityForSale) {
+            return ARArtworkAvailabilityForSale;
+        }
+
+        if (set.availabilityState < lowestAvailability) {
+            lowestAvailability = set.availabilityState;
+        }
+    }
+
+    return lowestAvailability;
+}
+
++ (UIColor *)colorForAvailabilityState:(ARArtworkAvailability)availablity
 {
     switch (availablity) {
         case ARArtworkAvailabilityForSale: // Green
@@ -313,13 +343,12 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 17;
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:fullString];
 
     // Color and size that dot
-    UIColor *color = [self colorForAvailabilityState:self.availabilityState];
+    UIColor *color = [self.class colorForAvailabilityState:self.availabilityState];
     [string addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(original.length + 1, 1)];
     [string addAttribute:NSFontAttributeName value:[UIFont serifItalicFontWithSize:22] range:NSMakeRange(original.length + 1, 1)];
 
     return string;
 }
-
 
 - (BOOL)hasAdditionalImages
 {

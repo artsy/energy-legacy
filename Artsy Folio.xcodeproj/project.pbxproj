@@ -29,7 +29,11 @@
 		342F9DE96C8A544A9CB068D0 /* ARShowDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F944C479544741A75A27F /* ARShowDownloader.m */; };
 		342F9E7ACEBAD0205BCF4307 /* ARShowArtworksDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9E1816CD6852B0A66A56 /* ARShowArtworksDownloader.m */; };
 		342F9F94B54C6148E6E72C98 /* ARArtworkDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9229AB74B10489CD4BB2 /* ARArtworkDownloader.m */; };
-		3A27CD7D2202725C0057C1B5 /* ARRedDotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD7C2202725C0057C1B5 /* ARRedDotViewController.m */; };
+		3A27CD7D2202725C0057C1B5 /* AREditEditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD7C2202725C0057C1B5 /* AREditEditionsViewController.m */; };
+		3A27CD802202BA2B0057C1B5 /* ARArtworkAvailabilityEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD7F2202BA2B0057C1B5 /* ARArtworkAvailabilityEditViewController.m */; };
+		3A27CD832202C1A40057C1B5 /* ARPresentAvailabilityChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD822202C1A40057C1B5 /* ARPresentAvailabilityChoiceViewController.m */; };
+		3A27CD8622032BD90057C1B5 /* ARAvailabilityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD8522032BD90057C1B5 /* ARAvailabilityTableViewCell.m */; };
+		3A27CD8922032F730057C1B5 /* AREditAvailabilityNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD8822032F730057C1B5 /* AREditAvailabilityNetworkModel.m */; };
 		3A91D4D42200E2BF00AFAFCD /* ARImageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A91D4D32200E2BF00AFAFCD /* ARImageViewControllerTests.m */; };
 		411D96DA1731528B00598854 /* ARLogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411D96D81731528B00598854 /* ARLogoutViewController.m */; };
 		4137E7B817304ED000D85A93 /* ARLogoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4137E7B717304ED000D85A93 /* ARLogoutManager.m */; };
@@ -679,8 +683,16 @@
 		342F9EBCD72F7CC0D2258556 /* ARImageThumbnailCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARImageThumbnailCreator.m; sourceTree = "<group>"; };
 		342F9EC9FA53B592D5B7409E /* ARGridViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARGridViewDataSource.m; sourceTree = "<group>"; };
 		342F9F9659313511F3E8B570 /* ARGridViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARGridViewDataSource.h; sourceTree = "<group>"; };
-		3A27CD7B2202725C0057C1B5 /* ARRedDotViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARRedDotViewController.h; sourceTree = "<group>"; };
-		3A27CD7C2202725C0057C1B5 /* ARRedDotViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARRedDotViewController.m; sourceTree = "<group>"; };
+		3A27CD7B2202725C0057C1B5 /* AREditEditionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AREditEditionsViewController.h; sourceTree = "<group>"; };
+		3A27CD7C2202725C0057C1B5 /* AREditEditionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AREditEditionsViewController.m; sourceTree = "<group>"; };
+		3A27CD7E2202BA2B0057C1B5 /* ARArtworkAvailabilityEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARArtworkAvailabilityEditViewController.h; sourceTree = "<group>"; };
+		3A27CD7F2202BA2B0057C1B5 /* ARArtworkAvailabilityEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARArtworkAvailabilityEditViewController.m; sourceTree = "<group>"; };
+		3A27CD812202C1A40057C1B5 /* ARPresentAvailabilityChoiceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARPresentAvailabilityChoiceViewController.h; sourceTree = "<group>"; };
+		3A27CD822202C1A40057C1B5 /* ARPresentAvailabilityChoiceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARPresentAvailabilityChoiceViewController.m; sourceTree = "<group>"; };
+		3A27CD8422032BD90057C1B5 /* ARAvailabilityTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARAvailabilityTableViewCell.h; sourceTree = "<group>"; };
+		3A27CD8522032BD90057C1B5 /* ARAvailabilityTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARAvailabilityTableViewCell.m; sourceTree = "<group>"; };
+		3A27CD8722032F730057C1B5 /* AREditAvailabilityNetworkModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AREditAvailabilityNetworkModel.h; sourceTree = "<group>"; };
+		3A27CD8822032F730057C1B5 /* AREditAvailabilityNetworkModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AREditAvailabilityNetworkModel.m; sourceTree = "<group>"; };
 		3A447EA021FBD70E0003FB5A /* ArtsyFolio v2.6.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.6.1.xcdatamodel"; sourceTree = "<group>"; };
 		3A91D4D32200E2BF00AFAFCD /* ARImageViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARImageViewControllerTests.m; sourceTree = "<group>"; };
 		411D96D71731528B00598854 /* ARLogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLogoutViewController.h; sourceTree = "<group>"; };
@@ -1700,8 +1712,16 @@
 		3A27CD79220272380057C1B5 /* Red Dot */ = {
 			isa = PBXGroup;
 			children = (
-				3A27CD7B2202725C0057C1B5 /* ARRedDotViewController.h */,
-				3A27CD7C2202725C0057C1B5 /* ARRedDotViewController.m */,
+				3A27CD7B2202725C0057C1B5 /* AREditEditionsViewController.h */,
+				3A27CD7C2202725C0057C1B5 /* AREditEditionsViewController.m */,
+				3A27CD7E2202BA2B0057C1B5 /* ARArtworkAvailabilityEditViewController.h */,
+				3A27CD7F2202BA2B0057C1B5 /* ARArtworkAvailabilityEditViewController.m */,
+				3A27CD812202C1A40057C1B5 /* ARPresentAvailabilityChoiceViewController.h */,
+				3A27CD822202C1A40057C1B5 /* ARPresentAvailabilityChoiceViewController.m */,
+				3A27CD8422032BD90057C1B5 /* ARAvailabilityTableViewCell.h */,
+				3A27CD8522032BD90057C1B5 /* ARAvailabilityTableViewCell.m */,
+				3A27CD8722032F730057C1B5 /* AREditAvailabilityNetworkModel.h */,
+				3A27CD8822032F730057C1B5 /* AREditAvailabilityNetworkModel.m */,
 			);
 			path = "Red Dot";
 			sourceTree = "<group>";
@@ -3913,7 +3933,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio-frameworks.sh\"";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio-frameworks.sh\"\n";
 		};
 		DDCBC4A0E7CBCCCDC2CA8299 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4116,7 +4136,7 @@
 				60CBDEFB206702E500275BC8 /* ARSafeAreaAwareViewController.m in Sources */,
 				839B59781B4DAA3900F24033 /* _EditionSet.m in Sources */,
 				60E3926719085EFB0091AC9E /* ARTextFieldWithPlaceholder.m in Sources */,
-				3A27CD7D2202725C0057C1B5 /* ARRedDotViewController.m in Sources */,
+				3A27CD7D2202725C0057C1B5 /* AREditEditionsViewController.m in Sources */,
 				D8FAA9941442893600AA34BC /* ARFeedKeys.m in Sources */,
 				D8FAA9951442893600AA34BC /* ARNetworkConstants.m in Sources */,
 				D8FAA9961442893600AA34BC /* ARNotifications.m in Sources */,
@@ -4234,6 +4254,7 @@
 				CBA1998B185A46E000573048 /* ARBrowseProvider.m in Sources */,
 				83FFE5A01C07A58E0005FBE2 /* AREmailSubjectLineSettingsViewController.m in Sources */,
 				60AC186C15C7ED7500297135 /* NSData+MD5.m in Sources */,
+				3A27CD8622032BD90057C1B5 /* ARAvailabilityTableViewCell.m in Sources */,
 				60AC187C15C82A6C00297135 /* NSString+TimeInterval.m in Sources */,
 				60A34F5C15CA8C6600983442 /* NSFileManager+SkipBackup.m in Sources */,
 				608B6C051833D59B0007E12C /* NSString+StringSize.m in Sources */,
@@ -4241,6 +4262,8 @@
 				60A34F6E15CAD83700983442 /* NSFileManager+AppDirectories.m in Sources */,
 				609991FA1A45BAFB00741423 /* PartnerOption.m in Sources */,
 				60E3926F19085F840091AC9E /* AREditAlbumViewController.m in Sources */,
+				3A27CD8922032F730057C1B5 /* AREditAvailabilityNetworkModel.m in Sources */,
+				3A27CD832202C1A40057C1B5 /* ARPresentAvailabilityChoiceViewController.m in Sources */,
 				60117F891917F6BE0072E500 /* _User.m in Sources */,
 				600F1A9F187A17C40006288F /* AREditAlbumArtistViewController.m in Sources */,
 				605EAF3715D3D36700128C25 /* NSObject+Notifications.m in Sources */,
@@ -4276,6 +4299,7 @@
 				60EC79FC1A9E83FF009196A1 /* ARModernEmailArtworksViewControllerDataSource.m in Sources */,
 				609A8899161C4E9D00AEFD72 /* NSString+StringBetweenStrings.m in Sources */,
 				60A99DA519AF6A77004F82D0 /* ARBorderedSerifLabel.m in Sources */,
+				3A27CD802202BA2B0057C1B5 /* ARArtworkAvailabilityEditViewController.m in Sources */,
 				603218C8195CA42D004E7A24 /* NSAttributedString+Artsy.m in Sources */,
 				6032E3421BE21D81001C3494 /* ARSyncAnalytics.m in Sources */,
 				60C777501B0E026000BEFA97 /* ARInitialViewControllerSetupCoordinator.m in Sources */,

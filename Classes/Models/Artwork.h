@@ -7,13 +7,16 @@
 // https://github.com/artsy/gravity/blob/master/app/models/domain/availability.rb
 
 typedef NS_ENUM(NSInteger, ARArtworkAvailability) {
-    ARArtworkAvailabilityNotForSale,
     ARArtworkAvailabilityForSale,
     ARArtworkAvailabilityOnHold,
+    ARArtworkAvailabilitySold,
+    ARArtworkAvailabilityNotForSale,
     ARArtworkAvailabilityOnLoan,
     ARArtworkAvailabilityPermenentCollection,
-    ARArtworkAvailabilitySold,
 };
+
+// Used in editing availability
+static NSInteger ARArtworkAvilabilityCount = 6;
 
 
 @interface Artwork : _Artwork <ARGridViewItem, ARMultipleSelectionItem>
@@ -36,11 +39,8 @@ typedef NS_ENUM(NSInteger, ARArtworkAvailability) {
 
 - (NSString *)availabilityString;
 
-/// Notes whether this main artwork is for sale
+/// Notes whether main artwork, or the summary of its editions are for sale
 - (ARArtworkAvailability)availabilityState;
-
-/// Notes whether this main artwork, or any edition is for sale
-- (ARArtworkAvailability)looseAvailabilityState;
 
 - (NSString *)titleForEmail;
 
@@ -58,5 +58,14 @@ typedef NS_ENUM(NSInteger, ARArtworkAvailability) {
 - (void)deleteArtwork;
 
 + (NSFetchedResultsController *)allArtworksInContext:(NSManagedObjectContext *)context;
+
+// Maybe this shouldn't live in here, but for now this is fine
++ (UIColor *)colorForAvailabilityState:(ARArtworkAvailability)availablity;
+
+/// Converts gravity string into concrete types
++ (ARArtworkAvailability)availabilityStateForString:(NSString *)string;
+
+/// Converts from the concrete type back to the gravity string
++ (NSString *)stringForAvailabilityState:(ARArtworkAvailability)availability;
 
 @end
