@@ -10,24 +10,9 @@
     self = [super initWithFrame:frame];
     if (!self) return nil;
 
-    [self removeNavigationBarShadow];
     [self tintColorDidChange];
 
     return self;
-}
-
-- (void)removeNavigationBarShadow
-{
-    // Removes a single line from the nav bar.
-    for (UIView *view in self.subviews) {
-        [view setTranslatesAutoresizingMaskIntoConstraints:NO];
-
-        for (UIView *view2 in view.subviews) {
-            if ([view2 isKindOfClass:[UIImageView class]] && view2.frame.size.height < 2) {
-                [view2 removeFromSuperview];
-            }
-        }
-    }
 }
 
 - (void)verticallyCenterView:(id)viewOrArray

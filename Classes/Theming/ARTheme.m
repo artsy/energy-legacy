@@ -15,6 +15,9 @@
 {
     [UIColor updateFolioColorsToWhite:useWhiteFolio];
 
+    [ARNavigationBar appearance].shadowImage = [[UIImage alloc] init];
+    [[ARNavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+
     [self setupBackButton];
     [self setupNavTitle];
     [self setupNavigationButtons];
@@ -88,7 +91,6 @@
 {
     // NOOP right now
 }
-
 
 
 @end
