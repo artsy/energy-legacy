@@ -111,7 +111,7 @@
 
 - (UIImage *)settingsButtonImage
 {
-    return [[UIImage imageNamed:@"settings_btn_whiteborder"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    return [[UIImage imageNamed:@"settings_btn"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 }
 
 - (void)logout

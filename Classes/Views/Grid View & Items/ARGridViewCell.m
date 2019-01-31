@@ -78,7 +78,7 @@ NSString *ARGridViewStateMultiSelectableSelected = @"multi-seleced";
 
     CGFloat fontSize = [UIDevice isPad] ? ARFontSansRegular : ARPhoneFontSansRegular;
     titleLabel.font = [UIFont sansSerifFontWithSize:fontSize];
-    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textColor = [UIColor artsyForegroundColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.opaque = YES;
     titleLabel.userInteractionEnabled = YES;
@@ -92,6 +92,7 @@ NSString *ARGridViewStateMultiSelectableSelected = @"multi-seleced";
 {
     ARDateLabel *subtitleLabel = [[ARDateLabel alloc] initWithFrame:CGRectZero];
     subtitleLabel.textAlignment = NSTextAlignmentCenter;
+    subtitleLabel.textColor = [UIColor artsyForegroundColor];
     subtitleLabel.opaque = YES;
     return subtitleLabel;
 }
