@@ -4,6 +4,17 @@
 
 @class Image;
 
+// https://github.com/artsy/gravity/blob/master/app/models/domain/availability.rb
+
+typedef NS_ENUM(NSInteger, ARArtworkAvailability) {
+    ARArtworkAvailabilityNotForSale,
+    ARArtworkAvailabilityForSale,
+    ARArtworkAvailabilityOnHold,
+    ARArtworkAvailabilityOnLoan,
+    ARArtworkAvailabilityPermenentCollection,
+    ARArtworkAvailabilitySold,
+};
+
 
 @interface Artwork : _Artwork <ARGridViewItem, ARMultipleSelectionItem>
 
@@ -24,6 +35,12 @@
 - (NSString *)alternativeDimensions;
 
 - (NSString *)availabilityString;
+
+/// Notes whether this main artwork is for sale
+- (ARArtworkAvailability)availabilityState;
+
+/// Notes whether this main artwork, or any edition is for sale
+- (ARArtworkAvailability)looseAvailabilityState;
 
 - (NSString *)titleForEmail;
 

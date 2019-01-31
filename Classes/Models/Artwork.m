@@ -4,7 +4,7 @@
 #import "NSString+NiceFractions.h"
 #import "EditionSet.h"
 
-static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
+static const int NumberOfCharactersInArtworkTitleBeforeCrop = 17;
 
 
 @implementation Artwork
@@ -98,6 +98,56 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
     self.inventoryID = [aDictionary onlyStringForKey:ARFeedInventoryIDKey];
     self.confidentialNotes = [aDictionary onlyStringForKey:ARFeedConfidentialNotesKey];
     self.artistOrderingKey = [self artistOrderingString];
+}
+
+- (ARArtworkAvailability)availabilityState
+{
+    NSString *availability = self.availability;
+    if ([availability isEqualToString:@"not for sale"]) {
+        return ARArtworkAvailabilityNotForSale;
+    } else if ([availability isEqualToString:@"for sale"]) {
+        return ARArtworkAvailabilityForSale;
+    } else if ([availability isEqualToString:@"sold"]) {
+        return ARArtworkAvailabilitySold;
+    } else if ([availability isEqualToString:@"on loan"]) {
+        return ARArtworkAvailabilityOnLoan;
+    } else if ([availability isEqualToString:@"permanent collection"]) {
+        return ARArtworkAvailabilityPermenentCollection;
+    } else {
+        return ARArtworkAvailabilityOnHold;
+    }
+}
+
+- (ARArtworkAvailability)looseAvailabilityState
+{
+    // If there's no editions just use the main artwork response
+    if (!self.editionSets.count) {
+        return [self availabilityState];
+    }
+    // Prioritise anything being available
+    for (EditionSet *set in self.editionSets) {
+        if (set.isAvailableForSale) {
+            return ARArtworkAvailabilityForSale;
+        }
+    }
+    // Allow it to fall back to the main artwork
+    return [self availabilityState];
+}
+
+- (UIColor *)colorForAvailabilityState:(ARArtworkAvailability)availablity
+{
+    switch (availablity) {
+        case ARArtworkAvailabilityForSale: // Green
+            return [UIColor colorWithRed:0 green:165 / 255.0 blue:44 / 255.0 alpha:1];
+        case ARArtworkAvailabilityOnHold: // Orange
+            return [UIColor colorWithRed:1 green:163 / 255.0 blue:0 / 255.0 alpha:1];
+        case ARArtworkAvailabilitySold: // Red
+            return [UIColor colorWithRed:219 / 255.0 green:1 / 255.0 blue:0 / 255.0 alpha:1];
+        case ARArtworkAvailabilityNotForSale:
+        case ARArtworkAvailabilityOnLoan:
+        case ARArtworkAvailabilityPermenentCollection: // Grey
+            return [UIColor colorWithRed:165 / 255.0 green:165 / 255.0 blue:165 / 255.0 alpha:1];
+    }
 }
 
 - (void)convertDimensionsToAmericanSystemOfMeasurement
@@ -221,6 +271,7 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
 
     NSString *subtitle = nil;
     NSString *title = self.title.length ? self.title : @"Untitled";
+
     BOOL needsCrop = title.length > NumberOfCharactersInArtworkTitleBeforeCrop;
     NSInteger cropCount = MIN(title.length, NumberOfCharactersInArtworkTitleBeforeCrop);
     subtitle = [title substringToIndex:cropCount];
@@ -240,8 +291,35 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
             }
         }
     }
+
     return subtitle;
 }
+
+- (NSAttributedString *)attributedGridSubtitle
+{
+    NSString *original = self.gridSubtitle;
+
+    // This aint a good dependency in this function
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    // Just return the original string as an attirbuted string when we're not adding a dot
+    if ([defaults boolForKey:ARPresentationModeOn] && [defaults boolForKey:ARHideArtworkAvailability]) {
+        return [[NSAttributedString alloc] initWithString:original];
+    }
+
+    // Start with the original string: [artwork, date]
+    // Add a dot: [artwork, date ●]
+    NSString *fullString = [original stringByAppendingString:@" •"];
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:fullString];
+
+    // Color and size that dot
+    UIColor *color = [self colorForAvailabilityState:self.availabilityState];
+    [string addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(original.length + 1, 1)];
+    [string addAttribute:NSFontAttributeName value:[UIFont serifItalicFontWithSize:22] range:NSMakeRange(original.length + 1, 1)];
+
+    return string;
+}
+
 
 - (BOOL)hasAdditionalImages
 {
@@ -264,7 +342,7 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
 
 - (NSString *)titleForEmail
 {
-   return [self gridSubtitle];
+    return [self gridSubtitle];
 }
 
 static NSSortDescriptor *ARSortDisplayDescriptor;
@@ -277,7 +355,9 @@ static NSSortDescriptor *ARSortDisplayDescriptor;
 
     return [[[self.artists sortedArrayUsingDescriptors:@[ ARSortDisplayDescriptor ]] map:^id(Artist *artist) {
         return artist.presentableName;
-    }] join:@", "] ?: @"";
+    }] join:@", "] ?
+        :
+        @"";
 }
 
 - (NSString *)artistOrderingString

@@ -111,6 +111,8 @@ const NSInteger ArtworkGridBottomMargin = 17;
         [cell setImageURL:imageURL savingLocallyAtPath:imagePath];
     }
 
+    BOOL supportsAttributedString = [item respondsToSelector:@selector(attributedGridSubtitle)];
+
     // Set the cell attributes per type of gridview
     switch (_displayMode) {
         case ARDisplayModeAllAlbums:
@@ -126,14 +128,22 @@ const NSInteger ArtworkGridBottomMargin = 17;
         case ARDisplayModeLocation:
         case ARDisplayModeDocuments:
             cell.title = [self.dataSource gridTitleForItem:item];
-            cell.subtitle = [self.dataSource gridSubtitleForItem:item];
+            if (supportsAttributedString) {
+                cell.attributedSubtitle = [self.dataSource gridAttributedSubtitleForItem:item];
+            } else {
+                cell.subtitle = [self.dataSource gridSubtitleForItem:item];
+            }
             break;
 
         case ARDisplayModeInstallationShots:
         case ARDisplayModeArtist:
             // Only show the subtitle on an artist page
             // because we know who the artist is.
-            cell.subtitle = [self.dataSource gridSubtitleForItem:item];
+            if (supportsAttributedString) {
+                cell.attributedSubtitle = [self.dataSource gridAttributedSubtitleForItem:item];
+            } else {
+                cell.subtitle = [self.dataSource gridSubtitleForItem:item];
+            }
             break;
     }
 

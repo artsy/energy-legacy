@@ -36,7 +36,7 @@ describe(@"when showing and hiding toggles", ^{
         Artwork *priceArtwork = genericArtworkInContext(context);
         priceArtwork.displayPrice = @"200";
 
-        expect(numberOfRowsIn(subject)).to.equal(3);
+        expect(numberOfRowsIn(subject)).to.equal(4);
     });
 
     it(@"does not show Hide Prices For Sold Works toggle when there are no sold works with prices", ^{
@@ -44,7 +44,7 @@ describe(@"when showing and hiding toggles", ^{
         soldArtwork.availability = @"sold";
         soldArtwork.isAvailableForSale = @(NO);
 
-        expect(numberOfRowsIn(subject)).to.equal(2);
+        expect(numberOfRowsIn(subject)).to.equal(3);
     });
 
     it(@"shows Hide Prices For Sold Works and Hide Not For Sale Works toggles when there are sold works with prices", ^{
@@ -53,7 +53,7 @@ describe(@"when showing and hiding toggles", ^{
         soldArtwork.backendPrice = @"10";
         soldArtwork.isAvailableForSale = @(NO);
 
-        expect(numberOfRowsIn(subject)).to.equal(4);
+        expect(numberOfRowsIn(subject)).to.equal(5);
     });
 
     it(@"shows Hide Unpublished Works when there are both published and unpublished works", ^{
@@ -62,19 +62,19 @@ describe(@"when showing and hiding toggles", ^{
         Artwork *unpublishedArtwork = genericArtworkInContext(context);
         unpublishedArtwork.isPublished = @(NO);
 
-        expect(numberOfRowsIn(subject)).to.equal(3);
+        expect(numberOfRowsIn(subject)).to.equal(4);
     });
 
     it(@"doesn't show Hide Unpublished Works when there are only unpublished works", ^{
         Artwork *unpublishedArtwork = genericArtworkInContext(context);
         unpublishedArtwork.isPublished = @(NO);
 
-        expect(numberOfRowsIn(subject)).to.equal(2);
+        expect(numberOfRowsIn(subject)).to.equal(3);
     });
 
     it(@"doesn't show Hide Unpublished Works when there are only published works", ^{
         genericArtworkInContext(context);
-        expect(numberOfRowsIn(subject)).to.equal(2);
+        expect(numberOfRowsIn(subject)).to.equal(3);
     });
 
 });

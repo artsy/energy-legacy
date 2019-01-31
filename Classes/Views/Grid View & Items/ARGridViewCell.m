@@ -67,9 +67,6 @@ NSString *ARGridViewStateMultiSelectableSelected = @"multi-seleced";
     _subtitleLabel.text = @"";
 
     _item = nil;
-
-    [_thumbnailOperation cancel];
-    _thumbnailOperation = nil;
     _aspectRatio = 1;
 }
 
@@ -97,24 +94,6 @@ NSString *ARGridViewStateMultiSelectableSelected = @"multi-seleced";
     subtitleLabel.textAlignment = NSTextAlignmentCenter;
     subtitleLabel.opaque = YES;
     return subtitleLabel;
-}
-
-- (void)tintColorDidChange
-{
-    [super tintColorDidChange];
-
-    UIColor *backgroundColor = [UIColor artsyBackgroundColor];
-    UIColor *foregroundColor = [UIColor artsyForegroundColor];
-
-    self.backgroundColor = backgroundColor;
-    self.contentView.backgroundColor = backgroundColor;
-    self.backgroundView.backgroundColor = backgroundColor;
-
-    self.titleLabel.backgroundColor = backgroundColor;
-    self.subtitleLabel.backgroundColor = backgroundColor;
-
-    self.titleLabel.textColor = foregroundColor;
-    self.subtitleLabel.textColor = foregroundColor;
 }
 
 #pragma mark - Setters
@@ -166,6 +145,14 @@ NSString *ARGridViewStateMultiSelectableSelected = @"multi-seleced";
     [self setNeedsLayout];
 }
 
+- (void)setAttributedSubtitle:(NSAttributedString *)subtitle
+{
+    // Something is weird about the colors here.
+    _attributedSubtitle = subtitle;
+    self.subtitleLabel.attributedText = subtitle;
+    [self setNeedsLayout];
+}
+
 - (void)setSuppressItalics:(BOOL)suppressItalics
 {
     _suppressItalics = suppressItalics;
@@ -214,7 +201,7 @@ NSString *ARGridViewStateMultiSelectableSelected = @"multi-seleced";
     }
 
     [UIView animateIf:animated duration:ARAnimationQuickDuration:^{
-        _imageView.alpha = selectable? 0.9 : 1;
+        _imageView.alpha = selectable ? 0.9 : 1;
     }];
 }
 

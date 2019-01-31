@@ -29,6 +29,7 @@
 		342F9DE96C8A544A9CB068D0 /* ARShowDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F944C479544741A75A27F /* ARShowDownloader.m */; };
 		342F9E7ACEBAD0205BCF4307 /* ARShowArtworksDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9E1816CD6852B0A66A56 /* ARShowArtworksDownloader.m */; };
 		342F9F94B54C6148E6E72C98 /* ARArtworkDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9229AB74B10489CD4BB2 /* ARArtworkDownloader.m */; };
+		3A27CD7D2202725C0057C1B5 /* ARRedDotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD7C2202725C0057C1B5 /* ARRedDotViewController.m */; };
 		3A91D4D42200E2BF00AFAFCD /* ARImageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A91D4D32200E2BF00AFAFCD /* ARImageViewControllerTests.m */; };
 		411D96DA1731528B00598854 /* ARLogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411D96D81731528B00598854 /* ARLogoutViewController.m */; };
 		4137E7B817304ED000D85A93 /* ARLogoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4137E7B717304ED000D85A93 /* ARLogoutManager.m */; };
@@ -678,6 +679,8 @@
 		342F9EBCD72F7CC0D2258556 /* ARImageThumbnailCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARImageThumbnailCreator.m; sourceTree = "<group>"; };
 		342F9EC9FA53B592D5B7409E /* ARGridViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARGridViewDataSource.m; sourceTree = "<group>"; };
 		342F9F9659313511F3E8B570 /* ARGridViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARGridViewDataSource.h; sourceTree = "<group>"; };
+		3A27CD7B2202725C0057C1B5 /* ARRedDotViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARRedDotViewController.h; sourceTree = "<group>"; };
+		3A27CD7C2202725C0057C1B5 /* ARRedDotViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARRedDotViewController.m; sourceTree = "<group>"; };
 		3A447EA021FBD70E0003FB5A /* ArtsyFolio v2.6.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.6.1.xcdatamodel"; sourceTree = "<group>"; };
 		3A91D4D32200E2BF00AFAFCD /* ARImageViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARImageViewControllerTests.m; sourceTree = "<group>"; };
 		411D96D71731528B00598854 /* ARLogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLogoutViewController.h; sourceTree = "<group>"; };
@@ -1692,6 +1695,15 @@
 				60124F6E191CFB1F008BE366 /* ARShowCoverShotDownloader.m */,
 			);
 			path = Shows;
+			sourceTree = "<group>";
+		};
+		3A27CD79220272380057C1B5 /* Red Dot */ = {
+			isa = PBXGroup;
+			children = (
+				3A27CD7B2202725C0057C1B5 /* ARRedDotViewController.h */,
+				3A27CD7C2202725C0057C1B5 /* ARRedDotViewController.m */,
+			);
+			path = "Red Dot";
 			sourceTree = "<group>";
 		};
 		411D96D117314C4400598854 /* Logout */ = {
@@ -2910,6 +2922,7 @@
 		60FDF6D61AE97EAC00173E81 /* Contexts */ = {
 			isa = PBXGroup;
 			children = (
+				3A27CD79220272380057C1B5 /* Red Dot */,
 				60E6321D1B3AD29400FA5538 /* App Launching */,
 				602E71A41B2F88020022033D /* Spotlight */,
 				60C777511B0E158900BEFA97 /* Application Startup */,
@@ -4103,6 +4116,7 @@
 				60CBDEFB206702E500275BC8 /* ARSafeAreaAwareViewController.m in Sources */,
 				839B59781B4DAA3900F24033 /* _EditionSet.m in Sources */,
 				60E3926719085EFB0091AC9E /* ARTextFieldWithPlaceholder.m in Sources */,
+				3A27CD7D2202725C0057C1B5 /* ARRedDotViewController.m in Sources */,
 				D8FAA9941442893600AA34BC /* ARFeedKeys.m in Sources */,
 				D8FAA9951442893600AA34BC /* ARNetworkConstants.m in Sources */,
 				D8FAA9961442893600AA34BC /* ARNotifications.m in Sources */,
