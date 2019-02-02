@@ -29,6 +29,8 @@
 		342F9DE96C8A544A9CB068D0 /* ARShowDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F944C479544741A75A27F /* ARShowDownloader.m */; };
 		342F9E7ACEBAD0205BCF4307 /* ARShowArtworksDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9E1816CD6852B0A66A56 /* ARShowArtworksDownloader.m */; };
 		342F9F94B54C6148E6E72C98 /* ARArtworkDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 342F9229AB74B10489CD4BB2 /* ARArtworkDownloader.m */; };
+		3A428C302206103800B9909A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A428C2F2206103800B9909A /* CoreServices.framework */; };
+		3A428C312208894C00B9909A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A428C2F2206103800B9909A /* CoreServices.framework */; };
 		3A91D4D42200E2BF00AFAFCD /* ARImageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A91D4D32200E2BF00AFAFCD /* ARImageViewControllerTests.m */; };
 		3A91D4D7220130A000AFAFCD /* ARSentryAnalyticsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A91D4D6220130A000AFAFCD /* ARSentryAnalyticsProvider.m */; };
 		411D96DA1731528B00598854 /* ARLogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411D96D81731528B00598854 /* ARLogoutViewController.m */; };
@@ -679,6 +681,7 @@
 		342F9EBCD72F7CC0D2258556 /* ARImageThumbnailCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARImageThumbnailCreator.m; sourceTree = "<group>"; };
 		342F9EC9FA53B592D5B7409E /* ARGridViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARGridViewDataSource.m; sourceTree = "<group>"; };
 		342F9F9659313511F3E8B570 /* ARGridViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARGridViewDataSource.h; sourceTree = "<group>"; };
+		3A428C2F2206103800B9909A /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		3A447EA021FBD70E0003FB5A /* ArtsyFolio v2.6.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.6.1.xcdatamodel"; sourceTree = "<group>"; };
 		3A91D4D32200E2BF00AFAFCD /* ARImageViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARImageViewControllerTests.m; sourceTree = "<group>"; };
 		3A91D4D52201309F00AFAFCD /* ARSentryAnalyticsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSentryAnalyticsProvider.h; sourceTree = "<group>"; };
@@ -1576,6 +1579,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A428C312208894C00B9909A /* CoreServices.framework in Frameworks */,
 				7A48483519FAA9AF4714F6EB /* libPods-ArtsyFolio Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1584,6 +1588,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A428C302206103800B9909A /* CoreServices.framework in Frameworks */,
 				60795639199AC9D200D73E6C /* libz.dylib in Frameworks */,
 				60B0D104173AA6FA000DA458 /* AdSupport.framework in Frameworks */,
 				60051B3416F77A6600467AEA /* libicucore.dylib in Frameworks */,
@@ -3224,6 +3229,7 @@
 		D8D208AF141405A500A823E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A428C2F2206103800B9909A /* CoreServices.framework */,
 				60BF8F5C199A8F410031200B /* libPods-ArtsyFolio Tests.a */,
 				60BF8F5A199A8F390031200B /* libPods.a */,
 				60867D5718DB20FB007A1751 /* CrashReporter.framework */,
@@ -3905,7 +3911,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio-frameworks.sh\"";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio-frameworks.sh\"\n";
 		};
 		DDCBC4A0E7CBCCCDC2CA8299 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
