@@ -25,6 +25,14 @@
     }
 }
 
+- (void)setTickColor:(UIColor *)color
+{
+    if ([self.accessoryView isKindOfClass:[ARAnimatedTickView class]]) {
+        [(ARAnimatedTickView *)self.accessoryView setHighlightColor:color];
+    }
+}
+
+
 - (BOOL)isSelected
 {
     if ([self.accessoryView isKindOfClass:[ARAnimatedTickView class]]) {

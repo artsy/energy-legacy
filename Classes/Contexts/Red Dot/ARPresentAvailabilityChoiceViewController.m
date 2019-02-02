@@ -15,6 +15,7 @@
 {
     [super viewDidLoad];
 
+    // Basically Green - Orange - Red - Grey
     _orderedAvailabilities = @[
         @(ARArtworkAvailabilityForSale),
         @(ARArtworkAvailabilityOnHold),
@@ -63,13 +64,14 @@
         [cell setTickSelected:NO animated:NO];
     }
 
-
     AvailabilityFinishedCallback completed = ^(BOOL success) {
         NSInteger currentIndex = [self.orderedAvailabilities indexOfObject:@(self.currentAvailability)];
-        NSIndexPath *oldSelection = [NSIndexPath indexPathForRow:0 inSection:currentIndex];
+        NSIndexPath *oldSelection = [NSIndexPath indexPathForRow:currentIndex inSection:0];
         NSIndexPath *newSelection = success ? indexPath : oldSelection;
+        UIColor *tickColor = success ? [UIColor artsyPurpleRegular] : [UIColor redColor];
 
         ARAvailabilityTableViewCell *cell = [tableView cellForRowAtIndexPath:newSelection];
+        [cell setTickColor:tickColor];
         [cell setTickSelected:YES animated:YES];
     };
 

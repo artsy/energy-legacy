@@ -25,6 +25,7 @@
     }
 
     _artwork = artwork;
+    // Gotta order by something, height shows first in "x by z" so it should be a semi-logical sort
     NSSortDescriptor *heightSort = [NSSortDescriptor sortDescriptorWithKey:@keypath(EditionSet.new, height) ascending:YES];
     _editions = [artwork.editionSets sortedArrayUsingDescriptors:@[ heightSort ]];
     _popover = popover;

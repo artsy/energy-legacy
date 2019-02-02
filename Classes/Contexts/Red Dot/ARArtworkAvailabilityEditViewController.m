@@ -7,11 +7,10 @@
 
 
 @interface ARArtworkAvailabilityEditViewController ()
-@property (strong) ARPresentAvailabilityChoiceViewController *noEditionsInlineAvailabilitiyOptionsVC;
+@property (strong) ARPresentAvailabilityChoiceViewController *noEditionsInlineAvailabilityOptionsVC;
 @property (strong) AREditEditionsViewController *editEditionsVC;
 @property (strong) ARPopoverController *popover;
 @property (strong) AREditAvailabilityNetworkModel *networkModel;
-
 @end
 
 
@@ -31,14 +30,13 @@
     _networkModel = networkModel;
 
     if (artwork.editionSets.count) {
-        // Maybe might not need popover?
         _editEditionsVC = [[AREditEditionsViewController alloc] initWithArtwork:artwork popover:popover];
 
     } else {
         // When there are no editions, just show the artwork availablilty inline
-        _noEditionsInlineAvailabilitiyOptionsVC = [[ARPresentAvailabilityChoiceViewController alloc] init];
-        _noEditionsInlineAvailabilitiyOptionsVC.currentAvailability = _artwork.availabilityState;
-        _noEditionsInlineAvailabilitiyOptionsVC.callback = ^(ARArtworkAvailability newAvailability, AvailabilityFinishedCallback _Nonnull finished) {
+        _noEditionsInlineAvailabilityOptionsVC = [[ARPresentAvailabilityChoiceViewController alloc] init];
+        _noEditionsInlineAvailabilityOptionsVC.currentAvailability = _artwork.availabilityState;
+        _noEditionsInlineAvailabilityOptionsVC.callback = ^(ARArtworkAvailability newAvailability, AvailabilityFinishedCallback _Nonnull finished) {
             [networkModel updateArtwork:artwork mainAvailability:newAvailability completion:^(BOOL success) {
                 // Update the UI in the popover
                 finished(success);
@@ -49,7 +47,7 @@
                     [artwork saveManagedObjectContextLoggingErrors];
 
                     // Hide the popover after it's confirmed
-                    ar_dispatch_after(0.2, ^{
+                    ar_dispatch_after(0.35, ^{
                         [popover dismissPopoverAnimated:YES];
                         [[NSNotificationCenter defaultCenter] postNotificationName:ARArtworkAvailabilityUpdated object:artwork];
                     });
@@ -63,7 +61,7 @@
 
 - (UIViewController *)mainViewController
 {
-    return self.noEditionsInlineAvailabilitiyOptionsVC ?: self.editEditionsVC;
+    return self.noEditionsInlineAvailabilityOptionsVC ?: self.editEditionsVC;
 }
 
 - (void)viewDidLoad

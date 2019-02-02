@@ -7,4 +7,9 @@
 - (void)setTickSelected:(BOOL)selected animated:(BOOL)animated;
 /// Is it already active or not
 - (BOOL)isSelected;
+
+/// The color for the tick, be careful with the re-use on this
+/// as it won't get reset across re-uses
+- (void)setTickColor:(UIColor *)color;
+
 @end

@@ -106,7 +106,7 @@
 
 - (BOOL)shouldEnablePresentationMode
 {
-    return [self.defaults boolForKey:ARHideAllPrices] || [self.defaults boolForKey:ARHidePricesForSoldWorks] || [self.defaults boolForKey:ARHideUnpublishedWorks] || [self.defaults boolForKey:ARHideWorksNotForSale] || [self.defaults boolForKey:ARHideConfidentialNotes] || [self.defaults boolForKey:ARHideArtworkEditButton] || [self.defaults boolForKey:ARShowAvailability];
+    return [self.defaults boolForKey:ARHideAllPrices] || [self.defaults boolForKey:ARHidePricesForSoldWorks] || [self.defaults boolForKey:ARHideUnpublishedWorks] || [self.defaults boolForKey:ARHideWorksNotForSale] || [self.defaults boolForKey:ARHideConfidentialNotes] || [self.defaults boolForKey:ARHideArtworkEditButton] || [self.defaults boolForKey:ARHideArtworkAvailability];
 }
 
 - (UIImage *)settingsButtonImage
