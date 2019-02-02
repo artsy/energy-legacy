@@ -148,7 +148,6 @@ NSString *ARGridViewStateMultiSelectableSelected = @"multi-seleced";
 
 - (void)setAttributedSubtitle:(NSAttributedString *)subtitle
 {
-    // Something is weird about the colors here.
     _attributedSubtitle = subtitle;
     self.subtitleLabel.attributedText = subtitle;
     [self setNeedsLayout];

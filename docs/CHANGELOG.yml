@@ -3,6 +3,8 @@ upcoming:
     - Shows un-processed artworks but provides a note to edit them in CMS - orta
     - Crash fix on login - orta
     - Adds ability to enable/disable Folio for a particular subscriber  - orta
+    - You can change an Artwork or EditionSets availability from the grid or an artwork  - orta
+    - Visual tweaks (navbar line removed, white mode improvements)  - orta
 
 releases:
   - version: 2.6.0
