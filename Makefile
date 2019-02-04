@@ -57,7 +57,7 @@ storyboard_ids:
 ### Git Faffing
 
 deploy_if_beta_branch:
-	if [ "$(LOCAL_BRANCH)" == "beta" ]; then make install_fastlane; bundle exec fastlane beta; bundle exec fastlane upload_symbols fi
+	if [ "$(LOCAL_BRANCH)" == "beta" ]; then make install_fastlane; bundle exec fastlane beta; bundle exec fastlane upload_symbols; fi
 
 install_fastlane:
 	bundle update fastlane
