@@ -108,8 +108,8 @@ static NSString *currentUserEmail;
     ICMUserAttributes *attr = [[ICMUserAttributes alloc] init];
     ICMCompany *company = [[ICMCompany alloc] init];
     company.companyId = partner.partnerID;
-    company.name = partner.name;
-    company.plan = plans[0] ?: @"";
+    company.name = partner.name ?: @"";
+    company.plan = plans.count ? plans.firstObject : @"";
     [Intercom updateUser:attr];
 }
 
