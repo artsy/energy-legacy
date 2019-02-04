@@ -1,4 +1,5 @@
 upcoming:
+  version: 2.7.0
   notes:
     - Shows un-processed artworks but provides a note to edit them in CMS - orta
     - Updates Intercom, removes Hockey and migrates to Sentry - orta
@@ -7,6 +8,7 @@ upcoming:
     - Adds ability to enable/disable Folio for a particular subscriber  - orta
     - You can change an Artwork or EditionSets availability from the grid or an artwork  - orta
     - Visual tweaks (navbar line removed, white mode improvements)  - orta
+    - Artwork detailed overview de-markdown fixes - orta
 
 releases:
   - version: 2.6.0

@@ -122,7 +122,8 @@
 - (UILabel *)bodyLabelWithText:(NSString *)text
 {
     UILabel *bodyLabel = [[ARSerifLabel alloc] initWithFrame:CGRectZero];
-    bodyLabel.attributedText = [text attributedStringWithLineSpacing:4.0];
+    bodyLabel.attributedText = [text attributedStringWithLineSpacing:6.0];
+
     bodyLabel.textColor = [UIColor artsyForegroundColor];
     bodyLabel.backgroundColor = [UIColor artsyBackgroundColor];
     bodyLabel.preferredMaxLayoutWidth = self.columnWidth;
