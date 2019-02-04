@@ -64,7 +64,7 @@ install_fastlane:
 	bundle install --with deployment
 
 deploy:
-	git push origin "$(LOCAL_BRANCH):beta"
+	git push origin "$(LOCAL_BRANCH):beta" -f
 	open "https://circleci.com/gh/artsy/energy/tree/beta"
 
 LOCAL_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
