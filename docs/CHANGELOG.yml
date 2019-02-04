@@ -1,6 +1,8 @@
 upcoming:
   notes:
     - Shows un-processed artworks but provides a note to edit them in CMS - orta
+    - Updates Intercom, removes Hockey and migrates to Sentry - orta
+    - Updates CI Xcode to 10.1 - orta
     - Crash fix on login - orta
     - Adds ability to enable/disable Folio for a particular subscriber  - orta
 
