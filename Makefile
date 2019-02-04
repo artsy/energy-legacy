@@ -18,8 +18,7 @@ oss:
 ci_keys:
 	bundle exec pod keys set "ArtsyAPIClientSecret" "3a33d2085cbd1176153f99781bbce7c6" Folio
 	bundle exec pod keys set "ArtsyAPIClientKey" "e750db60ac506978fc70"
-	bundle exec pod keys set "HockeyAppBetaID" "-"
-	bundle exec pod keys set "HockeyAppLiveID" "-"
+	bundle exec pod keys set "SentryDSN" "-"
 	bundle exec pod keys set "SegmentProduction" "-"
 	bundle exec pod keys set "SegmentDev" "-"
 	bundle exec pod keys set "SegmentBeta" "-"
@@ -58,7 +57,7 @@ storyboard_ids:
 ### Git Faffing
 
 deploy_if_beta_branch:
-	if [ "$(LOCAL_BRANCH)" == "beta" ]; then make install_fastlane; bundle exec fastlane beta; fi
+	if [ "$(LOCAL_BRANCH)" == "beta" ]; then make install_fastlane; bundle exec fastlane beta; bundle exec fastlane upload_symbols; fi
 
 install_fastlane:
 	bundle update fastlane

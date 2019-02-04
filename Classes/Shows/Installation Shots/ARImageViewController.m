@@ -35,7 +35,7 @@
         processingNote.textAlignment = NSTextAlignmentCenter;
         processingNote.numberOfLines = 0;
         [processingNote sizeToFit];
-        self.view = processingNote;
+        self.view = (id)processingNote;
 
     } else {
         self.dataSource = [[ARTiledImageDataSourceWithImage alloc] initWithImage:self.image];

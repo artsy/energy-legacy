@@ -3,11 +3,11 @@
 #import <ARAnalytics/ARAnalytics.h>
 #import <Keys/FolioKeys.h>
 #import <Analytics/SEGAnalytics.h>
-#import <HockeySDK-Source/HockeySDK.h>
 
 #import "ARAnalyticsHelper.h"
 #import "ARIntercomProvider.h"
 #import "SubscriptionPlan.h"
+#import "ARSentryAnalyticsProvider.h"
 
 static NSString *currentUserEmail;
 
@@ -34,17 +34,14 @@ static NSString *currentUserEmail;
 
     NSString *segment = isAppStore ? [keys segmentProduction] : isBeta ? [keys segmentBeta] : [keys segmentDev];
 
-#if DEBUG
-    BITHockeyManager *hockey = [BITHockeyManager sharedHockeyManager];
-    hockey.disableUpdateManager = YES;
-    hockey.disableCrashManager = YES;
-#endif
+    [ARAnalytics setupWithAnalytics:@{ARSegmentioWriteKey : segment}];
 
-    [ARAnalytics setupWithAnalytics:@{
-        ARHockeyAppBetaID : [keys hockeyAppBetaID],
-        ARHockeyAppLiveID : [keys hockeyAppLiveID],
-        ARSegmentioWriteKey : segment
-    }];
+    // For OSS builds don't ship the sentry env
+    NSString *sentryEnv = [keys sentryDSN];
+    if (sentryEnv && ![sentryEnv isEqualToString:@"-"]) {
+        id sentry = [[ARSentryAnalyticsProvider alloc] initWithDSN:sentryEnv];
+        [ARAnalytics setupProvider:sentry];
+    }
 
     // Intercom isn't using a real dynamic framework yet - so we need to make the provider outside of
     // ARAnalytics and then push it in.
@@ -108,13 +105,12 @@ static NSString *currentUserEmail;
         @"partner_admin_id" : partner.admin.slug ?: @"",
     }];
 
-    [Intercom updateUserWithAttributes:@{
-        @"company" : @{
-            @"id" : partner.partnerID,
-            @"name" : partner.name,
-            @"plan" : plans ?: @"",
-        }
-    }];
+    ICMUserAttributes *attr = [[ICMUserAttributes alloc] init];
+    ICMCompany *company = [[ICMCompany alloc] init];
+    company.companyId = partner.partnerID;
+    company.name = partner.name ?: @"";
+    company.plan = plans.count ? plans.firstObject : @"";
+    [Intercom updateUser:attr];
 }
 
 - (void)storeUserDetails:(User *)user
@@ -141,9 +137,9 @@ static NSString *currentUserEmail;
         @"user_id" : user.slug ?: @""
     }];
 
-    [Intercom updateUserWithAttributes:@{
-        @"role" : user.type ?: @"",
-    }];
+    ICMUserAttributes *attr = [[ICMUserAttributes alloc] init];
+    attr.customAttributes = @{ @"role" : user.type ?: @"" };
+    [Intercom updateUser:attr];
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateStyle = NSDateFormatterMediumStyle;

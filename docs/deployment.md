@@ -1,39 +1,8 @@
 Deployment
 ================
 
-## Betas
-
-We deploy betas to Hockey App via [fastlane](http://fastlane.tools). You will need to have set the ENV vars:
-
-* `SLACK_URL` - accessible via the Slack admin.
-
-To start the build run `bundle exec fastlane beta`. All details for our deployment can be found in the `Fastfile` in the `fastlane` directory.
-
-## App Store
-
-### TODOs for anyone before deploying
-
-1. Check out energy Artsy master.
-2. Remove dev only entries from `docs/CHANGELOG.yml`.
-3. Update `CHANGELOG.yml` with the release number.
-4. Add and commit the changed files, typically with `-m "Preparing for the next release, version X.Y.Z."`.
-
-IMPORTANT: We use the "Art.sy Inc." account not "ARTSY INC" - which is our enterprise account. For setting up these, consult [artsy/potential](https://github.com/artsy/potential/blob/master/mobile/mobile.md)
-
-### Prepare in iTunes Connect
-
-1. You need to have copy for the next release, for minor releases this is just a list of notable changes.
-2. Log in to [iTunes Connect](https://itunesconnect.apple.com) as it@artsymail.com ( team _Art.sy Inc._ ).
-3. Manage Your Apps > Which-ever app > Add new version.
-
-### Release to AppStore
-
-1. Install HockeyApp from http://hockeyapp.net/apps and run it.
-2. In Xcode, change the target device to _iOS Device_.
-3. In Xcode, hold alt (`⌥`) and go to the menu, hit _Product_ and then _Archive..._.
-4. Check that the Build Configuration is set to _Store_.
-5. Hit _Archive_.
-6. Hit _Distribute_, it will run validations and submit.
+Follows Eigen's [documentation](https://github.com/artsy/eigen/blob/master/docs/deploy_to_beta.md) - it's
+more likely  to be up-to-date.
 
 ### Upon Successful Submission
 
