@@ -67,9 +67,6 @@ NSString *ARGridViewStateMultiSelectableSelected = @"multi-seleced";
     _subtitleLabel.text = @"";
 
     _item = nil;
-
-    [_thumbnailOperation cancel];
-    _thumbnailOperation = nil;
     _aspectRatio = 1;
 }
 
@@ -81,7 +78,7 @@ NSString *ARGridViewStateMultiSelectableSelected = @"multi-seleced";
 
     CGFloat fontSize = [UIDevice isPad] ? ARFontSansRegular : ARPhoneFontSansRegular;
     titleLabel.font = [UIFont sansSerifFontWithSize:fontSize];
-    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textColor = [UIColor artsyForegroundColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.opaque = YES;
     titleLabel.userInteractionEnabled = YES;
@@ -95,26 +92,9 @@ NSString *ARGridViewStateMultiSelectableSelected = @"multi-seleced";
 {
     ARDateLabel *subtitleLabel = [[ARDateLabel alloc] initWithFrame:CGRectZero];
     subtitleLabel.textAlignment = NSTextAlignmentCenter;
+    subtitleLabel.textColor = [UIColor artsyForegroundColor];
     subtitleLabel.opaque = YES;
     return subtitleLabel;
-}
-
-- (void)tintColorDidChange
-{
-    [super tintColorDidChange];
-
-    UIColor *backgroundColor = [UIColor artsyBackgroundColor];
-    UIColor *foregroundColor = [UIColor artsyForegroundColor];
-
-    self.backgroundColor = backgroundColor;
-    self.contentView.backgroundColor = backgroundColor;
-    self.backgroundView.backgroundColor = backgroundColor;
-
-    self.titleLabel.backgroundColor = backgroundColor;
-    self.subtitleLabel.backgroundColor = backgroundColor;
-
-    self.titleLabel.textColor = foregroundColor;
-    self.subtitleLabel.textColor = foregroundColor;
 }
 
 #pragma mark - Setters
@@ -166,6 +146,13 @@ NSString *ARGridViewStateMultiSelectableSelected = @"multi-seleced";
     [self setNeedsLayout];
 }
 
+- (void)setAttributedSubtitle:(NSAttributedString *)subtitle
+{
+    _attributedSubtitle = subtitle;
+    self.subtitleLabel.attributedText = subtitle;
+    [self setNeedsLayout];
+}
+
 - (void)setSuppressItalics:(BOOL)suppressItalics
 {
     _suppressItalics = suppressItalics;
@@ -214,7 +201,7 @@ NSString *ARGridViewStateMultiSelectableSelected = @"multi-seleced";
     }
 
     [UIView animateIf:animated duration:ARAnimationQuickDuration:^{
-        _imageView.alpha = selectable? 0.9 : 1;
+        _imageView.alpha = selectable ? 0.9 : 1;
     }];
 }
 

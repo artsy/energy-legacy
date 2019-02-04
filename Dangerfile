@@ -6,7 +6,7 @@ warn("PR is classed as Work in Progress") if github.pr_title.include? "[WIP]"
 declared_trivial = github.pr_title.include? "#trivial"
 
 if git.modified_files.include?("docs/CHANGELOG.yml") == false && !declared_trivial
-  fail("No CHANGELOG changes made")
+  warn("No CHANGELOG changes made")
 end
 
 # Stop skipping some manual testing

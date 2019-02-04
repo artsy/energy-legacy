@@ -4,7 +4,8 @@ const static NSUInteger PopOverMinimumWidth = 100;
 #import "ARMultipleButtonsPopoverViewController.h"
 
 
-@implementation ARMultipleButtonsPopoverViewController {
+@implementation ARMultipleButtonsPopoverViewController
+{
     NSArray *_buttons;
 }
 
@@ -31,10 +32,10 @@ const static NSUInteger PopOverMinimumWidth = 100;
     for (UIButton *button in buttons) {
         NSUInteger index = [buttons indexOfObject:button];
         CGRect frame = button.frame;
-        CGFloat currentOriginY = ButtonMargin + index * (CGRectGetHeight(frame) + ButtonMargin);
+        CGFloat currentOriginY = index * (CGRectGetHeight(frame) + ButtonMargin);
 
         CGRect newFrame = {
-            .origin.x = ButtonMargin,
+            .origin.x = 0,
             .origin.y = currentOriginY,
             .size.width = CGRectGetWidth(frame),
             .size.height = CGRectGetHeight(frame)};
@@ -47,7 +48,7 @@ const static NSUInteger PopOverMinimumWidth = 100;
 - (CGSize)contentSizeForButtonsInPopover:(NSArray *)buttons
 {
     CGFloat width = PopOverMinimumWidth;
-    CGFloat totalHeight = ButtonMargin;
+    CGFloat totalHeight = ButtonMargin * 3;
 
     for (UIButton *button in buttons) {
         totalHeight += CGRectGetHeight(button.frame);

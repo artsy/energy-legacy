@@ -17,6 +17,7 @@ NSString *const ARAlbumHighlightAlbumItemNotification = @"ARAlbumHighlightAlbumI
 
 NSString *const ARPartnerUpdatedNotification = @"ARPartnerUpdatedNotification";
 NSString *const ARUserUpdatedNotification = @"ARUserUpdatedNotification";
+NSString *const ARArtworkAvailabilityUpdated = @"ARArtworkAvailabilityUpdated";
 
 NSString *const ARGridSelectionChangedNotification = @"ARGridSelectionChangedNotification";
 

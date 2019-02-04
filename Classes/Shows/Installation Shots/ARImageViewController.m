@@ -26,7 +26,8 @@
 
 - (void)loadView
 {
-    if (self.image.processingValue) {
+    // Exclude Install Shots because they are never classed as having their image as being processed
+    if (self.image.processingValue && ![self.image isKindOfClass:InstallShotImage.class]) {
         ARSerifLabel *processingNote = [[ARSerifLineHeightLabel alloc] initWithLineSpacing:14];
 
         processingNote.textColor = [UIColor artsyForegroundColor];

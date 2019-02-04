@@ -4,12 +4,16 @@
 #import "NSAttributedString+Artsy.h"
 #import "ARModernArtworkInfoViewController.h"
 #import "AROptions.h"
+#import "ARArtworkAvailabilityEditViewController.h"
+#import "ARPopoverController.h"
 
 
 @interface ARModernArtworkMetadataViewController ()
 
 @property (nonatomic, strong, readonly) UITapGestureRecognizer *artworkInfoTapGesture;
 @property (nonatomic, strong, readonly) UISwipeGestureRecognizer *artworkInfoSwipeGesture;
+@property (nonatomic, strong, readonly) UILongPressGestureRecognizer *availabilityChangeGesture;
+
 @property (nonatomic, strong) UIView<ARArtworkMetadataViewable> *view;
 @property (nonatomic, strong) NSUserDefaults *defaults;
 @end
@@ -59,9 +63,11 @@
     _artworkInfoTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(artworkInfoTapped:)];
     _artworkInfoSwipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(artworkInfoTapped:)];
     _artworkInfoSwipeGesture.direction = UISwipeGestureRecognizerDirectionUp;
+    _availabilityChangeGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(changeArtworkAvailability:)];
 
     [self.view addGestureRecognizer:_artworkInfoTapGesture];
     [self.view addGestureRecognizer:_artworkInfoSwipeGesture];
+    [self.view addGestureRecognizer:_availabilityChangeGesture];
 }
 
 - (void)artworkInfoTapped:(UIGestureRecognizer *)gesture
@@ -72,14 +78,36 @@
     [self.parentViewController presentViewController:moreMetadata animated:YES completion:nil];
 }
 
+- (void)changeArtworkAvailability:(UILongPressGestureRecognizer *)gesture
+{
+    if (gesture.state != UIGestureRecognizerStateBegan) return;
+    if (self.presentingViewController) return;
+
+    UINavigationController *navController = [[UINavigationController alloc] init];
+    navController.navigationBarHidden = YES;
+
+    ARPopoverController *popoverController = [[ARPopoverController alloc] initWithContentViewController:navController];
+    ARArtworkAvailabilityEditViewController *availabilityVC = [[ARArtworkAvailabilityEditViewController alloc] initWithArtwork:self.artwork popover:popoverController];
+    navController.viewControllers = @[ availabilityVC ];
+
+    popoverController.theme.viewContentInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+    popoverController.popoverContentSize = availabilityVC.preferredContentSize;
+
+    CGRect popoverFrame = [self.parentViewController.view convertRect:self.view.subviews.firstObject.frame fromView:self.view.subviews.firstObject];
+    [popoverController presentPopoverFromRect:popoverFrame inView:self.parentViewController.view permittedArrowDirections:WYPopoverArrowDirectionDown animated:YES];
+}
+
 - (void)setArtwork:(Artwork *)artwork
 {
     _artwork = artwork;
 
+    NSAttributedString *artist = [NSAttributedString artistStringForArtwork:artwork];
+    NSAttributedString *title = [NSAttributedString titleAndDateStringForArtwork:artwork];
+
     // Order is important here
     NSArray *labels = @[
-        [NSAttributedString artistStringForArtwork:artwork] ?: [NSNull null],
-        [NSAttributedString titleAndDateStringForArtwork:artwork] ?: [NSNull null],
+        artist ?: [NSNull null],
+        title ?: [NSNull null],
         artwork.medium ?: [NSNull null],
     ];
 
@@ -104,6 +132,10 @@
 
     self.artworkInfoTapGesture.enabled = self.showMultipageIndicator;
     self.artworkInfoSwipeGesture.enabled = self.showMultipageIndicator;
+
+    BOOL showAvailabilityChanges = ![self.defaults boolForKey:ARPresentationModeOn] || ![self.defaults boolForKey:ARHideArtworkAvailability];
+    self.availabilityChangeGesture.enabled = !!title && showAvailabilityChanges;
+
     [self.view layoutIfNeeded];
 }
 

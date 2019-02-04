@@ -21,6 +21,7 @@ NSString *const ARHideConfidentialNotes = @"ARHideConfidentialNotes";
 NSString *const ARHidePricesForSoldWorks = @"ARHidePricesForSoldWorks";
 NSString *const ARHideWorksNotForSale = @"ARHideWorksNotForSale";
 NSString *const ARHideArtworkEditButton = @"ARHideArtworkEditButton";
+NSString *const ARHideArtworkAvailability = @"ARHideArtworkAvailability";
 
 NSString *const ARHasInitializedPresentationMode = @"ARHasInitializedPresentationMode";
 

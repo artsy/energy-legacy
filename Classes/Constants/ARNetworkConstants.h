@@ -8,6 +8,7 @@ extern NSString *const ARStaticBaseURL;
 extern NSString *const ARSiteUpURL;
 
 extern NSString *const ARArtworkURLFormat;
+extern NSString *const ARArtworkEditionSetURLFormat;
 extern NSString *const ARMyInfoURL;
 extern NSString *const ARMyPartnersURL;
 

@@ -8,6 +8,7 @@ NSString *const ARSiteUpURL = @"/api/v1/system/ping";
 
 
 NSString *const ARArtworkURLFormat = @"/api/v1/artwork/%@";
+NSString *const ARArtworkEditionSetURLFormat = @"/api/v1/artwork/%@/edition_set/%@";
 NSString *const ARMyPartnersURL = @"/api/v1/me/partners";
 NSString *const ARSearchPartnersURL = @"/api/v1/match/partners";
 

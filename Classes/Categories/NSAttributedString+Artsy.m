@@ -23,6 +23,20 @@
         [titleAndDate appendAttributedString:andDate];
     }
 
+    // Do we show the dot?
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (![defaults boolForKey:ARPresentationModeOn] || ![defaults boolForKey:ARHideArtworkAvailability]) {
+        NSMutableAttributedString *dotString = [[NSMutableAttributedString alloc] initWithString:@" •"];
+
+        UIColor *color = [Artwork colorForAvailabilityState:artwork.availabilityState];
+        [dotString addAttributes:@{
+            NSFontAttributeName : [UIFont serifItalicFontWithSize:22],
+            NSForegroundColorAttributeName : color,
+            NSBaselineOffsetAttributeName : @(-2)
+        } range:NSMakeRange(0, 2)];
+        [titleAndDate appendAttributedString:dotString];
+    }
+
     return titleAndDate.copy;
 }
 
