@@ -11,7 +11,7 @@ GEM
     CFPropertyList (3.0.0)
     RubyInline (3.12.4)
       ZenTest (~> 4.3)
-    ZenTest (4.11.1)
+    ZenTest (4.11.2)
     activesupport (4.2.10)
       i18n (~> 0.7)
       minitest (~> 5.1)
@@ -54,7 +54,7 @@ GEM
       nap (~> 1.0)
     cocoapods-deintegrate (1.0.2)
     cocoapods-downloader (1.1.3)
-    cocoapods-keys (2.0.0)
+    cocoapods-keys (2.0.7)
       dotenv
       osx_keychain
     cocoapods-plugins (1.0.0)
@@ -87,7 +87,7 @@ GEM
     declarative-option (0.1.0)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
-    dotenv (2.2.1)
+    dotenv (2.6.0)
     escape (0.0.4)
     excon (0.61.0)
     faraday (0.14.0)
@@ -135,6 +135,7 @@ GEM
       xcodeproj (>= 1.5.7, < 2.0.0)
       xcpretty (>= 0.2.4, < 1.0.0)
       xcpretty-travis-formatter (>= 0.0.3)
+    fastlane-plugin-sentry (1.5.0)
     fourflusher (2.0.1)
     fuzzy_match (2.0.4)
     gh_inspector (1.1.3)
@@ -189,7 +190,7 @@ GEM
       sawyer (~> 0.8.0, >= 0.5.3)
     open4 (1.3.4)
     os (0.9.6)
-    osx_keychain (1.0.1)
+    osx_keychain (1.0.2)
       RubyInline (~> 3)
     plist (3.4.0)
     psych (3.0.2)
@@ -255,6 +256,7 @@ DEPENDENCIES
   cocoapods-keys
   danger
   fastlane
+  fastlane-plugin-sentry
   nokogiri (= 1.6.7)
   psych
   sbconstants
@@ -262,4 +264,4 @@ DEPENDENCIES
   xcpretty
 
 BUNDLED WITH
-   1.15.4
+   1.16.3

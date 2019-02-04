@@ -2,6 +2,7 @@
 
 #import "ARIntercomProvider.h"
 
+
 @implementation ARIntercomProvider
 
 - (instancetype)initWithApiKey:(NSString *)apiKey appID:(NSString *)appID;
@@ -16,7 +17,9 @@
 
 - (void)setUserProperty:(NSString *)property toValue:(NSString *)value
 {
-    [Intercom updateUserWithAttributes:@{ @"custom_attributes" : @{property : value} }];
+    ICMUserAttributes *attr = [[ICMUserAttributes alloc] init];
+    attr.customAttributes = @{property : value};
+    [Intercom updateUser:attr];
 }
 
 

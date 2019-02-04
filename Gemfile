@@ -15,4 +15,7 @@ gem 'nokogiri', '1.6.7'
 
 group :deployment do
   gem "fastlane" # Uploading app
+  # Fastlane plugins (sentry)
+  plugins_path = File.join(File.dirname(__FILE__), 'fastlane', 'Pluginfile')
+  eval_gemfile(plugins_path) if File.exist?(plugins_path)
 end

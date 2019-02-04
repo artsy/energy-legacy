@@ -34,6 +34,7 @@
 		3A27CD832202C1A40057C1B5 /* ARPresentAvailabilityChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD822202C1A40057C1B5 /* ARPresentAvailabilityChoiceViewController.m */; };
 		3A27CD8622032BD90057C1B5 /* ARAvailabilityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD8522032BD90057C1B5 /* ARAvailabilityTableViewCell.m */; };
 		3A27CD8922032F730057C1B5 /* AREditAvailabilityNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD8822032F730057C1B5 /* AREditAvailabilityNetworkModel.m */; };
+		3A428C342208C8C600B9909A /* ARSentryAnalyticsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A428C332208C8C600B9909A /* ARSentryAnalyticsProvider.m */; };
 		3A91D4D42200E2BF00AFAFCD /* ARImageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A91D4D32200E2BF00AFAFCD /* ARImageViewControllerTests.m */; };
 		411D96DA1731528B00598854 /* ARLogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411D96D81731528B00598854 /* ARLogoutViewController.m */; };
 		4137E7B817304ED000D85A93 /* ARLogoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4137E7B717304ED000D85A93 /* ARLogoutManager.m */; };
@@ -481,7 +482,7 @@
 		60FFE3BA156FAE5000A138D3 /* RecentlyUploadedPlaceholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60FFE3B8156FAE5000A138D3 /* RecentlyUploadedPlaceholder.jpg */; };
 		60FFE3BC156FAE5000A138D3 /* RecentlyUploadedPlaceholder@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60FFE3B9156FAE5000A138D3 /* RecentlyUploadedPlaceholder@2x.jpg */; };
 		60FFE99C204F2218001BBB41 /* ARStringStrippingHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FFE99B204F2218001BBB41 /* ARStringStrippingHTML.m */; };
-		7A48483519FAA9AF4714F6EB /* libPods-ArtsyFolio Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 018BDB4A28E732D67C46275D /* libPods-ArtsyFolio Tests.a */; };
+		77176A347A502BEAF026C1B7 /* libPods-ArtsyFolio Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BE978E86AEA2C4ECF62F33A /* libPods-ArtsyFolio Tests.a */; };
 		8305D6801AE05168004A270E /* ARThumbnailImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8305D67F1AE05168004A270E /* ARThumbnailImageScrollView.m */; };
 		8312011E1B73C3F600E1A988 /* ARViewInRoomViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8312011D1B73C3F600E1A988 /* ARViewInRoomViewTests.m */; };
 		832075B81C3F274000C0A114 /* wifi-off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 832075B51C3F274000C0A114 /* wifi-off@2x.png */; };
@@ -561,7 +562,6 @@
 		B56F941E14F6A13A006AF1A6 /* GridPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B56F941D14F6A13A006AF1A6 /* GridPlaceholder.png */; };
 		B58785411479BCB500A5C772 /* ForwardButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B58785401479BCB500A5C772 /* ForwardButtonBackground.png */; };
 		B5FC6BE814EEE06000EB7AB9 /* ARGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FC6BE714EEE06000EB7AB9 /* ARGridView.m */; };
-		C69D0DD721D70A61154598E7 /* libPods-ArtsyFolio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D43853158586C942F40720 /* libPods-ArtsyFolio.a */; };
 		CBA1998B185A46E000573048 /* ARBrowseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA1998A185A46E000573048 /* ARBrowseProvider.m */; };
 		D835C99C1415C72700320C25 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D835C99B1415C72700320C25 /* QuartzCore.framework */; };
 		D84AA9E3146B8635005557EA /* NSDictionary+ObjectForKey.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AA9E2146B8635005557EA /* NSDictionary+ObjectForKey.m */; };
@@ -599,6 +599,7 @@
 		D8FD62DB14141BAE00E77EE6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FD62DA14141BAE00E77EE6 /* MobileCoreServices.framework */; };
 		D8FD62DD14141C6E00E77EE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FD62DC14141C6E00E77EE6 /* CoreGraphics.framework */; };
 		E641581318CE1F7900DEA948 /* ARInsetTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E641580C18CE1F7900DEA948 /* ARInsetTextField.m */; };
+		EE1D249827B865199335AB50 /* libPods-ArtsyFolio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3EA3D4EF107CE866A89A19 /* libPods-ArtsyFolio.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -640,8 +641,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		018BDB4A28E732D67C46275D /* libPods-ArtsyFolio Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtsyFolio Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		18D43853158586C942F40720 /* libPods-ArtsyFolio.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtsyFolio.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BE978E86AEA2C4ECF62F33A /* libPods-ArtsyFolio Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtsyFolio Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		342F90072C09B05DEBBAD849 /* ArtistModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistModelTests.m; sourceTree = "<group>"; };
 		342F9047BDF19FCE53A2586E /* ARAlbumArtworksDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAlbumArtworksDownloader.h; sourceTree = "<group>"; };
 		342F90EBA08A0060AF6C0767 /* ARGridViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARGridViewControllerTests.m; sourceTree = "<group>"; };
@@ -693,6 +693,8 @@
 		3A27CD8522032BD90057C1B5 /* ARAvailabilityTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARAvailabilityTableViewCell.m; sourceTree = "<group>"; };
 		3A27CD8722032F730057C1B5 /* AREditAvailabilityNetworkModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AREditAvailabilityNetworkModel.h; sourceTree = "<group>"; };
 		3A27CD8822032F730057C1B5 /* AREditAvailabilityNetworkModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AREditAvailabilityNetworkModel.m; sourceTree = "<group>"; };
+		3A428C322208C8C500B9909A /* ARSentryAnalyticsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSentryAnalyticsProvider.h; sourceTree = "<group>"; };
+		3A428C332208C8C600B9909A /* ARSentryAnalyticsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSentryAnalyticsProvider.m; sourceTree = "<group>"; };
 		3A447EA021FBD70E0003FB5A /* ArtsyFolio v2.6.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.6.1.xcdatamodel"; sourceTree = "<group>"; };
 		3A91D4D32200E2BF00AFAFCD /* ARImageViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARImageViewControllerTests.m; sourceTree = "<group>"; };
 		411D96D71731528B00598854 /* ARLogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLogoutViewController.h; sourceTree = "<group>"; };
@@ -757,7 +759,6 @@
 		49ED901515B49F2A00E95583 /* UIDevice+UserAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+UserAgent.m"; sourceTree = "<group>"; };
 		49F150C9174DB3920017230E /* ARPromptAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARPromptAlertViewController.h; sourceTree = "<group>"; };
 		49F150CA174DB3920017230E /* ARPromptAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPromptAlertViewController.m; sourceTree = "<group>"; };
-		575D3373F8188F64671307DF /* Pods-ArtsyFolio Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		60034F321875A0AA0053FB7E /* ARToolbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARToolbarButton.h; sourceTree = "<group>"; };
 		60034F331875A0AA0053FB7E /* ARToolbarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARToolbarButton.m; sourceTree = "<group>"; };
 		60051B3316F77A6600467AEA /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -1383,7 +1384,7 @@
 		60FFE3B8156FAE5000A138D3 /* RecentlyUploadedPlaceholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RecentlyUploadedPlaceholder.jpg; sourceTree = "<group>"; };
 		60FFE3B9156FAE5000A138D3 /* RecentlyUploadedPlaceholder@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "RecentlyUploadedPlaceholder@2x.jpg"; sourceTree = "<group>"; };
 		60FFE99B204F2218001BBB41 /* ARStringStrippingHTML.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARStringStrippingHTML.m; sourceTree = "<group>"; };
-		8135FFD842393CF29BFBD177 /* Pods-ArtsyFolio Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests.release.xcconfig"; sourceTree = "<group>"; };
+		7E3EA3D4EF107CE866A89A19 /* libPods-ArtsyFolio.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtsyFolio.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8305D67E1AE05168004A270E /* ARThumbnailImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARThumbnailImageScrollView.h; sourceTree = "<group>"; };
 		8305D67F1AE05168004A270E /* ARThumbnailImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARThumbnailImageScrollView.m; sourceTree = "<group>"; };
 		8312011D1B73C3F600E1A988 /* ARViewInRoomViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARViewInRoomViewTests.m; sourceTree = "<group>"; };
@@ -1476,7 +1477,9 @@
 		83EEDB3A1C5150EB00B203DB /* ARSettingsMenuViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSettingsMenuViewModelTests.m; sourceTree = "<group>"; };
 		83FFE59E1C07A58E0005FBE2 /* AREmailSubjectLineSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREmailSubjectLineSettingsViewController.h; sourceTree = "<group>"; };
 		83FFE59F1C07A58E0005FBE2 /* AREmailSubjectLineSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREmailSubjectLineSettingsViewController.m; sourceTree = "<group>"; };
+		8839FCDFB1BC75848902F3FF /* Pods-ArtsyFolio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio.debug.xcconfig"; sourceTree = "<group>"; };
 		8F2DD602C6024E018FAA7223 /* Pods-ArtsyFolio Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArtsyFolio Tests.xcconfig"; sourceTree = "<group>"; };
+		A7FE9330FE9E6408D9328FE8 /* Pods-ArtsyFolio Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B337EB06184D246C0071FA29 /* ARImageTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARImageTile.h; sourceTree = "<group>"; };
 		B337EB07184D246C0071FA29 /* ARImageTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARImageTile.m; sourceTree = "<group>"; };
 		B37F1651183EB211007A7023 /* AFHTTPRequestOperation+ARFileDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFHTTPRequestOperation+ARFileDownload.h"; sourceTree = "<group>"; };
@@ -1514,6 +1517,7 @@
 		B5FC6BE714EEE06000EB7AB9 /* ARGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARGridView.m; sourceTree = "<group>"; };
 		CBA19989185A46E000573048 /* ARBrowseProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARBrowseProvider.h; sourceTree = "<group>"; };
 		CBA1998A185A46E000573048 /* ARBrowseProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARBrowseProvider.m; sourceTree = "<group>"; };
+		CF256084649586EB3B1331A9 /* Pods-ArtsyFolio Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D835C99B1415C72700320C25 /* QuartzCore.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D84AA9E1146B8635005557EA /* NSDictionary+ObjectForKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ObjectForKey.h"; sourceTree = "<group>"; };
 		D84AA9E2146B8635005557EA /* NSDictionary+ObjectForKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ObjectForKey.m"; sourceTree = "<group>"; };
@@ -1577,10 +1581,9 @@
 		D8FD62D814141B6C00E77EE6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D8FD62DA14141BAE00E77EE6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D8FD62DC14141C6E00E77EE6 /* CoreGraphics.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		E09C1FB44810462E13FD733E /* Pods-ArtsyFolio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio.debug.xcconfig"; sourceTree = "<group>"; };
 		E641580B18CE1F7900DEA948 /* ARInsetTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARInsetTextField.h; sourceTree = "<group>"; };
 		E641580C18CE1F7900DEA948 /* ARInsetTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARInsetTextField.m; sourceTree = "<group>"; };
-		EDAB8FF3043CA58F0EEE2406 /* Pods-ArtsyFolio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio.release.xcconfig"; sourceTree = "<group>"; };
+		EB9F3004A64442B7C97D23DD /* Pods-ArtsyFolio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtsyFolio.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1588,7 +1591,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A48483519FAA9AF4714F6EB /* libPods-ArtsyFolio Tests.a in Frameworks */,
+				77176A347A502BEAF026C1B7 /* libPods-ArtsyFolio Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1615,13 +1618,24 @@
 				D8D208B1141405A500A823E3 /* UIKit.framework in Frameworks */,
 				D8D208B3141405A500A823E3 /* Foundation.framework in Frameworks */,
 				342F93C321708E2EEEDAB067 /* AssetsLibrary.framework in Frameworks */,
-				C69D0DD721D70A61154598E7 /* libPods-ArtsyFolio.a in Frameworks */,
+				EE1D249827B865199335AB50 /* libPods-ArtsyFolio.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DEF7FDEEEA20B9BB17729A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EB9F3004A64442B7C97D23DD /* Pods-ArtsyFolio.release.xcconfig */,
+				8839FCDFB1BC75848902F3FF /* Pods-ArtsyFolio.debug.xcconfig */,
+				CF256084649586EB3B1331A9 /* Pods-ArtsyFolio Tests.release.xcconfig */,
+				A7FE9330FE9E6408D9328FE8 /* Pods-ArtsyFolio Tests.debug.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		342F9087AF1B917B81E79DFB /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -2589,6 +2603,8 @@
 		60BAAB0B1BA8689500CE042B /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
+				3A428C322208C8C500B9909A /* ARSentryAnalyticsProvider.h */,
+				3A428C332208C8C600B9909A /* ARSentryAnalyticsProvider.m */,
 				608C7038169B863500C89623 /* ARAnalyticsHelper.h */,
 				608C7039169B863500C89623 /* ARAnalyticsHelper.m */,
 				6036A2371BCE99620090D5FC /* ARIntercomProvider.h */,
@@ -3236,7 +3252,7 @@
 				B37F1664183EEA71007A7023 /* Supporting Files */,
 				D8D208AF141405A500A823E3 /* Frameworks */,
 				D8D208AD141405A500A823E3 /* Products */,
-				FA8A2A1DF714C15A87EBB5C1 /* Pods */,
+				0DEF7FDEEEA20B9BB17729A0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3277,8 +3293,8 @@
 				D8FD62D414141AF400E77EE6 /* libz.dylib */,
 				D8FD62CA14141A4200E77EE6 /* libxml2.dylib */,
 				B37F165F183EEA71007A7023 /* XCTest.framework */,
-				18D43853158586C942F40720 /* libPods-ArtsyFolio.a */,
-				018BDB4A28E732D67C46275D /* libPods-ArtsyFolio Tests.a */,
+				7E3EA3D4EF107CE866A89A19 /* libPods-ArtsyFolio.a */,
+				0BE978E86AEA2C4ECF62F33A /* libPods-ArtsyFolio Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3545,17 +3561,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		FA8A2A1DF714C15A87EBB5C1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EDAB8FF3043CA58F0EEE2406 /* Pods-ArtsyFolio.release.xcconfig */,
-				E09C1FB44810462E13FD733E /* Pods-ArtsyFolio.debug.xcconfig */,
-				8135FFD842393CF29BFBD177 /* Pods-ArtsyFolio Tests.release.xcconfig */,
-				575D3373F8188F64671307DF /* Pods-ArtsyFolio Tests.debug.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3563,12 +3568,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B37F166E183EEA71007A7023 /* Build configuration list for PBXNativeTarget "ArtsyFolio Tests" */;
 			buildPhases = (
-				AA6C9C4B11B7C70E01B56DA2 /* [CP] Check Pods Manifest.lock */,
+				D8467AFCE6A204D7270977A3 /* [CP] Check Pods Manifest.lock */,
 				B37F165A183EEA71007A7023 /* Sources */,
 				B37F165B183EEA71007A7023 /* Frameworks */,
 				B37F165C183EEA71007A7023 /* Resources */,
-				BA39522F6C4E2AC99D3F9D02 /* [CP] Embed Pods Frameworks */,
-				0A867048860B5EC451EFEAF2 /* [CP] Copy Pods Resources */,
+				9679C3D7C0ACB54A72DD6776 /* [CP] Embed Pods Frameworks */,
+				5099A5168A722CA15D91925B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3588,13 +3593,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8D208D6141405A600A823E3 /* Build configuration list for PBXNativeTarget "ArtsyFolio" */;
 			buildPhases = (
-				96793FFE5C8F82060EDF290C /* [CP] Check Pods Manifest.lock */,
+				166DF2B6A118AFF7ED1DEB00 /* [CP] Check Pods Manifest.lock */,
 				D8D208A8141405A500A823E3 /* Sources */,
 				D8D208A9141405A500A823E3 /* Frameworks */,
 				D8D208AA141405A500A823E3 /* Resources */,
 				D83378FE143BEBBC00605380 /* Run Script */,
-				92184F4043F0D0D8C61F2AA8 /* [CP] Embed Pods Frameworks */,
-				DDCBC4A0E7CBCCCDC2CA8299 /* [CP] Copy Pods Resources */,
+				830496D89B05C3D286BB6D0A /* [CP] Embed Pods Frameworks */,
+				EDD41C313AEAF1AB7268C87C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3840,37 +3845,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A867048860B5EC451EFEAF2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		92184F4043F0D0D8C61F2AA8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		96793FFE5C8F82060EDF290C /* [CP] Check Pods Manifest.lock */ = {
+		166DF2B6A118AFF7ED1DEB00 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3888,25 +3863,37 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AA6C9C4B11B7C70E01B56DA2 /* [CP] Check Pods Manifest.lock */ = {
+		5099A5168A722CA15D91925B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ArtsyFolio Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio Tests/Pods-ArtsyFolio Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BA39522F6C4E2AC99D3F9D02 /* [CP] Embed Pods Frameworks */ = {
+		830496D89B05C3D286BB6D0A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9679C3D7C0ACB54A72DD6776 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3935,7 +3922,25 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtsyFolio/Pods-ArtsyFolio-frameworks.sh\"\n";
 		};
-		DDCBC4A0E7CBCCCDC2CA8299 /* [CP] Copy Pods Resources */ = {
+		D8467AFCE6A204D7270977A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArtsyFolio Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDD41C313AEAF1AB7268C87C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3955,7 +3960,6 @@
 				"${PODS_ROOT}/Artsy+UILabels/Pod/Assets/Chevron_Black.png",
 				"${PODS_ROOT}/Artsy+UILabels/Pod/Assets/Chevron_Black@2x.png",
 				"${PODS_ROOT}/GHMarkdownParser/discount/blocktags",
-				"${PODS_CONFIGURATION_BUILD_DIR}/HockeySDK-Source/HockeySDKResources.bundle",
 				"${PODS_ROOT}/Intercom/Intercom/Intercom.framework/Versions/A/Resources/Intercom.bundle",
 				"${PODS_ROOT}/Intercom/Intercom/Intercom.framework/Versions/A/Resources/IntercomTranslations.bundle",
 			);
@@ -3974,7 +3978,6 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Chevron_Black.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Chevron_Black@2x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/blocktags",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/HockeySDKResources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Intercom.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IntercomTranslations.bundle",
 			);
@@ -4150,6 +4153,7 @@
 				D8FAA99E1442893600AA34BC /* Artist.m in Sources */,
 				60E7E2E71ABB2EF6007EAA8A /* ARImageViewController.m in Sources */,
 				607FAC981AFB7887008FA782 /* ARPopoverSegmentControl.m in Sources */,
+				3A428C342208C8C600B9909A /* ARSentryAnalyticsProvider.m in Sources */,
 				60117F861917F6BE0072E500 /* _Partner.m in Sources */,
 				D8FAA99F1442893600AA34BC /* Artwork.m in Sources */,
 				607448151BE39EDD00E20774 /* ARSyncInsomniac.m in Sources */,
@@ -4484,7 +4488,7 @@
 		};
 		60CA310A182D9DEB0022C7C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E09C1FB44810462E13FD733E /* Pods-ArtsyFolio.debug.xcconfig */;
+			baseConfigurationReference = 8839FCDFB1BC75848902F3FF /* Pods-ArtsyFolio.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -4561,7 +4565,7 @@
 		};
 		B37F166F183EEA71007A7023 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8135FFD842393CF29BFBD177 /* Pods-ArtsyFolio Tests.release.xcconfig */;
+			baseConfigurationReference = CF256084649586EB3B1331A9 /* Pods-ArtsyFolio Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -4587,7 +4591,7 @@
 		};
 		B37F1671183EEA71007A7023 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 575D3373F8188F64671307DF /* Pods-ArtsyFolio Tests.debug.xcconfig */;
+			baseConfigurationReference = A7FE9330FE9E6408D9328FE8 /* Pods-ArtsyFolio Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -4656,7 +4660,7 @@
 		};
 		D8D208D8141405A600A823E3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EDAB8FF3043CA58F0EEE2406 /* Pods-ArtsyFolio.release.xcconfig */;
+			baseConfigurationReference = EB9F3004A64442B7C97D23DD /* Pods-ArtsyFolio.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
