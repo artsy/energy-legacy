@@ -31,7 +31,6 @@ target 'ArtsyFolio' do
 
     # Nicities
     pod 'ObjectiveSugar', :git => 'https://github.com/supermarin/ObjectiveSugar.git'
-    pod 'KVOController'
 
     # Networking
     pod 'Reachability', '~> 3.0'

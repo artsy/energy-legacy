@@ -10,6 +10,7 @@ upcoming:
     - Visual tweaks (navbar line removed, white mode improvements)  - orta
     - Artwork detailed overview de-markdown fixes - orta
     - Login screen has better line-heights - orta
+    - Fix the un-changed progress indicators in settings - orta
 
 releases:
   - version: 2.6.0

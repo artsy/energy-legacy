@@ -1,8 +1,16 @@
 #import "ARSync.h"
 #import "ARNetworkQualityIndicator.h"
 
+@protocol ARSyncSettingsDelegate <NSObject>
+
+- (void)didUpdateNetworkQuality;
+- (void)didUpdateSyncPercent;
+- (void)syncDidFinish;
+
+@end
 
 @class ARSyncSettingsViewModel;
+
 
 @interface ARSyncSettingsViewModel : NSObject <ARSyncDelegate, ARSyncProgressDelegate>
 
@@ -11,6 +19,8 @@
 @property (nonatomic, assign) ARNetworkQuality networkQuality;
 @property (nonatomic, assign) CGFloat currentSyncPercentDone;
 @property (nonatomic, assign) NSTimeInterval timeRemainingInSync;
+
+@property (weak) id<ARSyncSettingsDelegate> settingsDelegate;
 
 - (instancetype)initWithSync:(ARSync *)sync context:(NSManagedObjectContext *)context;
 
