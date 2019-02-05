@@ -3,6 +3,7 @@
 #import "ARUserManager.h"
 #import <Forgeries/ForgeriesUserDefaults+Mocks.h>
 #import "ARBaseViewController+TransparentModals.h"
+#import <Artsy+UILabels/Artsy+UILabels.h>
 
 /// Without this, the tests are dependant on if Eigen is installed
 @interface FakeApplication : NSObject
