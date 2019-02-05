@@ -13,6 +13,7 @@
 #import "UIDevice+Testing.h"
 #import "ARLoginNetworkModel.h"
 #import <MessageUI/MFMailComposeViewController.h>
+#import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
 
 
 @interface ARLoginViewController ()
@@ -71,6 +72,8 @@
     self.appAdviceText.font = [UIFont serifFontWithSize:ARFontSerifSmall];
 
     self.errorMessageLabel.text = @"";
+    self.errorMessageLabel.lineHeight = 6;
+    self.errorMessageLabel.backgroundColor = [UIColor blackColor];
 
     if (![self.userDefaults boolForKey:ARStartedFirstSync]) {
         self.errorMessageLabel.text = @"Once you log in, Artsy Folio will begin downloading your artworks. You should use a WiFi enabled connection.";
