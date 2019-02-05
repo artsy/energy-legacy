@@ -43,6 +43,7 @@ beforeEach(^{
 
 describe(@"visually", ^{
 
+
     it(@"doesn't mess up inventory IDs using HTML chars", ^{
         Artwork *artwork = [Artwork stubbedModelFromJSON:@{ ARFeedInventoryIDKey : @"MI&N 12345" }];
         setupSUTWithArtwork(artwork);

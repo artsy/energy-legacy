@@ -91,7 +91,13 @@ end
 
 
 lane :upload_symbols do
-
+  # Set version number to the one at the top of the CHANGELOG
+  readme_yaml = File.read("../docs/CHANGELOG.yml")
+  begin
+    readme_data = YAML.load(readme_yaml)
+  rescue StandardError
+    fail("CHANGELOG isn't legit YAML")
+  end
   latest_version = readme_data["upcoming"]["version"]
 
   sentry_create_release(
