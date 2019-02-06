@@ -45,7 +45,6 @@ PODS:
   - JLRoutes (2.0.5)
   - JRSwizzle (1.0)
   - Keys (1.0.1)
-  - KVOController (1.2.0)
   - libextobjc/EXTKeyPathCoding (0.4.1):
     - libextobjc/RuntimeExtensions
   - libextobjc/EXTScope (0.4.1):
@@ -100,7 +99,6 @@ DEPENDENCIES:
   - ISO8601DateFormatter (~> 0.7)
   - JLRoutes
   - Keys (from `Pods/CocoaPodsKeys`)
-  - KVOController
   - libextobjc/EXTKeyPathCoding (~> 0.3)
   - libextobjc/EXTScope (~> 0.3)
   - ObjectiveSugar (from `https://github.com/supermarin/ObjectiveSugar.git`)
@@ -200,7 +198,6 @@ SPEC CHECKSUMS:
   JLRoutes: 2a5ee61d739b51a98c9d8112bee5149a19de8854
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
   Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
-  KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   NSURL+QueryDictionary: bae616404e2adf6409d3d5c02a093cbf44c8a236
   ObjectiveSugar: 0729eb74a757ea48b109a8902178c9b89aa58a9f
@@ -219,6 +216,6 @@ SPEC CHECKSUMS:
   XCTest+OHHTTPStubSuiteCleanUp: 4469ec8863c6bc022c5089a9b94233eb3416c5ee
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
-PODFILE CHECKSUM: 35a98566e4b358150384fd984198f8895b267bab
+PODFILE CHECKSUM: 71a515c3bb70a54c1f428b3187c5e725d72e2474
 
 COCOAPODS: 1.4.0

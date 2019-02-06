@@ -7,13 +7,10 @@
 #import "UIViewController+SettingsNavigationItemHelpers.h"
 #import "ARSettingsNavigationBar.h"
 #import "ARProgressView.h"
-#import "KVOController/FBKVOController.h"
 
 
-@interface ARSyncSettingsViewController ()
+@interface ARSyncSettingsViewController () <ARSyncSettingsDelegate>
 @property (nonatomic, strong) ARSyncSettingsViewModel *viewModel;
-@property (nonatomic, strong) FBKVOController *kvoController;
-
 @property (weak, nonatomic) IBOutlet ARSyncFlatButton *syncButton;
 @property (weak, nonatomic) IBOutlet UILabel *explanatoryTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *previousSyncsLabel;
@@ -50,7 +47,6 @@
 
     /// Make sure the view loads with an accurate initial state
     [self updateSubviewsAnimated:NO];
-    [self setupObservers];
 
     NSString *string = self.explanatoryTextLabel.text;
     self.explanatoryTextLabel.attributedText = [string attributedStringWithLineSpacing:7.0];
@@ -58,13 +54,6 @@
     NSString *previousSyncsText = self.viewModel.syncLogCount ? @"Previous Syncs" : @"You have no previous syncs";
     [self.previousSyncsLabel setAttributedText:[previousSyncsText.uppercaseString attributedStringWithKern:1.3]];
 }
-
-- (void)setupObservers
-{
-    [self.kvoController observe:self.viewModel keyPath:@"networkQuality" options:NSKeyValueObservingOptionNew action:@selector(updateSubviews)];
-    [self.kvoController observe:self.viewModel keyPath:@"currentSyncPercentDone" options:NSKeyValueObservingOptionNew action:@selector(updateProgressView)];
-}
-
 
 #pragma mark -
 #pragma mark previous syncs tableview
@@ -88,6 +77,11 @@
     }
 }
 
+- (void)didUpdateNetworkQuality
+{
+    [self updateSubviewsAnimated:NO];
+}
+
 - (void)updateSubviews
 {
     [self updateSubviewsAnimated:YES];
@@ -100,7 +94,7 @@
     /// If a sync is in progress, show the progress view. Otherwise, don't.
     if (self.viewModel.isActivelySyncing) {
         if (!self.progressView.alpha) [self showProgressViewAnimated:animated];
-        [self updateProgressView];
+        [self didUpdateSyncPercent];
     } else {
         if (self.progressView.alpha) [self hideProgressViewAnimated:animated];
         [self updateSyncButton];
@@ -161,13 +155,16 @@
     self.progressView.progress = 0.0;
 }
 
-- (void)updateProgressView
+- (void)didUpdateSyncPercent
 {
     CGFloat currentProgress = self.viewModel.currentSyncPercentDone;
     self.progressView.progress = currentProgress;
-    if (currentProgress == 1) {
-        [self.tableView reloadData];
-    }
+}
+
+- (void)syncDidFinish
+{
+    [self.tableView reloadData];
+    [self updateSubviewsAnimated:YES];
 }
 
 - (void)showProgressViewAnimated:(BOOL)animated
@@ -224,7 +221,9 @@
 {
     if (!_viewModel) {
         _viewModel = [[ARSyncSettingsViewModel alloc] initWithSync:ARTopViewController.sharedInstance.sync context:CoreDataManager.mainManagedObjectContext];
+        _viewModel.settingsDelegate = self;
     }
+
     return _viewModel;
 }
 
