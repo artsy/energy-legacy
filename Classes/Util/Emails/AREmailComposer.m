@@ -2,6 +2,7 @@
 #import "AREmailComposer.h"
 #import "ARTheme.h"
 
+
 @interface AREmailComposer ()
 @property (nonatomic, strong) UIViewController<MFMailComposeViewControllerDelegate> *parentViewController;
 @property (nonatomic, strong) MFMailComposeViewController *mailController;
@@ -235,8 +236,13 @@
 - (void)attachDocumentsToEmail
 {
     [self.documents each:^(Document *document) {
-        NSData *fileData = [NSData dataWithContentsOfFile:document.filePath];
-        [self.mailController addAttachmentData:fileData mimeType:document.mimeType fileName:document.emailableFileName];
+        @try {
+            NSData *fileData = [NSData dataWithContentsOfFile:document.filePath];
+            [self.mailController addAttachmentData:fileData mimeType:document.mimeType fileName:document.emailableFileName];
+        } @catch (NSException *exception) {
+            NSLog(@"Could not add the file %@ for %@", document.filename, document.artist.name);
+            NSLog(@"Error: %@", exception);
+        }
     }];
 }
 
