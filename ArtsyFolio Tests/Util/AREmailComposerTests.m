@@ -446,6 +446,24 @@ describe(@"email html", ^{
             expect(body).toNot.contain(@"https://www.artsy.net/artwork/ThisShouldBeInHere");
         });
     });
+
+    it(@"Sorts by artist dispaly then artwork title", ^{
+        Artwork *artwork = [Artwork objectInContext:context];
+        artwork.artistOrderingKey = @"Aaron";
+        artwork.displayTitle = @"Artwork 1";
+
+        Artwork *artwork2 = [Artwork objectInContext:context];
+        artwork2.artistOrderingKey = @"Aaron";
+        artwork2.displayTitle = @"Artwork 2";
+
+        Artwork *artwork3 = [Artwork objectInContext:context];
+        artwork3.artistOrderingKey = @"Barr";
+        artwork3.displayTitle = @"Artwork 1";
+
+        composer.artworks = @[ artwork3, artwork2, artwork ];
+
+        expect(composer.artworks).to.equal(@[ artwork, artwork2, artwork3 ]);
+    });
 });
 
 SpecEnd

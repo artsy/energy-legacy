@@ -11,6 +11,7 @@ upcoming:
     - Artwork detailed overview de-markdown fixes - orta
     - Login screen has better line-heights - orta
     - Fix the un-changed progress indicators in settings - orta
+    - Artworks are sorted deterministically ( Artist deisply name, then title) in an email- orta
 
 releases:
   - version: 2.6.0
