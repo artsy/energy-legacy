@@ -4,7 +4,7 @@ extern NSString *const AROptionsUseWhiteFolio;
 extern const NSString *AROptionsKey;
 extern const NSString *AROptionsName;
 
-
+/// A very simple version of what's in Eigen/Emission
 @interface AROptions : NSObject
 
 /// Returns all the current options
