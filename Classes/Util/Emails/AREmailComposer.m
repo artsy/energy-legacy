@@ -195,7 +195,11 @@
 - (void)setArtworks:(NSArray *)artworks
 {
     NSComparisonResult (^comparator)(id, id) = ^(Artwork *left, Artwork *right) {
-        return ([left.artistDisplayString compare:right.artistDisplayString]);
+        if ([left.artistOrderingKey isEqualToString:right.artistOrderingKey]) {
+            return [left.displayTitle compare:right.displayTitle];
+        } else {
+            return [left.artistOrderingKey compare:right.artistOrderingKey];
+        }
     };
 
     _artworks = [artworks sortedArrayUsingComparator:comparator];

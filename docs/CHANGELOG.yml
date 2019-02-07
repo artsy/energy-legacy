@@ -5,12 +5,13 @@ upcoming:
     - Updates Intercom, removes Hockey and migrates to Sentry - orta
     - Updates CI Xcode to 10.1 - orta
     - Crash fix on login - orta
-    - Adds ability to enable/disable Folio for a particular subscriber  - orta
-    - You can change an Artwork or EditionSets availability from the grid or an artwork  - orta
+    - Adds ability to enable/disable Folio for a particular subscriber - orta
+    - You can change an Artwork or EditionSets availability from the grid or an artwork - orta
     - Visual tweaks (navbar line removed, white mode improvements)  - orta
     - Artwork detailed overview de-markdown fixes - orta
     - Login screen has better line-heights - orta
     - Fix the un-changed progress indicators in settings - orta
+    - Artworks are sorted deterministically ( Artist display name, then title) in an email - orta
 
 releases:
   - version: 2.6.0
