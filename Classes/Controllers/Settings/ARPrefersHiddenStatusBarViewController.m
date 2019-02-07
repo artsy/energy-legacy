@@ -1,5 +1,6 @@
 #import "ARPrefersHiddenStatusBarViewController.h"
 
+
 @implementation ARPrefersHiddenStatusBarViewController
 
 - (BOOL)prefersStatusBarHidden
@@ -12,7 +13,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    if ([UIDevice isPad]) {
+        self.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
+    } else {
+        self.view.backgroundColor = [UIColor whiteColor];
+    }
 }
 
 @end
