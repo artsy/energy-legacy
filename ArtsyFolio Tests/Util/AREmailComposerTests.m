@@ -448,9 +448,9 @@ describe(@"email html", ^{
     });
 
     it(@"Sorts by artist display then artwork title", ^{
-        Artwork *artwork = [Artwork objectInContext:context];
-        artwork.artistOrderingKey = @"Aaron";
-        artwork.displayTitle = @"Artwork 1";
+        Artwork *artwork1 = [Artwork objectInContext:context];
+        artwork1.artistOrderingKey = @"Aaron";
+        artwork1.displayTitle = @"Artwork 1";
 
         Artwork *artwork2 = [Artwork objectInContext:context];
         artwork2.artistOrderingKey = @"Aaron";
@@ -460,9 +460,9 @@ describe(@"email html", ^{
         artwork3.artistOrderingKey = @"Barr";
         artwork3.displayTitle = @"Artwork 1";
 
-        composer.artworks = @[ artwork3, artwork2, artwork ];
+        composer.artworks = @[ artwork3, artwork2, artwork1 ];
 
-        expect(composer.artworks).to.equal(@[ artwork, artwork2, artwork3 ]);
+        expect(composer.artworks).to.equal(@[ artwork1, artwork2, artwork3 ]);
     });
 });
 
