@@ -447,7 +447,7 @@ describe(@"email html", ^{
         });
     });
 
-    it(@"Sorts by artist dispaly then artwork title", ^{
+    it(@"Sorts by artist display then artwork title", ^{
         Artwork *artwork = [Artwork objectInContext:context];
         artwork.artistOrderingKey = @"Aaron";
         artwork.displayTitle = @"Artwork 1";
