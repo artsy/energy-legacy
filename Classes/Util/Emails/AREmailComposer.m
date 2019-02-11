@@ -236,13 +236,8 @@
 - (void)attachDocumentsToEmail
 {
     [self.documents each:^(Document *document) {
-        @try {
-            NSData *fileData = [NSData dataWithContentsOfFile:document.filePath];
-            [self.mailController addAttachmentData:fileData mimeType:document.mimeType fileName:document.emailableFileName];
-        } @catch (NSException *exception) {
-            NSLog(@"Could not add the file %@ for %@", document.filename, document.artist.name);
-            NSLog(@"Error: %@", exception);
-        }
+        NSData *fileData = [NSData dataWithContentsOfFile:document.filePath];
+        [self.mailController addAttachmentData:fileData mimeType:document.mimeType fileName:document.emailableFileName];
     }];
 }
 
