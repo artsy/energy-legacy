@@ -34,6 +34,8 @@
 		3A27CD832202C1A40057C1B5 /* ARPresentAvailabilityChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD822202C1A40057C1B5 /* ARPresentAvailabilityChoiceViewController.m */; };
 		3A27CD8622032BD90057C1B5 /* ARAvailabilityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD8522032BD90057C1B5 /* ARAvailabilityTableViewCell.m */; };
 		3A27CD8922032F730057C1B5 /* AREditAvailabilityNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD8822032F730057C1B5 /* AREditAvailabilityNetworkModel.m */; };
+		3A294860220CF8E5006776B1 /* ARCMSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A29485F220CF8E5006776B1 /* ARCMSViewController.m */; };
+		3A294863220CFF05006776B1 /* ARCMSBackgroundLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A294862220CFF05006776B1 /* ARCMSBackgroundLoginController.m */; };
 		3A428C342208C8C600B9909A /* ARSentryAnalyticsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A428C332208C8C600B9909A /* ARSentryAnalyticsProvider.m */; };
 		3A91D4D42200E2BF00AFAFCD /* ARImageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A91D4D32200E2BF00AFAFCD /* ARImageViewControllerTests.m */; };
 		411D96DA1731528B00598854 /* ARLogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411D96D81731528B00598854 /* ARLogoutViewController.m */; };
@@ -693,6 +695,10 @@
 		3A27CD8522032BD90057C1B5 /* ARAvailabilityTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARAvailabilityTableViewCell.m; sourceTree = "<group>"; };
 		3A27CD8722032F730057C1B5 /* AREditAvailabilityNetworkModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AREditAvailabilityNetworkModel.h; sourceTree = "<group>"; };
 		3A27CD8822032F730057C1B5 /* AREditAvailabilityNetworkModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AREditAvailabilityNetworkModel.m; sourceTree = "<group>"; };
+		3A29485E220CF8E5006776B1 /* ARCMSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARCMSViewController.h; sourceTree = "<group>"; };
+		3A29485F220CF8E5006776B1 /* ARCMSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARCMSViewController.m; sourceTree = "<group>"; };
+		3A294861220CFF05006776B1 /* ARCMSBackgroundLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARCMSBackgroundLoginController.h; sourceTree = "<group>"; };
+		3A294862220CFF05006776B1 /* ARCMSBackgroundLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARCMSBackgroundLoginController.m; sourceTree = "<group>"; };
 		3A428C322208C8C500B9909A /* ARSentryAnalyticsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSentryAnalyticsProvider.h; sourceTree = "<group>"; };
 		3A428C332208C8C600B9909A /* ARSentryAnalyticsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSentryAnalyticsProvider.m; sourceTree = "<group>"; };
 		3A447EA021FBD70E0003FB5A /* ArtsyFolio v2.6.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.6.1.xcdatamodel"; sourceTree = "<group>"; };
@@ -1738,6 +1744,17 @@
 				3A27CD8822032F730057C1B5 /* AREditAvailabilityNetworkModel.m */,
 			);
 			path = "Red Dot";
+			sourceTree = "<group>";
+		};
+		3A29485D220CF8C4006776B1 /* CMS */ = {
+			isa = PBXGroup;
+			children = (
+				3A29485E220CF8E5006776B1 /* ARCMSViewController.h */,
+				3A29485F220CF8E5006776B1 /* ARCMSViewController.m */,
+				3A294861220CFF05006776B1 /* ARCMSBackgroundLoginController.h */,
+				3A294862220CFF05006776B1 /* ARCMSBackgroundLoginController.m */,
+			);
+			path = CMS;
 			sourceTree = "<group>";
 		};
 		411D96D117314C4400598854 /* Logout */ = {
@@ -2958,6 +2975,7 @@
 		60FDF6D61AE97EAC00173E81 /* Contexts */ = {
 			isa = PBXGroup;
 			children = (
+				3A29485D220CF8C4006776B1 /* CMS */,
 				3A27CD79220272380057C1B5 /* Red Dot */,
 				60E6321D1B3AD29400FA5538 /* App Launching */,
 				602E71A41B2F88020022033D /* Spotlight */,
@@ -4123,6 +4141,7 @@
 				60D210D51ADEC58B00EA091C /* NSManagedObject+ActiveRecord.m in Sources */,
 				60327DF5198A604E0075B399 /* ARTabbedViewControllerDataSource.m in Sources */,
 				60E0358519B5F1DD006F7C1E /* SyncLog.m in Sources */,
+				3A294860220CF8E5006776B1 /* ARCMSViewController.m in Sources */,
 				602E286F195DFB97001997DF /* ARModernArtworkMetadataViewController.m in Sources */,
 				60F637FD199E668B008D2360 /* ARFolioLabelSubclasses.m in Sources */,
 				60774E3818FB6B85004D3A1B /* UIDevice+DeviceInfo.m in Sources */,
@@ -4367,6 +4386,7 @@
 				342F92BB0BDE0F26366ED40B /* ARShowDocumentDownloader.m in Sources */,
 				342F947C39CE0038E21FD855 /* ARDocumentFileDownloader.m in Sources */,
 				609715E819AD3C8C00970DBE /* ARImageGridViewItem.m in Sources */,
+				3A294863220CFF05006776B1 /* ARCMSBackgroundLoginController.m in Sources */,
 				6006C75B198EDA8500F955A0 /* ARAdminPartnerSelectViewController.m in Sources */,
 				60D4D71B198FD558001AB8AF /* ARAppDelegate+DevTools.m in Sources */,
 				60327DEF198A427A0075B399 /* ARBottomAlignedToolbar.m in Sources */,

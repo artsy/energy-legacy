@@ -14,6 +14,7 @@
 #import "ARLoginNetworkModel.h"
 #import <MessageUI/MFMailComposeViewController.h>
 #import <Artsy+UIFonts/UIFont+ArtsyFonts.h>
+#import "ARCMSBackgroundLoginController.h"
 
 
 @interface ARLoginViewController ()
@@ -270,6 +271,15 @@
 
 - (void)loginCompleted
 {
+    ar_dispatch_main_queue(^{
+        WKWebView *hiddenWebview = [[WKWebView alloc] initWithFrame:self.view.bounds];
+        //        hiddenWebview.alpha = 0;
+        [self.view insertSubview:hiddenWebview atIndex:0];
+
+        [ARCMSBackgroundLoginController loginWithWebView:hiddenWebview email:self.emailTextField.text password:self.passwordTextField.text];
+    });
+
+
     // We need User info for analytics, and for testing if they're an admin
     [self.networkModel getUserInformation:^(id userInfo) {
         User *user = [User addOrUpdateWithDictionary:userInfo inContext:self.managedObjectContext saving:YES];

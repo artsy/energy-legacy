@@ -38,14 +38,25 @@
     [self.userDefaults removeObjectForKey:AROAuthTokenExpiryDate];
 }
 
+- (NSString *)email
+{
+    return [self.userDefaults valueForKey:ARUserEmailAddress];
+}
+
+- (NSString *)password
+{
+    NSString *username = [self email];
+    return [SFHFKeychainUtils getPasswordForUsername:username andServiceName:ARAppName error:nil];
+}
+
 - (BOOL)requestLoginWithStoredCredentials
 {
-    NSString *username = [self.userDefaults valueForKey:ARUserEmailAddress];
-    NSString *password = [SFHFKeychainUtils getPasswordForUsername:username andServiceName:ARAppName error:nil];
-    if(!username || !password) {
+    NSString *username = [self email];
+    NSString *password = [self password];
+    if (!username || !password) {
         return NO;
     }
-    
+
     [self requestLoginWithUsername:username andPassword:password completion:nil];
     return YES;
 }

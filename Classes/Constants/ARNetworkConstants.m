@@ -1,6 +1,7 @@
 NSString *const ARAuthHeader = @"X-Access-Token";
 
 NSString *const ARBaseURL = @"https://api.artsy.net";
+NSString *const ARBaseCMSURL = @"https://cms.artsy.net";
 
 NSString *const ARStaticBaseURL = @"http://static.artsy.net";
 

@@ -10,6 +10,7 @@
 #import "ARImageGridViewItem.h"
 #import "AROptions.h"
 #import "ARSettingsSplitViewController.h"
+#import "ARCMSViewController.h"
 
 NS_ENUM(NSInteger, ARTopViewControllers){
     ARTopViewControllerArtists = 0,
@@ -74,6 +75,13 @@ NS_ENUM(NSInteger, ARTopViewControllers){
 
     [ARSearchViewController sharedController].selectedItem = nil;
 }
+
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//    [super viewDidAppear:animated];
+//
+//    [self toggleSettingsMenu:animated];
+//}
 
 - (void)viewDidLoad
 {
@@ -245,9 +253,9 @@ NS_ENUM(NSInteger, ARTopViewControllers){
     return [[ARGridViewController alloc] initWithDisplayMode:mode];
 }
 
-/// Because of "All Artworks" there is always albums to show
+    /// Because of "All Artworks" there is always albums to show
 
-- (UIViewController *)createAlbumsView
+    - (UIViewController *)createAlbumsView
 {
     if (!self.hasFinishedSync && !ARIsOSSBuild) {
         return [self syncMessageViewControllerWithMessage:@"Your Albums are Syncing"];
@@ -313,15 +321,18 @@ NS_ENUM(NSInteger, ARTopViewControllers){
 - (void)toggleSettingsMenu:(BOOL)animated
 
 {
-    [self.toolbarController hideSyncNotificationBadge];
+    ARCMSViewController *cmsVC = [[ARCMSViewController alloc] init];
+    [self.navigationController pushViewController:cmsVC animated:YES];
 
-    UIStoryboard *settingsStoryboard = [UIStoryboard storyboardWithName:@"ARSettings" bundle:nil];
-    UIViewController *settingsViewController = [settingsStoryboard instantiateInitialViewController];
-
-    settingsViewController.modalTransitionStyle = [UIDevice isPad] ? UIModalTransitionStyleCrossDissolve : UIModalTransitionStyleCoverVertical;
-    self.modalPresentationStyle = UIModalPresentationCurrentContext;
-
-    [self presentViewController:settingsViewController animated:animated completion:nil];
+    //    [self.toolbarController hideSyncNotificationBadge];
+    //
+    //    UIStoryboard *settingsStoryboard = [UIStoryboard storyboardWithName:@"ARSettings" bundle:nil];
+    //    UIViewController *settingsViewController = [settingsStoryboard instantiateInitialViewController];
+    //
+    //    settingsViewController.modalTransitionStyle = [UIDevice isPad] ? UIModalTransitionStyleCrossDissolve : UIModalTransitionStyleCoverVertical;
+    //    self.modalPresentationStyle = UIModalPresentationCurrentContext;
+    //
+    //    [self presentViewController:settingsViewController animated:animated completion:nil];
 }
 
 #pragma mark -

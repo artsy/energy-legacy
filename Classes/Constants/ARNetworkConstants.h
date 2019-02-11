@@ -3,6 +3,7 @@ extern NSString *const ARAuthSecret;
 extern NSString *const ARAuthHeader;
 
 extern NSString *const ARBaseURL;
+extern NSString *const ARBaseCMSURL;
 extern NSString *const ARStaticBaseURL;
 
 extern NSString *const ARSiteUpURL;

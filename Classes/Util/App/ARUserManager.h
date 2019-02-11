@@ -18,4 +18,11 @@
 
 /// Logs in with the username / password
 - (void)requestLoginWithUsername:(NSString *)username andPassword:(NSString *)password completion:(void (^)(BOOL success, NSError *error))completion;
+
+/// Gets the users email
+- (NSString *)email;
+
+/// Used to get the user's password
+- (NSString *)password;
+
 @end
