@@ -2,6 +2,7 @@
 #import "AREmailComposer.h"
 #import "ARTheme.h"
 
+
 @interface AREmailComposer ()
 @property (nonatomic, strong) UIViewController<MFMailComposeViewControllerDelegate> *parentViewController;
 @property (nonatomic, strong) MFMailComposeViewController *mailController;

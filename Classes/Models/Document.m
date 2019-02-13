@@ -67,9 +67,25 @@
 - (NSString *)mimeType
 {
     //http://stackoverflow.com/questions/2439020/wheres-the-iphone-mime-type-database
+    NSString *path = [self.filePath pathExtension];
+    CFStringRef UTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef)path, NULL);
 
-    CFStringRef UTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef)[self.filePath pathExtension], NULL);
     CFStringRef MIMEType = UTTypeCopyPreferredTagWithClass(UTI, kUTTagClassMIMEType);
+
+    // This won't always return valid objects
+    if (!MIMEType) {
+        CFRelease(UTI);
+
+        if ([path isEqualToString:@"pages"]) {
+            return @"application/vnd.apple.pages";
+        } else if ([path isEqualToString:@"keynote"]) {
+            return @"application/vnd.apple.keynote";
+        } else if ([path isEqualToString:@"numbers"]) {
+            return @"application/vnd.apple.numbers";
+        }
+        // Fallback if we can't figure it out
+        return @"application/octet-stream";
+    }
 
     NSString *mimeType = [(__bridge NSString *)MIMEType copy];
 
