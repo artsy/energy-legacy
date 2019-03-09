@@ -1,6 +1,8 @@
 #import "ARMigrationController.h"
 #import "ARFileUtils+FolioAdditions.h"
-
+#import "ARBaseViewController+TransparentModals.h"
+#import "AlbumEdit.h"
+#import "ARSync.h"
 
 @implementation ARMigrationController
 
@@ -12,8 +14,8 @@
     //    NSString *oldMigrationVersion = [defaults stringForKey:ARAppSyncVersion];
     //    CGFloat pastVersion = [oldMigrationVersion floatValue];
 
-    #pragma clang diagnostic push
-    #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 
     /// Converts pre 2.5.1 versions of Folio to support multiple artists
@@ -27,7 +29,7 @@
         [defaults setBool:YES forKey:@"ARHasSwitchedArtistToArtists"];
     }
 
-    #pragma clang diagnostic pop
+#pragma clang diagnostic pop
 
 
     /// Sets an artistOrderingKey to handle multiple Artists
@@ -91,6 +93,60 @@
         if (error) {
             NSLog(@"Error removing old core data sqlite file:%@ ", error);
         }
+    }
+}
+
++ (void)migrateOnAppAlbumsToGravity:(UIViewController *)viewControllerToPresentOn context:(NSManagedObjectContext *)context sync:(ARSync *)sync
+{
+    NSString *migratedToCloudKey = @"ARHasMigratedAlbums";
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    BOOL shouldOfferToMigrateAlbums = [defaults boolForKey:migratedToCloudKey] == NO;
+    if (shouldOfferToMigrateAlbums) {
+        [defaults setBool:YES forKey:migratedToCloudKey];
+
+        NSInteger albumCount = [Album editableAlbumsByLastUpdateInContext:context].count;
+        if (albumCount == 0) {
+            // NOOP, bubt also will happen when you first launch the app
+            return;
+        }
+
+        NSString *messaging = NSStringWithFormat(@"Folio albums are now stored in the cloud. Sync %@ albums online?", @(albumCount));
+        [viewControllerToPresentOn presentTransparentAlertWithText: messaging withOKAs:@"MIGRATE" andCancelAs:@"DELETE" completion:^(enum ARModalAlertViewControllerStatus completion) {
+            switch (completion) {
+                case ARModalAlertOK: {
+                    NSArray *albumsToUpload = [Album editableAlbumsByLastUpdateInContext:context];
+                    // Make an AlbumEdit for every album
+                    for (Album *album in albumsToUpload) {
+                        AlbumEdit *uploadRequest = [AlbumEdit objectInContext:context];
+                        uploadRequest.album = album;
+                        uploadRequest.albumWasCreated = @YES;
+                        uploadRequest.createdAt = album.createdAt;
+                        uploadRequest.addedArtworks = album.artworks;
+                        [uploadRequest saveManagedObjectContextLoggingErrors];
+
+                        // These will get re-created from the sync
+                        [album deleteInContext:context];
+                    }
+
+                    // Makes the Album screen say "Syncing your albums"
+                    [defaults setBool:YES forKey:ARFinishedFirstSync];
+                    break;
+                }
+
+                // I know this is a bit drastic, but there's not really much choice wiithout a lot more work,
+                // and this feature has already taken about 5 years to get built.
+                case ARModalAlertCancel: {
+                    NSArray *albumsToRemove = [Album editableAlbumsByLastUpdateInContext:context];
+                    // :wave:
+                    for (Album *album in albumsToRemove) {
+                        [album deleteInContext:context];
+                    }
+                    break;
+                }
+            }
+            [sync sync];
+        }];
     }
 }
 

@@ -15,6 +15,7 @@
 #import "ARAnalyticsHelper.h"
 #import "ARInitialViewControllerSetupCoordinator.h"
 #import "AROfflineStatusWatcher.h"
+#import "ARMigrationController.h"
 
 #import "ARTheme.h"
 #import "ARAppDelegate+DevTools.h"
@@ -95,6 +96,8 @@ void uncaughtExceptionHandler(NSException *exception);
     _userManager = [[ARUserManager alloc] init];
 
     [self.viewCoordinator setupFolioGrid];
+    [ARMigrationController migrateOnAppAlbumsToGravity:window.rootViewController context:context sync:self.sync];
+
 
     BOOL useWhiteFolio = [defaults boolForKey:AROptionsUseWhiteFolio];
     BOOL hasLoggedInSyncedUser = self.userManager.userCredentialsExist && [Partner currentPartner];
