@@ -40,13 +40,18 @@
 
 - (BOOL)requestLoginWithStoredCredentials
 {
+    return [self requestLoginWithStoredCredentialsCompletion:nil];
+}
+
+- (BOOL)requestLoginWithStoredCredentialsCompletion:(void (^)(BOOL success, NSError *error))completion
+{
     NSString *username = [self.userDefaults valueForKey:ARUserEmailAddress];
     NSString *password = [SFHFKeychainUtils getPasswordForUsername:username andServiceName:ARAppName error:nil];
-    if(!username || !password) {
+    if (!username || !password) {
         return NO;
     }
-    
-    [self requestLoginWithUsername:username andPassword:password completion:nil];
+
+    [self requestLoginWithUsername:username andPassword:password completion:completion];
     return YES;
 }
 

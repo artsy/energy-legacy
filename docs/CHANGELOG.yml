@@ -2,6 +2,7 @@ upcoming:
   version: 2.7.0
   notes:
     - Shows un-processed artworks but provides a note to edit them in CMS - orta
+    - Handles re-authing, and logs you out if you've changed password - orta
     - Updates Intercom, removes Hockey and migrates to Sentry - orta
     - Updates CI Xcode to 10.1 - orta
     - Crash fix on login - orta
