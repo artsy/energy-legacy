@@ -25,7 +25,7 @@
         </relationship>
         <relationship name="cover" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="coverForAlbum" inverseEntity="Image" syncable="YES"/>
         <relationship name="documents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Document" inverseName="album" inverseEntity="Document" syncable="YES"/>
-        <relationship name="uploadRecord" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="AlbumEdit" inverseName="album" inverseEntity="AlbumEdit" syncable="YES"/>
+        <relationship name="uploadRecord" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="AlbumEdit" syncable="YES"/>
         <userInfo/>
     </entity>
     <entity name="AlbumDelete" representedClassName="AlbumDelete" syncable="YES">
@@ -36,7 +36,7 @@
         <attribute name="albumWasCreated" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="addedArtworks" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Artwork" syncable="YES"/>
-        <relationship name="album" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="Album" inverseName="uploadRecord" inverseEntity="Album" syncable="YES"/>
+        <relationship name="album" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Album" syncable="YES"/>
         <relationship name="removedArtworks" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Artwork" syncable="YES"/>
         <userInfo/>
     </entity>

@@ -703,6 +703,7 @@
 		3A428C322208C8C500B9909A /* ARSentryAnalyticsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSentryAnalyticsProvider.h; sourceTree = "<group>"; };
 		3A428C332208C8C600B9909A /* ARSentryAnalyticsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSentryAnalyticsProvider.m; sourceTree = "<group>"; };
 		3A447EA021FBD70E0003FB5A /* ArtsyFolio v2.6.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.6.1.xcdatamodel"; sourceTree = "<group>"; };
+		3A6EBA7A2233E3410052D0C0 /* ArtsyFolio v2.7.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.7.0.xcdatamodel"; sourceTree = "<group>"; };
 		3A91D4D32200E2BF00AFAFCD /* ARImageViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARImageViewControllerTests.m; sourceTree = "<group>"; };
 		411D96D71731528B00598854 /* ARLogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLogoutViewController.h; sourceTree = "<group>"; };
 		411D96D81731528B00598854 /* ARLogoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLogoutViewController.m; sourceTree = "<group>"; };
@@ -940,7 +941,7 @@
 		6058DB1115DA621C00D35A13 /* ARShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARShowViewController.m; sourceTree = "<group>"; };
 		605DC40319B67C62004AE616 /* ARPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARPopoverController.h; sourceTree = "<group>"; };
 		605DC40419B67C62004AE616 /* ARPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPopoverController.m; sourceTree = "<group>"; };
-		605E97AB1E1C575A0005D09B /* ArtsyFolio v2.6.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.6.0.xcdatamodel"; sourceTree = "<group>"; };
+		605E97AB1E1C575A0005D09B /* ArtsyFolio v2.6.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.6.1.xcdatamodel"; sourceTree = "<group>"; };
 		605EAF3515D3D36700128C25 /* NSObject+Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Notifications.h"; sourceTree = "<group>"; };
 		605EAF3615D3D36700128C25 /* NSObject+Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Notifications.m"; sourceTree = "<group>"; };
 		605F113918EB18190029A473 /* ARToolbarButtonsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARToolbarButtonsTests.m; sourceTree = "<group>"; };
@@ -4820,7 +4821,8 @@
 		60118682174D084700B878A1 /* ArtsyPartner.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				605E97AB1E1C575A0005D09B /* ArtsyFolio v2.6.0.xcdatamodel */,
+				3A6EBA7A2233E3410052D0C0 /* ArtsyFolio v2.7.0.xcdatamodel */,
+				605E97AB1E1C575A0005D09B /* ArtsyFolio v2.6.1.xcdatamodel */,
 				3A447EA021FBD70E0003FB5A /* ArtsyFolio v2.6.1.xcdatamodel */,
 				600543981D55342400BE1284 /* ArtsyFolio v2.5.3.xcdatamodel */,
 				60D39AE41CD39AEB00719AEE /* ArtsyFolio v2.5.1.xcdatamodel */,
@@ -4839,7 +4841,7 @@
 				60118687174D084700B878A1 /* ArtsyPartner 5.xcdatamodel */,
 				60118688174D084700B878A1 /* ArtsyPartner.xcdatamodel */,
 			);
-			currentVersion = 3A447EA021FBD70E0003FB5A /* ArtsyFolio v2.6.1.xcdatamodel */;
+			currentVersion = 3A6EBA7A2233E3410052D0C0 /* ArtsyFolio v2.7.0.xcdatamodel */;
 			path = ArtsyPartner.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
