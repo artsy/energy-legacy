@@ -75,10 +75,7 @@ describe(@"when showing and hiding toggles", ^{
 
     it(@"doesn't show Hide Unpublished Works when there are only published works", ^{
         genericArtworkInContext(context);
-        expect(numberOfRowsIn(subject)).to.equal(2);
-
-        //        expect(numberOfRowsIn(subject)).to.equal(3);
-
+        expect(numberOfRowsIn(subject)).to.equal(3);
     });
 
 });

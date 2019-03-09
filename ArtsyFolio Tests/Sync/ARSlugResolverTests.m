@@ -8,7 +8,7 @@
 SpecBegin(ARSlugResolver);
 
 describe(@"resolving albums", ^{
-    __block Album *downloadedAlbum, *localAlbum, *localFilledAlbum;
+    __block Album *localAlbum, *alreadySetAlbum, *immutableAlbum;
     __block Artist *artist;
     __block Artwork *artwork1, *artwork2, *artwork3;
     __block Partner *partner;
@@ -34,17 +34,20 @@ describe(@"resolving albums", ^{
         artwork3 = [Artwork stubbedArtworkWithImages:YES inContext:context];
         artwork3.artists = [NSSet setWithObject:artist];
 
-        downloadedAlbum = [Album objectInContext:context];
-        downloadedAlbum.artworkSlugs = [NSSet setWithArray:slugs];
-        downloadedAlbum.editable = @(NO);
-
+        // This has artwork slugs and needs converting into artworks
         localAlbum = [Album objectInContext:context];
         localAlbum.artworkSlugs = [NSSet setWithArray:slugs];
         localAlbum.editable = @(YES);
 
-        localFilledAlbum = [Album objectInContext:context];
-        localFilledAlbum.artworks = [NSSet setWithArray:@[ artwork1 ]];
-        localFilledAlbum.editable = @(YES);
+        // This already has artworks set, so that shouldn't change
+        alreadySetAlbum = [Album objectInContext:context];
+        alreadySetAlbum.artworks = [NSSet setWithArray:@[ artwork1 ]];
+        alreadySetAlbum.editable = @(YES);
+
+        // This should not have artworks set from the slugs
+        immutableAlbum = [Album objectInContext:context];
+        immutableAlbum.artworkSlugs = [NSSet setWithArray:slugs];
+        immutableAlbum.editable = @(NO);
 
         preAlbumCount = [Album countInContext:context error:nil];
 
@@ -54,17 +57,16 @@ describe(@"resolving albums", ^{
         [resolver syncDidFinish:sync];
 
         allAlbums = [Album findAllInContext:context];
-
     });
 
     it(@"sets artworks from slugs", ^{
-        expect(downloadedAlbum.artworks).to.contain(artwork1);
-        expect(downloadedAlbum.artworks).to.contain(artwork2);
-        expect(downloadedAlbum.artworks).toNot.contain(artwork3);
+        expect(localAlbum.artworks).to.contain(artwork1);
+        expect(localAlbum.artworks).to.contain(artwork2);
+        expect(localAlbum.artworks).toNot.contain(artwork3);
     });
 
     it(@"does not set the artworks for local albums", ^{
-        expect(localAlbum.artworks.count).to.equal(0);
+        expect(immutableAlbum.artworks.count).to.equal(0);
     });
 
     it(@"creates an all artworks album", ^{
@@ -94,12 +96,12 @@ describe(@"resolving albums", ^{
     });
 
     it(@"updates album artists", ^{
-        // It's expected that this won't get its artworks set
-        // thus no artists to be generated.
-        expect(localAlbum.artists.count).to.equal(0);
+        expect(localAlbum.artists.count).to.equal(1);
 
-        expect(localFilledAlbum.artists.count).to.equal(1);
-        expect(downloadedAlbum.artists.count).to.equal(1);
+        // Because the slug mapper isn't appllied
+        // neither of these would have their artists updated
+        expect(alreadySetAlbum.artists.count).to.equal(0);
+        expect(immutableAlbum.artists.count).to.equal(0);
     });
 
     it(@"does not set the album artists for all artworks", ^{
