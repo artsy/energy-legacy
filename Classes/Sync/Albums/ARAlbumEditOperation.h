@@ -3,6 +3,7 @@
 @class Album, Artwork;
 
 
+/// Handles remotely creating/editing artworks for an album in gravity
 @interface ARAlbumEditOperation : NSOperation
 
 - (instancetype)initWithAlbum:(Album *)album createModel:(BOOL)create toAdd:(NSSet<Artwork *> *)addedArtworks toRemove:(NSSet<Artwork *> *)removedArtworks;

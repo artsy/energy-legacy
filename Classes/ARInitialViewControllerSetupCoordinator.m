@@ -5,11 +5,11 @@
 #import "ARNavigationController.h"
 #import "ARTopViewController.h"
 #import "ARLogoutManager.h"
+#import "AROptions.h"
 #import "ARMigrationController.h"
 #import "ARFolioMessageViewController.h"
-#import "ARBaseViewController+TransparentModals.h"
-#import "AROptions.h"
 #import "ARZeroStateMessageViewController.h"
+#import "ARBaseViewController+TransparentModals.h"
 
 
 @interface ARInitialViewControllerSetupCoordinator ()
