@@ -36,7 +36,7 @@
     if ([self.defaults boolForKey:ARHasInitializedPresentationMode]) return;
 
     Partner *partner = [Partner currentPartnerInContext:self.context];
-    NSMutableArray *relevantPresentationModeSettings = [NSMutableArray arrayWithArray:@[ ARHasInitializedPresentationMode, ARHideConfidentialNotes, ARHideArtworkEditButton ]];
+    NSMutableArray *relevantPresentationModeSettings = [NSMutableArray arrayWithArray:@[ ARHasInitializedPresentationMode, ARHideConfidentialNotes, ARHideArtworkEditButton, ARHideArtworkAvailability ]];
 
     if ([partner hasWorksWithPrice]) {
         [relevantPresentationModeSettings addObject:ARHideAllPrices];
@@ -106,12 +106,12 @@
 
 - (BOOL)shouldEnablePresentationMode
 {
-    return [self.defaults boolForKey:ARHideAllPrices] || [self.defaults boolForKey:ARHidePricesForSoldWorks] || [self.defaults boolForKey:ARHideUnpublishedWorks] || [self.defaults boolForKey:ARHideWorksNotForSale] || [self.defaults boolForKey:ARHideConfidentialNotes] || [self.defaults boolForKey:ARHideArtworkEditButton];
+    return [self.defaults boolForKey:ARHideAllPrices] || [self.defaults boolForKey:ARHidePricesForSoldWorks] || [self.defaults boolForKey:ARHideUnpublishedWorks] || [self.defaults boolForKey:ARHideWorksNotForSale] || [self.defaults boolForKey:ARHideConfidentialNotes] || [self.defaults boolForKey:ARHideArtworkEditButton] || [self.defaults boolForKey:ARHideArtworkAvailability];
 }
 
 - (UIImage *)settingsButtonImage
 {
-    return [[UIImage imageNamed:@"settings_btn_whiteborder"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    return [[UIImage imageNamed:@"settings_btn"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 }
 
 - (void)logout

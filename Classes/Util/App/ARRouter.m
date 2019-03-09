@@ -289,4 +289,21 @@ static NSURL *staticBaseURL = nil;
     return [httpClient requestWithMethod:@"GET" path:url parameters:params];
 }
 
+#pragma mark -
+#pragma mark Availability
+
++ (NSURLRequest *)newPartnerUpdateArtworkAvailabilityRequestWithArtworkID:(NSString *)artworkID availabilityUpdate:(NSString *)newAvailability
+{
+    NSDictionary *params = @{ @"availability" : newAvailability };
+    NSString *url = [NSString stringWithFormat:ARArtworkURLFormat, artworkID];
+    return [httpClient requestWithMethod:@"PUT" path:url parameters:params];
+}
+
++ (NSURLRequest *)newPartnerUpdateEditionSetAvailabilityRequestWithArtworkID:(NSString *)artworkID editionSetID:(NSString *)editionID availabilityUpdate:(NSString *)newAvailability
+{
+    NSDictionary *params = @{ @"availability" : newAvailability };
+    NSString *url = [NSString stringWithFormat:ARArtworkEditionSetURLFormat, artworkID, editionID];
+    return [httpClient requestWithMethod:@"PUT" path:url parameters:params];
+}
+
 @end

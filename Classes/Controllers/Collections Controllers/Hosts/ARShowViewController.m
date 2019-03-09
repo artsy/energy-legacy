@@ -1,7 +1,8 @@
 #import "ARShowViewController.h"
 
 
-@interface ARShowViewController () {
+@interface ARShowViewController ()
+{
     Show *_show;
 }
 @end
@@ -22,8 +23,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // TODO: Why does this exist?
     self.view.clipsToBounds = YES;
 }
 

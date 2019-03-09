@@ -3,6 +3,7 @@
 
 @interface ARArtworkMetadataStack : ORStackView
 
+/// Supports both NSAttributedStrings and NSStrings
 - (void)setStrings:(NSArray *)strings;
 
 @property (nonatomic, assign) NSTextAlignment textAlignment;

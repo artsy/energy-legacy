@@ -119,6 +119,7 @@ extern NSString *const ARFeedArtistsCountKey;
 extern NSString *const ARFeedTypeKey;
 extern NSString *const ARFeedHasFullProfileKey;
 extern NSString *const ARFeedHasLimitedPartnerToolAccessKey;
+extern NSString *const ARFeedHasLimitedFolioAccessKey;
 extern NSString *const ARFeedPartnerFlagsKey;
 extern NSString *const ARFeedRelativeSizeKey;
 extern NSString *const ARFeedPartnerAdminKey;

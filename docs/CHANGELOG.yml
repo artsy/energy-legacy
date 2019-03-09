@@ -1,11 +1,36 @@
 upcoming:
-  version: 2.5.5
+  version: 2.7.0
   notes:
-    - Sync stability improvement - orta/jonallured
-    - Failed images will be removed from local cache  - orta/jonallured
-    - (dev) Update Fonts, Xcode version - orta
+    - Shows un-processed artworks but provides a note to edit them in CMS - orta
+    - Updates Intercom, removes Hockey and migrates to Sentry - orta
+    - Updates CI Xcode to 10.1 - orta
+    - Crash fix on login - orta
+    - Crash fix when sending an email with a keynote file - orta
+    - Adds ability to enable/disable Folio for a particular subscriber  - orta
+    - You can change an Artwork or EditionSets availability from the grid or an artwork  - orta
+    - Visual tweaks (navbar line removed, white mode improvements)  - orta
+    - Artwork detailed overview de-markdown fixes - orta
+    - Login screen has better line-heights - orta
+    - Fix the un-changed progress indicators in settings - orta
+    - Artworks are sorted deterministically ( Artist display name, then title) in an email - orta
 
 releases:
+  - version: 2.6.0
+    date: Apr 7, 2018
+    notes:
+      - Fix email tint bug - jonallured
+      - Fix typo in editions - orta
+      - Consolidate navigation style between iPhone and iPad - orta
+      - Handle edition sets of 1 as not being multiple editions - orta
+      - iPhone artwork grids gets the ability to sort - orta
+      - Update to Xcode 9 - orta
+
+  - version: 2.5.5
+    date: Apr 5, 2017
+    notes:
+      - Sync stability improvement - orta/jonallured
+      - Failed images will be removed from local cache  - orta/jonallured
+      - (dev) Update Fonts, Xcode version - orta
 
   - version: 2.5.4
     date: Aug 31, 2016
@@ -15,7 +40,7 @@ releases:
     - Crash fixes around spolight exporting - orta
     - Fixed iPad Pro View in Room - orta
     - Update to Danger - orta
-    - We show Unititled instead of (null) in more places - orta
+    - We show Untitled instead of (null) in more places - orta
     - Order Editions in the artwork info popover - orta
 
 

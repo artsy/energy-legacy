@@ -14,7 +14,7 @@
 - (BOOL)userCredentialsExist;
 
 /// Uses the stored credentials to log in transparently
-- (void)requestLoginWithStoredCredentials;
+- (BOOL)requestLoginWithStoredCredentials;
 
 /// Logs in with the username / password
 - (void)requestLoginWithUsername:(NSString *)username andPassword:(NSString *)password completion:(void (^)(BOOL success, NSError *error))completion;

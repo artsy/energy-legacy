@@ -70,6 +70,11 @@
     }
 
     [presentationModeOptions addObject:@{
+        AROptionsKey : ARHideArtworkAvailability,
+        AROptionsName : @"Hide Works Availability",
+    }];
+
+    [presentationModeOptions addObject:@{
         AROptionsKey : ARHideConfidentialNotes,
         AROptionsName : @"Hide Confidential Notes",
     }];

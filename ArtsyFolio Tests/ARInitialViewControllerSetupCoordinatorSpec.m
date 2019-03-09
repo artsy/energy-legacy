@@ -53,14 +53,16 @@ describe(@"setting up the login screen", ^{
     });
 
     it(@"sets up a nav hosting a ARLoginViewController on the window", ^{
-        UINavigationController *controller = (id)window.rootViewController.presentedViewController;
+        UIViewController *safeAwareVC = (id)window.rootViewController.presentedViewController;
+        UINavigationController *controller = (id)safeAwareVC.childViewControllers.firstObject;
 
         expect(controller.class).to.equal(ARNavigationController.class);
         expect(controller.topViewController.class).to.equal(ARLoginViewController.class);
     });
 
     it(@"passes the sync to the ARLoginViewController", ^{
-        UINavigationController *controller = (id)window.rootViewController.presentedViewController;
+        UIViewController *safeAwareVC = (id)window.rootViewController.presentedViewController;
+        UINavigationController *controller = (id)safeAwareVC.childViewControllers.firstObject;
         ARLoginViewController *topViewController = (id)[controller topViewController];
         expect([topViewController sync]).to.equal(sync);
     });
@@ -77,13 +79,16 @@ describe(@"setting up the sync screen", ^{
     });
 
     it(@"sets up a nav hosting a ARSyncViewController on the window", ^{
-        UINavigationController *controller = (id)window.rootViewController.presentedViewController;
+        UIViewController *safeAwareVC = (id)window.rootViewController.presentedViewController;
+        UINavigationController *controller = (id)safeAwareVC.childViewControllers.firstObject;
+
         expect(controller.class).to.equal(ARNavigationController.class);
         expect(controller.topViewController.class).to.equal(ARSyncViewController.class);
     });
 
     it(@"passes the sync to the ARSyncViewController", ^{
-        UINavigationController *controller = (id)window.rootViewController.presentedViewController;
+        UIViewController *safeAwareVC = (id)window.rootViewController.presentedViewController;
+        UINavigationController *controller = (id)safeAwareVC.childViewControllers.firstObject;
         ARSyncViewController *topViewController = (id)[controller topViewController];
 
         expect(sync.delegate).to.equal(topViewController);
@@ -91,7 +96,7 @@ describe(@"setting up the sync screen", ^{
     });
 
     pending(@"sync completion block removes the sync vc");
-    
+
     pending(@"sync completion block presents zero state screen if partner has no works");
 
 });
@@ -104,7 +109,7 @@ describe(@"setting up the logout screen", ^{
         [subject presentLogoutScreen:NO logout:NO];
 
         UINavigationController *controller = (id)window.rootViewController.presentedViewController;
-        
+
         expect(controller.class).to.equal(ARNavigationController.class);
         expect(controller.topViewController.class).to.equal(ARLogoutViewController.class);
     });
@@ -114,22 +119,42 @@ describe(@"setting up the lockout screen", ^{
     it(@"presents a lockout screen", ^{
         window.rootViewController = [[UIViewController alloc] init];
         [window makeKeyAndVisible];
-        
+
         [subject presentLockoutScreenContext:context];
-        
+
         expect(window.rootViewController.transparentModalViewController.class).to.equal(ARFolioMessageViewController.class);
     });
 
-    it(@"sets the right URL", ^{
-        [Partner modelFromJSON:@{ @"id": @"_partner_" } inContext:context];
-        [User modelFromJSON:@{ @"id": @"_user_", @"email": @"dev@artsymail.com" } inContext:context];
+    it(@"sets the right blocking flow for the redirect when partner does not have CMS access", ^{
+        [Partner modelFromJSON:@{ @"id" : @"_partner_" } inContext:context];
+        [User modelFromJSON:@{ @"id" : @"_user_",
+                               @"email" : @"dev@artsymail.com" }
+                  inContext:context];
 
         window.rootViewController = [[UIViewController alloc] init];
         [window makeKeyAndVisible];
         [subject presentLockoutScreenContext:context];
         ARFolioMessageViewController *messageVC = (id)window.rootViewController.transparentModalViewController;
 
-        expect(messageVC.callToActionAddress).to.equal(@"https://www.artsy.net/gallery-partnerships/tools?partner_id=_partner_&user_id=_user_&utm_medium=mobile&utm_source=folio&utm_campaign=fair_access");
+        expect(messageVC.buttonText).to.equal(@"Apply");
+        expect(messageVC.callToActionAddress).to.equal(@"https://www.artsy.net/gallery-partnerships?partner_id=_partner_&user_id=_user_&utm_medium=mobile&utm_source=folio&utm_campaign=fair_access");
+    });
+
+    it(@"sets the right URL for the redirect when locked out", ^{
+        [Partner modelFromJSON:@{ @"id" : @"_partner_locked_",
+                                  @"has_limited_folio_access" : @(YES) }
+                     inContext:context];
+        [User modelFromJSON:@{ @"id" : @"_user_",
+                               @"email" : @"dev@artsymail.com" }
+                  inContext:context];
+
+        window.rootViewController = [[UIViewController alloc] init];
+        [window makeKeyAndVisible];
+        [subject presentLockoutScreenContext:context];
+        ARFolioMessageViewController *messageVC = (id)window.rootViewController.transparentModalViewController;
+
+        expect(messageVC.buttonText).to.equal(@"Contact Support");
+        expect(messageVC.callToActionAddress).to.equal(@"mailto:partnersupport@artsy.net");
     });
 });
 

@@ -4,6 +4,7 @@
 #import "ARArtworkMetadataStack.h"
 #import "AROptions.h"
 #import "ARDefaults.h"
+#import <Forgeries/ForgeriesUserDefaults+Mocks.h>
 
 
 @interface ARModernArtworkMetadataViewController ()
@@ -37,31 +38,31 @@ describe(@"gestures", ^{
         [sut view];
         context = [CoreDataManager stubbedManagedObjectContext];
     });
-    
+
     it(@"should have a tap & swipe gesture", ^{
         expect(sut.artworkInfoTapGesture).to.beTruthy();
         expect(sut.artworkInfoSwipeGesture).to.beTruthy();
     });
-    
+
     it(@"should be enabled when artwork has metadata", ^{
         artwork = [Artwork modelFromJSON:@{
-            ARFeedTitleKey: @"title",
-            ARFeedArtworkInfoKey: @"something"
+            ARFeedTitleKey : @"title",
+            ARFeedArtworkInfoKey : @"something"
         } inContext:context];
-        
+
         sut.artwork = artwork;
 
         expect(sut.artworkInfoTapGesture.enabled).to.beTruthy();
         expect(sut.artworkInfoTapGesture.enabled).to.beTruthy();
     });
-    
+
     it(@"should be disable when artwork has no metadata", ^{
         Artwork *artwork = [Artwork modelFromJSON:@{
-            ARFeedTitleKey: @"title"
+            ARFeedTitleKey : @"title"
         } inContext:context];
-        
+
         sut.artwork = artwork;
-        
+
         expect(sut.artworkInfoTapGesture.enabled).to.beFalsy();
         expect(sut.artworkInfoTapGesture.enabled).to.beFalsy();
     });
@@ -70,23 +71,23 @@ describe(@"gestures", ^{
 
 describe(@"notifications", ^{
     __block OCMockObject *sutStub;
-    
+
     beforeEach(^{
         [sut view];
         sutStub = [OCMockObject partialMockForObject:sut];
     });
-    
+
     it(@"should respond to show", ^{
         [[sutStub expect] showArtworkInfo:OCMArg.any];
 
-        [[NSNotificationCenter defaultCenter]postNotificationName:ARShowArtworkInfoNotification object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:ARShowArtworkInfoNotification object:nil];
         [sutStub verify];
     });
-    
+
     it(@"should respond to hide", ^{
         [[sutStub expect] hideArtworkInfo:OCMArg.any];
-        
-        [[NSNotificationCenter defaultCenter]postNotificationName:ARHideArtworkInfoNotification object:nil];
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:ARHideArtworkInfoNotification object:nil];
         [sutStub verify];
     });
 
@@ -97,20 +98,20 @@ describe(@"number of lines of artwork metadata", ^{
         sut.constrainedHorizontalSpace = YES;
         sut.constrainedVerticalSpace = YES;
     });
-    
+
     it(@"should be limited to 4 on small screens", ^{
-        [ARTestContext useContext:ARTestContextDeviceTypePhone4 :^{
-        [sut beginAppearanceTransition:YES animated:NO];
-        ARArtworkMetadataView *metadataView = (ARArtworkMetadataView *)sut.view;
-        expect(metadataView.maxAllowedInputs).to.equal(4);
+        [ARTestContext useContext:ARTestContextDeviceTypePhone4:^{
+            [sut beginAppearanceTransition:YES animated:NO];
+            ARArtworkMetadataView *metadataView = (ARArtworkMetadataView *)sut.view;
+            expect(metadataView.maxAllowedInputs).to.equal(4);
         }];
     });
-    
+
     it(@"should be limited to 5 on large screens", ^{
-        [ARTestContext useContext:ARTestContextDeviceTypePhone5 :^{
-        [sut beginAppearanceTransition:YES animated:NO];
-        ARArtworkMetadataView *metadataView = (ARArtworkMetadataView *)sut.view;
-        expect(metadataView.maxAllowedInputs).to.equal(5);
+        [ARTestContext useContext:ARTestContextDeviceTypePhone5:^{
+            [sut beginAppearanceTransition:YES animated:NO];
+            ARArtworkMetadataView *metadataView = (ARArtworkMetadataView *)sut.view;
+            expect(metadataView.maxAllowedInputs).to.equal(5);
         }];
     });
 });
@@ -119,70 +120,70 @@ describe(@"showing and hiding price", ^{
     beforeEach(^{
         context = [CoreDataManager stubbedManagedObjectContext];
     });
-    
+
     it(@"always hides price when artwork has editions", ^{
         artwork = [ARModelFactory fullArtworkWithEditionsInContext:context];
         sut.artwork = artwork;
-        
+
         testDefaults = [ForgeriesUserDefaults defaults:@{
-                                                 ARHideAllPrices: @NO,
-                                                 ARPresentationModeOn: @YES,
-                                              }];
+            ARHideAllPrices : @NO,
+            ARPresentationModeOn : @YES,
+        }];
 
         expect([sut showPrice]).to.beFalsy();
     });
-    
+
     it(@"hides price when all prices are hidden and presentation mode is on", ^{
         artwork = [ARModelFactory fullArtworkInContext:context];
         sut.artwork = artwork;
-        
+
         testDefaults = [ForgeriesUserDefaults defaults:@{
-                                                 ARHideAllPrices: @YES,
-                                                 ARPresentationModeOn: @YES,
-                                              }];
+            ARHideAllPrices : @YES,
+            ARPresentationModeOn : @YES,
+        }];
         sut.defaults = (id)testDefaults;
-        
+
         expect([sut showPrice]).to.beFalsy();
     });
 
     it(@"always shows price when presentation mode is off", ^{
         artwork = [ARModelFactory fullArtworkInContext:context];
         sut.artwork = artwork;
-        
+
         testDefaults = [ForgeriesUserDefaults defaults:@{
-                                                         ARHideAllPrices: @YES,
-                                                         ARPresentationModeOn: @NO,
-                                                         }];
+            ARHideAllPrices : @YES,
+            ARPresentationModeOn : @NO,
+        }];
         sut.defaults = (id)testDefaults;
-        
+
         expect([sut showPrice]).to.beTruthy();
     });
-    
+
     it(@"hides price for sold artwork when sold prices only are hidden and presentation mode is on", ^{
         artwork = [ARModelFactory fullArtworkInContext:context];
         artwork.availability = ARAvailabilitySold;
         sut.artwork = artwork;
-        
+
         testDefaults = [ForgeriesUserDefaults defaults:@{
-                                                         ARHideAllPrices: @NO,
-                                                         ARHidePricesForSoldWorks: @YES,
-                                                         ARPresentationModeOn: @YES,
-                                                }];
+            ARHideAllPrices : @NO,
+            ARHidePricesForSoldWorks : @YES,
+            ARPresentationModeOn : @YES,
+        }];
         sut.defaults = (id)testDefaults;
-        
+
         expect([sut showPrice]).to.beFalsy();
     });
-    
+
     it(@"shows price when presentation mode is on and hide all prices is off", ^{
         artwork = [ARModelFactory fullArtworkInContext:context];
         sut.artwork = artwork;
-        
+
         testDefaults = [ForgeriesUserDefaults defaults:@{
-                                             ARHideAllPrices: @"NO",
-                                             ARPresentationModeOn: @YES,
-                                             }];
+            ARHideAllPrices : @"NO",
+            ARPresentationModeOn : @YES,
+        }];
         sut.defaults = (id)testDefaults;
-        
+
         expect([sut showPrice]).to.beTruthy();
     });
 });

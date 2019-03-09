@@ -3,6 +3,7 @@
 artsy:
 	git submodule init
 	git submodule update
+	brew install mogenerator
 	config/spacecommander/setup-repo.sh
 	git update-index --assume-unchanged Classes/ARAppDelegate+DevTools.m
 
@@ -17,27 +18,28 @@ oss:
 ci_keys:
 	bundle exec pod keys set "ArtsyAPIClientSecret" "3a33d2085cbd1176153f99781bbce7c6" Folio
 	bundle exec pod keys set "ArtsyAPIClientKey" "e750db60ac506978fc70"
-	bundle exec pod keys set "HockeyAppBetaID" "-"
-	bundle exec pod keys set "HockeyAppLiveID" "-"
+	bundle exec pod keys set "SentryDSN" "-"
 	bundle exec pod keys set "SegmentProduction" "-"
 	bundle exec pod keys set "SegmentDev" "-"
 	bundle exec pod keys set "SegmentBeta" "-"
 	bundle exec pod keys set "IntercomAppID" "-"
 	bundle exec pod keys set "IntercomAPIKey" "-"
 
-
 ### Xcode tooling
 
 WORKSPACE = "Artsy Folio.xcworkspace"
 SCHEME = ArtsyFolio
 CONFIGURATION = Debug
-DEVICE_HOST = platform='iOS Simulator',OS='10.3',name='iPad Air 2'
+DEVICE_HOST = platform='iOS Simulator',OS='11.2',name='iPad Air 2'
+
+ci: CONFIGURATION = Debug
+ci: build
 
 build:
-	set -o pipefail && xcodebuild -workspace $(WORKSPACE) -scheme $(SCHEME) -configuration '$(CONFIGURATION)' -sdk iphonesimulator build | tee $(CIRCLE_ARTIFACTS)/xcode_build_raw.log | bundle exec xcpretty -c
+	set -o pipefail && xcodebuild -workspace $(WORKSPACE) -scheme $(SCHEME) -configuration '$(CONFIGURATION)' -sdk iphonesimulator build | tee ./xcode_build_raw.log | bundle exec xcpretty -c
 
 test:
-	set -o pipefail && xcodebuild -workspace $(WORKSPACE) -scheme $(SCHEME) -configuration Debug build test -sdk iphonesimulator -destination $(DEVICE_HOST) | bundle exec second_curtain | tee $(CIRCLE_ARTIFACTS)/xcode_test_raw.log  | bundle exec xcpretty -c --test --report junit --output $(CIRCLE_TEST_REPORTS)/xcode/results.xml
+	set -o pipefail && xcodebuild -workspace $(WORKSPACE) -scheme $(SCHEME) -configuration Debug build test -sdk iphonesimulator -destination $(DEVICE_HOST) | bundle exec second_curtain | tee ./xcode_test_raw.log  | bundle exec xcpretty -c --test --report junit --output ./results.xml
 
 ### Useful commands
 
@@ -55,14 +57,14 @@ storyboard_ids:
 ### Git Faffing
 
 deploy_if_beta_branch:
-	if [ "$(LOCAL_BRANCH)" == "beta" ]; then make install_fastlane; bundle exec fastlane beta; fi
+	if [ "$(LOCAL_BRANCH)" == "beta" ]; then make install_fastlane; bundle exec fastlane beta; bundle exec fastlane upload_symbols; fi
 
 install_fastlane:
 	bundle update fastlane
 	bundle install --with deployment
 
 deploy:
-	git push origin "$(LOCAL_BRANCH):beta"
+	git push origin "$(LOCAL_BRANCH):beta" -f
 	open "https://circleci.com/gh/artsy/energy/tree/beta"
 
 LOCAL_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)

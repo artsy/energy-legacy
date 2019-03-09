@@ -47,8 +47,6 @@
 /// Title which shows above the items in on the phone
 @property (readwrite, nonatomic, copy) NSString *title;
 
-/// The fetch result that get's set on the datasource
-/// TODO? Could this just be bypassed?
 - (void)setResults:(NSFetchRequest *)fetchRequest;
 
 /// NSManagedObjectContext for storing the cache data

@@ -48,14 +48,14 @@
 {
     [super viewDidLoad];
 
-    [@[ ARUserDidChangeGridFilteringSettingsNotification, ARSyncFinishedNotification, ARAlbumDataChanged ] each:^(NSString *note) {
-        [self observeNotification:note globallyWithSelector:@selector(artworkReloadNotification:)];
+    [@[ ARUserDidChangeGridFilteringSettingsNotification, ARSyncFinishedNotification, ARAlbumDataChanged, ARArtworkAvailabilityUpdated ] each:^(NSString *note) {
+        [self observeNotification:note globallyWithSelector:@selector(allArtworkReloadNotification:)];
     }];
 
     [self reloadContent];
 }
 
-- (void)artworkReloadNotification:(NSNotification *)aNotification
+- (void)allArtworkReloadNotification:(NSNotification *)aNotification
 {
     ar_dispatch_main_queue(^{
         [self reloadContent];

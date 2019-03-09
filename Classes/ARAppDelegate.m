@@ -1,4 +1,3 @@
-#import <HockeySDK-Source/HockeySDK.h>
 #import <JLRoutes/JLRoutes.h>
 
 #import "ARAppDelegate.h"
@@ -115,7 +114,11 @@ void uncaughtExceptionHandler(NSException *exception);
     } else if (hasLoggedInSyncedUser && !hasLoggedInUnsyncedUser) {
         if (!loggedIn) {
             // run like normal but update token in background
-            [self updateExpiredAuthToken];
+            if (![self updateExpiredAuthToken]) {
+                // If it couldn't update the token, show the login screen
+                [self.viewCoordinator presentLoginScreen:NO];
+                return YES;
+            };
         }
 
         [ARAnalytics identifyUserWithID:[User currentUser].slug andEmailAddress:[User currentUser].email];
@@ -202,17 +205,13 @@ void uncaughtExceptionHandler(NSException *exception);
 #if !defined(NS_BLOCK_ASSERTIONS)
     [GRMustache preventNSUndefinedKeyExceptionAttack];
 #endif
-
-    #if TARGET_IPHONE_SIMULATOR
-    [[BITHockeyManager sharedHockeyManager] setDisableUpdateManager:YES];
-    #endif
 }
 
-- (void)updateExpiredAuthToken
+- (BOOL)updateExpiredAuthToken
 {
     // let them through into the app whilst it re-auths in the background.
     [ARAnalytics event:@"Updating auth token"];
-    [self.userManager requestLoginWithStoredCredentials];
+    return [self.userManager requestLoginWithStoredCredentials];
 }
 
 #pragma mark -

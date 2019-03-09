@@ -23,7 +23,6 @@
 
 - (void)syncDidStart:(ARSync *)sync
 {
-    // TODO: DI the context instead of using a property
     self.context = sync.config.managedObjectContext;
 
     NSArray *allClassesToRemoveIfNeeded = @[ Artwork.class, Artist.class, Image.class, Document.class, Show.class, Location.class, Album.class ];

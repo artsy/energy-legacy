@@ -1,5 +1,6 @@
 #import <GRMustache/GRMustache.h>
 #import "AREmailComposer.h"
+#import "ARTheme.h"
 
 
 @interface AREmailComposer ()
@@ -108,6 +109,10 @@
     self.mailController.mailComposeDelegate = self.parentViewController;
     [self.mailController.navigationBar setTintColor:[UIColor blackColor]];
 
+    // White window tint causes the fields in the mailController to
+    // behave strangely - this forces the tint to black and is reversed
+    // in the delegate.
+    [ARTheme setWindowTint:[UIColor blackColor]];
     [self.parentViewController presentViewController:self.mailController animated:YES completion:nil];
 }
 
@@ -191,7 +196,11 @@
 - (void)setArtworks:(NSArray *)artworks
 {
     NSComparisonResult (^comparator)(id, id) = ^(Artwork *left, Artwork *right) {
-        return ([left.artistDisplayString compare:right.artistDisplayString]);
+        if ([left.artistOrderingKey isEqualToString:right.artistOrderingKey]) {
+            return [left.displayTitle compare:right.displayTitle];
+        } else {
+            return [left.artistOrderingKey compare:right.artistOrderingKey];
+        }
     };
 
     _artworks = [artworks sortedArrayUsingComparator:comparator];

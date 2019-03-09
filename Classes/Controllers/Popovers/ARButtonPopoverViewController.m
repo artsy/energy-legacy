@@ -3,7 +3,8 @@
 static int ButtonMargin = 5;
 
 
-@interface ARButtonPopoverViewController () {
+@interface ARButtonPopoverViewController ()
+{
     ARFlatButton *button;
     NSInteger style;
 }
@@ -27,11 +28,7 @@ static int ButtonMargin = 5;
     [super viewDidLoad];
     [self.view addSubview:button];
 
-    CGRect frame = button.frame;
-    frame.origin.x -= ButtonMargin;
-    frame.origin.y -= ButtonMargin;
-
-    self.view.bounds = frame;
+    self.view.bounds = button.frame;
 
     switch (style) {
         case ARButtonPopoverDestructive:
@@ -41,8 +38,8 @@ static int ButtonMargin = 5;
             break;
 
         default:
-            [button setBackgroundColor:[UIColor artsyMediumGrey]];
-            [button setBackgroundColor:[UIColor artsyPurple] forState:UIControlStateHighlighted];
+            [button setBackgroundColor:[UIColor artsyGrayMedium]];
+            [button setBackgroundColor:[UIColor artsyPurpleRegular] forState:UIControlStateHighlighted];
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
             break;
     }
@@ -51,7 +48,7 @@ static int ButtonMargin = 5;
 
 - (CGSize)preferredContentSize
 {
-    return CGSizeMake(button.frame.size.width + 2 * ButtonMargin, button.frame.size.height + 2 * ButtonMargin);
+    return CGSizeMake(button.frame.size.width + 2 * ButtonMargin, button.frame.size.height + 4 * ButtonMargin);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

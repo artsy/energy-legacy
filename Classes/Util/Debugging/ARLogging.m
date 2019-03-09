@@ -78,8 +78,6 @@ static const NSDictionary *contextMap;
     [self addDailyLogWithContext:ARLogContextSync];
     [self addDailyLogWithContext:ARLogContextAppLifecycle];
     [self addDailyLogWithContext:ARLogContextErrors];
-
-    // TODO: File logs for the various specialized contexts
 }
 
 + (void)addDailyLogWithContext:(ARLogContext)context

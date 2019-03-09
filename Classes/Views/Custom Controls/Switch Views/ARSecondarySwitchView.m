@@ -6,7 +6,8 @@ CGFloat ARSwitchViewHeight = 50;
 CGFloat ARSerifViewButtonMargin = 15;
 
 
-@implementation ARSecondarySwitchView {
+@implementation ARSecondarySwitchView
+{
     NSMutableArray *enabledButtons;
     NSInteger _selectedIndex;
     BOOL hasContent;
@@ -37,11 +38,9 @@ CGFloat ARSerifViewButtonMargin = 15;
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     if (_rightSupplementaryView) {
         [self addSubview:_rightSupplementaryView];
-        CGRect rightFrame = _rightSupplementaryView.bounds;
-        rightFrame.origin.x = CGRectGetWidth(self.bounds) - CGRectGetWidth(_rightSupplementaryView.bounds) - ARSupplementaryViewMargin;
-        rightFrame.origin.y = CGRectGetHeight(self.bounds) / 2 - CGRectGetHeight(_rightSupplementaryView.bounds) / 2;
-        rightFrame.size.height = CGRectGetHeight(self.bounds);
-        _rightSupplementaryView.frame = rightFrame;
+        [_rightSupplementaryView alignTrailingEdgeWithView:self predicate:@"-10"];
+        [_rightSupplementaryView alignCenterYWithView:self predicate:@"2"];
+        [_rightSupplementaryView constrainHeightToView:self predicate:@"0"];
     }
 
     // If only one tab is enabled, we won't show the tabs
@@ -91,7 +90,7 @@ CGFloat ARSerifViewButtonMargin = 15;
         totalWidth += CGRectGetWidth(button.bounds);
     }
 
-    CGFloat xOffset = CGRectGetWidth(self.bounds) / 2 - totalWidth / 2;
+    CGFloat xOffset = self.leftAlign ? 6 : CGRectGetWidth(self.bounds) / 2 - totalWidth / 2;
     for (UIButton *button in enabledButtons) {
         // set the x position
         CGRect buttonFrame = button.frame;

@@ -47,7 +47,7 @@
                 self.image = image;
             } else {
                 // Otherwise its a local file that doesn't exist -> dark grey
-                self.image = [UIImage imageFromColor:[UIColor artsyHeavyGrey]];
+                self.image = [UIImage imageFromColor:[UIColor artsyGrayBold]];
             }
 
         } else if (url.host) {
@@ -57,7 +57,7 @@
 
         } else {
             // If we can't do anything, make it purple
-            self.image = [UIImage imageFromColor:[UIColor artsyPurple]];
+            self.image = [UIImage imageFromColor:[UIColor artsyPurpleRegular]];
         }
 
         if (completedBlock) completedBlock(self.image, nil, SDImageCacheTypeNone, url);

@@ -86,4 +86,9 @@
 + (NSURLRequest *)newPartnerLocationRequestWithPartnerID:(NSString *)partnerID locationID:(NSString *)locationID;
 + (NSURLRequest *)newPartnerLocationArtworksRequestWithPartnerID:(NSString *)partnerID locationID:(NSString *)locationID page:(NSInteger)page;
 
+/// Edition Set editing
++ (NSURLRequest *)newPartnerUpdateArtworkAvailabilityRequestWithArtworkID:(NSString *)artworkID availabilityUpdate:(NSString *)newAvailability;
++ (NSURLRequest *)newPartnerUpdateEditionSetAvailabilityRequestWithArtworkID:(NSString *)artworkID editionSetID:(NSString *)editionID availabilityUpdate:(NSString *)newAvailability;
+
+
 @end

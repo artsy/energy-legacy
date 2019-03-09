@@ -1,12 +1,12 @@
 #import "ARNavigationController.h"
 #import "ARNavigationBar.h"
+
 #import "ARAppDelegate.h"
 
 #import "ARGridViewController.h"
 
 #import "ARSwitchBoard.h"
 #import "ARSelectionToolbarView.h"
-#import "ARRootNavigationControllerDelegate.h"
 
 static ARNavigationController *sharedInstance = nil;
 
@@ -15,7 +15,6 @@ static ARNavigationController *sharedInstance = nil;
 @property (nonatomic, strong) UIBarButtonItem *searchBarButton;
 @property (nonatomic, strong) ARPopoverController *searchPopoverController;
 @property (nonatomic, strong) ARSearchViewController *searchViewController;
-@property (nonatomic, strong) ARRootNavigationControllerDelegate *navDelegate;
 @end
 
 
@@ -38,20 +37,12 @@ static ARNavigationController *sharedInstance = nil;
 {
     self = [super initWithNavigationBarClass:ARNavigationBar.class toolbarClass:nil];
     if (!self) return nil;
-
-    _navDelegate = [[ARRootNavigationControllerDelegate alloc] init];
-    self.delegate = _navDelegate;
-
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if ([self.navigationBar respondsToSelector:@selector(setExtendedHeight:)]) {
-        [(id)self.navigationBar setExtendedHeight:[UIDevice isPad]];
-    }
-
     [self setNavigationBarHidden:NO animated:NO];
 }
 
@@ -218,6 +209,5 @@ static ARNavigationController *sharedInstance = nil;
     [ARAnalytics event:ARSearchSelectLocationEvent withProperties:@{ @"location" : location.name }];
     [[ARSwitchBoard sharedSwitchboard] jumpToLocationViewController:location animated:YES];
 }
-
 
 @end

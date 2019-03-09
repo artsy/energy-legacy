@@ -10,7 +10,8 @@ CGFloat TextfieldLeftMargin = 20;
 CGFloat CancelAnimationDistance = 80;
 
 
-@interface ARSearchBar () {
+@interface ARSearchBar ()
+{
     UITextField *_foundSearchTextField;
     UIButton *_overlayCancelButton;
 }
@@ -85,7 +86,7 @@ CGFloat CancelAnimationDistance = 80;
     _foundSearchTextField.font = [UIFont serifFontWithSize:ARFontSansLarge];
     _foundSearchTextField.accessibilityLabel = @"Search Textfield";
     _foundSearchTextField.keyboardAppearance = UIKeyboardAppearanceDark;
-    _foundSearchTextField.tintColor = [UIColor artsyPurple];
+    _foundSearchTextField.tintColor = [UIColor artsyPurpleRegular];
 
     // Hide the grey background normally associated with ios7 searchbars
     for (NSInteger i = [self.container.subviews count] - 1; i >= 0; i--) {

@@ -346,8 +346,8 @@ static NSString *ARPricesRowIdentifier = @"ARPricesRowIdentifier";
 {
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitle:@"Working…" forState:UIControlStateNormal];
-    [button setBackgroundColor:[UIColor artsyPurple] forState:UIControlStateNormal];
-    [button setBorderColor:[UIColor artsyPurple] forState:UIControlStateNormal];
+    [button setBackgroundColor:[UIColor artsyPurpleRegular] forState:UIControlStateNormal];
+    [button setBorderColor:[UIColor artsyPurpleRegular] forState:UIControlStateNormal];
 
     [self emailArtworks];
 }

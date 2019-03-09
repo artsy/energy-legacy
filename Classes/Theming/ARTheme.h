@@ -1,5 +1,6 @@
 
 
+
 @interface ARTheme : NSObject
 
 /// Setup the UIAppearance tints and image backgrounds
@@ -10,5 +11,9 @@
 /// can trigger a UIAppearance cascade of tintViewDidChange
 /// by changing it on the window.
 + (void)setupWindowTintOnWindow:(UIWindow *)window;
+
++ (void)resetWindowTint;
+
++ (void)setWindowTint:(UIColor *)tintColor;
 
 @end

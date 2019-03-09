@@ -4,7 +4,9 @@ typedef NS_ENUM(NSInteger, AREmailSettingsPriceType) {
     AREmailSettingsPriceTypeBackend
 };
 
-
+/// A dumb settings object, only holds state to act
+/// as information for the AREmailSettingViewController
+///
 @interface AREmailSettings : NSObject
 
 @property (nonatomic, copy, readwrite) NSArray *artworks;

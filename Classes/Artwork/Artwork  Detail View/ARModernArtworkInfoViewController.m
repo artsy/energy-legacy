@@ -32,7 +32,7 @@
 
     stackScrollView.backgroundColor = [UIColor artsyBackgroundColor];
     stackScrollView.stackView.backgroundColor = [UIColor artsyBackgroundColor];
-    stackScrollView.stackView.bottomMarginHeight = 20;
+    stackScrollView.stackView.lastMarginHeight = 20;
     stackScrollView.alwaysBounceVertical = YES;
 
     _contentView = stackScrollView;
@@ -68,11 +68,11 @@
     info.artwork = artwork;
 
     [wrapper constrainHeightToView:info.view predicate:@"0"];
-    [self.contentView.stackView addSubview:wrapper withTopMargin:@"20" sideMargin:@"0"];
+    [self.contentView.stackView addSubview:wrapper withPrecedingMargin:20 sideMargin:0];
 
     UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
     separator.backgroundColor = [[UIColor artsyForegroundColor] colorWithAlphaComponent:0.5];
-    [self.contentView.stackView addSubview:separator withTopMargin:@"10" sideMargin:@"40"];
+    [self.contentView.stackView addSubview:separator withPrecedingMargin:10 sideMargin:40];
     [separator constrainHeight:@"1"];
 
     ARArtworkInfoAdditionalMetadataView *metadata = nil;
@@ -80,7 +80,7 @@
     CGFloat width = CGRectGetWidth(self.view.bounds) - 40;
 
     metadata = [[ARArtworkInfoAdditionalMetadataView alloc] initWithArtwork:artwork preferredWidth:width split:split];
-    [self.contentView.stackView addSubview:metadata withTopMargin:@"20" sideMargin:@"40"];
+    [self.contentView.stackView addSubview:metadata withPrecedingMargin:20 sideMargin:40];
 
     [[artwork.sortedImages select:^BOOL(Image *image) {
         return image != artwork.mainImage;
@@ -88,7 +88,7 @@
     }] each:^(Image *image) {
 
         UIImageView *imageView = [self imageViewForImage:image];
-        [self.contentView.stackView addSubview:imageView withTopMargin:@"20" sideMargin:@"40"];
+        [self.contentView.stackView addSubview:imageView withPrecedingMargin:20 sideMargin:40];
         NSLayoutConstraint *aspectRatioConstraint = [self aspectRatioConstraintForImageView:imageView image:image];
         [imageView addConstraint:aspectRatioConstraint];
     }];

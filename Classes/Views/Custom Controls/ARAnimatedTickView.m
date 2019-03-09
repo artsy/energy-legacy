@@ -9,10 +9,12 @@
 
 @interface ARTickViewBackLayer : CALayer
 @property CGFloat completion;
+@property UIColor *highlightColor;
 @end
 
 
-@interface ARAnimatedTickView () {
+@interface ARAnimatedTickView ()
+{
     ARTickViewBackLayer *_backLayer;
 }
 @end
@@ -30,12 +32,13 @@
 {
     self = [super initWithFrame:CGRectMake(0, 0, TICK_DIMENSION, TICK_DIMENSION)];
     if (self) {
-        self.backgroundColor = [[UIColor artsyLightGrey] colorWithAlphaComponent:0.2];
+        self.backgroundColor = [[UIColor artsyGrayLight] colorWithAlphaComponent:0.2];
 
         _backLayer = [ARTickViewBackLayer layer];
         _backLayer.completion = 1;
         _backLayer.bounds = self.bounds;
         _backLayer.position = CGPointMake(TICK_DIMENSION / 2, TICK_DIMENSION / 2);
+        _backLayer.highlightColor = [UIColor artsyPurpleRegular];
 
         [self.layer addSublayer:_backLayer];
         [self.layer addSublayer:[ARTickViewFrontLayer layer]];
@@ -66,6 +69,14 @@
         [_backLayer addAnimation:positionAnimation forKey:@"TickAnimation"];
 
         _backLayer.completion = selected ? 1 : 0;
+    }
+}
+
+- (void)setHighlightColor:(UIColor *)highlightColor
+{
+    if (_backLayer.highlightColor != highlightColor) {
+        _backLayer.highlightColor = highlightColor;
+        [_backLayer setNeedsDisplay];
     }
 }
 
@@ -167,7 +178,7 @@
     CGContextClosePath(ctx);
 
     // Color it
-    CGContextSetFillColorWithColor(ctx, [UIColor artsyPurple].CGColor);
+    CGContextSetFillColorWithColor(ctx, self.highlightColor.CGColor);
     CGContextSetLineWidth(ctx, 0);
 
     CGContextDrawPath(ctx, kCGPathFill);

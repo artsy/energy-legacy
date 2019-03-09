@@ -41,6 +41,8 @@ static ISO8601DateFormatter *dateFormatter;
 
 - (NSNumber *)onlyNumberForKey:(NSString *)key
 {
+    // Note to future self: Boolean is a number in obj-c
+    //
     id object = self[key];
     if ([object isKindOfClass:[NSNumber class]]) {
         return object;
@@ -51,6 +53,7 @@ static ISO8601DateFormatter *dateFormatter;
     }
     return nil;
 }
+
 
 - (NSDecimalNumber *)onlyDecimalForKey:(NSString *)key
 {

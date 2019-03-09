@@ -11,7 +11,7 @@
     [self.actionButton setTitle:@"CREATE" forState:UIControlStateNormal];
 
     self.inputTextField.placeholder = @"Album Name";
-    self.inputTextField.tintColor = [UIColor artsyPurple];
+    self.inputTextField.tintColor = [UIColor artsyPurpleRegular];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

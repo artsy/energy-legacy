@@ -4,7 +4,7 @@
 #import "NSString+NiceFractions.h"
 #import "EditionSet.h"
 
-static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
+static const int NumberOfCharactersInArtworkTitleBeforeCrop = 17;
 
 
 @implementation Artwork
@@ -98,6 +98,86 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
     self.inventoryID = [aDictionary onlyStringForKey:ARFeedInventoryIDKey];
     self.confidentialNotes = [aDictionary onlyStringForKey:ARFeedConfidentialNotesKey];
     self.artistOrderingKey = [self artistOrderingString];
+}
+
++ (ARArtworkAvailability)availabilityStateForString:(NSString *)availability
+{
+    if ([availability isEqualToString:@"not for sale"]) {
+        return ARArtworkAvailabilityNotForSale;
+    } else if ([availability isEqualToString:@"for sale"]) {
+        return ARArtworkAvailabilityForSale;
+    } else if ([availability isEqualToString:@"sold"]) {
+        return ARArtworkAvailabilitySold;
+    } else if ([availability isEqualToString:@"on loan"]) {
+        return ARArtworkAvailabilityOnLoan;
+    } else if ([availability isEqualToString:@"permanent collection"]) {
+        return ARArtworkAvailabilityPermenentCollection;
+    } else {
+        return ARArtworkAvailabilityOnHold;
+    }
+}
+
++ (NSString *)stringForAvailabilityState:(ARArtworkAvailability)availability
+{
+    switch (availability) {
+        case ARArtworkAvailabilityForSale:
+            return @"for sale";
+        case ARArtworkAvailabilityOnHold:
+            return @"on hold";
+        case ARArtworkAvailabilitySold:
+            return @"sold";
+        case ARArtworkAvailabilityNotForSale:
+            return @"not for sale";
+        case ARArtworkAvailabilityOnLoan:
+            return @"on loan";
+        case ARArtworkAvailabilityPermenentCollection:
+            return @"permanent collection";
+    }
+}
+
+- (ARArtworkAvailability)availabilityState
+{
+    if (self.editionSets.count) {
+        return [self editionSetAvailabilityState];
+    } else {
+        return [self.class availabilityStateForString:self.availability];
+    }
+}
+
+- (ARArtworkAvailability)editionSetAvailabilityState
+{
+    // Assume that the lower the number the more interested we
+    // are in giving that value on the indicator
+    NSInteger lowestAvailability = ARArtworkAvailabilityPermenentCollection;
+
+    for (EditionSet *set in self.editionSets) {
+        // Return it right away if lowest possible
+        if (set.availabilityState == ARArtworkAvailabilityForSale) {
+            return ARArtworkAvailabilityForSale;
+        }
+
+        if (set.availabilityState < lowestAvailability) {
+            lowestAvailability = set.availabilityState;
+        }
+    }
+
+    return lowestAvailability;
+}
+
++ (UIColor *)colorForAvailabilityState:(ARArtworkAvailability)availablity
+{
+    switch (availablity) {
+        case ARArtworkAvailabilityForSale: // Green
+            return [UIColor colorWithRed:0 green:165 / 255.0 blue:44 / 255.0 alpha:1];
+        case ARArtworkAvailabilityOnHold: // Orange
+            return [UIColor colorWithRed:1 green:163 / 255.0 blue:0 / 255.0 alpha:1];
+        case ARArtworkAvailabilitySold: // Red
+            return [UIColor colorWithRed:219 / 255.0 green:1 / 255.0 blue:0 / 255.0 alpha:1];
+        case ARArtworkAvailabilityNotForSale:
+        case ARArtworkAvailabilityOnLoan:
+        case ARArtworkAvailabilityPermenentCollection: // Grey
+            return [UIColor colorWithRed:165 / 255.0 green:165 / 255.0 blue:165 / 255.0 alpha:1];
+    }
 }
 
 - (void)convertDimensionsToAmericanSystemOfMeasurement
@@ -221,6 +301,7 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
 
     NSString *subtitle = nil;
     NSString *title = self.title.length ? self.title : @"Untitled";
+
     BOOL needsCrop = title.length > NumberOfCharactersInArtworkTitleBeforeCrop;
     NSInteger cropCount = MIN(title.length, NumberOfCharactersInArtworkTitleBeforeCrop);
     subtitle = [title substringToIndex:cropCount];
@@ -240,7 +321,39 @@ static const int NumberOfCharactersInArtworkTitleBeforeCrop = 20;
             }
         }
     }
+
     return subtitle;
+}
+
+// This is only used in the Grid, thus the name
+// if you are interested in how it works for an artwork see titleAndDateStringForArtwork
+- (NSAttributedString *)attributedGridSubtitle
+{
+    NSString *original = self.gridSubtitle;
+
+    // This aint a good dependency in this function
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    // Just return the original string as an attirbuted string when we're not adding a dot
+    if ([defaults boolForKey:ARPresentationModeOn] && [defaults boolForKey:ARHideArtworkAvailability]) {
+        return [[NSAttributedString alloc] initWithString:original];
+    }
+
+    // Start with the original string: [artwork, date]
+    // Add a dot: [artwork, date ●]
+    NSString *fullString = [original stringByAppendingString:@" •"];
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:fullString];
+
+    // Color and size that dot
+    UIColor *color = [self.class colorForAvailabilityState:self.availabilityState];
+    [string addAttributes:@{
+        NSFontAttributeName : [UIFont serifItalicFontWithSize:22],
+        NSForegroundColorAttributeName : color,
+        NSBaselineOffsetAttributeName : @(-2)
+
+    } range:NSMakeRange(original.length + 1, 1)];
+
+    return string;
 }
 
 - (BOOL)hasAdditionalImages

@@ -1,3 +1,5 @@
+#import <Artsy+UILabels/Artsy+UILabels.h>
+
 @class ARSync;
 @class ARTextFieldWithPlaceholder;
 
@@ -18,6 +20,6 @@
 @property (nonatomic, strong) IBOutlet ARTextFieldWithPlaceholder *emailTextField;
 @property (nonatomic, strong) IBOutlet ARTextFieldWithPlaceholder *passwordTextField;
 
-@property (nonatomic, weak) IBOutlet UILabel *errorMessageLabel;
+@property (nonatomic, weak) IBOutlet ARSerifLineHeightLabel *errorMessageLabel;
 
 @end

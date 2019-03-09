@@ -20,6 +20,7 @@ extern NSString *const ARHideConfidentialNotes;
 extern NSString *const ARHidePricesForSoldWorks;
 extern NSString *const ARHideWorksNotForSale;
 extern NSString *const ARHideArtworkEditButton;
+extern NSString *const ARHideArtworkAvailability;
 
 extern NSString *const ARHasInitializedPresentationMode;
 

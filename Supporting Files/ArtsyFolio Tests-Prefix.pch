@@ -8,7 +8,7 @@
     #import <OHHTTPStubs/OHHTTPStubs.h>
     #import "OHHTTPStubs+QuickStubs.h"
     #import <OCMock/OCMock.h>
-    #import <Forgeries/Forgeries.h>
+
     #import "NSManagedObject+ActiveRecord.h"
 
     #import <Specta/Specta.h>

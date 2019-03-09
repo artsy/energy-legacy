@@ -10,41 +10,9 @@
     self = [super initWithFrame:frame];
     if (!self) return nil;
 
-    [self removeNavigationBarShadow];
     [self tintColorDidChange];
 
     return self;
-}
-
-- (void)removeNavigationBarShadow
-{
-    // Removes a single line from the nav bar.
-
-    for (UIView *view in self.subviews) {
-        for (UIView *view2 in view.subviews) {
-            if ([view2 isKindOfClass:[UIImageView class]] && view2.frame.size.height < 2) {
-                [view2 removeFromSuperview];
-            }
-        }
-    }
-}
-
-- (CGSize)sizeThatFits:(CGSize)size
-{
-    size.height = self.extendedHeight ? ARToolbarSizeHeight : ARToolbarSizeHeightPhone;
-    size.width = self.superview.bounds.size.width;
-    return size;
-}
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-
-    if (self.topItem) {
-        [self verticallyCenterView:self.topItem.titleView];
-        [self verticallyCenterView:self.topItem.leftBarButtonItems];
-        [self verticallyCenterView:self.topItem.rightBarButtonItems];
-    }
 }
 
 - (void)verticallyCenterView:(id)viewOrArray
@@ -104,6 +72,7 @@
 
     UIView *background = [self.subviews firstObject];
     background.backgroundColor = background.backgroundColor;
+    self.backgroundColor = [UIColor artsyBackgroundColor];
 }
 
 

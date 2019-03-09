@@ -167,6 +167,20 @@ static NSString *ARSubtitleKey = @"Subtitle";
     return subtitle;
 }
 
+- (NSAttributedString *)gridAttributedSubtitleForItem:(id<ARGridViewItem>)item
+{
+    NSAttributedString *subtitle = [self getCachedValueForKey:ARSubtitleKey forItem:item];
+    if (subtitle) {
+        return subtitle;
+    }
+
+    subtitle = [item attributedGridSubtitle];
+    NSString *tempId = [(ARManagedObject *)item tempId];
+    [self setCachedValue:subtitle forKey:ARSubtitleKey forItemId:tempId];
+    return subtitle;
+}
+
+
 // The slug will tell you if an item conforming to ARGridViewItem protocol is a button
 - (BOOL)isButton:(id<ARGridViewItem>)item
 {

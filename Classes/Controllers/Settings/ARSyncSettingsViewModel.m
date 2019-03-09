@@ -11,7 +11,6 @@
 @property (nonatomic, strong) NSUserDefaults *defaults;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) ARSync *sync;
-
 @end
 
 
@@ -35,7 +34,11 @@
     self.networkQuality = ARNetworkQualityGood;
     self.qualityIndicator = qualityIndicator;
     [self.qualityIndicator beginObservingNetworkQuality:^(ARNetworkQuality quality) {
+        BOOL changed = self.networkQuality != quality;
         self.networkQuality = quality;
+        if (changed) {
+            [self.settingsDelegate didUpdateNetworkQuality];
+        }
     }];
 
     return self;
@@ -69,12 +72,14 @@
 {
     self.timeRemainingInSync = progress.estimatedTimeRemaining;
     self.currentSyncPercentDone = progress.percentDone;
+    [self.settingsDelegate didUpdateSyncPercent];
 }
 
 - (void)syncDidFinish:(ARSync *)sync
 {
     self.currentSyncPercentDone = 1;
     self.timeRemainingInSync = 0;
+    [self.settingsDelegate syncDidFinish];
 }
 
 #pragma mark -
@@ -103,7 +108,7 @@
 
 - (UIColor *)syncButtonColor
 {
-    if ((self.networkQuality != ARNetworkQualityOffline) && [self.defaults boolForKey:ARRecommendSync]) return [UIColor artsyPurple];
+    if ((self.networkQuality != ARNetworkQualityOffline) && [self.defaults boolForKey:ARRecommendSync]) return [UIColor artsyPurpleRegular];
 
     return UIColor.blackColor;
 }

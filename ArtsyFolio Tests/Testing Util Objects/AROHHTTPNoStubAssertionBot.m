@@ -34,6 +34,10 @@
         return nil;
     }
 
+    if ([request.URL.absoluteString hasSuffix:@"about:blank"]) {
+        return nil;
+    }
+
     id spectaExample = [[NSThread mainThread] threadDictionary][@"SPTCurrentSpec"];
     id expectaMatcher = [[NSThread mainThread] threadDictionary][@"EXP_currentMatcher"];
 
@@ -46,10 +50,7 @@
                                                                                     NSString *className,
                                                                                     NSString *methodOrFunction) {
             return !(
-                     ([className isEqualToString:@"ArtsyAPI"] && [methodOrFunction hasPrefix:@"getRequest:parseInto"])
-                     || [methodOrFunction hasPrefix:@"ar_dispatch"]
-                     || [methodOrFunction isEqualToString:@"main"]
-                     );
+                ([className isEqualToString:@"ArtsyAPI"] && [methodOrFunction hasPrefix:@"getRequest:parseInto"]) || [methodOrFunction hasPrefix:@"ar_dispatch"] || [methodOrFunction isEqualToString:@"main"]);
         });
         NSAssert(stackTrace.count > 0, @"Stack trace empty, might need more white listing.");
 
@@ -63,7 +64,7 @@
     if (spectaExample) {
         _XCTPrimitiveFail(spectaExample, @"Failed due to unstubbed networking.");
     } else {
-//        NSAssert(@"Failed due to unstubbed networking.", nil);
+        NSAssert(@"Failed due to unstubbed networking.", nil);
     }
     return nil;
 }

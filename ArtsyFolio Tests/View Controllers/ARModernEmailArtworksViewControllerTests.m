@@ -3,6 +3,7 @@
 #import "ARThumbnailImageSelectionView.h"
 #import "InstallShotImage.h"
 #import "LocalImage.h"
+#import <Forgeries/ForgeriesUserDefaults+Mocks.h>
 
 
 @interface ARModernEmailArtworksViewController (Private)

@@ -1,6 +1,5 @@
 
 
-
 @interface ARNavigationBar : UINavigationBar
 
 /// Extends the height so that there is a margin around buttons

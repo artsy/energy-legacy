@@ -4,22 +4,20 @@ unless ENV['HOCKEY_API_TOKEN'] && ENV['SLACK_URL']
   raise "You need to set HOCKEY_API_TOKEN (#{ENV['HOCKEY_API_TOKEN']}) and SLACK_URL (#{ENV['SLACK_URL']}) in your environment."
 end
 
-lane :build_for_test do
-  xcodebuild scheme: 'ArtsyFolio', destination: "OS=8.4,name=iPad Retina"
-end
-
-lane :test do
-  xctest destination: "OS=8.4,name=iPad Retina"
-end
-
-lane :build_for_beta do
-  xcodebuild sdk: "iphoneos", configuration: "Debug"
+before_all do
+  setup_circle_ci
 end
 
 lane :beta do
   verify_pod_keys
 
-  match(type: "appstore", readonly: true)
+  sync_code_signing(type: "appstore", readonly: true)
+  disable_automatic_code_signing(
+    path: 'Artsy Folio.xcodeproj',
+    team_id: '23KMWZ572J',
+    targets: ["ArtsyFolio"],
+    profile_name: "match AppStore sy.art.folio"
+  )
 
   # Increment build number to current date
   build_number = Time.new.strftime("%Y.%m.%d.%H")
@@ -75,19 +73,10 @@ lane :beta do
   `git remote add http https://github.com/artsy/energy.git`
   `git push http #{tag}`
 
-  # Ship to hockey first, testflight has to wait: "processing"
-  hockey notes: release_notes, api_token: ENV['HOCKEY_API_TOKEN'],
-         public_identifier: ENV['HockeyAppLiveID'],
-        repository_url: "https://github.com/artsy/energy.git", commit_sha: commit
-
-  hockey notes: release_notes, api_token: ENV['HOCKEY_API_TOKEN'],
-         public_identifier: ENV['HockeyAppBetaID'],
-         repository_url: "https://github.com/artsy/energy.git", commit_sha: commit
-
-  pilot changelog: release_notes
+  pilot changelog: release_notes, distribute_external: true, demo_account_required: true, groups: ["Liasons"]
 
   slack message: "There is a new Folio beta available. Grab it from Testflight on your iOS device.",
-        channel: "partner-success",
+        channel: "front-end-ios",
         payload: {
           'Version' => latest_version,
           'What\'s new' => upcoming_release_notes,
@@ -98,4 +87,32 @@ lane :beta do
   sh "git checkout ../Resources/"
   `rm ../*.dSYM.zip`
   `rm ../*.ipa`
+end
+
+
+lane :upload_symbols do
+  # Set version number to the one at the top of the CHANGELOG
+  readme_yaml = File.read("../docs/CHANGELOG.yml")
+  begin
+    readme_data = YAML.load(readme_yaml)
+  rescue StandardError
+    fail("CHANGELOG isn't legit YAML")
+  end
+  latest_version = readme_data["upcoming"]["version"]
+
+  sentry_create_release(
+    auth_token: env["SentryUploadAuthKey"],
+    org_slug: 'artsynet',
+    project_slug: 'Folio',
+    version: latest_version,
+    app_identifier: 'sy.art.folio', 
+    finalize: true
+  )
+  
+  download_dsyms
+  upload_symbols_to_sentry(
+    auth_token: env["SentryUploadAuthKey"],
+    org_slug: 'artsynet',
+    project_slug: 'Folio',
+  )
 end

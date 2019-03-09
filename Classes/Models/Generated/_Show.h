@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _Show : ARManagedObject
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) ShowID *objectID;
 
 @property (nonatomic, strong, nullable) NSString *availabilityPeriod;
@@ -114,38 +114,38 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _Show (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveAvailabilityPeriod;
-- (void)setPrimitiveAvailabilityPeriod:(NSString *)value;
+- (nullable NSString *)primitiveAvailabilityPeriod;
+- (void)setPrimitiveAvailabilityPeriod:(nullable NSString *)value;
 
-- (NSString *)primitiveCreatedAt;
-- (void)setPrimitiveCreatedAt:(NSString *)value;
+- (nullable NSString *)primitiveCreatedAt;
+- (void)setPrimitiveCreatedAt:(nullable NSString *)value;
 
-- (NSDate *)primitiveEndsAt;
-- (void)setPrimitiveEndsAt:(NSDate *)value;
+- (nullable NSDate *)primitiveEndsAt;
+- (void)setPrimitiveEndsAt:(nullable NSDate *)value;
 
-- (NSString *)primitiveName;
-- (void)setPrimitiveName:(NSString *)value;
+- (nullable NSString *)primitiveName;
+- (void)setPrimitiveName:(nullable NSString *)value;
 
-- (NSString *)primitiveShowSlug;
-- (void)setPrimitiveShowSlug:(NSString *)value;
+- (nullable NSString *)primitiveShowSlug;
+- (void)setPrimitiveShowSlug:(nullable NSString *)value;
 
 - (NSString *)primitiveSlug;
 - (void)setPrimitiveSlug:(NSString *)value;
 
-- (NSNumber *)primitiveSortKey;
-- (void)setPrimitiveSortKey:(NSNumber *)value;
+- (nullable NSNumber *)primitiveSortKey;
+- (void)setPrimitiveSortKey:(nullable NSNumber *)value;
 
 - (int16_t)primitiveSortKeyValue;
 - (void)setPrimitiveSortKeyValue:(int16_t)value_;
 
-- (NSDate *)primitiveStartsAt;
-- (void)setPrimitiveStartsAt:(NSDate *)value;
+- (nullable NSDate *)primitiveStartsAt;
+- (void)setPrimitiveStartsAt:(nullable NSDate *)value;
 
-- (NSString *)primitiveStatus;
-- (void)setPrimitiveStatus:(NSString *)value;
+- (nullable NSString *)primitiveStatus;
+- (void)setPrimitiveStatus:(nullable NSString *)value;
 
-- (NSDate *)primitiveUpdatedAt;
-- (void)setPrimitiveUpdatedAt:(NSDate *)value;
+- (nullable NSDate *)primitiveUpdatedAt;
+- (void)setPrimitiveUpdatedAt:(nullable NSDate *)value;
 
 - (NSMutableSet<Artist *> *)primitiveArtists;
 - (void)setPrimitiveArtists:(NSMutableSet<Artist *> *)value;

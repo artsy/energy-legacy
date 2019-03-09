@@ -150,7 +150,7 @@ static const CGFloat ARSyncMessageHeight = 44;
     ARFlatButton *button = [ARFlatButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:@"NEW ALBUM" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(createNewAlbum) forControlEvents:UIControlEventTouchUpInside];
-    button.backgroundColor = [UIColor artsyMediumGrey];
+    button.backgroundColor = [UIColor artsyGrayMedium];
     [button setBackgroundColor:UIColor.blackColor forState:UIControlStateHighlighted];
     button.frame = CGRectMake(ARNewAlbumButtonInset.height, ARNewAlbumButtonInset.width, CGRectGetWidth(self.tableView.frame) - (ARNewAlbumButtonInset.width * 2), ARNewAlbumButtonSize.height);
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

@@ -25,7 +25,8 @@ const NSInteger ArtworkGridBottomMargin = 17;
 @end
 
 
-@implementation ARGridView {
+@implementation ARGridView
+{
     ARPopoverController *_coverPopoverController;
 
     UILongPressGestureRecognizer *_longPress;
@@ -110,6 +111,8 @@ const NSInteger ArtworkGridBottomMargin = 17;
         [cell setImageURL:imageURL savingLocallyAtPath:imagePath];
     }
 
+    BOOL supportsAttributedString = [item respondsToSelector:@selector(attributedGridSubtitle)];
+
     // Set the cell attributes per type of gridview
     switch (_displayMode) {
         case ARDisplayModeAllAlbums:
@@ -125,14 +128,22 @@ const NSInteger ArtworkGridBottomMargin = 17;
         case ARDisplayModeLocation:
         case ARDisplayModeDocuments:
             cell.title = [self.dataSource gridTitleForItem:item];
-            cell.subtitle = [self.dataSource gridSubtitleForItem:item];
+            if (supportsAttributedString) {
+                cell.attributedSubtitle = [self.dataSource gridAttributedSubtitleForItem:item];
+            } else {
+                cell.subtitle = [self.dataSource gridSubtitleForItem:item];
+            }
             break;
 
         case ARDisplayModeInstallationShots:
         case ARDisplayModeArtist:
             // Only show the subtitle on an artist page
             // because we know who the artist is.
-            cell.subtitle = [self.dataSource gridSubtitleForItem:item];
+            if (supportsAttributedString) {
+                cell.attributedSubtitle = [self.dataSource gridAttributedSubtitleForItem:item];
+            } else {
+                cell.subtitle = [self.dataSource gridSubtitleForItem:item];
+            }
             break;
     }
 
@@ -302,15 +313,14 @@ const NSInteger ArtworkGridBottomMargin = 17;
     ar_dispatch_async(^{
 
         // don't load if it's on a different cell
-        if (![cell.imagePath isEqual:imageAddress]) return ;
+        if (![cell.imagePath isEqual:imageAddress]) return;
 
         UIImage *thumbnail;
 
         // image must have its rendering mode set at time of initialization - ensures buttons are compatible with white Folio
         if (asButton) {
             thumbnail = [[UIImage imageImmediateLoadWithContentsOfFile:imageAddress] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        }
-        else {
+        } else {
             thumbnail = [[UIImage alloc] initImmediateLoadWithContentsOfFile:imageAddress];
         }
 
@@ -321,10 +331,9 @@ const NSInteger ArtworkGridBottomMargin = 17;
             if ([cell.imagePath isEqual:imageAddress] && thumbnail) {
                 [cell setImage:thumbnail];
 
-            // If we can't convert the image to a UIImage, let's just kill it and re-download.
+                // If we can't convert the image to a UIImage, let's just kill it and re-download.
 
             } else if (!thumbnail) {
-
                 [[NSFileManager defaultManager] removeItemAtPath:imageAddress error:nil];
                 [cell setImageURL:backupURL savingLocallyAtPath:imageAddress];
             }
@@ -334,11 +343,11 @@ const NSInteger ArtworkGridBottomMargin = 17;
 
 - (void)setCover:(ARFlatButton *)sender
 {
-    [sender setBackgroundColor:[UIColor artsyPurple] forState:UIControlStateNormal];
+    [sender setBackgroundColor:[UIColor artsyPurpleRegular] forState:UIControlStateNormal];
     [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 
     id<ARGridViewItem> item = [self.dataSource objectAtIndexPath:_indexPathForPopover];
-    if([item isKindOfClass:Image.class]) {
+    if ([item isKindOfClass:Image.class]) {
         [_delegate setCover:(Image *)item];
     }
     [self performSelector:@selector(dismissCoverPopover) withObject:nil afterDelay:0.25];

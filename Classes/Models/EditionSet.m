@@ -62,7 +62,7 @@
     if (self.editions)
         return self.editions;
     else
-        return NSLocalizedString(@"Editon Size Unspecified", @"Edition size not provided by partner");
+        return NSLocalizedString(@"Edition Size Unspecified", @"Edition size not provided by partner");
 }
 
 - (NSString *)renderForMustacheTag:(GRMustacheTag *)tag
@@ -86,6 +86,19 @@
         [accumulator appendFormat:@"%@</br>", attribute];
         return accumulator;
     }];
+}
+
+- (NSString *)displayDescription
+{
+    if (self.dimensionsInches.length) return self.dimensionsInches;
+    if (self.dimensionsCM.length) return self.dimensionsCM;
+    if (self.editions.length) return self.editions;
+    return @"Edition";
+}
+
+- (ARArtworkAvailability)availabilityState
+{
+    return [Artwork availabilityStateForString:self.availability];
 }
 
 @end

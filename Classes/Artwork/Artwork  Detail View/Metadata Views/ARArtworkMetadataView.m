@@ -2,11 +2,6 @@
 #import "ARArtworkMetadataStack.h"
 
 
-@interface ARArtworkMetadataView ()
-
-@end
-
-
 @implementation ARArtworkMetadataView
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -47,9 +42,15 @@
     [self addSubview:stackView];
     [stackView setStrings:strings];
 
-    [stackView alignTopEdgeWithView:self predicate:@"0"];
-    [stackView alignBottomEdgeWithView:self predicate:@"0"];
+    // iPhone X support
+    if (@available(iOS 11, *)) {
+        UILayoutGuide *guide = self.safeAreaLayoutGuide;
+        [stackView.bottomAnchor constraintEqualToAnchor:guide.bottomAnchor].active = YES;
+    } else {
+        [stackView alignBottomEdgeWithView:self predicate:@"0"];
+    }
 
+    [stackView alignTopEdgeWithView:self predicate:@"0"];
     [stackView alignLeadingEdgeWithView:self predicate:@"20"];
 
     if (!self.needsIndicator) {

@@ -64,23 +64,9 @@ static const CGFloat ARButtonHorizontalMargin = 16;
 - (void)setToolbarImagesWithName:(NSString *)name
 {
     NSString *buttonImageName = [[name lowercaseString] stringByReplacingOccurrencesOfString:@" " withString:@""];
-
-    if ([UIDevice isPad]) {
-        UIImage *normalImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_btn_whiteborder", buttonImageName]];
-        normalImage = [normalImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        [self setImage:normalImage forState:UIControlStateNormal];
-
-        UIImage *activeImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_btn_solidwhite", buttonImageName]];
-        activeImage = [activeImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        [self setImage:activeImage forState:UIControlStateHighlighted];
-        [self setImage:activeImage forState:UIControlStateSelected];
-
-    } else {
-        UIImage *buttonImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_btn", buttonImageName]];
-        buttonImage = [buttonImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        [self setImage:buttonImage forState:UIControlStateNormal];
-    }
+    UIImage *buttonImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_btn", buttonImageName]];
+    buttonImage = [buttonImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self setImage:buttonImage forState:UIControlStateNormal];
 }
-
 
 @end

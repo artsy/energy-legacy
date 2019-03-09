@@ -28,7 +28,7 @@
     [button addTarget:self action:target forControlEvents:UIControlEventTouchUpInside];
 
     if ([UIDevice isPad]) {
-        UIImage *settingsIconNormal = [[UIImage imageNamed:@"settings_btn_whiteborder"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        UIImage *settingsIconNormal = [[UIImage imageNamed:@"settings_btn"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         UIImage *settingsIconHighlighted = [[UIImage imageNamed:@"settings_btn_solidwhite"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [button setImage:settingsIconNormal forState:UIControlStateNormal];
         [button setImage:settingsIconHighlighted forState:UIControlStateHighlighted];
@@ -37,13 +37,14 @@
     } else {
         UIImage *phoneExitIcon = [[UIImage imageNamed:@"close_window"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [button setImage:phoneExitIcon forState:UIControlStateNormal];
+        button.contentMode = UIViewContentModeCenter;
+        button.imageEdgeInsets = UIEdgeInsetsMake(14, 14, 14, 14);
 
         button.frame = CGRectMake(0, 0, 12, 12);
     }
 
     [button setTintColor:UIColor.blackColor];
     [button setBackgroundColor:UIColor.whiteColor];
-
 
     button.accessibilityLabel = @"SettingsExitButton";
     return [[UIBarButtonItem alloc] initWithCustomView:button];

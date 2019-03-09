@@ -4,6 +4,20 @@
 
 @class Image;
 
+// https://github.com/artsy/gravity/blob/master/app/models/domain/availability.rb
+
+typedef NS_ENUM(NSInteger, ARArtworkAvailability) {
+    ARArtworkAvailabilityForSale,
+    ARArtworkAvailabilityOnHold,
+    ARArtworkAvailabilitySold,
+    ARArtworkAvailabilityNotForSale,
+    ARArtworkAvailabilityOnLoan,
+    ARArtworkAvailabilityPermenentCollection,
+};
+
+// Used in editing availability
+static NSInteger ARArtworkAvilabilityCount = 6;
+
 
 @interface Artwork : _Artwork <ARGridViewItem, ARMultipleSelectionItem>
 
@@ -25,6 +39,9 @@
 
 - (NSString *)availabilityString;
 
+/// Notes whether main artwork, or the summary of its editions are for sale
+- (ARArtworkAvailability)availabilityState;
+
 - (NSString *)titleForEmail;
 
 /// Display string for the titles of an Artwork, can handle multiple artists
@@ -41,5 +58,14 @@
 - (void)deleteArtwork;
 
 + (NSFetchedResultsController *)allArtworksInContext:(NSManagedObjectContext *)context;
+
+// Maybe this shouldn't live in here, but for now this is fine
++ (UIColor *)colorForAvailabilityState:(ARArtworkAvailability)availablity;
+
+/// Converts gravity string into concrete types
++ (ARArtworkAvailability)availabilityStateForString:(NSString *)string;
+
+/// Converts from the concrete type back to the gravity string
++ (NSString *)stringForAvailabilityState:(ARArtworkAvailability)availability;
 
 @end

@@ -6,6 +6,9 @@ extern NSString *const AROptionsName;
 
 extern NSString *const ARSyncAlbumsOption;
 
+/// A very simple version of what's in Eigen/Emission
+
+
 @interface AROptions : NSObject
 
 /// Returns all the current options

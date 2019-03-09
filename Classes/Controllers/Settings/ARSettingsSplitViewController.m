@@ -24,7 +24,7 @@
 
 - (void)showDetailViewControllerForSettingsSection:(ARSettingsSection)section
 {
-    self.view.backgroundColor = [UIColor artsyLightGrey];
+    self.view.backgroundColor = [UIColor artsyGrayLight];
     self.view.opaque = YES;
 
     UIViewController *detailViewController;

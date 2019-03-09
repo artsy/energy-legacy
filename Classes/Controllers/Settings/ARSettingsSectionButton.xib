@@ -1,13 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14105" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="ITC_Avant_Garde_Gothic__Demi.ttf">
-            <string>AvantGardeGothicITCW01Dm</string>
-        </mutableArray>
+        <array key="AVG65lig.otf">
+            <string>AvantGardeGothicITC-Dm</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ARSettingsSectionButton">
@@ -39,22 +44,22 @@
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhx-uX-VEd">
                     <rect key="frame" x="0.0" y="0.0" width="265" height="1"/>
-                    <color key="backgroundColor" red="0.87264838242771647" green="0.87264838242771647" blue="0.87264838242771647" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.87264838242771647" green="0.87264838242771647" blue="0.87264838242771647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="B5X-Pn-en1"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qm1-MD-x0D">
                     <rect key="frame" x="0.0" y="49" width="265" height="1"/>
-                    <color key="backgroundColor" red="0.87264838242771647" green="0.87264838242771647" blue="0.87264838242771647" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.87264838242771647" green="0.87264838242771647" blue="0.87264838242771647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="w33-oe-hum"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SETTING TITLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptC-60-dlp">
-                    <rect key="frame" x="0.0" y="16" width="86" height="18"/>
-                    <fontDescription key="fontDescription" name="AvantGardeGothicITCW01Dm" family="Avant Garde Gothic ITCW01Dm" pointSize="14"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="0.0" y="15.5" width="85" height="19.5"/>
+                    <fontDescription key="fontDescription" name="AvantGardeGothicITC-Dm" family="AvantGardeGothicITC" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alert-badge-large.png" translatesAutoresizingMaskIntoConstraints="NO" id="LK2-iC-Luu">
@@ -65,7 +70,7 @@
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <accessibility key="accessibilityConfiguration">
                 <accessibilityTraits key="traits" button="YES"/>
             </accessibility>
@@ -89,7 +94,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Chevron_Gray.png" width="8" height="13"/>
+        <image name="Chevron_Gray.png" width="8" height="12"/>
         <image name="alert-badge-large.png" width="46" height="46"/>
     </resources>
 </document>

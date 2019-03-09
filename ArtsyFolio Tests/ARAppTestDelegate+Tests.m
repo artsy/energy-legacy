@@ -4,6 +4,7 @@
 #import "ARTheme.h"
 #import "AROptions.h"
 #import "AROHHTTPNoStubAssertionBot.h"
+#import <Forgeries/ForgeriesUserDefaults+Mocks.h>
 
 static OCMockObject *defaultsClassMock;
 

@@ -14,7 +14,7 @@ CGFloat ARTableViewCellSettingsHeight = 60;
     [self setUseSerifFont:YES];
 
     UIView *backgroundView = [[UIView alloc] init];
-    backgroundView.backgroundColor = [UIColor artsyMediumGrey];
+    backgroundView.backgroundColor = [UIColor artsyGrayMedium];
     self.selectedBackgroundView = backgroundView;
     self.textLabel.backgroundColor = [UIColor clearColor];
 
