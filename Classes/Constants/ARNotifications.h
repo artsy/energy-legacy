@@ -27,6 +27,7 @@ extern NSString *const ARAlbumDataChanged;
 extern NSString *const ARNotEnoughDiskSpaceNotification;
 extern NSString *const ARAlbumRemoveAlbumNotification;
 extern NSString *const ARAlbumHighlightAlbumItemNotification;
+extern NSString *const ARForceANewSync;
 
 extern NSString *const ARDismissAllPopoversNotification;
 extern NSString *const ARApplicationDidGoIntoBackground;

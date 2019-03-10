@@ -5,5 +5,4 @@
 #import "ARShowViewController.h"
 #import "ARModernDocumentPreviewViewController.h"
 #import "ARTopViewController.h"
-#import "AREditAlbumViewController.h"
 #import "ARImageSetViewController.h"

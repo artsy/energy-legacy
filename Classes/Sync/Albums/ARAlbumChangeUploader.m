@@ -28,7 +28,9 @@
 
 - (void)operationTree:(DRBOperationTree *)tree objectsForObject:(NSString *)partnerID completion:(void (^)(NSArray *))completion
 {
-    completion([AlbumEdit findAllSortedBy:@"createdAt" ascending:YES inContext:self.context]);
+    NSArray *albumEdits = [AlbumEdit findAllSortedBy:@"createdAt" ascending:YES inContext:self.context];
+    NSArray *albumsPlusEndingSentinel = [albumEdits arrayByAddingObject:[NSNull null]];
+    completion(albumsPlusEndingSentinel);
 }
 
 - (NSOperation *)operationTree:(DRBOperationTree *)node
@@ -36,14 +38,24 @@
                   continuation:(void (^)(id, void (^)()))continuation
                        failure:(void (^)())failure
 {
-    ARAlbumEditOperation *operation = [[ARAlbumEditOperation alloc] initWithAlbum:albumUpload.album createModel:albumUpload.albumWasCreated.boolValue toAdd:albumUpload.addedArtworks toRemove:albumUpload.removedArtworks];
+    if ([albumUpload isEqual:[NSNull null]]) {
+        NSBlockOperation *noopOperation = [[NSBlockOperation alloc] init];
 
-    operation.onCompletion = ^() {
-        [albumUpload deleteInContext:albumUpload.managedObjectContext];
-        continuation(nil, nil);
-    };
+        noopOperation.completionBlock = ^{
+            continuation([NSNull null], nil);
+        };
 
-    return operation;
+        return noopOperation;
+    } else {
+        ARAlbumEditOperation *operation = [[ARAlbumEditOperation alloc] initWithAlbum:albumUpload.album createModel:albumUpload.albumWasCreated.boolValue toAdd:albumUpload.addedArtworks toRemove:albumUpload.removedArtworks];
+
+        operation.onCompletion = ^() {
+            [albumUpload deleteInContext:albumUpload.managedObjectContext];
+            continuation(nil, nil);
+        };
+
+        return operation;
+    }
 }
 
 @end

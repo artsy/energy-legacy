@@ -95,6 +95,9 @@ void uncaughtExceptionHandler(NSException *exception);
     _viewCoordinator = [[ARInitialViewControllerSetupCoordinator alloc] initWithWindow:self.window sync:self.sync];
     _userManager = [[ARUserManager alloc] init];
 
+    // This is used after creating album edits, it _should_ be cheap
+    [[NSNotificationCenter defaultCenter] addObserver:self.sync selector:@selector(sync) name:ARForceANewSync object:nil];
+
     [self.viewCoordinator setupFolioGrid];
     [ARMigrationController migrateOnAppAlbumsToGravity:window.rootViewController context:context sync:self.sync];
 

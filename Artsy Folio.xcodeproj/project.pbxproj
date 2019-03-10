@@ -35,6 +35,7 @@
 		3A27CD8622032BD90057C1B5 /* ARAvailabilityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD8522032BD90057C1B5 /* ARAvailabilityTableViewCell.m */; };
 		3A27CD8922032F730057C1B5 /* AREditAvailabilityNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD8822032F730057C1B5 /* AREditAvailabilityNetworkModel.m */; };
 		3A428C342208C8C600B9909A /* ARSentryAnalyticsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A428C332208C8C600B9909A /* ARSentryAnalyticsProvider.m */; };
+		3A6EBA7D22354A8F0052D0C0 /* ARAlbumSyncTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6EBA7C22354A8F0052D0C0 /* ARAlbumSyncTree.m */; };
 		3A91D4D42200E2BF00AFAFCD /* ARImageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A91D4D32200E2BF00AFAFCD /* ARImageViewControllerTests.m */; };
 		411D96DA1731528B00598854 /* ARLogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411D96D81731528B00598854 /* ARLogoutViewController.m */; };
 		4137E7B817304ED000D85A93 /* ARLogoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4137E7B717304ED000D85A93 /* ARLogoutManager.m */; };
@@ -704,6 +705,8 @@
 		3A428C332208C8C600B9909A /* ARSentryAnalyticsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSentryAnalyticsProvider.m; sourceTree = "<group>"; };
 		3A447EA021FBD70E0003FB5A /* ArtsyFolio v2.6.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.6.1.xcdatamodel"; sourceTree = "<group>"; };
 		3A6EBA7A2233E3410052D0C0 /* ArtsyFolio v2.7.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ArtsyFolio v2.7.0.xcdatamodel"; sourceTree = "<group>"; };
+		3A6EBA7B22354A8F0052D0C0 /* ARAlbumSyncTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARAlbumSyncTree.h; sourceTree = "<group>"; };
+		3A6EBA7C22354A8F0052D0C0 /* ARAlbumSyncTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARAlbumSyncTree.m; sourceTree = "<group>"; };
 		3A91D4D32200E2BF00AFAFCD /* ARImageViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARImageViewControllerTests.m; sourceTree = "<group>"; };
 		411D96D71731528B00598854 /* ARLogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLogoutViewController.h; sourceTree = "<group>"; };
 		411D96D81731528B00598854 /* ARLogoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARLogoutViewController.m; sourceTree = "<group>"; };
@@ -2445,6 +2448,8 @@
 		60AB5EFA18E31426005FD253 /* Albums */ = {
 			isa = PBXGroup;
 			children = (
+				3A6EBA7B22354A8F0052D0C0 /* ARAlbumSyncTree.h */,
+				3A6EBA7C22354A8F0052D0C0 /* ARAlbumSyncTree.m */,
 				608CCC241CBE662500977BFE /* Uploading Ops */,
 				60AB5EFB18E31626005FD253 /* ARAlbumDownloader.h */,
 				60AB5EFC18E31626005FD253 /* ARAlbumDownloader.m */,
@@ -4352,6 +4357,7 @@
 				60EC79FC1A9E83FF009196A1 /* ARModernEmailArtworksViewControllerDataSource.m in Sources */,
 				609A8899161C4E9D00AEFD72 /* NSString+StringBetweenStrings.m in Sources */,
 				60A99DA519AF6A77004F82D0 /* ARBorderedSerifLabel.m in Sources */,
+				3A6EBA7D22354A8F0052D0C0 /* ARAlbumSyncTree.m in Sources */,
 				3A27CD802202BA2B0057C1B5 /* ARArtworkAvailabilityEditViewController.m in Sources */,
 				603218C8195CA42D004E7A24 /* NSAttributedString+Artsy.m in Sources */,
 				6032E3421BE21D81001C3494 /* ARSyncAnalytics.m in Sources */,

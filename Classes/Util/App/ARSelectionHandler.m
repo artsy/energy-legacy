@@ -110,8 +110,10 @@
         NSSet *artworks = [self.internalSelectedObjects setWithOnlyObjectsOfClass:Artwork.class];
         [self.selectedAlbum commitEditToArtworks:artworks.allObjects];
 
-        [[NSNotificationCenter defaultCenter] postNotificationName:ARAlbumDataChanged object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:ARForceANewSync object:nil];
     }
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:ARAlbumDataChanged object:nil];
 
     self.internalSelectedObjects = nil;
     self.selectedAlbum = nil;

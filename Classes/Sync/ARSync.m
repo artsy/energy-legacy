@@ -4,6 +4,7 @@
 #import "ARSyncOperations.h"
 #import "SyncLog.h"
 #import "ARSyncLogger.h"
+#import "ARAlbumSyncTree.h"
 
 
 @interface ARSync ()
@@ -130,12 +131,6 @@
     DRBOperationTree *artistNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *artistDocumentsNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
 
-    DRBOperationTree *albumUpdateNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
-    DRBOperationTree *albumDeletionNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
-
-    DRBOperationTree *albumNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
-    DRBOperationTree *albumArtworksNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
-
     DRBOperationTree *locationNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *locationArtworksNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
 
@@ -168,12 +163,6 @@
     // artists
     artistNode.provider = [[ARArtistDownloader alloc] initWithContext:context deleter:self.config.deleter];
     artistDocumentsNode.provider = [[ARArtistDocumentDownloader alloc] initWithContext:context deleter:self.config.deleter];
-
-    // Albums
-    albumUpdateNode.provider = [[ARAlbumChangeUploader alloc] initWithContext:context];
-    albumDeletionNode.provider = [[ARAlbumDeleter alloc] initWithContext:context];
-    albumNode.provider = [[ARAlbumDownloader alloc] initWithContext:context deleter:self.config.deleter];
-    albumArtworksNode.provider = [[ARAlbumArtworksDownloader alloc] init];
 
     // Location
     locationNode.provider = [[ARLocationDownloader alloc] initWithContext:context deleter:self.config.deleter];
@@ -210,13 +199,8 @@
     [artistNode addChild:artistDocumentsNode];
     [artistDocumentsNode addChild:documentFileNode];
 
-    // Album
-    // This all feels weird, think of a better way to do this?
-    [partnerNode addChild:albumDeletionNode];
-    [partnerNode addChild:albumUpdateNode];
-
-    [partnerNode addChild:albumNode];
-    [albumNode addChild:albumArtworksNode];
+    // Albums are shared across this and ARAlbumSync
+    [ARAlbumSyncTree appendAlbumOperationTree:self.config toNode:partnerNode operations:self.operationQueues];
 
     // Locations
     [partnerNode addChild:locationNode];

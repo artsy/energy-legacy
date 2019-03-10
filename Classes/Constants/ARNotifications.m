@@ -14,6 +14,7 @@ NSString *const ARUserDidChangeHidePricesNotification = @"ARUserDidChangeHidePri
 NSString *const ARAlbumDataChanged = @"ARAlbumDataChanged";
 NSString *const ARAlbumRemoveAlbumNotification = @"ARAlbumRemoveItemNotification";
 NSString *const ARAlbumHighlightAlbumItemNotification = @"ARAlbumHighlightAlbumItemNotification";
+NSString *const ARForceANewSync = @"ARForceANewSync";
 
 NSString *const ARPartnerUpdatedNotification = @"ARPartnerUpdatedNotification";
 NSString *const ARUserUpdatedNotification = @"ARUserUpdatedNotification";
