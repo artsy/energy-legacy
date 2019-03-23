@@ -16,6 +16,9 @@
 /// Uses the stored credentials to log in transparently
 - (BOOL)requestLoginWithStoredCredentials;
 
+/// Same as above but with a callback
+- (BOOL)requestLoginWithStoredCredentialsCompletion:(void (^)(BOOL success, NSError *error))completion;
+
 /// Logs in with the username / password
 - (void)requestLoginWithUsername:(NSString *)username andPassword:(NSString *)password completion:(void (^)(BOOL success, NSError *error))completion;
 @end
