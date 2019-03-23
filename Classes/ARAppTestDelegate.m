@@ -1,6 +1,7 @@
 #import "ARAppTestDelegate.h"
 #import <Expecta+Snapshots/ExpectaObject+FBSnapshotTest.h>
 
+
 @implementation ARAppTestDelegate
 
 @synthesize window;

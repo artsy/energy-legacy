@@ -6,7 +6,8 @@ CGFloat ARSwitchViewHeight = 50;
 CGFloat ARSerifViewButtonMargin = 15;
 
 
-@implementation ARSecondarySwitchView {
+@implementation ARSecondarySwitchView
+{
     NSMutableArray *enabledButtons;
     NSInteger _selectedIndex;
     BOOL hasContent;

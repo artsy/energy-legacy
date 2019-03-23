@@ -36,7 +36,6 @@
 }
 
 - (void)cancelEditingAlbumAnimated:(BOOL)animated
-
 {
     [self.selectionHandler cancelSelection];
     [self.presentingViewController dismissViewControllerAnimated:animated completion:nil];

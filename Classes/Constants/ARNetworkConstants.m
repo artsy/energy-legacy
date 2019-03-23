@@ -25,8 +25,10 @@ NSString *const ARPartnerArtistDocumentsURLFormat = @"/api/v1/partner/%@/artist/
 NSString *const ARPartnerArtistDocumentURLFormat = @"/api/v1/partner/%@/artist/%@/document/%@";
 
 NSString *const ARPartnerAlbumURLFormat = @"/api/v1/partner/%@/album/%@";
+NSString *const ARPartnerAlbumCreateURLFormat = @"/api/v1/partner/%@/album";
 NSString *const ARPartnerAlbumsURLFormat = @"/api/v1/partner/%@/albums";
 NSString *const ARPartnerAlbumArtworksURLFormat = @"/api/v1/partner/%@/album/%@/artworks";
+NSString *const ARPartnerAlbumArtworkURLFormat = @"/api/v1/partner/%@/album/%@/artwork/%@";
 
 NSString *const ARPartnerLocationURLFormat = @"/api/v1/partner/%@/location/%@";
 NSString *const ARPartnerLocationsURLFormat = @"/api/v1/partner/%@/locations";

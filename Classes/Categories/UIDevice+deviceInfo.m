@@ -1,5 +1,6 @@
 
 
+
 @implementation UIDevice (DeviceInfo)
 
 + (NSString *)deviceString

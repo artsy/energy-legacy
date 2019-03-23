@@ -168,6 +168,13 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideArtworkInfo:) name:ARHideArtworkInfoNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showArtworkInfo:) name:ARShowArtworkInfoNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshArtworkInfo:) name:ARArtworkAvailabilityUpdated object:nil];
+}
+
+/// Called when availability is updated
+- (void)refreshArtworkInfo:(NSNotification *)notification
+{
+    [self setArtwork:self.artwork];
 }
 
 - (void)hideArtworkInfo:(NSNotification *)notification

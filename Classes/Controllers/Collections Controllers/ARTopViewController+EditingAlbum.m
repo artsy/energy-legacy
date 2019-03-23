@@ -19,10 +19,9 @@
 
     [self presentTransparentAlertWithText:alertTitle withOKAs:@"DELETE" andCancelAs:@"CANCEL" completion:^(enum ARModalAlertViewControllerStatus status) {
         if (status == ARModalAlertOK) {
-            [ARAnalytics event:ARDeleteAlbumEvent];
-
-            [album deleteEntity];
-            [CoreDataManager saveMainContext];
+            [ARAnalytics event:ARDeleteAlbumEvent withProperties:@{ @"location" : @"home"}];
+            
+            [album commitAlbumDeletion];
             [self reloadCurrentViewController];
             [[ARSearchViewController sharedController] reloadSearchResults];
         }

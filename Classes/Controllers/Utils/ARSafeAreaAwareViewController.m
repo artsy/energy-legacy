@@ -1,13 +1,14 @@
 #import "ARSafeAreaAwareViewController.h"
 #import <FLKAutoLayout/UIView+FLKAutoLayout.h>
 
+
 @implementation ARSafeAreaAwareViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    UIView *safeView =  [[UIView alloc] init];
+    UIView *safeView = [[UIView alloc] init];
     safeView.backgroundColor = [UIColor blackColor];
     safeView.translatesAutoresizingMaskIntoConstraints = NO;
 

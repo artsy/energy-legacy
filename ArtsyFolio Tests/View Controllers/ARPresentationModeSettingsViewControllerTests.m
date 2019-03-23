@@ -59,6 +59,7 @@ describe(@"when showing and hiding toggles", ^{
     it(@"shows Hide Unpublished Works when there are both published and unpublished works", ^{
         genericArtworkInContext(context);
 
+
         Artwork *unpublishedArtwork = genericArtworkInContext(context);
         unpublishedArtwork.isPublished = @(NO);
 

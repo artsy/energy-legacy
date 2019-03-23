@@ -1,5 +1,6 @@
 
 
+
 @interface ARTheme : NSObject
 
 /// Setup the UIAppearance tints and image backgrounds

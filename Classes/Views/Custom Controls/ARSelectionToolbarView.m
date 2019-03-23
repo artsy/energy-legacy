@@ -98,7 +98,7 @@
     [self.buttons eachWithIndex:^(UIButton *button, NSUInteger index) {
         [self addSubview:button];
         [button constrainWidthToView:self predicate:widthPredicateWithMultiplier];
-        
+
         if (index == 0) {
             [button alignLeadingEdgeWithView:self predicate:nil];
         } else {
@@ -108,7 +108,7 @@
 
         if (self.isAttachedToTop) {
             [button alignBottomEdgeWithView:self predicate:@"0"];
-        } else if(self.isAttachedToBottom) {
+        } else if (self.isAttachedToBottom) {
             [button alignTopEdgeWithView:self predicate:@"0"];
         }
 

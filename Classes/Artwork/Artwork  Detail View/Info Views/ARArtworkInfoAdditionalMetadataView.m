@@ -91,6 +91,7 @@
     [artworkTitles eachWithIndex:^(NSString *title, NSUInteger index) {
         UILabel *titleLabel = [self titleLabelWithText:title];
         BOOL isATopTitle = [self isATopTitleAtIndex:index editions:artwork.editionSets.count];
+
         [self addSubview:titleLabel withPrecedingMargin:isATopTitle ? 0 : 28 sideMargin:0];
 
         UILabel *bodyLabel = [self bodyLabelWithText:artworkTexts[index]];

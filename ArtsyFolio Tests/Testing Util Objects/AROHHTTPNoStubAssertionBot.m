@@ -50,10 +50,7 @@
                                                                                     NSString *className,
                                                                                     NSString *methodOrFunction) {
             return !(
-                     ([className isEqualToString:@"ArtsyAPI"] && [methodOrFunction hasPrefix:@"getRequest:parseInto"])
-                     || [methodOrFunction hasPrefix:@"ar_dispatch"]
-                     || [methodOrFunction isEqualToString:@"main"]
-                     );
+                ([className isEqualToString:@"ArtsyAPI"] && [methodOrFunction hasPrefix:@"getRequest:parseInto"]) || [methodOrFunction hasPrefix:@"ar_dispatch"] || [methodOrFunction isEqualToString:@"main"]);
         });
         NSAssert(stackTrace.count > 0, @"Stack trace empty, might need more white listing.");
 

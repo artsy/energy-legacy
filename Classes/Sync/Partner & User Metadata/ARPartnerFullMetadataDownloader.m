@@ -39,7 +39,7 @@
         @strongify(self);
         [ARFeedTranslator backgroundAddOrUpdateObjects:@[ responseObject ] withClass:Partner.class inContext:self.context saving:NO completion:^(NSArray *objects) {
             Partner *partner = objects.firstObject;
-            [[NSNotificationCenter defaultCenter] postNotificationName:ARPartnerUpdatedNotification object:partner userInfo:@{ ARPartnerKey: partner }];
+            [[NSNotificationCenter defaultCenter] postNotificationName:ARPartnerUpdatedNotification object:partner userInfo:@{ARPartnerKey : partner}];
 
             continuation(partner.slug, nil);
         }];

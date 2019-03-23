@@ -8,7 +8,6 @@
 #import "ARHostSelectionController.h"
 #import "ARAlbumEditNavigationController.h"
 #import "ARSwitchBoard.h"
-#import "AREditAlbumViewController.h"
 #import "ARBaseViewController+TransparentModals.h"
 #import "ARSelectionToolbarView.h"
 #import "ARPopoverController.h"
@@ -247,8 +246,7 @@
         case MFMailComposeResultCancelled:
             [ARAnalytics event:AREmailCancelledEvent];
             break;
-        default:
-            ;
+        default:;
     }
 
     [ARTheme resetWindowTint];

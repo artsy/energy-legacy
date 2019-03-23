@@ -5,7 +5,8 @@
 #import "ARArtworkSetViewController.h"
 
 
-@implementation ARPadViewInRoomViewController {
+@implementation ARPadViewInRoomViewController
+{
     IBOutlet UIButton *closeButton;
 }
 

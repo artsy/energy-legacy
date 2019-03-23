@@ -101,7 +101,7 @@
 
 - (void)disablePresentationMode
 {
-    [self.defaults setObject:nil forKey:ARPresentationModeOn];
+    [self.defaults setBool:NO forKey:ARPresentationModeOn];
 }
 
 - (BOOL)shouldEnablePresentationMode

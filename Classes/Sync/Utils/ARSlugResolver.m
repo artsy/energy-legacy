@@ -29,13 +29,10 @@
 {
     NSArray *allAlbums = [self allObjectsOfClass:Album.class inContext:context];
 
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"editable = NO AND slug != 'all_artworks' AND slug != 'for_sale_works'"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"editable = YES"];
     NSArray *downloadedAlbums = [allAlbums filteredArrayUsingPredicate:predicate];
     [self mapSlugsToArtworksForArtworkContainerArray:downloadedAlbums inContext:context];
-
-    NSPredicate *allNonMagicAlbums = [NSPredicate predicateWithFormat:@"slug != 'all_artworks' AND slug != 'for_sale_works'"];
-    NSArray *allUserAlbums = [allAlbums filteredArrayUsingPredicate:allNonMagicAlbums];
-    [allUserAlbums makeObjectsPerformSelector:@selector(updateArtists)];
+    [downloadedAlbums makeObjectsPerformSelector:@selector(updateArtists)];
 
     Album *allArtworksAlbum = [Album createOrFindAlbumInContext:context slug:@"all_artworks"];
     allArtworksAlbum.name = NSLocalizedString(@"All Artworks", @"All Artworks Album title");

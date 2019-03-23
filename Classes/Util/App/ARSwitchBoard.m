@@ -1,5 +1,6 @@
 #import "ARSwitchBoard.h"
 #import "ARNavigationController.h"
+#import "AREditAlbumViewController.h"
 #import "ARAlbumEditNavigationController.h"
 #import "ARNavigationBar.h"
 #import "ARContentControllers.h"

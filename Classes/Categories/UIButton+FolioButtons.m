@@ -3,6 +3,7 @@
 
 static const CGFloat ARButtonHorizontalMargin = 16;
 
+
 @implementation UIButton (ArtsyButtons)
 
 + (UIButton *)folioUnborderedToolbarButtonWithTitle:(NSString *)title

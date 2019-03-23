@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class Artwork;
 @class Image;
 @class Document;
+@class AlbumEdit;
 
 
 @interface AlbumID : NSManagedObjectID
@@ -77,6 +78,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, nullable) NSSet<Document *> *documents;
 - (nullable NSMutableSet<Document *> *)documentsSet;
+
+@property (nonatomic, strong, nullable) AlbumEdit *uploadRecord;
 
 @end
 
@@ -161,6 +164,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSMutableSet<Document *> *)primitiveDocuments;
 - (void)setPrimitiveDocuments:(NSMutableSet<Document *> *)value;
 
+- (AlbumEdit *)primitiveUploadRecord;
+- (void)setPrimitiveUploadRecord:(AlbumEdit *)value;
+
 @end
 
 
@@ -183,6 +189,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)artworks;
 + (NSString *)cover;
 + (NSString *)documents;
++ (NSString *)uploadRecord;
 @end
 
 NS_ASSUME_NONNULL_END

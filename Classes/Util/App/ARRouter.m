@@ -227,12 +227,38 @@ static NSURL *staticBaseURL = nil;
     return [httpClient requestWithMethod:@"GET" path:url parameters:nil];
 }
 
+
++ (NSURLRequest *)newPartnerAlbumDeleteRequestWithPartnerID:(NSString *)partnerID albumID:(NSString *)albumID
+{
+    NSString *url = [NSString stringWithFormat:ARPartnerAlbumURLFormat, partnerID, albumID];
+    return [httpClient requestWithMethod:@"DELETE" path:url parameters:nil];
+}
+
+
 + (NSURLRequest *)newArtworksRequestForPartner:(NSString *)partnerID album:(NSString *)albumID page:(NSInteger)page
 {
     NSDictionary *params = @{ @"size" : @"20",
                               @"page" : @(page) };
     NSString *url = [NSString stringWithFormat:ARPartnerAlbumArtworksURLFormat, partnerID, albumID];
     return [httpClient requestWithMethod:@"GET" path:url parameters:params];
+}
+
++ (NSURLRequest *)newPartnerAlbumCreateAlbumRequestWithPartnerID:(NSString *)partnerID albumName:(NSString *)name;
+{
+    NSString *url = [NSString stringWithFormat:ARPartnerAlbumCreateURLFormat, partnerID];
+    return [httpClient requestWithMethod:@"POST" path:url parameters:@{@"name" : name}];
+}
+
++ (NSURLRequest *)newPartnerAlbumAddArtworkRequestWithPartnerID:(NSString *)partnerID albumID:(NSString *)albumID artworkID:(NSString *)artworkID
+{
+    NSString *url = [NSString stringWithFormat:ARPartnerAlbumArtworkURLFormat, partnerID, albumID, artworkID];
+    return [httpClient requestWithMethod:@"POST" path:url parameters:nil];
+}
+
++ (NSURLRequest *)newPartnerAlbumRemoveArtworkRequestWithPartnerID:(NSString *)partnerID albumID:(NSString *)albumID artworkID:(NSString *)artworkID
+{
+    NSString *url = [NSString stringWithFormat:ARPartnerAlbumArtworkURLFormat, partnerID, albumID, artworkID];
+    return [httpClient requestWithMethod:@"DELETE" path:url parameters:nil];
 }
 
 #pragma mark -

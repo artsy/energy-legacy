@@ -17,3 +17,5 @@
 #import "ARLocationDownloader.h"
 #import "ARLocationArtworksDownloader.h"
 #import "ARPartnerMetadataUploader.h"
+#import "ARAlbumChangeUploader.h"
+#import "ARAlbumDeleter.h"

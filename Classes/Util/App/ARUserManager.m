@@ -52,6 +52,7 @@
     }
 
     [self requestLoginWithUsername:username andPassword:password completion:completion];
+
     return YES;
 }
 

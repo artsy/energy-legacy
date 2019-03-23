@@ -9,9 +9,9 @@
     return Album.class;
 }
 
-- (NSURLRequest *)urlRequestForIDsWithObject:(NSString *)partnerID
+- (NSURLRequest *)urlRequestForIDsWithObject:(id)_
 {
-    return [ARRouter newAlbumIDsRequestWithPartnerSlug:partnerID];
+    return [ARRouter newAlbumIDsRequestWithPartnerSlug:[Partner currentPartnerID]];
 }
 
 - (NSURLRequest *)urlRequestForObjectWithID:(NSString *)objectID
@@ -21,7 +21,8 @@
 
 - (void)performWorkWithDownloadObject:(Album *)album
 {
-    album.editable = @(NO);
+    album.updatedAt = [NSDate date];
+    album.editable = @(YES);
 }
 
 @end

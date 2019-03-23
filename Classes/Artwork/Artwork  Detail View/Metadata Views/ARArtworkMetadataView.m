@@ -1,6 +1,7 @@
 #import "ARArtworkMetadataView.h"
 #import "ARArtworkMetadataStack.h"
 
+
 @implementation ARArtworkMetadataView
 
 - (instancetype)initWithFrame:(CGRect)frame

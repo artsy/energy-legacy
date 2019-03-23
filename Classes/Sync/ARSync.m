@@ -1,10 +1,10 @@
 #import "ARSync.h"
-#import "ARSyncDeleter.h"
 #import "ARSlugResolver.h"
 #import "ARSyncPlugins.h"
 #import "ARSyncOperations.h"
 #import "SyncLog.h"
 #import "ARSyncLogger.h"
+#import "ARAlbumSyncTree.h"
 
 
 @interface ARSync ()
@@ -92,6 +92,8 @@
 }
 
 // Visually documented in `docs/sync_tree.png`
+// only a little out of date, but it's enough to grok the ideas
+//
 - (DRBOperationTree *)createSyncOperationTree
 {
     NSManagedObjectContext *context = self.config.managedObjectContext;
@@ -129,13 +131,11 @@
     DRBOperationTree *artistNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *artistDocumentsNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
 
-    DRBOperationTree *albumNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
-    DRBOperationTree *albumArtworksNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
-
     DRBOperationTree *locationNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
     DRBOperationTree *locationArtworksNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
 
     DRBOperationTree *partnerUpdateNode = [[DRBOperationTree alloc] initWithOperationQueue:requestOperationQueue];
+
 
     // connect nodes to providers
 
@@ -163,10 +163,6 @@
     // artists
     artistNode.provider = [[ARArtistDownloader alloc] initWithContext:context deleter:self.config.deleter];
     artistDocumentsNode.provider = [[ARArtistDocumentDownloader alloc] initWithContext:context deleter:self.config.deleter];
-
-    // Albums
-    albumNode.provider = [[ARAlbumDownloader alloc] initWithContext:context deleter:self.config.deleter];
-    albumArtworksNode.provider = [[ARAlbumArtworksDownloader alloc] init];
 
     // Location
     locationNode.provider = [[ARLocationDownloader alloc] initWithContext:context deleter:self.config.deleter];
@@ -203,9 +199,8 @@
     [artistNode addChild:artistDocumentsNode];
     [artistDocumentsNode addChild:documentFileNode];
 
-    // Album
-    [partnerNode addChild:albumNode];
-    [albumNode addChild:albumArtworksNode];
+    // Albums are shared across this and ARAlbumSync
+    [ARAlbumSyncTree appendAlbumOperationTree:self.config toNode:partnerNode operations:self.operationQueues];
 
     // Locations
     [partnerNode addChild:locationNode];
@@ -251,6 +246,7 @@
         self.config.deleter,
         [[ARSyncNotification alloc] init],
         [[ARSyncLogger alloc] init],
+
     ] mutableCopy];
 
     if (NSClassFromString(@"CSSearchableIndex")) {

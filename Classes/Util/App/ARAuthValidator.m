@@ -3,6 +3,7 @@
 #import "ARUserManager.h"
 #import "ARAppDelegate.h"
 
+
 @implementation ARAuthValidator
 
 + (void)validateAuthCredentialsAreCorrect

@@ -1,7 +1,8 @@
 #import "ARShowViewController.h"
 
 
-@interface ARShowViewController () {
+@interface ARShowViewController ()
+{
     Show *_show;
 }
 @end

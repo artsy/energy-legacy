@@ -67,9 +67,9 @@ You can read Orta's book on [Pragmatic Testing](https://github.com/orta/pragmati
 The majority of this codebase's tests are based around using dependency injection to pass along composition objects. There are checks to make sure that the app isn't accessing the main Core Data stack, and networking during tests. See `CoreDataManager +mainManagedObjectContext` or `AROHHTTPNoStubAssertionBot` for more info. The `NSUserDefault`'s `standardUserDefaults` is switched out with an easily introspected `ARDefaults` also.
 `CoreDataManager +stubbedManagedObjectContext` is a time-cheap.
 
-### The Syncronicity of our City
+### The Synchronicity of our City
 
-* Use the `ar_dispatch_xxx` methods, they will always go syncronous in tests.
-* Any time you use animations, make sure they are `UIView animateIf::`. If you cannot think of a good way to DI in a bool to make it syncronous in tests, expose `ARDispatchManager`'s is synchronous bool.
+* Use the `ar_dispatch_xxx` methods, they will always go synchronous in tests.
+* Any time you use animations, make sure they are `UIView animateIf::`. If you cannot think of a good way to DI in a bool to make it synchronous in tests, expose `ARDispatchManager`'s is synchronous bool.
 * Sync Steps can be tested by introspecting the NSOperation, and by directly running the completion block - see `ARPartnerMetadataUploaderSpec` for an example.
 
