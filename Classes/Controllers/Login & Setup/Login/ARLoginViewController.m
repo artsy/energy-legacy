@@ -101,6 +101,11 @@
         self.passwordTextField.placeholder = @"Password";
     }
 
+    if (@available(iOS 12.0, *)) {
+        self.emailTextField.textContentType = UITextContentTypeEmailAddress;
+        self.passwordTextField.textContentType = UITextContentTypePassword;
+    }
+
 #if (TARGET_IPHONE_SIMULATOR)
     [self setupDefaultUsernameAndPassword];
 #endif

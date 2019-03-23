@@ -4,6 +4,7 @@
 #import "AlbumEdit.h"
 #import "ARSync.h"
 
+
 @implementation ARMigrationController
 
 + (void)performMigrationsInContext:(NSManagedObjectContext *)context
@@ -11,8 +12,8 @@
     [self moveCoreDataStackIfNeeded];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    //    NSString *oldMigrationVersion = [defaults stringForKey:ARAppSyncVersion];
-    //    CGFloat pastVersion = [oldMigrationVersion floatValue];
+//    NSString *oldMigrationVersion = [defaults stringForKey:ARAppSyncVersion];
+//    CGFloat pastVersion = [oldMigrationVersion floatValue];
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -111,8 +112,9 @@
             return;
         }
 
-        NSString *messaging = NSStringWithFormat(@"Folio albums are now stored in the cloud. Sync %@ albums online?", @(albumCount));
-        [viewControllerToPresentOn presentTransparentAlertWithText: messaging withOKAs:@"MIGRATE" andCancelAs:@"DELETE" completion:^(enum ARModalAlertViewControllerStatus completion) {
+        NSString *album = albumCount == 1 ? @"album" : @"albums";
+        NSString *messaging = NSStringWithFormat(@"Folio albums are now stored in the cloud. Sync %@ %@ online?", @(albumCount), album);
+        [viewControllerToPresentOn presentTransparentAlertWithText:[messaging uppercaseString] withOKAs:@"MIGRATE" andCancelAs:@"DELETE" completion:^(enum ARModalAlertViewControllerStatus completion) {
             switch (completion) {
                 case ARModalAlertOK: {
                     NSArray *albumsToUpload = [Album editableAlbumsByLastUpdateInContext:context];
