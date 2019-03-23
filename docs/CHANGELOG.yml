@@ -1,6 +1,7 @@
 upcoming:
   version: 2.7.0
   notes:
+    - Albums are synced - orta
     - Shows un-processed artworks but provides a note to edit them in CMS - orta
     - Handles re-authing, and logs you out if you've changed password - orta
     - Updates Intercom, removes Hockey and migrates to Sentry - orta

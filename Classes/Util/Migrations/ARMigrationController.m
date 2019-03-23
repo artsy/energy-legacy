@@ -145,7 +145,9 @@
                     break;
                 }
             }
+
             [sync sync];
+            [viewControllerToPresentOn dismissTransparentModalViewControllerAnimated:YES];
         }];
     }
 }
