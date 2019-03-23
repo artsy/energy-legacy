@@ -13,7 +13,7 @@ features somehow.
 
 When logging in you can end up in three states:
 
-- You're a user attached to one parter (show sync)
+- You're a user attached to one partner (show sync)
 - You're a user attached to many partners (show a list, then show sync)
 - You're an admin (show a way to log in as any partner)
 
