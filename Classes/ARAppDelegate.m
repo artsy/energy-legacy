@@ -15,7 +15,9 @@
 #import "ARAnalyticsHelper.h"
 #import "ARInitialViewControllerSetupCoordinator.h"
 #import "AROfflineStatusWatcher.h"
+
 #import "ARMigrationController.h"
+#import "ARAuthValidator.h"
 
 #import "ARTheme.h"
 #import "ARAppDelegate+DevTools.h"
@@ -134,6 +136,9 @@ void uncaughtExceptionHandler(NSException *exception);
             lockedOut = YES;
             [self lockout];
         }
+
+        /// Ensure they don't have an expired token
+        [ARAuthValidator validateAuthCredentialsAreCorrect];
 
         /// Update the metadata in case their status has changed since last sync, or they have no artworks
         [self updatePartnerMetadataCompletion:^{
