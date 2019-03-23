@@ -11,7 +11,6 @@ gem "cocoapods-keys" # Keys
 gem 'cocoapods-check',  git: 'https://github.com/square/cocoapods-check.git' # Don't use CP if cached
 
 gem 'psych' # So our Podfile.lock is consistent
-gem 'nokogiri', '1.6.7'
 
 group :deployment do
   gem "fastlane" # Uploading app
