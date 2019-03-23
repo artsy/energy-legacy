@@ -73,7 +73,8 @@ lane :beta do
   `git remote add http https://github.com/artsy/energy.git`
   `git push http #{tag}`
 
-  pilot changelog: release_notes, distribute_external: true, demo_account_required: true, groups: ["Liasons"]
+  pilot changelog: release_notes, distribute_external: true, demo_account_required: true, groups: ["Liasons"], itc_provider: 'ArtsyInc',
+
 
   slack message: "There is a new Folio beta available. Grab it from Testflight on your iOS device.",
         channel: "front-end-ios",
