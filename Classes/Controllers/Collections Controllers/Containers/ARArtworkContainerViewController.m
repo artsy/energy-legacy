@@ -1,5 +1,6 @@
 #import "ARArtworkContainerViewController.h"
 #import "ARGridViewController+ForSubclasses.h"
+#import "AlbumEdit.h"
 
 
 @interface ARArtworkContainerViewController ()
@@ -74,6 +75,10 @@
 
     [album removeArtworksObject:artwork];
     [album updateArtists];
+
+    // Ensure this gets done remotely
+    AlbumEdit *edit = [[AlbumEdit alloc] initWithContext:[album managedObjectContext]];
+    edit.removedArtworks = [NSSet setWithObject:artwork];
 
     [album saveManagedObjectContextLoggingErrors];
 

@@ -46,7 +46,17 @@ When in "Albums" you can edit your albums:
 
 ## Search
 
-- todo
+Initially highlights Artists. Can jump to all Shows or all Albums for quick launch.
+
+Typing in the search will search for:
+
+- Artist, searches name, orders by orderingKey
+- Album, searches name, orders by name
+- Artwork, searches title, orders by title
+- Show, searches name, orders by name
+- Location, searches name, orders by name (collector folio only)
+
+Then for artworks it verifies the works have images.
 
 ## Artwork Container (Show/Location/Artist/Album)
 
@@ -90,6 +100,39 @@ For anything which contains artworks, like Shows/Albums etc, then it will be hid
 
 For any artwork, it won't show if it has no attached images
 
+### Selecting on the Grid
+
+You can long-press on an item in a grid, it will bring up a set of options:
+
+- If you can see artwork availability, then you can change it here
+- For albums you can set a cover (this isn't sync'd - boo)
+- For editable albums, you can remove the artwork from there
+
+## Selecting for Email
+
+Tapping the email button turns into email selection mode, this lets you pick:
+
+- Artworks
+- Documents
+- Install Shots
+
+To add to the email when you hit compose. Hitting compose checks if there are email options:
+
+- If any Artworks contain supplementary information e.g.: info, exhibitionHistory, provenance, literature, signature, series & imageRights. Show an option to toggle all of them.
+- If any Artworks have prices:
+ - If there's a different back-end vs front-end price offer showing none/backend/public
+ - Otherwise show no price/front
+- If there's an inventory ID on any Artworks offer to show/hide those
+
+- If there is one artwork, and it has additional images, let the user select any of those
+- If all the artworks are in one show, and it has install shows, let the user select any of those
+- For all artwork artists, offer to attach all potential documents
+- For all artwork shows, offer to attach all potential documents
+
+All of these selection states are stored, so that next time you email they would be selected still.
+
+Emailing will use Apple's email system on the iDevice to send off their emails. You can store drafts etc using that, and see all sent email inside the apple Mail.app.
+
 ## User Settings
 
 - You can start a sync
@@ -119,4 +162,3 @@ Filtered for public viewing means that you could change:
 - You can add a `cc:` email address for every email
 - You can change the default before (greeting), and after (signature)
 - You can customize the default email titles, depending on what set of Artworks you're emailing
-
