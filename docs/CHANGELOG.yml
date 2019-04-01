@@ -10,6 +10,7 @@ upcoming:
     - Crash fix on login - orta
     - Crash fix when sending an email with a keynote file - orta
     - Adds ability to enable/disable Folio for a particular subscriber  - orta
+    - The options for availabilities are matched to CMS' - orta
     - You can change an Artwork or EditionSets availability from the grid or an artwork  - orta
     - Visual tweaks (navbar line removed, white mode improvements)  - orta
     - Artwork detailed overview de-markdown fixes - orta
