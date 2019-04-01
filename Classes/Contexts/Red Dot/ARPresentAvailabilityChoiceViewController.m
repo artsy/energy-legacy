@@ -11,20 +11,39 @@
 
 @implementation ARPresentAvailabilityChoiceViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+// https://github.com/artsy/volt/blob/fee6fa7d4409276eaaee65370b27c1b6c5575e83/app/models/availability.rb#L3-L13
 
-    // Basically Green - Orange - Red - Grey
-    _orderedAvailabilities = @[
++ (NSArray *)orderedAvailabilitiesForPartnerType:(NSString *)type
+{
+    if ([type isEqualToString:@"Gallery"]) {
+        return @[
+            @(ARArtworkAvailabilityForSale),
+            @(ARArtworkAvailabilityOnHold),
+            @(ARArtworkAvailabilitySold),
+            @(ARArtworkAvailabilityNotForSale),
+        ];
+    } else if ([type isEqualToString:@"Private Collector"] || [type isEqualToString:@"Institution"]) {
+        return @[
+            @(ARArtworkAvailabilityOnLoan),
+            @(ARArtworkAvailabilityPermenentCollection)
+        ];
+    }
+
+    // Fallback to the gallery, you never know what the future data model could look like
+    return @[
         @(ARArtworkAvailabilityForSale),
         @(ARArtworkAvailabilityOnHold),
         @(ARArtworkAvailabilitySold),
         @(ARArtworkAvailabilityNotForSale),
-        @(ARArtworkAvailabilityOnLoan),
-        @(ARArtworkAvailabilityPermenentCollection)
     ];
+}
 
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    _orderedAvailabilities = [self.class orderedAvailabilitiesForPartnerType:[Partner currentPartner].partnerType];
     [self.tableView registerClass:ARAvailabilityTableViewCell.class forCellReuseIdentifier:@"Cell"];
 }
 
@@ -35,7 +54,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return ARArtworkAvilabilityCount;
+    return self.orderedAvailabilities.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -59,7 +78,7 @@
 {
     NSNumber *availability = self.orderedAvailabilities[indexPath.row];
 
-    for (int i = 0; i < ARArtworkAvilabilityCount; i++) {
+    for (int i = 0; i < [self tableView:tableView numberOfRowsInSection:0]; i++) {
         ARAvailabilityTableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
         [cell setTickSelected:NO animated:NO];
     }
@@ -82,7 +101,7 @@
 
 - (CGSize)preferredContentSize
 {
-    return CGSizeMake(320, 20 + ARArtworkAvilabilityCount * 54);
+    return CGSizeMake(320, 20 + [self tableView:self.tableView numberOfRowsInSection:0] * 54);
 }
 
 @end

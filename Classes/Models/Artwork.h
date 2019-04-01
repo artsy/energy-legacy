@@ -15,9 +15,6 @@ typedef NS_ENUM(NSInteger, ARArtworkAvailability) {
     ARArtworkAvailabilityPermenentCollection,
 };
 
-// Used in editing availability
-static NSInteger ARArtworkAvilabilityCount = 6;
-
 
 @interface Artwork : _Artwork <ARGridViewItem, ARMultipleSelectionItem>
 
