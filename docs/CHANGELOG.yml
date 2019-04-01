@@ -1,10 +1,11 @@
 upcoming:
   version: 2.7.0
   notes:
+    - Uses latest version of Artsy-Auth - orta
     - Albums are synced - orta
     - Shows un-processed artworks but provides a note to edit them in CMS - orta
     - Handles re-authing, and logs you out if you've changed password - orta
-    - Updates Intercom, removes Hockey and migrates to Sentry - orta
+    - Removes Intercom, removes Hockey and migrates to Sentry - orta
     - Updates CI Xcode to 10.1 - orta
     - Crash fix on login - orta
     - Crash fix when sending an email with a keynote file - orta
