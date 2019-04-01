@@ -12,8 +12,6 @@ plugin 'cocoapods-keys', {
     :keys => [
     "ArtsyAPIClientSecret",
     "ArtsyAPIClientKey",
-    "IntercomAppID",
-    "IntercomAPIKey",
     "SegmentProduction",
     "SegmentBeta",
     "SegmentDev",
@@ -50,7 +48,6 @@ target 'ArtsyFolio' do
 
     # Analytics
     pod 'ARAnalytics', :subspecs => ['Segmentio'], :git => 'https://github.com/orta/ARAnalytics.git'
-    pod 'Intercom'
 
     # Logging
     pod 'CocoaLumberjack', '~> 1.0'

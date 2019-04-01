@@ -35,8 +35,8 @@
 		3A27CD8622032BD90057C1B5 /* ARAvailabilityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD8522032BD90057C1B5 /* ARAvailabilityTableViewCell.m */; };
 		3A27CD8922032F730057C1B5 /* AREditAvailabilityNetworkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CD8822032F730057C1B5 /* AREditAvailabilityNetworkModel.m */; };
 		3A428C342208C8C600B9909A /* ARSentryAnalyticsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A428C332208C8C600B9909A /* ARSentryAnalyticsProvider.m */; };
-		3A6EBA7D22354A8F0052D0C0 /* ARAlbumSyncTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6EBA7C22354A8F0052D0C0 /* ARAlbumSyncTree.m */; };
 		3A4446CB22335DDC00AF07D7 /* ARAuthValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4446CA22335DDC00AF07D7 /* ARAuthValidator.m */; };
+		3A6EBA7D22354A8F0052D0C0 /* ARAlbumSyncTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6EBA7C22354A8F0052D0C0 /* ARAlbumSyncTree.m */; };
 		3A91D4D42200E2BF00AFAFCD /* ARImageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A91D4D32200E2BF00AFAFCD /* ARImageViewControllerTests.m */; };
 		411D96DA1731528B00598854 /* ARLogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 411D96D81731528B00598854 /* ARLogoutViewController.m */; };
 		4137E7B817304ED000D85A93 /* ARLogoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4137E7B717304ED000D85A93 /* ARLogoutManager.m */; };
@@ -158,7 +158,6 @@
 		6032E3461BE22136001C3494 /* ARSyncAnalyticsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6032E3451BE22136001C3494 /* ARSyncAnalyticsSpec.m */; };
 		6032E3491BE22203001C3494 /* ARStubbedAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 6032E3481BE22203001C3494 /* ARStubbedAnalytics.m */; };
 		603485501C10EA860027F753 /* ARNetworkQualityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6034854F1C10EA860027F753 /* ARNetworkQualityIndicator.m */; };
-		6036A2391BCE99620090D5FC /* ARIntercomProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6036A2381BCE99620090D5FC /* ARIntercomProvider.m */; };
 		6038C47B19867A5600626DD6 /* ARExpectaExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6038C47A19867A5600626DD6 /* ARExpectaExtensions.m */; };
 		6038C47E19867BF300626DD6 /* ARTabbedViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6038C47D19867BF300626DD6 /* ARTabbedViewControllerTests.m */; };
 		603AD9FF1609D4520094DEED /* UIButton+FolioButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 603AD9FE1609D4520094DEED /* UIButton+FolioButtons.m */; };
@@ -906,8 +905,6 @@
 		6032E3481BE22203001C3494 /* ARStubbedAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARStubbedAnalytics.m; path = ../ARStubbedAnalytics.m; sourceTree = "<group>"; };
 		6034854E1C10EA860027F753 /* ARNetworkQualityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARNetworkQualityIndicator.h; sourceTree = "<group>"; };
 		6034854F1C10EA860027F753 /* ARNetworkQualityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARNetworkQualityIndicator.m; sourceTree = "<group>"; };
-		6036A2371BCE99620090D5FC /* ARIntercomProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARIntercomProvider.h; path = Debugging/ARIntercomProvider.h; sourceTree = "<group>"; };
-		6036A2381BCE99620090D5FC /* ARIntercomProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARIntercomProvider.m; path = Debugging/ARIntercomProvider.m; sourceTree = "<group>"; };
 		6038C47A19867A5600626DD6 /* ARExpectaExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARExpectaExtensions.m; sourceTree = "<group>"; };
 		6038C47C19867A9E00626DD6 /* ARExpectaExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARExpectaExtensions.h; sourceTree = "<group>"; };
 		6038C47D19867BF300626DD6 /* ARTabbedViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTabbedViewControllerTests.m; sourceTree = "<group>"; };
@@ -2658,8 +2655,6 @@
 				3A428C332208C8C600B9909A /* ARSentryAnalyticsProvider.m */,
 				608C7038169B863500C89623 /* ARAnalyticsHelper.h */,
 				608C7039169B863500C89623 /* ARAnalyticsHelper.m */,
-				6036A2371BCE99620090D5FC /* ARIntercomProvider.h */,
-				6036A2381BCE99620090D5FC /* ARIntercomProvider.m */,
 			);
 			name = Analytics;
 			sourceTree = "<group>";
@@ -3691,6 +3686,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = D8D208A1141405A500A823E3;
@@ -4015,8 +4011,6 @@
 				"${PODS_ROOT}/Artsy+UILabels/Pod/Assets/Chevron_Black.png",
 				"${PODS_ROOT}/Artsy+UILabels/Pod/Assets/Chevron_Black@2x.png",
 				"${PODS_ROOT}/GHMarkdownParser/discount/blocktags",
-				"${PODS_ROOT}/Intercom/Intercom/Intercom.framework/Versions/A/Resources/Intercom.bundle",
-				"${PODS_ROOT}/Intercom/Intercom/Intercom.framework/Versions/A/Resources/IntercomTranslations.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -4033,8 +4027,6 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Chevron_Black.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Chevron_Black@2x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/blocktags",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Intercom.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IntercomTranslations.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4249,7 +4241,6 @@
 				602702F31479D146008BD84A /* ARFontSizeConstants.m in Sources */,
 				60EAE0E21497F52F006B55E8 /* ARTableHeaderView.m in Sources */,
 				83DA76151C19D97100FC8A37 /* ARSettingsNavigationBar.m in Sources */,
-				6036A2391BCE99620090D5FC /* ARIntercomProvider.m in Sources */,
 				60E0358219B5F1CB006F7C1E /* _SyncLog.m in Sources */,
 				6055B7861872E2CC0043B937 /* AROptions.m in Sources */,
 				60B813921B8276CF0046A52C /* ARZeroStateMessageViewController.m in Sources */,

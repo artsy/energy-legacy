@@ -40,7 +40,6 @@ PODS:
   - GHMarkdownParser (0.1.2)
   - GRMustache (7.3.2):
     - JRSwizzle (~> 1.0)
-  - Intercom (5.2)
   - ISO8601DateFormatter (0.8)
   - JLRoutes (2.0.5)
   - JRSwizzle (1.0)
@@ -95,7 +94,6 @@ DEPENDENCIES:
   - Forgeries/Mocks (from `https://github.com/ashfurrow/Forgeries.git`)
   - GHMarkdownParser
   - GRMustache (~> 7.0)
-  - Intercom
   - ISO8601DateFormatter (~> 0.7)
   - JLRoutes
   - Keys (from `Pods/CocoaPodsKeys`)
@@ -193,7 +191,6 @@ SPEC CHECKSUMS:
   Forgeries: 64ced144ea8341d89a7eec9d1d7986f0f1366250
   GHMarkdownParser: 14cbf59d0ab9450017d843dffd4a3ef691e5bd77
   GRMustache: ebe6104fd30a6d22c1f36af131e19e2dbf7cd292
-  Intercom: fd0c7377d49cc2f1a94e7fc0bcc9ccfcdab0a7dc
   ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
   JLRoutes: 2a5ee61d739b51a98c9d8112bee5149a19de8854
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
@@ -216,6 +213,6 @@ SPEC CHECKSUMS:
   XCTest+OHHTTPStubSuiteCleanUp: 4469ec8863c6bc022c5089a9b94233eb3416c5ee
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
-PODFILE CHECKSUM: 71a515c3bb70a54c1f428b3187c5e725d72e2474
+PODFILE CHECKSUM: 8ee6096950b75189a7e6e54e4c7ceeca6e63672b
 
 COCOAPODS: 1.4.0

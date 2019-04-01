@@ -1,11 +1,9 @@
 
-#import <Intercom/Intercom.h>
 #import <ARAnalytics/ARAnalytics.h>
 #import <Keys/FolioKeys.h>
 #import <Analytics/SEGAnalytics.h>
 
 #import "ARAnalyticsHelper.h"
-#import "ARIntercomProvider.h"
 #import "SubscriptionPlan.h"
 #import "ARSentryAnalyticsProvider.h"
 
@@ -42,12 +40,6 @@ static NSString *currentUserEmail;
         id sentry = [[ARSentryAnalyticsProvider alloc] initWithDSN:sentryEnv];
         [ARAnalytics setupProvider:sentry];
     }
-
-    // Intercom isn't using a real dynamic framework yet - so we need to make the provider outside of
-    // ARAnalytics and then push it in.
-
-    ARIntercomProvider *provider = [[ARIntercomProvider alloc] initWithApiKey:[keys intercomAPIKey] appID:[keys intercomAppID]];
-    [ARAnalytics setupProvider:provider];
 
     if ([User currentUser]) {
         [self storeUserDetails:[User currentUser]];
@@ -104,13 +96,6 @@ static NSString *currentUserEmail;
         @"partner_founding_partner" : partner.foundingPartner ?: @0,
         @"partner_admin_id" : partner.admin.slug ?: @"",
     }];
-
-    ICMUserAttributes *attr = [[ICMUserAttributes alloc] init];
-    ICMCompany *company = [[ICMCompany alloc] init];
-    company.companyId = partner.partnerID;
-    company.name = partner.name ?: @"";
-    company.plan = plans.count ? plans.firstObject : @"";
-    [Intercom updateUser:attr];
 }
 
 - (void)storeUserDetails:(User *)user
@@ -128,18 +113,11 @@ static NSString *currentUserEmail;
         @"type" : user.type ?: @""
     }];
 
-    // Using ARAnalytics for this would mean doing the above twice
-    [Intercom registerUserWithUserId:user.slug email:user.email ?: @""];
-
     [ARAnalytics addEventSuperProperties:@{
         @"email" : user.email ?: @"",
         @"user_type" : user.type ?: @"",
         @"user_id" : user.slug ?: @""
     }];
-
-    ICMUserAttributes *attr = [[ICMUserAttributes alloc] init];
-    attr.customAttributes = @{ @"role" : user.type ?: @"" };
-    [Intercom updateUser:attr];
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateStyle = NSDateFormatterMediumStyle;
