@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _AlbumDelete : ARManagedObject
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) AlbumDeleteID *objectID;
 
 @property (nonatomic, strong, nullable) NSString *albumID;
@@ -35,11 +35,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _AlbumDelete (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString *)primitiveAlbumID;
-- (void)setPrimitiveAlbumID:(NSString *)value;
+- (nullable NSString *)primitiveAlbumID;
+- (void)setPrimitiveAlbumID:(nullable NSString *)value;
 
-- (NSDate *)primitiveCreatedAt;
-- (void)setPrimitiveCreatedAt:(NSDate *)value;
+- (nullable NSDate *)primitiveCreatedAt;
+- (void)setPrimitiveCreatedAt:(nullable NSDate *)value;
 
 @end
 

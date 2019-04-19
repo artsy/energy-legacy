@@ -39,7 +39,7 @@ static const CGFloat ARSyncMessageHeight = 44;
     self = [super initWithStyle:UITableViewStylePlain];
     if (!self) return nil;
 
-    _albums = [Album editableAlbumsByLastUpdateInContext:context];
+    _albums = [Album editableAlbumsByLastUpdateInContext:context includeEmpty:YES];
     _context = context;
 
     return self;
@@ -212,7 +212,7 @@ static const CGFloat ARSyncMessageHeight = 44;
     album.name = textField.text;
     [album commitEditToArtworks:self.artworks];
 
-    _albums = [Album editableAlbumsByLastUpdateInContext:album.managedObjectContext];
+    _albums = [Album editableAlbumsByLastUpdateInContext:album.managedObjectContext includeEmpty:YES];
     _showTextField = NO;
 
     [self.createAlbumButton setTitle:@"NEW ALBUM" forState:UIControlStateNormal];

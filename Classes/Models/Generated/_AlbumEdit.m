@@ -41,6 +41,11 @@
         keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
         return keyPaths;
     }
+    if ([key isEqualToString:@"deleteAlbumAfterSyncValue"]) {
+        NSSet *affectingKey = [NSSet setWithObject:@"deleteAlbumAfterSync"];
+        keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+        return keyPaths;
+    }
 
     return keyPaths;
 }
@@ -70,6 +75,30 @@
 }
 
 @dynamic createdAt;
+
+@dynamic deleteAlbumAfterSync;
+
+- (BOOL)deleteAlbumAfterSyncValue
+{
+    NSNumber *result = [self deleteAlbumAfterSync];
+    return [result boolValue];
+}
+
+- (void)setDeleteAlbumAfterSyncValue:(BOOL)value_
+{
+    [self setDeleteAlbumAfterSync:@(value_)];
+}
+
+- (BOOL)primitiveDeleteAlbumAfterSyncValue
+{
+    NSNumber *result = [self primitiveDeleteAlbumAfterSync];
+    return [result boolValue];
+}
+
+- (void)setPrimitiveDeleteAlbumAfterSyncValue:(BOOL)value_
+{
+    [self setPrimitiveDeleteAlbumAfterSync:@(value_)];
+}
 
 @dynamic addedArtworks;
 
@@ -108,6 +137,10 @@
 + (NSString *)createdAt
 {
     return @"createdAt";
+}
++ (NSString *)deleteAlbumAfterSync
+{
+    return @"deleteAlbumAfterSync";
 }
 @end
 

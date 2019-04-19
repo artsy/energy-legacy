@@ -77,7 +77,8 @@ static NSURL *staticBaseURL = nil;
 
 + (NSURLRequest *)newSearchPartnersRequestWithQuery:(NSString *)query
 {
-    NSDictionary *params = @{ @"term" : query };
+    NSDictionary *params = @{ @"term" : query,
+                              @"size" : @20 };
     return [httpClient requestWithMethod:@"GET" path:ARSearchPartnersURL parameters:params];
 }
 

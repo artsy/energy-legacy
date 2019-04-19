@@ -179,10 +179,13 @@
     return req;
 }
 
-+ (NSArray *)editableAlbumsByLastUpdateInContext:(NSManagedObjectContext *)context
++ (NSArray *)editableAlbumsByLastUpdateInContext:(NSManagedObjectContext *)context includeEmpty:(BOOL)includeEmpty
 {
     NSFetchRequest *allAlbums = [[NSFetchRequest alloc] init];
     allAlbums.entity = [NSEntityDescription entityForName:@"Album" inManagedObjectContext:context];
+    if (!includeEmpty) {
+        allAlbums.predicate = [NSPredicate predicateWithFormat:@"artworks.@count > 0"];
+    }
     allAlbums.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"updatedAt" ascending:NO] ];
 
     NSArray *albums = [context executeFetchRequest:allAlbums error:nil];
