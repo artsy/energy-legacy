@@ -28,8 +28,13 @@
 
 - (void)operationTree:(DRBOperationTree *)tree objectsForObject:(NSString *)partnerID completion:(void (^)(NSArray *))completion
 {
-    NSArray *albumEdits = [AlbumEdit findAllSortedBy:@"createdAt" ascending:YES inContext:self.context];
-    NSArray *albumsPlusEndingSentinel = [albumEdits arrayByAddingObject:[NSNull null]];
+    NSFetchRequest *allEditsWithAlbumsFetch = [[NSFetchRequest alloc] init];
+    allEditsWithAlbumsFetch.entity = [NSEntityDescription entityForName:@"AlbumEdit" inManagedObjectContext:self.context];
+    allEditsWithAlbumsFetch.predicate = [NSPredicate predicateWithFormat:@"album != nil"];
+    allEditsWithAlbumsFetch.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:YES] ];
+
+    NSArray *albums = [self.context executeFetchRequest:allEditsWithAlbumsFetch error:nil];
+    NSArray *albumsPlusEndingSentinel = [albums arrayByAddingObject:[NSNull null]];
     completion(albumsPlusEndingSentinel);
 }
 
@@ -50,6 +55,10 @@
         ARAlbumEditOperation *operation = [[ARAlbumEditOperation alloc] initWithAlbum:albumUpload.album createModel:albumUpload.albumWasCreated.boolValue toAdd:albumUpload.addedArtworks toRemove:albumUpload.removedArtworks];
 
         operation.onCompletion = ^() {
+            if (albumUpload.deleteAlbumAfterSync) {
+                [albumUpload.album deleteInContext:albumUpload.managedObjectContext];
+            }
+
             [albumUpload deleteInContext:albumUpload.managedObjectContext];
             continuation(nil, nil);
         };

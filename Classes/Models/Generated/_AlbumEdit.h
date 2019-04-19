@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface _AlbumEdit : ARManagedObject
 + (instancetype)insertInManagedObjectContext:(NSManagedObjectContext *)moc_;
 + (NSString *)entityName;
-+ (NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
++ (nullable NSEntityDescription *)entityInManagedObjectContext:(NSManagedObjectContext *)moc_;
 @property (nonatomic, readonly, strong) AlbumEditID *objectID;
 
 @property (nonatomic, strong, nullable) NSNumber *albumWasCreated;
@@ -37,6 +37,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setAlbumWasCreatedValue:(BOOL)value_;
 
 @property (nonatomic, strong, nullable) NSDate *createdAt;
+
+@property (nonatomic, strong, nullable) NSNumber *deleteAlbumAfterSync;
+
+@property (atomic) BOOL deleteAlbumAfterSyncValue;
+- (BOOL)deleteAlbumAfterSyncValue;
+- (void)setDeleteAlbumAfterSyncValue:(BOOL)value_;
 
 @property (nonatomic, strong, nullable) NSSet<Artwork *> *addedArtworks;
 - (nullable NSMutableSet<Artwork *> *)addedArtworksSet;
@@ -69,14 +75,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _AlbumEdit (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSNumber *)primitiveAlbumWasCreated;
-- (void)setPrimitiveAlbumWasCreated:(NSNumber *)value;
+- (nullable NSNumber *)primitiveAlbumWasCreated;
+- (void)setPrimitiveAlbumWasCreated:(nullable NSNumber *)value;
 
 - (BOOL)primitiveAlbumWasCreatedValue;
 - (void)setPrimitiveAlbumWasCreatedValue:(BOOL)value_;
 
-- (NSDate *)primitiveCreatedAt;
-- (void)setPrimitiveCreatedAt:(NSDate *)value;
+- (nullable NSDate *)primitiveCreatedAt;
+- (void)setPrimitiveCreatedAt:(nullable NSDate *)value;
+
+- (nullable NSNumber *)primitiveDeleteAlbumAfterSync;
+- (void)setPrimitiveDeleteAlbumAfterSync:(nullable NSNumber *)value;
+
+- (BOOL)primitiveDeleteAlbumAfterSyncValue;
+- (void)setPrimitiveDeleteAlbumAfterSyncValue:(BOOL)value_;
 
 - (NSMutableSet<Artwork *> *)primitiveAddedArtworks;
 - (void)setPrimitiveAddedArtworks:(NSMutableSet<Artwork *> *)value;
@@ -93,6 +105,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AlbumEditAttributes : NSObject
 + (NSString *)albumWasCreated;
 + (NSString *)createdAt;
++ (NSString *)deleteAlbumAfterSync;
 @end
 
 
