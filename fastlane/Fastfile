@@ -11,38 +11,38 @@ end
 lane :beta do
   verify_pod_keys
 
-  sync_code_signing(type: "appstore", readonly: true)
+  sync_code_signing(type: 'appstore', readonly: true)
   disable_automatic_code_signing(
     path: 'Artsy Folio.xcodeproj',
     team_id: '23KMWZ572J',
-    targets: ["ArtsyFolio"],
-    profile_name: "match AppStore sy.art.folio"
+    targets: ['ArtsyFolio'],
+    profile_name: 'match AppStore sy.art.folio'
   )
 
   # Increment build number to current date
-  build_number = Time.new.strftime("%Y.%m.%d.%H")
+  build_number = Time.new.strftime('%Y.%m.%d.%H')
   `/usr/libexec/PlistBuddy -c "Set CFBundleVersion #{build_number}" "../Supporting Files/info.plist"`
 
   # Set version number to the one at the top of the CHANGELOG
-  readme_yaml = File.read("../docs/CHANGELOG.yml")
+  readme_yaml = File.read('../docs/CHANGELOG.yml')
   begin
-    readme_data = YAML.load(readme_yaml)
+    readme_data = YAML.safe_load(readme_yaml)
   rescue StandardError
-    fail("CHANGELOG isn't legit YAML")
+    raise("CHANGELOG isn't legit YAML")
   end
   commit = `git log -n1 --format='%h'`.strip
 
-  latest_version = readme_data["upcoming"]["version"]
+  latest_version = readme_data['upcoming']['version']
 
-  #increment_version_number release_task: latest_version, xcodeproj: './Artsy Folio.xcodeproj'
+  # increment_version_number release_task: latest_version, xcodeproj: './Artsy Folio.xcodeproj'
   `/usr/libexec/PlistBuddy -c "Set CFBundleShortVersionString #{latest_version}" "../Supporting Files/info.plist"`
 
   # Generate release notes from CHANGELOG
-  upcoming = readme_data["upcoming"]
-  upcoming_release_notes =  "## #{upcoming["version"]} \n\n - #{upcoming["notes"].join "\n - "} \n\n"
+  upcoming = readme_data['upcoming']
+  upcoming_release_notes = "## #{upcoming['version']} \n\n - #{upcoming['notes'].join "\n - "} \n\n"
 
-  last_release = readme_data["releases"][0]
-  last_release_notes =  "## #{last_release["version"]} - #{last_release["date"]} \n\n - #{last_release["notes"].join "\n - "}"
+  last_release = readme_data['releases'][0]
+  last_release_notes = "## #{last_release['version']} - #{last_release['date']} \n\n - #{last_release['notes'].join "\n - "}"
 
   release_notes = "#{upcoming_release_notes} \n\n #{last_release_notes}"
 
@@ -50,18 +50,18 @@ lane :beta do
   sh 'cat "../Resources/Images/App Icons + Launch/Beta-icon.png" | tee ../Resources/Images/App\ Icons\ +\ Launch/Icon* > /dev/null'
 
   # Build
-  gym configuration: "Release", scheme: "ArtsyFolio"
+  gym configuration: 'Release', scheme: 'ArtsyFolio'
 
   # Find out how many builds we've sent for this version
   # if it's zero, it will raise an exception
   build_version = 0
   begin
-    Spaceship::Tunes.login(ENV["FASTLANE_USERNAME"], ENV["FASTLANE_PASSWORD"])
-    app = Spaceship::Tunes::Application.find("sy.art.folio")
+    Spaceship::Tunes.login(ENV['FASTLANE_USERNAME'], ENV['FASTLANE_PASSWORD'])
+    app = Spaceship::Tunes::Application.find('sy.art.folio')
     train = app.build_trains[latest_version]
     build_version = train.builds.count + 1
   rescue
-    puts "Assuming build version 0"
+    puts 'Assuming build version 0'
   end
 
   # Do a tag, we use a http git remote so we can have push access
@@ -73,47 +73,37 @@ lane :beta do
   `git remote add http https://github.com/artsy/energy.git`
   `git push http #{tag}`
 
-  pilot changelog: release_notes, distribute_external: true, demo_account_required: true, groups: ["Liasons"], itc_provider: 'ArtsyInc',
-
-
-  slack message: "There is a new Folio beta available. Grab it from Testflight on your iOS device.",
-        channel: "front-end-ios",
-        payload: {
-          'Version' => latest_version,
-          'What\'s new' => upcoming_release_notes,
-        },
-        default_payloads: []
+  pilot changelog: release_notes, distribute_external: true, demo_account_required: true, groups: ['Liasons'], itc_provider: 'ArtsyInc'
 
   # Undo the icons after
-  sh "git checkout ../Resources/"
+  sh 'git checkout ../Resources/'
   `rm ../*.dSYM.zip`
   `rm ../*.ipa`
 end
 
-
 lane :upload_symbols do
   # Set version number to the one at the top of the CHANGELOG
-  readme_yaml = File.read("../docs/CHANGELOG.yml")
+  readme_yaml = File.read('../docs/CHANGELOG.yml')
   begin
-    readme_data = YAML.load(readme_yaml)
+    readme_data = YAML.safe_load(readme_yaml)
   rescue StandardError
-    fail("CHANGELOG isn't legit YAML")
+    raise("CHANGELOG isn't legit YAML")
   end
-  latest_version = readme_data["upcoming"]["version"]
+  latest_version = readme_data['upcoming']['version']
 
   sentry_create_release(
-    auth_token: env["SentryUploadAuthKey"],
+    auth_token: ENV['SentryUploadAuthKey'],
     org_slug: 'artsynet',
     project_slug: 'Folio',
     version: latest_version,
-    app_identifier: 'sy.art.folio', 
+    app_identifier: 'sy.art.folio',
     finalize: true
   )
-  
+
   download_dsyms
   upload_symbols_to_sentry(
-    auth_token: env["SentryUploadAuthKey"],
+    auth_token: ENV['SentryUploadAuthKey'],
     org_slug: 'artsynet',
-    project_slug: 'Folio',
+    project_slug: 'Folio'
   )
 end
