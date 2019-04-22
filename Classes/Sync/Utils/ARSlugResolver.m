@@ -1,6 +1,7 @@
 #import "ARSlugResolver.h"
 #import "Partner+InventoryHelpers.h"
 
+
 @interface ARSlugResolver ()
 @end
 
@@ -29,7 +30,10 @@
 {
     NSArray *allAlbums = [self allObjectsOfClass:Album.class inContext:context];
 
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"editable = YES"];
+
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"editable = NO AND slug != 'all_artworks' AND slug != 'for_sale_works'"];
+    //  TODO: Album Sync
+    //  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"editable = YES"];
     NSArray *downloadedAlbums = [allAlbums filteredArrayUsingPredicate:predicate];
     [self mapSlugsToArtworksForArtworkContainerArray:downloadedAlbums inContext:context];
     [downloadedAlbums makeObjectsPerformSelector:@selector(updateArtists)];

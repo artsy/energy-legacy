@@ -25,7 +25,9 @@
 {
     self.context = sync.config.managedObjectContext;
 
-    NSArray *allClassesToRemoveIfNeeded = @[ Artwork.class, Artist.class, Image.class, Document.class, Show.class, Location.class, Album.class ];
+    //  TODO: Album Sync
+    //  NSArray *allClassesToRemoveIfNeeded = @[ Artwork.class, Artist.class, Image.class, Document.class, Show.class, Location.class, Album.class ];
+    NSArray *allClassesToRemoveIfNeeded = @[ Artwork.class, Artist.class, Image.class, Document.class, Show.class, Location.class ];
     [allClassesToRemoveIfNeeded each:^(Class klass) {
         [self markAllObjectsInClassForDeletion:klass];
     }];

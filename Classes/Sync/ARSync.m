@@ -200,7 +200,9 @@
     [artistDocumentsNode addChild:documentFileNode];
 
     // Albums are shared across this and ARAlbumSync
-    [ARAlbumSyncTree appendAlbumOperationTree:self.config toNode:partnerNode operations:self.operationQueues];
+
+    //  TODO: Album Sync
+    //  [ARAlbumSyncTree appendAlbumOperationTree:self.config toNode:partnerNode operations:self.operationQueues];
 
     // Locations
     [partnerNode addChild:locationNode];

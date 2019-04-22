@@ -102,14 +102,16 @@
     NSString *migratedToCloudKey = @"ARHasMigratedAlbums";
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
+    //  TODO: Album Sync
+    BOOL skipAlbumSync = YES;
     BOOL shouldOfferToMigrateAlbums = [defaults boolForKey:migratedToCloudKey] == NO;
-    if (shouldOfferToMigrateAlbums) {
+    if (skipAlbumSync && shouldOfferToMigrateAlbums) {
         [defaults setBool:YES forKey:migratedToCloudKey];
 
         NSArray *albumsToUpload = [Album editableAlbumsByLastUpdateInContext:context includeEmpty:NO];
         NSInteger albumCount = albumsToUpload.count;
         if (albumCount == 0) {
-            // NOOP, bubt also will happen when you first launch the app
+            // NOOP, but also will happen when you first launch the app
             return;
         }
 
