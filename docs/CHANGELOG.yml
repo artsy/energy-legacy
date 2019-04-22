@@ -2,7 +2,7 @@ upcoming:
   version: 2.7.0
   notes:
     - Uses latest version of Artsy-Auth - orta
-    - Albums are synced - orta
+    - "Albums are not synced (this got disabled to make a deadline (search TODO: Album)) - orta"
     - Shows un-processed artworks but provides a note to edit them in CMS - orta
     - Handles re-authing, and logs you out if you've changed password - orta
     - Removes Intercom, removes Hockey and migrates to Sentry - orta

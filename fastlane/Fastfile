@@ -52,21 +52,15 @@ lane :beta do
   # Build
   gym configuration: 'Release', scheme: 'ArtsyFolio'
 
-  # Find out how many builds we've sent for this version
-  # if it's zero, it will raise an exception
-  build_version = 0
-  begin
-    Spaceship::Tunes.login(ENV['FASTLANE_USERNAME'], ENV['FASTLANE_PASSWORD'])
-    app = Spaceship::Tunes::Application.find('sy.art.folio')
-    train = app.build_trains[latest_version]
-    build_version = train.builds.count + 1
-  rescue
-    puts 'Assuming build version 0'
-  end
+  # Get the number of submitted builds
+  client = Spaceship::Tunes.login(ENV['FASTLANE_USERNAME'], ENV['FASTLANE_PASSWORD'])
+  client.team_id = "479887"
+  app = Spaceship::Tunes::Application.find('net.artsy.artsy')
+  beta = app.builds.first
 
   # Do a tag, we use a http git remote so we can have push access
   # as the default remote for circle is read-only
-  tag = "#{latest_version}-#{build_version}"
+  tag = "#{latest_version}-#{beta.build_version}"
   `git tag -d "#{tag}"`
 
   add_git_tag tag: tag
