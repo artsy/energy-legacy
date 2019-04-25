@@ -56,7 +56,7 @@ lane :beta do
   client = Spaceship::Tunes.login(ENV['FASTLANE_USERNAME'], ENV['FASTLANE_PASSWORD'])
   client.team_id = "479887"
   app = Spaceship::Tunes::Application.find('net.artsy.artsy')
-  beta = app.builds.first
+  beta = app.builds.last
 
   # Do a tag, we use a http git remote so we can have push access
   # as the default remote for circle is read-only
