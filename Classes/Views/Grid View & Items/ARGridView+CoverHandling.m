@@ -153,7 +153,7 @@
 {
     UIViewController *popoverViewController = nil;
 
-    if ([delegate isHostingEditableAlbum]) {
+    if (buttons.count > 1) {
         popoverViewController = [[ARMultipleButtonsPopoverViewController alloc] initWithButtons:buttons];
     } else {
         popoverViewController = [[ARButtonPopoverViewController alloc] initWithButton:buttons[0] andStyle:ARButtonPopoverDefault];

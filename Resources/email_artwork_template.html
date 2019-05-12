@@ -44,6 +44,10 @@
                             <p style="font-family: Georgia,serif; font-weight:100;margin-bottom:0px;margin-top:0px;">{{artwork.htmlSafeDimensions}} ({{artwork.htmlSafeAlternativeDimensions}})</p>
                         {{/artwork.dimensions}}
 
+                        {{^ isBlank(artwork.availabilityString) }}
+                        <p style="font-family: Georgia,serif; font-weight:100;margin-bottom:0px;margin-top:0px;">{{artwork.availabilityString}})</p>
+                        {{/ isBlank(artwork.availabilityString) }}
+
                         {{#options.showPrice}}
                             {{#options.showBackendPrice}}
 

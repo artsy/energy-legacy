@@ -2,13 +2,14 @@ upcoming:
   version: 2.7.0
   notes:
     - Uses latest version of Artsy-Auth - orta
-    - Albums are synced - orta
+    - Albums are not synced (this got disabled to make a deadline (search Album Sync)) - orta
     - Shows un-processed artworks but provides a note to edit them in CMS - orta
     - Handles re-authing, and logs you out if you've changed password - orta
     - Removes Intercom, removes Hockey and migrates to Sentry - orta
+    - Support button shows the helpdesk website - orta
     - Updates CI Xcode to 10.1 - orta
     - Crash fix on login - orta
-    - Crash fix when sending an email with a keynote file - orta
+    - Crash fix when  sending an email with a keynote file - orta
     - Adds ability to enable/disable Folio for a particular subscriber  - orta
     - The options for availabilities are matched to CMS' - orta
     - You can change an Artwork or EditionSets availability from the grid or an artwork  - orta
@@ -17,6 +18,8 @@ upcoming:
     - Login screen has better line-heights - orta
     - Fix the un-changed progress indicators in settings - orta
     - Artworks are sorted deterministically ( Artist display name, then title) in an email - orta
+    - Availability details are included in an email - orta/mattdole
+    - The sort for date now shows most recent artworks at the top - orta
 
 releases:
   - version: 2.6.0

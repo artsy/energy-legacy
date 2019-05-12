@@ -63,7 +63,7 @@
 
     BOOL shouldDeleteEmptyAlbums = [defaults boolForKey:@"ARHasDeletedEmptyAlbums"] == NO;
     if (shouldDeleteEmptyAlbums) {
-        for (Album *album in [Album editableAlbumsByLastUpdateInContext:context]) {
+        for (Album *album in [Album editableAlbumsByLastUpdateInContext:context includeEmpty:YES]) {
             if (album.artworks.count == 0) {
                 [album deleteInContext:context];
             }
@@ -102,33 +102,33 @@
     NSString *migratedToCloudKey = @"ARHasMigratedAlbums";
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
+    //  TODO: Album Sync
+    BOOL skipAlbumSync = YES;
     BOOL shouldOfferToMigrateAlbums = [defaults boolForKey:migratedToCloudKey] == NO;
-    if (shouldOfferToMigrateAlbums) {
+    if (skipAlbumSync && shouldOfferToMigrateAlbums) {
         [defaults setBool:YES forKey:migratedToCloudKey];
 
-        NSInteger albumCount = [Album editableAlbumsByLastUpdateInContext:context].count;
+        NSArray *albumsToUpload = [Album editableAlbumsByLastUpdateInContext:context includeEmpty:NO];
+        NSInteger albumCount = albumsToUpload.count;
         if (albumCount == 0) {
-            // NOOP, bubt also will happen when you first launch the app
+            // NOOP, but also will happen when you first launch the app
             return;
         }
 
         NSString *album = albumCount == 1 ? @"album" : @"albums";
-        NSString *messaging = NSStringWithFormat(@"Folio albums are now stored in the cloud. Sync %@ %@ online?", @(albumCount), album);
-        [viewControllerToPresentOn presentTransparentAlertWithText:[messaging uppercaseString] withOKAs:@"MIGRATE" andCancelAs:@"DELETE" completion:^(enum ARModalAlertViewControllerStatus completion) {
+        NSString *messaging = NSStringWithFormat(@"Folio has updated. By clicking migrate your %@ will now sync on devices with this user account. Sync %@ %@?", album, @(albumCount), album);
+        [viewControllerToPresentOn presentTransparentAlertWithText:[messaging uppercaseString] withOKAs:@"MIGRATE" andCancelAs:@"WIPE OLD ALBUMS" completion:^(enum ARModalAlertViewControllerStatus completion) {
             switch (completion) {
                 case ARModalAlertOK: {
-                    NSArray *albumsToUpload = [Album editableAlbumsByLastUpdateInContext:context];
                     // Make an AlbumEdit for every album
                     for (Album *album in albumsToUpload) {
                         AlbumEdit *uploadRequest = [AlbumEdit objectInContext:context];
                         uploadRequest.album = album;
                         uploadRequest.albumWasCreated = @YES;
+                        uploadRequest.deleteAlbumAfterSync = @YES;
                         uploadRequest.createdAt = album.createdAt;
                         uploadRequest.addedArtworks = album.artworks;
                         [uploadRequest saveManagedObjectContextLoggingErrors];
-
-                        // These will get re-created from the sync
-                        [album deleteInContext:context];
                     }
 
                     // Makes the Album screen say "Syncing your albums"
@@ -139,7 +139,7 @@
                 // I know this is a bit drastic, but there's not really much choice wiithout a lot more work,
                 // and this feature has already taken about 5 years to get built.
                 case ARModalAlertCancel: {
-                    NSArray *albumsToRemove = [Album editableAlbumsByLastUpdateInContext:context];
+                    NSArray *albumsToRemove = [Album editableAlbumsByLastUpdateInContext:context includeEmpty:YES];
                     // :wave:
                     for (Album *album in albumsToRemove) {
                         [album deleteInContext:context];

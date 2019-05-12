@@ -192,9 +192,14 @@ static NSString *ARSubtitleKey = @"Subtitle";
 
 - (BOOL)shouldChangeResultsWithRequest:(NSFetchRequest *)request
 {
-    BOOL hasChanges = [self.resultsController.fetchRequest includesPendingChanges];
-    BOOL sameRequest = [self.resultsController.fetchRequest isEqual:request];
-    return (!sameRequest || hasChanges);
+    // This didn't work, there are times when we need to refresh the grid
+    // but not because of the data changing, ideally ^ could have a force param?
+    //
+    //    BOOL hasChanges = [self.resultsController.fetchRequest includesPendingChanges];
+    //    BOOL sameRequest = [self.resultsController.fetchRequest isEqual:request];
+    //    return (!sameRequest || hasChanges);
+    return YES;
 }
+
 
 @end

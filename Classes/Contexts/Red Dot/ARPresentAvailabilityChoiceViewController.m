@@ -20,7 +20,7 @@
             @(ARArtworkAvailabilityForSale),
             @(ARArtworkAvailabilityOnHold),
             @(ARArtworkAvailabilitySold),
-            @(ARArtworkAvailabilityNotForSale),
+            @(ARArtworkAvailabilityOnLoan),
         ];
     } else if ([type isEqualToString:@"Private Collector"] || [type isEqualToString:@"Institution"]) {
         return @[

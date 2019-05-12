@@ -31,20 +31,20 @@
     switch (order) {
         case ARArtworksSortOrderDefault:
         case ARArtworksSortOrderDate: {
-            NSSortDescriptor *byYear = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+            NSSortDescriptor *byYear = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
             NSSortDescriptor *byTitle = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES selector:@selector(caseInsensitiveCompare:)];
             return @[ byYear, byTitle ];
         }
 
         case ARArtworksSortOrderMedium: {
             NSSortDescriptor *byMedium = [NSSortDescriptor sortDescriptorWithKey:@"category" ascending:YES];
-            NSSortDescriptor *byYear = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+            NSSortDescriptor *byYear = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
             NSSortDescriptor *byTitle = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES selector:@selector(caseInsensitiveCompare:)];
             return @[ byMedium, byYear, byTitle ];
         }
 
         case ARArtworksSortOrderAlphabetic: {
-            NSSortDescriptor *byYear = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+            NSSortDescriptor *byYear = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
             NSSortDescriptor *byTitle = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES selector:@selector(caseInsensitiveCompare:)];
             return @[ byTitle, byYear ];
         }

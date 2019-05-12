@@ -74,10 +74,15 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
     [self.editPresentationModeButton hideTopBorder];
     [self.editPresentationModeButton.titleLabel setFont:[UIFont sansSerifFontWithSize:16]];
 
+
     /// Miscellaneous settings
     [self.backgroundButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARSettingsSectionBackground]];
     [self.emailButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARSettingsSectionEmail]];
     [self.emailButton hideTopBorder];
+
+    /// Intercom
+    [self.supportButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARSettingsSectionSupport]];
+    [self.supportButton hideChevron];
 
     /// Logout
     [self.logoutButton setTitle:[self.viewModel buttonTitleForSettingsSection:ARSettingsSectionLogout]];
@@ -144,6 +149,12 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 - (IBAction)emailButtonPressed:(id)sender
 {
     [(ARSettingsSplitViewController *)self.splitViewController showDetailViewControllerForSettingsSection:ARSettingsSectionEmail];
+}
+
+- (IBAction)supportButtonPressed:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://help.artsy.net/artsy-folio"]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:ARDismissAllPopoversNotification object:nil];
 }
 
 - (IBAction)logoutButtonPressed:(id)sender
