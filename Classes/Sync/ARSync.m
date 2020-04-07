@@ -16,6 +16,7 @@
 
 @end
 
+#define ARPersistedDataFileName @"PersistedData"
 
 @implementation ARSync
 
@@ -41,6 +42,30 @@
 
     SyncLog *log = [self lastSyncLog];
     [self.progress startWithLastSyncLog:log.timeToCompletion.doubleValue];
+
+    // What we're going to do here is sneaky. Outside the normal Core Data store,
+    // we're going to persist a simple mapping of albums -> artwork IDs. That way,
+    // when the partner logs back in, their albums will still be here. We're doing
+    // this here because it's convenient.
+    // This is a stand-in for actual album sync.
+    NSArray *albums = [Album editableAlbumsByLastUpdateInContext:self.config.managedObjectContext includeEmpty:NO];
+    // Let's map from partner ID ->
+    NSDictionary *persistedData = @{
+        @"albums": [albums map:^id(Album *album) {
+            return @{
+                @"name": album.name,
+                @"slug": album.slug,
+                @"artworkIDs": [[album.artworks allObjects] map:^id(Artwork *artwork){
+                    return artwork.slug;
+                }]
+            };
+        }]
+    };
+    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *filename = [documentsDirectory stringByAppendingPathComponent:ARPersistedDataFileName];
+    if (![persistedData writeToFile:filename atomically:YES]) {
+        NSLog(@"Couldn'd persist data.");
+    }
 
     __weak typeof(self) weakSelf = self;
 
