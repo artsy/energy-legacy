@@ -62,6 +62,8 @@ deploy_if_beta_branch:
 install_fastlane:
 	bundle update fastlane
 	bundle install --with deployment
+	brew install getsentry/tools/sentry-cli
+	bundle exec fastlane update_plugins
 
 deploy:
 	git push origin "$(LOCAL_BRANCH):beta" -f
