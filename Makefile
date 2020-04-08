@@ -36,10 +36,10 @@ ci: CONFIGURATION = Debug
 ci: build
 
 build:
-	set -o pipefail && xcodebuild -workspace $(WORKSPACE) -scheme $(SCHEME) -configuration '$(CONFIGURATION)' -sdk iphonesimulator build | tee ./xcode_build_raw.log | bundle exec xcpretty -c
+	if [ "$(LOCAL_BRANCH)" != "beta" ]; set -o pipefail && xcodebuild -workspace $(WORKSPACE) -scheme $(SCHEME) -configuration '$(CONFIGURATION)' -sdk iphonesimulator build | tee ./xcode_build_raw.log | bundle exec xcpretty -c; else echo "Skipping test run on beta deploy."; fi
 
 test:
-	set -o pipefail && xcodebuild -workspace $(WORKSPACE) -scheme $(SCHEME) -configuration Debug build test -sdk iphonesimulator -destination $(DEVICE_HOST) | bundle exec second_curtain | tee ./xcode_test_raw.log  | bundle exec xcpretty -c --test --report junit --output ./results.xml
+	if [ "$(LOCAL_BRANCH)" != "beta" ]; set -o pipefail && xcodebuild -workspace $(WORKSPACE) -scheme $(SCHEME) -configuration Debug build test -sdk iphonesimulator -destination $(DEVICE_HOST) | bundle exec second_curtain | tee ./xcode_test_raw.log  | bundle exec xcpretty -c --test --report junit --output ./results.xml; else echo "Skipping test run on beta deploy."; fi
 
 ### Useful commands
 
