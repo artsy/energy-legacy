@@ -62,7 +62,7 @@
                 return @{
                     @"name": album.name,
                     @"artworkIDs": [[album.artworks allObjects] map:^id(Artwork *artwork){
-                        return artwork.slug; // TODO: Sometimes sluges are-like-this and sometimes they are Mongo IDs. Figure out why.
+                        return artwork.slug;
                     }]
                 };
             }]
