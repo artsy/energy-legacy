@@ -94,9 +94,11 @@
             [persistedData[@"albums"] each:^(NSDictionary *albumData) {
                 Album *album = [Album objectInContext:context];
                 album.name = albumData[@"name"];
-                album.artworks = [NSSet setWithArray:[albumData[@"artworkIDs"] map:^Artwork *(NSString *artworkID) {
-                    // map: will automatically remove any nil return values for us.
+                album.artworks = [NSSet setWithArray:[[albumData[@"artworkIDs"] map:^Artwork *(NSString *artworkID) {
+                    // map: will turn nil return values into `[NSNull null]` so we need to filte rout.
                     return [[Artwork findByAttribute:@"slug" withValue:artworkID inContext:context] firstObject];
+                }] select:^BOOL(id object) {
+                    return ![object isEqual:[NSNull null]];
                 }]];
             }];
             [context save:nil];
