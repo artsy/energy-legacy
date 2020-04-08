@@ -69,7 +69,7 @@
         };
 
         if (![persistedData writeToFile:filename atomically:YES]) {
-            NSLog(@"Couldn'd persist data.");
+            NSLog(@"Couldn't persist data.");
         }
     }
 
