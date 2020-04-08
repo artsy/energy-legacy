@@ -16,7 +16,7 @@
 
 @end
 
-#define ARPersistedDataFileName @"PersistedData"
+#define ARPersistedDataFileName @"PersistedData.folio.keep"
 
 @implementation ARSync
 
@@ -43,28 +43,34 @@
     SyncLog *log = [self lastSyncLog];
     [self.progress startWithLastSyncLog:log.timeToCompletion.doubleValue];
 
+
     // What we're going to do here is sneaky. Outside the normal Core Data store,
     // we're going to persist a simple mapping of albums -> artwork IDs. That way,
     // when the partner logs back in, their albums will still be here. We're doing
     // this here because it's convenient.
     // This is a stand-in for actual album sync.
-    NSArray *albums = [Album editableAlbumsByLastUpdateInContext:self.config.managedObjectContext includeEmpty:NO];
-    // Let's map from partner ID ->
-    NSDictionary *persistedData = @{
-        @"albums": [albums map:^id(Album *album) {
-            return @{
-                @"name": album.name,
-                @"slug": album.slug,
-                @"artworkIDs": [[album.artworks allObjects] map:^id(Artwork *artwork){
-                    return artwork.slug;
-                }]
-            };
-        }]
-    };
     NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     NSString *filename = [documentsDirectory stringByAppendingPathComponent:ARPersistedDataFileName];
-    if (![persistedData writeToFile:filename atomically:YES]) {
-        NSLog(@"Couldn'd persist data.");
+    
+    // Only persist albums after the first sync, but then always persist them.
+    BOOL hasFinishedFirstSync = [[NSUserDefaults standardUserDefaults] boolForKey:ARFinishedFirstSync];
+    if (hasFinishedFirstSync) {
+        NSArray *albums = [Album editableAlbumsByLastUpdateInContext:self.config.managedObjectContext includeEmpty:NO];
+        // Let's map from partner ID ->
+        NSDictionary *persistedData = @{
+            @"albums": [albums map:^id(Album *album) {
+                return @{
+                    @"name": album.name,
+                    @"artworkIDs": [[album.artworks allObjects] map:^id(Artwork *artwork){
+                        return artwork.slug; // TODO: Sometimes sluges are-like-this and sometimes they are Mongo IDs. Figure out why.
+                    }]
+                };
+            }]
+        };
+
+        if (![persistedData writeToFile:filename atomically:YES]) {
+            NSLog(@"Couldn'd persist data.");
+        }
     }
 
     __weak typeof(self) weakSelf = self;
@@ -80,6 +86,21 @@
 
         // Cleanup the tree so it's recreated next sync
         weakSelf.rootOperation = nil;
+
+        // After the first sync, we'll try to load persisted albums
+        if (!hasFinishedFirstSync) {
+            NSManagedObjectContext *context = weakSelf.config.managedObjectContext;
+            NSDictionary *persistedData = [NSDictionary dictionaryWithContentsOfFile:filename];
+            [persistedData[@"albums"] each:^(NSDictionary *albumData) {
+                Album *album = [Album objectInContext:context];
+                album.name = albumData[@"name"];
+                album.artworks = [NSSet setWithArray:[albumData[@"artworkIDs"] map:^Artwork *(NSString *artworkID) {
+                    // map: will automatically remove any nil return values for us.
+                    return [[Artwork findByAttribute:@"slug" withValue:artworkID inContext:context] firstObject];
+                }]];
+            }];
+            [context save:nil];
+        }
     }];
 }
 
