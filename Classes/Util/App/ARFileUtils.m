@@ -61,10 +61,14 @@ static NSString *CachesDirectory;
     NSError *error = nil;
 
     for (NSString *fileName in enumerator) {
-        NSString *filePath = [folderPath stringByAppendingPathComponent:fileName];
+        if ([fileName hasSuffix:@".folio.keep"]) {
+            NSLog(@"Skipping %@ deletion", fileName);
+        } else {
+            NSString *filePath = [folderPath stringByAppendingPathComponent:fileName];
 
-        if (![fileManager removeItemAtPath:filePath error:&error]) {
-            NSLog(@"Error removing file %@ : %@", fileName, error);
+            if (![fileManager removeItemAtPath:filePath error:&error]) {
+                NSLog(@"Error removing file %@ : %@", fileName, error);
+            }
         }
     }
 }

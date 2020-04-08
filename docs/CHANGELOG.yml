@@ -1,27 +1,32 @@
 upcoming:
-  version: 2.7.0
+  version: 2.7.2
   notes:
-    - Uses latest version of Artsy-Auth - orta
-    - Albums are not synced (this got disabled to make a deadline (search Album Sync)) - orta
-    - Shows un-processed artworks but provides a note to edit them in CMS - orta
-    - Handles re-authing, and logs you out if you've changed password - orta
-    - Removes Intercom, removes Hockey and migrates to Sentry - orta
-    - Support button shows the helpdesk website - orta
-    - Updates CI Xcode to 10.1 - orta
-    - Crash fix on login - orta
-    - Crash fix when  sending an email with a keynote file - orta
-    - Adds ability to enable/disable Folio for a particular subscriber  - orta
-    - The options for availabilities are matched to CMS' - orta
-    - You can change an Artwork or EditionSets availability from the grid or an artwork  - orta
-    - Visual tweaks (navbar line removed, white mode improvements)  - orta
-    - Artwork detailed overview de-markdown fixes - orta
-    - Login screen has better line-heights - orta
-    - Fix the un-changed progress indicators in settings - orta
-    - Artworks are sorted deterministically ( Artist display name, then title) in an email - orta
-    - Availability details are included in an email - orta/mattdole
-    - The sort for date now shows most recent artworks at the top - orta
+    - Basic album recovery after log out - ash
 
 releases:
+  - version: 2.7.1
+    date: April 29, 2019
+    notes:
+      - Uses latest version of Artsy-Auth - orta
+      - Albums are not synced (this got disabled to make a deadline (search Album Sync)) - orta
+      - Shows un-processed artworks but provides a note to edit them in CMS - orta
+      - Handles re-authing, and logs you out if you've changed password - orta
+      - Removes Intercom, removes Hockey and migrates to Sentry - orta
+      - Support button shows the helpdesk website - orta
+      - Updates CI Xcode to 10.1 - orta
+      - Crash fix on login - orta
+      - Crash fix when  sending an email with a keynote file - orta
+      - Adds ability to enable/disable Folio for a particular subscriber  - orta
+      - The options for availabilities are matched to CMS' - orta
+      - You can change an Artwork or EditionSets availability from the grid or an artwork  - orta
+      - Visual tweaks (navbar line removed, white mode improvements)  - orta
+      - Artwork detailed overview de-markdown fixes - orta
+      - Login screen has better line-heights - orta
+      - Fix the un-changed progress indicators in settings - orta
+      - Artworks are sorted deterministically ( Artist display name, then title) in an email - orta
+      - Availability details are included in an email - orta/mattdole
+      - The sort for date now shows most recent artworks at the top - orta
+
   - version: 2.6.0
     date: Apr 7, 2018
     notes:
@@ -42,21 +47,19 @@ releases:
   - version: 2.5.4
     date: Aug 31, 2016
     notes:
-    - Incorrect passwords will reset state in the login page correctly - orta
-    - Improved sync estimates - orta
-    - Crash fixes around spolight exporting - orta
-    - Fixed iPad Pro View in Room - orta
-    - Update to Danger - orta
-    - We show Untitled instead of (null) in more places - orta
-    - Order Editions in the artwork info popover - orta
-
+      - Incorrect passwords will reset state in the login page correctly - orta
+      - Improved sync estimates - orta
+      - Crash fixes around spolight exporting - orta
+      - Fixed iPad Pro View in Room - orta
+      - Update to Danger - orta
+      - We show Untitled instead of (null) in more places - orta
+      - Order Editions in the artwork info popover - orta
 
   - version: 2.5.3
     date: Aug 31, 2016
     notes:
       - Crash fixes around spolight exporting - orta
       - Fixed iPad Pro View in Room - orta
-
 
   - version: 2.5.2
     date: Jul 7, 2016
@@ -66,51 +69,51 @@ releases:
   - version: 2.5.1
     date: Jun 30, 2016
     notes:
-    - Improved sync timing algorithm by weighing it towards the timing of the last sync - orta
-    - Ensure custom cc emails are not overwritten - orta
-    - Partner Size now is a number, not a string - orta
-    - Show a link to Artsy when a work is published in emails - orta
-    - Improvements to the Document preview - orta
-    - Documents selected in the grid, pass through to the email popover - orta
-    - Minor copy update on the syncVC - orta
-    - Use a different API route for pinging Artsy, and ensure the timer stops when sync settings is not active - orta
-    - Minor analytics updates - orta
+      - Improved sync timing algorithm by weighing it towards the timing of the last sync - orta
+      - Ensure custom cc emails are not overwritten - orta
+      - Partner Size now is a number, not a string - orta
+      - Show a link to Artsy when a work is published in emails - orta
+      - Improvements to the Document preview - orta
+      - Documents selected in the grid, pass through to the email popover - orta
+      - Minor copy update on the syncVC - orta
+      - Use a different API route for pinging Artsy, and ensure the timer stops when sync settings is not active - orta
+      - Minor analytics updates - orta
 
   - version: 2.5.0
     date: Jan 26 2016
     notes:
-    - (dev) Removed match from makefile - maxim
-    - (dev) Brought back sync recommendations - sarah
-    - (dev) Added tests for menu view model - sarah
-    - (dev) Fix OSS fonts - orta
-    - (dev) Disables presentation mode if no presentation settings are on - sarah
-    - (dev) App delegate now checks for eligibility more often - sarah
-    - (dev) Updated sync view controller copy - sarah
-    - (dev) Removed sync notification badge from settings icon - sarah
-    - (dev) Fix for main settings button corresponding to sync status - sarah
-    - (dev) Added a sync progress bar and WiFi status messaging to sync settings - sarah
-    - (dev) Added a custom navigation bar for all settings views - sarah
-    - (dev) iPhone support for settings panel - sarah
-    - (dev) On iPad, only the primary view controller shows up until a detail is selected - sarah
-    - (dev) Added background settings view controller - sarah
-    - (dev) Added new email settings view controllers - sarah
-    - (dev) Added a custom navigation bar for all settings views - sarah
-    - (dev) iPhone support for settings panel - sarah
-    - (dev) On iPad, only the primary view controller shows up until a detail is selected - sarah
-    - (dev) Added background settings view controller - sarah
-    - (dev) Added new email settings view controllers - sarah
-    - Improved Error Messages for Login - orta
-    - Introduced Presentation Mode - sarah
-    - New Settings pages - sarah
-    - (dev) Added Intercom support to the new settings - sarah
-    - (dev) Added unit conversion for artwork dimensions - sarah
-    - (dev) Edit Presentation Mode Settings view controller - sarah
-    - (dev) New sync settings view controller - sarah
-    - (dev) Lab Settings Master View - sarah
-    - (dev) Podfile uses `ARTSY_STAFF_MEMBER` to use closed source fonts - orta
-    - (dev) Sync refactor to simplify sync side-effects (analytics, notifications etc) - orta
-    - (dev) Added Danger to the CI - orta
-    - (dev) Uses testflight for betas, and ships dsyms to hockey - orta
+      - (dev) Removed match from makefile - maxim
+      - (dev) Brought back sync recommendations - sarah
+      - (dev) Added tests for menu view model - sarah
+      - (dev) Fix OSS fonts - orta
+      - (dev) Disables presentation mode if no presentation settings are on - sarah
+      - (dev) App delegate now checks for eligibility more often - sarah
+      - (dev) Updated sync view controller copy - sarah
+      - (dev) Removed sync notification badge from settings icon - sarah
+      - (dev) Fix for main settings button corresponding to sync status - sarah
+      - (dev) Added a sync progress bar and WiFi status messaging to sync settings - sarah
+      - (dev) Added a custom navigation bar for all settings views - sarah
+      - (dev) iPhone support for settings panel - sarah
+      - (dev) On iPad, only the primary view controller shows up until a detail is selected - sarah
+      - (dev) Added background settings view controller - sarah
+      - (dev) Added new email settings view controllers - sarah
+      - (dev) Added a custom navigation bar for all settings views - sarah
+      - (dev) iPhone support for settings panel - sarah
+      - (dev) On iPad, only the primary view controller shows up until a detail is selected - sarah
+      - (dev) Added background settings view controller - sarah
+      - (dev) Added new email settings view controllers - sarah
+      - Improved Error Messages for Login - orta
+      - Introduced Presentation Mode - sarah
+      - New Settings pages - sarah
+      - (dev) Added Intercom support to the new settings - sarah
+      - (dev) Added unit conversion for artwork dimensions - sarah
+      - (dev) Edit Presentation Mode Settings view controller - sarah
+      - (dev) New sync settings view controller - sarah
+      - (dev) Lab Settings Master View - sarah
+      - (dev) Podfile uses `ARTSY_STAFF_MEMBER` to use closed source fonts - orta
+      - (dev) Sync refactor to simplify sync side-effects (analytics, notifications etc) - orta
+      - (dev) Added Danger to the CI - orta
+      - (dev) Uses testflight for betas, and ships dsyms to hockey - orta
 
   - version: 2.4.4
     date: Oct 20 2015
@@ -159,18 +162,18 @@ releases:
   - version: 2.3.0
     date: May 30 2015
     notes:
-    - Locks out expired partners - sarah
-    - Sets last_folio_access on the partner flags on sync - orta
-    - Always animate new views when tapping back - orta
-    - Removed processing check before downloading images, fixes cover/install shot images not coming through sync - orta
-    - Doesn't flicker the navigation bar background colour on transitions - orta
-    - Artists are sorted with sort order from API - sarah
-    - Adds an error screen when there is a core data schema mismatch - orta
-    - Shows backend price on Artwork screens - orta
-    - Deals with backend only prices in emails - orta
-    - Documents show a generic thumbnail icon if we can't generate one - orta
-    - The support link now works through intercom - orta
-    - Fix to artwork supplementary info not showing - orta
+      - Locks out expired partners - sarah
+      - Sets last_folio_access on the partner flags on sync - orta
+      - Always animate new views when tapping back - orta
+      - Removed processing check before downloading images, fixes cover/install shot images not coming through sync - orta
+      - Doesn't flicker the navigation bar background colour on transitions - orta
+      - Artists are sorted with sort order from API - sarah
+      - Adds an error screen when there is a core data schema mismatch - orta
+      - Shows backend price on Artwork screens - orta
+      - Deals with backend only prices in emails - orta
+      - Documents show a generic thumbnail icon if we can't generate one - orta
+      - The support link now works through intercom - orta
+      - Fix to artwork supplementary info not showing - orta
 
   - version: 2.2.0
     date: May 9 2015
@@ -211,7 +214,6 @@ releases:
       - Crash Resilience in sync. - orta
       - Taken a second shot at crash resilience in a more maintainable for the future route. - orta
       - Remove rotation on iPad for now, due to popover craziness - orta
-
 
   - version: 2.0.0
     date: Jan 27 2015
@@ -272,7 +274,6 @@ releases:
       - Consolidated all options into Admin settingsVC
       - Improved email template
 
-
   - version: 1.7.1
     date: May 2 2014
     notes:
@@ -289,7 +290,6 @@ releases:
       - Removes base class from most view controllers
       - iOS7 split.
       - Refactoring internals
-
 
   - version: 1.5.1
     date: July 9 2014
@@ -319,7 +319,6 @@ releases:
       - async image loading
       - cell reuse
       - Improved diagnostics logging
-
 
   - version: 1.4.0
     date: Nov 14 2013
