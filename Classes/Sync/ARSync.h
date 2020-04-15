@@ -38,6 +38,9 @@
 /// Save the private MOC
 - (void)save;
 
+/// Persists albums outside Core Data stack.
+- (void)persistAlbums;
+
 @property (readwrite, nonatomic, weak) id<ARSyncDelegate> delegate;
 @property (readwrite, nonatomic, strong) ARSyncProgress *progress;
 @property (readwrite, nonatomic, strong) ARSyncConfig *config;

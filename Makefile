@@ -41,8 +41,6 @@ build:
 test:
 	if [ "$(LOCAL_BRANCH)" != "beta" ]; then set -o pipefail && xcodebuild -workspace $(WORKSPACE) -scheme $(SCHEME) -configuration Debug build test -sdk iphonesimulator -destination $(DEVICE_HOST) | bundle exec second_curtain | tee ./xcode_test_raw.log  | bundle exec xcpretty -c --test --report junit --output ./results.xml; else echo "Skipping test run on beta deploy."; fi
 
-	if [ "$(LOCAL_BRANCH)" != "beta" ] && [ "$(LOCAL_BRANCH)" != "app_store_submission" ]; then make build-for-tests; else echo "Skipping test build on beta deploy."; fi
-
 
 ### Useful commands
 
