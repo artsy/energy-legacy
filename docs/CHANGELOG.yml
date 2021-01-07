@@ -1,9 +1,14 @@
 upcoming:
-  version: 2.7.2
+  version: 2.7.3
   notes:
-    - Basic album recovery after log out - ash
+    - 
 
 releases:
+  - version: 2.7.2
+    date: April 21, 2020
+    notes:
+      - Basic album recovery after log out - ash
+
   - version: 2.7.1
     date: April 29, 2019
     notes:
