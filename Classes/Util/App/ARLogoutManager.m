@@ -1,6 +1,11 @@
 #import "ARLogoutManager.h"
 #import "ARFileUtils+FolioAdditions.h"
 
+// These imports are for the hacky album persistance.
+// See comment in ARSync's persistAlbums method.
+#import "ARTopViewController.h"
+#import "ARSync.h"
+
 
 @interface ARLogoutManager () <UIAlertViewDelegate>
 @property (nonatomic, strong) dispatch_queue_t logoutQueue;
@@ -35,6 +40,9 @@
 
 - (void)run
 {
+    // Do this on the main thread.
+    [ARTopViewController.sharedInstance.sync persistAlbums];
+
     dispatch_async(self.logoutQueue, ^{
 
         [ARAnalytics event:ARLogoutEvent];

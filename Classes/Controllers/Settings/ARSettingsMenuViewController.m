@@ -153,7 +153,7 @@ typedef NS_ENUM(NSInteger, ARSettingsAlertViewButtonIndex) {
 
 - (IBAction)supportButtonPressed:(id)sender
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://help.artsy.net/artsy-folio"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://help.artsy.net/?q=folio"]];
     [[NSNotificationCenter defaultCenter] postNotificationName:ARDismissAllPopoversNotification object:nil];
 }
 
