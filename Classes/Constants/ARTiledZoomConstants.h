@@ -1,1 +1,0 @@
-extern NSUInteger const ARTiledZoomMinLevel;
