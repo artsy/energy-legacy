@@ -1,16 +1,18 @@
+import { MeasuredView, ViewMeasurements } from "../MeasuredView"
 import { Spacer } from "palette"
 import { useColor } from "palette/hooks"
 import React, { ReactNode, useState } from "react"
-import { GestureResponderEvent, Pressable, PressableProps, TextStyle } from "react-native"
+import { PressableProps, TextStyle } from "react-native"
+import { GestureResponderEvent, Pressable } from "react-native"
 import Haptic, { HapticFeedbackTypes } from "react-native-haptic-feedback"
 import { config } from "react-spring"
+// @ts-ignore
+import { animated, Spring } from "react-spring/renderprops-native"
 import styled from "styled-components/native"
 import { Box, BoxProps } from "../Box"
 import { Flex } from "../Flex"
 import { Spinner } from "../Spinner"
 import { Text, useTextStyleForPalette } from "../Text"
-// @ts-ignore
-import { animated, Spring } from "react-spring/renderprops-native"
 
 export interface ButtonProps extends BoxProps {
   children: ReactNode
@@ -64,6 +66,7 @@ export const Button: React.FC<ButtonProps> = ({
   longestText,
   onPress,
   size = "large",
+  style,
   variant = "fillDark",
   testOnly_state,
   testID,
@@ -72,6 +75,8 @@ export const Button: React.FC<ButtonProps> = ({
   const textStyle = useTextStyleForPalette(size === "small" ? "xs" : "sm")
 
   const [innerDisplayState, setInnerDisplayState] = useState(DisplayState.Enabled)
+
+  const [longestTextMeasurements, setLongestTextMeasurements] = useState<ViewMeasurements>({ width: 0, height: 0 })
 
   const displayState =
     testOnly_state ?? // if we use the test prop, use that
@@ -166,12 +171,15 @@ export const Button: React.FC<ButtonProps> = ({
                       <Spacer mr={0.5} />
                     </>
                   ) : null}
-                  <Text color="red" style={textStyle}>
-                    {longestText ? longestText : children}
-                  </Text>
-                  <Text
+                  <MeasuredView setMeasuredState={setLongestTextMeasurements}>
+                    <Text color="red" style={textStyle}>
+                      {longestText ? longestText : children}
+                    </Text>
+                  </MeasuredView>
+                  <AnimatedText
                     style={[
                       {
+                        width: Math.ceil(longestTextMeasurements.width),
                         color: springProps.textColor,
                         textDecorationLine: springProps.textDecorationLine,
                       },
@@ -180,7 +188,7 @@ export const Button: React.FC<ButtonProps> = ({
                     textAlign="center"
                   >
                     {children}
-                  </Text>
+                  </AnimatedText>
                   {iconPosition === "right" && !!icon ? (
                     <>
                       <Spacer mr={0.5} />
@@ -386,5 +394,6 @@ const SpinnerContainer = styled(Box)<ButtonProps>`
 `
 
 const AnimatedContainer = animated(Container)
+const AnimatedText = animated(Text)
 
 export { DisplayState as _test_DisplayState }

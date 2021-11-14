@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@artsy/palette-tokens": "^2.6.0",
+    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/native-stack": "^6.2.5",
     "@styled-system/theme-get": "^5.1.2",
     "events": "^3.3.0",
     "lodash": "^4.17.21",
@@ -20,6 +22,7 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-haptic-feedback": "^1.13.0",
     "react-native-safe-area-context": "^3.3.2",
+    "react-native-screens": "^3.9.0",
     "react-native-svg": "^12.1.1",
     "react-spring": "8.0.23",
     "styled-components": "^5.3.3",
