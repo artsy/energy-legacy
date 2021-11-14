@@ -1,5 +1,6 @@
 import React from "react"
 import { View, ViewProps } from "react-native"
+// @ts-ignore
 import { animated, Spring } from "react-spring/renderprops-native"
 
 const AnimatedView = animated(View)

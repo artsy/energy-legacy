@@ -83,7 +83,7 @@ export const Pill: React.FC<PillProps> = ({
 
   useEffect(() => {
     setInnerDisplayState(initialDisplayState)
-  }, [disabled, selected])
+  }, [disabled, selected, initialDisplayState])
 
   const iconSpacerMargin = size === "xxs" ? 0.5 : 1
   const iconColor = innerDisplayState === "pressed" ? "blue100" : "black100"
@@ -125,7 +125,7 @@ export const Pill: React.FC<PillProps> = ({
                 <Spacer mr={iconSpacerMargin} />
               </>
             )}
-            {!!imageUrl && <Image source={imageUrl} resizeMode="contain" style={{ height: 30, width: 30 }} />}
+            {!!imageUrl && <Image source={{ uri: imageUrl }} resizeMode="contain" style={{ height: 30, width: 30 }} />}
             <AnimatedText numberOfLines={1} style={[textStyle, { color: springProps.textColor }]}>
               {children}
             </AnimatedText>

@@ -1,6 +1,6 @@
-import { Flex, Theme } from "palette"
 import React from "react"
 import { Text } from "react-native"
+import { Theme, Flex } from "palette"
 
 const App = () => {
   return (
