@@ -8,7 +8,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "setup:artsy": "./scripts/setup-env-for-artsy"
+    "setup:artsy": "./scripts/setup-env-for-artsy",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@artsy/palette-tokens": "^2.6.0",
@@ -17,8 +18,10 @@
     "@styled-system/theme-get": "^5.1.2",
     "events": "^3.3.0",
     "lodash": "^4.17.21",
+    "patch-package": "^6.4.7",
     "react": "17.0.2",
     "react-native": "0.66.2",
+    "react-native-config": "^1.4.5",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-haptic-feedback": "^1.13.0",
     "react-native-safe-area-context": "^3.3.2",
