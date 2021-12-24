@@ -58,5 +58,9 @@
 		<string>Unica77LL-MediumItalic.otf</string>
 		<string>Unica77LL-Regular.otf</string>
 	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>artsy</string>
+	</array>
 </dict>
 </plist>

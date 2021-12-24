@@ -16,7 +16,6 @@ import {
 import styled from "styled-components/native"
 import { EyeClosedIcon } from "../../svgs/EyeClosedIcon"
 import { MeasuredView } from "../MeasuredView"
-import { InputTitle } from "./InputTitle"
 
 export const INPUT_HEIGHT = 50
 export const INPUT_HEIGHT_MULTILINE = 100
@@ -36,6 +35,7 @@ export interface InputProps extends Omit<TextInputProps, "placeholder"> {
   disabled?: boolean
   required?: boolean
   title?: string
+  titleStyle?: React.ComponentProps<typeof Flex>["style"]
   showLimit?: boolean
   /**
    * The placeholder can be an array of string, specifically for android, because of a bug.
@@ -81,6 +81,7 @@ export const Input = React.forwardRef<TextInput, InputProps>(
       required,
       enableClearButton,
       title,
+      titleStyle,
       renderLeftHandSection,
       secureTextEntry = false,
       textContentType,
@@ -212,7 +213,14 @@ export const Input = React.forwardRef<TextInput, InputProps>(
     return (
       <Flex flexGrow={1} style={containerStyle}>
         <Flex flexDirection="row" alignItems="center">
-          <InputTitle required={required}>{title}</InputTitle>
+          <Text variant="md" style={{ fontSize: 13, marginBottom: 2, textTransform: "uppercase", ...titleStyle }}>
+            {title}
+            {!!required && (
+              <Text variant="md" color={color("blue100")}>
+                *
+              </Text>
+            )}
+          </Text>
           {!!maxLength && !!showLimit && (
             <Text color="black60" variant="xs" marginLeft="auto">
               {maxLength - value.length}
