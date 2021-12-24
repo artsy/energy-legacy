@@ -5,8 +5,16 @@ set -euxo pipefail
 # Get fonts from eigen s3 bucket
 aws s3 cp s3://artsy-citadel/eigen/fonts.tar.gz ./fonts.tar.gz
 
-# Extract fonts
-tar -xvzf fonts.tar.gz -C ./android/app/src/main/assets/fonts
+# Extract fonts to a temporary fonts repo
+mkdir fonts
+tar -xvzf fonts.tar.gz -C ./fonts
+
+# Copy iOS fonts to the iOS assets fonts diretory
+cp -R fonts/ios/. ios/Assets/Fonts
+
+# Copy Android fonts to the Android assets fonts diretory
+cp -R fonts/android/. ./android/app/src/main/assets/fonts
 
 # Cleanup
 rm -rf ./fonts.tar.gz
+rm -rf fonts

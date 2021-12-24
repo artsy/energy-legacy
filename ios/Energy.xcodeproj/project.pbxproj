@@ -14,10 +14,10 @@
 		6172F2D35A4C3AA820D92908 /* libPods-Energy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-Energy.a */; };
 		7EF68E3733C33B6898317E18 /* libPods-Energy-EnergyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-Energy-EnergyTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		E119BA0927416DF5004B3448 /* Unica77LL-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52DB4183041746F9817300E4 /* Unica77LL-Italic.otf */; };
-		E119BA0A27416DF5004B3448 /* Unica77LL-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CE634304AB364BFB8E07AAD9 /* Unica77LL-Medium.otf */; };
-		E119BA0B27416DF5004B3448 /* Unica77LL-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A0860ECE79634429AB7FBAF8 /* Unica77LL-MediumItalic.otf */; };
-		E119BA0C27416DF5004B3448 /* Unica77LL-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DBA8A264F7AA401EB96C034B /* Unica77LL-Regular.otf */; };
+		E141DB5F277603D800A0BBAD /* Unica77LL-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E141DB5C277603CE00A0BBAD /* Unica77LL-Italic.otf */; };
+		E141DB60277603D800A0BBAD /* Unica77LL-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = E141DB5E277603CE00A0BBAD /* Unica77LL-Medium.otf */; };
+		E141DB61277603D800A0BBAD /* Unica77LL-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E141DB5D277603CE00A0BBAD /* Unica77LL-MediumItalic.otf */; };
+		E141DB62277603D800A0BBAD /* Unica77LL-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E141DB5B277603CE00A0BBAD /* Unica77LL-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,16 +41,16 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Energy/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Energy/main.m; sourceTree = "<group>"; };
 		1D0AE47A65C8663E3B452821 /* Pods-Energy-EnergyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Energy-EnergyTests.release.xcconfig"; path = "Target Support Files/Pods-Energy-EnergyTests/Pods-Energy-EnergyTests.release.xcconfig"; sourceTree = "<group>"; };
-		52DB4183041746F9817300E4 /* Unica77LL-Italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Unica77LL-Italic.otf"; path = "../src/assets/fonts/android/Unica77LL-Italic.otf"; sourceTree = "<group>"; };
 		6423831EA8574132BED9D8CC /* libPods-Energy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Energy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C97AB639B58BBB4B15BBE30 /* Pods-Energy-EnergyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Energy-EnergyTests.debug.xcconfig"; path = "Target Support Files/Pods-Energy-EnergyTests/Pods-Energy-EnergyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Energy/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A0860ECE79634429AB7FBAF8 /* Unica77LL-MediumItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Unica77LL-MediumItalic.otf"; path = "../src/assets/fonts/android/Unica77LL-MediumItalic.otf"; sourceTree = "<group>"; };
 		ABFE59519B596E51CEFDCCC0 /* libPods-Energy-EnergyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Energy-EnergyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A881CF5CF3F2B244570E2A /* Pods-Energy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Energy.debug.xcconfig"; path = "Target Support Files/Pods-Energy/Pods-Energy.debug.xcconfig"; sourceTree = "<group>"; };
-		CE634304AB364BFB8E07AAD9 /* Unica77LL-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Unica77LL-Medium.otf"; path = "../src/assets/fonts/android/Unica77LL-Medium.otf"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-Energy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Energy.release.xcconfig"; path = "Target Support Files/Pods-Energy/Pods-Energy.release.xcconfig"; sourceTree = "<group>"; };
-		DBA8A264F7AA401EB96C034B /* Unica77LL-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Unica77LL-Regular.otf"; path = "../src/assets/fonts/android/Unica77LL-Regular.otf"; sourceTree = "<group>"; };
+		E141DB5B277603CE00A0BBAD /* Unica77LL-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Unica77LL-Regular.otf"; sourceTree = "<group>"; };
+		E141DB5C277603CE00A0BBAD /* Unica77LL-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Unica77LL-Italic.otf"; sourceTree = "<group>"; };
+		E141DB5D277603CE00A0BBAD /* Unica77LL-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Unica77LL-MediumItalic.otf"; sourceTree = "<group>"; };
+		E141DB5E277603CE00A0BBAD /* Unica77LL-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Unica77LL-Medium.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -124,6 +124,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				E141DB592776016C00A0BBAD /* Assets */,
 				13B07FAE1A68108700A75B9A /* Energy */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* EnergyTests */,
@@ -146,9 +147,37 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		E141DB572776014B00A0BBAD /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Assets;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		E141DB592776016C00A0BBAD /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E141DB5A2776017400A0BBAD /* Fonts */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E141DB5A2776017400A0BBAD /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E141DB5C277603CE00A0BBAD /* Unica77LL-Italic.otf */,
+				E141DB5E277603CE00A0BBAD /* Unica77LL-Medium.otf */,
+				E141DB5D277603CE00A0BBAD /* Unica77LL-MediumItalic.otf */,
+				E141DB5B277603CE00A0BBAD /* Unica77LL-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E233CBF5F47BEE60B243DCF8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				E141DB572776014B00A0BBAD /* Assets */,
 				C0A881CF5CF3F2B244570E2A /* Pods-Energy.debug.xcconfig */,
 				D00AAFFCFCFDA5787532823F /* Pods-Energy.release.xcconfig */,
 				6C97AB639B58BBB4B15BBE30 /* Pods-Energy-EnergyTests.debug.xcconfig */,
@@ -160,10 +189,6 @@
 		EAD3A01E07274B10BC1396AD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				52DB4183041746F9817300E4 /* Unica77LL-Italic.otf */,
-				CE634304AB364BFB8E07AAD9 /* Unica77LL-Medium.otf */,
-				A0860ECE79634429AB7FBAF8 /* Unica77LL-MediumItalic.otf */,
-				DBA8A264F7AA401EB96C034B /* Unica77LL-Regular.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -262,10 +287,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E119BA0927416DF5004B3448 /* Unica77LL-Italic.otf in Resources */,
-				E119BA0A27416DF5004B3448 /* Unica77LL-Medium.otf in Resources */,
-				E119BA0B27416DF5004B3448 /* Unica77LL-MediumItalic.otf in Resources */,
-				E119BA0C27416DF5004B3448 /* Unica77LL-Regular.otf in Resources */,
+				E141DB5F277603D800A0BBAD /* Unica77LL-Italic.otf in Resources */,
+				E141DB60277603D800A0BBAD /* Unica77LL-Medium.otf in Resources */,
+				E141DB61277603D800A0BBAD /* Unica77LL-MediumItalic.otf in Resources */,
+				E141DB62277603D800A0BBAD /* Unica77LL-Regular.otf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);

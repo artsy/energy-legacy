@@ -59,5 +59,6 @@ buck-out/
 # CocoaPods
 /ios/Pods/
 
-src/assets/fonts/
+# Fonts
 android/app/src/main/assets/fonts/*
+ios/Assets/Fonts/*
