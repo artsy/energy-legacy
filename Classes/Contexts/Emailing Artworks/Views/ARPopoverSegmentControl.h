@@ -1,5 +1,0 @@
-
-
-@interface ARPopoverSegmentControl : UISegmentedControl
-
-@end

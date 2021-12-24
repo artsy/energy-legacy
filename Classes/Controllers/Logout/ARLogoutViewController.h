@@ -1,4 +1,0 @@
-
-
-@interface ARLogoutViewController : UIViewController
-@end

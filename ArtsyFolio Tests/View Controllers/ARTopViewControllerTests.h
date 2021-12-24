@@ -1,1 +1,0 @@
-id stubbedCMSMonitorWithSyncRecommendation(BOOL recommendation);

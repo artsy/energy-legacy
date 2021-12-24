@@ -1,3 +1,0 @@
-coverage_service: coveralls
-xcodeproj: Artsy Folio.xcodeproj
-source_directory: Classes
