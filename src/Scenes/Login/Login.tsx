@@ -6,6 +6,7 @@ import React, { useRef } from "react"
 import { Alert, Platform, ScrollView, Linking, TouchableOpacity, Image, SafeAreaView } from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import * as Yup from "yup"
+import { GlobalStore } from "../../store/GlobalStore"
 
 export interface LoginSchema {
   email: string
@@ -192,8 +193,11 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ navigation, route }) =
     validateOnBlur: true,
     initialValues,
     initialErrors: {},
-    onSubmit: async () => {
-      // Do the login
+    onSubmit: async ({ email, password }) => {
+      const res = await GlobalStore.actions.auth.signInUsingEmail({ email, password })
+      if (!res.success) {
+        Alert.alert(res.message)
+      }
     },
     validationSchema: loginSchema,
   })

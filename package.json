@@ -1,6 +1,6 @@
 {
   "name": "energy",
-  "version": "0.0.1",
+  "version": "3.0.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -22,9 +22,11 @@
     "formik": "^2.2.9",
     "lodash": "^4.17.21",
     "patch-package": "^6.4.7",
+    "qs": "^6.10.2",
     "react": "17.0.2",
     "react-native": "0.66.2",
     "react-native-config": "^1.4.5",
+    "react-native-device-info": "^8.4.8",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-haptic-feedback": "^1.13.0",
     "react-native-safe-area-context": "^3.3.2",
@@ -41,6 +43,7 @@
     "@react-native-community/eslint-config": "^2.0.0",
     "@types/jest": "^26.0.23",
     "@types/lodash": "^4.14.176",
+    "@types/qs": "^6.9.7",
     "@types/react-native": "^0.65.0",
     "@types/react-test-renderer": "^17.0.1",
     "@types/styled-components-react-native": "^5.1.3",

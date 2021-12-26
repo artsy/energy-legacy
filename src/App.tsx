@@ -5,13 +5,16 @@ import { SafeAreaProvider } from "react-native-safe-area-context"
 import { GlobalStoreProvider } from "./store/GlobalStore"
 import { MainNavigationStack } from "./MainNavigationStack"
 import { useStoreRehydrated } from "easy-peasy"
+import { NavigationContainer } from "@react-navigation/native"
 
 LogBox.ignoreLogs(["Expected style "])
 
 const AppProviders = ({ children }: { children: ReactNode }) => (
   <GlobalStoreProvider>
     <SafeAreaProvider>
-      <Theme>{children}</Theme>
+      <Theme>
+        <NavigationContainer>{children}</NavigationContainer>
+      </Theme>
     </SafeAreaProvider>
   </GlobalStoreProvider>
 )

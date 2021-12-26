@@ -8,3 +8,9 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+
+# This is needed in order to keep Install Referrer tracking
+# See https://github.com/react-native-device-info/react-native-device-info#proguard
+-keepclassmembers class com.android.installreferrer.api.** {
+  *;
+}
