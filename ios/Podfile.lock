@@ -343,6 +343,8 @@ PODS:
     - React-jsi (= 0.66.2)
     - React-logger (= 0.66.2)
     - React-perflogger (= 0.66.2)
+  - RNCAsyncStorage (1.15.14):
+    - React-Core
   - RNGestureHandler (1.10.3):
     - React-Core
   - RNReactNativeHapticFeedback (1.13.0):
@@ -411,6 +413,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReactNativeHapticFeedback (from `../node_modules/react-native-haptic-feedback`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -497,6 +500,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/runtimeexecutor"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-async-storage/async-storage"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNReactNativeHapticFeedback:
@@ -553,6 +558,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: 3e815c3d2dd2e0e931b68595b5b92d23ba38b3fb
   React-runtimeexecutor: 393e26602c1b248683372051e34db63e359e3b01
   ReactCommon: c0263c1a41509aeb94be3214fa7bc3b71eae5ef6
+  RNCAsyncStorage: ea6b5c280997b2b32a587793163b1f10e580c4f7
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNReactNativeHapticFeedback: b83bfb4b537bdd78eb4f6ffe63c6884f7b049ead
   RNScreens: 4d79118be80f79fa1f4aa131909a1d6e86280af3

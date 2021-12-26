@@ -13,9 +13,11 @@
   },
   "dependencies": {
     "@artsy/palette-tokens": "^2.6.0",
+    "@react-native-async-storage/async-storage": "^1.15.14",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
     "@styled-system/theme-get": "^5.1.2",
+    "easy-peasy": "^5.0.4",
     "events": "^3.3.0",
     "formik": "^2.2.9",
     "lodash": "^4.17.21",
