@@ -5,7 +5,6 @@ import { Box, Button, Flex, Input, Spacer, Text, useColor, useSpace } from "pale
 import React, { useRef } from "react"
 import { Alert, Platform, ScrollView, Linking, TouchableOpacity, Image, SafeAreaView } from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
-import { GlobalStore } from "../../store/GlobalStore"
 import * as Yup from "yup"
 
 export interface LoginSchema {

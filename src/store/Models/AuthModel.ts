@@ -10,7 +10,7 @@ export interface AuthModel extends AuthModelState {
   setState: Action<this, Partial<AuthModelState>>
 }
 
-export const authModel: AuthModel = {
+export const AuthModel: AuthModel = {
   userAccessToken: null,
   xAppToken: null,
   xApptokenExpiresIn: null,

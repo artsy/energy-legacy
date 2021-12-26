@@ -1,7 +1,7 @@
 import React from "react"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { StoreProvider, createStore, createTypedHooks, persist } from "easy-peasy"
-import { GlobalStoreModel } from "./GlobalStoreModel"
+import { GlobalStoreModel } from "./Models/GlobalStoreModel"
 import { Platform } from "react-native"
 
 const STORE_VERSION = 0
