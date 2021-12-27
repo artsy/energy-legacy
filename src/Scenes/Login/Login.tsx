@@ -3,7 +3,8 @@ import { FormikProvider, useFormik, useFormikContext } from "formik"
 import { MainNavigationStack } from "MainNavigationStack"
 import { Box, Button, Flex, Input, Spacer, Text, useColor, useSpace } from "palette"
 import React, { useRef } from "react"
-import { Alert, Platform, ScrollView, Linking, TouchableOpacity, Image, SafeAreaView } from "react-native"
+import { Alert, Image, Linking, Platform, ScrollView, TouchableOpacity } from "react-native"
+import LinearGradient from "react-native-linear-gradient"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import * as Yup from "yup"
 import { GlobalStore } from "../../store/GlobalStore"
@@ -55,7 +56,12 @@ export const LoginScreenContent: React.FC<LoginScreenProps> = ({}) => {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1, flexGrow: 1, backgroundColor: color("black60") }}>
+    <LinearGradient
+      colors={["#8D8D8D", "#999999", "#A9A9A9", "#B9B9B9", "#838383", "#6A6A6A"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={{ flex: 1, flexGrow: 1 }}
+    >
       <ScrollView
         contentContainerStyle={{ paddingTop: insets.top, paddingHorizontal: space(2) }}
         keyboardShouldPersistTaps="always"
@@ -151,10 +157,10 @@ export const LoginScreenContent: React.FC<LoginScreenProps> = ({}) => {
           onPress={handleSubmit}
           block
           haptic="impactMedium"
-          disabled={!(isValid && dirty)} // isSubmitting to prevent weird appearances of the errors caused by async submiting
+          disabled={!(isValid && dirty) || isSubmitting} // isSubmitting to prevent weird appearances of the errors caused by async submiting
           loading={isSubmitting}
           testID="loginButton"
-          variant="fillLight"
+          variant="fillDark"
         >
           Log in
         </Button>
@@ -180,7 +186,7 @@ export const LoginScreenContent: React.FC<LoginScreenProps> = ({}) => {
           </Flex>
         </TouchableOpacity>
       </Flex>
-    </SafeAreaView>
+    </LinearGradient>
   )
 }
 
@@ -194,10 +200,19 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ navigation, route }) =
     initialValues,
     initialErrors: {},
     onSubmit: async ({ email, password }) => {
-      const res = await GlobalStore.actions.auth.signInUsingEmail({ email, password })
-      if (!res.success) {
-        Alert.alert(res.message)
-      }
+      GlobalStore.actions.auth
+        .signInUsingEmail({ email, password })
+        .then((res: { success: boolean; message: string }) => {
+          if (!res.success) {
+            if (res.message) {
+              Alert.alert(res.message)
+            }
+          }
+        })
+        .catch((error: string) => {
+          throw new Error(error)
+        })
+      // const res = await GlobalStore.actions.auth.signInUsingEmail({ email, password })
     },
     validationSchema: loginSchema,
   })

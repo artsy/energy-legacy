@@ -13,17 +13,29 @@ if (Platform.OS === "ios") {
 
 const asynchStorage = {
   async getItem(key: string) {
-    const res = await AsyncStorage.getItem(key)
-    if (res) {
-      return JSON.parse(res)
+    try {
+      const res = await AsyncStorage.getItem(key)
+      if (res) {
+        return JSON.parse(res)
+      }
+      return null
+    } catch (error) {
+      throw new Error(error as string)
     }
-    return null
   },
   async setItem(key: string, data: string) {
-    AsyncStorage.setItem(key, JSON.stringify(data))
+    try {
+      await AsyncStorage.setItem(key, JSON.stringify(data))
+    } catch (error) {
+      throw new Error(error as string)
+    }
   },
   async removeItem(key: string) {
-    AsyncStorage.removeItem(key)
+    try {
+      await AsyncStorage.removeItem(key)
+    } catch (error) {
+      throw new Error(error as string)
+    }
   },
 }
 

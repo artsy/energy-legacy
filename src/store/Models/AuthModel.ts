@@ -125,6 +125,7 @@ export const AuthModel: AuthModel = {
         })
         return {
           success: true,
+          message: null,
         }
       }
 
