@@ -7,6 +7,7 @@ import { stringify } from "qs"
 interface AuthModelState {
   userAccessToken: string | null
   userAccessTokenExpiresIn: string | null
+  userID: string | null
   xAppToken: string | null
   xApptokenExpiresIn: string | null
 }
@@ -14,11 +15,13 @@ interface AuthModelState {
 const authModelInitialState: AuthModelState = {
   userAccessToken: null,
   userAccessTokenExpiresIn: null,
+  userID: null,
   xAppToken: null,
   xApptokenExpiresIn: null,
 }
 export interface AuthModel extends AuthModelState {
   setState: Action<this, Partial<AuthModelState>>
+  getUserID: Thunk<this, void, {}, GlobalStoreModel>
   getXAppToken: Thunk<this, void, {}, GlobalStoreModel, Promise<string>>
   gravityUnauthenticatedRequest: Thunk<
     this,
@@ -40,6 +43,23 @@ export const AuthModel: AuthModel = {
   ...authModelInitialState,
 
   setState: action((state, payload) => Object.assign(state, payload)),
+
+  getUserID: thunk(async (actions, _payload, context) => {
+    const user = await (
+      await actions.gravityUnauthenticatedRequest({
+        path: `/api/v1/me`,
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "X-ACCESS-TOKEN": context.getState().userAccessToken!,
+        },
+      })
+    ).json()
+
+    actions.setState({
+      userID: user.id,
+    })
+  }),
 
   getXAppToken: thunk(async (actions, _payload, context) => {
     const { xAppToken, xApptokenExpiresIn } = context.getState()
@@ -123,6 +143,9 @@ export const AuthModel: AuthModel = {
           userAccessToken: access_token,
           userAccessTokenExpiresIn: expires_in,
         })
+
+        await actions.getUserID()
+
         return {
           success: true,
           message: null,

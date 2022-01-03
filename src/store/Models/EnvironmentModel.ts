@@ -22,6 +22,13 @@ export const environmentOptions = defineEnvironmentOptions({
       production: "https://api.artsy.net",
     },
   },
+  metaphysicsURL: {
+    description: "Metaphysics URL",
+    presets: {
+      staging: "https://metaphysics-staging.artsy.net/v2",
+      production: "https://metaphysics-production.artsy.net/v2",
+    },
+  },
 })
 
 export type EnvironmentKey = keyof typeof environmentOptions

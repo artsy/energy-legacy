@@ -67,3 +67,17 @@ export const GlobalStore = {
 export const GlobalStoreProvider: React.FC<{}> = ({ children }) => {
   return <StoreProvider store={globalStoreInstance}>{children}</StoreProvider>
 }
+
+/**
+ * This is marked as unsafe because it will not cause a re-render
+ */
+export function unsafe__getEnvironment() {
+  return { ...globalStoreInstance.getState().config.environment }
+}
+
+/**
+ * This is marked as unsafe because it will not cause a re-render
+ */
+export function unsafe__getAuth() {
+  return { ...globalStoreInstance.getState().auth }
+}
