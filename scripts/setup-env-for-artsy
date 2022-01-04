@@ -2,4 +2,5 @@
 set -euxo pipefail
 
 
-./scripts/download-fonts
+./download-fonts
+./prepare-env-vars
