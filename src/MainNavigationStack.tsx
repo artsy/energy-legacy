@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import React from "react"
-import { HomeScreen } from "./Scenes/Home/Home"
-import { LoginScreen } from "./Scenes/Login/Login"
-import { GlobalStore } from "./store/GlobalStore"
+import { HomeScreen } from "@Scenes/Home/Home"
+import { LoginScreen } from "@Scenes/Login/Login"
+import { GlobalStore } from "@store/GlobalStore"
 
 // tslint:disable-next-line:interface-over-type-literal
 export type MainNavigationStack = {

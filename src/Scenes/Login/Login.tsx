@@ -1,4 +1,5 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
+import { GlobalStore } from "@store/GlobalStore"
 import { FormikProvider, useFormik, useFormikContext } from "formik"
 import { MainNavigationStack } from "MainNavigationStack"
 import { Box, Button, Flex, Input, Spacer, Text, useColor, useSpace } from "palette"
@@ -7,7 +8,6 @@ import { Alert, Image, Linking, Platform, ScrollView, TouchableOpacity } from "r
 import LinearGradient from "react-native-linear-gradient"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import * as Yup from "yup"
-import { GlobalStore } from "../../store/GlobalStore"
 
 export interface LoginSchema {
   email: string

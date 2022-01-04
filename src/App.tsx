@@ -7,7 +7,7 @@ import { MainNavigationStack } from "./MainNavigationStack"
 import { useStoreRehydrated } from "easy-peasy"
 import { RelayEnvironmentProvider } from "react-relay/hooks"
 import { NavigationContainer } from "@react-navigation/native"
-import { defaultEnvironment } from "./relay/defaultEnvironent"
+import { defaultEnvironment } from "@relay/defaultEnvironent"
 
 LogBox.ignoreLogs(["Expected style "])
 
