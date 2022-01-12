@@ -28,8 +28,8 @@ export const HomeScreen: React.FC<HomeNavigationProps> = ({}) => {
     <Flex flex={1} justifyContent="center" alignItems="center">
       <HomeUser me={data.me} />
       <Button
-        onPress={async () => {
-          await GlobalStore.actions.auth.signOut()
+        onPress={() => {
+          GlobalStore.actions.auth.signOut()
         }}
       >
         Log out

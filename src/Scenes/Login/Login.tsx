@@ -210,7 +210,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ navigation, route }) =
           }
         })
         .catch((error: string) => {
-          throw new Error(error)
+          console.warn(error)
         })
       // const res = await GlobalStore.actions.auth.signInUsingEmail({ email, password })
     },

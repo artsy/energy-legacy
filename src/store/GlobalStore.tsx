@@ -18,23 +18,22 @@ const asynchStorage = {
       if (res) {
         return JSON.parse(res)
       }
-      return null
     } catch (error) {
-      throw new Error(error as string)
+      throw error
     }
   },
   async setItem(key: string, data: string) {
     try {
       await AsyncStorage.setItem(key, JSON.stringify(data))
     } catch (error) {
-      throw new Error(error as string)
+      throw error
     }
   },
   async removeItem(key: string) {
     try {
       await AsyncStorage.removeItem(key)
     } catch (error) {
-      throw new Error(error as string)
+      throw error
     }
   },
 }

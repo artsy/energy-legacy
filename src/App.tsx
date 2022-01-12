@@ -12,30 +12,21 @@ import { defaultEnvironment } from "@relay/defaultEnvironent"
 LogBox.ignoreLogs(["Expected style "])
 
 const AppProviders = ({ children }: { children: ReactNode }) => (
-  <GlobalStoreProvider>
-    <RelayEnvironmentProvider environment={defaultEnvironment}>
-      <SafeAreaProvider>
-        <Theme>
-          <NavigationContainer>{children}</NavigationContainer>
-        </Theme>
-      </SafeAreaProvider>
-    </RelayEnvironmentProvider>
-  </GlobalStoreProvider>
+  <RelayEnvironmentProvider environment={defaultEnvironment}>
+    <SafeAreaProvider>
+      <Theme>
+        <NavigationContainer>{children}</NavigationContainer>
+      </Theme>
+    </SafeAreaProvider>
+  </RelayEnvironmentProvider>
 )
 
-const Main = () => {
-  const isRehydrated = useStoreRehydrated()
-
-  if (!isRehydrated) {
-    return null
-  }
-
-  return <MainNavigationStack />
-}
 export const App = () => {
   return (
-    <AppProviders>
-      <Main />
-    </AppProviders>
+    <GlobalStoreProvider>
+      <AppProviders>
+        <MainNavigationStack />
+      </AppProviders>
+    </GlobalStoreProvider>
   )
 }

@@ -21,7 +21,7 @@ const authModelInitialState: AuthModelState = {
 }
 export interface AuthModel extends AuthModelState {
   setState: Action<this, Partial<AuthModelState>>
-  getUserID: Thunk<this, void, {}, GlobalStoreModel>
+  setUserID: Thunk<this, void, {}, GlobalStoreModel>
   getXAppToken: Thunk<this, void, {}, GlobalStoreModel, Promise<string>>
   gravityUnauthenticatedRequest: Thunk<
     this,
@@ -44,21 +44,25 @@ export const AuthModel: AuthModel = {
 
   setState: action((state, payload) => Object.assign(state, payload)),
 
-  getUserID: thunk(async (actions, _payload, context) => {
-    const user = await (
-      await actions.gravityUnauthenticatedRequest({
-        path: `/api/v1/me`,
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "X-ACCESS-TOKEN": context.getState().userAccessToken!,
-        },
-      })
-    ).json()
+  setUserID: thunk(async (actions, _payload, context) => {
+    try {
+      const user = await (
+        await actions.gravityUnauthenticatedRequest({
+          path: `/api/v1/me`,
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "X-ACCESS-TOKEN": context.getState().userAccessToken!,
+          },
+        })
+      ).json()
 
-    actions.setState({
-      userID: user.id,
-    })
+      actions.setState({
+        userID: user.id,
+      })
+    } catch (error) {
+      fail(error)
+    }
   }),
 
   getXAppToken: thunk(async (actions, _payload, context) => {
@@ -75,14 +79,13 @@ export const AuthModel: AuthModel = {
     })}`
 
     try {
-      const resJson = await (
-        await fetch(tokenURL, {
-          headers: {
-            "User-Agent": getUserAgent(),
-          },
-        })
-      ).json()
+      const res = await await fetch(tokenURL, {
+        headers: {
+          "User-Agent": getUserAgent(),
+        },
+      })
 
+      const resJson = await res.json()
       if (resJson.xapp_token && resJson.expires_in) {
         actions.setState({
           xAppToken: resJson.xapp_token,
@@ -91,7 +94,7 @@ export const AuthModel: AuthModel = {
         return resJson.xapp_token
       }
     } catch (error) {
-      throw new Error("Unable to get x-app-token" + error)
+      fail(error)
     }
   }),
 
@@ -112,7 +115,7 @@ export const AuthModel: AuthModel = {
       })
       return res
     } catch (error) {
-      throw error
+      fail(error)
     }
   }),
 
@@ -135,23 +138,19 @@ export const AuthModel: AuthModel = {
         },
       })
       const resJson = await result.json()
-
-      // The user has successfully logged in
+      // // The user has successfully logged in
       if (result.status === 201) {
         const { expires_in, access_token } = resJson
+        await actions.setUserID()
         actions.setState({
           userAccessToken: access_token,
           userAccessTokenExpiresIn: expires_in,
         })
-
-        await actions.getUserID()
-
         return {
           success: true,
           message: null,
         }
       }
-
       return {
         success: false,
         message: resJson.error_description || "Unable to log in, please try again later",

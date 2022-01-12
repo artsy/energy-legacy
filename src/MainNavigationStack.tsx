@@ -3,6 +3,7 @@ import React from "react"
 import { HomeScreen } from "@Scenes/Home/Home"
 import { LoginScreen } from "@Scenes/Login/Login"
 import { GlobalStore } from "@store/GlobalStore"
+import { useStoreRehydrated } from "easy-peasy"
 
 // tslint:disable-next-line:interface-over-type-literal
 export type MainNavigationStack = {
@@ -13,7 +14,12 @@ export type MainNavigationStack = {
 const Stack = createNativeStackNavigator<MainNavigationStack>()
 
 export const MainNavigationStack = () => {
+  const isRehydrated = useStoreRehydrated()
   const isLoggedIn = !!GlobalStore.useAppState((store) => store.auth.userAccessToken)
+
+  if (!isRehydrated) {
+    return null
+  }
 
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
