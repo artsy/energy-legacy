@@ -2,7 +2,7 @@ import { BottomTabNavigationOptions, createBottomTabNavigator } from "@react-nav
 import { createStackNavigator } from "@react-navigation/stack"
 import { AlbumsScreen } from "@Scenes/Albums/Albums"
 import { ArtistsScreen } from "@Scenes/Artists/Artists"
-import { SelectPartner } from "@Scenes/SelectPartner/SelectPartner"
+import { SelectPartnerScreen } from "@Scenes/SelectPartner/SelectPartner"
 import { SettingsScreen } from "@Scenes/Settings.tsx/Settings"
 import { ShowsScreen } from "@Scenes/Shows/Shows"
 import { useColor, useTheme } from "palette"
@@ -92,7 +92,7 @@ export const AuthenticatedStack = () => {
   const selectedPartner = GlobalStore.useAppState((state) => state.activePartnerID)
 
   if (!selectedPartner) {
-    return <SelectPartner />
+    return <SelectPartnerScreen />
   }
 
   return <MainAuthenticatedStack />
