@@ -42,6 +42,7 @@
       "@Scenes/*": ["./Scenes/*"],
       "@store/*": ["./store/*"],
       "@relay/*": ["./relay/*"],
+      "@routes/*": ["./routes/*"],
       "@helpers/*": ["./helpers/*"],
       "@assets/*": ["./assets/*"],
     },                           

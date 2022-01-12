@@ -14,6 +14,7 @@ const plugins = [
           "@Scenes": "./src/Scenes",
           "@store": "./src/store",
           "@relay": "./src/relay",
+          "@routes": "./src/routes",
           "@helpers": "./src/helpers",
           "@assets": "./src/assets",
         }
