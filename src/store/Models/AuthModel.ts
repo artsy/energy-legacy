@@ -21,7 +21,7 @@ const authModelInitialState: AuthModelState = {
 }
 export interface AuthModel extends AuthModelState {
   setState: Action<this, Partial<AuthModelState>>
-  setUserID: Thunk<this, void, {}, GlobalStoreModel>
+  getUserID: Thunk<this, void, {}, GlobalStoreModel>
   getXAppToken: Thunk<this, void, {}, GlobalStoreModel, Promise<string>>
   gravityUnauthenticatedRequest: Thunk<
     this,
@@ -44,7 +44,7 @@ export const AuthModel: AuthModel = {
 
   setState: action((state, payload) => Object.assign(state, payload)),
 
-  setUserID: thunk(async (actions, _payload, context) => {
+  getUserID: thunk(async (actions, _payload, context) => {
     try {
       const user = await (
         await actions.gravityUnauthenticatedRequest({
@@ -57,9 +57,7 @@ export const AuthModel: AuthModel = {
         })
       ).json()
 
-      actions.setState({
-        userID: user.id,
-      })
+      return user.id
     } catch (error) {
       fail(error)
     }
@@ -141,10 +139,11 @@ export const AuthModel: AuthModel = {
       // // The user has successfully logged in
       if (result.status === 201) {
         const { expires_in, access_token } = resJson
-        await actions.setUserID()
+        const userId = await actions.getUserID()
         actions.setState({
           userAccessToken: access_token,
           userAccessTokenExpiresIn: expires_in,
+          userID: userId,
         })
         return {
           success: true,

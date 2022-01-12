@@ -10,6 +10,6 @@ import { enableFreeze } from "react-native-screens"
 
 // Prevent React component subtrees from rendering.
 // This is still experimental so we can try it out and disable it later if it's unstable
-enableFreeze(true)
+enableFreeze(false)
 
 AppRegistry.registerComponent(appName, () => App)
