@@ -1,14 +1,26 @@
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
-import { TabNavigatorStack } from "@routes/AuthenticatedNavigationStacks"
-import { Flex, Text } from "palette"
+import { CompositeScreenProps } from "@react-navigation/native"
+import { StackScreenProps } from "@react-navigation/stack"
+import { MainAuthenticatedStackProps, TabNavigatorStack } from "@routes/AuthenticatedNavigationStacks"
+import { Button, Flex } from "palette"
 import React from "react"
 
-export interface ArtistsScreenProps extends BottomTabScreenProps<TabNavigatorStack, "Artists"> {}
+interface ArtistsScreenProps
+  extends CompositeScreenProps<
+    BottomTabScreenProps<TabNavigatorStack, "Artists">,
+    StackScreenProps<MainAuthenticatedStackProps, "TabNavigatorStack">
+  > {}
 
-export const ArtistsScreen: React.FC<ArtistsScreenProps> = () => {
+export const ArtistsScreen: React.FC<ArtistsScreenProps> = ({ navigation, route }) => {
   return (
     <Flex flex={1} justifyContent="center" alignItems="center" backgroundColor="white">
-      <Text>Artists Screen</Text>
+      <Button
+        onPress={() => {
+          navigation.navigate("Settings")
+        }}
+      >
+        Go to settings
+      </Button>
     </Flex>
   )
 }
