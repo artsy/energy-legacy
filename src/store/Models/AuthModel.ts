@@ -63,6 +63,7 @@ export const AuthModel: AuthModel = {
 
   getXAppToken: thunk(async (actions, _payload, context) => {
     const { xAppToken, xApptokenExpiresIn } = context.getState()
+
     if (xAppToken && xApptokenExpiresIn && new Date() < new Date(xApptokenExpiresIn)) {
       return xAppToken
     }
@@ -99,21 +100,16 @@ export const AuthModel: AuthModel = {
     const gravityBaseURL = context.getStoreState().config.environment.strings.gravityURL
     const xAppToken = await actions.getXAppToken()
 
-    try {
-      const res = await fetch(`${gravityBaseURL}${payload.path}`, {
-        method: payload.method || "GET",
-        headers: {
-          "X-Xapp-Token": xAppToken,
-          Accept: "application/json",
-          "User-Agent": getUserAgent(),
-          ...payload.headers,
-        },
-        body: payload.body ? JSON.stringify(payload.body) : undefined,
-      })
-      return res
-    } catch (error) {
-      throw error
-    }
+    return fetch(`${gravityBaseURL}${payload.path}`, {
+      method: payload.method || "GET",
+      headers: {
+        "X-Xapp-Token": xAppToken,
+        Accept: "application/json",
+        "User-Agent": getUserAgent(),
+        ...payload.headers,
+      },
+      body: payload.body ? JSON.stringify(payload.body) : undefined,
+    })
   }),
 
   signInUsingEmail: thunk(async (actions, { email, password }) => {
@@ -134,6 +130,8 @@ export const AuthModel: AuthModel = {
           client_secret: Config.ARTSY_API_CLIENT_SECRET,
         },
       })
+
+      console.log(result)
       const resJson = await result.json()
 
       // The user has successfully logged in

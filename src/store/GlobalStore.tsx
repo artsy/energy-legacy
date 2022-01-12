@@ -1,55 +1,30 @@
+import { createStore, createTypedHooks, StoreProvider } from "easy-peasy"
 import React from "react"
-import AsyncStorage from "@react-native-async-storage/async-storage"
-import { StoreProvider, createStore, createTypedHooks, persist } from "easy-peasy"
+import { Middleware } from "redux"
 import { GlobalStoreModel } from "./Models/GlobalStoreModel"
-import { Platform } from "react-native"
-
-const STORE_VERSION = 0
-
-if (Platform.OS === "ios") {
-  // @ts-ignore
-  window.requestIdleCallback = null
-}
-
-const asynchStorage = {
-  async getItem(key: string) {
-    try {
-      const res = await AsyncStorage.getItem(key)
-      if (res) {
-        return JSON.parse(res)
-      }
-      return null
-    } catch (error) {
-      throw new Error(error as string)
-    }
-  },
-  async setItem(key: string, data: string) {
-    try {
-      await AsyncStorage.setItem(key, JSON.stringify(data))
-    } catch (error) {
-      throw new Error(error as string)
-    }
-  },
-  async removeItem(key: string) {
-    try {
-      await AsyncStorage.removeItem(key)
-    } catch (error) {
-      throw new Error(error as string)
-    }
-  },
-}
+import { getPersistedState, persistenceMiddleware } from "./persistence"
 
 function createGlobalStore() {
-  const store = createStore<GlobalStoreModel>(
-    persist(GlobalStoreModel, {
-      storage: asynchStorage,
-    }),
-    {
-      name: "GlobalStore",
-      version: STORE_VERSION,
-      devTools: __DEV__,
-    }
-  )
+  const middlewares: Middleware[] = []
+
+  middlewares.push(persistenceMiddleware)
+
+  if (__DEV__) {
+    const reduxInFlipper = require("redux-flipper").default
+    middlewares.push(reduxInFlipper())
+  }
+
+  const store = createStore<GlobalStoreModel>(GlobalStoreModel, {
+    middleware: middlewares,
+  })
+
+  // // // Rehydrate the store state
+  getPersistedState().then(async (state) => {
+    console.log("store => ", state)
+
+    store.getActions().rehydrate(state)
+  })
+
   return store
 }
 
