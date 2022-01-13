@@ -14,24 +14,26 @@ import { extractNodes } from "../../helpers/extractNodes"
 const ARTIST_CARD_WIDTH = 160
 
 interface ArtistThumbnailProps {
-  artist: NonNullable<NonNullable<NonNullable<NonNullable<NonNullable<ArtistsScreenQuery["response"]["partner"]>["allArtistsConnection"]>["edges"]>[0]>["node"]>
+  artist: NonNullable<
+    NonNullable<
+      NonNullable<
+        NonNullable<NonNullable<ArtistsScreenQuery["response"]["partner"]>["allArtistsConnection"]>["edges"]
+      >[0]
+    >["node"]
+  >
 }
 
-export const ArtistThumbnail: React.FC<ArtistThumbnailProps> = ({artist}) => {
+export const ArtistThumbnail: React.FC<ArtistThumbnailProps> = ({ artist }) => {
   const navigation = useNavigation<StackNavigationProp<MainAuthenticatedStackProps>>()
   return (
-    <Touchable
-      onPress={() => navigation.navigate("Artist", { artistID: artist.internalID })}
-    >
+    <Touchable onPress={() => navigation.navigate("Artist", { artistID: artist.internalID })}>
       <Flex m={1} alignItems="center" flexDirection="column" width={ARTIST_CARD_WIDTH}>
-        <Avatar
-          src={artist.imageUrl!}
-          size="md"
-          initials={artist.imageUrl ? "" : artist.initials!}
-        />
+        <Avatar src={artist.imageUrl!} size="md" initials={artist.imageUrl ? "" : artist.initials!} />
         <Text variant="sm">{artist.displayLabel}</Text>
-        <Text variant="sm" color="black60">{artist.formattedNationalityAndBirthday || "-"}</Text>
-        <Text variant="xs">{artist.formattedArtworksCount  || "-"}</Text>
+        <Text variant="sm" color="black60">
+          {artist.formattedNationalityAndBirthday || "-"}
+        </Text>
+        <Text variant="xs">{artist.formattedArtworksCount || "-"}</Text>
       </Flex>
     </Touchable>
   )
@@ -75,13 +77,13 @@ export const Artists: React.FC = () => {
 
   const navigation = useNavigation<StackNavigationProp<MainAuthenticatedStackProps>>()
   const { width } = useSafeAreaFrame()
-  const numColumns = Math.floor(width/(ARTIST_CARD_WIDTH + 20))
+  const numColumns = Math.floor(width / (ARTIST_CARD_WIDTH + 20))
 
   return (
     <Flex flex={1} justifyContent="center" alignItems="center" backgroundColor="white">
       <FlatList
         data={artists}
-        renderItem={({item: artist}) => <ArtistThumbnail artist={artist} />}
+        renderItem={({ item: artist }) => <ArtistThumbnail artist={artist} />}
         keyExtractor={(item) => item?.internalID!}
         numColumns={numColumns}
         key={numColumns}
@@ -100,6 +102,6 @@ export const ArtistsScreen: React.FC<ArtistsScreenProps> = () => (
       </Flex>
     )}
   >
-    <Artists/>
+    <Artists />
   </React.Suspense>
 )
