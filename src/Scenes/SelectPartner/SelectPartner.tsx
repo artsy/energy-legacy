@@ -50,7 +50,7 @@ export const SelectPartner: React.FC<SelectPartnerProps> = ({ partners }) => {
   return (
     <FlatList
       data={filteredData}
-      keyExtractor={(item) => item?.id!}
+      keyExtractor={(item) => item?.internalID!}
       renderItem={({ item: partner }) => {
         return <PartnerRow partner={partner!} />
       }}
@@ -70,7 +70,7 @@ interface PartnerRow {
 
 const PartnerRow: React.FC<PartnerRow> = ({ partner }) => (
   <Button variant="outline" block onPress={() => {
-    GlobalStore.actions.setActivePartnerID(partner.id)
+    GlobalStore.actions.setActivePartnerID(partner.internalID)
   }}>
     <Text>{partner.name}</Text>
   </Button>
@@ -83,7 +83,7 @@ export const SelectPartnerScreen = () => {
         me {
           partners {
             name
-            id: internalID
+            internalID
           }
         }
       }
