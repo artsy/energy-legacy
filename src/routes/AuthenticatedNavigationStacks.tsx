@@ -1,10 +1,10 @@
 import { BottomTabNavigationOptions, createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { createStackNavigator } from "@react-navigation/stack"
 import { AlbumsScreen } from "@Scenes/Albums/Albums"
+import { ArtistScreen } from "@Scenes/Artist/Artist"
 import { ArtistsScreen } from "@Scenes/Artists/Artists"
 import { SelectPartnerScreen } from "@Scenes/SelectPartner/SelectPartner"
-import { SettingsScreen } from "@Scenes/Settings.tsx/Settings"
-import { ArtistScreen } from "@Scenes/Artist/Artist"
+import { SettingsScreenStack } from "@Scenes/Settings/Settings"
 import { ShowsScreen } from "@Scenes/Shows/Shows"
 import { useColor, useTheme } from "palette"
 import React from "react"
@@ -85,7 +85,11 @@ export const MainAuthenticatedStack = () => {
         component={TabNavigatorStack}
         options={{ headerShown: false }}
       />
-      <MainAuthenticatedStackNavigator.Screen name="Settings" component={SettingsScreen} />
+      <MainAuthenticatedStackNavigator.Screen
+        name="Settings"
+        component={SettingsScreenStack}
+        options={{ headerShown: false }}
+      />
       <MainAuthenticatedStackNavigator.Screen name="Artist" component={ArtistScreen} />
     </MainAuthenticatedStackNavigator.Navigator>
   )

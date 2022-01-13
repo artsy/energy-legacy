@@ -1,0 +1,41 @@
+{
+  "files.associations": {
+    "*.podspec": "ruby",
+    "Podfile": "ruby",
+    "*.h": "objective-c",
+    "*.js": "javascriptreact",
+    "yarn.lock": "text",
+    "tslint.json": "jsonc"
+  },
+  "eslint.enable": false,
+  "editor.formatOnSave": true,
+  "files.trimTrailingWhitespace": true,
+  "prettier.singleQuote": false,
+  "prettier.trailingComma": "es5",
+  "prettier.semi": false,
+  "prettier.printWidth": 120,
+  "editor.rulers": [
+    120
+  ],
+  "editor.tabSize": 2,
+  "files.exclude": {
+    "**/.git": true,
+    "build": true,
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    ".vscode/.react/*": true
+  },
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "todohighlight.exclude": [
+    "node_modules/**",
+    ".vscode/**",
+    "externals/**"
+  ],
+  "tslint.autoFixOnSave": true,
+  "typescript.format.enable": false,
+  "[json]": {
+    "editor.formatOnSave": false
+  },
+  "javascript.validate.enable": true
+}

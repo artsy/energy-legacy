@@ -1,6 +1,6 @@
 import { Platform } from "react-native"
 import { getBuildNumber, getUserAgentSync } from "react-native-device-info"
-import packageJson from "../../package.json"
+import packageJson from "../../../package.json"
 
 export const getUserAgent = () => {
   // `getUserAgentSync` breaks the Chrome Debugger, so we use a string instead.
