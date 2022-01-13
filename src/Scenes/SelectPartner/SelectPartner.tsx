@@ -1,49 +1,66 @@
 import { GlobalStore } from "@store/GlobalStore"
-import { compact } from "lodash"
-import { Flex, Spacer, Text } from "palette"
-import React from "react"
-import { ActivityIndicator, FlatList, TouchableOpacity } from "react-native"
+import { Button, Flex, Spacer, Separator, Text } from "palette"
+import React, { useState, useEffect } from "react"
+import { ActivityIndicator, FlatList } from "react-native"
 import { SafeAreaView, useSafeAreaFrame } from "react-native-safe-area-context"
 import { graphql, useLazyLoadQuery } from "react-relay"
 import { SelectPartnerQuery } from "__generated__/SelectPartnerQuery.graphql"
+import { SearchInput } from "../../helpers/components/SearchInput/SearchInput"
 
 type Partners = NonNullable<NonNullable<SelectPartnerQuery["response"]["me"]>["partners"]>
+
+interface SelectPartnerHeaderProps {
+  onSearchChange: (term: string) => void
+  searchValue: string
+}
+export const SelectPartnerHeader: React.FC<SelectPartnerHeaderProps> = ({onSearchChange, searchValue}) => {
+  return (
+    <Flex
+      backgroundColor="white"
+      mb={2}
+      flexDirection="column"
+      alignItems="center"
+    >
+      <Text variant="md" textAlign="center">
+        Select a partner to continue
+      </Text>
+      <SearchInput placeholder="Type to search..." onChangeText={onSearchChange} value={searchValue} />
+      <Separator mt={2} />
+    </Flex>
+  )
+}
+
 interface SelectPartnerProps {
-  partners: Partners
+  partners: NonNullable<Partners>
 }
 
 export const SelectPartner: React.FC<SelectPartnerProps> = ({ partners }) => {
   const { width } = useSafeAreaFrame()
+  const [search, setSearch] = useState("")
+  const [filteredData, setFilteredData] = useState(partners)
+
+  useEffect(() => {
+    if (!partners) return
+    setFilteredData(partners.filter((partner) => {
+      const name = partner?.name?.toLowerCase() || ""
+      return name?.indexOf(search.toLowerCase()) > -1
+    }))
+  }, [search, partners])
 
   return (
-    <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "white" }}>
-      <FlatList
-        data={compact(new Array(20).fill(partners[0]))}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item: partner }) => {
-          return <PartnerRow partner={partner} />
-        }}
-        ItemSeparatorComponent={() => <Spacer mt={2} />}
-        stickyHeaderIndices={[0]}
-        ListHeaderComponent={() => (
-          <Flex
-            width={width}
-            height={100}
-            backgroundColor="white"
-            justifyContent="center"
-            borderTopWidth={1}
-            borderBottomWidth={2}
-            mb={2}
-          >
-            <Text variant="md" textAlign="center">
-              Select a partner to continue
-            </Text>
-          </Flex>
-        )}
-        contentContainerStyle={{ width: width - 20 }}
-        showsVerticalScrollIndicator={false}
-      />
-    </SafeAreaView>
+    <FlatList
+      data={filteredData}
+      keyExtractor={(item) => item?.internalID!}
+      renderItem={({ item: partner }) => {
+        return <PartnerRow partner={partner!} />
+      }}
+      ItemSeparatorComponent={() => <Spacer mt={2} />}
+      stickyHeaderIndices={[0]}
+      ListHeaderComponent={<SelectPartnerHeader onSearchChange={setSearch} searchValue={search} />}
+      ListEmptyComponent={<Text>No partners found</Text>}
+      contentContainerStyle={{ width: width - 20 }}
+      showsVerticalScrollIndicator={false}
+    />
   )
 }
 
@@ -52,15 +69,11 @@ interface PartnerRow {
 }
 
 const PartnerRow: React.FC<PartnerRow> = ({ partner }) => (
-  <TouchableOpacity
-    onPress={() => {
-      GlobalStore.actions.setActivePartnerID(partner.id)
-    }}
-  >
-    <Flex height={40} border={1} borderRadius={10} justifyContent="center" alignItems="center">
-      <Text>{partner.name}</Text>
-    </Flex>
-  </TouchableOpacity>
+  <Button variant="outline" block onPress={() => {
+    GlobalStore.actions.setActivePartnerID(partner.internalID)
+  }}>
+    <Text>{partner.name}</Text>
+  </Button>
 )
 
 export const SelectPartnerScreen = () => {
@@ -70,7 +83,7 @@ export const SelectPartnerScreen = () => {
         me {
           partners {
             name
-            id
+            internalID
           }
         }
       }
@@ -88,7 +101,9 @@ export const SelectPartnerScreen = () => {
         </Flex>
       )}
     >
-      {!data.me ? <Text>No Partners Available</Text> : <SelectPartner partners={data.me.partners} />}
+      <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "white" }}>
+        {!data.me?.partners ? <Text>No Partners Available</Text> : <SelectPartner partners={data.me.partners} />}
+      </SafeAreaView>
     </React.Suspense>
   )
 }
