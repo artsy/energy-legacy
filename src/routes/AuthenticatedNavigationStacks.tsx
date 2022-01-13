@@ -4,6 +4,7 @@ import { AlbumsScreen } from "@Scenes/Albums/Albums"
 import { ArtistsScreen } from "@Scenes/Artists/Artists"
 import { SelectPartnerScreen } from "@Scenes/SelectPartner/SelectPartner"
 import { SettingsScreen } from "@Scenes/Settings.tsx/Settings"
+import { ArtistScreen } from "@Scenes/Artist/Artist"
 import { ShowsScreen } from "@Scenes/Shows/Shows"
 import { useColor, useTheme } from "palette"
 import React from "react"
@@ -69,6 +70,7 @@ export const TabNavigatorStack = () => {
 export type MainAuthenticatedStackProps = {
   Settings: undefined
   TabNavigatorStack: undefined
+  Artist: { artistID: string }
 }
 
 export const MainAuthenticatedStackNavigator = createStackNavigator<MainAuthenticatedStackProps>()
@@ -84,6 +86,7 @@ export const MainAuthenticatedStack = () => {
         options={{ headerShown: false }}
       />
       <MainAuthenticatedStackNavigator.Screen name="Settings" component={SettingsScreen} />
+      <MainAuthenticatedStackNavigator.Screen name="Artist" component={ArtistScreen} />
     </MainAuthenticatedStackNavigator.Navigator>
   )
 }
