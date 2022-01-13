@@ -1,5 +1,5 @@
 import { StackScreenProps } from "@react-navigation/stack"
-import { Flex, Text, Button } from "palette"
+import { Flex, Button } from "palette"
 import React from "react"
 import { MainAuthenticatedStackProps, TabNavigatorStack } from "@routes/AuthenticatedNavigationStacks"
 import { CompositeScreenProps } from "@react-navigation/native"
@@ -15,7 +15,6 @@ interface SettingsScreenProps
 export const SettingsScreen: React.FC<SettingsScreenProps> = () => {
   return (
     <Flex flex={1} justifyContent="center" alignItems="center" backgroundColor="white">
-      <Text>Settings Screen</Text>
       <Button
         onPress={() => {
           GlobalStore.actions.setActivePartnerID(null)
