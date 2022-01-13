@@ -25,11 +25,7 @@ export const SelectPartnerHeader: React.FC<SelectPartnerHeaderProps> = ({ onSear
   )
 }
 
-interface SelectPartnerProps {
-  partners: NonNullable<Partners>
-}
-
-export const SelectPartner: React.FC<SelectPartnerProps> = ({}) => {
+export const SelectPartner: React.FC<{}> = ({}) => {
   const data = useLazyLoadQuery<SelectPartnerQuery>(
     graphql`
       query SelectPartnerQuery {
