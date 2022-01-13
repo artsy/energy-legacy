@@ -13,18 +13,18 @@ export const SettingsScreenStackNavigator = createStackNavigator<SettingsScreenS
 
 export const SettingsScreenStack = () => {
   return (
-    <NavigationContainer independent>
-      <SettingsScreenStackNavigator.Navigator>
-        <SettingsScreenStackNavigator.Screen
-          name="Settings"
-          component={SettingsScreen}
-          // options={{ headerShown: false }}
-        />
-        <SettingsScreenStackNavigator.Screen
-          name="SettingsPrivacyDataRequest"
-          component={SettingsPrivacyDataRequestScreen}
-        />
-      </SettingsScreenStackNavigator.Navigator>
-    </NavigationContainer>
+    // <NavigationContainer independent>
+    <SettingsScreenStackNavigator.Navigator>
+      <SettingsScreenStackNavigator.Screen
+        name="Settings"
+        component={SettingsScreen}
+        // options={{ headerShown: false }}
+      />
+      <SettingsScreenStackNavigator.Screen
+        name="SettingsPrivacyDataRequest"
+        component={SettingsPrivacyDataRequestScreen}
+      />
+    </SettingsScreenStackNavigator.Navigator>
+    // </NavigationContainer>
   )
 }
