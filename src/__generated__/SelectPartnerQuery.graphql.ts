@@ -9,6 +9,7 @@ export type SelectPartnerQueryResponse = {
         readonly partners: ReadonlyArray<{
             readonly name: string | null;
             readonly id: string;
+            readonly internalID: string;
         } | null> | null;
     } | null;
 };
@@ -25,6 +26,7 @@ query SelectPartnerQuery {
     partners {
       name
       id
+      internalID
     }
     id
   }
@@ -54,7 +56,14 @@ v1 = {
       "name": "name",
       "storageKey": null
     },
-    (v0/*: any*/)
+    (v0/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "internalID",
+      "storageKey": null
+    }
   ],
   "storageKey": null
 };
@@ -103,14 +112,14 @@ return {
     ]
   },
   "params": {
-    "cacheID": "2dee3547dc930c9952f24c95ef39fe4f",
+    "cacheID": "23dd36e2533f08c324b4353d40f70593",
     "id": null,
     "metadata": {},
     "name": "SelectPartnerQuery",
     "operationKind": "query",
-    "text": "query SelectPartnerQuery {\n  me {\n    partners {\n      name\n      id\n    }\n    id\n  }\n}\n"
+    "text": "query SelectPartnerQuery {\n  me {\n    partners {\n      name\n      id\n      internalID\n    }\n    id\n  }\n}\n"
   }
 };
 })();
-(node as any).hash = 'b8dfc43002d236ea997f3379ea616724';
+(node as any).hash = '2828b074c44941863dba2e6ac8c12b92';
 export default node;

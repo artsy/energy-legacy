@@ -1,7 +1,7 @@
 import { GlobalStore } from "@store/GlobalStore"
 import { Button, Flex, Spacer, Separator, Text } from "palette"
 import React, { useState, useEffect } from "react"
-import { ActivityIndicator, FlatList, TouchableOpacity } from "react-native"
+import { ActivityIndicator, FlatList } from "react-native"
 import { SafeAreaView, useSafeAreaFrame } from "react-native-safe-area-context"
 import { graphql, useLazyLoadQuery } from "react-relay"
 import { SelectPartnerQuery } from "__generated__/SelectPartnerQuery.graphql"
@@ -83,7 +83,7 @@ export const SelectPartnerScreen = () => {
         me {
           partners {
             name
-            id
+            id: internalID
           }
         }
       }
