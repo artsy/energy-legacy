@@ -95,7 +95,7 @@ export const Orders: React.FC<OrdersProps> = ({refresh, queryOptions}) => {
   const data = useLazyLoadQuery<OrdersScreenQuery>(
     graphql`
       query OrdersScreenQuery($partnerID: String!, $states: [CommerceOrderStateEnum!], $sort: CommerceOrderConnectionSortEnum) {
-        commerceOrders(sellerId: $partnerID, states: $states, first: 20, sort: $sort) {
+        commerceOrders(sellerId: $partnerID, states: $states, first: 10, sort: $sort) @optionalField {
           totalCount
           edges {
             node {

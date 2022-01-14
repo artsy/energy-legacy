@@ -59,7 +59,7 @@ query OrdersScreenQuery(
   $states: [CommerceOrderStateEnum!]
   $sort: CommerceOrderConnectionSortEnum
 ) {
-  commerceOrders(sellerId: $partnerID, states: $states, first: 20, sort: $sort) {
+  commerceOrders(sellerId: $partnerID, states: $states, first: 10, sort: $sort) @optionalField {
     totalCount
     edges {
       node {
@@ -119,7 +119,7 @@ v3 = [
   {
     "kind": "Literal",
     "name": "first",
-    "value": 20
+    "value": 10
   },
   {
     "kind": "Variable",
@@ -496,14 +496,14 @@ return {
     ]
   },
   "params": {
-    "cacheID": "8a241f573f7b3b9ac00fd19eff5a3ba2",
+    "cacheID": "2da16c55568763ccd243f67b1040311f",
     "id": null,
     "metadata": {},
     "name": "OrdersScreenQuery",
     "operationKind": "query",
-    "text": "query OrdersScreenQuery(\n  $partnerID: String!\n  $states: [CommerceOrderStateEnum!]\n  $sort: CommerceOrderConnectionSortEnum\n) {\n  commerceOrders(sellerId: $partnerID, states: $states, first: 20, sort: $sort) {\n    totalCount\n    edges {\n      node {\n        __typename\n        internalID\n        code\n        displayState\n        stateUpdatedAt(format: \"MMM D\")\n        stateExpiresAt\n        requestedFulfillment {\n          __typename\n        }\n        mode\n        lineItems(first: 1) {\n          edges {\n            node {\n              artwork {\n                image {\n                  resized(height: 50, version: [\"square\"]) {\n                    url\n                  }\n                }\n                artistNames\n                id\n              }\n              id\n            }\n          }\n        }\n        ... on CommerceOfferOrder {\n          awaitingResponseFrom\n        }\n        id\n      }\n    }\n  }\n}\n"
+    "text": "query OrdersScreenQuery(\n  $partnerID: String!\n  $states: [CommerceOrderStateEnum!]\n  $sort: CommerceOrderConnectionSortEnum\n) {\n  commerceOrders(sellerId: $partnerID, states: $states, first: 10, sort: $sort) @optionalField {\n    totalCount\n    edges {\n      node {\n        __typename\n        internalID\n        code\n        displayState\n        stateUpdatedAt(format: \"MMM D\")\n        stateExpiresAt\n        requestedFulfillment {\n          __typename\n        }\n        mode\n        lineItems(first: 1) {\n          edges {\n            node {\n              artwork {\n                image {\n                  resized(height: 50, version: [\"square\"]) {\n                    url\n                  }\n                }\n                artistNames\n                id\n              }\n              id\n            }\n          }\n        }\n        ... on CommerceOfferOrder {\n          awaitingResponseFrom\n        }\n        id\n      }\n    }\n  }\n}\n"
   }
 };
 })();
-(node as any).hash = 'eff58eb06227b7c45e53abdde2815d6a';
+(node as any).hash = 'a85bb0ca7cd1c11598aecd6ef40318a0';
 export default node;
