@@ -1,8 +1,10 @@
 import { BottomTabNavigationOptions, createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { LinkingOptions, NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 import { AlbumsScreen } from "@Scenes/Albums/Albums"
 import { ArtistScreen } from "@Scenes/Artist/Artist"
 import { ArtistsScreen } from "@Scenes/Artists/Artists"
+import { ArtworkScreen } from "@Scenes/Artwork/Artwork"
 import { SelectPartnerScreen } from "@Scenes/SelectPartner/SelectPartner"
 import { SettingsScreenStack } from "@Scenes/Settings/Settings"
 import { ShowsScreen } from "@Scenes/Shows/Shows"
@@ -70,28 +72,41 @@ export const TabNavigatorStack = () => {
 export type MainAuthenticatedStackProps = {
   Settings: undefined
   TabNavigatorStack: undefined
-  Artist: { artistID: string }
+  Artist: { id: string }
+  Artwork: { id: string }
 }
 
 export const MainAuthenticatedStackNavigator = createStackNavigator<MainAuthenticatedStackProps>()
 
-// // tslint:disable-next-line:variable-name
+const linking: LinkingOptions<ReactNavigation.RootParamList> = {
+  // TODO: Consolidate deep linking infra
+  prefixes: ["folio://"],
+  config: {
+    screens: {
+      Artwork: "artwork/:id",
+      Artist: "artist/:id",
+    },
+  },
+}
 
 export const MainAuthenticatedStack = () => {
   return (
-    <MainAuthenticatedStackNavigator.Navigator>
-      <MainAuthenticatedStackNavigator.Screen
-        name="TabNavigatorStack"
-        component={TabNavigatorStack}
-        options={{ headerShown: false }}
-      />
-      <MainAuthenticatedStackNavigator.Screen
-        name="Settings"
-        component={SettingsScreenStack}
-        options={{ headerShown: false }}
-      />
-      <MainAuthenticatedStackNavigator.Screen name="Artist" component={ArtistScreen} />
-    </MainAuthenticatedStackNavigator.Navigator>
+    <NavigationContainer linking={linking}>
+      <MainAuthenticatedStackNavigator.Navigator>
+        <MainAuthenticatedStackNavigator.Screen
+          name="TabNavigatorStack"
+          component={TabNavigatorStack}
+          options={{ headerShown: false }}
+        />
+        <MainAuthenticatedStackNavigator.Screen
+          name="Settings"
+          component={SettingsScreenStack}
+          options={{ headerShown: false }}
+        />
+        <MainAuthenticatedStackNavigator.Screen name="Artist" component={ArtistScreen} />
+        <MainAuthenticatedStackNavigator.Screen name="Artwork" component={ArtworkScreen} />
+      </MainAuthenticatedStackNavigator.Navigator>
+    </NavigationContainer>
   )
 }
 

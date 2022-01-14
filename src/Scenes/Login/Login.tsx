@@ -19,8 +19,6 @@ export const loginSchema = Yup.object().shape({
   password: Yup.string().test("password", "Password field is required", (value) => value !== ""),
 })
 
-interface LoginScreenProps extends NativeStackScreenProps<MainNavigationStack, "Home"> {}
-
 const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=net.artsy.app"
 const PLAY_STORE_SCHEME_URL = "artsy://"
 const APP_STORE_URL = "https://apps.apple.com/us/app/artsy-buy-sell-original-art/id703796080"
@@ -192,7 +190,7 @@ export const LoginScreenContent: React.FC<LoginScreenProps> = ({}) => {
 
 const initialValues: LoginSchema = { email: "", password: "" }
 
-export const LoginScreen: React.FC<LoginScreenProps> = ({ navigation, route }) => {
+export const LoginScreen: React.FC<LoginScreenProps> = () => {
   const formik = useFormik<LoginSchema>({
     enableReinitialize: true,
     validateOnChange: false,
@@ -219,7 +217,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ navigation, route }) =
 
   return (
     <FormikProvider value={formik}>
-      <LoginScreenContent navigation={navigation} route={route} />
+      <LoginScreenContent />
     </FormikProvider>
   )
 }

@@ -26,7 +26,7 @@ interface ArtistThumbnailProps {
 export const ArtistThumbnail: React.FC<ArtistThumbnailProps> = ({ artist }) => {
   const navigation = useNavigation<StackNavigationProp<MainAuthenticatedStackProps>>()
   return (
-    <Touchable onPress={() => navigation.navigate("Artist", { artistID: artist.internalID })}>
+    <Touchable onPress={() => navigation.navigate("Artist", { id: artist.internalID })}>
       <Flex m={1} alignItems="center" flexDirection="column" width={ARTIST_CARD_WIDTH}>
         <Avatar src={artist.imageUrl!} size="md" initials={artist.imageUrl ? "" : artist.initials!} />
         <Text variant="sm">{artist.displayLabel}</Text>
@@ -72,8 +72,6 @@ export const Artists: React.FC = () => {
   )
 
   const artists = extractNodes(data.partner?.allArtistsConnection)
-  console.log("COUNT ", data.partner?.allArtistsConnection?.totalCount)
-  console.log("ARTISTS ", artists)
 
   const navigation = useNavigation<StackNavigationProp<MainAuthenticatedStackProps>>()
   const { width } = useSafeAreaFrame()

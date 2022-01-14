@@ -21,6 +21,10 @@ export type ArtistScreenQueryResponse = {
                     readonly displayLabel: string | null;
                     readonly imageUrl: string | null;
                     readonly imageTitle: string | null;
+                    readonly href: string | null;
+                    readonly artistNames: string | null;
+                    readonly title: string | null;
+                    readonly date: string | null;
                 } | null;
             } | null> | null;
         } | null;
@@ -51,6 +55,10 @@ query ArtistScreenQuery(
           displayLabel
           imageUrl
           imageTitle
+          href
+          artistNames
+          title
+          date
           id
         }
       }
@@ -144,6 +152,34 @@ v11 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
+  "name": "href",
+  "storageKey": null
+},
+v12 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "artistNames",
+  "storageKey": null
+},
+v13 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "title",
+  "storageKey": null
+},
+v14 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "date",
+  "storageKey": null
+},
+v15 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 };
@@ -197,7 +233,11 @@ return {
                       (v9/*: any*/),
                       (v4/*: any*/),
                       (v3/*: any*/),
-                      (v10/*: any*/)
+                      (v10/*: any*/),
+                      (v11/*: any*/),
+                      (v12/*: any*/),
+                      (v13/*: any*/),
+                      (v14/*: any*/)
                     ],
                     "storageKey": null
                   }
@@ -264,32 +304,36 @@ return {
                       (v4/*: any*/),
                       (v3/*: any*/),
                       (v10/*: any*/),
-                      (v11/*: any*/)
+                      (v11/*: any*/),
+                      (v12/*: any*/),
+                      (v13/*: any*/),
+                      (v14/*: any*/),
+                      (v15/*: any*/)
                     ],
                     "storageKey": null
                   }
                 ],
                 "storageKey": null
               },
-              (v11/*: any*/)
+              (v15/*: any*/)
             ],
             "storageKey": null
           },
-          (v11/*: any*/)
+          (v15/*: any*/)
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "d36ddbf9d87cc85d236f4748b83e8652",
+    "cacheID": "8aaf6baf5bf92e363bcb2bc595e50755",
     "id": null,
     "metadata": {},
     "name": "ArtistScreenQuery",
     "operationKind": "query",
-    "text": "query ArtistScreenQuery(\n  $partnerID: ID!\n  $artistID: String!\n) {\n  artist(id: $artistID) {\n    imageUrl\n    displayLabel\n    formattedNationalityAndBirthday\n    formattedArtworksCount\n    initials\n    filterArtworksConnection(first: 20, partnerID: $partnerID) {\n      edges {\n        node {\n          internalID\n          displayLabel\n          imageUrl\n          imageTitle\n          id\n        }\n      }\n      id\n    }\n    id\n  }\n}\n"
+    "text": "query ArtistScreenQuery(\n  $partnerID: ID!\n  $artistID: String!\n) {\n  artist(id: $artistID) {\n    imageUrl\n    displayLabel\n    formattedNationalityAndBirthday\n    formattedArtworksCount\n    initials\n    filterArtworksConnection(first: 20, partnerID: $partnerID) {\n      edges {\n        node {\n          internalID\n          displayLabel\n          imageUrl\n          imageTitle\n          href\n          artistNames\n          title\n          date\n          id\n        }\n      }\n      id\n    }\n    id\n  }\n}\n"
   }
 };
 })();
-(node as any).hash = '611172af928b44f675bf0db4ce290f00';
+(node as any).hash = '64242140ac84fdb4df65caf60b65c382';
 export default node;
