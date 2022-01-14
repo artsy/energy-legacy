@@ -1,13 +1,14 @@
 import { Environment, RecordSource, Store } from "relay-runtime"
 import {
   cacheMiddleware,
-  errorMiddleware,
+  // errorMiddleware as relayErrorMiddleware,
   loggerMiddleware,
   perfMiddleware,
   RelayNetworkLayer,
 } from "react-relay-network-modern/node8"
 import { metaphysicsUrlMiddleware } from "./middlewares/metaphysicsUrlMiddleware"
 import { authMiddleware } from "./middlewares/authMiddleware"
+import { errorMiddleware } from "./middlewares/errorMiddleware"
 
 const network = new RelayNetworkLayer(
   [
@@ -17,8 +18,10 @@ const network = new RelayNetworkLayer(
       ttl: 900000, // 15 minutes
     }),
     metaphysicsUrlMiddleware(),
+    // @ts-ignore
+    errorMiddleware(),
     __DEV__ ? loggerMiddleware() : null,
-    __DEV__ ? errorMiddleware() : null,
+    // __DEV__ ? relayErrorMiddleware() : null,
     __DEV__ ? perfMiddleware() : null,
     authMiddleware(),
   ],

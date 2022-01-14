@@ -1,14 +1,14 @@
 import { NavigationProp, RouteProp, useNavigation, useRoute } from "@react-navigation/native"
 import { StackScreenProps } from "@react-navigation/stack"
 import { MainAuthenticatedStackProps } from "@routes/AuthenticatedNavigationStacks"
-import { Avatar, Flex, Separator, Text, Touchable } from "palette"
-import React from "react"
+import { Avatar, Flex, Message, Separator, Text, Touchable } from "palette"
 import { ActivityIndicator, FlatList, Image } from "react-native"
 import { useSafeAreaFrame } from "react-native-safe-area-context"
+import React from "react"
 import { graphql, useLazyLoadQuery } from "react-relay"
 import { ArtistScreenQuery } from "__generated__/ArtistScreenQuery.graphql"
-import { extractNodes } from "../../helpers/extractNodes"
-import { GlobalStore } from "../../store/GlobalStore"
+import { GlobalStore } from "@store/GlobalStore"
+import { extractNodes } from "@helpers/utils/extractNodes"
 
 interface ArtistHeaderProps {
   artist: NonNullable<ArtistScreenQuery["response"]["artist"]>
@@ -114,7 +114,7 @@ export const Artist: React.FC<Artist> = ({ id }) => {
         columnWrapperStyle={{ flex: 1, justifyContent: "space-around", width, marginBottom: 20 }}
         stickyHeaderIndices={[0]}
         ListHeaderComponent={<ArtistHeader artist={data?.artist!} />}
-        ListEmptyComponent={<Text>No artworks</Text>}
+        ListEmptyComponent={<Message p={2} textAlign="center" alignItems="center">No artworks available</Message>}
       />
     </Flex>
   )
