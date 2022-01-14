@@ -10,6 +10,7 @@ export type ArtworkScreenQueryVariables = {
 export type ArtworkScreenQueryResponse = {
     readonly artwork: {
         readonly title: string | null;
+        readonly href: string | null;
         readonly " $fragmentRefs": FragmentRefs<"ArtworkHeader_artwork">;
     } | null;
 };
@@ -27,6 +28,7 @@ query ArtworkScreenQuery(
   artwork(id: $id) {
     title
     ...ArtworkHeader_artwork
+    href
     id
   }
 }
@@ -116,21 +118,21 @@ v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "id",
+  "name": "href",
   "storageKey": null
 },
 v4 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "name",
+  "name": "id",
   "storageKey": null
 },
 v5 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "href",
+  "name": "name",
   "storageKey": null
 },
 v6 = {
@@ -156,6 +158,7 @@ return {
         "plural": false,
         "selections": [
           (v2/*: any*/),
+          (v3/*: any*/),
           {
             "args": null,
             "kind": "FragmentSpread",
@@ -233,7 +236,7 @@ return {
                 "name": "estimate",
                 "storageKey": null
               },
-              (v3/*: any*/)
+              (v4/*: any*/)
             ],
             "storageKey": null
           },
@@ -245,8 +248,8 @@ return {
             "name": "partner",
             "plural": false,
             "selections": [
-              (v4/*: any*/),
-              (v3/*: any*/)
+              (v5/*: any*/),
+              (v4/*: any*/)
             ],
             "storageKey": null
           },
@@ -265,7 +268,7 @@ return {
                 "name": "isClosed",
                 "storageKey": null
               },
-              (v3/*: any*/)
+              (v4/*: any*/)
             ],
             "storageKey": null
           },
@@ -277,10 +280,10 @@ return {
             "name": "artists",
             "plural": true,
             "selections": [
-              (v4/*: any*/),
               (v5/*: any*/),
+              (v3/*: any*/),
               (v6/*: any*/),
-              (v3/*: any*/)
+              (v4/*: any*/)
             ],
             "storageKey": null
           },
@@ -331,11 +334,11 @@ return {
                 "name": "shortDescription",
                 "storageKey": null
               },
-              (v3/*: any*/)
+              (v4/*: any*/)
             ],
             "storageKey": null
           },
-          (v5/*: any*/),
+          (v3/*: any*/),
           (v6/*: any*/),
           {
             "alias": null,
@@ -383,21 +386,21 @@ return {
             ],
             "storageKey": null
           },
-          (v3/*: any*/)
+          (v4/*: any*/)
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "c8fbb13dbb0112c852c4984b3628d682",
+    "cacheID": "27835083b1c6a1143fbfb50b83405fa4",
     "id": null,
     "metadata": {},
     "name": "ArtworkScreenQuery",
     "operationKind": "query",
-    "text": "query ArtworkScreenQuery(\n  $id: String!\n) {\n  artwork(id: $id) {\n    title\n    ...ArtworkHeader_artwork\n    id\n  }\n}\n\nfragment ArtworkHeader_artwork on Artwork {\n  ...ArtworkTombstone_artwork\n  title\n  href\n  internalID\n  slug\n  artists {\n    name\n    id\n  }\n  images {\n    ...ArtworkImagesCarousel_images\n  }\n}\n\nfragment ArtworkImagesCarousel_images on Image {\n  imageURL\n  width\n  height\n  imageVersions\n}\n\nfragment ArtworkTombstone_artwork on Artwork {\n  title\n  isInAuction\n  medium\n  date\n  cultural_maker: culturalMaker\n  saleArtwork {\n    lotLabel\n    estimate\n    id\n  }\n  partner {\n    name\n    id\n  }\n  sale {\n    isClosed\n    id\n  }\n  artists {\n    name\n    href\n    internalID\n    id\n  }\n  dimensions {\n    in\n    cm\n  }\n  edition_of: editionOf\n  attribution_class: attributionClass {\n    shortDescription\n    id\n  }\n}\n"
+    "text": "query ArtworkScreenQuery(\n  $id: String!\n) {\n  artwork(id: $id) {\n    title\n    ...ArtworkHeader_artwork\n    href\n    id\n  }\n}\n\nfragment ArtworkHeader_artwork on Artwork {\n  ...ArtworkTombstone_artwork\n  title\n  href\n  internalID\n  slug\n  artists {\n    name\n    id\n  }\n  images {\n    ...ArtworkImagesCarousel_images\n  }\n}\n\nfragment ArtworkImagesCarousel_images on Image {\n  imageURL\n  width\n  height\n  imageVersions\n}\n\nfragment ArtworkTombstone_artwork on Artwork {\n  title\n  isInAuction\n  medium\n  date\n  cultural_maker: culturalMaker\n  saleArtwork {\n    lotLabel\n    estimate\n    id\n  }\n  partner {\n    name\n    id\n  }\n  sale {\n    isClosed\n    id\n  }\n  artists {\n    name\n    href\n    internalID\n    id\n  }\n  dimensions {\n    in\n    cm\n  }\n  edition_of: editionOf\n  attribution_class: attributionClass {\n    shortDescription\n    id\n  }\n}\n"
   }
 };
 })();
-(node as any).hash = 'c74791c98501f26ff9fef0d84109a89e';
+(node as any).hash = '3ec0704238ae4aa788c5e2d0e715fb0e';
 export default node;

@@ -1,23 +1,26 @@
 import { StackScreenProps } from "@react-navigation/stack"
 import { MainAuthenticatedStackProps } from "@routes/AuthenticatedNavigationStacks"
-import { Flex, Text } from "palette"
+import { Flex, Text, useColor } from "palette"
 import React from "react"
 import { ActivityIndicator, ScrollView } from "react-native"
 import { graphql, useLazyLoadQuery } from "react-relay"
 import { ArtworkScreenQuery } from "__generated__/ArtworkScreenQuery.graphql"
 import { ArtworkHeader } from "./components/ArtworkHeader"
+import QRCode from "react-native-qrcode-svg"
 
 interface ArtworkProps {
   id: string
 }
 
 export const Artwork: React.FC<ArtworkProps> = ({ id }) => {
+  const color = useColor()
   const data = useLazyLoadQuery<ArtworkScreenQuery>(
     graphql`
       query ArtworkScreenQuery($id: String!) {
         artwork(id: $id) {
           title
           ...ArtworkHeader_artwork
+          href
         }
       }
     `,
@@ -32,8 +35,18 @@ export const Artwork: React.FC<ArtworkProps> = ({ id }) => {
     )
   }
   return (
-    <ScrollView contentContainerStyle={{ backgroundColor: "white", flexGrow: 1 }}>
+    <ScrollView contentContainerStyle={{ backgroundColor: "white", flexGrow: 1, paddingBottom: 50 }}>
       <ArtworkHeader artwork={data.artwork} />
+      <Flex mt={2} alignItems="center">
+        <QRCode
+          size={250}
+          value={"test"}
+          logo={require("images/short-black-logo.png")}
+          logoSize={40}
+          color={color("black60")}
+          logoBackgroundColor="white"
+        />
+      </Flex>
     </ScrollView>
   )
 }
