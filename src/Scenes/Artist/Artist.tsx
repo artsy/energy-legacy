@@ -1,4 +1,4 @@
-import { NavigationProp, RouteProp, useNavigation, useRoute } from "@react-navigation/native"
+import { NavigationProp, useNavigation } from "@react-navigation/native"
 import { StackScreenProps } from "@react-navigation/stack"
 import { MainAuthenticatedStackProps } from "@routes/AuthenticatedNavigationStacks"
 import { Avatar, Flex, Message, Separator, Text, Touchable } from "palette"

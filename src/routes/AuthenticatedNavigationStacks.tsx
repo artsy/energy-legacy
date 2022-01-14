@@ -9,6 +9,7 @@ import { SelectPartnerScreen } from "@Scenes/SelectPartner/SelectPartner"
 import { SettingsScreenStack } from "@Scenes/Settings/Settings"
 import { ShowsScreen } from "@Scenes/Shows/Shows"
 import { OrdersScreen } from "@Scenes/Orders/Orders"
+import { ProfileScreen } from "@Scenes/Profile/Profile"
 import { useColor, useTheme } from "palette"
 import React from "react"
 import { GlobalStore } from "@store/GlobalStore"
@@ -19,6 +20,7 @@ export type TabNavigatorStack = {
   Shows: undefined
   Albums: undefined
   Orders: undefined
+  Profile: undefined
 }
 
 const Tab = createBottomTabNavigator<TabNavigatorStack>()
@@ -67,6 +69,7 @@ export const TabNavigatorStack = () => {
       <Tab.Screen name="Shows" component={ShowsScreen} />
       <Tab.Screen name="Albums" component={AlbumsScreen} />
       <Tab.Screen name="Orders" component={OrdersScreen} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   )
 }
