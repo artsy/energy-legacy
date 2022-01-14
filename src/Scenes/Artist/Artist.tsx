@@ -1,13 +1,13 @@
 import { StackScreenProps } from "@react-navigation/stack"
-import { Avatar, Flex, Separator, Text, Touchable } from "palette"
+import { Avatar, Flex, Message, Separator, Text, Touchable } from "palette"
 import React from "react"
 import { MainAuthenticatedStackProps, TabNavigatorStack } from "@routes/AuthenticatedNavigationStacks"
 import { CompositeScreenProps, useRoute, RouteProp } from "@react-navigation/native"
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import { graphql, useLazyLoadQuery } from "react-relay"
 import { ArtistScreenQuery } from "__generated__/ArtistScreenQuery.graphql"
-import { GlobalStore } from "../../store/GlobalStore"
-import { extractNodes } from "../../helpers/extractNodes"
+import { GlobalStore } from "@store/GlobalStore"
+import { extractNodes } from "@helpers/utils/extractNodes"
 import { ActivityIndicator, FlatList, Image } from "react-native"
 import { useSafeAreaFrame } from "react-native-safe-area-context"
 
@@ -62,7 +62,6 @@ export const Artist: React.FC = () => {
   const partnerID = GlobalStore.useAppState((state) => state.activePartnerID)!
   const route = useRoute<RouteProp<MainAuthenticatedStackProps>>()
   const artistID = route.params?.artistID!
-  console.log("ROUTE ", route)
   const data = useLazyLoadQuery<ArtistScreenQuery>(
     graphql`
       query ArtistScreenQuery($partnerID: ID!, $artistID: String!) {
@@ -89,7 +88,6 @@ export const Artist: React.FC = () => {
   )
 
   const artworks = extractNodes(data.artist?.filterArtworksConnection)
-  console.log("ARTWORKS ", artworks)
 
   const width = useSafeAreaFrame().width - 20
   return (
@@ -103,7 +101,7 @@ export const Artist: React.FC = () => {
         columnWrapperStyle={{ flex: 1, justifyContent: "space-around", width, marginBottom: 10}}
         stickyHeaderIndices={[0]}
         ListHeaderComponent={<ArtistHeader artist={data?.artist!} />}
-        ListEmptyComponent={<Text>No artworks</Text>}
+        ListEmptyComponent={<Message p={2} textAlign="center" alignItems="center">No artworks available</Message>}
       />
     </Flex>
   )

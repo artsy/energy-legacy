@@ -6,15 +6,17 @@ import { ArtistsScreen } from "@Scenes/Artists/Artists"
 import { SelectPartnerScreen } from "@Scenes/SelectPartner/SelectPartner"
 import { SettingsScreenStack } from "@Scenes/Settings/Settings"
 import { ShowsScreen } from "@Scenes/Shows/Shows"
+import { OrdersScreen } from "@Scenes/Orders/Orders"
 import { useColor, useTheme } from "palette"
 import React from "react"
-import { GlobalStore } from "../store/GlobalStore"
+import { GlobalStore } from "@store/GlobalStore"
 
 // tslint:disable-next-line:interface-over-type-literal
 export type TabNavigatorStack = {
   Artists: undefined
   Shows: undefined
   Albums: undefined
+  Orders: undefined
 }
 
 const Tab = createBottomTabNavigator<TabNavigatorStack>()
@@ -62,6 +64,7 @@ export const TabNavigatorStack = () => {
       <Tab.Screen name="Artists" component={ArtistsScreen} />
       <Tab.Screen name="Shows" component={ShowsScreen} />
       <Tab.Screen name="Albums" component={AlbumsScreen} />
+      <Tab.Screen name="Orders" component={OrdersScreen} />
     </Tab.Navigator>
   )
 }

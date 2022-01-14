@@ -8,8 +8,8 @@ import { ActivityIndicator, FlatList } from "react-native"
 import { useSafeAreaFrame } from "react-native-safe-area-context"
 import { graphql, useLazyLoadQuery } from "react-relay"
 import { ArtistsScreenQuery } from "__generated__/ArtistsScreenQuery.graphql"
-import { GlobalStore } from "../../store/GlobalStore"
-import { extractNodes } from "../../helpers/extractNodes"
+import { GlobalStore } from "@store/GlobalStore"
+import { extractNodes } from "@helpers/utils/extractNodes"
 
 const ARTIST_CARD_WIDTH = 160
 
@@ -72,8 +72,6 @@ export const Artists: React.FC = () => {
   )
 
   const artists = extractNodes(data.partner?.allArtistsConnection)
-  console.log("COUNT ", data.partner?.allArtistsConnection?.totalCount)
-  console.log("ARTISTS ", artists)
 
   const navigation = useNavigation<StackNavigationProp<MainAuthenticatedStackProps>>()
   const { width } = useSafeAreaFrame()
