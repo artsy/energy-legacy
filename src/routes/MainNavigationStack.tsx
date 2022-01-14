@@ -4,6 +4,7 @@ import { LoginScreen } from "@Scenes/Login/Login"
 import { useStoreRehydrated } from "easy-peasy"
 import { GlobalStore } from "@store/GlobalStore"
 import { AuthenticatedStack } from "./AuthenticatedNavigationStacks"
+import { NavigationContainer } from "@react-navigation/native"
 
 // tslint:disable-next-line:interface-over-type-literal
 export type MainNavigationStack = {
@@ -21,13 +22,9 @@ export const MainNavigationStack = () => {
     return null
   }
 
-  return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      {isLoggedIn ? (
-        <Stack.Screen name="Home" component={AuthenticatedStack} />
-      ) : (
-        <Stack.Screen name="Login" component={LoginScreen} />
-      )}
-    </Stack.Navigator>
-  )
+  if (!isLoggedIn) {
+    return <LoginScreen />
+  }
+
+  return <AuthenticatedStack />
 }

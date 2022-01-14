@@ -14,9 +14,7 @@ const AppProviders = ({ children }: { children: ReactNode }) => (
   <GlobalStoreProvider>
     <Theme>
       <RelayEnvironmentProvider environment={defaultEnvironment}>
-        <SafeAreaProvider>
-          <NavigationContainer>{children}</NavigationContainer>
-        </SafeAreaProvider>
+        <SafeAreaProvider>{children}</SafeAreaProvider>
       </RelayEnvironmentProvider>
     </Theme>
   </GlobalStoreProvider>
