@@ -4,7 +4,7 @@
 
 @class Image;
 
-// https://github.com/artsy/gravity/blob/master/app/models/domain/availability.rb
+// https://github.com/artsy/gravity/blob/main/app/models/domain/availability.rb
 
 typedef NS_ENUM(NSInteger, ARArtworkAvailability) {
     ARArtworkAvailabilityForSale,

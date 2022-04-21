@@ -74,10 +74,10 @@ LOCAL_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 BRANCH = $(shell echo $(shell whoami)-$(shell git rev-parse --abbrev-ref HEAD))
 
 pr:
-	if [ "$(LOCAL_BRANCH)" == "master" ]; then echo "In master, not PRing"; else git push origin "$(LOCAL_BRANCH):$(BRANCH)"; open "https://github.com/artsy/energy/pull/new/artsy:master...$(BRANCH)"; fi
+	if [ "$(LOCAL_BRANCH)" == "main" ]; then echo "In main, not PRing"; else git push origin "$(LOCAL_BRANCH):$(BRANCH)"; open "https://github.com/artsy/energy/pull/new/artsy:main...$(BRANCH)"; fi
 
 push:
-	if [ "$(LOCAL_BRANCH)" == "master" ]; then echo "In master, not pushing"; else git push origin $(LOCAL_BRANCH):$(BRANCH); fi
+	if [ "$(LOCAL_BRANCH)" == "main" ]; then echo "In main, not pushing"; else git push origin $(LOCAL_BRANCH):$(BRANCH); fi
 
 fpush:
-	if [ "$(LOCAL_BRANCH)" == "master" ]; then echo "In master, not pushing"; else git push origin $(LOCAL_BRANCH):$(BRANCH) --force; fi
+	if [ "$(LOCAL_BRANCH)" == "main" ]; then echo "In main, not pushing"; else git push origin $(LOCAL_BRANCH):$(BRANCH) --force; fi

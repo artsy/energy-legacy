@@ -213,7 +213,7 @@ void uncaughtExceptionHandler(NSException *exception);
         NSLog(@"NSZombieEnabled/NSAutoreleaseFreedObjectCheckEnabled enabled!");
     }
 
-// https://github.com/groue/GRMustache/blob/master/Guides/runtime.md
+// https://github.com/groue/GRMustache/blob/main/Guides/runtime.md
 #if !defined(NS_BLOCK_ASSERTIONS)
     [GRMustache preventNSUndefinedKeyExceptionAttack];
 #endif

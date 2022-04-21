@@ -1,7 +1,7 @@
 Deployment
 ================
 
-Follows Eigen's [documentation](https://github.com/artsy/eigen/blob/master/docs/deploy_to_beta.md) - it's
+Follows Eigen's [documentation](https://github.com/artsy/eigen/blob/main/docs/deploy_to_beta.md) - it's
 more likely to be up-to-date and they should more-or-less be the same.
 
 ### Upon Successful Submission
