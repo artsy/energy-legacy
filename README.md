@@ -1,3 +1,6 @@
+## This is the legacy app.
+## The latest Folio lives [over here](https://github.com/artsy/energy).
+
 <img src="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/artsy_logo.png" align="left">
 <img src="https://raw.githubusercontent.com/artsy/energy/master/docs/screenshots/energy.png" align="right">
 
